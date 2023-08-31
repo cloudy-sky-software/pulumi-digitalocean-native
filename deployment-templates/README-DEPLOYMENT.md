@@ -10,16 +10,15 @@
 
 1. Add any needed tokens to the actions secrets for your repository or organization
 
-1. Customize the release.yml with the correct tokens using the format:  
+1. Customize the release.yml with the correct tokens using the format:
 
-      `${{ secrets.MyTokenName }}`
+   `${{ secrets.MyTokenName }}`
 
-1. Customize .goreleaser.yml for your provider, replacing any instances of 'xyz' with your provider's name, and paying special attention that the ldlflags are set to match your provider/go.mod exactly: 
+1. Customize .goreleaser.yml for your provider, replacing any instances of 'digitalocean-native' with your provider's name, and paying special attention that the ldlflags are set to match your provider/go.mod exactly:
 
-     `-X github.com/pulumi/pulumi-aws/provider/v5/pkg/version.Version={{.Tag}}`
+   `-X github.com/pulumi/pulumi-aws/provider/v5/pkg/version.Version={{.Tag}}`
 
 1. Delete this directory if desired
-
 
 # Deploy
 
