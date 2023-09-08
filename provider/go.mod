@@ -5,12 +5,12 @@ go 1.18
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20221217181231-4ac1452b7695
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221221161214-5776932da50e
-	github.com/getkin/kin-openapi v0.111.0
+	github.com/getkin/kin-openapi v0.120.0
 	github.com/pulumi/pulumi/pkg/v3 v3.50.0
 	github.com/pulumi/pulumi/sdk/v3 v3.50.0
 )
 
-require github.com/stretchr/testify v1.8.1
+require github.com/stretchr/testify v1.8.2
 
 require github.com/pkg/errors v0.9.1
 
@@ -82,8 +82,8 @@ require (
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/go-git/go-billy/v5 v5.3.1 // indirect
 	github.com/go-git/go-git/v5 v5.4.2 // indirect
-	github.com/go-openapi/jsonpointer v0.19.5 // indirect
-	github.com/go-openapi/swag v0.22.3 // indirect
+	github.com/go-openapi/jsonpointer v0.19.6 // indirect
+	github.com/go-openapi/swag v0.22.4 // indirect
 	github.com/gofrs/uuid v4.3.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
@@ -151,6 +151,7 @@ require (
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/perimeterx/marshmallow v1.1.5 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 // indirect
