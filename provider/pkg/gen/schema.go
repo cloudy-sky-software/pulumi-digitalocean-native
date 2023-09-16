@@ -91,7 +91,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	openAPICtx := &openapigen.OpenAPIContext{
 		Doc:           openapiDoc,
 		Pkg:           &pkg,
-		ExcludedPaths: []string{},
+		ExcludedPaths: []string{"/v2/customers/my/invoices/{invoice_uuid}", "/v2/customers/my/invoices/{invoice_uuid}/csv", "/v2/customers/my/invoices/{invoice_uuid}/pdf", "/v2/customers/my/invoices/{invoice_uuid}/summary"},
 	}
 
 	providerMetadata, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
