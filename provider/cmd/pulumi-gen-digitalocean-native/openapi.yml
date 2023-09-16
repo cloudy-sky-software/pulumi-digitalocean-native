@@ -25543,6 +25543,7 @@ components:
             region.
           example: nyc3
         features:
+          type: array
           items:
             type: string
           description: >-
@@ -31038,12 +31039,10 @@ components:
               example:
                 - 8043964
             tags:
-              allOf:
-                - $ref: '#/components/schemas/tags_array'
-                - description: >-
-                    An array containing the names of the Tags assigned to the
-                    firewall.
-                  example: gateway
+              description: >-
+                An array containing the names of the Tags assigned to the
+                firewall.
+              $ref: '#/components/schemas/tags_array'
         - $ref: '#/components/schemas/firewall_rules'
     associated_resource:
       type: object
@@ -31203,27 +31202,17 @@ components:
             The public IP address of the floating IP. It also serves as its
             identifier.
         region:
-          allOf:
-            - $ref: '#/components/schemas/region'
-            - type: object
-              description: >-
-                The region that the floating IP is reserved to. When you query a
-                floating IP, the entire region object will be returned.
+          description: >-
+            The region that the floating IP is reserved to. When you query a
+            floating IP, the entire region object will be returned.
+          $ref: '#/components/schemas/region'
         droplet:
           description: >-
             The Droplet that the floating IP has been assigned to. When you
             query a floating IP, if it is assigned to a Droplet, the entire
             Droplet object will be returned. If it is not assigned, the value
             will be null.
-          anyOf:
-            - title: 'null'
-              type: object
-              nullable: true
-              description: >-
-                If the floating IP is not assigned to a Droplet, the value will
-                be null.
-            - $ref: '#/components/schemas/droplet'
-          example: null
+          $ref: '#/components/schemas/droplet'
         locked:
           type: boolean
           example: true
@@ -33546,15 +33535,7 @@ components:
             query a reserved IP, if it is assigned to a Droplet, the entire
             Droplet object will be returned. If it is not assigned, the value
             will be null.
-          anyOf:
-            - title: 'null'
-              type: object
-              nullable: true
-              description: >-
-                If the reserved IP is not assigned to a Droplet, the value will
-                be null.
-            - $ref: '#/components/schemas/droplet'
-          example: null
+          $ref: '#/components/schemas/droplet'
         locked:
           type: boolean
           example: true
@@ -37021,42 +37002,6 @@ components:
                       $ref: '#/components/schemas/floating_ip'
               - $ref: '#/components/schemas/pagination'
               - $ref: '#/components/schemas/meta'
-            example:
-              floating_ips:
-                - ip: 45.55.96.47
-                  droplet: null
-                  region:
-                    name: New York 3
-                    slug: nyc3
-                    features:
-                      - private_networking
-                      - backups
-                      - ipv6
-                      - metadata
-                      - install_agent
-                      - storage
-                      - image_transfer
-                    available: true
-                    sizes:
-                      - s-1vcpu-1gb
-                      - s-1vcpu-2gb
-                      - s-1vcpu-3gb
-                      - s-2vcpu-2gb
-                      - s-3vcpu-1gb
-                      - s-2vcpu-4gb
-                      - s-4vcpu-8gb
-                      - s-6vcpu-16gb
-                      - s-8vcpu-32gb
-                      - s-12vcpu-48gb
-                      - s-16vcpu-64gb
-                      - s-20vcpu-96gb
-                      - s-24vcpu-128gb
-                      - s-32vcpu-192g
-                  locked: false
-                  project_id: 746c6152-2fa2-11ed-92d3-27aaa54e4988
-              links: {}
-              meta:
-                total: 1
     floating_ip_created:
       description: >-
         The response will be a JSON object with a key called `floating_ip`. The
@@ -37092,11 +37037,6 @@ components:
                     type: array
                     items:
                       $ref: '#/components/schemas/action_link'
-          examples:
-            floating_ip_assigning:
-              $ref: '#/components/examples/floating_ip_assigning'
-            floating_ip_reserving:
-              $ref: '#/components/examples/floating_ip_reserving'
     floating_ip:
       description: >-
         The response will be a JSON object with a key called `floating_ip`. The
@@ -37116,11 +37056,6 @@ components:
             properties:
               floating_ip:
                 $ref: '#/components/schemas/floating_ip'
-          examples:
-            floating_ip_assigned:
-              $ref: '#/components/examples/floating_ip_assigned'
-            floating_ip_reserved:
-              $ref: '#/components/examples/floating_ip_reserved'
     floating_ip_actions:
       description: >-
         The results will be returned as a JSON object with an `actions` key.
@@ -38492,7 +38427,7 @@ components:
                   description: CPU Alert
                   enabled: true
                   entities:
-                    - 192018292
+                    - '192018292'
                   tags:
                     - production_droplets
                   type: v1/insights/droplet/cpu
@@ -39246,7 +39181,6 @@ components:
             example:
               reserved_ips:
                 - ip: 45.55.96.47
-                  droplet: null
                   region:
                     name: New York 3
                     slug: nyc3
@@ -39314,11 +39248,6 @@ components:
                     type: array
                     items:
                       $ref: '#/components/schemas/action_link'
-          examples:
-            reserved_ip_assigning:
-              $ref: '#/components/examples/reserved_ip_assigning'
-            reserved_ip_reserving:
-              $ref: '#/components/examples/reserved_ip_reserving'
     reserved_ip:
       description: >-
         The response will be a JSON object with a key called `reserved_ip`. The
@@ -39338,11 +39267,6 @@ components:
             properties:
               reserved_ip:
                 $ref: '#/components/schemas/reserved_ip'
-          examples:
-            reserved_ip_assigned:
-              $ref: '#/components/examples/reserved_ip_assigned'
-            reserved_ip_reserved:
-              $ref: '#/components/examples/reserved_ip_reserved'
     reserved_ip_actions:
       description: >-
         The results will be returned as a JSON object with an `actions` key.
