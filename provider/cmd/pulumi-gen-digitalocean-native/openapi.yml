@@ -6324,8 +6324,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/database_replica'
+              $ref: '#/components/schemas/database_replica'
             example:
               name: read-nyc3-01
               region: nyc3
@@ -11012,17 +11011,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/firewall'
-                - required:
-                    - name
-                - anyOf:
-                    - title: Inbound Rules
-                      required:
-                        - inbound_rules
-                    - title: Outbound Rules
-                      required:
-                        - outbound_rules
+              $ref: '#/components/schemas/firewall'
             example:
               name: firewall
               inbound_rules:
@@ -11295,17 +11284,7 @@ paths:
         content:
           application/json:
             schema:
-              required:
-                - name
-              allOf:
-                - $ref: '#/components/schemas/firewall'
-                - anyOf:
-                    - title: Inbound Rules
-                      required:
-                        - inbound_rules
-                    - title: Outbound Rules
-                      required:
-                        - outbound_rules
+              $ref: '#/components/schemas/firewall'
             example:
               name: frontend-firewall
               inbound_rules:
@@ -11835,11 +11814,10 @@ paths:
             schema:
               properties:
                 tags:
-                  allOf:
-                    - $ref: '#/components/schemas/tags_array'
-                    - description: >-
-                        An array containing the names of the Tags to be assigned
-                        to the firewall.
+                  $ref: '#/components/schemas/tags_array'
+                  description: >-
+                    An array containing the names of the Tags to be assigned
+                    to the firewall.
               required:
                 - tags
             example:
@@ -11941,11 +11919,10 @@ paths:
             schema:
               properties:
                 tags:
-                  allOf:
-                    - $ref: '#/components/schemas/tags_array'
-                    - description: >-
-                        An array containing the names of the Tags to be removed
-                        from the firewall.
+                  $ref: '#/components/schemas/tags_array'
+                  description: >-
+                    An array containing the names of the Tags to be removed
+                    from the firewall.
               required:
                 - tags
             example:
@@ -12049,15 +12026,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/firewall_rules'
-                - anyOf:
-                    - title: Inbound Rules
-                      required:
-                        - inbound_rules
-                    - title: Outbound Rules
-                      required:
-                        - outbound_rules
+              $ref: '#/components/schemas/firewall_rules'
             example:
               inbound_rules:
                 - protocol: tcp
@@ -12231,15 +12200,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/firewall_rules'
-                - anyOf:
-                    - title: Inbound Rules
-                      required:
-                        - inbound_rules
-                    - title: Outbound Rules
-                      required:
-                        - outbound_rules
+              $ref: '#/components/schemas/firewall_rules'
             example:
               inbound_rules:
                 - protocol: tcp
@@ -18547,14 +18508,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/project'
-              required:
-                - name
-                - description
-                - purpose
-                - environment
-                - is_default
+              $ref: '#/components/schemas/project'
       responses:
         '200':
           $ref: '#/components/responses/existing_project'
@@ -18647,6 +18601,7 @@ paths:
             example:
               name: my-web-api
               purpose: Service or API
+              is_default: false
       responses:
         '200':
           $ref: '#/components/responses/existing_project'
@@ -18796,14 +18751,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/project'
-              required:
-                - name
-                - description
-                - purpose
-                - environment
-                - is_default
+              $ref: '#/components/schemas/project'
       responses:
         '200':
           $ref: '#/components/responses/existing_project'
@@ -18907,6 +18855,7 @@ paths:
             example:
               name: my-web-api
               purpose: Service or API
+              is_default: false
       responses:
         '200':
           $ref: '#/components/responses/existing_project'
@@ -23483,8 +23432,6 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/vpc_updatable'
                 - $ref: '#/components/schemas/vpc_default'
-              required:
-                - name
       responses:
         '200':
           $ref: '#/components/responses/existing_vpc'
@@ -24122,10 +24069,6 @@ paths:
               type: object
               allOf:
                 - $ref: '#/components/schemas/alert'
-              required:
-                - name
-                - type
-                - notifications
       responses:
         '201':
           $ref: '#/components/responses/existing_alert'
@@ -25650,10 +25593,7 @@ components:
         region:
           $ref: '#/components/schemas/region'
         region_slug:
-          allOf:
-            - $ref: '#/components/schemas/slug'
-            - type: string
-              nullable: true
+          $ref: '#/components/schemas/slug'
     apps_deployment_job:
       properties:
         name:
@@ -26316,8 +26256,6 @@ components:
               description: A list of HTTP routes that should be routed to this component.
               items:
                 $ref: '#/components/schemas/app_route_spec'
-          required:
-            - name
     app_static_site_spec:
       allOf:
         - $ref: '#/components/schemas/app_component_base'
@@ -26360,8 +26298,6 @@ components:
               items:
                 $ref: '#/components/schemas/app_route_spec'
               description: A list of HTTP routes that should be routed to this component.
-      required:
-        - name
     app_job_spec:
       allOf:
         - $ref: '#/components/schemas/app_component_base'
@@ -26389,14 +26325,10 @@ components:
                 fails to deploy.
               default: UNSPECIFIED
               example: PRE_DEPLOY
-          required:
-            - name
     app_worker_spec:
       allOf:
         - $ref: '#/components/schemas/app_component_base'
         - $ref: '#/components/schemas/app_component_instance_base'
-      required:
-        - name
     app_alert_spec_rule:
       default: UNSPECIFIED_RULE
       enum:
@@ -27015,9 +26947,8 @@ components:
           type: string
           example: '2020-12-01T00:42:16Z'
         pinned_deployment:
-          allOf:
-            - description: The deployment that the app is pinned to.
-            - $ref: '#/components/schemas/apps_deployment'
+          description: The deployment that the app is pinned to.
+          $ref: '#/components/schemas/apps_deployment'
       required:
         - spec
       type: object
@@ -27550,12 +27481,6 @@ components:
         ttl:
           type: integer
           example: 3600
-          enum:
-            - 60
-            - 600
-            - 3600
-            - 86400
-            - 604800
           default: 3600
           description: >-
             The amount of time the content is cached by the CDN's edge servers
@@ -28137,9 +28062,8 @@ components:
           description: Name of the DigitalOcean customer being invoiced.
           example: Sammy Shark
         user_billing_address:
-          allOf:
-            - description: The billing address of the customer being invoiced.
-            - $ref: '#/components/schemas/billing_address'
+          description: The billing address of the customer being invoiced.
+          $ref: '#/components/schemas/billing_address'
         user_company:
           type: string
           description: Company of the DigitalOcean customer being invoiced, if set.
@@ -28149,26 +28073,22 @@ components:
           description: Email of the DigitalOcean customer being invoiced.
           example: sammy@digitalocean.com
         product_charges:
-          allOf:
-            - description: >-
-                A summary of the product usage charges contributing to the
-                invoice.  This will include an amount, and grouped aggregates by
-                resource type  under the `items` key.
-            - $ref: '#/components/schemas/product_usage_charges'
+          description: >-
+            A summary of the product usage charges contributing to the
+            invoice.  This will include an amount, and grouped aggregates by
+            resource type  under the `items` key.
+          $ref: '#/components/schemas/product_usage_charges'
         overages:
-          allOf:
-            - description: A summary of the overages contributing to the invoice.
-            - $ref: '#/components/schemas/simple_charge'
+          description: A summary of the overages contributing to the invoice.
+          $ref: '#/components/schemas/simple_charge'
         taxes:
-          allOf:
-            - description: A summary of the taxes contributing to the invoice.
-            - $ref: '#/components/schemas/simple_charge'
+          description: A summary of the taxes contributing to the invoice.
+          $ref: '#/components/schemas/simple_charge'
         credits_and_adjustments:
-          allOf:
-            - description: >-
-                A summary of the credits and adjustments contributing to the
-                invoice.
-            - $ref: '#/components/schemas/simple_charge'
+          description: >-
+            A summary of the credits and adjustments contributing to the
+            invoice.
+          $ref: '#/components/schemas/simple_charge'
     database_region_options:
       type: object
       properties:
@@ -29663,12 +29583,10 @@ components:
             to your account's default VPC for the region.
         connection:
           readOnly: true
-          allOf:
-            - $ref: '#/components/schemas/database_connection'
+          $ref: '#/components/schemas/database_connection'
         private_connection:
           readOnly: true
-          allOf:
-            - $ref: '#/components/schemas/database_connection'
+          $ref: '#/components/schemas/database_connection'
       required:
         - name
         - size
@@ -29907,28 +29825,11 @@ components:
           nullable: true
           example: null
     domain_record_a:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - name
-            - data
+      $ref: '#/components/schemas/domain_record'
     domain_record_aaaa:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - name
-            - data
+      $ref: '#/components/schemas/domain_record'
     domain_record_caa:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - name
-            - data
-            - flags
-            - tag
+      $ref: '#/components/schemas/domain_record'
     domain_record_cname:
       allOf:
         - $ref: '#/components/schemas/domain_record'
@@ -29937,47 +29838,15 @@ components:
             - name
             - data
     domain_record_mx:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - data
-            - priority
+      $ref: '#/components/schemas/domain_record'
     domain_record_ns:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - name
-            - data
-            - flags
-            - tag
+      $ref: '#/components/schemas/domain_record'
     domain_record_soa:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - ttl
+      $ref: '#/components/schemas/domain_record'
     domain_record_srv:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - name
-            - data
-            - priority
-            - port
-            - flags
-            - tag
+      $ref: '#/components/schemas/domain_record'
     domain_record_txt:
-      allOf:
-        - $ref: '#/components/schemas/domain_record'
-        - required:
-            - type
-            - name
-            - data
-            - flags
-            - tag
+      $ref: '#/components/schemas/domain_record'
     kernel:
       type: object
       description: >
@@ -30959,7 +30828,8 @@ components:
     firewall:
       type: object
       allOf:
-        - properties:
+        - type: object
+          properties:
             id:
               type: string
               description: >-
@@ -31458,7 +31328,8 @@ components:
       type: object
       allOf:
         - $ref: '#/components/schemas/image_update'
-        - properties:
+        - type: object
+          properties:
             url:
               type: string
               description: >-
@@ -31472,10 +31343,9 @@ components:
               $ref: '#/components/schemas/region_slug'
             tags:
               $ref: '#/components/schemas/tags_array'
-      required:
-        - name
-        - url
-        - region
+          required:
+            - url
+            - region
       example:
         name: ubuntu-18.04-minimal
         url: >-
@@ -32621,13 +32491,12 @@ components:
           properties:
             region:
               type: object
-              allOf:
-                - description: >-
-                    The region where the load balancer instance is located. When
-                    setting a region, the value should be the slug identifier
-                    for the region. When you query a load balancer, an entire
-                    region object will be returned.
-                - $ref: '#/components/schemas/region'
+              description: >-
+                The region where the load balancer instance is located. When
+                setting a region, the value should be the slug identifier
+                for the region. When you query a load balancer, an entire
+                region object will be returned.
+              $ref: '#/components/schemas/region'
         - type: object
           properties:
             droplet_ids:
@@ -33063,6 +32932,8 @@ components:
               description: >-
                 If true, all resources will be added to this project if no
                 project is specified.
+          required:
+            - is_default
     urn:
       type: string
       pattern: >-
@@ -33215,9 +33086,7 @@ components:
             calculated asynchronously, and may not immediately reflect pushes to
             the registry.
         subscription:
-          allOf:
-            - readOnly: true
-            - $ref: '#/components/schemas/subscription'
+          $ref: '#/components/schemas/subscription'
     registry_create:
       type: object
       properties:
@@ -33517,12 +33386,11 @@ components:
             The public IP address of the reserved IP. It also serves as its
             identifier.
         region:
-          allOf:
-            - $ref: '#/components/schemas/region'
-            - type: object
-              description: >-
-                The region that the reserved IP is reserved to. When you query a
-                reserved IP, the entire region object will be returned.
+          description: >-
+            The region that the reserved IP is reserved to. When you query a
+            reserved IP, the entire region object will be returned.
+          $ref: '#/components/schemas/region'
+              
         droplet:
           description: >-
             The Droplet that the reserved IP has been assigned to. When you
@@ -33591,7 +33459,6 @@ components:
         - $ref: '#/components/schemas/reserved_ip_action_type'
         - type: object
           required:
-            - type
             - droplet_id
           properties:
             droplet_id:
@@ -33603,7 +33470,12 @@ components:
         - $ref: '#/components/schemas/reserved_ip_action_type'
         - type: object
           required:
-            - type
+            - droplet_id
+          properties:
+            droplet_id:
+              type: integer
+              example: 758604968
+              description: The ID of the Droplet that the reserved IP will be assigned to.
     snapshots:
       allOf:
         - type: object
@@ -33707,7 +33579,8 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/tags_metadata'
-            - properties:
+            - type: object
+              properties:
                 droplets:
                   $ref: '#/components/schemas/tags_metadata'
                 imgages:
@@ -33841,6 +33714,8 @@ components:
           readOnly: true
         tags:
           $ref: '#/components/schemas/tags_array'
+      required:
+        - name
     volume_full:
       type: object
       allOf:
@@ -33915,6 +33790,7 @@ components:
         may contain 16 characters while labels for xfs type filesystems are
         limited to 12 characters. May only be used in conjunction with
         filesystem_type.
+      maxLength: 16
       example: example
     volumes_ext4:
       type: object
@@ -33922,16 +33798,13 @@ components:
         - $ref: '#/components/schemas/volume_base'
         - $ref: '#/components/schemas/volume_snapshot_id'
         - $ref: '#/components/schemas/volume_write_file_system_type'
-        - properties:
+        - type: object
+          properties:
             region:
               $ref: '#/components/schemas/region_slug'
             filesystem_label:
-              allOf:
-                - $ref: '#/components/schemas/volume_write_file_system_label'
-                - maxLength: 16
+              $ref: '#/components/schemas/volume_write_file_system_label'
           required:
-            - name
-            - size_gigabytes
             - region
     volumes_xfs:
       type: object
@@ -33939,16 +33812,13 @@ components:
         - $ref: '#/components/schemas/volume_base'
         - $ref: '#/components/schemas/volume_snapshot_id'
         - $ref: '#/components/schemas/volume_write_file_system_type'
-        - properties:
+        - type: object
+          properties:
             region:
               $ref: '#/components/schemas/region_slug'
             filesystem_label:
-              allOf:
-                - $ref: '#/components/schemas/volume_write_file_system_label'
-                - maxLength: 12
+              $ref: '#/components/schemas/volume_write_file_system_label'
           required:
-            - name
-            - size_gigabytes
             - region
     volume_action_post_base:
       type: object
@@ -33975,7 +33845,8 @@ components:
       type: object
       allOf:
         - $ref: '#/components/schemas/volume_action_post_base'
-        - properties:
+        - type: object
+          properties:
             droplet_id:
               $ref: '#/components/schemas/volume_action_droplet_id'
             tags:
@@ -33986,7 +33857,8 @@ components:
       type: object
       allOf:
         - $ref: '#/components/schemas/volume_action_post_base'
-        - properties:
+        - type: object
+          properties:
             droplet_id:
               $ref: '#/components/schemas/volume_action_droplet_id'
           required:
@@ -33994,7 +33866,8 @@ components:
     volumeAction:
       type: object
       allOf:
-        - properties:
+        - type: object
+          properties:
             type:
               type: string
               description: >-
@@ -34011,7 +33884,8 @@ components:
       type: object
       allOf:
         - $ref: '#/components/schemas/volume_action_post_base'
-        - properties:
+        - type: object
+          properties:
             size_gigabytes:
               type: integer
               description: The new size of the block storage volume in GiB (1024^3).
@@ -34899,11 +34773,10 @@ components:
                   Indicates whether the app can be rolled back to the specified
                   deployment.
               error:
-                allOf:
-                  - description: >-
-                      Contains the failing condition that is causing the
-                      rollback to be invalid.
-                  - $ref: '#/components/schemas/app_rollback_validation_condition'
+                description: >-
+                  Contains the failing condition that is causing the
+                  rollback to be invalid.
+                $ref: '#/components/schemas/app_rollback_validation_condition'
               warnings:
                 type: array
                 description: >-
@@ -37459,6 +37332,7 @@ components:
       content:
         application/json:
           schema:
+            type: object
             properties:
               image:
                 $ref: '#/components/schemas/image'
