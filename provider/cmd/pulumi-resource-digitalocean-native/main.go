@@ -11,13 +11,13 @@ import (
 
 var providerName = "digitalocean-native"
 
-//go:embed schema.json
+// // go:embed schema.json
 var pulumiSchema []byte
 
-//go:embed openapi_generated.yml
+// // go:embed openapi_generated.yml
 var openapiDocBytes []byte
 
-//go:embed metadata.json
+// // go:embed metadata.json
 var metadataBytes []byte
 
 func main() {

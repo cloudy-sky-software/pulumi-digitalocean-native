@@ -89,9 +89,25 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	}
 
 	openAPICtx := &openapigen.OpenAPIContext{
-		Doc:           openapiDoc,
-		Pkg:           &pkg,
-		ExcludedPaths: []string{"/v2/customers/my/invoices/{invoice_uuid}", "/v2/customers/my/invoices/{invoice_uuid}/csv", "/v2/customers/my/invoices/{invoice_uuid}/pdf", "/v2/customers/my/invoices/{invoice_uuid}/summary"},
+		Doc: openapiDoc,
+		Pkg: &pkg,
+		ExcludedPaths: []string{
+			"/v2/customers/my/invoices/{invoice_uuid}",
+			"/v2/customers/my/invoices/{invoice_uuid}/csv",
+			"/v2/customers/my/invoices/{invoice_uuid}/pdf",
+			"/v2/customers/my/invoices/{invoice_uuid}/summary",
+			// pulschema does not support POST/PUT requests without a request body yet.
+			"/v2/apps/{app_id}/rollback/commit",
+			"/v2/apps/{app_id}/deployments/{deployment_id}/cancel",
+			"/v2/apps/{app_id}/rollback/revert",
+			"/v2/registry/{registry_name}/garbage-collection",
+			"/v2/databases/{database_cluster_uuid}/replicas/{replica_name}/promote",
+			"/v2/droplets/{droplet_id}/destroy_with_associated_resources/retry",
+			//
+			// pulschema does not support application/yaml response type yet.
+			"/v2/kubernetes/clusters/{cluster_id}/kubeconfig",
+			//
+		},
 	}
 
 	providerMetadata, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
