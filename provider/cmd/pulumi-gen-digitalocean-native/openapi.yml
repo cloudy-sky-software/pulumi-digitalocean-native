@@ -28557,6 +28557,10 @@ components:
     mysql:
       type: object
       properties:
+        type:
+          type: string
+          default: mysql
+          readOnly: true
         backup_hour:
           description: >-
             The hour of day (in UTC) when backup for the service starts. New
@@ -28859,6 +28863,10 @@ components:
     postgres:
       type: object
       properties:
+        type:
+          type: string
+          default: postgres
+          readOnly: true
         autovacuum_freeze_max_age:
           description: >-
             Specifies the maximum age (in transactions) that a table's
@@ -29319,6 +29327,10 @@ components:
     redis:
       type: object
       properties:
+        type:
+          type: string
+          default: mysql
+          readOnly: true
         redis_maxmemory_policy:
           $ref: '#/components/schemas/eviction_policy_model'
         redis_pubsub_client_output_buffer_limit:
@@ -29408,10 +29420,16 @@ components:
       type: object
       properties:
         config:
-          anyOf:
+          oneOf:
             - $ref: '#/components/schemas/mysql'
             - $ref: '#/components/schemas/postgres'
             - $ref: '#/components/schemas/redis'
+          discriminator:
+            propertyName: type
+            mapping:
+              mysql: '#/components/schemas/mysql'
+              postgres: '#/components/schemas/postgres'
+              redis: '#/components/schemas/redis'
     ca:
       type: object
       properties:
@@ -30625,6 +30643,7 @@ components:
           required:
             - type
     droplet_action:
+      title: DropletAction
       required:
         - type
       type: object
@@ -31357,6 +31376,7 @@ components:
           - base-image
           - prod
     image_action_base:
+      title: ImageAction
       type: object
       properties:
         type:
