@@ -32,6 +32,7 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixDatabaseConfigType(openAPIDoc)
 	fixFloatingIpType(openAPIDoc)
 	fixReservedIpActionUnassignType(openAPIDoc)
+	fixReservedIpType(openAPIDoc)
 }
 
 func addTitleForType(openAPIDoc *openapi3.T, typeName, title string) {
@@ -50,9 +51,26 @@ func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {
 
 	stringSchema := openapi3.NewIntegerSchema()
 	stringSchema.Description = "The ID of the Droplet that the reserved IP will be unassigned from."
-	schemaRef.Value.AllOf[1].Value.Properties["droplet_id"] = stringSchema.NewRef()
-	// Overwrite the required slice so that only the droplet_id is required.
+	schemaRef.Value.AllOf[1].Value.Properties = map[string]*openapi3.SchemaRef{
+		"droplet_id": stringSchema.NewRef(),
+	}
+	// Overwrite the list of required properties for this type,
+	// so that only `droplet_id` is required.
 	schemaRef.Value.Required = []string{"droplet_id"}
+}
+
+func fixReservedIpType(openAPIDoc *openapi3.T) {
+	schemaRef, ok := openAPIDoc.Components.Schemas["reserved_ip"]
+	if !ok {
+		panic("Expected to find reserved_ip type")
+	}
+
+	// The droplet property of this type can be null if the floating IP
+	// is not attached to any droplet. The way this is represented in the
+	// spec causes validation issues. So let's simplify it.
+	schemaRef.Value.Properties["droplet"].Ref = "#/components/schemas/droplet"
+	schemaRef.Value.Properties["droplet"].Value.AnyOf = nil
+	schemaRef.Value.Properties["droplet"].Value.Example = nil
 }
 
 func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
@@ -66,11 +84,11 @@ func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
 		objectType.Value.Type = "object"
 	}
 
-	if len(objectType.Value.AllOf) > 0 {
-		for _, allOfTy := range objectType.Value.AllOf {
-			fixObjectPropertyType(allOfTy)
-		}
-	}
+	// if len(objectType.Value.AllOf) > 0 {
+	// 	for _, allOfTy := range objectType.Value.AllOf {
+	// 		fixObjectPropertyType(allOfTy)
+	// 	}
+	// }
 }
 
 func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
@@ -85,15 +103,15 @@ func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
 		return
 	}
 
-	if len(responseContent.Schema.Value.Properties) > 0 {
-		responseContent.Schema.Value.Type = "object"
-	}
+	// if len(responseContent.Schema.Value.Properties) > 0 {
+	// 	responseContent.Schema.Value.Type = "object"
+	// }
 
-	if len(responseContent.Schema.Value.AllOf) > 0 {
-		for _, allOfTy := range responseContent.Schema.Value.AllOf {
-			fixObjectPropertyType(allOfTy)
-		}
-	}
+	// if len(responseContent.Schema.Value.AllOf) > 0 {
+	// 	for _, allOfTy := range responseContent.Schema.Value.AllOf {
+	// 		fixObjectPropertyType(allOfTy)
+	// 	}
+	// }
 }
 
 func fixFloatingIpType(openAPIDoc *openapi3.T) {
@@ -107,6 +125,7 @@ func fixFloatingIpType(openAPIDoc *openapi3.T) {
 	// spec causes validation issues. So let's simplify it.
 	floatingIp.Value.Properties["droplet"].Ref = "#/components/schemas/droplet"
 	floatingIp.Value.Properties["droplet"].Value.AnyOf = nil
+	floatingIp.Value.Properties["droplet"].Value.Example = nil
 }
 
 // fixDatabaseConfigType fixes the database_config type to use
