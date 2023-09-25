@@ -25,14 +25,15 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 		fixObjectPropertyType(ty)
 	}
 
-	for _, ty := range openAPIDoc.Components.Responses {
-		fixResponseObjectPropertyType(ty)
-	}
+	// for _, ty := range openAPIDoc.Components.Responses {
+	// 	fixResponseObjectPropertyType(ty)
+	// }
 
 	fixDatabaseConfigType(openAPIDoc)
 	fixFloatingIpType(openAPIDoc)
 	fixReservedIpActionUnassignType(openAPIDoc)
 	fixReservedIpType(openAPIDoc)
+	fixPageLinksType(openAPIDoc)
 }
 
 func addTitleForType(openAPIDoc *openapi3.T, typeName, title string) {
@@ -49,10 +50,10 @@ func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {
 		panic("Expected to find reserved_ip_action_unassign type")
 	}
 
-	stringSchema := openapi3.NewIntegerSchema()
-	stringSchema.Description = "The ID of the Droplet that the reserved IP will be unassigned from."
+	intSchema := openapi3.NewIntegerSchema()
+	intSchema.Description = "The ID of the Droplet that the reserved IP will be unassigned from."
 	schemaRef.Value.AllOf[1].Value.Properties = map[string]*openapi3.SchemaRef{
-		"droplet_id": stringSchema.NewRef(),
+		"droplet_id": intSchema.NewRef(),
 	}
 	// Overwrite the list of required properties for this type,
 	// so that only `droplet_id` is required.
@@ -169,4 +170,24 @@ func fixDatabaseConfigType(openAPIDoc *openapi3.T) {
 	}
 
 	resp.Value.Content.Get("application/json").Schema.Ref = "#/components/schemas/database_config"
+}
+
+func fixPageLinksType(openAPIDoc *openapi3.T) {
+	schemaRef, ok := openAPIDoc.Components.Schemas["page_links"]
+	if !ok {
+		panic("Expected to find page_links type")
+	}
+
+	pagesProp, ok := schemaRef.Value.Properties["pages"]
+	if !ok {
+		panic("Expected to find 'pages' prop in page_links type")
+	}
+
+	pagesProp.Value.Properties = map[string]*openapi3.SchemaRef{
+		"first": openapi3.NewStringSchema().NewRef(),
+		"last":  openapi3.NewStringSchema().NewRef(),
+		"next":  openapi3.NewStringSchema().NewRef(),
+		"prev":  openapi3.NewStringSchema().NewRef(),
+	}
+	pagesProp.Value.AnyOf = nil
 }
