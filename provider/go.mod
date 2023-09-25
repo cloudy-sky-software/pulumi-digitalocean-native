@@ -3,11 +3,11 @@ module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 go 1.21
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20230916031937-b46eb6d3723a
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230916031645-fb0c5fb443f0
+	github.com/cloudy-sky-software/pulschema v0.0.0-20230925074936-30e508aad735
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230925074135-c64b9a96d299
 	github.com/getkin/kin-openapi v0.120.0
-	github.com/pulumi/pulumi/pkg/v3 v3.83.0
-	github.com/pulumi/pulumi/sdk/v3 v3.83.0
+	github.com/pulumi/pulumi/pkg/v3 v3.85.0
+	github.com/pulumi/pulumi/sdk/v3 v3.85.0
 )
 
 require github.com/stretchr/testify v1.8.4
@@ -23,7 +23,7 @@ require (
 	cloud.google.com/go/logging v1.7.0 // indirect
 	cloud.google.com/go/longrunning v0.5.1 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
-	github.com/AlecAivazis/survey/v2 v2.0.5 // indirect
+	github.com/AlecAivazis/survey/v2 v2.3.7 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.3.1 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.2.1 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.1.2 // indirect
@@ -206,7 +206,7 @@ require (
 	google.golang.org/genproto v0.0.0-20230726155614-23370e0ffb3e // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20230711160842-782d3b101e98 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230711160842-782d3b101e98 // indirect
-	google.golang.org/grpc v1.58.1 // indirect
+	google.golang.org/grpc v1.58.2 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
@@ -214,7 +214,3 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20211028080628-e2786a622600 // indirect
 )
-
-replace github.com/cloudy-sky-software/pulschema => ../../pulschema
-
-replace github.com/cloudy-sky-software/pulumi-provider-framework => ../../pulumi-provider-framework
