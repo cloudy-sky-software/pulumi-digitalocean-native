@@ -3181,16 +3181,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:customers/v2:MetaProperties": {
-            "description": "Information about the response itself.",
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:customers/v2:PageLinks": {
             "properties": {
                 "pages": {
@@ -5168,6 +5158,54 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:domains/v2:DomainRecord": {
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
+                },
+                "flags": {
+                    "type": "integer",
+                    "description": "An unsigned integer between 0-255 used for CAA records."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique identifier for each domain record."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The host name, alias, or service being defined by the record."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port for SRV records."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The priority for SRV and MX records."
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "The parameter tag for CAA records. Valid values are \"issue\", \"issuewild\", or \"iodef\""
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the DNS record. For example: A, CNAME, TXT, ..."
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "The weight for SRV records."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
         },
         "digitalocean-native:domains/v2:GetDomainsProperties": {
             "properties": {
@@ -7386,44 +7424,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:Region": {
-            "properties": {
-                "available": {
-                    "type": "boolean",
-                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
-                },
-                "features": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains features available in this region"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
-                },
-                "sizes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
-                },
-                "slug": {
-                    "type": "string",
-                    "description": "A human-readable string that is used as a unique identifier for each region."
-                }
-            },
-            "type": "object",
-            "required": [
-                "available",
-                "features",
-                "name",
-                "sizes",
-                "slug"
-            ]
         },
         "digitalocean-native:floating_ips/v2:Size": {
             "properties": {
@@ -10800,22 +10800,6 @@
                 "tag_count": {
                     "type": "integer",
                     "description": "The number of tags in the repository."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:registry/v2:Subscription": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "The time at which the subscription was created."
-                },
-                "tier": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierBase"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "description": "The time at which the subscription was last updated."
                 }
             },
             "type": "object"
@@ -14837,10 +14821,6 @@
                     "type": "string",
                     "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
                 },
-                "domain_name": {
-                    "type": "string",
-                    "description": "The name of the domain itself."
-                },
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
@@ -15026,6 +15006,10 @@
                 "data": {
                     "type": "string",
                     "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
+                },
+                "domain_name": {
+                    "type": "string",
+                    "description": "The name of the domain itself."
                 },
                 "flags": {
                     "type": "integer",
@@ -15284,6 +15268,10 @@
             },
             "type": "object",
             "inputProperties": {
+                "droplet_id": {
+                    "type": "string",
+                    "description": "A unique identifier for a Droplet instance."
+                },
                 "image": {
                     "type": "integer",
                     "description": "The ID of a backup of the current Droplet instance to restore from."
@@ -15475,6 +15463,10 @@
                     "type": "integer",
                     "description": "The ID of the Droplet that the floating IP will be assigned to."
                 },
+                "floating_ip": {
+                    "type": "string",
+                    "description": "A floating IP address."
+                },
                 "type": {
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
                     "description": "The type of action to initiate for the floating IP."
@@ -15497,10 +15489,6 @@
             },
             "type": "object",
             "inputProperties": {
-                "floating_ip": {
-                    "type": "string",
-                    "description": "A floating IP address."
-                },
                 "type": {
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
                     "description": "The type of action to initiate for the floating IP."
@@ -16355,10 +16343,6 @@
             },
             "type": "object",
             "inputProperties": {
-                "project_id": {
-                    "type": "string",
-                    "description": "A unique identifier for a project."
-                },
                 "resources": {
                     "type": "array",
                     "items": {
@@ -16837,10 +16821,6 @@
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
                     "description": "The volume action to initiate."
-                },
-                "volume_id": {
-                    "type": "string",
-                    "description": "The ID of the block storage volume."
                 }
             },
             "requiredInputs": [
@@ -16870,6 +16850,10 @@
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
                     "description": "The volume action to initiate."
+                },
+                "volume_id": {
+                    "type": "string",
+                    "description": "The ID of the block storage volume."
                 }
             },
             "requiredInputs": [
