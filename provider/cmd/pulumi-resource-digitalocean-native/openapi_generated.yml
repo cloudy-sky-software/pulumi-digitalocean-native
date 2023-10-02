@@ -7723,7 +7723,7 @@ components:
                     - application/yaml
             example: application/json
         action_id:
-            name: id
+            name: action_id
             in: path
             description: A unique numeric ID that can be used to identify and reference an action.
             required: true
@@ -7740,7 +7740,7 @@ components:
                 type: string
             example: 5a624ab5-dd58-4b39-b7dd-8b7c36e8a91d
         alert_uuid:
-            name: id
+            name: alert_uuid
             in: path
             description: A unique identifier for an alert policy.
             required: true
@@ -7763,7 +7763,7 @@ components:
                 type: string
             example: myApp
         cdn_endpoint_id:
-            name: id
+            name: cdn_id
             in: path
             description: A unique identifier for a CDN endpoint.
             required: true
@@ -7773,7 +7773,7 @@ components:
                 minimum: 1
             example: 19f06b6a-3ace-4315-b086-499a0e521b76
         certificate_id:
-            name: id
+            name: certificate_id
             in: path
             description: A unique identifier for a certificate.
             required: true
@@ -7783,7 +7783,7 @@ components:
                 minimum: 1
             example: 4de7ac8b-495b-4884-9a69-1050c6793cd6
         check_id:
-            name: id
+            name: check_id
             in: path
             description: A unique identifier for a check.
             required: true
@@ -7818,7 +7818,7 @@ components:
                     - application/yaml
             example: application/json
         database_cluster_uuid:
-            name: id
+            name: database_cluster_uuid
             in: path
             description: A unique identifier for a database cluster.
             required: true
@@ -7835,7 +7835,7 @@ components:
                 type: string
             example: alpha
         deployment_id:
-            name: id
+            name: deployment_id
             in: path
             description: The deployment ID
             required: true
@@ -7858,7 +7858,7 @@ components:
                 type: string
             example: sub.example.com
         domain_record_id:
-            name: id
+            name: domain_record_id
             in: path
             description: The unique identifier of the domain record.
             required: true
@@ -7891,7 +7891,7 @@ components:
                 type: string
             example: env:test
         droplet_id:
-            name: id
+            name: droplet_id
             in: path
             description: A unique identifier for a Droplet instance.
             required: true
@@ -7914,7 +7914,7 @@ components:
                 type: string
             example: env:prod
         firewall_id:
-            name: id
+            name: firewall_id
             in: path
             description: A unique ID that can be used to identify and reference a firewall.
             required: true
@@ -7933,7 +7933,7 @@ components:
                 minimum: 1
             example: 45.55.96.47
         garbage_collection_uuid:
-            name: id
+            name: garbage_collection_uuid
             in: path
             description: The UUID of a garbage collection run.
             required: true
@@ -7949,7 +7949,7 @@ components:
                 type: string
             example: 4f6c71e2-1e90-4762-9fee-6cc4a0a9f2cf
         image_id:
-            name: id
+            name: image_id
             in: path
             description: A unique number that can be used to identify and reference a specific image.
             required: true
@@ -7957,7 +7957,7 @@ components:
                 type: integer
             example: 6.2137902e+07
         invoice_uuid:
-            name: id
+            name: invoice_uuid
             in: path
             description: UUID of the invoice
             required: true
@@ -7965,7 +7965,7 @@ components:
                 type: string
             example: 22737513-0ea7-4206-8ceb-98a575af7681
         kubernetes_cluster_id:
-            name: id
+            name: cluster_id
             in: path
             description: A unique ID that can be used to reference a Kubernetes cluster.
             required: true
@@ -7984,7 +7984,7 @@ components:
                 minimum: 0
             example: 300
         kubernetes_node_id:
-            name: id
+            name: node_id
             in: path
             description: A unique ID that can be used to reference a node in a Kubernetes node pool.
             required: true
@@ -7994,7 +7994,7 @@ components:
                 minimum: 1
             example: 478247f8-b1bb-4f7a-8db9-2a5f8d4b8f8f
         kubernetes_node_pool_id:
-            name: id
+            name: node_pool_id
             in: path
             description: A unique ID that can be used to reference a Kubernetes node pool.
             required: true
@@ -8031,7 +8031,7 @@ components:
                 type: boolean
             example: true
         load_balancer_id:
-            name: id
+            name: lb_id
             in: path
             description: A unique identifier for a load balancer.
             required: true
@@ -8074,7 +8074,7 @@ components:
                 type: string
             example: "1620683817"
         migration_id:
-            name: id
+            name: migration_id
             in: path
             description: A unique identifier assigned to the online migration.
             required: true
@@ -8082,7 +8082,7 @@ components:
                 type: string
             example: 77b28fc8-19ff-11eb-8c9c-c68e24557488
         namespace_id:
-            name: id
+            name: namespace_id
             in: path
             description: The ID of the namespace to be managed.
             required: true
@@ -8131,7 +8131,7 @@ components:
                 minimum: 1
             example: 1
         parameters_alert_id:
-            name: id
+            name: alert_id
             in: path
             description: A unique identifier for an alert.
             required: true
@@ -8173,7 +8173,7 @@ components:
                 type: boolean
             example: true
         project_id:
-            name: id
+            name: project_id
             in: path
             description: A unique identifier for a project.
             required: true
@@ -8273,7 +8273,7 @@ components:
                 type: string
             example: basic
         snapshot_id:
-            name: id
+            name: snapshot_id
             in: path
             description: Either the ID of an existing snapshot. This will be an integer for a Droplet snapshot or a string for a volume snapshot.
             required: true
@@ -8297,7 +8297,7 @@ components:
                     - volume
             example: droplet
         ssh_key_identifier:
-            name: id
+            name: ssh_key_identifier
             in: path
             description: Either the ID or the fingerprint of an existing SSH key.
             required: true
@@ -8314,7 +8314,7 @@ components:
                 type: string
             example: base-image
         tag_id:
-            name: id
+            name: tag_id
             in: path
             description: The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
             required: true
@@ -8380,7 +8380,7 @@ components:
                 type: string
             example: app-01
         volume_id:
-            name: id
+            name: volume_id
             in: path
             description: The ID of the block storage volume.
             required: true
@@ -8396,7 +8396,7 @@ components:
                 type: string
             example: example
         vpc_id:
-            name: id
+            name: vpc_id
             in: path
             description: A unique identifier for a VPC.
             required: true
@@ -8497,7 +8497,7 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DropletActions
+                        title: Actions
                         properties:
                             action:
                                 $ref: '#/components/schemas/action'
@@ -23704,7 +23704,7 @@ paths:
                 `/v2/images/$IDENTIFIER`.
             operationId: images_get
             parameters:
-                - name: id
+                - name: image_id
                   in: path
                   description: |
                     A unique number (id) or string (slug) used to identify and reference a
