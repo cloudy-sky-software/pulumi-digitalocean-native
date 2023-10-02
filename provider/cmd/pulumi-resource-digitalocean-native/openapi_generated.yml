@@ -230,7 +230,7 @@ components:
                     example: 5m
         alert_policy_request:
             type: object
-            title: MonitoringAlertPolicy
+            title: AlertPolicyRequest
             required:
                 - type
                 - description
@@ -1021,7 +1021,7 @@ components:
                     example: "513668"
         app_metrics_bandwidth_usage_request:
             type: object
-            title: AppsListMetricsBandwidthDaily
+            title: AppMetricsBandwidthUsageRequest
             required:
                 - app_ids
             properties:
@@ -1041,7 +1041,7 @@ components:
                     example: "2023-01-17T00:00:00Z"
         app_propose:
             type: object
-            title: AppsValidateAppSpec
+            title: AppPropose
             required:
                 - spec
             properties:
@@ -1350,7 +1350,7 @@ components:
                     $ref: '#/components/schemas/app_alert'
         apps_assign_app_alert_destinations_request:
             type: object
-            title: AppsAssignAlertDestinations
+            title: AppsAssignAppAlertDestinationsRequest
             properties:
                 emails:
                     type: array
@@ -1411,7 +1411,7 @@ components:
                     example: 5h30m
         apps_create_app_request:
             type: object
-            title: Apps
+            title: AppsCreateAppRequest
             required:
                 - spec
             properties:
@@ -1422,7 +1422,7 @@ components:
                     $ref: '#/components/schemas/app_spec'
         apps_create_deployment_request:
             type: object
-            title: AppsDeployment
+            title: AppsCreateDeploymentRequest
             properties:
                 force_build:
                     type: boolean
@@ -1970,7 +1970,7 @@ components:
             title: AppsResponse
         apps_rollback_app_request:
             type: object
-            title: AppsValidateRollback
+            title: AppsRollbackAppRequest
             properties:
                 deployment_id:
                     type: string
@@ -2029,7 +2029,7 @@ components:
                     example: "10000000"
         apps_update_app_request:
             type: object
-            title: Apps
+            title: AppsUpdateAppRequest
             required:
                 - spec
             properties:
@@ -2581,7 +2581,7 @@ components:
                     example: https
         cluster:
             type: object
-            title: KubernetesCluster
+            title: cluster
             required:
                 - name
                 - region
@@ -2704,7 +2704,7 @@ components:
                     example: c33931f2-a26a-4e61-b85c-4e95a2ec431b
         cluster_registries:
             type: object
-            title: KubernetesRemoveRegistry
+            title: ClusterRegistries
             properties:
                 cluster_uuids:
                     type: array
@@ -2716,7 +2716,7 @@ components:
                         type: string
         cluster_update:
             type: object
-            title: KubernetesCluster
+            title: ClusterUpdate
             required:
                 - name
             properties:
@@ -2753,7 +2753,7 @@ components:
                         type: string
         clusterlint_request:
             type: object
-            title: KubernetesRunClusterLint
+            title: ClusterlintRequest
             properties:
                 exclude_checks:
                     type: array
@@ -2840,7 +2840,7 @@ components:
                     example: 50c2f44c-011d-493e-aee5-361a4a0d1844
         connection_pool:
             type: object
-            title: DatabasesAddConnectionPool
+            title: ConnectionPool
             required:
                 - name
                 - mode
@@ -2878,7 +2878,7 @@ components:
                     example: doadmin
         connection_pool_update:
             type: object
-            title: DatabasesConnectionPool
+            title: ConnectionPoolUpdate
             required:
                 - mode
                 - size
@@ -2913,7 +2913,7 @@ components:
                         $ref: '#/components/schemas/connection_pool'
         create_namespace:
             type: object
-            title: FunctionsNamespace
+            title: CreateNamespace
             required:
                 - region
                 - label
@@ -2928,7 +2928,7 @@ components:
                     example: nyc1
         create_trigger:
             type: object
-            title: FunctionsTrigger
+            title: CreateTrigger
             required:
                 - name
                 - function
@@ -3005,7 +3005,7 @@ components:
                     example: $DIGITALOCEAN_TOKEN
         database:
             type: object
-            title: DatabasesAdd
+            title: database
             required:
                 - name
             properties:
@@ -3154,7 +3154,7 @@ components:
                     readOnly: true
         database_cluster_resize:
             type: object
-            title: DatabasesClusterSize
+            title: DatabaseClusterResize
             required:
                 - size
                 - num_nodes
@@ -3170,7 +3170,7 @@ components:
                     example: db-s-4vcpu-8gb
         database_config:
             type: object
-            title: DatabasesPatchConfig
+            title: DatabaseConfig
             properties:
                 config:
                     oneOf:
@@ -3247,7 +3247,7 @@ components:
                         $ref: '#/components/schemas/database_layout_option'
         database_maintenance_window:
             type: object
-            title: DatabasesMaintenanceWindow
+            title: DatabaseMaintenanceWindow
             nullable: true
             required:
                 - day
@@ -3407,7 +3407,7 @@ components:
                         type: string
         destroy_associated_kubernetes_resources:
             type: object
-            title: KubernetesDestroyAssociatedResourcesSelective
+            title: DestroyAssociatedKubernetesResources
             description: An object containing the IDs of resources to be destroyed along with their associated with a Kubernetes cluster.
             properties:
                 load_balancers:
@@ -3486,7 +3486,7 @@ components:
                                     example: YjdkMDNhNjk0N2IyMTdlZmI2ZjNlYzNiZDM1MDQ1ODI6YjdkMDNhNjk0N2IyMTdlZmI2ZjNlYzNiZDM1MDQ1ODIK
         domain:
             type: object
-            title: Domains
+            title: domain
             properties:
                 ip_address:
                     type: string
@@ -3518,7 +3518,7 @@ components:
                     readOnly: true
         domain_record:
             type: object
-            title: DomainsPatchRecord
+            title: DomainRecord
             required:
                 - type
             properties:
@@ -4327,7 +4327,7 @@ components:
                         type: string
                         description: The slug identifier for the region the floating IP will be reserved to.
                         example: nyc3
-            title: FloatingIPs
+            title: FloatingIpCreate
         floatingIPsAction:
             type: object
             required:
@@ -4598,7 +4598,7 @@ components:
                         description: A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
                         example: http://cloud-images.ubuntu.com/minimal/releases/bionic/release/ubuntu-18.04-minimal-cloudimg-amd64.img
             type: object
-            title: ImagesCustom
+            title: ImageNewCustom
             example:
                 description: Cloud-optimized image w/ small footprint
                 distribution: Ubuntu
@@ -4614,7 +4614,7 @@ components:
                 - region
         image_update:
             type: object
-            title: Images
+            title: ImageUpdate
             properties:
                 description:
                     $ref: '#/components/schemas/image_description'
@@ -4776,7 +4776,7 @@ components:
                 - $ref: '#/components/schemas/kubernetes_node_pool_size'
                 - $ref: '#/components/schemas/kubernetes_node_pool_base'
             type: object
-            title: KubernetesAddNodePool
+            title: KubernetesNodePool
             required:
                 - name
                 - size
@@ -4866,7 +4866,7 @@ components:
             allOf:
                 - $ref: '#/components/schemas/kubernetes_node_pool_base'
             type: object
-            title: KubernetesNodePool
+            title: KubernetesNodePoolUpdate
             required:
                 - name
                 - count
@@ -5169,7 +5169,7 @@ components:
                   required:
                     - tag
                     - region
-            title: LoadBalancers
+            title: LoadBalancerCreate
         maintenance_policy:
             type: object
             description: An object specifying the maintenance window policy for the Kubernetes cluster.
@@ -5656,7 +5656,7 @@ components:
                     example: kubernetes
         oneClicks_create:
             type: object
-            title: OneClicksInstallKubernetes
+            title: OneClicksCreate
             required:
                 - addon_slugs
                 - cluster_uuid
@@ -6208,10 +6208,10 @@ components:
                         type: boolean
                         description: If true, all resources will be added to this project if no project is specified.
                         example: false
-            title: ProjectsPatchDefault
+            title: project
         project_assignment:
             type: object
-            title: ProjectsAssignResourcesDefault
+            title: ProjectAssignment
             properties:
                 resources:
                     type: array
@@ -6291,7 +6291,7 @@ components:
                     readOnly: true
         purge_cache:
             type: object
-            title: CdnPurgeCache
+            title: PurgeCache
             required:
                 - files
             properties:
@@ -6518,7 +6518,7 @@ components:
                         - $ref: '#/components/schemas/subscription'
         registry_create:
             type: object
-            title: Registry
+            title: RegistryCreate
             required:
                 - name
                 - subscription_tier_slug
@@ -6761,7 +6761,7 @@ components:
                         type: string
                         description: The slug identifier for the region the reserved IP will be reserved to.
                         example: nyc3
-            title: ReservedIPs
+            title: ReservedIpCreate
         resource:
             type: object
             properties:
@@ -6812,7 +6812,7 @@ components:
                     example: '* * * * *'
         selective_destroy_associated_resource:
             type: object
-            title: DropletsDestroyWithAssociatedResourcesSelective
+            title: SelectiveDestroyAssociatedResource
             description: An object containing information about a resource to be scheduled for deletion.
             properties:
                 floating_ips:
@@ -7029,7 +7029,7 @@ components:
                     example: 2.34
         source_database:
             type: object
-            title: DatabasesOnlineMigration
+            title: SourceDatabase
             properties:
                 disable_ssl:
                     type: boolean
@@ -7084,7 +7084,7 @@ components:
             example: My SSH Public Key
         sshKeys:
             type: object
-            title: SshKeys
+            title: sshKeys
             required:
                 - public_key
                 - name
@@ -7197,7 +7197,7 @@ components:
                     example: true
         tags:
             type: object
-            title: Tags
+            title: tags
             description: |-
                 A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
                 Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
@@ -7275,7 +7275,7 @@ components:
                     example: https://api.digitalocean.com/v2/images/7555620
         tags_resource:
             type: object
-            title: TagsUnassignResources
+            title: TagsResource
             required:
                 - resources
             properties:
@@ -7362,7 +7362,7 @@ components:
                     example: "2022-11-11T04:16:45Z"
         update_endpoint:
             type: object
-            title: CdnEndpoints
+            title: UpdateEndpoint
             properties:
                 certificate_id:
                     type: string
@@ -7387,7 +7387,7 @@ components:
                     example: 3600
         update_registry:
             type: object
-            title: RegistryGarbageCollection
+            title: UpdateRegistry
             properties:
                 cancel:
                     type: boolean
@@ -7395,7 +7395,7 @@ components:
                     example: true
         update_trigger:
             type: object
-            title: FunctionsTrigger
+            title: UpdateTrigger
             properties:
                 is_enabled:
                     type: boolean
@@ -7429,7 +7429,7 @@ components:
                             example: sammy@digitalocean.com
         validate_registry:
             type: object
-            title: RegistryValidateName
+            title: ValidateRegistry
             required:
                 - name
             properties:
@@ -7445,7 +7445,7 @@ components:
             example: "8"
         version-2:
             type: object
-            title: DatabasesMajorVersion
+            title: version-2
             properties:
                 version:
                     $ref: '#/components/schemas/version'
