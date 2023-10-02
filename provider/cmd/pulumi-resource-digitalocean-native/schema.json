@@ -3181,16 +3181,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:customers/v2:MetaProperties": {
-            "description": "Information about the response itself.",
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:customers/v2:PageLinks": {
             "properties": {
                 "pages": {
@@ -3419,109 +3409,6 @@
             "type": "object",
             "required": [
                 "database_name"
-            ]
-        },
-        "digitalocean-native:databases/v2:DatabaseCluster": {
-            "properties": {
-                "connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterConnection"
-                },
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the database cluster was created."
-                },
-                "db_names": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of strings containing the names of databases created in the database cluster."
-                },
-                "engine": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterEngine",
-                    "description": "A slug representing the database engine used for the cluster. The possible values are: \"pg\" for PostgreSQL, \"mysql\" for MySQL, \"redis\" for Redis, and \"mongodb\" for MongoDB."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database cluster."
-                },
-                "maintenance_window": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterMaintenanceWindow"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A unique, human-readable name referring to a database cluster."
-                },
-                "num_nodes": {
-                    "type": "integer",
-                    "description": "The number of nodes in the database cluster."
-                },
-                "private_connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterPrivateConnection"
-                },
-                "private_network_uuid": {
-                    "type": "string",
-                    "description": "A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region."
-                },
-                "project_id": {
-                    "type": "string",
-                    "description": "The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project."
-                },
-                "region": {
-                    "type": "string",
-                    "description": "The slug identifier for the region where the database cluster is located."
-                },
-                "rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:FirewallRule"
-                    }
-                },
-                "semantic_version": {
-                    "type": "string",
-                    "description": "A string representing the semantic version of the database engine in use for the cluster."
-                },
-                "size": {
-                    "type": "string",
-                    "description": "The slug identifier representing the size of the nodes in the database cluster."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterStatus",
-                    "description": "A string representing the current status of the database cluster."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of tags that have been applied to the database cluster."
-                },
-                "users": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUser"
-                    }
-                },
-                "version": {
-                    "type": "string",
-                    "description": "A string representing the version of the database engine in use for the cluster."
-                },
-                "version_end_of_availability": {
-                    "type": "string",
-                    "description": "A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline."
-                },
-                "version_end_of_life": {
-                    "type": "string",
-                    "description": "A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline."
-                }
-            },
-            "type": "object",
-            "required": [
-                "engine",
-                "name",
-                "num_nodes",
-                "region",
-                "size"
             ]
         },
         "digitalocean-native:databases/v2:DatabaseClusterConnection": {
@@ -3846,6 +3733,29 @@
                     "name": "Forking",
                     "value": "forking"
                 }
+            ]
+        },
+        "digitalocean-native:databases/v2:DatabaseUser": {
+            "properties": {
+                "mysql_settings": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:MysqlSettings"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of a database user."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "A randomly generated password for the database user."
+                },
+                "role": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUserRole",
+                    "description": "A string representing the database user's role. The value will be either\n\"primary\" or \"normal\".\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
             ]
         },
         "digitalocean-native:databases/v2:DatabaseUserRole": {
@@ -5146,54 +5056,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:domains/v2:DomainRecord": {
-            "properties": {
-                "data": {
-                    "type": "string",
-                    "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
-                },
-                "flags": {
-                    "type": "integer",
-                    "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The host name, alias, or service being defined by the record."
-                },
-                "port": {
-                    "type": "integer",
-                    "description": "The port for SRV records."
-                },
-                "priority": {
-                    "type": "integer",
-                    "description": "The priority for SRV and MX records."
-                },
-                "tag": {
-                    "type": "string",
-                    "description": "The parameter tag for CAA records. Valid values are \"issue\", \"issuewild\", or \"iodef\""
-                },
-                "ttl": {
-                    "type": "integer",
-                    "description": "This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested."
-                },
-                "type": {
-                    "type": "string",
-                    "description": "The type of the DNS record. For example: A, CNAME, TXT, ..."
-                },
-                "weight": {
-                    "type": "integer",
-                    "description": "The weight for SRV records."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
-        },
         "digitalocean-native:domains/v2:GetDomainsProperties": {
             "properties": {
                 "domain": {
@@ -5810,7 +5672,7 @@
                 "protocol"
             ]
         },
-        "digitalocean-native:droplets/v2:GetActionsProperties": {
+        "digitalocean-native:droplets/v2:GetDropletActionsProperties": {
             "properties": {
                 "action": {
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
@@ -6656,50 +6518,6 @@
         "digitalocean-native:firewalls/v2:Tags": {
             "type": "object"
         },
-        "digitalocean-native:floating_ips/v2:Action": {
-            "properties": {
-                "completed_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique numeric ID that can be used to identify and reference an action."
-                },
-                "project_id": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
-                },
-                "region": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:Region"
-                },
-                "region_slug": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ActionRegionSlug"
-                },
-                "resource_id": {
-                    "type": "integer",
-                    "description": "A unique identifier for the resource that the action is associated with."
-                },
-                "resource_type": {
-                    "type": "string",
-                    "description": "The type of resource that the action is associated with."
-                },
-                "started_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ActionStatus",
-                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
-                    "default": "in-progress"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:floating_ips/v2:ActionLink": {
             "description": "The linked actions can be used to check the status of a Droplet's create event.",
             "properties": {
@@ -7472,6 +7290,44 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:floating_ips/v2:Region": {
+            "properties": {
+                "available": {
+                    "type": "boolean",
+                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains features available in this region"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "A human-readable string that is used as a unique identifier for each region."
+                }
+            },
+            "type": "object",
+            "required": [
+                "available",
+                "features",
+                "name",
+                "sizes",
+                "slug"
+            ]
         },
         "digitalocean-native:floating_ips/v2:Size": {
             "properties": {
@@ -10852,6 +10708,59 @@
             },
             "type": "object"
         },
+        "digitalocean-native:registry/v2:Subscription": {
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "The time at which the subscription was created."
+                },
+                "tier": {
+                    "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierBase"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "description": "The time at which the subscription was last updated."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:registry/v2:SubscriptionTierBase": {
+            "properties": {
+                "allow_storage_overage": {
+                    "type": "boolean",
+                    "description": "A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used."
+                },
+                "included_bandwidth_bytes": {
+                    "type": "integer",
+                    "description": "The amount of outbound data transfer included in the subscription tier in bytes."
+                },
+                "included_repositories": {
+                    "type": "integer",
+                    "description": "The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories."
+                },
+                "included_storage_bytes": {
+                    "type": "integer",
+                    "description": "The amount of storage included in the subscription tier in bytes."
+                },
+                "monthly_price_in_cents": {
+                    "type": "integer",
+                    "description": "The monthly cost of the subscription tier in cents."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the subscription tier."
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "The slug identifier of the subscription tier."
+                },
+                "storage_overage_price_in_cents": {
+                    "type": "integer",
+                    "description": "The price paid in cents per GiB for additional storage beyond what is included in the subscription plan."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:registry/v2:SubscriptionTierExtendedEligibilityReasonsItem": {
             "type": "string",
             "enum": [
@@ -10912,50 +10821,6 @@
                         }
                     },
                     "description": "An array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:Action": {
-            "properties": {
-                "completed_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique numeric ID that can be used to identify and reference an action."
-                },
-                "project_id": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
-                },
-                "region": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:Region"
-                },
-                "region_slug": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionRegionSlug"
-                },
-                "resource_id": {
-                    "type": "integer",
-                    "description": "A unique identifier for the resource that the action is associated with."
-                },
-                "resource_type": {
-                    "type": "string",
-                    "description": "The type of resource that the action is associated with."
-                },
-                "started_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionStatus",
-                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
-                    "default": "in-progress"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
                 }
             },
             "type": "object"
@@ -11656,6 +11521,44 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:reserved_ips/v2:Region": {
+            "properties": {
+                "available": {
+                    "type": "boolean",
+                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains features available in this region"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "A human-readable string that is used as a unique identifier for each region."
+                }
+            },
+            "type": "object",
+            "required": [
+                "available",
+                "features",
+                "name",
+                "sizes",
+                "slug"
+            ]
         },
         "digitalocean-native:reserved_ips/v2:ReservedIp": {
             "properties": {
@@ -13565,13 +13468,13 @@
                 "connection": {
                     "$ref": "#/types/digitalocean-native:databases/v2:Connection"
                 },
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
                 "db": {
                     "type": "string",
                     "description": "The database for use with the connection pool."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique identifier for a database cluster."
                 },
                 "mode": {
                     "type": "string",
@@ -13882,7 +13785,7 @@
                 "size"
             ],
             "inputProperties": {
-                "database_cluster_uuid": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
                 },
@@ -13912,13 +13815,13 @@
                 "eviction_policy"
             ],
             "inputProperties": {
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
                 "eviction_policy": {
                     "$ref": "#/types/digitalocean-native:databases/v2:EvictionPolicy",
                     "description": "A string specifying the desired eviction policy for the Redis cluster.\n\n- `noeviction`: Don't evict any data, returns error when memory limit is reached.\n- `allkeys_lru:` Evict any key, least recently used (LRU) first.\n- `allkeys_random`: Evict keys in a random order.\n- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.\n- `volatile_random`: Evict keys with expiration only in a random order.\n- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique identifier for a database cluster."
                 }
             },
             "requiredInputs": [
@@ -13936,7 +13839,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "database_cluster_uuid": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
                 },
@@ -13976,10 +13879,6 @@
                 "hour"
             ],
             "inputProperties": {
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
                 "day": {
                     "type": "string",
                     "description": "The day of the week on which to apply maintenance updates."
@@ -13987,6 +13886,10 @@
                 "hour": {
                     "type": "string",
                     "description": "The hour in UTC at which maintenance updates will be applied in 24 hour format."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique identifier for a database cluster."
                 }
             },
             "requiredInputs": [
@@ -14003,7 +13906,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "database_cluster_uuid": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
                 },
@@ -14025,13 +13928,13 @@
             },
             "type": "object",
             "inputProperties": {
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
                 "disable_ssl": {
                     "type": "boolean",
                     "description": "Enables SSL encryption when connecting to the source database."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique identifier for a database cluster."
                 },
                 "source": {
                     "$ref": "#/types/digitalocean-native:databases/v2:SourceProperties"
@@ -14052,7 +13955,7 @@
                 "user"
             ],
             "inputProperties": {
-                "database_cluster_uuid": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
                 },
@@ -14077,7 +13980,7 @@
                 "region"
             ],
             "inputProperties": {
-                "database_cluster_uuid": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
                 },
@@ -14150,13 +14053,9 @@
                     "type": "string",
                     "description": "A time value given in ISO8601 combined date and time format that represents when the database cluster was created."
                 },
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
                 "id": {
                     "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database replica."
+                    "description": "A unique identifier for a database cluster."
                 },
                 "name": {
                     "type": "string",
@@ -14193,11 +14092,16 @@
                 "name"
             ]
         },
-        "digitalocean-native:databases/v2:DatabasesSqlMode": {
+        "digitalocean-native:databases/v2:SqlMode": {
             "properties": {
                 "sql_mode": {
                     "type": "string",
-                    "description": "A string specifying the configured SQL modes for the MySQL cluster."
+                    "description": "A string specifying the configured SQL modes for the MySQL cluster.",
+                    "language": {
+                        "csharp": {
+                            "name": "SqlModeValue"
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -14205,13 +14109,18 @@
                 "sql_mode"
             ],
             "inputProperties": {
-                "database_cluster_uuid": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
                 },
                 "sql_mode": {
                     "type": "string",
-                    "description": "A string specifying the configured SQL modes for the MySQL cluster."
+                    "description": "A string specifying the configured SQL modes for the MySQL cluster.",
+                    "language": {
+                        "csharp": {
+                            "name": "SqlModeValue"
+                        }
+                    }
                 }
             },
             "requiredInputs": [
@@ -14455,10 +14364,6 @@
                 "data": {
                     "type": "string",
                     "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
-                },
-                "domain_name": {
-                    "type": "string",
-                    "description": "The name of the domain itself."
                 },
                 "flags": {
                     "type": "integer",
@@ -14832,6 +14737,10 @@
                     "type": "string",
                     "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
                 },
+                "domain_name": {
+                    "type": "string",
+                    "description": "The name of the domain itself."
+                },
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
@@ -15096,8 +15005,11 @@
         "digitalocean-native:droplets/v2:DropletAction": {
             "description": "Specifies the action that will be taken on the Droplet.",
             "properties": {
-                "action": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:Action"
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:droplets/v2:Action"
+                    }
                 },
                 "type": {
                     "$ref": "#/types/digitalocean-native:droplets/v2:Type",
@@ -15109,10 +15021,6 @@
                 "type"
             ],
             "inputProperties": {
-                "droplet_id": {
-                    "type": "string",
-                    "description": "A unique identifier for a Droplet instance."
-                },
                 "type": {
                     "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
@@ -15291,8 +15199,11 @@
         },
         "digitalocean-native:droplets/v2:DropletActionSnapshot": {
             "properties": {
-                "action": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:Action"
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:droplets/v2:Action"
+                    }
                 },
                 "name": {
                     "type": "string",
@@ -15372,7 +15283,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "id": {
+                "firewall_id": {
                     "type": "string",
                     "description": "A unique ID that can be used to identify and reference a firewall."
                 },
@@ -15401,7 +15312,7 @@
                 "tags"
             ],
             "inputProperties": {
-                "firewall_id": {
+                "id": {
                     "type": "string",
                     "description": "A unique ID that can be used to identify and reference a firewall."
                 },
@@ -15435,7 +15346,7 @@
                     },
                     "description": "An array containing the IDs of the Droplets to be assigned to the firewall."
                 },
-                "firewall_id": {
+                "id": {
                     "type": "string",
                     "description": "A unique ID that can be used to identify and reference a firewall."
                 }
@@ -15823,17 +15734,13 @@
                     "type": "boolean",
                     "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
                 },
-                "cluster_id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to reference a Kubernetes cluster."
-                },
                 "count": {
                     "type": "integer",
                     "description": "The number of Droplet instances in the node pool."
                 },
                 "id": {
                     "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a specific node pool."
+                    "description": "A unique ID that can be used to reference a Kubernetes cluster."
                 },
                 "labels": {
                     "$ref": "pulumi.json#/Any",
@@ -16119,10 +16026,6 @@
             },
             "type": "object",
             "inputProperties": {
-                "cluster_id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to reference a Kubernetes cluster."
-                },
                 "exclude_checks": {
                     "type": "array",
                     "items": {
@@ -16136,6 +16039,10 @@
                         "type": "string"
                     },
                     "description": "An array of check groups that will be omitted when clusterlint executes checks."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to reference a Kubernetes cluster."
                 },
                 "include_checks": {
                     "type": "array",
@@ -16162,7 +16069,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "id": {
+                "cluster_id": {
                     "type": "string",
                     "description": "A unique ID that can be used to reference a Kubernetes cluster."
                 },
@@ -16435,7 +16342,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "project_id": {
+                "id": {
                     "type": "string",
                     "description": "A unique identifier for a project."
                 },
@@ -16656,16 +16563,16 @@
                 "resources"
             ],
             "inputProperties": {
-                "id": {
-                    "type": "string",
-                    "description": "The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag."
-                },
                 "resources": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/digitalocean-native:tags/v2:ResourcesItemProperties"
                     },
                     "description": "An array of objects containing resource_id and resource_type  attributes."
+                },
+                "tag_id": {
+                    "type": "string",
+                    "description": "The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag."
                 }
             },
             "requiredInputs": [
@@ -16836,6 +16743,10 @@
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
                     "description": "The volume action to initiate."
+                },
+                "volume_id": {
+                    "type": "string",
+                    "description": "The ID of the block storage volume."
                 }
             },
             "requiredInputs": [
@@ -16887,10 +16798,6 @@
             },
             "type": "object",
             "inputProperties": {
-                "id": {
-                    "type": "string",
-                    "description": "The ID of the block storage volume."
-                },
                 "region": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
@@ -17171,7 +17078,7 @@
                 ]
             }
         },
-        "digitalocean-native:apps/v2:getAppsLogsActiveDeployment": {
+        "digitalocean-native:apps/v2:getAppsLogs": {
             "inputs": {
                 "properties": {
                     "app_id": {
@@ -17182,7 +17089,7 @@
                         "type": "string",
                         "description": "An optional component name. If set, logs will be limited to this component only."
                     },
-                    "id": {
+                    "deployment_id": {
                         "type": "string",
                         "description": "The deployment ID"
                     }
@@ -17190,7 +17097,86 @@
                 "required": [
                     "app_id",
                     "component_name",
-                    "id"
+                    "deployment_id"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:apps/v2:getAppsLogsActiveDeployment": {
+            "inputs": {
+                "properties": {
+                    "app_id": {
+                        "type": "string",
+                        "description": "The app ID"
+                    },
+                    "component_name": {
+                        "type": "string",
+                        "description": "An optional component name. If set, logs will be limited to this component only."
+                    }
+                },
+                "required": [
+                    "app_id",
+                    "component_name"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate": {
+            "inputs": {
+                "properties": {
+                    "app_id": {
+                        "type": "string",
+                        "description": "The app ID"
+                    }
+                },
+                "required": [
+                    "app_id"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:apps/v2:getAppsLogsAggregate": {
+            "inputs": {
+                "properties": {
+                    "app_id": {
+                        "type": "string",
+                        "description": "The app ID"
+                    },
+                    "deployment_id": {
+                        "type": "string",
+                        "description": "The deployment ID"
+                    }
+                },
+                "required": [
+                    "app_id",
+                    "deployment_id"
                 ]
             },
             "outputs": {
@@ -17462,18 +17448,18 @@
         "digitalocean-native:databases/v2:getDatabases": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
-                        "type": "string",
-                        "description": "A unique identifier for a database cluster."
-                    },
                     "database_name": {
                         "type": "string",
                         "description": "The name of the database."
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid",
-                    "database_name"
+                    "database_name",
+                    "id"
                 ]
             },
             "outputs": {
@@ -17559,7 +17545,7 @@
         "digitalocean-native:databases/v2:getDatabasesConnectionPool": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     },
@@ -17569,7 +17555,7 @@
                     }
                 },
                 "required": [
-                    "database_cluster_uuid",
+                    "id",
                     "pool_name"
                 ]
             },
@@ -17587,13 +17573,13 @@
         "digitalocean-native:databases/v2:getDatabasesEvictionPolicy": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid"
+                    "id"
                 ]
             },
             "outputs": {
@@ -17610,13 +17596,13 @@
         "digitalocean-native:databases/v2:getDatabasesMigrationStatus": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid"
+                    "id"
                 ]
             },
             "outputs": {
@@ -17633,7 +17619,7 @@
         "digitalocean-native:databases/v2:getDatabasesReplica": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     },
@@ -17643,7 +17629,7 @@
                     }
                 },
                 "required": [
-                    "database_cluster_uuid",
+                    "id",
                     "replica_name"
                 ]
             },
@@ -17661,13 +17647,13 @@
         "digitalocean-native:databases/v2:getDatabasesSqlMode": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid"
+                    "id"
                 ]
             },
             "outputs": {
@@ -17771,13 +17757,13 @@
         "digitalocean-native:databases/v2:listDatabasesConnectionPools": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid"
+                    "id"
                 ]
             },
             "outputs": {
@@ -17794,13 +17780,13 @@
         "digitalocean-native:databases/v2:listDatabasesFirewallRules": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid"
+                    "id"
                 ]
             },
             "outputs": {
@@ -17830,13 +17816,13 @@
         "digitalocean-native:databases/v2:listDatabasesReplicas": {
             "inputs": {
                 "properties": {
-                    "database_cluster_uuid": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a database cluster."
                     }
                 },
                 "required": [
-                    "database_cluster_uuid"
+                    "id"
                 ]
             },
             "outputs": {
@@ -17960,27 +17946,22 @@
                 ]
             }
         },
-        "digitalocean-native:droplets/v2:getActions": {
+        "digitalocean-native:droplets/v2:getDropletActions": {
             "inputs": {
                 "properties": {
-                    "droplet_id": {
-                        "type": "string",
-                        "description": "A unique identifier for a Droplet instance."
-                    },
                     "id": {
                         "type": "string",
                         "description": "A unique numeric ID that can be used to identify and reference an action."
                     }
                 },
                 "required": [
-                    "droplet_id",
                     "id"
                 ]
             },
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:GetActionsProperties"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:GetDropletActionsProperties"
                     }
                 },
                 "required": [
@@ -18014,13 +17995,13 @@
         "digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatus": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "droplet_id": {
                         "type": "string",
                         "description": "A unique identifier for a Droplet instance."
                     }
                 },
                 "required": [
-                    "id"
+                    "droplet_id"
                 ]
             },
             "outputs": {
@@ -18073,13 +18054,13 @@
         "digitalocean-native:droplets/v2:listDropletsAssociatedResources": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "droplet_id": {
                         "type": "string",
                         "description": "A unique identifier for a Droplet instance."
                     }
                 },
                 "required": [
-                    "id"
+                    "droplet_id"
                 ]
             },
             "outputs": {
@@ -18119,13 +18100,13 @@
         "digitalocean-native:droplets/v2:listDropletsFirewalls": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "droplet_id": {
                         "type": "string",
                         "description": "A unique identifier for a Droplet instance."
                     }
                 },
                 "required": [
-                    "id"
+                    "droplet_id"
                 ]
             },
             "outputs": {
@@ -18142,13 +18123,13 @@
         "digitalocean-native:droplets/v2:listDropletsKernels": {
             "inputs": {
                 "properties": {
-                    "droplet_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a Droplet instance."
                     }
                 },
                 "required": [
-                    "droplet_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18188,13 +18169,13 @@
         "digitalocean-native:droplets/v2:listDropletsSnapshots": {
             "inputs": {
                 "properties": {
-                    "droplet_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a Droplet instance."
                     }
                 },
                 "required": [
-                    "droplet_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18424,10 +18405,15 @@
                     "id": {
                         "type": "string",
                         "description": "A unique numeric ID that can be used to identify and reference an action."
+                    },
+                    "image_id": {
+                        "type": "string",
+                        "description": "A unique number that can be used to identify and reference a specific image."
                     }
                 },
                 "required": [
-                    "id"
+                    "id",
+                    "image_id"
                 ]
             },
             "outputs": {
@@ -18503,13 +18489,13 @@
         "digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrades": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes cluster."
                     }
                 },
                 "required": [
-                    "cluster_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18549,13 +18535,13 @@
         "digitalocean-native:kubernetes/v2:getKubernetesClusterLintResults": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes cluster."
                     }
                 },
                 "required": [
-                    "cluster_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18572,13 +18558,13 @@
         "digitalocean-native:kubernetes/v2:getKubernetesClusterUser": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes cluster."
                     }
                 },
                 "required": [
-                    "cluster_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18595,13 +18581,13 @@
         "digitalocean-native:kubernetes/v2:getKubernetesCredentials": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes cluster."
                     }
                 },
                 "required": [
-                    "cluster_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18618,17 +18604,12 @@
         "digitalocean-native:kubernetes/v2:getKubernetesNodePool": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
-                        "type": "string",
-                        "description": "A unique ID that can be used to reference a Kubernetes cluster."
-                    },
                     "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes node pool."
                     }
                 },
                 "required": [
-                    "cluster_id",
                     "id"
                 ]
             },
@@ -18646,13 +18627,13 @@
         "digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes cluster."
                     }
                 },
                 "required": [
-                    "cluster_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18682,13 +18663,13 @@
         "digitalocean-native:kubernetes/v2:listKubernetesNodePools": {
             "inputs": {
                 "properties": {
-                    "cluster_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique ID that can be used to reference a Kubernetes cluster."
                     }
                 },
                 "required": [
-                    "cluster_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -18774,7 +18755,137 @@
                 ]
             }
         },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
         "digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletLoad1Metrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetrics": {
+            "inputs": {},
+            "outputs": {
+                "properties": {
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
+                    }
+                },
+                "required": [
+                    "items"
+                ]
+            }
+        },
+        "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryTotalMetrics": {
             "inputs": {},
             "outputs": {
                 "properties": {
@@ -18852,13 +18963,13 @@
         "digitalocean-native:projects/v2:listProjectsResources": {
             "inputs": {
                 "properties": {
-                    "project_id": {
+                    "id": {
                         "type": "string",
                         "description": "A unique identifier for a project."
                     }
                 },
                 "required": [
-                    "project_id"
+                    "id"
                 ]
             },
             "outputs": {
@@ -19309,13 +19420,13 @@
         "digitalocean-native:uptime/v2:getUptimeCheckState": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "check_id": {
                         "type": "string",
                         "description": "A unique identifier for a check."
                     }
                 },
                 "required": [
-                    "id"
+                    "check_id"
                 ]
             },
             "outputs": {
@@ -19371,10 +19482,15 @@
                     "id": {
                         "type": "string",
                         "description": "A unique numeric ID that can be used to identify and reference an action."
+                    },
+                    "volume_id": {
+                        "type": "string",
+                        "description": "The ID of the block storage volume."
                     }
                 },
                 "required": [
-                    "id"
+                    "id",
+                    "volume_id"
                 ]
             },
             "outputs": {
@@ -19437,13 +19553,13 @@
         "digitalocean-native:volumes/v2:listVolumeActions": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "volume_id": {
                         "type": "string",
                         "description": "The ID of the block storage volume."
                     }
                 },
                 "required": [
-                    "id"
+                    "volume_id"
                 ]
             },
             "outputs": {
