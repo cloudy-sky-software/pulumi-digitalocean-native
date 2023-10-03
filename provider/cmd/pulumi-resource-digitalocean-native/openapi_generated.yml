@@ -1690,6 +1690,7 @@ components:
                             $ref: '#/components/schemas/apps_deployment'
                 - $ref: '#/components/schemas/pagination'
                 - $ref: '#/components/schemas/meta'
+            title: AppsDeploymentsResponse
         apps_domain:
             type: object
             properties:
@@ -1873,6 +1874,7 @@ components:
                     example: "0.00000001232"
         apps_list_alerts_response:
             type: object
+            title: AppsListAlertsResponse
             properties:
                 alerts:
                     type: array
@@ -1880,6 +1882,7 @@ components:
                         $ref: '#/components/schemas/app_alert'
         apps_list_instance_sizes_response:
             type: object
+            title: AppsListInstanceSizesResponse
             properties:
                 discount_percent:
                     type: number
@@ -1891,6 +1894,7 @@ components:
                         $ref: '#/components/schemas/apps_instance_size'
         apps_list_regions_response:
             type: object
+            title: AppsListRegionsResponse
             properties:
                 regions:
                     type: array
@@ -1898,6 +1902,7 @@ components:
                         $ref: '#/components/schemas/apps_region'
         apps_list_tiers_response:
             type: object
+            title: AppsListTiersResponse
             properties:
                 tiers:
                     type: array
@@ -1962,6 +1967,7 @@ components:
                             $ref: '#/components/schemas/app'
                 - $ref: '#/components/schemas/pagination'
                 - $ref: '#/components/schemas/meta'
+            title: AppsResponse
         apps_rollback_app_request:
             type: object
             title: AppsRollbackAppRequest
@@ -2042,6 +2048,7 @@ components:
                     example: volume-001
         associated_kubernetes_resources:
             type: object
+            title: AssociatedKubernetesResources
             description: An object containing the IDs of resources associated with a Kubernetes cluster.
             properties:
                 load_balancers:
@@ -2896,6 +2903,7 @@ components:
                     example: doadmin
         connection_pools:
             type: object
+            title: ConnectionPools
             properties:
                 pools:
                     type: array
@@ -4864,6 +4872,7 @@ components:
                 - count
         kubernetes_options:
             type: object
+            title: KubernetesOptions
             properties:
                 options:
                     properties:
@@ -5488,6 +5497,7 @@ components:
                     example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         neighbor_ids:
             type: object
+            title: NeighborIds
             properties:
                 neighbor_ids:
                     type: array
@@ -5689,6 +5699,7 @@ components:
                     example: running
         options:
             type: object
+            title: options
             properties:
                 options:
                     type: object
@@ -8486,7 +8497,7 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Actions
+                        title: DropletActions
                         properties:
                             action:
                                 $ref: '#/components/schemas/action'
@@ -8511,6 +8522,7 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Actions
         alert_policy_response:
             description: An alert policy.
             headers:
@@ -8548,6 +8560,7 @@ components:
                                         $ref: '#/components/schemas/alert'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: UptimeAlerts
         all_cdn_endpoints:
             description: The result will be a JSON object with an `endpoints` key. This will be set to an array of endpoint objects, each of which will contain the standard CDN endpoint attributes.
             headers:
@@ -8569,6 +8582,7 @@ components:
                                         $ref: '#/components/schemas/cdn_endpoint'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: CdnEndpoints
                         example:
                             endpoints:
                                 - certificate_id: 892071a0-bb95-49bc-8021-3afd67a210bf
@@ -8602,6 +8616,7 @@ components:
                                         $ref: '#/components/schemas/certificate'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Certificates
                     examples:
                         AllCertificates:
                             $ref: '#/components/examples/certificates_all'
@@ -8626,6 +8641,7 @@ components:
                                         $ref: '#/components/schemas/check'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: UptimeChecks
         all_clusters:
             description: |
                 The response will be a JSON object with a key called `kubernetes_clusters`.
@@ -8650,6 +8666,7 @@ components:
                                         $ref: '#/components/schemas/cluster'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: KubernetesClusters
                     examples:
                         All Kubernetes Clusters:
                             $ref: '#/components/examples/kubernetes_clusters_all'
@@ -8674,6 +8691,7 @@ components:
                                         $ref: '#/components/schemas/domain_record'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: DomainsRecords
                     examples:
                         All Domain Records:
                             $ref: '#/components/examples/domain_records_all'
@@ -8701,6 +8719,7 @@ components:
                                         $ref: '#/components/schemas/domain'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Domains
                         example:
                             domains:
                                 - name: example.com
@@ -8737,6 +8756,7 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: DropletActions
                     example:
                         actions:
                             - completed_at: "2020-07-20T19:37:45Z"
@@ -8794,6 +8814,7 @@ components:
                                         $ref: '#/components/schemas/droplet_snapshot'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: DropletsBackups
                     example:
                         backups:
                             - created_at: "2020-07-29T01:44:35Z"
@@ -8831,6 +8852,7 @@ components:
                                         $ref: '#/components/schemas/droplet_snapshot'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: DropletsSnapshots
                     example:
                         links: {}
                         meta:
@@ -8866,6 +8888,7 @@ components:
                                         $ref: '#/components/schemas/droplet'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Droplets
                     examples:
                         All Droplets:
                             $ref: '#/components/examples/droplets_all'
@@ -8892,6 +8915,7 @@ components:
                                         $ref: '#/components/schemas/firewall'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: DropletsFirewalls
                     example:
                         firewalls:
                             - created_at: "2020-05-23T21:24:00Z"
@@ -8965,6 +8989,7 @@ components:
                                         $ref: '#/components/schemas/image'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Images
                     examples:
                         All:
                             $ref: '#/components/examples/images_all'
@@ -8999,6 +9024,7 @@ components:
                                         $ref: '#/components/schemas/kernel'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: DropletsKernels
                     example:
                         kernels:
                             - id: 7515
@@ -9031,6 +9057,7 @@ components:
                                         $ref: '#/components/schemas/load_balancer'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: LoadBalancers
                     examples:
                         All Load Balancers:
                             $ref: '#/components/examples/load_balancers_all'
@@ -9049,6 +9076,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: KubernetesNodePools
                         properties:
                             node_pools:
                                 type: array
@@ -9165,6 +9193,7 @@ components:
                                         $ref: '#/components/schemas/region'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Regions
                         example:
                             links:
                                 pages:
@@ -9220,6 +9249,7 @@ components:
                                         $ref: '#/components/schemas/repository'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: RegistryRepositories
                         example:
                             meta:
                                 total: 1
@@ -9256,6 +9286,7 @@ components:
                                         $ref: '#/components/schemas/repository_v2'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: RegistryRepositoriesV2
                         example:
                             links:
                                 pages:
@@ -9308,6 +9339,7 @@ components:
                                         $ref: '#/components/schemas/size'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Sizes
                         example:
                             links:
                                 pages:
@@ -9376,6 +9408,7 @@ components:
                                         $ref: '#/components/schemas/vpc'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Vpcs
                         example:
                             links: {}
                             meta:
@@ -9559,6 +9592,7 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/associated_resource'
+                        title: DropletsAssociatedResources
                     example:
                         floating_ips:
                             - cost: "4.00"
@@ -9700,6 +9734,7 @@ components:
                                         $ref: '#/components/schemas/billing_history'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta_optional_total'
+                        title: BillingHistory
                         example:
                             billing_history:
                                 - amount: "12.34"
@@ -10066,6 +10101,7 @@ components:
                 application/json:
                     schema:
                         type: object
+                        title: DatabasesBackups
                         required:
                             - backups
                         properties:
@@ -10156,6 +10192,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: DatabasesClusters
                         properties:
                             databases:
                                 type: array
@@ -10274,6 +10311,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: DatabasesReplicas
                         properties:
                             replicas:
                                 type: array
@@ -10313,6 +10351,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: Databases
                         properties:
                             dbs:
                                 type: array
@@ -10939,6 +10978,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: DatabasesFirewallRules
                         properties:
                             rules:
                                 type: array
@@ -11068,6 +11108,7 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: FloatingIPsAction
                         example:
                             actions:
                                 - completed_at: "2015-11-21T21:51:09Z"
@@ -11160,6 +11201,7 @@ components:
                                         $ref: '#/components/schemas/floating_ip'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: FloatingIPs
                         example:
                             floating_ips:
                                 - droplet: null
@@ -11225,6 +11267,7 @@ components:
                 application/json:
                     schema:
                         type: object
+                        title: RegistryGarbageCollections
                         properties:
                             garbage_collections:
                                 type: array
@@ -11360,6 +11403,7 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: ImageActions
                     example:
                         actions:
                             - completed_at: "2014-07-25T15:10:20Z"
@@ -11605,6 +11649,7 @@ components:
                                         $ref: '#/components/schemas/invoice_preview'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Invoices
                         example:
                             invoice_preview:
                                 amount: "34.56"
@@ -11670,6 +11715,7 @@ components:
                             - $ref: '#/components/schemas/list_alert_policy'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: MonitoringAlertPolicy
                         example:
                             links:
                                 first: https//api.digitalocean.com/v2/monitoring/alerts?page=1&per_page=10
@@ -11765,6 +11811,7 @@ components:
                                         $ref: '#/components/schemas/firewall'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Firewalls
                     example:
                         firewalls:
                             - created_at: "2017-05-23T21:23:59Z"
@@ -11865,6 +11912,7 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/namespace_info'
+                        title: FunctionsNamespaces
         list_regions:
             description: A JSON object with key `regions`
             headers:
@@ -11900,6 +11948,7 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/trigger_info'
+                        title: FunctionsTriggers
         load_balancer_create:
             description: Accepted
             headers:
@@ -12043,6 +12092,7 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/droplet'
+                        title: DropletsNeighbors
         new_app:
             description: A JSON or YAML of a `spec` object.
             headers:
@@ -12290,6 +12340,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: OneClicks
                         properties:
                             1_clicks:
                                 type: array
@@ -12557,6 +12608,7 @@ components:
                                         $ref: '#/components/schemas/project'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Projects
                         example:
                             links:
                                 pages:
@@ -12752,6 +12804,7 @@ components:
                                         $ref: '#/components/schemas/repository_manifest'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: RegistryRepositoryManifests
                         example:
                             links:
                                 pages:
@@ -12799,6 +12852,7 @@ components:
                                         $ref: '#/components/schemas/repository_tag'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: RegistryRepositoryTags
                         example:
                             meta:
                                 total: 1
@@ -12912,6 +12966,7 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: ReservedIPsActions
                         example:
                             actions:
                                 - completed_at: "2015-11-21T21:51:09Z"
@@ -13004,6 +13059,7 @@ components:
                                         $ref: '#/components/schemas/reserved_ip'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: ReservedIPs
                         example:
                             links: {}
                             meta:
@@ -13061,6 +13117,7 @@ components:
                                         $ref: '#/components/schemas/resource'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: ProjectsResourcesDefault
                         example:
                             links:
                                 pages:
@@ -13116,6 +13173,7 @@ components:
                                         $ref: '#/components/schemas/snapshots'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Snapshots
                     examples:
                         All Snapshots:
                             $ref: '#/components/examples/snapshots_all'
@@ -13175,6 +13233,7 @@ components:
                                         $ref: '#/components/schemas/sshKeys'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: SshKeys
                         example:
                             links: {}
                             meta:
@@ -13270,6 +13329,7 @@ components:
                                         $ref: '#/components/schemas/tags'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Tags
                         example:
                             links: {}
                             meta:
@@ -13649,6 +13709,7 @@ components:
             content:
                 application/json:
                     schema:
+                        title: DatabasesUsers
                         properties:
                             users:
                                 type: array
@@ -13754,6 +13815,7 @@ components:
                                         $ref: '#/components/schemas/volumeAction'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: VolumeActions
                         example:
                             actions:
                                 - completed_at: "2020-11-21T21:51:09Z"
@@ -13840,6 +13902,7 @@ components:
                                         $ref: '#/components/schemas/snapshots'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: VolumeSnapshots
                         example:
                             links: {}
                             meta:
@@ -13879,6 +13942,7 @@ components:
                                         $ref: '#/components/schemas/volume_full'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: Volumes
                     examples:
                         All Volumes:
                             $ref: '#/components/examples/volumes_all'
@@ -13907,6 +13971,7 @@ components:
                                         $ref: '#/components/schemas/vpc_member'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
+                        title: VpcsMembers
                         example:
                             links: {}
                             members:
