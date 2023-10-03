@@ -15,12 +15,6 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	regionSchema.Value.Properties["features"].Value.Type = "array"
 	regionSchema.Value.Properties["sizes"].Value.Type = "array"
 
-	// Add a title for droplet_action type.
-	// addTitleForType(openAPIDoc, "droplet_action", "DropletAction")
-
-	// Add a title for image_action_base type.
-	// addTitleForType(openAPIDoc, "image_action_base", "ImageAction")
-
 	// for _, ty := range openAPIDoc.Components.Schemas {
 	// 	fixObjectPropertyType(ty)
 	// }
@@ -34,14 +28,6 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixReservedIpActionUnassignType(openAPIDoc)
 	fixReservedIpType(openAPIDoc)
 	fixPageLinksType(openAPIDoc)
-}
-
-func addTitleForType(openAPIDoc *openapi3.T, typeName, title string) {
-	theType, ok := openAPIDoc.Components.Schemas[typeName]
-	if !ok {
-		panic("Expected to find " + typeName + " type")
-	}
-	theType.Value.Title = title
 }
 
 func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {
@@ -74,46 +60,46 @@ func fixReservedIpType(openAPIDoc *openapi3.T) {
 	schemaRef.Value.Properties["droplet"].Value.Example = nil
 }
 
-func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
-	// Add `type: object` for any type that does not have the `type` property
-	// of the schema set.
-	if objectType.Value.Type != "" {
-		return
-	}
+// func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
+// 	// Add `type: object` for any type that does not have the `type` property
+// 	// of the schema set.
+// 	if objectType.Value.Type != "" {
+// 		return
+// 	}
 
-	if len(objectType.Value.Properties) > 0 {
-		objectType.Value.Type = "object"
-	}
+// 	if len(objectType.Value.Properties) > 0 {
+// 		objectType.Value.Type = "object"
+// 	}
 
-	// if len(objectType.Value.AllOf) > 0 {
-	// 	for _, allOfTy := range objectType.Value.AllOf {
-	// 		fixObjectPropertyType(allOfTy)
-	// 	}
-	// }
-}
+// 	// if len(objectType.Value.AllOf) > 0 {
+// 	// 	for _, allOfTy := range objectType.Value.AllOf {
+// 	// 		fixObjectPropertyType(allOfTy)
+// 	// 	}
+// 	// }
+// }
 
-func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
-	responseContent := responseRef.Value.Content.Get("application/json")
-	if responseContent == nil {
-		return
-	}
+// func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
+// 	responseContent := responseRef.Value.Content.Get("application/json")
+// 	if responseContent == nil {
+// 		return
+// 	}
 
-	// Add `type: object` for any type that does not have the `type` property
-	// of the schema set.
-	if responseContent.Schema.Value.Type != "" {
-		return
-	}
+// 	// Add `type: object` for any type that does not have the `type` property
+// 	// of the schema set.
+// 	if responseContent.Schema.Value.Type != "" {
+// 		return
+// 	}
 
-	// if len(responseContent.Schema.Value.Properties) > 0 {
-	// 	responseContent.Schema.Value.Type = "object"
-	// }
+// 	// if len(responseContent.Schema.Value.Properties) > 0 {
+// 	// 	responseContent.Schema.Value.Type = "object"
+// 	// }
 
-	// if len(responseContent.Schema.Value.AllOf) > 0 {
-	// 	for _, allOfTy := range responseContent.Schema.Value.AllOf {
-	// 		fixObjectPropertyType(allOfTy)
-	// 	}
-	// }
-}
+// 	// if len(responseContent.Schema.Value.AllOf) > 0 {
+// 	// 	for _, allOfTy := range responseContent.Schema.Value.AllOf {
+// 	// 		fixObjectPropertyType(allOfTy)
+// 	// 	}
+// 	// }
+// }
 
 func fixFloatingIpType(openAPIDoc *openapi3.T) {
 	floatingIp, ok := openAPIDoc.Components.Schemas["floating_ip"]
