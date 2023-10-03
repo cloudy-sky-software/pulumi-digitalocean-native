@@ -21,9 +21,9 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	// Add a title for image_action_base type.
 	addTitleForType(openAPIDoc, "image_action_base", "ImageAction")
 
-	for _, ty := range openAPIDoc.Components.Schemas {
-		fixObjectPropertyType(ty)
-	}
+	// for _, ty := range openAPIDoc.Components.Schemas {
+	// 	fixObjectPropertyType(ty)
+	// }
 
 	// for _, ty := range openAPIDoc.Components.Responses {
 	// 	fixResponseObjectPropertyType(ty)

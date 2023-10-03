@@ -64,7 +64,6 @@ components:
                     example: b6fr89dbf6d9156cace5f3c78dc9851d957381ef
         action:
             type: object
-            title: action
             properties:
                 completed_at:
                     type: string
@@ -230,7 +229,6 @@ components:
                     example: 5m
         alert_policy_request:
             type: object
-            title: AlertPolicyRequest
             required:
                 - type
                 - description
@@ -783,7 +781,6 @@ components:
                         could be `domain.com`.
                     example: example.com
         app_domain_validation:
-            type: object
             properties:
                 txt_name:
                     type: string
@@ -994,7 +991,6 @@ components:
                     example: https://mypapertrailendpoint.com
         app_metrics_bandwidth_usage:
             type: object
-            title: AppMetricsBandwidthUsage
             properties:
                 app_bandwidth_usage:
                     type: array
@@ -1021,7 +1017,6 @@ components:
                     example: "513668"
         app_metrics_bandwidth_usage_request:
             type: object
-            title: AppMetricsBandwidthUsageRequest
             required:
                 - app_ids
             properties:
@@ -1041,7 +1036,6 @@ components:
                     example: "2023-01-17T00:00:00Z"
         app_propose:
             type: object
-            title: AppPropose
             required:
                 - spec
             properties:
@@ -1084,7 +1078,6 @@ components:
                     $ref: '#/components/schemas/app_spec'
         app_response:
             type: object
-            title: AppResponse
             properties:
                 app:
                     $ref: '#/components/schemas/app'
@@ -1350,7 +1343,6 @@ components:
                     $ref: '#/components/schemas/app_alert'
         apps_assign_app_alert_destinations_request:
             type: object
-            title: AppsAssignAppAlertDestinationsRequest
             properties:
                 emails:
                     type: array
@@ -1411,7 +1403,6 @@ components:
                     example: 5h30m
         apps_create_app_request:
             type: object
-            title: AppsCreateAppRequest
             required:
                 - spec
             properties:
@@ -1422,7 +1413,6 @@ components:
                     $ref: '#/components/schemas/app_spec'
         apps_create_deployment_request:
             type: object
-            title: AppsCreateDeploymentRequest
             properties:
                 force_build:
                     type: boolean
@@ -1642,7 +1632,6 @@ components:
             example: SUCCESS
         apps_deployment_response:
             type: object
-            title: AppsDeploymentResponse
             properties:
                 deployment:
                     $ref: '#/components/schemas/apps_deployment'
@@ -1690,7 +1679,6 @@ components:
                             $ref: '#/components/schemas/apps_deployment'
                 - $ref: '#/components/schemas/pagination'
                 - $ref: '#/components/schemas/meta'
-            title: AppsDeploymentsResponse
         apps_domain:
             type: object
             properties:
@@ -1739,13 +1727,11 @@ components:
                         type: object
         apps_get_instance_size_response:
             type: object
-            title: AppsGetInstanceSizeResponse
             properties:
                 instance_size:
                     $ref: '#/components/schemas/apps_instance_size'
         apps_get_logs_response:
             type: object
-            title: AppsGetLogsResponse
             properties:
                 historic_urls:
                     type: array
@@ -1759,7 +1745,6 @@ components:
                     example: ws://logs/build
         apps_get_tier_response:
             type: object
-            title: AppsGetTierResponse
             properties:
                 tier:
                     $ref: '#/components/schemas/apps_tier'
@@ -1874,7 +1859,6 @@ components:
                     example: "0.00000001232"
         apps_list_alerts_response:
             type: object
-            title: AppsListAlertsResponse
             properties:
                 alerts:
                     type: array
@@ -1882,7 +1866,6 @@ components:
                         $ref: '#/components/schemas/app_alert'
         apps_list_instance_sizes_response:
             type: object
-            title: AppsListInstanceSizesResponse
             properties:
                 discount_percent:
                     type: number
@@ -1894,7 +1877,6 @@ components:
                         $ref: '#/components/schemas/apps_instance_size'
         apps_list_regions_response:
             type: object
-            title: AppsListRegionsResponse
             properties:
                 regions:
                     type: array
@@ -1902,7 +1884,6 @@ components:
                         $ref: '#/components/schemas/apps_region'
         apps_list_tiers_response:
             type: object
-            title: AppsListTiersResponse
             properties:
                 tiers:
                     type: array
@@ -1967,10 +1948,8 @@ components:
                             $ref: '#/components/schemas/app'
                 - $ref: '#/components/schemas/pagination'
                 - $ref: '#/components/schemas/meta'
-            title: AppsResponse
         apps_rollback_app_request:
             type: object
-            title: AppsRollbackAppRequest
             properties:
                 deployment_id:
                     type: string
@@ -2029,7 +2008,6 @@ components:
                     example: "10000000"
         apps_update_app_request:
             type: object
-            title: AppsUpdateAppRequest
             required:
                 - spec
             properties:
@@ -2048,7 +2026,6 @@ components:
                     example: volume-001
         associated_kubernetes_resources:
             type: object
-            title: AssociatedKubernetesResources
             description: An object containing the IDs of resources associated with a Kubernetes cluster.
             properties:
                 load_balancers:
@@ -2093,7 +2070,6 @@ components:
                     example: ubuntu-s-1vcpu-1gb-nyc1-01-1585758823330
         associated_resource_status:
             type: object
-            title: AssociatedResourceStatus
             description: An objects containing information about a resources scheduled for deletion.
             properties:
                 completed_at:
@@ -2152,7 +2128,6 @@ components:
                 - $ref: '#/components/schemas/link_to_prev_page'
         balance:
             type: object
-            title: balance
             properties:
                 account_balance:
                     type: string
@@ -2257,7 +2232,6 @@ components:
                     readOnly: true
         cdn_endpoint:
             type: object
-            title: CdnEndpoint
             required:
                 - origin
             properties:
@@ -2581,7 +2555,6 @@ components:
                     example: https
         cluster:
             type: object
-            title: cluster
             required:
                 - name
                 - region
@@ -2704,7 +2677,6 @@ components:
                     example: c33931f2-a26a-4e61-b85c-4e95a2ec431b
         cluster_registries:
             type: object
-            title: ClusterRegistries
             properties:
                 cluster_uuids:
                     type: array
@@ -2716,7 +2688,6 @@ components:
                         type: string
         cluster_update:
             type: object
-            title: ClusterUpdate
             required:
                 - name
             properties:
@@ -2753,7 +2724,6 @@ components:
                         type: string
         clusterlint_request:
             type: object
-            title: ClusterlintRequest
             properties:
                 exclude_checks:
                     type: array
@@ -2788,7 +2758,6 @@ components:
                         type: string
         clusterlint_results:
             type: object
-            title: ClusterlintResults
             properties:
                 completed_at:
                     type: string
@@ -2840,7 +2809,6 @@ components:
                     example: 50c2f44c-011d-493e-aee5-361a4a0d1844
         connection_pool:
             type: object
-            title: ConnectionPool
             required:
                 - name
                 - mode
@@ -2878,7 +2846,6 @@ components:
                     example: doadmin
         connection_pool_update:
             type: object
-            title: ConnectionPoolUpdate
             required:
                 - mode
                 - size
@@ -2903,7 +2870,6 @@ components:
                     example: doadmin
         connection_pools:
             type: object
-            title: ConnectionPools
             properties:
                 pools:
                     type: array
@@ -2913,7 +2879,6 @@ components:
                         $ref: '#/components/schemas/connection_pool'
         create_namespace:
             type: object
-            title: CreateNamespace
             required:
                 - region
                 - label
@@ -2928,7 +2893,6 @@ components:
                     example: nyc1
         create_trigger:
             type: object
-            title: CreateTrigger
             required:
                 - name
                 - function
@@ -2956,7 +2920,6 @@ components:
                     example: SCHEDULED
         credentials:
             type: object
-            title: credentials
             properties:
                 certificate_authority_data:
                     type: string
@@ -3005,7 +2968,6 @@ components:
                     example: $DIGITALOCEAN_TOKEN
         database:
             type: object
-            title: database
             required:
                 - name
             properties:
@@ -3154,7 +3116,6 @@ components:
                     readOnly: true
         database_cluster_resize:
             type: object
-            title: DatabaseClusterResize
             required:
                 - size
                 - num_nodes
@@ -3170,7 +3131,6 @@ components:
                     example: db-s-4vcpu-8gb
         database_config:
             type: object
-            title: DatabaseConfig
             properties:
                 config:
                     oneOf:
@@ -3247,7 +3207,6 @@ components:
                         $ref: '#/components/schemas/database_layout_option'
         database_maintenance_window:
             type: object
-            title: DatabaseMaintenanceWindow
             nullable: true
             required:
                 - day
@@ -3407,7 +3366,6 @@ components:
                         type: string
         destroy_associated_kubernetes_resources:
             type: object
-            title: DestroyAssociatedKubernetesResources
             description: An object containing the IDs of resources to be destroyed along with their associated with a Kubernetes cluster.
             properties:
                 load_balancers:
@@ -3472,7 +3430,6 @@ components:
             example: Ubuntu
         docker_credentials:
             type: object
-            title: DockerCredentials
             properties:
                 auths:
                     type: object
@@ -3486,7 +3443,6 @@ components:
                                     example: YjdkMDNhNjk0N2IyMTdlZmI2ZjNlYzNiZDM1MDQ1ODI6YjdkMDNhNjk0N2IyMTdlZmI2ZjNlYzNiZDM1MDQ1ODIK
         domain:
             type: object
-            title: domain
             properties:
                 ip_address:
                     type: string
@@ -3518,7 +3474,6 @@ components:
                     readOnly: true
         domain_record:
             type: object
-            title: DomainRecord
             required:
                 - type
             properties:
@@ -3570,7 +3525,6 @@ components:
                     - type
                     - name
                     - data
-            title: DomainRecordA
         domain_record_aaaa:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3578,7 +3532,6 @@ components:
                     - type
                     - name
                     - data
-            title: DomainRecordAaaa
         domain_record_caa:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3588,7 +3541,6 @@ components:
                     - data
                     - flags
                     - tag
-            title: DomainRecordCaa
         domain_record_cname:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3596,7 +3548,6 @@ components:
                     - type
                     - name
                     - data
-            title: DomainRecordCname
         domain_record_mx:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3604,7 +3555,6 @@ components:
                     - type
                     - data
                     - priority
-            title: DomainRecordMx
         domain_record_ns:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3614,14 +3564,12 @@ components:
                     - data
                     - flags
                     - tag
-            title: DomainRecordNs
         domain_record_soa:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
                 - required:
                     - type
                     - ttl
-            title: DomainRecordSoa
         domain_record_srv:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3633,7 +3581,6 @@ components:
                     - port
                     - flags
                     - tag
-            title: DomainRecordSrv
         domain_record_txt:
             allOf:
                 - $ref: '#/components/schemas/domain_record'
@@ -3643,7 +3590,6 @@ components:
                     - data
                     - flags
                     - tag
-            title: DomainRecordTxt
         droplet:
             type: object
             required:
@@ -3823,7 +3769,6 @@ components:
                         type: integer
                         description: A unique number used to identify and reference a specific kernel.
                         example: 1.2389723e+07
-            title: DropletActionChangeKernel
         droplet_action_rebuild:
             allOf:
                 - $ref: '#/components/schemas/droplet_action'
@@ -3835,7 +3780,6 @@ components:
                             - type: integer
                         description: The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
                         example: ubuntu-20-04-x64
-            title: DropletActionRebuild
         droplet_action_rename:
             allOf:
                 - $ref: '#/components/schemas/droplet_action'
@@ -3845,7 +3789,6 @@ components:
                         type: string
                         description: The new name for the Droplet.
                         example: nifty-new-name
-            title: DropletActionRename
         droplet_action_resize:
             allOf:
                 - $ref: '#/components/schemas/droplet_action'
@@ -3859,7 +3802,6 @@ components:
                         type: string
                         description: The slug identifier for the size to which you wish to resize the Droplet.
                         example: s-2vcpu-2gb
-            title: DropletActionResize
         droplet_action_restore:
             allOf:
                 - $ref: '#/components/schemas/droplet_action'
@@ -3869,7 +3811,6 @@ components:
                         type: integer
                         description: The ID of a backup of the current Droplet instance to restore from.
                         example: 1.2389723e+07
-            title: DropletActionRestore
         droplet_action_snapshot:
             allOf:
                 - $ref: '#/components/schemas/droplet_action'
@@ -3879,7 +3820,6 @@ components:
                         type: string
                         description: The name to give the new snapshot of the Droplet.
                         example: Nifty New Snapshot
-            title: DropletActionSnapshot
         droplet_create:
             type: object
             required:
@@ -4294,14 +4234,12 @@ components:
                         type: integer
                         description: The ID of the Droplet that the floating IP will be assigned to.
                         example: 7.58604968e+08
-            title: FloatingIpActionAssign
         floating_ip_action_unassign:
             allOf:
                 - $ref: '#/components/schemas/floatingIPsAction'
                 - type: object
                   required:
                     - type
-            title: FloatingIpActionUnassign
         floating_ip_create:
             oneOf:
                 - type: object
@@ -4327,7 +4265,6 @@ components:
                         type: string
                         description: The slug identifier for the region the floating IP will be reserved to.
                         example: nyc3
-            title: FloatingIpCreate
         floatingIPsAction:
             type: object
             required:
@@ -4576,7 +4513,6 @@ components:
                   properties:
                     region:
                         $ref: '#/components/schemas/region_slug'
-            title: ImageActionTransfer
         image_description:
             type: string
             description: An optional free-form text field to describe an image.
@@ -4598,7 +4534,6 @@ components:
                         description: A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
                         example: http://cloud-images.ubuntu.com/minimal/releases/bionic/release/ubuntu-18.04-minimal-cloudimg-amd64.img
             type: object
-            title: ImageNewCustom
             example:
                 description: Cloud-optimized image w/ small footprint
                 distribution: Ubuntu
@@ -4614,7 +4549,6 @@ components:
                 - region
         image_update:
             type: object
-            title: ImageUpdate
             properties:
                 description:
                     $ref: '#/components/schemas/image_description'
@@ -4776,7 +4710,6 @@ components:
                 - $ref: '#/components/schemas/kubernetes_node_pool_size'
                 - $ref: '#/components/schemas/kubernetes_node_pool_base'
             type: object
-            title: KubernetesNodePool
             required:
                 - name
                 - size
@@ -4866,13 +4799,11 @@ components:
             allOf:
                 - $ref: '#/components/schemas/kubernetes_node_pool_base'
             type: object
-            title: KubernetesNodePoolUpdate
             required:
                 - name
                 - count
         kubernetes_options:
             type: object
-            title: KubernetesOptions
             properties:
                 options:
                     properties:
@@ -5169,7 +5100,6 @@ components:
                   required:
                     - tag
                     - region
-            title: LoadBalancerCreate
         maintenance_policy:
             type: object
             description: An object specifying the maintenance window policy for the Kubernetes cluster.
@@ -5224,7 +5154,6 @@ components:
                     example: 1
         metrics:
             type: object
-            title: metrics
             required:
                 - status
                 - data
@@ -5497,7 +5426,6 @@ components:
                     example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         neighbor_ids:
             type: object
-            title: NeighborIds
             properties:
                 neighbor_ids:
                     type: array
@@ -5656,7 +5584,6 @@ components:
                     example: kubernetes
         oneClicks_create:
             type: object
-            title: OneClicksCreate
             required:
                 - addon_slugs
                 - cluster_uuid
@@ -5678,7 +5605,6 @@ components:
                     example: 50a994b6-c303-438f-9495-7e896cfe6b08
         online_migration:
             type: object
-            title: OnlineMigration
             properties:
                 created_at:
                     type: string
@@ -5699,7 +5625,6 @@ components:
                     example: running
         options:
             type: object
-            title: options
             properties:
                 options:
                     type: object
@@ -6208,10 +6133,8 @@ components:
                         type: boolean
                         description: If true, all resources will be added to this project if no project is specified.
                         example: false
-            title: project
         project_assignment:
             type: object
-            title: ProjectAssignment
             properties:
                 resources:
                     type: array
@@ -6291,7 +6214,6 @@ components:
                     readOnly: true
         purge_cache:
             type: object
-            title: PurgeCache
             required:
                 - files
             properties:
@@ -6518,7 +6440,6 @@ components:
                         - $ref: '#/components/schemas/subscription'
         registry_create:
             type: object
-            title: RegistryCreate
             required:
                 - name
                 - subscription_tier_slug
@@ -6706,7 +6627,6 @@ components:
                         type: integer
                         description: The ID of the Droplet that the reserved IP will be assigned to.
                         example: 7.58604968e+08
-            title: ReservedIpActionAssign
         reserved_ip_action_type:
             type: object
             required:
@@ -6733,7 +6653,6 @@ components:
                     droplet_id:
                         type: integer
                         description: The ID of the Droplet that the reserved IP will be unassigned from.
-            title: ReservedIpActionUnassign
             required:
                 - droplet_id
         reserved_ip_create:
@@ -6761,7 +6680,6 @@ components:
                         type: string
                         description: The slug identifier for the region the reserved IP will be reserved to.
                         example: nyc3
-            title: ReservedIpCreate
         resource:
             type: object
             properties:
@@ -6812,7 +6730,6 @@ components:
                     example: '* * * * *'
         selective_destroy_associated_resource:
             type: object
-            title: SelectiveDestroyAssociatedResource
             description: An object containing information about a resource to be scheduled for deletion.
             properties:
                 floating_ips:
@@ -7029,7 +6946,6 @@ components:
                     example: 2.34
         source_database:
             type: object
-            title: SourceDatabase
             properties:
                 disable_ssl:
                     type: boolean
@@ -7060,7 +6976,6 @@ components:
                             example: doadmin
         sql_mode:
             type: object
-            title: SqlMode
             required:
                 - sql_mode
             properties:
@@ -7084,7 +6999,6 @@ components:
             example: My SSH Public Key
         sshKeys:
             type: object
-            title: sshKeys
             required:
                 - public_key
                 - name
@@ -7197,7 +7111,6 @@ components:
                     example: true
         tags:
             type: object
-            title: tags
             description: |-
                 A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
                 Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
@@ -7275,7 +7188,6 @@ components:
                     example: https://api.digitalocean.com/v2/images/7555620
         tags_resource:
             type: object
-            title: TagsResource
             required:
                 - resources
             properties:
@@ -7362,7 +7274,6 @@ components:
                     example: "2022-11-11T04:16:45Z"
         update_endpoint:
             type: object
-            title: UpdateEndpoint
             properties:
                 certificate_id:
                     type: string
@@ -7387,7 +7298,6 @@ components:
                     example: 3600
         update_registry:
             type: object
-            title: UpdateRegistry
             properties:
                 cancel:
                     type: boolean
@@ -7395,7 +7305,6 @@ components:
                     example: true
         update_trigger:
             type: object
-            title: UpdateTrigger
             properties:
                 is_enabled:
                     type: boolean
@@ -7410,7 +7319,6 @@ components:
             pattern: ^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*
         user:
             type: object
-            title: user
             properties:
                 kubernetes_cluster_user:
                     type: object
@@ -7429,7 +7337,6 @@ components:
                             example: sammy@digitalocean.com
         validate_registry:
             type: object
-            title: ValidateRegistry
             required:
                 - name
             properties:
@@ -7445,7 +7352,6 @@ components:
             example: "8"
         version-2:
             type: object
-            title: version-2
             properties:
                 version:
                     $ref: '#/components/schemas/version'
@@ -7464,7 +7370,6 @@ components:
                     tags:
                         $ref: '#/components/schemas/tags_array'
             type: object
-            title: VolumeActionPostAttach
         volume_action_post_base:
             type: object
             required:
@@ -7489,7 +7394,6 @@ components:
                     droplet_id:
                         $ref: '#/components/schemas/volume_action_droplet_id'
             type: object
-            title: VolumeActionPostDetach
         volume_action_post_resize:
             allOf:
                 - $ref: '#/components/schemas/volume_action_post_base'
@@ -7501,7 +7405,6 @@ components:
                         description: The new size of the block storage volume in GiB (1024^3).
                         maximum: 16384
             type: object
-            title: VolumeActionPostResize
         volume_base:
             type: object
             properties:
@@ -7580,7 +7483,6 @@ components:
                         readOnly: true
             type: object
         volume_snapshot_id:
-            type: object
             properties:
                 snapshot_id:
                     type: string
@@ -8481,7 +8383,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Account
                         properties:
                             account:
                                 $ref: '#/components/schemas/account'
@@ -8497,7 +8398,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DropletActions
                         properties:
                             action:
                                 $ref: '#/components/schemas/action'
@@ -8522,7 +8422,6 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Actions
         alert_policy_response:
             description: An alert policy.
             headers:
@@ -8535,7 +8434,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: MonitoringAlertPolicy
                         properties:
                             policy:
                                 $ref: '#/components/schemas/alert_policy'
@@ -8560,7 +8458,6 @@ components:
                                         $ref: '#/components/schemas/alert'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: UptimeAlerts
         all_cdn_endpoints:
             description: The result will be a JSON object with an `endpoints` key. This will be set to an array of endpoint objects, each of which will contain the standard CDN endpoint attributes.
             headers:
@@ -8582,7 +8479,6 @@ components:
                                         $ref: '#/components/schemas/cdn_endpoint'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: CdnEndpoints
                         example:
                             endpoints:
                                 - certificate_id: 892071a0-bb95-49bc-8021-3afd67a210bf
@@ -8616,7 +8512,6 @@ components:
                                         $ref: '#/components/schemas/certificate'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Certificates
                     examples:
                         AllCertificates:
                             $ref: '#/components/examples/certificates_all'
@@ -8641,7 +8536,6 @@ components:
                                         $ref: '#/components/schemas/check'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: UptimeChecks
         all_clusters:
             description: |
                 The response will be a JSON object with a key called `kubernetes_clusters`.
@@ -8666,7 +8560,6 @@ components:
                                         $ref: '#/components/schemas/cluster'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: KubernetesClusters
                     examples:
                         All Kubernetes Clusters:
                             $ref: '#/components/examples/kubernetes_clusters_all'
@@ -8691,7 +8584,6 @@ components:
                                         $ref: '#/components/schemas/domain_record'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: DomainsRecords
                     examples:
                         All Domain Records:
                             $ref: '#/components/examples/domain_records_all'
@@ -8719,7 +8611,6 @@ components:
                                         $ref: '#/components/schemas/domain'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Domains
                         example:
                             domains:
                                 - name: example.com
@@ -8756,7 +8647,6 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: DropletActions
                     example:
                         actions:
                             - completed_at: "2020-07-20T19:37:45Z"
@@ -8814,7 +8704,6 @@ components:
                                         $ref: '#/components/schemas/droplet_snapshot'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: DropletsBackups
                     example:
                         backups:
                             - created_at: "2020-07-29T01:44:35Z"
@@ -8852,7 +8741,6 @@ components:
                                         $ref: '#/components/schemas/droplet_snapshot'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: DropletsSnapshots
                     example:
                         links: {}
                         meta:
@@ -8888,7 +8776,6 @@ components:
                                         $ref: '#/components/schemas/droplet'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Droplets
                     examples:
                         All Droplets:
                             $ref: '#/components/examples/droplets_all'
@@ -8915,7 +8802,6 @@ components:
                                         $ref: '#/components/schemas/firewall'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: DropletsFirewalls
                     example:
                         firewalls:
                             - created_at: "2020-05-23T21:24:00Z"
@@ -8989,7 +8875,6 @@ components:
                                         $ref: '#/components/schemas/image'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Images
                     examples:
                         All:
                             $ref: '#/components/examples/images_all'
@@ -9024,7 +8909,6 @@ components:
                                         $ref: '#/components/schemas/kernel'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: DropletsKernels
                     example:
                         kernels:
                             - id: 7515
@@ -9057,7 +8941,6 @@ components:
                                         $ref: '#/components/schemas/load_balancer'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: LoadBalancers
                     examples:
                         All Load Balancers:
                             $ref: '#/components/examples/load_balancers_all'
@@ -9076,7 +8959,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: KubernetesNodePools
                         properties:
                             node_pools:
                                 type: array
@@ -9193,7 +9075,6 @@ components:
                                         $ref: '#/components/schemas/region'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Regions
                         example:
                             links:
                                 pages:
@@ -9249,7 +9130,6 @@ components:
                                         $ref: '#/components/schemas/repository'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: RegistryRepositories
                         example:
                             meta:
                                 total: 1
@@ -9286,7 +9166,6 @@ components:
                                         $ref: '#/components/schemas/repository_v2'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: RegistryRepositoriesV2
                         example:
                             links:
                                 pages:
@@ -9339,7 +9218,6 @@ components:
                                         $ref: '#/components/schemas/size'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Sizes
                         example:
                             links:
                                 pages:
@@ -9408,7 +9286,6 @@ components:
                                         $ref: '#/components/schemas/vpc'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Vpcs
                         example:
                             links: {}
                             meta:
@@ -9592,7 +9469,6 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/associated_resource'
-                        title: DropletsAssociatedResources
                     example:
                         floating_ips:
                             - cost: "4.00"
@@ -9671,7 +9547,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: KubernetesAvailableUpgrades
                         properties:
                             available_upgrade_versions:
                                 type: array
@@ -9734,7 +9609,6 @@ components:
                                         $ref: '#/components/schemas/billing_history'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta_optional_total'
-                        title: BillingHistory
                         example:
                             billing_history:
                                 - amount: "12.34"
@@ -9766,7 +9640,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: DatabasesCa
                         required:
                             - ca
                         properties:
@@ -9896,7 +9769,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: DatabasesConnectionPool
                         required:
                             - pool
                         properties:
@@ -10079,7 +9951,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: Databases
                         required:
                             - db
                         properties:
@@ -10101,7 +9972,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: DatabasesBackups
                         required:
                             - backups
                         properties:
@@ -10128,7 +9998,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: DatabasesCluster
                         required:
                             - database
                         properties:
@@ -10192,7 +10061,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DatabasesClusters
                         properties:
                             databases:
                                 type: array
@@ -10273,7 +10141,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: DatabasesReplica
                         properties:
                             replica:
                                 $ref: '#/components/schemas/database_replica'
@@ -10311,7 +10178,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DatabasesReplicas
                         properties:
                             replicas:
                                 type: array
@@ -10351,7 +10217,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Databases
                         properties:
                             dbs:
                                 type: array
@@ -10373,7 +10238,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: ProjectsDefault
                         example:
                             project:
                                 created_at: "2017-10-19T21:44:20Z"
@@ -10429,7 +10293,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DomainsRecord
                         example:
                             domain_record:
                                 data: 162.10.66.0
@@ -10604,7 +10467,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DatabasesEvictionPolicy
                         required:
                             - eviction_policy
                         properties:
@@ -10623,7 +10485,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: UptimeAlert
                         properties:
                             alert:
                                 $ref: '#/components/schemas/alert'
@@ -10640,7 +10501,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: Certificates
                         properties:
                             certificate:
                                 $ref: '#/components/schemas/certificate'
@@ -10662,7 +10522,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: UptimeCheck
                         properties:
                             check:
                                 $ref: '#/components/schemas/check'
@@ -10679,7 +10538,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: UptimeCheckState
                         properties:
                             state:
                                 $ref: '#/components/schemas/state'
@@ -10698,7 +10556,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: KubernetesCluster
                         properties:
                             kubernetes_cluster:
                                 $ref: '#/components/schemas/cluster'
@@ -10733,7 +10590,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Domains
                         example:
                             domain:
                                 name: example.com
@@ -10763,7 +10619,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Droplets
                         properties:
                             droplet:
                                 $ref: '#/components/schemas/droplet'
@@ -10782,7 +10637,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: CdnEndpoint
                         properties:
                             endpoint:
                                 $ref: '#/components/schemas/cdn_endpoint'
@@ -10818,7 +10672,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: Images
                         required:
                             - image
                         properties:
@@ -10864,7 +10717,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: LoadBalancers
                         properties:
                             load_balancer:
                                 $ref: '#/components/schemas/load_balancer'
@@ -10885,7 +10737,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: KubernetesNodePool
                         example:
                             node_pool:
                                 auto_scale: false
@@ -10945,7 +10796,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Projects
                         properties:
                             project:
                                 $ref: '#/components/schemas/project'
@@ -10962,7 +10812,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: Vpcs
                         properties:
                             vpc:
                                 $ref: '#/components/schemas/vpc'
@@ -10978,7 +10827,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DatabasesFirewallRules
                         properties:
                             rules:
                                 type: array
@@ -11019,7 +10867,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: FloatingIPs
                         properties:
                             floating_ip:
                                 $ref: '#/components/schemas/floating_ip'
@@ -11040,7 +10887,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: FloatingIPsAction
                         example:
                             action:
                                 completed_at: "2015-11-12T17:51:14Z"
@@ -11108,7 +10954,6 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: FloatingIPsAction
                         example:
                             actions:
                                 - completed_at: "2015-11-21T21:51:09Z"
@@ -11201,7 +11046,6 @@ components:
                                         $ref: '#/components/schemas/floating_ip'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: FloatingIPs
                         example:
                             floating_ips:
                                 - droplet: null
@@ -11267,7 +11111,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: RegistryGarbageCollections
                         properties:
                             garbage_collections:
                                 type: array
@@ -11296,7 +11139,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Firewalls
                         properties:
                             firewall:
                                 $ref: '#/components/schemas/firewall'
@@ -11403,7 +11245,6 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: ImageActions
                     example:
                         actions:
                             - completed_at: "2014-07-25T15:10:20Z"
@@ -11649,7 +11490,6 @@ components:
                                         $ref: '#/components/schemas/invoice_preview'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Invoices
                         example:
                             invoice_preview:
                                 amount: "34.56"
@@ -11715,7 +11555,6 @@ components:
                             - $ref: '#/components/schemas/list_alert_policy'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: MonitoringAlertPolicy
                         example:
                             links:
                                 first: https//api.digitalocean.com/v2/monitoring/alerts?page=1&per_page=10
@@ -11811,7 +11650,6 @@ components:
                                         $ref: '#/components/schemas/firewall'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Firewalls
                     example:
                         firewalls:
                             - created_at: "2017-05-23T21:23:59Z"
@@ -11912,7 +11750,6 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/namespace_info'
-                        title: FunctionsNamespaces
         list_regions:
             description: A JSON object with key `regions`
             headers:
@@ -11948,7 +11785,6 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/trigger_info'
-                        title: FunctionsTriggers
         load_balancer_create:
             description: Accepted
             headers:
@@ -12018,7 +11854,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: FunctionsNamespace
                         properties:
                             namespace:
                                 $ref: '#/components/schemas/namespace_info'
@@ -12092,7 +11927,6 @@ components:
                                     type: array
                                     items:
                                         $ref: '#/components/schemas/droplet'
-                        title: DropletsNeighbors
         new_app:
             description: A JSON or YAML of a `spec` object.
             headers:
@@ -12340,7 +12174,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: OneClicks
                         properties:
                             1_clicks:
                                 type: array
@@ -12608,7 +12441,6 @@ components:
                                         $ref: '#/components/schemas/project'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Projects
                         example:
                             links:
                                 pages:
@@ -12714,7 +12546,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Registry
                         properties:
                             registry:
                                 $ref: '#/components/schemas/registry'
@@ -12731,7 +12562,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: RegistryOptions
                         properties:
                             options:
                                 type: object
@@ -12804,7 +12634,6 @@ components:
                                         $ref: '#/components/schemas/repository_manifest'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: RegistryRepositoryManifests
                         example:
                             links:
                                 pages:
@@ -12852,7 +12681,6 @@ components:
                                         $ref: '#/components/schemas/repository_tag'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: RegistryRepositoryTags
                         example:
                             meta:
                                 total: 1
@@ -12877,7 +12705,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: ReservedIPs
                         properties:
                             reserved_ip:
                                 $ref: '#/components/schemas/reserved_ip'
@@ -12898,7 +12725,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: ReservedIPsActions
                         example:
                             action:
                                 completed_at: "2015-11-12T17:51:14Z"
@@ -12966,7 +12792,6 @@ components:
                                         $ref: '#/components/schemas/action'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: ReservedIPsActions
                         example:
                             actions:
                                 - completed_at: "2015-11-21T21:51:09Z"
@@ -13059,7 +12884,6 @@ components:
                                         $ref: '#/components/schemas/reserved_ip'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: ReservedIPs
                         example:
                             links: {}
                             meta:
@@ -13117,7 +12941,6 @@ components:
                                         $ref: '#/components/schemas/resource'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: ProjectsResourcesDefault
                         example:
                             links:
                                 pages:
@@ -13173,7 +12996,6 @@ components:
                                         $ref: '#/components/schemas/snapshots'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Snapshots
                     examples:
                         All Snapshots:
                             $ref: '#/components/examples/snapshots_all'
@@ -13194,7 +13016,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Snapshots
                         properties:
                             snapshot:
                                 $ref: '#/components/schemas/snapshots'
@@ -13233,7 +13054,6 @@ components:
                                         $ref: '#/components/schemas/sshKeys'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: SshKeys
                         example:
                             links: {}
                             meta:
@@ -13255,7 +13075,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: SshKeys
                         properties:
                             ssh_key:
                                 $ref: '#/components/schemas/sshKeys'
@@ -13304,7 +13123,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: RegistrySubscription
                         properties:
                             subscription:
                                 $ref: '#/components/schemas/subscription'
@@ -13329,7 +13147,6 @@ components:
                                         $ref: '#/components/schemas/tags'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Tags
                         example:
                             links: {}
                             meta:
@@ -13389,7 +13206,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: Tags
                         example:
                             tag:
                                 tag:
@@ -13534,7 +13350,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: FunctionsTrigger
                         properties:
                             trigger:
                                 $ref: '#/components/schemas/trigger_info'
@@ -13676,7 +13491,6 @@ components:
                 application/json:
                     schema:
                         type: object
-                        title: DatabasesUser
                         required:
                             - user
                         properties:
@@ -13709,7 +13523,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: DatabasesUsers
                         properties:
                             users:
                                 type: array
@@ -13735,7 +13548,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: Volumes
                         example:
                             volume:
                                 created_at: "2020-03-02T17:00:49Z"
@@ -13785,7 +13597,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: VolumeActions
                         properties:
                             action:
                                 $ref: '#/components/schemas/volumeAction'
@@ -13815,7 +13626,6 @@ components:
                                         $ref: '#/components/schemas/volumeAction'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: VolumeActions
                         example:
                             actions:
                                 - completed_at: "2020-11-21T21:51:09Z"
@@ -13864,7 +13674,6 @@ components:
             content:
                 application/json:
                     schema:
-                        title: VolumeSnapshotsById
                         example:
                             snapshot:
                                 created_at: "2020-09-30T18:56:14Z"
@@ -13902,7 +13711,6 @@ components:
                                         $ref: '#/components/schemas/snapshots'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: VolumeSnapshots
                         example:
                             links: {}
                             meta:
@@ -13942,7 +13750,6 @@ components:
                                         $ref: '#/components/schemas/volume_full'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: Volumes
                     examples:
                         All Volumes:
                             $ref: '#/components/examples/volumes_all'
@@ -13971,7 +13778,6 @@ components:
                                         $ref: '#/components/schemas/vpc_member'
                             - $ref: '#/components/schemas/pagination'
                             - $ref: '#/components/schemas/meta'
-                        title: VpcsMembers
                         example:
                             links: {}
                             members:
@@ -18763,7 +18569,6 @@ paths:
                     application/json:
                         schema:
                             type: object
-                            title: SshKeys
                             properties:
                                 name:
                                     $ref: '#/components/schemas/ssh_key_name'
@@ -19846,7 +19651,6 @@ paths:
                             oneOf:
                                 - $ref: '#/components/schemas/certificate_request_lets_encrypt'
                                 - $ref: '#/components/schemas/certificate_request_custom'
-                            title: Certificates
             responses:
                 "201":
                     $ref: '#/components/responses/new_certificate'
@@ -20133,7 +19937,6 @@ paths:
                                   properties:
                                     backup_restore:
                                         $ref: '#/components/schemas/database_backup'
-                            title: DatabasesCluster
                         examples:
                             Create a New Database Cluster:
                                 value:
@@ -20546,7 +20349,6 @@ paths:
                     application/json:
                         schema:
                             type: object
-                            title: DatabasesEvictionPolicy
                             required:
                                 - eviction_policy
                             properties:
@@ -20613,7 +20415,6 @@ paths:
                     application/json:
                         schema:
                             type: object
-                            title: DatabasesFirewallRules
                             properties:
                                 rules:
                                     type: array
@@ -20704,7 +20505,6 @@ paths:
                     application/json:
                         schema:
                             type: object
-                            title: DatabasesRegion
                             example:
                                 region: lon1
                             required:
@@ -21038,7 +20838,6 @@ paths:
                         schema:
                             allOf:
                                 - $ref: '#/components/schemas/database_replica'
-                            title: DatabasesReplica
                             required:
                                 - name
                                 - size
@@ -21354,7 +21153,6 @@ paths:
                                             For MongoDB clusters, set to `true` to create a read-only user.
                                             This option is not currently supported for other database engines.
                                         example: true
-                            title: DatabasesAddUser
                         examples:
                             Add New Read Only User (MongoDB Only):
                                 value:
@@ -21477,7 +21275,6 @@ paths:
                     application/json:
                         schema:
                             type: object
-                            title: DatabasesReAuth
                             properties:
                                 mysql_settings:
                                     $ref: '#/components/schemas/mysql_settings'
@@ -21692,7 +21489,6 @@ paths:
                                 - $ref: '#/components/schemas/domain_record_soa'
                                 - $ref: '#/components/schemas/domain_record_srv'
                                 - $ref: '#/components/schemas/domain_record_txt'
-                            title: DomainsRecord
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -21971,7 +21767,6 @@ paths:
                             oneOf:
                                 - $ref: '#/components/schemas/droplet_single_create'
                                 - $ref: '#/components/schemas/droplet_multi_create'
-                            title: Droplets
                         examples:
                             Multiple Droplet Create Request:
                                 $ref: '#/components/examples/droplet_multi_create_request'
@@ -22124,7 +21919,6 @@ paths:
                                 - $ref: '#/components/schemas/droplet_action_rename'
                                 - $ref: '#/components/schemas/droplet_action_change_kernel'
                                 - $ref: '#/components/schemas/droplet_action_snapshot'
-                            title: DropletActions
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -22561,7 +22355,6 @@ paths:
                             oneOf:
                                 - $ref: '#/components/schemas/droplet_action'
                                 - $ref: '#/components/schemas/droplet_action_snapshot'
-                            title: DropletActionsByTag
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -22634,7 +22427,6 @@ paths:
                                     - title: Outbound Rules
                                       required:
                                         - outbound_rules
-                            title: Firewalls
                         example:
                             droplet_ids:
                                 - 8.043964e+06
@@ -22754,7 +22546,6 @@ paths:
                                     - title: Outbound Rules
                                       required:
                                         - outbound_rules
-                            title: Firewalls
                             required:
                                 - name
                         example:
@@ -22821,7 +22612,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: FirewallsDroplets
                             required:
                                 - droplet_ids
                             properties:
@@ -22872,7 +22662,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: FirewallsAssignDroplets
                             required:
                                 - droplet_ids
                             properties:
@@ -22934,7 +22723,6 @@ paths:
                                     - title: Outbound Rules
                                       required:
                                         - outbound_rules
-                            title: FirewallsRules
                         example:
                             inbound_rules:
                                 - ports: "3306"
@@ -22995,7 +22783,6 @@ paths:
                                     - title: Outbound Rules
                                       required:
                                         - outbound_rules
-                            title: FirewallsAddRules
                         example:
                             inbound_rules:
                                 - ports: "3306"
@@ -23047,7 +22834,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: FirewallsTags
                             required:
                                 - tags
                             properties:
@@ -23095,7 +22881,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: FirewallsAddTags
                             required:
                                 - tags
                             properties:
@@ -23287,7 +23072,6 @@ paths:
                             anyOf:
                                 - $ref: '#/components/schemas/floating_ip_action_unassign'
                                 - $ref: '#/components/schemas/floating_ip_action_assign'
-                            title: FloatingIPsAction
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -23827,7 +23611,6 @@ paths:
                             anyOf:
                                 - $ref: '#/components/schemas/image_action_base'
                                 - $ref: '#/components/schemas/image_action_transfer'
-                            title: ImageActions
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -24501,7 +24284,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: KubernetesRecycleNodePool
                             properties:
                                 nodes:
                                     type: array
@@ -24546,7 +24328,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: KubernetesUpgradeCluster
                             properties:
                                 version:
                                     type: string
@@ -24887,7 +24668,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: LoadBalancersRemoveDroplets
                             required:
                                 - droplet_ids
                             properties:
@@ -24938,7 +24718,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: LoadBalancersAddDroplets
                             required:
                                 - droplet_ids
                             properties:
@@ -24988,7 +24767,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: LoadBalancersRemoveForwardingRules
                             required:
                                 - forwarding_rules
                             properties:
@@ -25034,7 +24812,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: LoadBalancersAddForwardingRules
                             required:
                                 - forwarding_rules
                             properties:
@@ -25568,7 +25345,6 @@ paths:
                         schema:
                             allOf:
                                 - $ref: '#/components/schemas/project_base'
-                            title: Projects
                             required:
                                 - name
                                 - purpose
@@ -25690,7 +25466,6 @@ paths:
                         schema:
                             allOf:
                                 - $ref: '#/components/schemas/project'
-                            title: Projects
                             required:
                                 - name
                                 - description
@@ -25842,7 +25617,6 @@ paths:
                         schema:
                             allOf:
                                 - $ref: '#/components/schemas/project'
-                            title: ProjectsDefault
                             required:
                                 - name
                                 - description
@@ -26460,7 +26234,6 @@ paths:
                     application/json:
                         schema:
                             type: object
-                            title: RegistryUpdateSubscription
                             properties:
                                 tier_slug:
                                     type: string
@@ -26713,7 +26486,6 @@ paths:
                             anyOf:
                                 - $ref: '#/components/schemas/reserved_ip_action_unassign'
                                 - $ref: '#/components/schemas/reserved_ip_action_assign'
-                            title: ReservedIPsActions
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -27100,7 +26872,6 @@ paths:
                             allOf:
                                 - $ref: '#/components/schemas/check_updatable'
                             type: object
-                            title: UptimeCheck
                             required:
                                 - name
                                 - method
@@ -27193,7 +26964,6 @@ paths:
                             allOf:
                                 - $ref: '#/components/schemas/check_updatable'
                             type: object
-                            title: UptimeCheck
             responses:
                 "200":
                     $ref: '#/components/responses/existing_check'
@@ -27263,7 +27033,6 @@ paths:
                             allOf:
                                 - $ref: '#/components/schemas/alert'
                             type: object
-                            title: UptimeAlert
                             required:
                                 - name
                                 - type
@@ -27355,7 +27124,6 @@ paths:
                             allOf:
                                 - $ref: '#/components/schemas/alert_updatable'
                             type: object
-                            title: UptimeAlert
             responses:
                 "200":
                     $ref: '#/components/responses/existing_alert'
@@ -27476,7 +27244,6 @@ paths:
                             anyOf:
                                 - $ref: '#/components/schemas/volumes_ext4'
                                 - $ref: '#/components/schemas/volumes_xfs'
-                            title: Volumes
                         examples:
                             Volume from a snapshot:
                                 value:
@@ -27659,7 +27426,6 @@ paths:
                                 - $ref: '#/components/schemas/volume_action_post_attach'
                                 - $ref: '#/components/schemas/volume_action_post_detach'
                                 - $ref: '#/components/schemas/volume_action_post_resize'
-                            title: VolumeActionsById
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -27772,7 +27538,6 @@ paths:
                 content:
                     application/json:
                         schema:
-                            title: VolumeSnapshots
                             required:
                                 - name
                             properties:
@@ -27848,7 +27613,6 @@ paths:
                             anyOf:
                                 - $ref: '#/components/schemas/volume_action_post_attach'
                                 - $ref: '#/components/schemas/volume_action_post_detach'
-                            title: VolumeActions
                             discriminator:
                                 propertyName: type
                                 mapping:
@@ -27988,7 +27752,6 @@ paths:
                                 - $ref: '#/components/schemas/vpc_updatable'
                                 - $ref: '#/components/schemas/vpc_create'
                             type: object
-                            title: Vpcs
                             required:
                                 - name
                                 - region
@@ -28080,7 +27843,6 @@ paths:
                             allOf:
                                 - $ref: '#/components/schemas/vpc_updatable'
                                 - $ref: '#/components/schemas/vpc_default'
-                            title: VpcsPatch
             responses:
                 "200":
                     $ref: '#/components/responses/existing_vpc'
@@ -28115,7 +27877,6 @@ paths:
                                 - $ref: '#/components/schemas/vpc_updatable'
                                 - $ref: '#/components/schemas/vpc_default'
                             type: object
-                            title: Vpcs
                             required:
                                 - name
             responses:
