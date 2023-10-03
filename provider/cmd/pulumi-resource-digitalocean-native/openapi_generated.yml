@@ -3735,7 +3735,6 @@ components:
                     example: 760e09ef-dc84-11e8-981e-3cfdfeaae000
         droplet_action:
             type: object
-            title: DropletAction
             description: Specifies the action that will be taken on the Droplet.
             required:
                 - type
@@ -4492,7 +4491,6 @@ components:
                     example: snapshot
         image_action_base:
             type: object
-            title: ImageAction
             required:
                 - type
             properties:

@@ -16,10 +16,10 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	regionSchema.Value.Properties["sizes"].Value.Type = "array"
 
 	// Add a title for droplet_action type.
-	addTitleForType(openAPIDoc, "droplet_action", "DropletAction")
+	// addTitleForType(openAPIDoc, "droplet_action", "DropletAction")
 
 	// Add a title for image_action_base type.
-	addTitleForType(openAPIDoc, "image_action_base", "ImageAction")
+	// addTitleForType(openAPIDoc, "image_action_base", "ImageAction")
 
 	// for _, ty := range openAPIDoc.Components.Schemas {
 	// 	fixObjectPropertyType(ty)
