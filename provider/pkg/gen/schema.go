@@ -107,6 +107,9 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			// pulschema does not support application/yaml response type yet.
 			"/v2/kubernetes/clusters/{cluster_id}/kubeconfig",
 			//
+			// Similar to /v2/volumes/{volume_id}/actions which is more appropriate
+			// since it is by volume ID.
+			"/v2/volumes/actions",
 		},
 	}
 
