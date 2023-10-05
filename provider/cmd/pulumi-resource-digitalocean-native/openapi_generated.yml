@@ -4016,7 +4016,8 @@ components:
             example: allkeys_lru
         firewall:
             allOf:
-                - properties:
+                - type: object
+                  properties:
                     created_at:
                         type: string
                         format: date-time
@@ -4523,7 +4524,8 @@ components:
         image_new_custom:
             allOf:
                 - $ref: '#/components/schemas/image_update'
-                - properties:
+                - type: object
+                  properties:
                     region:
                         $ref: '#/components/schemas/region_slug'
                     tags:
@@ -7361,7 +7363,8 @@ components:
         volume_action_post_attach:
             allOf:
                 - $ref: '#/components/schemas/volume_action_post_base'
-                - required:
+                - type: object
+                  required:
                     - droplet_id
                   properties:
                     droplet_id:
@@ -7387,7 +7390,8 @@ components:
         volume_action_post_detach:
             allOf:
                 - $ref: '#/components/schemas/volume_action_post_base'
-                - required:
+                - type: object
+                  required:
                     - droplet_id
                   properties:
                     droplet_id:
@@ -7396,7 +7400,8 @@ components:
         volume_action_post_resize:
             allOf:
                 - $ref: '#/components/schemas/volume_action_post_base'
-                - required:
+                - type: object
+                  required:
                     - size_gigabytes
                   properties:
                     size_gigabytes:
@@ -7442,7 +7447,8 @@ components:
         volume_full:
             allOf:
                 - $ref: '#/components/schemas/volume_base'
-                - properties:
+                - type: object
+                  properties:
                     filesystem_label:
                         type: string
                         description: The label currently applied to the filesystem.
@@ -7501,7 +7507,8 @@ components:
                     example: ext4
         volumeAction:
             allOf:
-                - properties:
+                - type: object
+                  properties:
                     resource_id:
                         type: integer
                         nullable: true
@@ -7516,7 +7523,8 @@ components:
                 - $ref: '#/components/schemas/volume_base'
                 - $ref: '#/components/schemas/volume_snapshot_id'
                 - $ref: '#/components/schemas/volume_write_file_system_type'
-                - required:
+                - type: object
+                  required:
                     - name
                     - size_gigabytes
                     - region
@@ -7533,7 +7541,8 @@ components:
                 - $ref: '#/components/schemas/volume_base'
                 - $ref: '#/components/schemas/volume_snapshot_id'
                 - $ref: '#/components/schemas/volume_write_file_system_type'
-                - required:
+                - type: object
+                  required:
                     - name
                     - size_gigabytes
                     - region

@@ -63,18 +63,12 @@ func fixReservedIpType(openAPIDoc *openapi3.T) {
 // fixObjectPropertyType adds `type: object` for any type that
 // does not have a value defined for the `type` property.
 func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
-	if objectType.Value.Type != "" {
-		return
-	}
-
-	if len(objectType.Value.Properties) > 0 {
+	if objectType.Value.Type == "" && len(objectType.Value.Properties) > 0 {
 		objectType.Value.Type = "object"
 	}
 
-	if len(objectType.Value.AllOf) > 0 {
-		for _, allOfTy := range objectType.Value.AllOf {
-			fixObjectPropertyType(allOfTy)
-		}
+	for _, allOfTy := range objectType.Value.AllOf {
+		fixObjectPropertyType(allOfTy)
 	}
 }
 
@@ -84,20 +78,12 @@ func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
 		return
 	}
 
-	// Add `type: object` for any type that does not have the `type` property
-	// of the schema set.
-	if responseContent.Schema.Value.Type != "" {
-		return
-	}
-
-	if len(responseContent.Schema.Value.Properties) > 0 {
+	if responseContent.Schema.Value.Type == "" && len(responseContent.Schema.Value.Properties) > 0 {
 		responseContent.Schema.Value.Type = "object"
 	}
 
-	if len(responseContent.Schema.Value.AllOf) > 0 {
-		for _, allOfTy := range responseContent.Schema.Value.AllOf {
-			fixObjectPropertyType(allOfTy)
-		}
+	for _, allOfTy := range responseContent.Schema.Value.AllOf {
+		fixObjectPropertyType(allOfTy)
 	}
 }
 

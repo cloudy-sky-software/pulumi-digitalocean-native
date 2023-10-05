@@ -271,30 +271,18 @@
             },
             "type": "object"
         },
-        "digitalocean-native:account/v2:SshKeyFingerprint": {
-            "description": "A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.",
-            "type": "object"
-        },
-        "digitalocean-native:account/v2:SshKeyId": {
-            "description": "A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.",
-            "type": "object"
-        },
-        "digitalocean-native:account/v2:SshKeyName": {
-            "description": "A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.",
-            "type": "object"
-        },
         "digitalocean-native:account/v2:SshKeys": {
             "properties": {
                 "fingerprint": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeyFingerprint",
+                    "type": "string",
                     "description": "A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account."
                 },
                 "id": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeyId",
+                    "type": "integer",
                     "description": "A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeyName",
+                    "type": "string",
                     "description": "A human-readable display name for this key, used to easily identify the SSH keys when they are displayed."
                 },
                 "public_key": {
@@ -544,7 +532,7 @@
                 "emails": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppAlertEmail"
+                        "type": "string"
                     }
                 },
                 "id": {
@@ -567,9 +555,6 @@
                     "$ref": "#/types/digitalocean-native:apps/v2:AppAlertSpec"
                 }
             },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:AppAlertEmail": {
             "type": "object"
         },
         "digitalocean-native:apps/v2:AppAlertPhase": {
@@ -1466,25 +1451,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:apps/v2:AppRollbackValidationCondition": {
-            "properties": {
-                "code": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppRollbackValidationConditionCode",
-                    "description": "A code identifier that represents the failing condition.\n\nFailing conditions:\n  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.\n  - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.\n  - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.\n  - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.\n  - `database_config_conflict` - indicates that the deployment's database config is different than the current config.\n  - `region_conflict` - indicates that the deployment's region differs from the current app region.\n  \nWarning conditions:\n  - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.\n  - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.\n"
-                },
-                "components": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "message": {
-                    "type": "string",
-                    "description": "A human-readable message describing the failing condition."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:apps/v2:AppRollbackValidationConditionCode": {
             "description": "A code identifier that represents the failing condition.\n\nFailing conditions:\n  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.\n  - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.\n  - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.\n  - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.\n  - `database_config_conflict` - indicates that the deployment's database config is different than the current config.\n  - `region_conflict` - indicates that the deployment's region differs from the current app region.\n  \nWarning conditions:\n  - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.\n  - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.\n",
             "type": "string",
@@ -2005,6 +1971,73 @@
                 "max_age": {
                     "type": "string",
                     "description": "An optional duration specifying how long browsers can cache the results of a preflight request. This configures the `Access-Control-Max-Age` header."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:apps/v2:AppsDeployment": {
+            "properties": {
+                "cause": {
+                    "type": "string"
+                },
+                "cloned_from": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "functions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentFunctions"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "jobs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentJob"
+                    }
+                },
+                "phase": {
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentPhase",
+                    "default": "UNKNOWN"
+                },
+                "phase_last_updated_at": {
+                    "type": "string"
+                },
+                "progress": {
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentProgress"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentService"
+                    }
+                },
+                "spec": {
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppSpec",
+                    "description": "The desired configuration of an application."
+                },
+                "static_sites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentStaticSite"
+                    }
+                },
+                "tier_slug": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "workers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentWorker"
+                    }
                 }
             },
             "type": "object"
@@ -3120,6 +3153,16 @@
             },
             "type": "object"
         },
+        "digitalocean-native:customers/v2:MetaProperties": {
+            "description": "Information about the response itself.",
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "description": "Number of objects returned by the request."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:customers/v2:PageLinks": {
             "properties": {
                 "pages": {
@@ -3348,109 +3391,6 @@
             "type": "object",
             "required": [
                 "database_name"
-            ]
-        },
-        "digitalocean-native:databases/v2:DatabaseCluster": {
-            "properties": {
-                "connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterConnection"
-                },
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the database cluster was created."
-                },
-                "db_names": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of strings containing the names of databases created in the database cluster."
-                },
-                "engine": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterEngine",
-                    "description": "A slug representing the database engine used for the cluster. The possible values are: \"pg\" for PostgreSQL, \"mysql\" for MySQL, \"redis\" for Redis, and \"mongodb\" for MongoDB."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database cluster."
-                },
-                "maintenance_window": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterMaintenanceWindow"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A unique, human-readable name referring to a database cluster."
-                },
-                "num_nodes": {
-                    "type": "integer",
-                    "description": "The number of nodes in the database cluster."
-                },
-                "private_connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterPrivateConnection"
-                },
-                "private_network_uuid": {
-                    "type": "string",
-                    "description": "A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region."
-                },
-                "project_id": {
-                    "type": "string",
-                    "description": "The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project."
-                },
-                "region": {
-                    "type": "string",
-                    "description": "The slug identifier for the region where the database cluster is located."
-                },
-                "rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:FirewallRule"
-                    }
-                },
-                "semantic_version": {
-                    "type": "string",
-                    "description": "A string representing the semantic version of the database engine in use for the cluster."
-                },
-                "size": {
-                    "type": "string",
-                    "description": "The slug identifier representing the size of the nodes in the database cluster."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterStatus",
-                    "description": "A string representing the current status of the database cluster."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of tags that have been applied to the database cluster."
-                },
-                "users": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUser"
-                    }
-                },
-                "version": {
-                    "type": "string",
-                    "description": "A string representing the version of the database engine in use for the cluster."
-                },
-                "version_end_of_availability": {
-                    "type": "string",
-                    "description": "A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline."
-                },
-                "version_end_of_life": {
-                    "type": "string",
-                    "description": "A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline."
-                }
-            },
-            "type": "object",
-            "required": [
-                "engine",
-                "name",
-                "num_nodes",
-                "region",
-                "size"
             ]
         },
         "digitalocean-native:databases/v2:DatabaseClusterConnection": {
@@ -5024,10 +4964,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:databases/v2:Version": {
-            "description": "A string representing the version of the database engine in use for the cluster.",
-            "type": "object"
-        },
         "digitalocean-native:domains/v2:Domain": {
             "properties": {
                 "ip_address": {
@@ -5646,19 +5582,87 @@
         },
         "digitalocean-native:droplets/v2:Firewall": {
             "properties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the firewall was created."
+                },
+                "droplet_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets assigned to the firewall."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a firewall."
+                },
                 "inbound_rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/digitalocean-native:droplets/v2:FirewallRulesInboundRulesItem"
                     }
                 },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-)."
+                },
                 "outbound_rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/digitalocean-native:droplets/v2:FirewallRulesOutboundRulesItem"
                     }
+                },
+                "pending_changes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:droplets/v2:FirewallPropertiesPendingChangesItemProperties"
+                    },
+                    "description": "An array of objects each containing the fields \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:droplets/v2:FirewallPropertiesStatus",
+                    "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\"."
+                },
+                "tags": {
+                    "$ref": "#/types/digitalocean-native:droplets/v2:FirewallPropertiesTags"
                 }
             },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:FirewallPropertiesPendingChangesItemProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer"
+                },
+                "removing": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:FirewallPropertiesStatus": {
+            "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\".",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Waiting",
+                    "value": "waiting"
+                },
+                {
+                    "name": "Succeeded",
+                    "value": "succeeded"
+                },
+                {
+                    "name": "Failed",
+                    "value": "failed"
+                }
+            ]
+        },
+        "digitalocean-native:droplets/v2:FirewallPropertiesTags": {
             "type": "object"
         },
         "digitalocean-native:droplets/v2:FirewallRuleBaseProtocol": {
@@ -5736,7 +5740,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the image was created."
                 },
                 "description": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ImageDescription",
+                    "type": "string",
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
@@ -5756,7 +5760,7 @@
                     "description": "The minimum disk size in GB required for a Droplet to use this image."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ImageName",
+                    "type": "string",
                     "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
                 },
                 "public": {
@@ -5794,10 +5798,6 @@
                     "description": "Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes)."
                 }
             },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:ImageDescription": {
-            "description": "An optional free-form text field to describe an image.",
             "type": "object"
         },
         "digitalocean-native:droplets/v2:ImageDistribution": {
@@ -5857,10 +5857,6 @@
                     "value": "Unknown"
                 }
             ]
-        },
-        "digitalocean-native:droplets/v2:ImageName": {
-            "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.",
-            "type": "object"
         },
         "digitalocean-native:droplets/v2:ImageRegionsItem": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
@@ -6425,6 +6421,41 @@
                 }
             ]
         },
+        "digitalocean-native:firewalls/v2:FirewallPropertiesPendingChangesItemProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer"
+                },
+                "removing": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:firewalls/v2:FirewallPropertiesStatus": {
+            "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\".",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Waiting",
+                    "value": "waiting"
+                },
+                {
+                    "name": "Succeeded",
+                    "value": "succeeded"
+                },
+                {
+                    "name": "Failed",
+                    "value": "failed"
+                }
+            ]
+        },
+        "digitalocean-native:firewalls/v2:FirewallPropertiesTags": {
+            "type": "object"
+        },
         "digitalocean-native:firewalls/v2:FirewallRuleBaseProtocol": {
             "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.",
             "type": "string",
@@ -6900,7 +6931,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the image was created."
                 },
                 "description": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ImageDescription",
+                    "type": "string",
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
@@ -6920,7 +6951,7 @@
                     "description": "The minimum disk size in GB required for a Droplet to use this image."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ImageName",
+                    "type": "string",
                     "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
                 },
                 "public": {
@@ -6958,10 +6989,6 @@
                     "description": "Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes)."
                 }
             },
-            "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:ImageDescription": {
-            "description": "An optional free-form text field to describe an image.",
             "type": "object"
         },
         "digitalocean-native:floating_ips/v2:ImageDistribution": {
@@ -7021,10 +7048,6 @@
                     "value": "Unknown"
                 }
             ]
-        },
-        "digitalocean-native:floating_ips/v2:ImageName": {
-            "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.",
-            "type": "object"
         },
         "digitalocean-native:floating_ips/v2:ImageRegionsItem": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
@@ -7314,44 +7337,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:Region": {
-            "properties": {
-                "available": {
-                    "type": "boolean",
-                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
-                },
-                "features": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains features available in this region"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
-                },
-                "sizes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
-                },
-                "slug": {
-                    "type": "string",
-                    "description": "A human-readable string that is used as a unique identifier for each region."
-                }
-            },
-            "type": "object",
-            "required": [
-                "available",
-                "features",
-                "name",
-                "sizes",
-                "slug"
-            ]
         },
         "digitalocean-native:floating_ips/v2:Size": {
             "properties": {
@@ -7647,7 +7632,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the image was created."
                 },
                 "description": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageDescription",
+                    "type": "string",
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
@@ -7667,7 +7652,7 @@
                     "description": "The minimum disk size in GB required for a Droplet to use this image."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageName",
+                    "type": "string",
                     "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
                 },
                 "public": {
@@ -7783,10 +7768,6 @@
                 }
             ]
         },
-        "digitalocean-native:images/v2:ImageDescription": {
-            "description": "An optional free-form text field to describe an image.",
-            "type": "object"
-        },
         "digitalocean-native:images/v2:ImageDistribution": {
             "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.",
             "type": "string",
@@ -7844,10 +7825,6 @@
                     "value": "Unknown"
                 }
             ]
-        },
-        "digitalocean-native:images/v2:ImageName": {
-            "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.",
-            "type": "object"
         },
         "digitalocean-native:images/v2:ImageRegionsItem": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
@@ -8018,6 +7995,68 @@
                 {
                     "name": "Unknown",
                     "value": "Unknown"
+                }
+            ]
+        },
+        "digitalocean-native:images/v2:ImagesCustomPropertiesRegion": {
+            "description": "The slug identifier for the region where the resource will initially be  available.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ams1",
+                    "value": "ams1"
+                },
+                {
+                    "name": "Ams2",
+                    "value": "ams2"
+                },
+                {
+                    "name": "Ams3",
+                    "value": "ams3"
+                },
+                {
+                    "name": "Blr1",
+                    "value": "blr1"
+                },
+                {
+                    "name": "Fra1",
+                    "value": "fra1"
+                },
+                {
+                    "name": "Lon1",
+                    "value": "lon1"
+                },
+                {
+                    "name": "Nyc1",
+                    "value": "nyc1"
+                },
+                {
+                    "name": "Nyc2",
+                    "value": "nyc2"
+                },
+                {
+                    "name": "Nyc3",
+                    "value": "nyc3"
+                },
+                {
+                    "name": "Sfo1",
+                    "value": "sfo1"
+                },
+                {
+                    "name": "Sfo2",
+                    "value": "sfo2"
+                },
+                {
+                    "name": "Sfo3",
+                    "value": "sfo3"
+                },
+                {
+                    "name": "Sgp1",
+                    "value": "sgp1"
+                },
+                {
+                    "name": "Tor1",
+                    "value": "tor1"
                 }
             ]
         },
@@ -10080,7 +10119,7 @@
                     "description": "The status of assigning and fetching the resources."
                 },
                 "urn": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:Urn",
+                    "type": "string",
                     "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
                 }
             },
@@ -10121,10 +10160,6 @@
                     "value": "service_down"
                 }
             ]
-        },
-        "digitalocean-native:projects/v2:Urn": {
-            "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.",
-            "type": "object"
         },
         "digitalocean-native:regions/v2:ListRegions": {
             "properties": {
@@ -10732,6 +10767,59 @@
             },
             "type": "object"
         },
+        "digitalocean-native:registry/v2:Subscription": {
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "The time at which the subscription was created."
+                },
+                "tier": {
+                    "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierBase"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "description": "The time at which the subscription was last updated."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:registry/v2:SubscriptionTierBase": {
+            "properties": {
+                "allow_storage_overage": {
+                    "type": "boolean",
+                    "description": "A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used."
+                },
+                "included_bandwidth_bytes": {
+                    "type": "integer",
+                    "description": "The amount of outbound data transfer included in the subscription tier in bytes."
+                },
+                "included_repositories": {
+                    "type": "integer",
+                    "description": "The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories."
+                },
+                "included_storage_bytes": {
+                    "type": "integer",
+                    "description": "The amount of storage included in the subscription tier in bytes."
+                },
+                "monthly_price_in_cents": {
+                    "type": "integer",
+                    "description": "The monthly cost of the subscription tier in cents."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the subscription tier."
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "The slug identifier of the subscription tier."
+                },
+                "storage_overage_price_in_cents": {
+                    "type": "integer",
+                    "description": "The price paid in cents per GiB for additional storage beyond what is included in the subscription plan."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:registry/v2:SubscriptionTierExtendedEligibilityReasonsItem": {
             "type": "string",
             "enum": [
@@ -10792,6 +10880,50 @@
                         }
                     },
                     "description": "An array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:reserved_ips/v2:Action": {
+            "properties": {
+                "completed_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique numeric ID that can be used to identify and reference an action."
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP currently belongs."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:Region"
+                },
+                "region_slug": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionRegionSlug"
+                },
+                "resource_id": {
+                    "type": "integer",
+                    "description": "A unique identifier for the resource that the action is associated with."
+                },
+                "resource_type": {
+                    "type": "string",
+                    "description": "The type of resource that the action is associated with."
+                },
+                "started_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionStatus",
+                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+                    "default": "in-progress"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
                 }
             },
             "type": "object"
@@ -11078,7 +11210,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the image was created."
                 },
                 "description": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ImageDescription",
+                    "type": "string",
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
@@ -11098,7 +11230,7 @@
                     "description": "The minimum disk size in GB required for a Droplet to use this image."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ImageName",
+                    "type": "string",
                     "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
                 },
                 "public": {
@@ -11136,10 +11268,6 @@
                     "description": "Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes)."
                 }
             },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:ImageDescription": {
-            "description": "An optional free-form text field to describe an image.",
             "type": "object"
         },
         "digitalocean-native:reserved_ips/v2:ImageDistribution": {
@@ -11199,10 +11327,6 @@
                     "value": "Unknown"
                 }
             ]
-        },
-        "digitalocean-native:reserved_ips/v2:ImageName": {
-            "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.",
-            "type": "object"
         },
         "digitalocean-native:reserved_ips/v2:ImageRegionsItem": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
@@ -11492,6 +11616,44 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:reserved_ips/v2:Region": {
+            "properties": {
+                "available": {
+                    "type": "boolean",
+                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains features available in this region"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "A human-readable string that is used as a unique identifier for each region."
+                }
+            },
+            "type": "object",
+            "required": [
+                "available",
+                "features",
+                "name",
+                "sizes",
+                "slug"
+            ]
         },
         "digitalocean-native:reserved_ips/v2:ReservedIp": {
             "properties": {
@@ -12542,44 +12704,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:volumes/v2:Region": {
-            "properties": {
-                "available": {
-                    "type": "boolean",
-                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
-                },
-                "features": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains features available in this region"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
-                },
-                "sizes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
-                },
-                "slug": {
-                    "type": "string",
-                    "description": "A human-readable string that is used as a unique identifier for each region."
-                }
-            },
-            "type": "object",
-            "required": [
-                "available",
-                "features",
-                "name",
-                "sizes",
-                "slug"
-            ]
-        },
         "digitalocean-native:volumes/v2:Snapshots": {
             "properties": {
                 "created_at": {
@@ -12784,6 +12908,14 @@
                     },
                     "description": "An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet."
                 },
+                "filesystem_label": {
+                    "type": "string",
+                    "description": "The label currently applied to the filesystem."
+                },
+                "filesystem_type": {
+                    "type": "string",
+                    "description": "The type of filesystem currently in-use on the volume."
+                },
                 "id": {
                     "type": "string",
                     "description": "The unique identifier for the block storage volume."
@@ -12791,6 +12923,9 @@
                 "name": {
                     "type": "string",
                     "description": "A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \"-\", up to a limit of 64 characters. The name must begin with a letter."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeFullPropertiesRegion"
                 },
                 "size_gigabytes": {
                     "type": "integer",
@@ -12805,6 +12940,44 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:volumes/v2:VolumeFullPropertiesRegion": {
+            "properties": {
+                "available": {
+                    "type": "boolean",
+                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains features available in this region"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
+                },
+                "slug": {
+                    "type": "string",
+                    "description": "A human-readable string that is used as a unique identifier for each region."
+                }
+            },
+            "type": "object",
+            "required": [
+                "available",
+                "features",
+                "name",
+                "sizes",
+                "slug"
+            ]
         },
         "digitalocean-native:vpcs/v2:GetVpcsProperties": {
             "properties": {
@@ -12888,10 +13061,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:vpcs/v2:Urn": {
-            "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.",
-            "type": "object"
-        },
         "digitalocean-native:vpcs/v2:Vpc": {
             "properties": {
                 "created_at": {
@@ -12923,7 +13092,7 @@
                     "description": "The slug identifier for the region where the VPC will be created."
                 },
                 "urn": {
-                    "$ref": "#/types/digitalocean-native:vpcs/v2:Urn",
+                    "type": "string",
                     "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
                 }
             },
@@ -12940,7 +13109,7 @@
                     "description": "The name of the resource."
                 },
                 "urn": {
-                    "$ref": "#/types/digitalocean-native:vpcs/v2:Urn",
+                    "type": "string",
                     "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
                 }
             },
@@ -13015,11 +13184,11 @@
         "digitalocean-native:account/v2:SshKeys": {
             "properties": {
                 "fingerprint": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeyFingerprint",
+                    "type": "string",
                     "description": "A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeyName",
+                    "type": "string",
                     "description": "A human-readable display name for this key, used to easily identify the SSH keys when they are displayed."
                 },
                 "public_key": {
@@ -13037,7 +13206,7 @@
             ],
             "inputProperties": {
                 "name": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeyName",
+                    "type": "string",
                     "description": "A human-readable display name for this key, used to easily identify the SSH keys when they are displayed."
                 },
                 "public_key": {
@@ -13090,7 +13259,7 @@
                 "emails": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppAlertEmail"
+                        "type": "string"
                     }
                 },
                 "slack_webhooks": {
@@ -13113,7 +13282,7 @@
                 "emails": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppAlertEmail"
+                        "type": "string"
                     }
                 },
                 "slack_webhooks": {
@@ -13816,7 +13985,7 @@
         "digitalocean-native:databases/v2:DatabasesMajorVersion": {
             "properties": {
                 "version": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:Version",
+                    "type": "string",
                     "description": "A string representing the version of the database engine in use for the cluster."
                 }
             },
@@ -13827,7 +13996,7 @@
                     "description": "A unique identifier for a database cluster."
                 },
                 "version": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:Version",
+                    "type": "string",
                     "description": "A string representing the version of the database engine in use for the cluster."
                 }
             }
@@ -15716,8 +15885,23 @@
         },
         "digitalocean-native:firewalls/v2:Firewalls": {
             "properties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the firewall was created."
+                },
+                "droplet_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets assigned to the firewall."
+                },
                 "firewall": {
                     "$ref": "#/types/digitalocean-native:firewalls/v2:Firewall"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a firewall."
                 },
                 "inbound_rules": {
                     "type": "array",
@@ -15725,26 +15909,77 @@
                         "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesInboundRulesItem"
                     }
                 },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-)."
+                },
                 "outbound_rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesOutboundRulesItem"
                     }
+                },
+                "pending_changes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesPendingChangesItemProperties"
+                    },
+                    "description": "An array of objects each containing the fields \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesStatus",
+                    "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\"."
+                },
+                "tags": {
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesTags"
                 }
             },
             "type": "object",
             "inputProperties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the firewall was created."
+                },
+                "droplet_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets assigned to the firewall."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a firewall."
+                },
                 "inbound_rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesInboundRulesItem"
                     }
                 },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-)."
+                },
                 "outbound_rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesOutboundRulesItem"
                     }
+                },
+                "pending_changes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesPendingChangesItemProperties"
+                    },
+                    "description": "An array of objects each containing the fields \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesStatus",
+                    "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\"."
+                },
+                "tags": {
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesTags"
                 }
             }
         },
@@ -16118,7 +16353,7 @@
         "digitalocean-native:images/v2:ImagesCustom": {
             "properties": {
                 "description": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageDescription",
+                    "type": "string",
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
@@ -16129,8 +16364,23 @@
                     "$ref": "#/types/digitalocean-native:images/v2:Image"
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageName",
+                    "type": "string",
                     "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:images/v2:ImagesCustomPropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed."
                 }
             },
             "type": "object",
@@ -16141,7 +16391,7 @@
             ],
             "inputProperties": {
                 "description": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageDescription",
+                    "type": "string",
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
@@ -16149,8 +16399,23 @@
                     "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place."
                 },
                 "name": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageName",
+                    "type": "string",
                     "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:images/v2:ImagesCustomPropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed."
                 }
             }
         },
@@ -16843,7 +17108,7 @@
                 "resources": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:Urn"
+                        "type": "string"
                     },
                     "description": "A list of uniform resource names (URNs) to be added to a project."
                 }
@@ -16863,7 +17128,7 @@
                 "resources": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:Urn"
+                        "type": "string"
                     },
                     "description": "A list of uniform resource names (URNs) to be added to a project."
                 }
@@ -17243,9 +17508,20 @@
                 "action": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeAction"
                 },
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
+                },
                 "region": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
                 },
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
@@ -17254,9 +17530,20 @@
             },
             "type": "object",
             "inputProperties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
+                },
                 "region": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
                 },
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
@@ -17268,6 +17555,7 @@
                 }
             },
             "requiredInputs": [
+                "droplet_id",
                 "type"
             ]
         },
@@ -17276,6 +17564,10 @@
                 "action": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeAction"
                 },
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
+                },
                 "region": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
@@ -17287,6 +17579,10 @@
             },
             "type": "object",
             "inputProperties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
+                },
                 "region": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
@@ -17301,6 +17597,7 @@
                 }
             },
             "requiredInputs": [
+                "droplet_id",
                 "type"
             ]
         },
@@ -17313,6 +17610,10 @@
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
+                "size_gigabytes": {
+                    "type": "integer",
+                    "description": "The new size of the block storage volume in GiB (1024^3)."
+                },
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
                     "description": "The volume action to initiate."
@@ -17324,6 +17625,10 @@
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
+                "size_gigabytes": {
+                    "type": "integer",
+                    "description": "The new size of the block storage volume in GiB (1024^3)."
+                },
                 "type": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
                     "description": "The volume action to initiate."
@@ -17334,6 +17639,7 @@
                 }
             },
             "requiredInputs": [
+                "size_gigabytes",
                 "type"
             ]
         },
