@@ -8381,6 +8381,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             account:
                                 $ref: '#/components/schemas/account'
@@ -8396,6 +8397,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             action:
                                 $ref: '#/components/schemas/action'
@@ -8432,6 +8434,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             policy:
                                 $ref: '#/components/schemas/alert_policy'
@@ -8957,6 +8960,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             node_pools:
                                 type: array
@@ -9682,6 +9686,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             kubernetes_cluster:
                                 $ref: '#/components/schemas/cluster'
@@ -9733,6 +9738,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             run_id:
                                 type: string
@@ -9840,6 +9846,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             domain:
                                 name: example.com
@@ -9860,6 +9867,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             firewall:
                                 $ref: '#/components/schemas/firewall'
@@ -9908,6 +9916,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             domain_record:
                                 data: 162.10.66.0
@@ -10059,6 +10068,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             databases:
                                 type: array
@@ -10176,6 +10186,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             replicas:
                                 type: array
@@ -10215,6 +10226,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             dbs:
                                 type: array
@@ -10236,6 +10248,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             project:
                                 created_at: "2017-10-19T21:44:20Z"
@@ -10291,6 +10304,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             domain_record:
                                 data: 162.10.66.0
@@ -10318,6 +10332,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             action:
                                 $ref: '#/components/schemas/action'
@@ -10333,6 +10348,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             actions:
                                 type: array
@@ -10465,6 +10481,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         required:
                             - eviction_policy
                         properties:
@@ -10554,6 +10571,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             kubernetes_cluster:
                                 $ref: '#/components/schemas/cluster'
@@ -10588,6 +10606,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             domain:
                                 name: example.com
@@ -10617,6 +10636,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             droplet:
                                 $ref: '#/components/schemas/droplet'
@@ -10635,6 +10655,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             endpoint:
                                 $ref: '#/components/schemas/cdn_endpoint'
@@ -10715,6 +10736,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             load_balancer:
                                 $ref: '#/components/schemas/load_balancer'
@@ -10735,6 +10757,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             node_pool:
                                 auto_scale: false
@@ -10794,6 +10817,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             project:
                                 $ref: '#/components/schemas/project'
@@ -10825,6 +10849,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             rules:
                                 type: array
@@ -10885,6 +10910,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             action:
                                 completed_at: "2015-11-12T17:51:14Z"
@@ -11137,6 +11163,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             firewall:
                                 $ref: '#/components/schemas/firewall'
@@ -11795,6 +11822,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             load_balancer:
                                 $ref: '#/components/schemas/load_balancer'
@@ -11992,6 +12020,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             image:
                                 $ref: '#/components/schemas/image'
@@ -12043,6 +12072,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             node_pool:
                                 auto_scale: true
@@ -12100,6 +12130,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             node_pool:
                                 auto_scale: true
@@ -12172,6 +12203,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             1_clicks:
                                 type: array
@@ -12495,6 +12527,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             firewall:
                                 $ref: '#/components/schemas/firewall'
@@ -12544,6 +12577,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             registry:
                                 $ref: '#/components/schemas/registry'
@@ -12723,6 +12757,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             action:
                                 completed_at: "2015-11-12T17:51:14Z"
@@ -13014,6 +13049,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             snapshot:
                                 $ref: '#/components/schemas/snapshots'
@@ -13045,7 +13081,8 @@ components:
                 application/json:
                     schema:
                         allOf:
-                            - properties:
+                            - type: object
+                              properties:
                                 ssh_keys:
                                     type: array
                                     items:
@@ -13073,6 +13110,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             ssh_key:
                                 $ref: '#/components/schemas/sshKeys'
@@ -13097,6 +13135,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             ssh_key:
                                 $ref: '#/components/schemas/sshKeys'
@@ -13121,6 +13160,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             subscription:
                                 $ref: '#/components/schemas/subscription'
@@ -13241,6 +13281,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             tag:
                                 name: extra-awesome
@@ -13414,6 +13455,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             kubernetes_cluster:
                                 $ref: '#/components/schemas/cluster'
@@ -13470,6 +13512,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             load_balancer:
                                 $ref: '#/components/schemas/load_balancer'
@@ -13521,6 +13564,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             users:
                                 type: array
@@ -13546,6 +13590,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             volume:
                                 created_at: "2020-03-02T17:00:49Z"
@@ -13595,6 +13640,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         properties:
                             action:
                                 $ref: '#/components/schemas/volumeAction'
@@ -13672,6 +13718,7 @@ components:
             content:
                 application/json:
                     schema:
+                        type: object
                         example:
                             snapshot:
                                 created_at: "2020-09-30T18:56:14Z"
