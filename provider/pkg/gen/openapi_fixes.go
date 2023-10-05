@@ -15,9 +15,9 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	regionSchema.Value.Properties["features"].Value.Type = "array"
 	regionSchema.Value.Properties["sizes"].Value.Type = "array"
 
-	// for _, ty := range openAPIDoc.Components.Schemas {
-	// 	fixObjectPropertyType(ty)
-	// }
+	for _, ty := range openAPIDoc.Components.Schemas {
+		fixObjectPropertyType(ty)
+	}
 
 	for _, ty := range openAPIDoc.Components.Responses {
 		fixResponseObjectPropertyType(ty)
@@ -60,9 +60,9 @@ func fixReservedIpType(openAPIDoc *openapi3.T) {
 	schemaRef.Value.Properties["droplet"].Value.Example = nil
 }
 
+// fixObjectPropertyType adds `type: object` for any type that
+// does not have a value defined for the `type` property.
 func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
-	// Add `type: object` for any type that does not have the `type` property
-	// of the schema set.
 	if objectType.Value.Type != "" {
 		return
 	}
@@ -136,6 +136,7 @@ func fixDatabaseConfigType(openAPIDoc *openapi3.T) {
 		stringSchema.ReadOnly = true
 		ty.Value.Properties["type"] = stringSchema.NewRef()
 	}
+
 	configProp.Value.OneOf = types
 	configProp.Value.Discriminator = &openapi3.Discriminator{
 		PropertyName: "type",

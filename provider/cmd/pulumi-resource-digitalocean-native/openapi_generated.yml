@@ -781,6 +781,7 @@ components:
                         could be `domain.com`.
                     example: example.com
         app_domain_validation:
+            type: object
             properties:
                 txt_name:
                     type: string
@@ -7481,6 +7482,7 @@ components:
                         readOnly: true
             type: object
         volume_snapshot_id:
+            type: object
             properties:
                 snapshot_id:
                     type: string

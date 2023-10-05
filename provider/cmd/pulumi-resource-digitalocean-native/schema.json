@@ -2009,73 +2009,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:apps/v2:AppsDeployment": {
-            "properties": {
-                "cause": {
-                    "type": "string"
-                },
-                "cloned_from": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "functions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentFunctions"
-                    }
-                },
-                "id": {
-                    "type": "string"
-                },
-                "jobs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentJob"
-                    }
-                },
-                "phase": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentPhase",
-                    "default": "UNKNOWN"
-                },
-                "phase_last_updated_at": {
-                    "type": "string"
-                },
-                "progress": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentProgress"
-                },
-                "services": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentService"
-                    }
-                },
-                "spec": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppSpec",
-                    "description": "The desired configuration of an application."
-                },
-                "static_sites": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentStaticSite"
-                    }
-                },
-                "tier_slug": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "workers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentWorker"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:apps/v2:AppsDeploymentFunctions": {
             "properties": {
                 "name": {
@@ -3703,55 +3636,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:databases/v2:DatabaseReplica": {
-            "properties": {
-                "connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseReplicaConnection"
-                },
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the database cluster was created."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database replica."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name to give the read-only replicating"
-                },
-                "private_connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseReplicaPrivateConnection"
-                },
-                "private_network_uuid": {
-                    "type": "string",
-                    "description": "A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region."
-                },
-                "region": {
-                    "type": "string",
-                    "description": "A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster."
-                },
-                "size": {
-                    "type": "string",
-                    "description": "A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseReplicaStatus",
-                    "description": "A string representing the current status of the database cluster."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags."
-                }
-            },
-            "type": "object",
-            "required": [
-                "name"
-            ]
-        },
         "digitalocean-native:databases/v2:DatabaseReplicaConnection": {
             "properties": {
                 "database": {
@@ -5165,6 +5049,54 @@
             },
             "type": "object"
         },
+        "digitalocean-native:domains/v2:DomainRecord": {
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
+                },
+                "flags": {
+                    "type": "integer",
+                    "description": "An unsigned integer between 0-255 used for CAA records."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique identifier for each domain record."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The host name, alias, or service being defined by the record."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port for SRV records."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The priority for SRV and MX records."
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "The parameter tag for CAA records. Valid values are \"issue\", \"issuewild\", or \"iodef\""
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the DNS record. For example: A, CNAME, TXT, ..."
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "The weight for SRV records."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "digitalocean-native:domains/v2:GetDomainsProperties": {
             "properties": {
                 "domain": {
@@ -6492,23 +6424,6 @@
                     "value": "snapshot"
                 }
             ]
-        },
-        "digitalocean-native:firewalls/v2:Firewall": {
-            "properties": {
-                "inbound_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesInboundRulesItem"
-                    }
-                },
-                "outbound_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesOutboundRulesItem"
-                    }
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:firewalls/v2:FirewallRuleBaseProtocol": {
             "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.",
@@ -10817,59 +10732,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:registry/v2:Subscription": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "The time at which the subscription was created."
-                },
-                "tier": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierBase"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "description": "The time at which the subscription was last updated."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:registry/v2:SubscriptionTierBase": {
-            "properties": {
-                "allow_storage_overage": {
-                    "type": "boolean",
-                    "description": "A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used."
-                },
-                "included_bandwidth_bytes": {
-                    "type": "integer",
-                    "description": "The amount of outbound data transfer included in the subscription tier in bytes."
-                },
-                "included_repositories": {
-                    "type": "integer",
-                    "description": "The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories."
-                },
-                "included_storage_bytes": {
-                    "type": "integer",
-                    "description": "The amount of storage included in the subscription tier in bytes."
-                },
-                "monthly_price_in_cents": {
-                    "type": "integer",
-                    "description": "The monthly cost of the subscription tier in cents."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the subscription tier."
-                },
-                "slug": {
-                    "type": "string",
-                    "description": "The slug identifier of the subscription tier."
-                },
-                "storage_overage_price_in_cents": {
-                    "type": "integer",
-                    "description": "The price paid in cents per GiB for additional storage beyond what is included in the subscription plan."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:registry/v2:SubscriptionTierExtendedEligibilityReasonsItem": {
             "type": "string",
             "enum": [
@@ -12149,6 +12011,39 @@
                 "last_tagged_uri": {
                     "type": "string",
                     "description": "The URI for the last tagged object for this type of resource."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:uptime/v2:Alert": {
+            "properties": {
+                "comparison": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableComparison",
+                    "description": "The comparison operator used against the alert's threshold."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference the alert."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-friendly display name."
+                },
+                "notifications": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:Notification",
+                    "description": "The notification settings for a trigger alert."
+                },
+                "period": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatablePeriod",
+                    "description": "Period of time the threshold must be exceeded to trigger the alert."
+                },
+                "threshold": {
+                    "type": "integer",
+                    "description": "The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableType",
+                    "description": "The type of alert."
                 }
             },
             "type": "object"
@@ -13477,7 +13372,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:databases/v2:DatabasesAdd": {
+        "digitalocean-native:databases/v2:Databases": {
             "properties": {
                 "db": {
                     "$ref": "#/types/digitalocean-native:databases/v2:Database"
@@ -13502,142 +13397,6 @@
                     "description": "The name of the database."
                 }
             }
-        },
-        "digitalocean-native:databases/v2:DatabasesAddConnectionPool": {
-            "properties": {
-                "connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:Connection"
-                },
-                "db": {
-                    "type": "string",
-                    "description": "The database for use with the connection pool."
-                },
-                "mode": {
-                    "type": "string",
-                    "description": "The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A unique name for the connection pool. Must be between 3 and 60 characters."
-                },
-                "pool": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:ConnectionPool"
-                },
-                "private_connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:PrivateConnection"
-                },
-                "size": {
-                    "type": "integer",
-                    "description": "The desired size of the PGBouncer connection pool. The maximum allowed size is determined by the size of the cluster's primary node. 25 backend server connections are allowed for every 1GB of RAM. Three are reserved for maintenance. For example, a primary node with 1 GB of RAM allows for a maximum of 22 backend server connections while one with 4 GB would allow for 97. Note that these are shared across all connection pools in a cluster."
-                },
-                "user": {
-                    "type": "string",
-                    "description": "The name of the user for use with the connection pool. When excluded, all sessions connect to the database as the inbound user."
-                }
-            },
-            "type": "object",
-            "required": [
-                "db",
-                "mode",
-                "name",
-                "pool",
-                "size"
-            ],
-            "inputProperties": {
-                "connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:Connection"
-                },
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
-                "db": {
-                    "type": "string",
-                    "description": "The database for use with the connection pool."
-                },
-                "mode": {
-                    "type": "string",
-                    "description": "The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A unique name for the connection pool. Must be between 3 and 60 characters."
-                },
-                "private_connection": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:PrivateConnection"
-                },
-                "size": {
-                    "type": "integer",
-                    "description": "The desired size of the PGBouncer connection pool. The maximum allowed size is determined by the size of the cluster's primary node. 25 backend server connections are allowed for every 1GB of RAM. Three are reserved for maintenance. For example, a primary node with 1 GB of RAM allows for a maximum of 22 backend server connections while one with 4 GB would allow for 97. Note that these are shared across all connection pools in a cluster."
-                },
-                "user": {
-                    "type": "string",
-                    "description": "The name of the user for use with the connection pool. When excluded, all sessions connect to the database as the inbound user."
-                }
-            },
-            "requiredInputs": [
-                "db",
-                "mode",
-                "size"
-            ]
-        },
-        "digitalocean-native:databases/v2:DatabasesAddUser": {
-            "properties": {
-                "mysql_settings": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:MysqlSettings"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of a database user."
-                },
-                "password": {
-                    "type": "string",
-                    "description": "A randomly generated password for the database user."
-                },
-                "readonly": {
-                    "type": "boolean",
-                    "description": "For MongoDB clusters, set to `true` to create a read-only user.\nThis option is not currently supported for other database engines.\n"
-                },
-                "role": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUserRole",
-                    "description": "A string representing the database user's role. The value will be either\n\"primary\" or \"normal\".\n"
-                },
-                "user": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUser"
-                }
-            },
-            "type": "object",
-            "required": [
-                "user"
-            ],
-            "inputProperties": {
-                "database_cluster_uuid": {
-                    "type": "string",
-                    "description": "A unique identifier for a database cluster."
-                },
-                "mysql_settings": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:MysqlSettings"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of a database user."
-                },
-                "password": {
-                    "type": "string",
-                    "description": "A randomly generated password for the database user."
-                },
-                "readonly": {
-                    "type": "boolean",
-                    "description": "For MongoDB clusters, set to `true` to create a read-only user.\nThis option is not currently supported for other database engines.\n"
-                },
-                "role": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUserRole",
-                    "description": "A string representing the database user's role. The value will be either\n\"primary\" or \"normal\".\n"
-                }
-            },
-            "requiredInputs": [
-                "name"
-            ]
         },
         "digitalocean-native:databases/v2:DatabasesCluster": {
             "properties": {
@@ -13879,6 +13638,84 @@
             },
             "requiredInputs": [
                 "num_nodes",
+                "size"
+            ]
+        },
+        "digitalocean-native:databases/v2:DatabasesConnectionPool": {
+            "properties": {
+                "connection": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:Connection"
+                },
+                "db": {
+                    "type": "string",
+                    "description": "The database for use with the connection pool."
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A unique name for the connection pool. Must be between 3 and 60 characters."
+                },
+                "pool": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:ConnectionPool"
+                },
+                "private_connection": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:PrivateConnection"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The desired size of the PGBouncer connection pool. The maximum allowed size is determined by the size of the cluster's primary node. 25 backend server connections are allowed for every 1GB of RAM. Three are reserved for maintenance. For example, a primary node with 1 GB of RAM allows for a maximum of 22 backend server connections while one with 4 GB would allow for 97. Note that these are shared across all connection pools in a cluster."
+                },
+                "user": {
+                    "type": "string",
+                    "description": "The name of the user for use with the connection pool. When excluded, all sessions connect to the database as the inbound user."
+                }
+            },
+            "type": "object",
+            "required": [
+                "db",
+                "mode",
+                "name",
+                "pool",
+                "size"
+            ],
+            "inputProperties": {
+                "connection": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:Connection"
+                },
+                "database_cluster_uuid": {
+                    "type": "string",
+                    "description": "A unique identifier for a database cluster."
+                },
+                "db": {
+                    "type": "string",
+                    "description": "The database for use with the connection pool."
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A unique name for the connection pool. Must be between 3 and 60 characters."
+                },
+                "private_connection": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:PrivateConnection"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The desired size of the PGBouncer connection pool. The maximum allowed size is determined by the size of the cluster's primary node. 25 backend server connections are allowed for every 1GB of RAM. Three are reserved for maintenance. For example, a primary node with 1 GB of RAM allows for a maximum of 22 backend server connections while one with 4 GB would allow for 97. Note that these are shared across all connection pools in a cluster."
+                },
+                "user": {
+                    "type": "string",
+                    "description": "The name of the user for use with the connection pool. When excluded, all sessions connect to the database as the inbound user."
+                }
+            },
+            "requiredInputs": [
+                "db",
+                "mode",
                 "size"
             ]
         },
@@ -14198,6 +14035,64 @@
             },
             "requiredInputs": [
                 "sql_mode"
+            ]
+        },
+        "digitalocean-native:databases/v2:DatabasesUser": {
+            "properties": {
+                "mysql_settings": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:MysqlSettings"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of a database user."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "A randomly generated password for the database user."
+                },
+                "readonly": {
+                    "type": "boolean",
+                    "description": "For MongoDB clusters, set to `true` to create a read-only user.\nThis option is not currently supported for other database engines.\n"
+                },
+                "role": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUserRole",
+                    "description": "A string representing the database user's role. The value will be either\n\"primary\" or \"normal\".\n"
+                },
+                "user": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUser"
+                }
+            },
+            "type": "object",
+            "required": [
+                "user"
+            ],
+            "inputProperties": {
+                "database_cluster_uuid": {
+                    "type": "string",
+                    "description": "A unique identifier for a database cluster."
+                },
+                "mysql_settings": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:MysqlSettings"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of a database user."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "A randomly generated password for the database user."
+                },
+                "readonly": {
+                    "type": "boolean",
+                    "description": "For MongoDB clusters, set to `true` to create a read-only user.\nThis option is not currently supported for other database engines.\n"
+                },
+                "role": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseUserRole",
+                    "description": "A string representing the database user's role. The value will be either\n\"primary\" or \"normal\".\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
             ]
         },
         "digitalocean-native:domains/v2:Domains": {
@@ -15853,7 +15748,38 @@
                 }
             }
         },
-        "digitalocean-native:firewalls/v2:FirewallsAddRules": {
+        "digitalocean-native:firewalls/v2:FirewallsAssignDroplets": {
+            "properties": {
+                "droplet_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets to be assigned to the firewall."
+                }
+            },
+            "type": "object",
+            "required": [
+                "droplet_ids"
+            ],
+            "inputProperties": {
+                "droplet_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets to be assigned to the firewall."
+                },
+                "firewall_id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a firewall."
+                }
+            },
+            "requiredInputs": [
+                "droplet_ids"
+            ]
+        },
+        "digitalocean-native:firewalls/v2:FirewallsRules": {
             "properties": {
                 "inbound_rules": {
                     "type": "array",
@@ -15888,7 +15814,7 @@
                 }
             }
         },
-        "digitalocean-native:firewalls/v2:FirewallsAddTags": {
+        "digitalocean-native:firewalls/v2:FirewallsTags": {
             "properties": {
                 "tags": {
                     "$ref": "#/types/digitalocean-native:firewalls/v2:Tags"
@@ -15909,37 +15835,6 @@
             },
             "requiredInputs": [
                 "tags"
-            ]
-        },
-        "digitalocean-native:firewalls/v2:FirewallsAssignDroplets": {
-            "properties": {
-                "droplet_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "An array containing the IDs of the Droplets to be assigned to the firewall."
-                }
-            },
-            "type": "object",
-            "required": [
-                "droplet_ids"
-            ],
-            "inputProperties": {
-                "droplet_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "An array containing the IDs of the Droplets to be assigned to the firewall."
-                },
-                "firewall_id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a firewall."
-                }
-            },
-            "requiredInputs": [
-                "droplet_ids"
             ]
         },
         "digitalocean-native:floating_ips/v2:FloatingIPs": {
@@ -16259,152 +16154,6 @@
                 }
             }
         },
-        "digitalocean-native:kubernetes/v2:KubernetesAddNodePool": {
-            "properties": {
-                "auto_scale": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
-                },
-                "count": {
-                    "type": "integer",
-                    "description": "The number of Droplet instances in the node pool."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a specific node pool."
-                },
-                "labels": {
-                    "$ref": "pulumi.json#/Any",
-                    "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
-                },
-                "max_nodes": {
-                    "type": "integer",
-                    "description": "The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
-                },
-                "min_nodes": {
-                    "type": "integer",
-                    "description": "The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the node pool."
-                },
-                "node_pool": {
-                    "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePool"
-                },
-                "nodes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Node"
-                    },
-                    "description": "An object specifying the details of a specific worker node in a node pool."
-                },
-                "size": {
-                    "type": "string",
-                    "description": "The slug identifier for the type of Droplet used as workers in the node pool."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`."
-                },
-                "taints": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
-                    },
-                    "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
-                }
-            },
-            "type": "object",
-            "required": [
-                "count",
-                "name",
-                "size"
-            ],
-            "inputProperties": {
-                "auto_scale": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
-                },
-                "cluster_id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to reference a Kubernetes cluster."
-                },
-                "count": {
-                    "type": "integer",
-                    "description": "The number of Droplet instances in the node pool."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a specific node pool."
-                },
-                "labels": {
-                    "$ref": "pulumi.json#/Any",
-                    "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
-                },
-                "max_nodes": {
-                    "type": "integer",
-                    "description": "The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
-                },
-                "min_nodes": {
-                    "type": "integer",
-                    "description": "The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the node pool."
-                },
-                "nodes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Node"
-                    },
-                    "description": "An object specifying the details of a specific worker node in a node pool."
-                },
-                "size": {
-                    "type": "string",
-                    "description": "The slug identifier for the type of Droplet used as workers in the node pool."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`."
-                },
-                "taints": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
-                    },
-                    "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
-                }
-            }
-        },
-        "digitalocean-native:kubernetes/v2:KubernetesAddRegistry": {
-            "properties": {
-                "cluster_uuids": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array containing the UUIDs of Kubernetes clusters."
-                }
-            },
-            "type": "object",
-            "inputProperties": {
-                "cluster_uuids": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array containing the UUIDs of Kubernetes clusters."
-                }
-            }
-        },
         "digitalocean-native:kubernetes/v2:KubernetesCluster": {
             "properties": {
                 "auto_upgrade": {
@@ -16561,6 +16310,131 @@
                 "version"
             ]
         },
+        "digitalocean-native:kubernetes/v2:KubernetesNodePool": {
+            "properties": {
+                "auto_scale": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
+                },
+                "count": {
+                    "type": "integer",
+                    "description": "The number of Droplet instances in the node pool."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a specific node pool."
+                },
+                "labels": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
+                },
+                "max_nodes": {
+                    "type": "integer",
+                    "description": "The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
+                },
+                "min_nodes": {
+                    "type": "integer",
+                    "description": "The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the node pool."
+                },
+                "node_pool": {
+                    "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePool"
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Node"
+                    },
+                    "description": "An object specifying the details of a specific worker node in a node pool."
+                },
+                "size": {
+                    "type": "string",
+                    "description": "The slug identifier for the type of Droplet used as workers in the node pool."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`."
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
+                    },
+                    "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
+                }
+            },
+            "type": "object",
+            "required": [
+                "count",
+                "name",
+                "size"
+            ],
+            "inputProperties": {
+                "auto_scale": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
+                },
+                "cluster_id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to reference a Kubernetes cluster."
+                },
+                "count": {
+                    "type": "integer",
+                    "description": "The number of Droplet instances in the node pool."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a specific node pool."
+                },
+                "labels": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
+                },
+                "max_nodes": {
+                    "type": "integer",
+                    "description": "The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
+                },
+                "min_nodes": {
+                    "type": "integer",
+                    "description": "The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the node pool."
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Node"
+                    },
+                    "description": "An object specifying the details of a specific worker node in a node pool."
+                },
+                "size": {
+                    "type": "string",
+                    "description": "The slug identifier for the type of Droplet used as workers in the node pool."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`."
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
+                    },
+                    "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
+                }
+            }
+        },
         "digitalocean-native:kubernetes/v2:KubernetesRecycleNodePool": {
             "properties": {
                 "nodes": {
@@ -16585,6 +16459,27 @@
                     "items": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "digitalocean-native:kubernetes/v2:KubernetesRegistry": {
+            "properties": {
+                "cluster_uuids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array containing the UUIDs of Kubernetes clusters."
+                }
+            },
+            "type": "object",
+            "inputProperties": {
+                "cluster_uuids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array containing the UUIDs of Kubernetes clusters."
                 }
             }
         },
@@ -16686,7 +16581,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancersAddDroplets": {
+        "digitalocean-native:load_balancers/v2:LoadBalancersDroplets": {
             "properties": {
                 "droplet_ids": {
                     "type": "array",
@@ -16717,7 +16612,7 @@
                 "droplet_ids"
             ]
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancersAddForwardingRules": {
+        "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRules": {
             "properties": {
                 "forwarding_rules": {
                     "type": "array",
