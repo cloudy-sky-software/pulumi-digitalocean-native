@@ -4396,23 +4396,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:databases/v2:DatabasesClusterProperties": {
-            "properties": {
-                "backup_restore": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseBackup"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:databases/v2:DatabasesUserProperties": {
-            "properties": {
-                "readonly": {
-                    "type": "boolean",
-                    "description": "For MongoDB clusters, set to `true` to create a read-only user.\nThis option is not currently supported for other database engines.\n"
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:databases/v2:EvictionPolicy": {
             "description": "A string specifying the desired eviction policy for the Redis cluster.\n\n- `noeviction`: Don't evict any data, returns error when memory limit is reached.\n- `allkeys_lru:` Evict any key, least recently used (LRU) first.\n- `allkeys_random`: Evict keys in a random order.\n- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.\n- `volatile_random`: Evict keys with expiration only in a random order.\n- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.",
             "type": "string",
@@ -6152,19 +6135,6 @@
                 "volume_ids"
             ]
         },
-        "digitalocean-native:droplets/v2:DropletAction": {
-            "description": "Specifies the action that will be taken on the Droplet.",
-            "properties": {
-                "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
-                    "description": "The type of action to initiate for the Droplet."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
-        },
         "digitalocean-native:droplets/v2:DropletActionType": {
             "description": "The type of action to initiate for the Droplet.",
             "type": "string",
@@ -6230,80 +6200,6 @@
                     "value": "snapshot"
                 }
             ]
-        },
-        "digitalocean-native:droplets/v2:DropletActionsByTagSnapshotProperties": {
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name to give the new snapshot of the Droplet."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DropletActionsChangeKernelProperties": {
-            "properties": {
-                "kernel": {
-                    "type": "integer",
-                    "description": "A unique number used to identify and reference a specific kernel."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DropletActionsRebuildProperties": {
-            "properties": {
-                "image": {
-                    "oneOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "integer"
-                        }
-                    ],
-                    "description": "The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DropletActionsRenameProperties": {
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The new name for the Droplet."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DropletActionsResizeProperties": {
-            "properties": {
-                "disk": {
-                    "type": "boolean",
-                    "description": "When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased."
-                },
-                "size": {
-                    "type": "string",
-                    "description": "The slug identifier for the size to which you wish to resize the Droplet."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DropletActionsRestoreProperties": {
-            "properties": {
-                "image": {
-                    "type": "integer",
-                    "description": "The ID of a backup of the current Droplet instance to restore from."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DropletActionsSnapshotProperties": {
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name to give the new snapshot of the Droplet."
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:droplets/v2:DropletNetworksProperties": {
             "description": "The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.",
@@ -8096,30 +7992,6 @@
                 }
             ]
         },
-        "digitalocean-native:floating_ips/v2:FloatingIPsAction": {
-            "properties": {
-                "type": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
-                    "description": "The type of action to initiate for the floating IP."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
-        },
-        "digitalocean-native:floating_ips/v2:FloatingIPsActionAssignProperties": {
-            "properties": {
-                "droplet_id": {
-                    "type": "integer",
-                    "description": "The ID of the Droplet that the floating IP will be assigned to."
-                }
-            },
-            "type": "object",
-            "required": [
-                "droplet_id"
-            ]
-        },
         "digitalocean-native:floating_ips/v2:FloatingIPsActionType": {
             "description": "The type of action to initiate for the floating IP.",
             "type": "string",
@@ -9144,18 +9016,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:images/v2:ImageActionBase": {
-            "properties": {
-                "type": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageActionBaseType",
-                    "description": "The action to be taken on the image. Can be either `convert` or `transfer`."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
-        },
         "digitalocean-native:images/v2:ImageActionBaseType": {
             "description": "The action to be taken on the image. Can be either `convert` or `transfer`.",
             "type": "string",
@@ -9168,18 +9028,6 @@
                     "name": "Transfer",
                     "value": "transfer"
                 }
-            ]
-        },
-        "digitalocean-native:images/v2:ImageActionsTransferProperties": {
-            "properties": {
-                "region": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageActionsTransferPropertiesRegion",
-                    "description": "The slug identifier for the region where the resource will initially be  available."
-                }
-            },
-            "type": "object",
-            "required": [
-                "region"
             ]
         },
         "digitalocean-native:images/v2:ImageActionsTransferPropertiesRegion": {
@@ -9416,23 +9264,6 @@
                 }
             ]
         },
-        "digitalocean-native:images/v2:ImageUpdate": {
-            "properties": {
-                "description": {
-                    "type": "string",
-                    "description": "An optional free-form text field to describe an image."
-                },
-                "distribution": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImageUpdateDistribution",
-                    "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:images/v2:ImageUpdateDistribution": {
             "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.",
             "type": "string",
@@ -9490,26 +9321,6 @@
                     "value": "Unknown"
                 }
             ]
-        },
-        "digitalocean-native:images/v2:ImagesCustomProperties": {
-            "properties": {
-                "region": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImagesCustomPropertiesRegion",
-                    "description": "The slug identifier for the region where the resource will initially be  available."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
-                },
-                "url": {
-                    "type": "string",
-                    "description": "A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed."
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:images/v2:ImagesCustomPropertiesRegion": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
@@ -13863,27 +13674,6 @@
                 "slug"
             ]
         },
-        "digitalocean-native:reserved_ips/v2:ReservedIPsActionsAssignProperties": {
-            "properties": {
-                "droplet_id": {
-                    "type": "integer",
-                    "description": "The ID of the Droplet that the reserved IP will be assigned to."
-                }
-            },
-            "type": "object",
-            "required": [
-                "droplet_id"
-            ]
-        },
-        "digitalocean-native:reserved_ips/v2:ReservedIPsActionsUnassignProperties": {
-            "properties": {
-                "droplet_id": {
-                    "type": "integer",
-                    "description": "The ID of the Droplet that the reserved IP will be unassigned from."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:reserved_ips/v2:ReservedIp": {
             "properties": {
                 "droplet": {
@@ -13907,18 +13697,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:ReservedIpActionType": {
-            "properties": {
-                "type": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType",
-                    "description": "The type of action to initiate for the reserved IP."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
         },
         "digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType": {
             "description": "The type of action to initiate for the reserved IP.",
@@ -15580,22 +15358,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:volumes/v2:VolumeActionPostBase": {
-            "properties": {
-                "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
-                    "description": "The slug identifier for the region where the resource will initially be  available."
-                },
-                "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
-                    "description": "The volume action to initiate."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
-        },
         "digitalocean-native:volumes/v2:VolumeActionPostBaseRegion": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
             "type": "string",
@@ -15687,49 +15449,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:volumes/v2:VolumeActionsByIdAttachProperties": {
-            "properties": {
-                "droplet_id": {
-                    "type": "integer",
-                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
-                }
-            },
-            "type": "object",
-            "required": [
-                "droplet_id"
-            ]
-        },
-        "digitalocean-native:volumes/v2:VolumeActionsByIdDetachProperties": {
-            "properties": {
-                "droplet_id": {
-                    "type": "integer",
-                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
-                }
-            },
-            "type": "object",
-            "required": [
-                "droplet_id"
-            ]
-        },
-        "digitalocean-native:volumes/v2:VolumeActionsByIdResizeProperties": {
-            "properties": {
-                "size_gigabytes": {
-                    "type": "integer",
-                    "description": "The new size of the block storage volume in GiB (1024^3)."
-                }
-            },
-            "type": "object",
-            "required": [
-                "size_gigabytes"
-            ]
         },
         "digitalocean-native:volumes/v2:VolumeBase": {
             "properties": {
