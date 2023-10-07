@@ -4189,6 +4189,55 @@
             },
             "type": "object"
         },
+        "digitalocean-native:databases/v2:DatabaseReplica": {
+            "properties": {
+                "connection": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseReplicaConnection"
+                },
+                "created_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the database cluster was created."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a database replica."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name to give the read-only replicating"
+                },
+                "private_connection": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseReplicaPrivateConnection"
+                },
+                "private_network_uuid": {
+                    "type": "string",
+                    "description": "A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster."
+                },
+                "size": {
+                    "type": "string",
+                    "description": "A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseReplicaStatus",
+                    "description": "A string representing the current status of the database cluster."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags."
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
         "digitalocean-native:databases/v2:DatabaseReplicaConnection": {
             "properties": {
                 "database": {
@@ -4343,6 +4392,23 @@
                         "type": "string"
                     },
                     "description": "An array of strings containing the names of available regions"
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:databases/v2:DatabasesClusterProperties": {
+            "properties": {
+                "backup_restore": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:DatabaseBackup"
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:databases/v2:DatabasesUserProperties": {
+            "properties": {
+                "readonly": {
+                    "type": "boolean",
+                    "description": "For MongoDB clusters, set to `true` to create a read-only user.\nThis option is not currently supported for other database engines.\n"
                 }
             },
             "type": "object"
@@ -5610,6 +5676,54 @@
             },
             "type": "object"
         },
+        "digitalocean-native:domains/v2:DomainRecord": {
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "description": "Variable data depending on record type. For example, the \"data\" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates."
+                },
+                "flags": {
+                    "type": "integer",
+                    "description": "An unsigned integer between 0-255 used for CAA records."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique identifier for each domain record."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The host name, alias, or service being defined by the record."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port for SRV records."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The priority for SRV and MX records."
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "The parameter tag for CAA records. Valid values are \"issue\", \"issuewild\", or \"iodef\""
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the DNS record. For example: A, CNAME, TXT, ..."
+                },
+                "weight": {
+                    "type": "integer",
+                    "description": "The weight for SRV records."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "digitalocean-native:domains/v2:GetDomainsProperties": {
             "properties": {
                 "domain": {
@@ -6038,6 +6152,19 @@
                 "volume_ids"
             ]
         },
+        "digitalocean-native:droplets/v2:DropletAction": {
+            "description": "Specifies the action that will be taken on the Droplet.",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
+                    "description": "The type of action to initiate for the Droplet."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "digitalocean-native:droplets/v2:DropletActionType": {
             "description": "The type of action to initiate for the Droplet.",
             "type": "string",
@@ -6103,6 +6230,80 @@
                     "value": "snapshot"
                 }
             ]
+        },
+        "digitalocean-native:droplets/v2:DropletActionsByTagSnapshotProperties": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name to give the new snapshot of the Droplet."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DropletActionsChangeKernelProperties": {
+            "properties": {
+                "kernel": {
+                    "type": "integer",
+                    "description": "A unique number used to identify and reference a specific kernel."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DropletActionsRebuildProperties": {
+            "properties": {
+                "image": {
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ],
+                    "description": "The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DropletActionsRenameProperties": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The new name for the Droplet."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DropletActionsResizeProperties": {
+            "properties": {
+                "disk": {
+                    "type": "boolean",
+                    "description": "When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased."
+                },
+                "size": {
+                    "type": "string",
+                    "description": "The slug identifier for the size to which you wish to resize the Droplet."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DropletActionsRestoreProperties": {
+            "properties": {
+                "image": {
+                    "type": "integer",
+                    "description": "The ID of a backup of the current Droplet instance to restore from."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DropletActionsSnapshotProperties": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name to give the new snapshot of the Droplet."
+                }
+            },
+            "type": "object"
         },
         "digitalocean-native:droplets/v2:DropletNetworksProperties": {
             "description": "The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.",
@@ -7895,6 +8096,30 @@
                 }
             ]
         },
+        "digitalocean-native:floating_ips/v2:FloatingIPsAction": {
+            "properties": {
+                "type": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
+                    "description": "The type of action to initiate for the floating IP."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "digitalocean-native:floating_ips/v2:FloatingIPsActionAssignProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The ID of the Droplet that the floating IP will be assigned to."
+                }
+            },
+            "type": "object",
+            "required": [
+                "droplet_id"
+            ]
+        },
         "digitalocean-native:floating_ips/v2:FloatingIPsActionType": {
             "description": "The type of action to initiate for the floating IP.",
             "type": "string",
@@ -8919,6 +9144,18 @@
             },
             "type": "object"
         },
+        "digitalocean-native:images/v2:ImageActionBase": {
+            "properties": {
+                "type": {
+                    "$ref": "#/types/digitalocean-native:images/v2:ImageActionBaseType",
+                    "description": "The action to be taken on the image. Can be either `convert` or `transfer`."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "digitalocean-native:images/v2:ImageActionBaseType": {
             "description": "The action to be taken on the image. Can be either `convert` or `transfer`.",
             "type": "string",
@@ -8931,6 +9168,18 @@
                     "name": "Transfer",
                     "value": "transfer"
                 }
+            ]
+        },
+        "digitalocean-native:images/v2:ImageActionsTransferProperties": {
+            "properties": {
+                "region": {
+                    "$ref": "#/types/digitalocean-native:images/v2:ImageActionsTransferPropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
             ]
         },
         "digitalocean-native:images/v2:ImageActionsTransferPropertiesRegion": {
@@ -9167,6 +9416,23 @@
                 }
             ]
         },
+        "digitalocean-native:images/v2:ImageUpdate": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "An optional free-form text field to describe an image."
+                },
+                "distribution": {
+                    "$ref": "#/types/digitalocean-native:images/v2:ImageUpdateDistribution",
+                    "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:images/v2:ImageUpdateDistribution": {
             "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.",
             "type": "string",
@@ -9224,6 +9490,26 @@
                     "value": "Unknown"
                 }
             ]
+        },
+        "digitalocean-native:images/v2:ImagesCustomProperties": {
+            "properties": {
+                "region": {
+                    "$ref": "#/types/digitalocean-native:images/v2:ImagesCustomPropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed."
+                }
+            },
+            "type": "object"
         },
         "digitalocean-native:images/v2:ImagesCustomPropertiesRegion": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
@@ -9846,6 +10132,69 @@
                         "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
                     },
                     "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:kubernetes/v2:KubernetesNodePoolBase": {
+            "properties": {
+                "auto_scale": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
+                },
+                "count": {
+                    "type": "integer",
+                    "description": "The number of Droplet instances in the node pool."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference a specific node pool."
+                },
+                "labels": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
+                },
+                "max_nodes": {
+                    "type": "integer",
+                    "description": "The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
+                },
+                "min_nodes": {
+                    "type": "integer",
+                    "description": "The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the node pool."
+                },
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Node"
+                    },
+                    "description": "An object specifying the details of a specific worker node in a node pool."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`."
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
+                    },
+                    "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:kubernetes/v2:KubernetesNodePoolSize": {
+            "properties": {
+                "size": {
+                    "type": "string",
+                    "description": "The slug identifier for the type of Droplet used as workers in the node pool."
                 }
             },
             "type": "object"
@@ -11694,6 +12043,47 @@
             },
             "type": "object"
         },
+        "digitalocean-native:projects/v2:ProjectBase": {
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the project was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the project. The maximum length is 255 characters."
+                },
+                "environment": {
+                    "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
+                    "description": "The environment of the project's resources."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique universal identifier of this project."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The human-readable name for the project. The maximum length is 175 characters and the name must be unique."
+                },
+                "owner_id": {
+                    "type": "integer",
+                    "description": "The integer id of the project owner."
+                },
+                "owner_uuid": {
+                    "type": "string",
+                    "description": "The unique universal identifier of the project owner."
+                },
+                "purpose": {
+                    "type": "string",
+                    "description": "The purpose of the project. The maximum length is 255 characters. It can\nhave one of the following values:\n\n- Just trying out DigitalOcean\n- Class project / Educational purposes\n- Website or blog\n- Web Application\n- Service or API\n- Mobile Application\n- Machine learning / AI / Data processing\n- IoT\n- Operational / Developer tooling\n\nIf another value for purpose is specified, for example, \"your custom purpose\",\nyour purpose will be stored as `Other: your custom purpose`.\n"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the project was updated."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:projects/v2:ProjectBaseEnvironment": {
             "description": "The environment of the project's resources.",
             "type": "string",
@@ -13473,6 +13863,27 @@
                 "slug"
             ]
         },
+        "digitalocean-native:reserved_ips/v2:ReservedIPsActionsAssignProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The ID of the Droplet that the reserved IP will be assigned to."
+                }
+            },
+            "type": "object",
+            "required": [
+                "droplet_id"
+            ]
+        },
+        "digitalocean-native:reserved_ips/v2:ReservedIPsActionsUnassignProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The ID of the Droplet that the reserved IP will be unassigned from."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:reserved_ips/v2:ReservedIp": {
             "properties": {
                 "droplet": {
@@ -13496,6 +13907,18 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:reserved_ips/v2:ReservedIpActionType": {
+            "properties": {
+                "type": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType",
+                    "description": "The type of action to initiate for the reserved IP."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
         },
         "digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType": {
             "description": "The type of action to initiate for the reserved IP.",
@@ -14192,6 +14615,39 @@
             },
             "type": "object"
         },
+        "digitalocean-native:uptime/v2:Alert": {
+            "properties": {
+                "comparison": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableComparison",
+                    "description": "The comparison operator used against the alert's threshold."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique ID that can be used to identify and reference the alert."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-friendly display name."
+                },
+                "notifications": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:Notification",
+                    "description": "The notification settings for a trigger alert."
+                },
+                "period": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatablePeriod",
+                    "description": "Period of time the threshold must be exceeded to trigger the alert."
+                },
+                "threshold": {
+                    "type": "integer",
+                    "description": "The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableType",
+                    "description": "The type of alert."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:uptime/v2:AlertBase": {
             "properties": {
                 "id": {
@@ -14338,6 +14794,35 @@
                 "id": {
                     "type": "string",
                     "description": "A unique ID that can be used to identify and reference the check."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:uptime/v2:CheckUpdatable": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether the check is enabled/disabled.",
+                    "default": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-friendly display name."
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableRegionsItem"
+                    },
+                    "description": "An array containing the selected regions to perform healthchecks from."
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The endpoint to perform healthchecks on."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableType",
+                    "description": "The type of health check to perform."
                 }
             },
             "type": "object"
@@ -15095,6 +15580,22 @@
             },
             "type": "object"
         },
+        "digitalocean-native:volumes/v2:VolumeActionPostBase": {
+            "properties": {
+                "region": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionPostBaseType",
+                    "description": "The volume action to initiate."
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "digitalocean-native:volumes/v2:VolumeActionPostBaseRegion": {
             "description": "The slug identifier for the region where the resource will initially be  available.",
             "type": "string",
@@ -15186,6 +15687,49 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:volumes/v2:VolumeActionsByIdAttachProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                }
+            },
+            "type": "object",
+            "required": [
+                "droplet_id"
+            ]
+        },
+        "digitalocean-native:volumes/v2:VolumeActionsByIdDetachProperties": {
+            "properties": {
+                "droplet_id": {
+                    "type": "integer",
+                    "description": "The unique identifier for the Droplet the volume will be attached or detached from."
+                }
+            },
+            "type": "object",
+            "required": [
+                "droplet_id"
+            ]
+        },
+        "digitalocean-native:volumes/v2:VolumeActionsByIdResizeProperties": {
+            "properties": {
+                "size_gigabytes": {
+                    "type": "integer",
+                    "description": "The new size of the block storage volume in GiB (1024^3)."
+                }
+            },
+            "type": "object",
+            "required": [
+                "size_gigabytes"
+            ]
         },
         "digitalocean-native:volumes/v2:VolumeBase": {
             "properties": {
@@ -15517,6 +16061,19 @@
             },
             "type": "object"
         },
+        "digitalocean-native:vpcs/v2:VpcCreate": {
+            "properties": {
+                "ip_range": {
+                    "type": "string",
+                    "description": "The range of IP addresses in the VPC in CIDR notation. Network ranges cannot overlap with other networks in the same account and must be in range of private addresses as defined in RFC1918. It may not be smaller than `/28` nor larger than `/16`. If no IP range is specified, a `/20` network range is generated that won't conflict with other VPC networks in your account."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The slug identifier for the region where the VPC will be created."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:vpcs/v2:VpcDefault": {
             "properties": {
                 "default": {
@@ -15539,6 +16096,19 @@
                 "urn": {
                     "type": "string",
                     "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:vpcs/v2:VpcUpdatable": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods."
                 }
             },
             "type": "object"
