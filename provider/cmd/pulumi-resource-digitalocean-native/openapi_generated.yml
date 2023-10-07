@@ -26929,7 +26929,6 @@ paths:
                             type: object
                             required:
                                 - name
-                                - method
                                 - target
                                 - regions
                                 - type

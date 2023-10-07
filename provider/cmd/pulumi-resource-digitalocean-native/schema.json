@@ -17893,7 +17893,6 @@
             "type": "object",
             "required": [
                 "enabled",
-                "method",
                 "name",
                 "regions",
                 "target",
