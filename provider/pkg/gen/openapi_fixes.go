@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
@@ -28,6 +29,14 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixReservedIpActionUnassignType(openAPIDoc)
 	fixReservedIpType(openAPIDoc)
 	fixPageLinksType(openAPIDoc)
+	removeDefaultValueForArrayProps(openAPIDoc)
+}
+
+func removeDefaultValueForArrayProps(openAPIDoc *openapi3.T) {
+	ty, ok := openAPIDoc.Components.Schemas["oneClicks_create"]
+	contract.Assertf(ok, "Expected to find oneClicks_create schema")
+
+	ty.Value.Properties["addon_slugs"].Value.Default = nil
 }
 
 func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {

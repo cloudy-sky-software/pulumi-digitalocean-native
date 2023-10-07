@@ -5593,7 +5593,6 @@ components:
                     type: array
                     title: addon_slugs
                     description: An array of 1-Click Application slugs to be installed to the Kubernetes cluster.
-                    default: []
                     example:
                         - kube-state-metrics
                         - loki

@@ -15862,8 +15862,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster.",
-                    "default": []
+                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster."
                 },
                 "cluster_uuid": {
                     "type": "string",
@@ -15885,8 +15884,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster.",
-                    "default": []
+                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster."
                 },
                 "cluster_uuid": {
                     "type": "string",
