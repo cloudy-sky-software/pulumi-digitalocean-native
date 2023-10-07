@@ -237,39 +237,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:account/v2:ListSshKeysProperties": {
-            "properties": {
-                "ssh_keys": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:account/v2:SshKeys"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:account/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:account/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:account/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:account/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -299,14 +267,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:account/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:account/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -425,39 +385,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:actions/v2:ListActionsProperties": {
-            "properties": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:actions/v2:Action"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:actions/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:actions/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:actions/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:actions/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -487,14 +415,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:actions/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:actions/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -868,72 +788,6 @@
                     "value": "ONE_HOUR"
                 }
             ]
-        },
-        "digitalocean-native:apps/v2:AppComponentBase": {
-            "properties": {
-                "build_command": {
-                    "type": "string",
-                    "description": "An optional build command to run while building this component from source."
-                },
-                "dockerfile_path": {
-                    "type": "string",
-                    "description": "The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks."
-                },
-                "environment_slug": {
-                    "type": "string",
-                    "description": "An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/)."
-                },
-                "envs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppVariableDefinition"
-                    },
-                    "description": "A list of environment variables made available to the component."
-                },
-                "git": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsGitSourceSpec"
-                },
-                "github": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsGithubSourceSpec"
-                },
-                "gitlab": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsGitlabSourceSpec"
-                },
-                "image": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsImageSourceSpec"
-                },
-                "log_destinations": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppLogDestinationDefinition"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name. Must be unique across all components within the same app."
-                },
-                "run_command": {
-                    "type": "string",
-                    "description": "An optional run command to override the component's default."
-                },
-                "source_dir": {
-                    "type": "string",
-                    "description": "An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:AppComponentInstanceBase": {
-            "properties": {
-                "instance_count": {
-                    "type": "integer",
-                    "description": "The amount of instances that this component should be scaled to. Default: 1",
-                    "default": 1
-                },
-                "instance_size_slug": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppComponentInstanceBaseInstanceSizeSlug",
-                    "description": "The instance size to use for this component. Default: `basic-xxs`",
-                    "default": "basic-xxs"
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:apps/v2:AppComponentInstanceBaseInstanceSizeSlug": {
             "description": "The instance size to use for this component. Default: `basic-xxs`",
@@ -1335,16 +1189,6 @@
                 "source_dir": {
                     "type": "string",
                     "description": "An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:AppJobSpecProperties": {
-            "properties": {
-                "kind": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppJobSpecPropertiesKind",
-                    "description": "- UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.\n- PRE_DEPLOY: Indicates a job that runs before an app deployment.\n- POST_DEPLOY: Indicates a job that runs after an app deployment.\n- FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.",
-                    "default": "UNSPECIFIED"
                 }
             },
             "type": "object"
@@ -1795,35 +1639,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:apps/v2:AppServiceSpecProperties": {
-            "properties": {
-                "cors": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsCorsPolicy"
-                },
-                "health_check": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppServiceSpecHealthCheck"
-                },
-                "http_port": {
-                    "type": "integer",
-                    "description": "The internal port on which this service's run command will listen. Default: 8080\nIf there is not an environment variable with the name `PORT`, one will be automatically added with its value set to the value of this field."
-                },
-                "internal_ports": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "The ports on which this service will listen for internal traffic."
-                },
-                "routes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppRouteSpec"
-                    },
-                    "description": "A list of HTTP routes that should be routed to this component."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:apps/v2:AppSpec": {
             "description": "The desired configuration of an application.",
             "properties": {
@@ -2011,39 +1826,6 @@
                 "source_dir": {
                     "type": "string",
                     "description": "An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:AppStaticSiteSpecProperties": {
-            "properties": {
-                "catchall_document": {
-                    "type": "string",
-                    "description": "The name of the document to use as the fallback for any requests to documents that are not found when serving this static site. Only 1 of `catchall_document` or `error_document` can be set."
-                },
-                "cors": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsCorsPolicy"
-                },
-                "error_document": {
-                    "type": "string",
-                    "description": "The name of the error document to use when serving this static site. Default: 404.html. If no such file exists within the built assets, App Platform will supply one.",
-                    "default": "404.html"
-                },
-                "index_document": {
-                    "type": "string",
-                    "description": "The name of the index document to use when serving this static site. Default: index.html",
-                    "default": "index.html"
-                },
-                "output_dir": {
-                    "type": "string",
-                    "description": "An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`, `build`."
-                },
-                "routes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppRouteSpec"
-                    },
-                    "description": "A list of HTTP routes that should be routed to this component."
                 }
             },
             "type": "object"
@@ -2510,17 +2292,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:apps/v2:AppsDeploymentsResponseProperties": {
-            "properties": {
-                "deployments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeployment"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:apps/v2:AppsDomain": {
             "properties": {
                 "certificate_expires_at": {
@@ -2854,17 +2625,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:apps/v2:AppsResponseProperties": {
-            "properties": {
-                "apps": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:App"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:apps/v2:AppsStringMatch": {
             "properties": {
                 "exact": {
@@ -2921,28 +2681,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:apps/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:apps/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -2972,14 +2711,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -3075,39 +2806,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:cdn/v2:ListCdnEndpointsProperties": {
-            "properties": {
-                "endpoints": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:cdn/v2:CdnEndpoint"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:cdn/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:cdn/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:cdn/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:cdn/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -3137,14 +2836,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:cdn/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:cdn/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -3275,39 +2966,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:certificates/v2:ListCertificatesProperties": {
-            "properties": {
-                "certificates": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:certificates/v2:Certificate"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:certificates/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:certificates/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:certificates/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:certificates/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -3337,14 +2996,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:certificates/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:certificates/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -3488,17 +3139,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:customers/v2:ListBillingHistoryProperties": {
-            "properties": {
-                "billing_history": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:BillingHistory"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:customers/v2:ListInvoices": {
             "properties": {
                 "invoice_preview": {
@@ -3523,32 +3163,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:customers/v2:ListInvoicesProperties": {
-            "properties": {
-                "invoice_preview": {
-                    "$ref": "#/types/digitalocean-native:customers/v2:InvoicePreview",
-                    "description": "The invoice preview."
-                },
-                "invoices": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:InvoicePreview"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:customers/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:customers/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:customers/v2:MetaMeta": {
             "properties": {
                 "total": {
@@ -3557,18 +3171,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:customers/v2:MetaOptionalTotal": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:customers/v2:MetaProperties",
-                    "description": "Information about the response itself."
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
         },
         "digitalocean-native:customers/v2:MetaProperties": {
             "description": "Information about the response itself.",
@@ -3601,14 +3203,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:customers/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:customers/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -4089,39 +3683,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:databases/v2:DatabaseConnection": {
-            "properties": {
-                "database": {
-                    "type": "string",
-                    "description": "The name of the default database."
-                },
-                "host": {
-                    "type": "string",
-                    "description": "The FQDN pointing to the database cluster's current primary node."
-                },
-                "password": {
-                    "type": "string",
-                    "description": "The randomly generated password for the default user."
-                },
-                "port": {
-                    "type": "integer",
-                    "description": "The port on which the database cluster is listening."
-                },
-                "ssl": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating if the connection should be made over SSL."
-                },
-                "uri": {
-                    "type": "string",
-                    "description": "A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes."
-                },
-                "user": {
-                    "type": "string",
-                    "description": "The default user for the database."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:databases/v2:DatabaseLayoutOption": {
             "properties": {
                 "num_nodes": {
@@ -4133,58 +3694,6 @@
                         "type": "string"
                     },
                     "description": "An array of objects containing the slugs available with various node counts"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:databases/v2:DatabaseLayoutOptions": {
-            "properties": {
-                "layouts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:DatabaseLayoutOption"
-                    },
-                    "description": "An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order)."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:databases/v2:DatabaseMaintenanceWindow": {
-            "properties": {
-                "day": {
-                    "type": "string",
-                    "description": "The day of the week on which to apply maintenance updates."
-                },
-                "description": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of strings, each containing information about a pending maintenance update."
-                },
-                "hour": {
-                    "type": "string",
-                    "description": "The hour in UTC at which maintenance updates will be applied in 24 hour format."
-                },
-                "pending": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether any maintenance is scheduled to be performed in the next window."
-                }
-            },
-            "type": "object",
-            "required": [
-                "day",
-                "hour"
-            ]
-        },
-        "digitalocean-native:databases/v2:DatabaseRegionOptions": {
-            "properties": {
-                "regions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of strings containing the names of available regions"
                 }
             },
             "type": "object"
@@ -4380,18 +3889,6 @@
                 "version": {
                     "type": "string",
                     "description": "The engine version."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:databases/v2:DatabaseVersionOptions": {
-            "properties": {
-                "versions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of strings containing the names of available regions"
                 }
             },
             "type": "object"
@@ -5745,21 +5242,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:domains/v2:ListDomainsProperties": {
-            "properties": {
-                "domains": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:Domain"
-                    },
-                    "description": "Array of volumes."
-                }
-            },
-            "type": "object",
-            "required": [
-                "domains"
-            ]
-        },
         "digitalocean-native:domains/v2:ListDomainsRecords": {
             "properties": {
                 "domain_records": {
@@ -5780,39 +5262,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:domains/v2:ListDomainsRecordsProperties": {
-            "properties": {
-                "domain_records": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:DomainRecord"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:domains/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:domains/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:domains/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:domains/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -5842,14 +5292,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:domains/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:domains/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -6273,18 +5715,6 @@
                 "type"
             ]
         },
-        "digitalocean-native:droplets/v2:DropletSnapshotProperties": {
-            "properties": {
-                "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletSnapshotPropertiesType",
-                    "description": "Describes the kind of image. It may be one of `snapshot` or `backup`. This specifies whether an image is a user-generated Droplet snapshot or automatically created Droplet backup."
-                }
-            },
-            "type": "object",
-            "required": [
-                "type"
-            ]
-        },
         "digitalocean-native:droplets/v2:DropletSnapshotPropertiesType": {
             "description": "Describes the kind of image. It may be one of `snapshot` or `backup`. This specifies whether an image is a user-generated Droplet snapshot or automatically created Droplet backup.",
             "type": "string",
@@ -6371,44 +5801,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:FirewallProperties": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the firewall was created."
-                },
-                "droplet_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "An array containing the IDs of the Droplets assigned to the firewall."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a firewall."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-)."
-                },
-                "pending_changes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:FirewallPropertiesPendingChangesItemProperties"
-                    },
-                    "description": "An array of objects each containing the fields \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:FirewallPropertiesStatus",
-                    "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\"."
-                },
-                "tags": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:FirewallPropertiesTags"
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:droplets/v2:FirewallPropertiesPendingChangesItemProperties": {
             "properties": {
                 "droplet_id": {
@@ -6444,23 +5836,6 @@
         "digitalocean-native:droplets/v2:FirewallPropertiesTags": {
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:FirewallRuleBase": {
-            "properties": {
-                "ports": {
-                    "type": "string",
-                    "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \"8000-9000\"), or \"0\" when all ports are open for a protocol. For ICMP rules this parameter will always return \"0\"."
-                },
-                "protocol": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:FirewallRuleBaseProtocol",
-                    "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`."
-                }
-            },
-            "type": "object",
-            "required": [
-                "ports",
-                "protocol"
-            ]
-        },
         "digitalocean-native:droplets/v2:FirewallRuleBaseProtocol": {
             "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.",
             "type": "string",
@@ -6478,23 +5853,6 @@
                     "value": "icmp"
                 }
             ]
-        },
-        "digitalocean-native:droplets/v2:FirewallRules": {
-            "properties": {
-                "inbound_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:FirewallRulesInboundRulesItem"
-                    }
-                },
-                "outbound_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:FirewallRulesOutboundRulesItem"
-                    }
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:droplets/v2:FirewallRulesInboundRulesItem": {
             "properties": {
@@ -6823,17 +6181,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletActionsProperties": {
-            "properties": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:Action"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:droplets/v2:ListDroplets": {
             "properties": {
                 "droplets": {
@@ -6889,41 +6236,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:ListDropletsAssociatedResourcesProperties": {
-            "properties": {
-                "floating_ips": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResource"
-                    }
-                },
-                "reserved_ips": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResource"
-                    }
-                },
-                "snapshots": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResource"
-                    }
-                },
-                "volume_snapshots": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResource"
-                    }
-                },
-                "volumes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResource"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:droplets/v2:ListDropletsBackups": {
             "properties": {
                 "backups": {
@@ -6943,17 +6255,6 @@
             "required": [
                 "meta"
             ]
-        },
-        "digitalocean-native:droplets/v2:ListDropletsBackupsProperties": {
-            "properties": {
-                "backups": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:DropletSnapshot"
-                    }
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:droplets/v2:ListDropletsFirewalls": {
             "properties": {
@@ -6975,17 +6276,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletsFirewallsProperties": {
-            "properties": {
-                "firewalls": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:Firewall"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:droplets/v2:ListDropletsKernels": {
             "properties": {
                 "kernels": {
@@ -7006,40 +6296,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletsKernelsProperties": {
-            "properties": {
-                "kernels": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:Kernel"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:droplets/v2:ListDropletsNeighbors": {
-            "properties": {
-                "droplets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:Droplet"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:ListDropletsNeighborsProperties": {
-            "properties": {
-                "droplets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:Droplet"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:ListDropletsProperties": {
             "properties": {
                 "droplets": {
                     "type": "array",
@@ -7070,39 +6327,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletsSnapshotsProperties": {
-            "properties": {
-                "snapshots": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:DropletSnapshot"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:droplets/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -7198,14 +6423,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:droplets/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -7307,41 +6524,6 @@
                 "slug",
                 "transfer",
                 "vcpus"
-            ]
-        },
-        "digitalocean-native:droplets/v2:SnapshotsBase": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the snapshot was created."
-                },
-                "min_disk_size": {
-                    "type": "integer",
-                    "description": "The minimum size in GB required for a volume or Droplet to use this snapshot."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the snapshot."
-                },
-                "regions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of the regions that the snapshot is available in. The regions are represented by their identifying slug values."
-                },
-                "size_gigabytes": {
-                    "type": "number",
-                    "description": "The billable size of the snapshot in gigabytes."
-                }
-            },
-            "type": "object",
-            "required": [
-                "created_at",
-                "min_disk_size",
-                "name",
-                "regions",
-                "size_gigabytes"
             ]
         },
         "digitalocean-native:droplets/v2:Type": {
@@ -7460,44 +6642,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:firewalls/v2:FirewallProperties": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the firewall was created."
-                },
-                "droplet_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "An array containing the IDs of the Droplets assigned to the firewall."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a firewall."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-)."
-                },
-                "pending_changes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesPendingChangesItemProperties"
-                    },
-                    "description": "An array of objects each containing the fields \"droplet_id\", \"removing\", and \"status\". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesStatus",
-                    "description": "A status string indicating the current state of the firewall. This can be \"waiting\", \"succeeded\", or \"failed\"."
-                },
-                "tags": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallPropertiesTags"
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:firewalls/v2:FirewallPropertiesPendingChangesItemProperties": {
             "properties": {
                 "droplet_id": {
@@ -7533,23 +6677,6 @@
         "digitalocean-native:firewalls/v2:FirewallPropertiesTags": {
             "type": "object"
         },
-        "digitalocean-native:firewalls/v2:FirewallRuleBase": {
-            "properties": {
-                "ports": {
-                    "type": "string",
-                    "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \"8000-9000\"), or \"0\" when all ports are open for a protocol. For ICMP rules this parameter will always return \"0\"."
-                },
-                "protocol": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRuleBaseProtocol",
-                    "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`."
-                }
-            },
-            "type": "object",
-            "required": [
-                "ports",
-                "protocol"
-            ]
-        },
         "digitalocean-native:firewalls/v2:FirewallRuleBaseProtocol": {
             "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.",
             "type": "string",
@@ -7567,23 +6694,6 @@
                     "value": "icmp"
                 }
             ]
-        },
-        "digitalocean-native:firewalls/v2:FirewallRules": {
-            "properties": {
-                "inbound_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesInboundRulesItem"
-                    }
-                },
-                "outbound_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRulesOutboundRulesItem"
-                    }
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:firewalls/v2:FirewallRulesInboundRulesItem": {
             "properties": {
@@ -7647,39 +6757,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:firewalls/v2:ListFirewallsProperties": {
-            "properties": {
-                "firewalls": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:Firewall"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:firewalls/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:firewalls/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:firewalls/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -7709,14 +6787,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:firewalls/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -7782,15 +6852,6 @@
                 "rel": {
                     "type": "string",
                     "description": "A string specifying the type of the related action."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:ActionProperties": {
-            "properties": {
-                "project_id": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
                 }
             },
             "type": "object"
@@ -8120,15 +7181,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:floating_ips/v2:GetFloatingIPsActionPropertiesActionProperties": {
-            "properties": {
-                "project_id": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:floating_ips/v2:GetFloatingIPsProperties": {
             "properties": {
                 "floating_ip": {
@@ -8451,50 +7503,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:floating_ips/v2:ListFloatingIPsActionProperties": {
-            "properties": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:Action"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:ListFloatingIPsProperties": {
-            "properties": {
-                "floating_ips": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIp"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:floating_ips/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -8590,14 +7599,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:floating_ips/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -8728,29 +7729,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:functions/v2:ListFunctionsNamespacesProperties": {
-            "properties": {
-                "namespaces": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:NamespaceInfo"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:functions/v2:ListFunctionsTriggers": {
-            "properties": {
-                "triggers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:TriggerInfo"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:functions/v2:ListFunctionsTriggersProperties": {
             "properties": {
                 "triggers": {
                     "type": "array",
@@ -9404,17 +8383,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:images/v2:ListImageActionsProperties": {
-            "properties": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:Action"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:images/v2:ListImages": {
             "properties": {
                 "images": {
@@ -9436,42 +8404,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:images/v2:ListImagesProperties": {
-            "properties": {
-                "images": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:Image"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "images"
-            ]
-        },
-        "digitalocean-native:images/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:images/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:images/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:images/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -9501,14 +8434,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:images/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:images/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -9947,69 +8872,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:kubernetes/v2:KubernetesNodePoolBase": {
-            "properties": {
-                "auto_scale": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether auto-scaling is enabled for this node pool."
-                },
-                "count": {
-                    "type": "integer",
-                    "description": "The number of Droplet instances in the node pool."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a specific node pool."
-                },
-                "labels": {
-                    "$ref": "pulumi.json#/Any",
-                    "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
-                },
-                "max_nodes": {
-                    "type": "integer",
-                    "description": "The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
-                },
-                "min_nodes": {
-                    "type": "integer",
-                    "description": "The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the node pool."
-                },
-                "nodes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Node"
-                    },
-                    "description": "An object specifying the details of a specific worker node in a node pool."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`."
-                },
-                "taints": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint"
-                    },
-                    "description": "An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:kubernetes/v2:KubernetesNodePoolSize": {
-            "properties": {
-                "size": {
-                    "type": "string",
-                    "description": "The slug identifier for the type of Droplet used as workers in the node pool."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:kubernetes/v2:KubernetesNodePoolTaint": {
             "properties": {
                 "effect": {
@@ -10142,17 +9004,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:kubernetes/v2:ListKubernetesClustersProperties": {
-            "properties": {
-                "kubernetes_clusters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Cluster"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:kubernetes/v2:ListKubernetesNodePoolsProperties": {
             "properties": {
                 "node_pools": {
@@ -10220,28 +9071,7 @@
                 }
             ]
         },
-        "digitalocean-native:kubernetes/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:kubernetes/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:kubernetes/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:kubernetes/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -10332,14 +9162,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:kubernetes/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:kubernetes/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -10615,17 +9437,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:load_balancers/v2:ListLoadBalancersProperties": {
-            "properties": {
-                "load_balancers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancer"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:load_balancers/v2:LoadBalancer": {
             "properties": {
                 "algorithm": {
@@ -10725,101 +9536,6 @@
                 "forwarding_rules"
             ]
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancerBase": {
-            "properties": {
-                "algorithm": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseAlgorithm",
-                    "description": "This field has been deprecated. You can no longer specify an algorithm for load balancers.",
-                    "default": "round_robin"
-                },
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the load balancer was created."
-                },
-                "disable_lets_encrypt_dns_records": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.",
-                    "default": false
-                },
-                "enable_backend_keepalive": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.",
-                    "default": false
-                },
-                "enable_proxy_protocol": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether PROXY Protocol is in use.",
-                    "default": false
-                },
-                "firewall": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LbFirewall",
-                    "description": "An object specifying allow and deny rules to control traffic to the load balancer."
-                },
-                "forwarding_rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:load_balancers/v2:ForwardingRule"
-                    },
-                    "description": "An array of objects specifying the forwarding rules for a load balancer."
-                },
-                "health_check": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:HealthCheck",
-                    "description": "An object specifying health check settings for the load balancer."
-                },
-                "http_idle_timeout_seconds": {
-                    "type": "integer",
-                    "description": "An integer value which configures the idle timeout for HTTP requests to the target droplets.",
-                    "default": 60
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a load balancer."
-                },
-                "ip": {
-                    "type": "string",
-                    "description": "An attribute containing the public-facing IP address of the load balancer."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for a load balancer instance."
-                },
-                "project_id": {
-                    "type": "string",
-                    "description": "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created."
-                },
-                "redirect_http_to_https": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.",
-                    "default": false
-                },
-                "size": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseSize",
-                    "description": "This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.\n* `lb-small` = 1 node\n* `lb-medium` = 3 nodes\n* `lb-large` = 6 nodes\n\nYou can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.",
-                    "default": "lb-small"
-                },
-                "size_unit": {
-                    "type": "integer",
-                    "description": "How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.",
-                    "default": 1
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseStatus",
-                    "description": "A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`."
-                },
-                "sticky_sessions": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:StickySessions",
-                    "description": "An object specifying sticky sessions settings for the load balancer."
-                },
-                "vpc_uuid": {
-                    "type": "string",
-                    "description": "A string specifying the UUID of the VPC to which the load balancer is assigned."
-                }
-            },
-            "type": "object",
-            "required": [
-                "forwarding_rules"
-            ]
-        },
         "digitalocean-native:load_balancers/v2:LoadBalancerBaseAlgorithm": {
             "description": "This field has been deprecated. You can no longer specify an algorithm for load balancers.",
             "type": "string",
@@ -10870,15 +9586,6 @@
                 }
             ]
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancerProperties": {
-            "properties": {
-                "tag": {
-                    "type": "string",
-                    "description": "The name of a Droplet tag corresponding to Droplets assigned to the load balancer."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:load_balancers/v2:LoadBalancerPropertiesRegion": {
             "properties": {
                 "available": {
@@ -10917,28 +9624,7 @@
                 "slug"
             ]
         },
-        "digitalocean-native:load_balancers/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:load_balancers/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:load_balancers/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -10971,52 +9657,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:load_balancers/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:PageLinks"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:load_balancers/v2:Region": {
-            "properties": {
-                "available": {
-                    "type": "boolean",
-                    "description": "This is a boolean value that represents whether new Droplets can be created in this region."
-                },
-                "features": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains features available in this region"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The display name of the region.  This will be a full name that is used in the control panel and other interfaces."
-                },
-                "sizes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "This attribute is set to an array which contains the identifying slugs for the sizes available in this region."
-                },
-                "slug": {
-                    "type": "string",
-                    "description": "A human-readable string that is used as a unique identifier for each region."
-                }
-            },
-            "type": "object",
-            "required": [
-                "available",
-                "features",
-                "name",
-                "sizes",
-                "slug"
-            ]
         },
         "digitalocean-native:load_balancers/v2:StickySessions": {
             "description": "An object specifying sticky sessions settings for the load balancer.",
@@ -11299,20 +9939,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:monitoring/v2:ListAlertPolicy": {
-            "properties": {
-                "policies": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:AlertPolicy"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "policies"
-            ]
-        },
         "digitalocean-native:monitoring/v2:ListMonitoringAlertPolicy": {
             "properties": {
                 "links": {
@@ -11334,28 +9960,7 @@
                 "policies"
             ]
         },
-        "digitalocean-native:monitoring/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:monitoring/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:monitoring/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -11470,14 +10075,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:monitoring/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -11673,17 +10270,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:projects/v2:ListProjectsProperties": {
-            "properties": {
-                "projects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:Project"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:projects/v2:ListProjectsResources": {
             "properties": {
                 "links": {
@@ -11724,50 +10310,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:projects/v2:ListProjectsResourcesDefaultProperties": {
-            "properties": {
-                "resources": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:Resource"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:projects/v2:ListProjectsResourcesProperties": {
-            "properties": {
-                "resources": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:Resource"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:projects/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:projects/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:projects/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -11797,14 +10340,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:projects/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -11854,47 +10389,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:projects/v2:ProjectBase": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the project was created."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "The description of the project. The maximum length is 255 characters."
-                },
-                "environment": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
-                    "description": "The environment of the project's resources."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The unique universal identifier of this project."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The human-readable name for the project. The maximum length is 175 characters and the name must be unique."
-                },
-                "owner_id": {
-                    "type": "integer",
-                    "description": "The integer id of the project owner."
-                },
-                "owner_uuid": {
-                    "type": "string",
-                    "description": "The unique universal identifier of the project owner."
-                },
-                "purpose": {
-                    "type": "string",
-                    "description": "The purpose of the project. The maximum length is 255 characters. It can\nhave one of the following values:\n\n- Just trying out DigitalOcean\n- Class project / Educational purposes\n- Website or blog\n- Web Application\n- Service or API\n- Mobile Application\n- Machine learning / AI / Data processing\n- IoT\n- Operational / Developer tooling\n\nIf another value for purpose is specified, for example, \"your custom purpose\",\nyour purpose will be stored as `Other: your custom purpose`.\n"
-                },
-                "updated_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the project was updated."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:projects/v2:ProjectBaseEnvironment": {
             "description": "The environment of the project's resources.",
             "type": "string",
@@ -11912,15 +10406,6 @@
                     "value": "Production"
                 }
             ]
-        },
-        "digitalocean-native:projects/v2:ProjectProperties": {
-            "properties": {
-                "is_default": {
-                    "type": "boolean",
-                    "description": "If true, all resources will be added to this project if no project is specified."
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:projects/v2:Resource": {
             "properties": {
@@ -12000,42 +10485,7 @@
                 "regions"
             ]
         },
-        "digitalocean-native:regions/v2:ListRegionsProperties": {
-            "properties": {
-                "regions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:regions/v2:Region"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "regions"
-            ]
-        },
-        "digitalocean-native:regions/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:regions/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:regions/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:regions/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -12065,14 +10515,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:regions/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:regions/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -12331,17 +10773,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositoriesProperties": {
-            "properties": {
-                "repositories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:Repository"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:registry/v2:ListRegistryRepositoriesV2": {
             "properties": {
                 "links": {
@@ -12361,17 +10792,6 @@
             "required": [
                 "meta"
             ]
-        },
-        "digitalocean-native:registry/v2:ListRegistryRepositoriesV2Properties": {
-            "properties": {
-                "repositories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:RepositoryV2"
-                    }
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:registry/v2:ListRegistryRepositoryManifests": {
             "properties": {
@@ -12393,17 +10813,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositoryManifestsProperties": {
-            "properties": {
-                "manifests": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:RepositoryManifest"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:registry/v2:ListRegistryRepositoryTags": {
             "properties": {
                 "links": {
@@ -12424,39 +10833,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositoryTagsProperties": {
-            "properties": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:RepositoryTag"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:registry/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:registry/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:registry/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -12486,14 +10863,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:registry/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -12754,22 +11123,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:registry/v2:SubscriptionTierExtended": {
-            "properties": {
-                "eligibility_reasons": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierExtendedEligibilityReasonsItem"
-                    },
-                    "description": "If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier."
-                },
-                "eligible": {
-                    "type": "boolean",
-                    "description": "A boolean indicating whether your account it eligible to use a certain subscription tier."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:registry/v2:SubscriptionTierExtendedEligibilityReasonsItem": {
             "type": "string",
             "enum": [
@@ -12892,15 +11245,6 @@
                 "rel": {
                     "type": "string",
                     "description": "A string specifying the type of the related action."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:ActionProperties": {
-            "properties": {
-                "project_id": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
                 }
             },
             "type": "object"
@@ -13150,15 +11494,6 @@
                 "type": {
                     "type": "string",
                     "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:GetReservedIPsActionsPropertiesActionProperties": {
-            "properties": {
-                "project_id": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
                 }
             },
             "type": "object"
@@ -13485,50 +11820,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:reserved_ips/v2:ListReservedIPsActionsProperties": {
-            "properties": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:Action"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:ListReservedIPsProperties": {
-            "properties": {
-                "reserved_ips": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIp"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:reserved_ips/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -13624,14 +11916,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:reserved_ips/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -13832,42 +12116,7 @@
                 "sizes"
             ]
         },
-        "digitalocean-native:sizes/v2:ListSizesProperties": {
-            "properties": {
-                "sizes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:sizes/v2:Size"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "sizes"
-            ]
-        },
-        "digitalocean-native:sizes/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:sizes/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:sizes/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:sizes/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -13897,14 +12146,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:sizes/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:sizes/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -13998,39 +12239,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:snapshots/v2:ListSnapshotsProperties": {
-            "properties": {
-                "snapshots": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:snapshots/v2:Snapshots"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:snapshots/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:snapshots/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:snapshots/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:snapshots/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -14060,14 +12269,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:snapshots/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:snapshots/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -14125,66 +12326,6 @@
                 "tags"
             ]
         },
-        "digitalocean-native:snapshots/v2:SnapshotsBase": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the snapshot was created."
-                },
-                "min_disk_size": {
-                    "type": "integer",
-                    "description": "The minimum size in GB required for a volume or Droplet to use this snapshot."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the snapshot."
-                },
-                "regions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of the regions that the snapshot is available in. The regions are represented by their identifying slug values."
-                },
-                "size_gigabytes": {
-                    "type": "number",
-                    "description": "The billable size of the snapshot in gigabytes."
-                }
-            },
-            "type": "object",
-            "required": [
-                "created_at",
-                "min_disk_size",
-                "name",
-                "regions",
-                "size_gigabytes"
-            ]
-        },
-        "digitalocean-native:snapshots/v2:SnapshotsProperties": {
-            "properties": {
-                "resource_id": {
-                    "type": "string",
-                    "description": "The unique identifier for the resource that the snapshot originated from."
-                },
-                "resource_type": {
-                    "$ref": "#/types/digitalocean-native:snapshots/v2:SnapshotsPropertiesResourceType",
-                    "description": "The type of resource that the snapshot originated from."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of Tags the snapshot has been tagged with."
-                }
-            },
-            "type": "object",
-            "required": [
-                "resource_id",
-                "resource_type",
-                "tags"
-            ]
-        },
         "digitalocean-native:snapshots/v2:SnapshotsPropertiesResourceType": {
             "description": "The type of resource that the snapshot originated from.",
             "type": "string",
@@ -14228,39 +12369,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:tags/v2:ListTagsProperties": {
-            "properties": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:tags/v2:Tags"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:tags/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:tags/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:tags/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:tags/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -14290,14 +12399,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:tags/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:tags/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -14365,20 +12466,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:tags/v2:TagsMetadata": {
-            "description": "Tagged Resource Statistics include metadata regarding the resource type that has been tagged.",
-            "properties": {
-                "count": {
-                    "type": "integer",
-                    "description": "The number of tagged objects for this type of resource."
-                },
-                "last_tagged_uri": {
-                    "type": "string",
-                    "description": "The URI for the last tagged object for this type of resource."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:tags/v2:TagsResources": {
             "description": "An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag.",
             "properties": {
@@ -14402,44 +12489,6 @@
                 "id": {
                     "type": "string",
                     "description": "A unique ID that can be used to identify and reference the alert."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-friendly display name."
-                },
-                "notifications": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:Notification",
-                    "description": "The notification settings for a trigger alert."
-                },
-                "period": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatablePeriod",
-                    "description": "Period of time the threshold must be exceeded to trigger the alert."
-                },
-                "threshold": {
-                    "type": "integer",
-                    "description": "The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type."
-                },
-                "type": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableType",
-                    "description": "The type of alert."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:uptime/v2:AlertBase": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference the alert."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:uptime/v2:AlertUpdatable": {
-            "properties": {
-                "comparison": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableComparison",
-                    "description": "The comparison operator used against the alert's threshold."
                 },
                 "name": {
                     "type": "string",
@@ -14567,44 +12616,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:uptime/v2:CheckBase": {
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference the check."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:uptime/v2:CheckUpdatable": {
-            "properties": {
-                "enabled": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether the check is enabled/disabled.",
-                    "default": true
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-friendly display name."
-                },
-                "regions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableRegionsItem"
-                    },
-                    "description": "An array containing the selected regions to perform healthchecks from."
-                },
-                "target": {
-                    "type": "string",
-                    "description": "The endpoint to perform healthchecks on."
-                },
-                "type": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableType",
-                    "description": "The type of health check to perform."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:uptime/v2:CheckUpdatableRegionsItem": {
             "type": "string",
             "enum": [
@@ -14688,17 +12699,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:uptime/v2:ListUptimeAlertsProperties": {
-            "properties": {
-                "alerts": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:Alert"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:uptime/v2:ListUptimeChecks": {
             "properties": {
                 "checks": {
@@ -14719,39 +12719,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:uptime/v2:ListUptimeChecksProperties": {
-            "properties": {
-                "checks": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:Check"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:uptime/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:uptime/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:uptime/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -14822,14 +12790,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:uptime/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -14906,46 +12866,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:volumes/v2:Action": {
-            "properties": {
-                "completed_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique numeric ID that can be used to identify and reference an action."
-                },
-                "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:Region"
-                },
-                "region_slug": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:ActionRegionSlug"
-                },
-                "resource_id": {
-                    "type": "integer",
-                    "description": "A unique identifier for the resource that the action is associated with."
-                },
-                "resource_type": {
-                    "type": "string",
-                    "description": "The type of resource that the action is associated with."
-                },
-                "started_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
-                },
-                "status": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:ActionStatus",
-                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
-                    "default": "in-progress"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:volumes/v2:ActionRegionSlug": {
             "type": "object"
         },
@@ -15011,17 +12931,6 @@
                 "meta"
             ]
         },
-        "digitalocean-native:volumes/v2:ListVolumeActionsProperties": {
-            "properties": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:VolumeAction"
-                    }
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:volumes/v2:ListVolumeSnapshots": {
             "properties": {
                 "links": {
@@ -15041,17 +12950,6 @@
             "required": [
                 "meta"
             ]
-        },
-        "digitalocean-native:volumes/v2:ListVolumeSnapshotsProperties": {
-            "properties": {
-                "snapshots": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:Snapshots"
-                    }
-                }
-            },
-            "type": "object"
         },
         "digitalocean-native:volumes/v2:ListVolumes": {
             "properties": {
@@ -15075,43 +12973,7 @@
                 "volumes"
             ]
         },
-        "digitalocean-native:volumes/v2:ListVolumesProperties": {
-            "properties": {
-                "volumes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:VolumeFull"
-                    },
-                    "description": "Array of volumes."
-                }
-            },
-            "type": "object",
-            "required": [
-                "volumes"
-            ]
-        },
-        "digitalocean-native:volumes/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:volumes/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:volumes/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -15141,14 +13003,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:volumes/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -15241,66 +13095,6 @@
                 "resource_id",
                 "resource_type",
                 "size_gigabytes",
-                "tags"
-            ]
-        },
-        "digitalocean-native:volumes/v2:SnapshotsBase": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the snapshot was created."
-                },
-                "min_disk_size": {
-                    "type": "integer",
-                    "description": "The minimum size in GB required for a volume or Droplet to use this snapshot."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the snapshot."
-                },
-                "regions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of the regions that the snapshot is available in. The regions are represented by their identifying slug values."
-                },
-                "size_gigabytes": {
-                    "type": "number",
-                    "description": "The billable size of the snapshot in gigabytes."
-                }
-            },
-            "type": "object",
-            "required": [
-                "created_at",
-                "min_disk_size",
-                "name",
-                "regions",
-                "size_gigabytes"
-            ]
-        },
-        "digitalocean-native:volumes/v2:SnapshotsProperties": {
-            "properties": {
-                "resource_id": {
-                    "type": "string",
-                    "description": "The unique identifier for the resource that the snapshot originated from."
-                },
-                "resource_type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:SnapshotsPropertiesResourceType",
-                    "description": "The type of resource that the snapshot originated from."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of Tags the snapshot has been tagged with."
-                }
-            },
-            "type": "object",
-            "required": [
-                "resource_id",
-                "resource_type",
                 "tags"
             ]
         },
@@ -15438,57 +13232,6 @@
                 }
             ]
         },
-        "digitalocean-native:volumes/v2:VolumeActionProperties": {
-            "properties": {
-                "resource_id": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "This is the type of action that the object represents. For example, this could be \"attach_volume\" to represent the state of a volume attach action."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:volumes/v2:VolumeBase": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format that represents when the block storage volume was created."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "An optional free-form text field to describe a block storage volume."
-                },
-                "droplet_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "description": "An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The unique identifier for the block storage volume."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \"-\", up to a limit of 64 characters. The name must begin with a letter."
-                },
-                "size_gigabytes": {
-                    "type": "integer",
-                    "description": "The size of the block storage volume in GiB (1024^3). This field does not apply  when creating a volume from a snapshot."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:volumes/v2:VolumeFull": {
             "properties": {
                 "created_at": {
@@ -15535,22 +13278,6 @@
                         "type": "string"
                     },
                     "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:volumes/v2:VolumeFullProperties": {
-            "properties": {
-                "filesystem_label": {
-                    "type": "string",
-                    "description": "The label currently applied to the filesystem."
-                },
-                "filesystem_type": {
-                    "type": "string",
-                    "description": "The type of filesystem currently in-use on the volume."
-                },
-                "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeFullPropertiesRegion"
                 }
             },
             "type": "object"
@@ -15641,50 +13368,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:vpcs/v2:ListVpcsMembersProperties": {
-            "properties": {
-                "members": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:VpcMember"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:ListVpcsProperties": {
-            "properties": {
-                "vpcs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:Vpc"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:Meta": {
-            "properties": {
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:vpcs/v2:MetaMeta"
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
         "digitalocean-native:vpcs/v2:MetaMeta": {
-            "properties": {
-                "total": {
-                    "type": "integer",
-                    "description": "Number of objects returned by the request."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:MetaProperties": {
-            "description": "Information about the response itself.",
             "properties": {
                 "total": {
                     "type": "integer",
@@ -15714,14 +13398,6 @@
                 },
                 "prev": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:Pagination": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:vpcs/v2:PageLinks"
                 }
             },
             "type": "object"
@@ -15763,45 +13439,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:vpcs/v2:VpcBase": {
-            "properties": {
-                "created_at": {
-                    "type": "string",
-                    "description": "A time value given in ISO8601 combined date and time format."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference the VPC."
-                },
-                "urn": {
-                    "type": "string",
-                    "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:VpcCreate": {
-            "properties": {
-                "ip_range": {
-                    "type": "string",
-                    "description": "The range of IP addresses in the VPC in CIDR notation. Network ranges cannot overlap with other networks in the same account and must be in range of private addresses as defined in RFC1918. It may not be smaller than `/28` nor larger than `/16`. If no IP range is specified, a `/20` network range is generated that won't conflict with other VPC networks in your account."
-                },
-                "region": {
-                    "type": "string",
-                    "description": "The slug identifier for the region where the VPC will be created."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:VpcDefault": {
-            "properties": {
-                "default": {
-                    "type": "boolean",
-                    "description": "A boolean value indicating whether or not the VPC is the default network for the region. All applicable resources are placed into the default VPC network unless otherwise specified during their creation. The `default` field cannot be unset from `true`. If you want to set a new default VPC network, update the `default` field of another VPC network in the same region. The previous network's `default` field will be set to `false` when a new default VPC has been defined."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:vpcs/v2:VpcMember": {
             "properties": {
                 "created_at": {
@@ -15815,19 +13452,6 @@
                 "urn": {
                     "type": "string",
                     "description": "The uniform resource name (URN) for the resource in the format do:resource_type:resource_id."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:vpcs/v2:VpcUpdatable": {
-            "properties": {
-                "description": {
-                    "type": "string",
-                    "description": "A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods."
                 }
             },
             "type": "object"
