@@ -118,6 +118,9 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 		contract.Failf("generating resources from OpenAPI spec: %v", err)
 	}
 
+	// Override some module names.
+	csharpNamespaces["1-clicks/v2"] = "OneClicksV2"
+
 	// Add examples to resources
 	for k, v := range examples.ResourceExample {
 		if r, ok := pkg.Resources[k]; ok {
