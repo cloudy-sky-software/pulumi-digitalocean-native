@@ -8,6 +8,7 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
+	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -129,18 +130,18 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 		}
 	}
 
-	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
-		"rootNamespace": "Pulumi",
-		"packageReferences": map[string]string{
+	pkg.Language["csharp"] = rawMessage(dotnetgen.CSharpPackageInfo{
+		// TODO: What does this enable?
+		// DictionaryConstructors: true,
+		Namespaces: csharpNamespaces,
+		PackageReferences: map[string]string{
 			"Pulumi": "3.*",
 		},
-		"namespaces": csharpNamespaces,
-		// TODO: What does this enable?
-		// "dictionaryConstructors": true,
+		RootNamespace: "Pulumi",
 	})
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/render",
+		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn",
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"packageName": "@cloudyskysoftware/pulumi-digitalocean-native",
