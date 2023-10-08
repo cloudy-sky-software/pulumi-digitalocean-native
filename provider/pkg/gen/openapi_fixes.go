@@ -28,7 +28,6 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixReservedIpActionUnassignType(openAPIDoc)
 	fixReservedIpType(openAPIDoc)
 	fixPageLinksType(openAPIDoc)
-	removeDefaultValueForArrayProps(openAPIDoc)
 	fixCreateUptimeCheckRequest(openAPIDoc)
 }
 
@@ -41,13 +40,6 @@ func fixCreateUptimeCheckRequest(openAPIDoc *openapi3.T) {
 	// `method` is an invalid required property as it is not even
 	// a property in the request schema.
 	reqSchema.Schema.Value.Required = []string{"name", "target", "regions", "type", "enabled"}
-}
-
-func removeDefaultValueForArrayProps(openAPIDoc *openapi3.T) {
-	ty, ok := openAPIDoc.Components.Schemas["oneClicks_create"]
-	contract.Assertf(ok, "Expected to find oneClicks_create schema")
-
-	ty.Value.Properties["addon_slugs"].Value.Default = nil
 }
 
 func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {
