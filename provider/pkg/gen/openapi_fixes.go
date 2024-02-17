@@ -32,8 +32,8 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 }
 
 func fixCreateUptimeCheckRequest(openAPIDoc *openapi3.T) {
-	pathItem, ok := openAPIDoc.Paths["/v2/uptime/checks"]
-	contract.Assertf(ok, "Expected to find request path /v2/uptime/checks")
+	pathItem := openAPIDoc.Paths.Find("/v2/uptime/checks")
+	contract.Assertf(pathItem != nil, "Expected to find request path /v2/uptime/checks")
 
 	reqSchema := pathItem.Post.RequestBody.Value.Content.Get("application/json")
 
