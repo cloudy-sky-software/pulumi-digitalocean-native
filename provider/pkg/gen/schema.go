@@ -147,21 +147,6 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 
 	pkg.Language["nodejs"] = rawMessage(nodejsgen.NodePackageInfo{
 		PackageName: "@cloudyskysoftware/pulumi-digitalocean-native",
-		Dependencies: map[string]string{
-			"@pulumi/pulumi":    "^3.0.0",
-			"shell-quote":       "^1.6.1",
-			"tmp":               "^0.0.33",
-			"@types/tmp":        "^0.0.33",
-			"glob":              "^7.1.2",
-			"@types/glob":       "^5.0.35",
-			"node-fetch":        "^2.3.0",
-			"@types/node-fetch": "^2.1.4",
-		},
-		DevDependencies: map[string]string{
-			"mocha":              "^5.2.0",
-			"@types/mocha":       "^5.2.5",
-			"@types/shell-quote": "^1.6.0",
-		},
 		ModuleToPackage: map[string]string{
 			"1-clicks/v2": "oneclicks/v2",
 		},
