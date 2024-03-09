@@ -1,0 +1,5 @@
+{
+  "resource": true,
+  "name": "digitalocean-native",
+  "server": "github://api.github.com/cloudy-sky-software/pulumi-digitalocean-native"
+}
