@@ -9,6 +9,7 @@ import (
 	"github.com/getkin/kin-openapi/openapi3"
 
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -143,9 +144,10 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn",
 	})
-	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
-		"packageName": "@cloudyskysoftware/pulumi-digitalocean-native",
-		"dependencies": map[string]string{
+
+	pkg.Language["nodejs"] = rawMessage(nodejsgen.NodePackageInfo{
+		PackageName: "@cloudyskysoftware/pulumi-digitalocean-native",
+		Dependencies: map[string]string{
 			"@pulumi/pulumi":    "^3.0.0",
 			"shell-quote":       "^1.6.1",
 			"tmp":               "^0.0.33",
@@ -155,12 +157,16 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			"node-fetch":        "^2.3.0",
 			"@types/node-fetch": "^2.1.4",
 		},
-		"devDependencies": map[string]string{
+		DevDependencies: map[string]string{
 			"mocha":              "^5.2.0",
 			"@types/mocha":       "^5.2.5",
 			"@types/shell-quote": "^1.6.0",
 		},
+		ModuleToPackage: map[string]string{
+			"1-clicks/v2": "oneclicks/v2",
+		},
 	})
+
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
 		"packageName": "pulumi_digitalocean-native",
 		"requires": map[string]string{
