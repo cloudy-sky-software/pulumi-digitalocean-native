@@ -8,6 +8,8 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
+	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -20,7 +22,7 @@ import (
 const packageName = "digitalocean-native"
 
 // PulumiSchema will generate a Pulumi schema for the given k8s schema.
-func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.ProviderMetadata) {
+func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.ProviderMetadata, openapi3.T) {
 	pkg := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A Pulumi package for creating and managing DigitalOcean resources.",
@@ -89,7 +91,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	}
 
 	openAPICtx := &openapigen.OpenAPIContext{
-		Doc: openapiDoc,
+		Doc: *openapiDoc,
 		Pkg: &pkg,
 		ExcludedPaths: []string{
 			"/v2/customers/my/invoices/{invoice_uuid}",
@@ -107,13 +109,19 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 			// pulschema does not support application/yaml response type yet.
 			"/v2/kubernetes/clusters/{cluster_id}/kubeconfig",
 			//
+			// Similar to /v2/volumes/{volume_id}/actions which is more appropriate
+			// since it is by volume ID.
+			"/v2/volumes/actions",
 		},
 	}
 
-	providerMetadata, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
+	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
 	if err != nil {
 		contract.Failf("generating resources from OpenAPI spec: %v", err)
 	}
+
+	// Override some module names.
+	csharpNamespaces["1-clicks/v2"] = "OneClicksV2"
 
 	// Add examples to resources
 	for k, v := range examples.ResourceExample {
@@ -123,37 +131,27 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		}
 	}
 
-	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
-		"rootNamespace": "Pulumi",
-		"packageReferences": map[string]string{
+	pkg.Language["csharp"] = rawMessage(dotnetgen.CSharpPackageInfo{
+		// TODO: What does this enable?
+		// DictionaryConstructors: true,
+		Namespaces: csharpNamespaces,
+		PackageReferences: map[string]string{
 			"Pulumi": "3.*",
 		},
-		"namespaces": csharpNamespaces,
-		// TODO: What does this enable?
-		// "dictionaryConstructors": true,
+		RootNamespace: "Pulumi",
 	})
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/render",
+		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn",
 	})
-	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
-		"packageName": "@cloudyskysoftware/pulumi-digitalocean-native",
-		"dependencies": map[string]string{
-			"@pulumi/pulumi":    "^3.0.0",
-			"shell-quote":       "^1.6.1",
-			"tmp":               "^0.0.33",
-			"@types/tmp":        "^0.0.33",
-			"glob":              "^7.1.2",
-			"@types/glob":       "^5.0.35",
-			"node-fetch":        "^2.3.0",
-			"@types/node-fetch": "^2.1.4",
-		},
-		"devDependencies": map[string]string{
-			"mocha":              "^5.2.0",
-			"@types/mocha":       "^5.2.5",
-			"@types/shell-quote": "^1.6.0",
+
+	pkg.Language["nodejs"] = rawMessage(nodejsgen.NodePackageInfo{
+		PackageName: "@cloudyskysoftware/pulumi-digitalocean-native",
+		ModuleToPackage: map[string]string{
+			"1-clicks/v2": "oneclicks/v2",
 		},
 	})
+
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
 		"packageName": "pulumi_digitalocean-native",
 		"requires": map[string]string{
@@ -162,10 +160,12 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	})
 
 	metadata := openapigen.ProviderMetadata{
-		ResourceCRUDMap: providerMetadata.ResourceCRUDMap,
-		AutoNameMap:     providerMetadata.AutoNameMap,
+		ResourceCRUDMap:  providerMetadata.ResourceCRUDMap,
+		AutoNameMap:      providerMetadata.AutoNameMap,
+		SdkToApiNameMap:  providerMetadata.SdkToApiNameMap,
+		PathParamNameMap: providerMetadata.PathParamNameMap,
 	}
-	return pkg, metadata
+	return pkg, metadata, updatedOpenAPIDoc
 }
 
 func rawMessage(v interface{}) pschema.RawMessage {

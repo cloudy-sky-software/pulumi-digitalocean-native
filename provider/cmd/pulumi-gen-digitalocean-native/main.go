@@ -13,6 +13,7 @@ import (
 
 	providerSchemaGen "github.com/cloudy-sky-software/pulumi-digitalocean-native/provider/pkg/gen"
 	providerVersion "github.com/cloudy-sky-software/pulumi-digitalocean-native/provider/pkg/version"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cloudy-sky-software/pulumi-provider-framework/openapi"
 
@@ -86,8 +87,9 @@ func main() {
 	case Go:
 		writeGoClient(schemaPkg, outdir)
 	case Schema:
-		openapiDoc := openapi.GetOpenAPISpec(openapiDocBytes)
-		schemaSpec, metadata := providerSchemaGen.PulumiSchema(*openapiDoc)
+		openAPIDoc := openapi.GetOpenAPISpec(openapiDocBytes)
+		providerSchemaGen.FixOpenAPIDoc(openAPIDoc)
+		schemaSpec, metadata, updatedOpenAPIDoc := providerSchemaGen.PulumiSchema(openAPIDoc)
 		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-digitalocean-native")
 		mustWritePulumiSchema(schemaSpec, providerDir)
 
@@ -95,8 +97,9 @@ func main() {
 		metadataBytes, _ := json.Marshal(metadata)
 		mustWriteFile(providerDir, "metadata.json", metadataBytes)
 
+		updatedOpenAPIDocBytes, _ := yaml.Marshal(updatedOpenAPIDoc)
 		// Also copy the raw OpenAPI spec file to the provider dir.
-		mustWriteFile(providerDir, "openapi_generated.yml", openapiDocBytes)
+		mustWriteFile(providerDir, "openapi_generated.yml", updatedOpenAPIDocBytes)
 	default:
 		panic(fmt.Sprintf("Unrecognized language '%s'", language))
 	}
