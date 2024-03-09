@@ -14176,10 +14176,6 @@
                     "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterEngine",
                     "description": "A slug representing the database engine used for the cluster. The possible values are: \"pg\" for PostgreSQL, \"mysql\" for MySQL, \"redis\" for Redis, and \"mongodb\" for MongoDB."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database cluster."
-                },
                 "maintenanceWindow": {
                     "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterMaintenanceWindow"
                 },
@@ -14275,10 +14271,6 @@
                 "engine": {
                     "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterEngine",
                     "description": "A slug representing the database engine used for the cluster. The possible values are: \"pg\" for PostgreSQL, \"mysql\" for MySQL, \"redis\" for Redis, and \"mongodb\" for MongoDB."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database cluster."
                 },
                 "maintenanceWindow": {
                     "$ref": "#/types/digitalocean-native:databases/v2:DatabaseClusterMaintenanceWindow"
@@ -14670,10 +14662,6 @@
                     "type": "string",
                     "description": "A time value given in ISO8601 combined date and time format that represents when the database cluster was created."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database replica."
-                },
                 "name": {
                     "type": "string",
                     "description": "The name to give the read-only replicating"
@@ -14724,10 +14712,6 @@
                 "databaseClusterUuid": {
                     "type": "string",
                     "description": "A unique identifier for a database cluster."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a database replica."
                 },
                 "name": {
                     "type": "string",
@@ -14894,10 +14878,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -14940,10 +14920,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -14991,10 +14967,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15037,10 +15009,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15088,10 +15056,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15134,10 +15098,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15185,10 +15145,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15231,10 +15187,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15282,10 +15234,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15328,10 +15276,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15379,10 +15323,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15425,10 +15365,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15476,10 +15412,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15522,10 +15454,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15573,10 +15501,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15619,10 +15543,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -15670,10 +15590,6 @@
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
                 },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
-                },
                 "name": {
                     "type": "string",
                     "description": "The host name, alias, or service being defined by the record."
@@ -15716,10 +15632,6 @@
                 "flags": {
                     "type": "integer",
                     "description": "An unsigned integer between 0-255 used for CAA records."
-                },
-                "id": {
-                    "type": "integer",
-                    "description": "A unique identifier for each domain record."
                 },
                 "name": {
                     "type": "string",
@@ -16482,10 +16394,6 @@
                 "firewall": {
                     "$ref": "#/types/digitalocean-native:firewalls/v2:Firewall"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a firewall."
-                },
                 "inboundRules": {
                     "type": "array",
                     "items": {
@@ -16529,10 +16437,6 @@
                         "type": "integer"
                     },
                     "description": "An array containing the IDs of the Droplets assigned to the firewall."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a firewall."
                 },
                 "inboundRules": {
                     "type": "array",
@@ -17168,10 +17072,6 @@
                     "type": "integer",
                     "description": "The number of Droplet instances in the node pool."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a specific node pool."
-                },
                 "labels": {
                     "$ref": "pulumi.json#/Any",
                     "description": "An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool."
@@ -17235,10 +17135,6 @@
                 "count": {
                     "type": "integer",
                     "description": "The number of Droplet instances in the node pool."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference a specific node pool."
                 },
                 "labels": {
                     "$ref": "pulumi.json#/Any",
@@ -17601,10 +17497,6 @@
                     "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
                     "description": "The environment of the project's resources."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The unique universal identifier of this project."
-                },
                 "name": {
                     "type": "string",
                     "description": "The human-readable name for the project. The maximum length is 175 characters and the name must be unique."
@@ -17646,10 +17538,6 @@
                 "environment": {
                     "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
                     "description": "The environment of the project's resources."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The unique universal identifier of this project."
                 },
                 "name": {
                     "type": "string",
@@ -17731,10 +17619,6 @@
                     "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
                     "description": "The environment of the project's resources."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The unique universal identifier of this project."
-                },
                 "isDefault": {
                     "type": "boolean",
                     "description": "If true, all resources will be added to this project if no project is specified."
@@ -17780,10 +17664,6 @@
                 "environment": {
                     "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
                     "description": "The environment of the project's resources."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The unique universal identifier of this project."
                 },
                 "isDefault": {
                     "type": "boolean",
@@ -18038,10 +17918,6 @@
                     "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableComparison",
                     "description": "The comparison operator used against the alert's threshold."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference the alert."
-                },
                 "name": {
                     "type": "string",
                     "description": "A human-friendly display name."
@@ -18077,10 +17953,6 @@
                 "comparison": {
                     "$ref": "#/types/digitalocean-native:uptime/v2:AlertUpdatableComparison",
                     "description": "The comparison operator used against the alert's threshold."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "A unique ID that can be used to identify and reference the alert."
                 },
                 "name": {
                     "type": "string",
