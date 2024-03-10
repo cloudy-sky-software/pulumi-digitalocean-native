@@ -3,14 +3,14 @@ module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 go 1.21
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20231001083219-bac1246e8b90
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230925074135-c64b9a96d299
+	github.com/cloudy-sky-software/pulschema v0.0.0-20240310164842-8fb71739f6c1
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240310170016-150212b78b83
 	github.com/getkin/kin-openapi v0.123.0
-	github.com/pulumi/pulumi/pkg/v3 v3.106.0
-	github.com/pulumi/pulumi/sdk/v3 v3.106.0
+	github.com/pulumi/pulumi/pkg/v3 v3.109.0
+	github.com/pulumi/pulumi/sdk/v3 v3.109.0
 )
 
-require github.com/stretchr/testify v1.8.4
+require github.com/stretchr/testify v1.9.0
 
 require (
 	github.com/pkg/errors v0.9.1
@@ -196,7 +196,3 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
-
-replace github.com/cloudy-sky-software/pulschema => ../../pulschema
-
-replace github.com/cloudy-sky-software/pulumi-provider-framework => ../../pulumi-provider-framework
