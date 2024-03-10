@@ -1,10 +1,9 @@
-module github.com/pulumi/pulumi-aws-native/sdk
+module github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk
 
 go 1.21
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
-	github.com/cloudy-sky-software/pulumi-digitalocean-native v0.0.0-20240310014708-4d1f348451ee
 	github.com/pulumi/pulumi/sdk/v3 v3.109.0
 )
 
