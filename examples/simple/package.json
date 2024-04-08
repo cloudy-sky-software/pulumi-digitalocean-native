@@ -5,7 +5,7 @@
     "@types/node": "latest"
   },
   "dependencies": {
-    "@cloudyskysoftware/render": "latest",
+    "@cloudyskysoftware/pulumi-digitalocean-native": "file:../../sdk/nodejs",
     "@pulumi/pulumi": "latest"
   }
 }
