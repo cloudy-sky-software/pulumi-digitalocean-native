@@ -12,8 +12,8 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	regionSchema, ok := openAPIDoc.Components.Schemas["region"]
 	contract.Assertf(ok, "Expected to find a schema for region type")
 
-	regionSchema.Value.Properties["features"].Value.Type = "array"
-	regionSchema.Value.Properties["sizes"].Value.Type = "array"
+	regionSchema.Value.Properties["features"].Value.Type = &openapi3.Types{"array"}
+	regionSchema.Value.Properties["sizes"].Value.Type = &openapi3.Types{"array"}
 
 	for _, ty := range openAPIDoc.Components.Schemas {
 		fixObjectPropertyType(ty)
@@ -71,8 +71,8 @@ func fixReservedIpType(openAPIDoc *openapi3.T) {
 // fixObjectPropertyType adds `type: object` for any type that
 // does not have a value defined for the `type` property.
 func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
-	if objectType.Value.Type == "" && len(objectType.Value.Properties) > 0 {
-		objectType.Value.Type = "object"
+	if (objectType.Value.Type == nil || len(objectType.Value.Type.Slice()) == 0) && len(objectType.Value.Properties) > 0 {
+		objectType.Value.Type = &openapi3.Types{"object"}
 	}
 
 	for _, allOfTy := range objectType.Value.AllOf {
@@ -86,8 +86,8 @@ func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
 		return
 	}
 
-	if responseContent.Schema.Value.Type == "" && len(responseContent.Schema.Value.Properties) > 0 {
-		responseContent.Schema.Value.Type = "object"
+	if (responseContent.Schema.Value.Type == nil || len(responseContent.Schema.Value.Type.Slice()) == 0) && len(responseContent.Schema.Value.Properties) > 0 {
+		responseContent.Schema.Value.Type = &openapi3.Types{"object"}
 	}
 
 	for _, allOfTy := range responseContent.Schema.Value.AllOf {

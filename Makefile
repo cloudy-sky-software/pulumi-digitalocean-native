@@ -59,7 +59,7 @@ nodejs_sdk::
 	$(WORKING_DIR)/bin/$(CODEGEN) -version=${VERSION} nodejs $(SCHEMA_FILE) $(CURDIR)
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		yarn run tsc && \
+		yarn run build && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock bin/ && \
 		sed -i.bak 's/$${VERSION}/$(VERSION)/g' bin/package.json
 
