@@ -50,11 +50,11 @@ func (p *digitalOceanProvider) GetAuthorizationHeader() string {
 	return fmt.Sprintf("%s %s", authSchemePrefix, p.apiKey)
 }
 
-func (p *digitalOceanProvider) OnPreInvoke(ctx context.Context, req *pulumirpc.InvokeRequest, httpReq *http.Request) error {
+func (p *digitalOceanProvider) OnPreInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *digitalOceanProvider) OnPostInvoke(ctx context.Context, req *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
+func (p *digitalOceanProvider) OnPostInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
 	return outputs.(map[string]interface{}), nil
 }
 
@@ -87,39 +87,39 @@ func (p *digitalOceanProvider) OnConfigure(_ context.Context, req *pulumirpc.Con
 }
 
 // OnDiff checks what impacts a hypothetical update will have on the resource's properties.
-func (p *digitalOceanProvider) OnDiff(ctx context.Context, req *pulumirpc.DiffRequest, resourceTypeToken string, diff *resource.ObjectDiff, jsonReq *openapi3.MediaType) (*pulumirpc.DiffResponse, error) {
+func (p *digitalOceanProvider) OnDiff(_ context.Context, _ *pulumirpc.DiffRequest, _ string, _ *resource.ObjectDiff, _ *openapi3.MediaType) (*pulumirpc.DiffResponse, error) {
 	return nil, nil
 }
 
-func (p *digitalOceanProvider) OnPreCreate(ctx context.Context, req *pulumirpc.CreateRequest, httpReq *http.Request) error {
+func (p *digitalOceanProvider) OnPreCreate(_ context.Context, _ *pulumirpc.CreateRequest, _ *http.Request) error {
 	return nil
 }
 
 // OnPostCreate allocates a new instance of the provided resource and returns its unique ID afterwards.
-func (p *digitalOceanProvider) OnPostCreate(ctx context.Context, req *pulumirpc.CreateRequest, outputs interface{}) (map[string]interface{}, error) {
+func (p *digitalOceanProvider) OnPostCreate(_ context.Context, _ *pulumirpc.CreateRequest, outputs interface{}) (map[string]interface{}, error) {
 	return outputs.(map[string]interface{}), nil
 }
 
-func (p *digitalOceanProvider) OnPreRead(ctx context.Context, req *pulumirpc.ReadRequest, httpReq *http.Request) error {
+func (p *digitalOceanProvider) OnPreRead(_ context.Context, _ *pulumirpc.ReadRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *digitalOceanProvider) OnPostRead(ctx context.Context, req *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
+func (p *digitalOceanProvider) OnPostRead(_ context.Context, _ *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
 	return outputs, nil
 }
 
-func (p *digitalOceanProvider) OnPreUpdate(ctx context.Context, req *pulumirpc.UpdateRequest, httpReq *http.Request) error {
+func (p *digitalOceanProvider) OnPreUpdate(_ context.Context, _ *pulumirpc.UpdateRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *digitalOceanProvider) OnPostUpdate(ctx context.Context, req *pulumirpc.UpdateRequest, httpReq http.Request, outputs interface{}) (map[string]interface{}, error) {
+func (p *digitalOceanProvider) OnPostUpdate(_ context.Context, _ *pulumirpc.UpdateRequest, _ http.Request, outputs interface{}) (map[string]interface{}, error) {
 	return outputs.(map[string]interface{}), nil
 }
 
-func (p *digitalOceanProvider) OnPreDelete(ctx context.Context, req *pulumirpc.DeleteRequest, httpReq *http.Request) error {
+func (p *digitalOceanProvider) OnPreDelete(_ context.Context, _ *pulumirpc.DeleteRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *digitalOceanProvider) OnPostDelete(ctx context.Context, req *pulumirpc.DeleteRequest) error {
+func (p *digitalOceanProvider) OnPostDelete(_ context.Context, _ *pulumirpc.DeleteRequest) error {
 	return nil
 }

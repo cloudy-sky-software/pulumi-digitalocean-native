@@ -24,9 +24,9 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	}
 
 	fixDatabaseConfigType(openAPIDoc)
-	fixFloatingIpType(openAPIDoc)
-	fixReservedIpActionUnassignType(openAPIDoc)
-	fixReservedIpType(openAPIDoc)
+	fixFloatingIPType(openAPIDoc)
+	fixReservedIPActionUnassignType(openAPIDoc)
+	fixReservedIPType(openAPIDoc)
 	fixPageLinksType(openAPIDoc)
 	fixCreateUptimeCheckRequest(openAPIDoc)
 }
@@ -42,7 +42,7 @@ func fixCreateUptimeCheckRequest(openAPIDoc *openapi3.T) {
 	reqSchema.Schema.Value.Required = []string{"name", "target", "regions", "type", "enabled"}
 }
 
-func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {
+func fixReservedIPActionUnassignType(openAPIDoc *openapi3.T) {
 	schemaRef, ok := openAPIDoc.Components.Schemas["reserved_ip_action_unassign"]
 	contract.Assertf(ok, "Expected to find reserved_ip_action_unassign type")
 
@@ -56,7 +56,7 @@ func fixReservedIpActionUnassignType(openAPIDoc *openapi3.T) {
 	schemaRef.Value.Required = []string{"droplet_id"}
 }
 
-func fixReservedIpType(openAPIDoc *openapi3.T) {
+func fixReservedIPType(openAPIDoc *openapi3.T) {
 	schemaRef, ok := openAPIDoc.Components.Schemas["reserved_ip"]
 	contract.Assertf(ok, "Expected to find reserved_ip type")
 
@@ -95,16 +95,16 @@ func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
 	}
 }
 
-func fixFloatingIpType(openAPIDoc *openapi3.T) {
-	floatingIp, ok := openAPIDoc.Components.Schemas["floating_ip"]
+func fixFloatingIPType(openAPIDoc *openapi3.T) {
+	floatingIP, ok := openAPIDoc.Components.Schemas["floating_ip"]
 	contract.Assertf(ok, "Expected to find floating_ip type")
 
 	// The droplet property of this type can be null if the floating IP
 	// is not attached to any droplet. The way this is represented in the
 	// spec causes validation issues. So let's simplify it.
-	floatingIp.Value.Properties["droplet"].Ref = "#/components/schemas/droplet"
-	floatingIp.Value.Properties["droplet"].Value.AnyOf = nil
-	floatingIp.Value.Properties["droplet"].Value.Example = nil
+	floatingIP.Value.Properties["droplet"].Ref = "#/components/schemas/droplet"
+	floatingIP.Value.Properties["droplet"].Value.AnyOf = nil
+	floatingIP.Value.Properties["droplet"].Value.Example = nil
 }
 
 // fixDatabaseConfigType fixes the database_config type to use
