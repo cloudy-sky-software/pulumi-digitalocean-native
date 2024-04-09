@@ -268,41 +268,41 @@ func (o InvoicePreviewArrayOutput) Index(i pulumi.IntInput) InvoicePreviewOutput
 	}).(InvoicePreviewOutput)
 }
 
-type ListBillingHistory struct {
+type ListBillingHistoryItems struct {
 	BillingHistory []BillingHistory `pulumi:"billingHistory"`
 	Links          *PageLinks       `pulumi:"links"`
 	// Information about the response itself.
 	Meta MetaProperties `pulumi:"meta"`
 }
 
-type ListBillingHistoryOutput struct{ *pulumi.OutputState }
+type ListBillingHistoryItemsOutput struct{ *pulumi.OutputState }
 
-func (ListBillingHistoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListBillingHistory)(nil)).Elem()
+func (ListBillingHistoryItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListBillingHistoryItems)(nil)).Elem()
 }
 
-func (o ListBillingHistoryOutput) ToListBillingHistoryOutput() ListBillingHistoryOutput {
+func (o ListBillingHistoryItemsOutput) ToListBillingHistoryItemsOutput() ListBillingHistoryItemsOutput {
 	return o
 }
 
-func (o ListBillingHistoryOutput) ToListBillingHistoryOutputWithContext(ctx context.Context) ListBillingHistoryOutput {
+func (o ListBillingHistoryItemsOutput) ToListBillingHistoryItemsOutputWithContext(ctx context.Context) ListBillingHistoryItemsOutput {
 	return o
 }
 
-func (o ListBillingHistoryOutput) BillingHistory() BillingHistoryArrayOutput {
-	return o.ApplyT(func(v ListBillingHistory) []BillingHistory { return v.BillingHistory }).(BillingHistoryArrayOutput)
+func (o ListBillingHistoryItemsOutput) BillingHistory() BillingHistoryArrayOutput {
+	return o.ApplyT(func(v ListBillingHistoryItems) []BillingHistory { return v.BillingHistory }).(BillingHistoryArrayOutput)
 }
 
-func (o ListBillingHistoryOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListBillingHistory) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListBillingHistoryItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListBillingHistoryItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
 // Information about the response itself.
-func (o ListBillingHistoryOutput) Meta() MetaPropertiesOutput {
-	return o.ApplyT(func(v ListBillingHistory) MetaProperties { return v.Meta }).(MetaPropertiesOutput)
+func (o ListBillingHistoryItemsOutput) Meta() MetaPropertiesOutput {
+	return o.ApplyT(func(v ListBillingHistoryItems) MetaProperties { return v.Meta }).(MetaPropertiesOutput)
 }
 
-type ListInvoices struct {
+type ListInvoicesItems struct {
 	// The invoice preview.
 	InvoicePreview *InvoicePreview  `pulumi:"invoicePreview"`
 	Invoices       []InvoicePreview `pulumi:"invoices"`
@@ -310,35 +310,35 @@ type ListInvoices struct {
 	Meta           MetaMeta         `pulumi:"meta"`
 }
 
-type ListInvoicesOutput struct{ *pulumi.OutputState }
+type ListInvoicesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListInvoicesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListInvoices)(nil)).Elem()
+func (ListInvoicesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListInvoicesItems)(nil)).Elem()
 }
 
-func (o ListInvoicesOutput) ToListInvoicesOutput() ListInvoicesOutput {
+func (o ListInvoicesItemsOutput) ToListInvoicesItemsOutput() ListInvoicesItemsOutput {
 	return o
 }
 
-func (o ListInvoicesOutput) ToListInvoicesOutputWithContext(ctx context.Context) ListInvoicesOutput {
+func (o ListInvoicesItemsOutput) ToListInvoicesItemsOutputWithContext(ctx context.Context) ListInvoicesItemsOutput {
 	return o
 }
 
 // The invoice preview.
-func (o ListInvoicesOutput) InvoicePreview() InvoicePreviewPtrOutput {
-	return o.ApplyT(func(v ListInvoices) *InvoicePreview { return v.InvoicePreview }).(InvoicePreviewPtrOutput)
+func (o ListInvoicesItemsOutput) InvoicePreview() InvoicePreviewPtrOutput {
+	return o.ApplyT(func(v ListInvoicesItems) *InvoicePreview { return v.InvoicePreview }).(InvoicePreviewPtrOutput)
 }
 
-func (o ListInvoicesOutput) Invoices() InvoicePreviewArrayOutput {
-	return o.ApplyT(func(v ListInvoices) []InvoicePreview { return v.Invoices }).(InvoicePreviewArrayOutput)
+func (o ListInvoicesItemsOutput) Invoices() InvoicePreviewArrayOutput {
+	return o.ApplyT(func(v ListInvoicesItems) []InvoicePreview { return v.Invoices }).(InvoicePreviewArrayOutput)
 }
 
-func (o ListInvoicesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListInvoices) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListInvoicesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListInvoicesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListInvoicesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListInvoices) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListInvoicesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListInvoicesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -550,8 +550,8 @@ func init() {
 	pulumi.RegisterOutputType(InvoicePreviewOutput{})
 	pulumi.RegisterOutputType(InvoicePreviewPtrOutput{})
 	pulumi.RegisterOutputType(InvoicePreviewArrayOutput{})
-	pulumi.RegisterOutputType(ListBillingHistoryOutput{})
-	pulumi.RegisterOutputType(ListInvoicesOutput{})
+	pulumi.RegisterOutputType(ListBillingHistoryItemsOutput{})
+	pulumi.RegisterOutputType(ListInvoicesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(MetaPropertiesOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})

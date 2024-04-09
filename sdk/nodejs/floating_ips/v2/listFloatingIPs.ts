@@ -19,7 +19,7 @@ export interface ListFloatingIPsArgs {
 }
 
 export interface ListFloatingIPsResult {
-    readonly items: outputs.floating_ips.v2.ListFloatingIPs;
+    readonly items: outputs.floating_ips.v2.ListFloatingIPsItems;
 }
 export function listFloatingIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListFloatingIPsResult> {
     return pulumi.output(listFloatingIPs(opts))

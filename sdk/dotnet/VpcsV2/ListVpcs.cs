@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.VpcsV2
     [OutputType]
     public sealed class ListVpcsResult
     {
-        public readonly Outputs.ListVpcs Items;
+        public readonly Outputs.ListVpcsItems Items;
 
         [OutputConstructor]
-        private ListVpcsResult(Outputs.ListVpcs items)
+        private ListVpcsResult(Outputs.ListVpcsItems items)
         {
             Items = items;
         }

@@ -26,7 +26,7 @@ class ListInvoicesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListInvoices':
+    def items(self) -> 'outputs.ListInvoicesItems':
         return pulumi.get(self, "items")
 
 

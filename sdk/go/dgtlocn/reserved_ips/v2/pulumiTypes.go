@@ -1661,68 +1661,68 @@ func (o LinksPropertiesPtrOutput) Droplets() ActionLinkArrayOutput {
 	}).(ActionLinkArrayOutput)
 }
 
-type ListReservedIPs struct {
-	Links       *PageLinks   `pulumi:"links"`
-	Meta        MetaMeta     `pulumi:"meta"`
-	ReservedIps []ReservedIp `pulumi:"reservedIps"`
-}
-
-type ListReservedIPsOutput struct{ *pulumi.OutputState }
-
-func (ListReservedIPsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListReservedIPs)(nil)).Elem()
-}
-
-func (o ListReservedIPsOutput) ToListReservedIPsOutput() ListReservedIPsOutput {
-	return o
-}
-
-func (o ListReservedIPsOutput) ToListReservedIPsOutputWithContext(ctx context.Context) ListReservedIPsOutput {
-	return o
-}
-
-func (o ListReservedIPsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListReservedIPs) *PageLinks { return v.Links }).(PageLinksPtrOutput)
-}
-
-func (o ListReservedIPsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListReservedIPs) MetaMeta { return v.Meta }).(MetaMetaOutput)
-}
-
-func (o ListReservedIPsOutput) ReservedIps() ReservedIpArrayOutput {
-	return o.ApplyT(func(v ListReservedIPs) []ReservedIp { return v.ReservedIps }).(ReservedIpArrayOutput)
-}
-
-type ListReservedIPsActions struct {
+type ListReservedIPsActionsItems struct {
 	Actions []Action   `pulumi:"actions"`
 	Links   *PageLinks `pulumi:"links"`
 	Meta    MetaMeta   `pulumi:"meta"`
 }
 
-type ListReservedIPsActionsOutput struct{ *pulumi.OutputState }
+type ListReservedIPsActionsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListReservedIPsActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListReservedIPsActions)(nil)).Elem()
+func (ListReservedIPsActionsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListReservedIPsActionsItems)(nil)).Elem()
 }
 
-func (o ListReservedIPsActionsOutput) ToListReservedIPsActionsOutput() ListReservedIPsActionsOutput {
+func (o ListReservedIPsActionsItemsOutput) ToListReservedIPsActionsItemsOutput() ListReservedIPsActionsItemsOutput {
 	return o
 }
 
-func (o ListReservedIPsActionsOutput) ToListReservedIPsActionsOutputWithContext(ctx context.Context) ListReservedIPsActionsOutput {
+func (o ListReservedIPsActionsItemsOutput) ToListReservedIPsActionsItemsOutputWithContext(ctx context.Context) ListReservedIPsActionsItemsOutput {
 	return o
 }
 
-func (o ListReservedIPsActionsOutput) Actions() ActionArrayOutput {
-	return o.ApplyT(func(v ListReservedIPsActions) []Action { return v.Actions }).(ActionArrayOutput)
+func (o ListReservedIPsActionsItemsOutput) Actions() ActionArrayOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsItems) []Action { return v.Actions }).(ActionArrayOutput)
 }
 
-func (o ListReservedIPsActionsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListReservedIPsActions) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListReservedIPsActionsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListReservedIPsActionsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListReservedIPsActions) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListReservedIPsActionsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+type ListReservedIPsItems struct {
+	Links       *PageLinks   `pulumi:"links"`
+	Meta        MetaMeta     `pulumi:"meta"`
+	ReservedIps []ReservedIp `pulumi:"reservedIps"`
+}
+
+type ListReservedIPsItemsOutput struct{ *pulumi.OutputState }
+
+func (ListReservedIPsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListReservedIPsItems)(nil)).Elem()
+}
+
+func (o ListReservedIPsItemsOutput) ToListReservedIPsItemsOutput() ListReservedIPsItemsOutput {
+	return o
+}
+
+func (o ListReservedIPsItemsOutput) ToListReservedIPsItemsOutputWithContext(ctx context.Context) ListReservedIPsItemsOutput {
+	return o
+}
+
+func (o ListReservedIPsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListReservedIPsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListReservedIPsItemsOutput) ReservedIps() ReservedIpArrayOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) []ReservedIp { return v.ReservedIps }).(ReservedIpArrayOutput)
 }
 
 type MetaMeta struct {
@@ -2694,8 +2694,8 @@ func init() {
 	pulumi.RegisterOutputType(KernelPtrOutput{})
 	pulumi.RegisterOutputType(LinksPropertiesOutput{})
 	pulumi.RegisterOutputType(LinksPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ListReservedIPsOutput{})
-	pulumi.RegisterOutputType(ListReservedIPsActionsOutput{})
+	pulumi.RegisterOutputType(ListReservedIPsActionsItemsOutput{})
+	pulumi.RegisterOutputType(ListReservedIPsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(NetworkV4Output{})
 	pulumi.RegisterOutputType(NetworkV4ArrayOutput{})

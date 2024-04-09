@@ -15,8 +15,8 @@ __all__ = [
     'DomainRecord',
     'GetDomainsProperties',
     'GetDomainsRecordProperties',
-    'ListDomains',
-    'ListDomainsRecords',
+    'ListDomainsItems',
+    'ListDomainsRecordsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -249,7 +249,7 @@ class GetDomainsRecordProperties(dict):
 
 
 @pulumi.output_type
-class ListDomains(dict):
+class ListDomainsItems(dict):
     def __init__(__self__, *,
                  domains: Sequence['outputs.Domain'],
                  meta: 'outputs.MetaMeta',
@@ -282,7 +282,7 @@ class ListDomains(dict):
 
 
 @pulumi.output_type
-class ListDomainsRecords(dict):
+class ListDomainsRecordsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  domain_records: Optional[Sequence['outputs.DomainRecord']] = None,

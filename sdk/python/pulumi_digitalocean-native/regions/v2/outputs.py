@@ -11,7 +11,7 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListRegions',
+    'ListRegionsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ListRegions(dict):
+class ListRegionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  regions: Sequence['outputs.Region'],

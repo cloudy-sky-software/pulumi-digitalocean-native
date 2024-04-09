@@ -19,7 +19,7 @@ export interface ListImagesArgs {
 }
 
 export interface ListImagesResult {
-    readonly items: outputs.images.v2.ListImages;
+    readonly items: outputs.images.v2.ListImagesItems;
 }
 export function listImagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListImagesResult> {
     return pulumi.output(listImages(opts))

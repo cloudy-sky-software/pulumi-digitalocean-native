@@ -27,7 +27,7 @@ class ListKubernetesClustersResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListKubernetesClusters':
+    def items(self) -> 'outputs.ListKubernetesClustersItems':
         return pulumi.get(self, "items")
 
 

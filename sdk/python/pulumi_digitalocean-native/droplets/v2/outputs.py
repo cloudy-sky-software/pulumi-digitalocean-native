@@ -31,14 +31,14 @@ __all__ = [
     'GetDropletsProperties',
     'Image',
     'Kernel',
-    'ListDropletActions',
-    'ListDroplets',
-    'ListDropletsAssociatedResources',
-    'ListDropletsBackups',
-    'ListDropletsFirewalls',
-    'ListDropletsKernels',
-    'ListDropletsNeighbors',
-    'ListDropletsSnapshots',
+    'ListDropletActionsItems',
+    'ListDropletsAssociatedResourcesItems',
+    'ListDropletsBackupsItems',
+    'ListDropletsFirewallsItems',
+    'ListDropletsItems',
+    'ListDropletsKernelsItems',
+    'ListDropletsNeighborsItems',
+    'ListDropletsSnapshotsItems',
     'MetaMeta',
     'NetworkV4',
     'NetworkV6',
@@ -1237,7 +1237,7 @@ class Kernel(dict):
 
 
 @pulumi.output_type
-class ListDropletActions(dict):
+class ListDropletActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.Action']] = None,
@@ -1265,35 +1265,7 @@ class ListDropletActions(dict):
 
 
 @pulumi.output_type
-class ListDroplets(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 droplets: Optional[Sequence['outputs.Droplet']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if droplets is not None:
-            pulumi.set(__self__, "droplets", droplets)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def droplets(self) -> Optional[Sequence['outputs.Droplet']]:
-        return pulumi.get(self, "droplets")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDropletsAssociatedResources(dict):
+class ListDropletsAssociatedResourcesItems(dict):
     def __init__(__self__, *,
                  floating_ips: Optional[Sequence['outputs.AssociatedResource']] = None,
                  reserved_ips: Optional[Sequence['outputs.AssociatedResource']] = None,
@@ -1338,7 +1310,7 @@ class ListDropletsAssociatedResources(dict):
 
 
 @pulumi.output_type
-class ListDropletsBackups(dict):
+class ListDropletsBackupsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  backups: Optional[Sequence['outputs.DropletSnapshot']] = None,
@@ -1366,7 +1338,7 @@ class ListDropletsBackups(dict):
 
 
 @pulumi.output_type
-class ListDropletsFirewalls(dict):
+class ListDropletsFirewallsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  firewalls: Optional[Sequence['outputs.Firewall']] = None,
@@ -1394,7 +1366,35 @@ class ListDropletsFirewalls(dict):
 
 
 @pulumi.output_type
-class ListDropletsKernels(dict):
+class ListDropletsItems(dict):
+    def __init__(__self__, *,
+                 meta: 'outputs.MetaMeta',
+                 droplets: Optional[Sequence['outputs.Droplet']] = None,
+                 links: Optional['outputs.PageLinks'] = None):
+        pulumi.set(__self__, "meta", meta)
+        if droplets is not None:
+            pulumi.set(__self__, "droplets", droplets)
+        if links is not None:
+            pulumi.set(__self__, "links", links)
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def droplets(self) -> Optional[Sequence['outputs.Droplet']]:
+        return pulumi.get(self, "droplets")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+
+@pulumi.output_type
+class ListDropletsKernelsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  kernels: Optional[Sequence['outputs.Kernel']] = None,
@@ -1422,7 +1422,7 @@ class ListDropletsKernels(dict):
 
 
 @pulumi.output_type
-class ListDropletsNeighbors(dict):
+class ListDropletsNeighborsItems(dict):
     def __init__(__self__, *,
                  droplets: Optional[Sequence['outputs.Droplet']] = None):
         if droplets is not None:
@@ -1435,7 +1435,7 @@ class ListDropletsNeighbors(dict):
 
 
 @pulumi.output_type
-class ListDropletsSnapshots(dict):
+class ListDropletsSnapshotsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

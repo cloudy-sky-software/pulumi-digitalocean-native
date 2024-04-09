@@ -12,8 +12,8 @@ from . import outputs
 
 __all__ = [
     'GetVpcsProperties',
-    'ListVpcs',
-    'ListVpcsMembers',
+    'ListVpcsItems',
+    'ListVpcsMembersItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -35,7 +35,7 @@ class GetVpcsProperties(dict):
 
 
 @pulumi.output_type
-class ListVpcs(dict):
+class ListVpcsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -63,7 +63,7 @@ class ListVpcs(dict):
 
 
 @pulumi.output_type
-class ListVpcsMembers(dict):
+class ListVpcsMembersItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

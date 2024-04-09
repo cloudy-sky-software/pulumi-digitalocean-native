@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.SizesV2
     [OutputType]
     public sealed class ListSizesResult
     {
-        public readonly Outputs.ListSizes Items;
+        public readonly Outputs.ListSizesItems Items;
 
         [OutputConstructor]
-        private ListSizesResult(Outputs.ListSizes items)
+        private ListSizesResult(Outputs.ListSizesItems items)
         {
             Items = items;
         }

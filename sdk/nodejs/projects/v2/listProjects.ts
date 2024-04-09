@@ -19,7 +19,7 @@ export interface ListProjectsArgs {
 }
 
 export interface ListProjectsResult {
-    readonly items: outputs.projects.v2.ListProjects;
+    readonly items: outputs.projects.v2.ListProjectsItems;
 }
 export function listProjectsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListProjectsResult> {
     return pulumi.output(listProjects(opts))

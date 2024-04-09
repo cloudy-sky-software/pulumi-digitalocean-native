@@ -19,7 +19,7 @@ export interface ListRegionsArgs {
 }
 
 export interface ListRegionsResult {
-    readonly items: outputs.regions.v2.ListRegions;
+    readonly items: outputs.regions.v2.ListRegionsItems;
 }
 export function listRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListRegionsResult> {
     return pulumi.output(listRegions(opts))

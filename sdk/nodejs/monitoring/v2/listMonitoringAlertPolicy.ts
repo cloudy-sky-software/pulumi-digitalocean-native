@@ -19,7 +19,7 @@ export interface ListMonitoringAlertPolicyArgs {
 }
 
 export interface ListMonitoringAlertPolicyResult {
-    readonly items: outputs.monitoring.v2.ListMonitoringAlertPolicy;
+    readonly items: outputs.monitoring.v2.ListMonitoringAlertPolicyItems;
 }
 export function listMonitoringAlertPolicyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitoringAlertPolicyResult> {
     return pulumi.output(listMonitoringAlertPolicy(opts))

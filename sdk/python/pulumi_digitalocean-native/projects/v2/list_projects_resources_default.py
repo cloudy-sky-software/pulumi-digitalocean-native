@@ -27,7 +27,7 @@ class ListProjectsResourcesDefaultResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListProjectsResourcesDefault':
+    def items(self) -> 'outputs.ListProjectsResourcesDefaultItems':
         return pulumi.get(self, "items")
 
 

@@ -22,10 +22,10 @@ __all__ = [
     'GetRegistryProperties',
     'GetRegistrySubscriptionProperties',
     'ListRegistryGarbageCollectionsProperties',
-    'ListRegistryRepositories',
-    'ListRegistryRepositoriesV2',
-    'ListRegistryRepositoryManifests',
-    'ListRegistryRepositoryTags',
+    'ListRegistryRepositoriesItems',
+    'ListRegistryRepositoriesV2Items',
+    'ListRegistryRepositoryManifestsItems',
+    'ListRegistryRepositoryTagsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -377,7 +377,7 @@ class ListRegistryGarbageCollectionsProperties(dict):
 
 
 @pulumi.output_type
-class ListRegistryRepositories(dict):
+class ListRegistryRepositoriesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -405,7 +405,7 @@ class ListRegistryRepositories(dict):
 
 
 @pulumi.output_type
-class ListRegistryRepositoriesV2(dict):
+class ListRegistryRepositoriesV2Items(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -433,7 +433,7 @@ class ListRegistryRepositoriesV2(dict):
 
 
 @pulumi.output_type
-class ListRegistryRepositoryManifests(dict):
+class ListRegistryRepositoryManifestsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -461,7 +461,7 @@ class ListRegistryRepositoryManifests(dict):
 
 
 @pulumi.output_type
-class ListRegistryRepositoryTags(dict):
+class ListRegistryRepositoryTagsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

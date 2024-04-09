@@ -16,8 +16,8 @@ __all__ = [
     'ActionRegionSlug',
     'GetImagesProperties',
     'Image',
-    'ListImageActions',
-    'ListImages',
+    'ListImageActionsItems',
+    'ListImagesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -355,7 +355,7 @@ class Image(dict):
 
 
 @pulumi.output_type
-class ListImageActions(dict):
+class ListImageActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.Action']] = None,
@@ -383,7 +383,7 @@ class ListImageActions(dict):
 
 
 @pulumi.output_type
-class ListImages(dict):
+class ListImagesItems(dict):
     def __init__(__self__, *,
                  images: Sequence['outputs.Image'],
                  meta: 'outputs.MetaMeta',

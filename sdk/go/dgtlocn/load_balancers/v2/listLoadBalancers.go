@@ -25,7 +25,7 @@ type ListLoadBalancersArgs struct {
 }
 
 type ListLoadBalancersResult struct {
-	Items ListLoadBalancers `pulumi:"items"`
+	Items ListLoadBalancersItems `pulumi:"items"`
 }
 
 func ListLoadBalancersOutput(ctx *pulumi.Context, args ListLoadBalancersOutputArgs, opts ...pulumi.InvokeOption) ListLoadBalancersResultOutput {
@@ -62,8 +62,8 @@ func (o ListLoadBalancersResultOutput) ToListLoadBalancersResultOutputWithContex
 	return o
 }
 
-func (o ListLoadBalancersResultOutput) Items() ListLoadBalancersOutput {
-	return o.ApplyT(func(v ListLoadBalancersResult) ListLoadBalancers { return v.Items }).(ListLoadBalancersOutput)
+func (o ListLoadBalancersResultOutput) Items() ListLoadBalancersItemsOutput {
+	return o.ApplyT(func(v ListLoadBalancersResult) ListLoadBalancersItems { return v.Items }).(ListLoadBalancersItemsOutput)
 }
 
 func init() {

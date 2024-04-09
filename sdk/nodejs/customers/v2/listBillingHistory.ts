@@ -19,7 +19,7 @@ export interface ListBillingHistoryArgs {
 }
 
 export interface ListBillingHistoryResult {
-    readonly items: outputs.customers.v2.ListBillingHistory;
+    readonly items: outputs.customers.v2.ListBillingHistoryItems;
 }
 export function listBillingHistoryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingHistoryResult> {
     return pulumi.output(listBillingHistory(opts))

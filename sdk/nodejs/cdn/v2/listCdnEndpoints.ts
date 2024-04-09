@@ -19,7 +19,7 @@ export interface ListCdnEndpointsArgs {
 }
 
 export interface ListCdnEndpointsResult {
-    readonly items: outputs.cdn.v2.ListCdnEndpoints;
+    readonly items: outputs.cdn.v2.ListCdnEndpointsItems;
 }
 export function listCdnEndpointsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListCdnEndpointsResult> {
     return pulumi.output(listCdnEndpoints(opts))

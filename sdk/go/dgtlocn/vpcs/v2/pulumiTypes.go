@@ -35,68 +35,68 @@ func (o GetVpcsPropertiesOutput) Vpc() VpcPtrOutput {
 	return o.ApplyT(func(v GetVpcsProperties) *Vpc { return v.Vpc }).(VpcPtrOutput)
 }
 
-type ListVpcs struct {
+type ListVpcsItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
 	Vpcs  []Vpc      `pulumi:"vpcs"`
 }
 
-type ListVpcsOutput struct{ *pulumi.OutputState }
+type ListVpcsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListVpcsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListVpcs)(nil)).Elem()
+func (ListVpcsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVpcsItems)(nil)).Elem()
 }
 
-func (o ListVpcsOutput) ToListVpcsOutput() ListVpcsOutput {
+func (o ListVpcsItemsOutput) ToListVpcsItemsOutput() ListVpcsItemsOutput {
 	return o
 }
 
-func (o ListVpcsOutput) ToListVpcsOutputWithContext(ctx context.Context) ListVpcsOutput {
+func (o ListVpcsItemsOutput) ToListVpcsItemsOutputWithContext(ctx context.Context) ListVpcsItemsOutput {
 	return o
 }
 
-func (o ListVpcsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListVpcs) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListVpcsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVpcsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListVpcsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListVpcs) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListVpcsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVpcsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListVpcsOutput) Vpcs() VpcArrayOutput {
-	return o.ApplyT(func(v ListVpcs) []Vpc { return v.Vpcs }).(VpcArrayOutput)
+func (o ListVpcsItemsOutput) Vpcs() VpcArrayOutput {
+	return o.ApplyT(func(v ListVpcsItems) []Vpc { return v.Vpcs }).(VpcArrayOutput)
 }
 
-type ListVpcsMembers struct {
+type ListVpcsMembersItems struct {
 	Links   *PageLinks  `pulumi:"links"`
 	Members []VpcMember `pulumi:"members"`
 	Meta    MetaMeta    `pulumi:"meta"`
 }
 
-type ListVpcsMembersOutput struct{ *pulumi.OutputState }
+type ListVpcsMembersItemsOutput struct{ *pulumi.OutputState }
 
-func (ListVpcsMembersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListVpcsMembers)(nil)).Elem()
+func (ListVpcsMembersItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVpcsMembersItems)(nil)).Elem()
 }
 
-func (o ListVpcsMembersOutput) ToListVpcsMembersOutput() ListVpcsMembersOutput {
+func (o ListVpcsMembersItemsOutput) ToListVpcsMembersItemsOutput() ListVpcsMembersItemsOutput {
 	return o
 }
 
-func (o ListVpcsMembersOutput) ToListVpcsMembersOutputWithContext(ctx context.Context) ListVpcsMembersOutput {
+func (o ListVpcsMembersItemsOutput) ToListVpcsMembersItemsOutputWithContext(ctx context.Context) ListVpcsMembersItemsOutput {
 	return o
 }
 
-func (o ListVpcsMembersOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListVpcsMembers) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListVpcsMembersItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVpcsMembersItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListVpcsMembersOutput) Members() VpcMemberArrayOutput {
-	return o.ApplyT(func(v ListVpcsMembers) []VpcMember { return v.Members }).(VpcMemberArrayOutput)
+func (o ListVpcsMembersItemsOutput) Members() VpcMemberArrayOutput {
+	return o.ApplyT(func(v ListVpcsMembersItems) []VpcMember { return v.Members }).(VpcMemberArrayOutput)
 }
 
-func (o ListVpcsMembersOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListVpcsMembers) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListVpcsMembersItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVpcsMembersItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -532,8 +532,8 @@ func (o VpcMemberArrayOutput) Index(i pulumi.IntInput) VpcMemberOutput {
 
 func init() {
 	pulumi.RegisterOutputType(GetVpcsPropertiesOutput{})
-	pulumi.RegisterOutputType(ListVpcsOutput{})
-	pulumi.RegisterOutputType(ListVpcsMembersOutput{})
+	pulumi.RegisterOutputType(ListVpcsItemsOutput{})
+	pulumi.RegisterOutputType(ListVpcsMembersItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

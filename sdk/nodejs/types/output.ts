@@ -90,7 +90,7 @@ export namespace account {
             sshKey?: outputs.account.v2.SshKeys;
         }
 
-        export interface ListSshKeys {
+        export interface ListSshKeysItems {
             links?: outputs.account.v2.PageLinks;
             meta: outputs.account.v2.MetaMeta;
             sshKeys?: outputs.account.v2.SshKeys[];
@@ -196,7 +196,7 @@ export namespace actions {
             };
         }
 
-        export interface ListActions {
+        export interface ListActionsItems {
             actions?: outputs.actions.v2.Action[];
             links?: outputs.actions.v2.PageLinks;
             meta: outputs.actions.v2.MetaMeta;
@@ -1566,7 +1566,7 @@ export namespace cdn {
             };
         }
 
-        export interface ListCdnEndpoints {
+        export interface ListCdnEndpointsItems {
             endpoints?: outputs.cdn.v2.CdnEndpoint[];
             links?: outputs.cdn.v2.PageLinks;
             meta: outputs.cdn.v2.MetaMeta;
@@ -1634,7 +1634,7 @@ export namespace certificates {
             certificate?: outputs.certificates.v2.Certificate;
         }
 
-        export interface ListCertificates {
+        export interface ListCertificatesItems {
             certificates?: outputs.certificates.v2.Certificate[];
             links?: outputs.certificates.v2.PageLinks;
             meta: outputs.certificates.v2.MetaMeta;
@@ -1731,7 +1731,7 @@ export namespace customers {
             updatedAt?: string;
         }
 
-        export interface ListBillingHistory {
+        export interface ListBillingHistoryItems {
             billingHistory?: outputs.customers.v2.BillingHistory[];
             links?: outputs.customers.v2.PageLinks;
             /**
@@ -1740,7 +1740,7 @@ export namespace customers {
             meta: outputs.customers.v2.MetaProperties;
         }
 
-        export interface ListInvoices {
+        export interface ListInvoicesItems {
             /**
              * The invoice preview.
              */
@@ -3045,7 +3045,7 @@ export namespace domains {
             domainRecord?: outputs.domains.v2.DomainRecord;
         }
 
-        export interface ListDomains {
+        export interface ListDomainsItems {
             /**
              * Array of volumes.
              */
@@ -3054,7 +3054,7 @@ export namespace domains {
             meta: outputs.domains.v2.MetaMeta;
         }
 
-        export interface ListDomainsRecords {
+        export interface ListDomainsRecordsItems {
             domainRecords?: outputs.domains.v2.DomainRecord[];
             links?: outputs.domains.v2.PageLinks;
             meta: outputs.domains.v2.MetaMeta;
@@ -3513,19 +3513,13 @@ export namespace droplets {
             version?: string;
         }
 
-        export interface ListDropletActions {
+        export interface ListDropletActionsItems {
             actions?: outputs.droplets.v2.Action[];
             links?: outputs.droplets.v2.PageLinks;
             meta: outputs.droplets.v2.MetaMeta;
         }
 
-        export interface ListDroplets {
-            droplets?: outputs.droplets.v2.Droplet[];
-            links?: outputs.droplets.v2.PageLinks;
-            meta: outputs.droplets.v2.MetaMeta;
-        }
-
-        export interface ListDropletsAssociatedResources {
+        export interface ListDropletsAssociatedResourcesItems {
             floatingIps?: outputs.droplets.v2.AssociatedResource[];
             reservedIps?: outputs.droplets.v2.AssociatedResource[];
             snapshots?: outputs.droplets.v2.AssociatedResource[];
@@ -3533,29 +3527,35 @@ export namespace droplets {
             volumes?: outputs.droplets.v2.AssociatedResource[];
         }
 
-        export interface ListDropletsBackups {
+        export interface ListDropletsBackupsItems {
             backups?: outputs.droplets.v2.DropletSnapshot[];
             links?: outputs.droplets.v2.PageLinks;
             meta: outputs.droplets.v2.MetaMeta;
         }
 
-        export interface ListDropletsFirewalls {
+        export interface ListDropletsFirewallsItems {
             firewalls?: outputs.droplets.v2.Firewall[];
             links?: outputs.droplets.v2.PageLinks;
             meta: outputs.droplets.v2.MetaMeta;
         }
 
-        export interface ListDropletsKernels {
+        export interface ListDropletsItems {
+            droplets?: outputs.droplets.v2.Droplet[];
+            links?: outputs.droplets.v2.PageLinks;
+            meta: outputs.droplets.v2.MetaMeta;
+        }
+
+        export interface ListDropletsKernelsItems {
             kernels?: outputs.droplets.v2.Kernel[];
             links?: outputs.droplets.v2.PageLinks;
             meta: outputs.droplets.v2.MetaMeta;
         }
 
-        export interface ListDropletsNeighbors {
+        export interface ListDropletsNeighborsItems {
             droplets?: outputs.droplets.v2.Droplet[];
         }
 
-        export interface ListDropletsSnapshots {
+        export interface ListDropletsSnapshotsItems {
             links?: outputs.droplets.v2.PageLinks;
             meta: outputs.droplets.v2.MetaMeta;
             snapshots?: outputs.droplets.v2.DropletSnapshot[];
@@ -3767,7 +3767,7 @@ export namespace firewalls {
             firewall?: outputs.firewalls.v2.Firewall;
         }
 
-        export interface ListFirewalls {
+        export interface ListFirewallsItems {
             firewalls?: outputs.firewalls.v2.Firewall[];
             links?: outputs.firewalls.v2.PageLinks;
             meta: outputs.firewalls.v2.MetaMeta;
@@ -4193,14 +4193,14 @@ export namespace floating_ips {
             droplets?: outputs.floating_ips.v2.ActionLink[];
         }
 
-        export interface ListFloatingIPs {
-            floatingIps?: outputs.floating_ips.v2.FloatingIp[];
+        export interface ListFloatingIPsActionItems {
+            actions?: outputs.floating_ips.v2.Action[];
             links?: outputs.floating_ips.v2.PageLinks;
             meta: outputs.floating_ips.v2.MetaMeta;
         }
 
-        export interface ListFloatingIPsAction {
-            actions?: outputs.floating_ips.v2.Action[];
+        export interface ListFloatingIPsItems {
+            floatingIps?: outputs.floating_ips.v2.FloatingIp[];
             links?: outputs.floating_ips.v2.PageLinks;
             meta: outputs.floating_ips.v2.MetaMeta;
         }
@@ -4354,11 +4354,11 @@ export namespace functions {
             trigger?: outputs.functions.v2.TriggerInfo;
         }
 
-        export interface ListFunctionsNamespaces {
+        export interface ListFunctionsNamespacesItems {
             namespaces?: outputs.functions.v2.NamespaceInfo[];
         }
 
-        export interface ListFunctionsTriggers {
+        export interface ListFunctionsTriggersItems {
             triggers?: outputs.functions.v2.TriggerInfo[];
         }
 
@@ -4581,13 +4581,13 @@ export namespace images {
             type?: enums.images.v2.ImageType;
         }
 
-        export interface ListImageActions {
+        export interface ListImageActionsItems {
             actions?: outputs.images.v2.Action[];
             links?: outputs.images.v2.PageLinks;
             meta: outputs.images.v2.MetaMeta;
         }
 
-        export interface ListImages {
+        export interface ListImagesItems {
             images: outputs.images.v2.Image[];
             links?: outputs.images.v2.PageLinks;
             meta: outputs.images.v2.MetaMeta;
@@ -5000,7 +5000,7 @@ export namespace kubernetes {
             supportedFeatures?: string[];
         }
 
-        export interface ListKubernetesClusters {
+        export interface ListKubernetesClustersItems {
             kubernetesClusters?: outputs.kubernetes.v2.Cluster[];
             links?: outputs.kubernetes.v2.PageLinks;
             meta: outputs.kubernetes.v2.MetaMeta;
@@ -5223,7 +5223,7 @@ export namespace load_balancers {
             deny?: string[];
         }
 
-        export interface ListLoadBalancers {
+        export interface ListLoadBalancersItems {
             links?: outputs.load_balancers.v2.PageLinks;
             loadBalancers?: outputs.load_balancers.v2.LoadBalancer[];
             meta: outputs.load_balancers.v2.MetaMeta;
@@ -5413,7 +5413,7 @@ export namespace monitoring {
             policy?: outputs.monitoring.v2.AlertPolicy;
         }
 
-        export interface ListMonitoringAlertPolicy {
+        export interface ListMonitoringAlertPolicyItems {
             links?: outputs.monitoring.v2.PageLinks;
             meta: outputs.monitoring.v2.MetaMeta;
             policies: outputs.monitoring.v2.AlertPolicy[];
@@ -5502,19 +5502,19 @@ export namespace projects {
             project?: outputs.projects.v2.Project;
         }
 
-        export interface ListProjects {
+        export interface ListProjectsItems {
             links?: outputs.projects.v2.PageLinks;
             meta: outputs.projects.v2.MetaMeta;
             projects?: outputs.projects.v2.Project[];
         }
 
-        export interface ListProjectsResources {
+        export interface ListProjectsResourcesDefaultItems {
             links?: outputs.projects.v2.PageLinks;
             meta: outputs.projects.v2.MetaMeta;
             resources?: outputs.projects.v2.Resource[];
         }
 
-        export interface ListProjectsResourcesDefault {
+        export interface ListProjectsResourcesItems {
             links?: outputs.projects.v2.PageLinks;
             meta: outputs.projects.v2.MetaMeta;
             resources?: outputs.projects.v2.Resource[];
@@ -5629,7 +5629,7 @@ export namespace projects {
 
 export namespace regions {
     export namespace v2 {
-        export interface ListRegions {
+        export interface ListRegionsItems {
             links?: outputs.regions.v2.PageLinks;
             meta: outputs.regions.v2.MetaMeta;
             regions: outputs.regions.v2.Region[];
@@ -5791,25 +5791,25 @@ export namespace registry {
             garbageCollections?: outputs.registry.v2.GarbageCollection[];
         }
 
-        export interface ListRegistryRepositories {
+        export interface ListRegistryRepositoriesItems {
             links?: outputs.registry.v2.PageLinks;
             meta: outputs.registry.v2.MetaMeta;
             repositories?: outputs.registry.v2.Repository[];
         }
 
-        export interface ListRegistryRepositoriesV2 {
+        export interface ListRegistryRepositoriesV2Items {
             links?: outputs.registry.v2.PageLinks;
             meta: outputs.registry.v2.MetaMeta;
             repositories?: outputs.registry.v2.RepositoryV2[];
         }
 
-        export interface ListRegistryRepositoryManifests {
+        export interface ListRegistryRepositoryManifestsItems {
             links?: outputs.registry.v2.PageLinks;
             manifests?: outputs.registry.v2.RepositoryManifest[];
             meta: outputs.registry.v2.MetaMeta;
         }
 
-        export interface ListRegistryRepositoryTags {
+        export interface ListRegistryRepositoryTagsItems {
             links?: outputs.registry.v2.PageLinks;
             meta: outputs.registry.v2.MetaMeta;
             tags?: outputs.registry.v2.RepositoryTag[];
@@ -6388,16 +6388,16 @@ export namespace reserved_ips {
             droplets?: outputs.reserved_ips.v2.ActionLink[];
         }
 
-        export interface ListReservedIPs {
-            links?: outputs.reserved_ips.v2.PageLinks;
-            meta: outputs.reserved_ips.v2.MetaMeta;
-            reservedIps?: outputs.reserved_ips.v2.ReservedIp[];
-        }
-
-        export interface ListReservedIPsActions {
+        export interface ListReservedIPsActionsItems {
             actions?: outputs.reserved_ips.v2.Action[];
             links?: outputs.reserved_ips.v2.PageLinks;
             meta: outputs.reserved_ips.v2.MetaMeta;
+        }
+
+        export interface ListReservedIPsItems {
+            links?: outputs.reserved_ips.v2.PageLinks;
+            meta: outputs.reserved_ips.v2.MetaMeta;
+            reservedIps?: outputs.reserved_ips.v2.ReservedIp[];
         }
 
         export interface MetaMeta {
@@ -6593,7 +6593,7 @@ export namespace reserved_ips {
 
 export namespace sizes {
     export namespace v2 {
-        export interface ListSizes {
+        export interface ListSizesItems {
             links?: outputs.sizes.v2.PageLinks;
             meta: outputs.sizes.v2.MetaMeta;
             sizes: outputs.sizes.v2.Size[];
@@ -6678,7 +6678,7 @@ export namespace snapshots {
             snapshot?: outputs.snapshots.v2.Snapshots;
         }
 
-        export interface ListSnapshots {
+        export interface ListSnapshotsItems {
             links?: outputs.snapshots.v2.PageLinks;
             meta: outputs.snapshots.v2.MetaMeta;
             snapshots?: outputs.snapshots.v2.Snapshots[];
@@ -6750,7 +6750,7 @@ export namespace tags {
             tag?: outputs.tags.v2.Tags;
         }
 
-        export interface ListTags {
+        export interface ListTagsItems {
             links?: outputs.tags.v2.PageLinks;
             meta: outputs.tags.v2.MetaMeta;
             tags?: outputs.tags.v2.Tags[];
@@ -6928,13 +6928,13 @@ export namespace uptime {
             state?: outputs.uptime.v2.State;
         }
 
-        export interface ListUptimeAlerts {
+        export interface ListUptimeAlertsItems {
             alerts?: outputs.uptime.v2.Alert[];
             links?: outputs.uptime.v2.PageLinks;
             meta: outputs.uptime.v2.MetaMeta;
         }
 
-        export interface ListUptimeChecks {
+        export interface ListUptimeChecksItems {
             checks?: outputs.uptime.v2.Check[];
             links?: outputs.uptime.v2.PageLinks;
             meta: outputs.uptime.v2.MetaMeta;
@@ -7041,19 +7041,19 @@ export namespace volumes {
             volume?: outputs.volumes.v2.VolumeFull;
         }
 
-        export interface ListVolumeActions {
+        export interface ListVolumeActionsItems {
             actions?: outputs.volumes.v2.VolumeAction[];
             links?: outputs.volumes.v2.PageLinks;
             meta: outputs.volumes.v2.MetaMeta;
         }
 
-        export interface ListVolumeSnapshots {
+        export interface ListVolumeSnapshotsItems {
             links?: outputs.volumes.v2.PageLinks;
             meta: outputs.volumes.v2.MetaMeta;
             snapshots?: outputs.volumes.v2.Snapshots[];
         }
 
-        export interface ListVolumes {
+        export interface ListVolumesItems {
             links?: outputs.volumes.v2.PageLinks;
             meta: outputs.volumes.v2.MetaMeta;
             /**
@@ -7252,13 +7252,13 @@ export namespace vpcs {
             vpc?: outputs.vpcs.v2.Vpc;
         }
 
-        export interface ListVpcs {
+        export interface ListVpcsItems {
             links?: outputs.vpcs.v2.PageLinks;
             meta: outputs.vpcs.v2.MetaMeta;
             vpcs?: outputs.vpcs.v2.Vpc[];
         }
 
-        export interface ListVpcsMembers {
+        export interface ListVpcsMembersItems {
             links?: outputs.vpcs.v2.PageLinks;
             members?: outputs.vpcs.v2.VpcMember[];
             meta: outputs.vpcs.v2.MetaMeta;

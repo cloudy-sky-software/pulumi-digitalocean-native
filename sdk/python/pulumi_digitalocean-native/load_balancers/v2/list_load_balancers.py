@@ -27,7 +27,7 @@ class ListLoadBalancersResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListLoadBalancers':
+    def items(self) -> 'outputs.ListLoadBalancersItems':
         return pulumi.get(self, "items")
 
 

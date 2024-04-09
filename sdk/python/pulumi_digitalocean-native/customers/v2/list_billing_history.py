@@ -27,7 +27,7 @@ class ListBillingHistoryResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListBillingHistory':
+    def items(self) -> 'outputs.ListBillingHistoryItems':
         return pulumi.get(self, "items")
 
 

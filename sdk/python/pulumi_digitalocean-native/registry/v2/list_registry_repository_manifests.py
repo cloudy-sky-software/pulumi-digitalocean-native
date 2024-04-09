@@ -26,7 +26,7 @@ class ListRegistryRepositoryManifestsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegistryRepositoryManifests':
+    def items(self) -> 'outputs.ListRegistryRepositoryManifestsItems':
         return pulumi.get(self, "items")
 
 

@@ -19,7 +19,7 @@ export interface ListInvoicesArgs {
 }
 
 export interface ListInvoicesResult {
-    readonly items: outputs.customers.v2.ListInvoices;
+    readonly items: outputs.customers.v2.ListInvoicesItems;
 }
 export function listInvoicesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListInvoicesResult> {
     return pulumi.output(listInvoices(opts))

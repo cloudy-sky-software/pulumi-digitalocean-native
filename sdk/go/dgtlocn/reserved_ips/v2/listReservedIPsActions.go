@@ -27,7 +27,7 @@ type ListReservedIPsActionsArgs struct {
 }
 
 type ListReservedIPsActionsResult struct {
-	Items ListReservedIPsActions `pulumi:"items"`
+	Items ListReservedIPsActionsItems `pulumi:"items"`
 }
 
 func ListReservedIPsActionsOutput(ctx *pulumi.Context, args ListReservedIPsActionsOutputArgs, opts ...pulumi.InvokeOption) ListReservedIPsActionsResultOutput {
@@ -66,8 +66,8 @@ func (o ListReservedIPsActionsResultOutput) ToListReservedIPsActionsResultOutput
 	return o
 }
 
-func (o ListReservedIPsActionsResultOutput) Items() ListReservedIPsActionsOutput {
-	return o.ApplyT(func(v ListReservedIPsActionsResult) ListReservedIPsActions { return v.Items }).(ListReservedIPsActionsOutput)
+func (o ListReservedIPsActionsResultOutput) Items() ListReservedIPsActionsItemsOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsResult) ListReservedIPsActionsItems { return v.Items }).(ListReservedIPsActionsItemsOutput)
 }
 
 func init() {

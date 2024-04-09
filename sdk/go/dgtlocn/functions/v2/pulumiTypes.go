@@ -57,48 +57,48 @@ func (o GetFunctionsTriggerPropertiesOutput) Trigger() TriggerInfoPtrOutput {
 	return o.ApplyT(func(v GetFunctionsTriggerProperties) *TriggerInfo { return v.Trigger }).(TriggerInfoPtrOutput)
 }
 
-type ListFunctionsNamespaces struct {
+type ListFunctionsNamespacesItems struct {
 	Namespaces []NamespaceInfo `pulumi:"namespaces"`
 }
 
-type ListFunctionsNamespacesOutput struct{ *pulumi.OutputState }
+type ListFunctionsNamespacesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListFunctionsNamespacesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListFunctionsNamespaces)(nil)).Elem()
+func (ListFunctionsNamespacesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListFunctionsNamespacesItems)(nil)).Elem()
 }
 
-func (o ListFunctionsNamespacesOutput) ToListFunctionsNamespacesOutput() ListFunctionsNamespacesOutput {
+func (o ListFunctionsNamespacesItemsOutput) ToListFunctionsNamespacesItemsOutput() ListFunctionsNamespacesItemsOutput {
 	return o
 }
 
-func (o ListFunctionsNamespacesOutput) ToListFunctionsNamespacesOutputWithContext(ctx context.Context) ListFunctionsNamespacesOutput {
+func (o ListFunctionsNamespacesItemsOutput) ToListFunctionsNamespacesItemsOutputWithContext(ctx context.Context) ListFunctionsNamespacesItemsOutput {
 	return o
 }
 
-func (o ListFunctionsNamespacesOutput) Namespaces() NamespaceInfoArrayOutput {
-	return o.ApplyT(func(v ListFunctionsNamespaces) []NamespaceInfo { return v.Namespaces }).(NamespaceInfoArrayOutput)
+func (o ListFunctionsNamespacesItemsOutput) Namespaces() NamespaceInfoArrayOutput {
+	return o.ApplyT(func(v ListFunctionsNamespacesItems) []NamespaceInfo { return v.Namespaces }).(NamespaceInfoArrayOutput)
 }
 
-type ListFunctionsTriggers struct {
+type ListFunctionsTriggersItems struct {
 	Triggers []TriggerInfo `pulumi:"triggers"`
 }
 
-type ListFunctionsTriggersOutput struct{ *pulumi.OutputState }
+type ListFunctionsTriggersItemsOutput struct{ *pulumi.OutputState }
 
-func (ListFunctionsTriggersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListFunctionsTriggers)(nil)).Elem()
+func (ListFunctionsTriggersItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListFunctionsTriggersItems)(nil)).Elem()
 }
 
-func (o ListFunctionsTriggersOutput) ToListFunctionsTriggersOutput() ListFunctionsTriggersOutput {
+func (o ListFunctionsTriggersItemsOutput) ToListFunctionsTriggersItemsOutput() ListFunctionsTriggersItemsOutput {
 	return o
 }
 
-func (o ListFunctionsTriggersOutput) ToListFunctionsTriggersOutputWithContext(ctx context.Context) ListFunctionsTriggersOutput {
+func (o ListFunctionsTriggersItemsOutput) ToListFunctionsTriggersItemsOutputWithContext(ctx context.Context) ListFunctionsTriggersItemsOutput {
 	return o
 }
 
-func (o ListFunctionsTriggersOutput) Triggers() TriggerInfoArrayOutput {
-	return o.ApplyT(func(v ListFunctionsTriggers) []TriggerInfo { return v.Triggers }).(TriggerInfoArrayOutput)
+func (o ListFunctionsTriggersItemsOutput) Triggers() TriggerInfoArrayOutput {
+	return o.ApplyT(func(v ListFunctionsTriggersItems) []TriggerInfo { return v.Triggers }).(TriggerInfoArrayOutput)
 }
 
 type NamespaceInfo struct {
@@ -837,8 +837,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledDetailsBodyPropertiesPtrInput)(nil)).Elem(), ScheduledDetailsBodyPropertiesArgs{})
 	pulumi.RegisterOutputType(GetFunctionsNamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(GetFunctionsTriggerPropertiesOutput{})
-	pulumi.RegisterOutputType(ListFunctionsNamespacesOutput{})
-	pulumi.RegisterOutputType(ListFunctionsTriggersOutput{})
+	pulumi.RegisterOutputType(ListFunctionsNamespacesItemsOutput{})
+	pulumi.RegisterOutputType(ListFunctionsTriggersItemsOutput{})
 	pulumi.RegisterOutputType(NamespaceInfoOutput{})
 	pulumi.RegisterOutputType(NamespaceInfoPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceInfoArrayOutput{})

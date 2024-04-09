@@ -27,7 +27,7 @@ type ListDropletsKernelsArgs struct {
 }
 
 type ListDropletsKernelsResult struct {
-	Items ListDropletsKernels `pulumi:"items"`
+	Items ListDropletsKernelsItems `pulumi:"items"`
 }
 
 func ListDropletsKernelsOutput(ctx *pulumi.Context, args ListDropletsKernelsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsKernelsResultOutput {
@@ -66,8 +66,8 @@ func (o ListDropletsKernelsResultOutput) ToListDropletsKernelsResultOutputWithCo
 	return o
 }
 
-func (o ListDropletsKernelsResultOutput) Items() ListDropletsKernelsOutput {
-	return o.ApplyT(func(v ListDropletsKernelsResult) ListDropletsKernels { return v.Items }).(ListDropletsKernelsOutput)
+func (o ListDropletsKernelsResultOutput) Items() ListDropletsKernelsItemsOutput {
+	return o.ApplyT(func(v ListDropletsKernelsResult) ListDropletsKernelsItems { return v.Items }).(ListDropletsKernelsItemsOutput)
 }
 
 func init() {

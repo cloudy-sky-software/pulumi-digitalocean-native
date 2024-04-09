@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.FirewallsV2
     [OutputType]
     public sealed class ListFirewallsResult
     {
-        public readonly Outputs.ListFirewalls Items;
+        public readonly Outputs.ListFirewallsItems Items;
 
         [OutputConstructor]
-        private ListFirewallsResult(Outputs.ListFirewalls items)
+        private ListFirewallsResult(Outputs.ListFirewallsItems items)
         {
             Items = items;
         }

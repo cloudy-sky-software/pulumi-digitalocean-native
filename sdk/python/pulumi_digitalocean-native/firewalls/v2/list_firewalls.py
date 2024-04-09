@@ -27,7 +27,7 @@ class ListFirewallsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFirewalls':
+    def items(self) -> 'outputs.ListFirewallsItems':
         return pulumi.get(self, "items")
 
 

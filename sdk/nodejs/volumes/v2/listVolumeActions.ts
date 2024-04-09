@@ -23,7 +23,7 @@ export interface ListVolumeActionsArgs {
 }
 
 export interface ListVolumeActionsResult {
-    readonly items: outputs.volumes.v2.ListVolumeActions;
+    readonly items: outputs.volumes.v2.ListVolumeActionsItems;
 }
 export function listVolumeActionsOutput(args: ListVolumeActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeActionsResult> {
     return pulumi.output(args).apply((a: any) => listVolumeActions(a, opts))

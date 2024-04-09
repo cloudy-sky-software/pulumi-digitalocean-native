@@ -23,7 +23,7 @@ export interface ListProjectsResourcesArgs {
 }
 
 export interface ListProjectsResourcesResult {
-    readonly items: outputs.projects.v2.ListProjectsResources;
+    readonly items: outputs.projects.v2.ListProjectsResourcesItems;
 }
 export function listProjectsResourcesOutput(args: ListProjectsResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProjectsResourcesResult> {
     return pulumi.output(args).apply((a: any) => listProjectsResources(a, opts))

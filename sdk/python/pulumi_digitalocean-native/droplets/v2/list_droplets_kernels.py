@@ -26,7 +26,7 @@ class ListDropletsKernelsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDropletsKernels':
+    def items(self) -> 'outputs.ListDropletsKernelsItems':
         return pulumi.get(self, "items")
 
 

@@ -25,7 +25,7 @@ type ListCertificatesArgs struct {
 }
 
 type ListCertificatesResult struct {
-	Items ListCertificates `pulumi:"items"`
+	Items ListCertificatesItems `pulumi:"items"`
 }
 
 func ListCertificatesOutput(ctx *pulumi.Context, args ListCertificatesOutputArgs, opts ...pulumi.InvokeOption) ListCertificatesResultOutput {
@@ -62,8 +62,8 @@ func (o ListCertificatesResultOutput) ToListCertificatesResultOutputWithContext(
 	return o
 }
 
-func (o ListCertificatesResultOutput) Items() ListCertificatesOutput {
-	return o.ApplyT(func(v ListCertificatesResult) ListCertificates { return v.Items }).(ListCertificatesOutput)
+func (o ListCertificatesResultOutput) Items() ListCertificatesItemsOutput {
+	return o.ApplyT(func(v ListCertificatesResult) ListCertificatesItems { return v.Items }).(ListCertificatesItemsOutput)
 }
 
 func init() {

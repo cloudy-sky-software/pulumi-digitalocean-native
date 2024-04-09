@@ -23,7 +23,7 @@ export interface ListDropletsBackupsArgs {
 }
 
 export interface ListDropletsBackupsResult {
-    readonly items: outputs.droplets.v2.ListDropletsBackups;
+    readonly items: outputs.droplets.v2.ListDropletsBackupsItems;
 }
 export function listDropletsBackupsOutput(args: ListDropletsBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsBackupsResult> {
     return pulumi.output(args).apply((a: any) => listDropletsBackups(a, opts))

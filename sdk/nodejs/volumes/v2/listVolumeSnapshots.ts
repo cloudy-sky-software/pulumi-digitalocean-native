@@ -23,7 +23,7 @@ export interface ListVolumeSnapshotsArgs {
 }
 
 export interface ListVolumeSnapshotsResult {
-    readonly items: outputs.volumes.v2.ListVolumeSnapshots;
+    readonly items: outputs.volumes.v2.ListVolumeSnapshotsItems;
 }
 export function listVolumeSnapshotsOutput(args: ListVolumeSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeSnapshotsResult> {
     return pulumi.output(args).apply((a: any) => listVolumeSnapshots(a, opts))

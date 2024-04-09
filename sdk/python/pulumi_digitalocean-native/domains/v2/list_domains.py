@@ -26,7 +26,7 @@ class ListDomainsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDomains':
+    def items(self) -> 'outputs.ListDomainsItems':
         return pulumi.get(self, "items")
 
 

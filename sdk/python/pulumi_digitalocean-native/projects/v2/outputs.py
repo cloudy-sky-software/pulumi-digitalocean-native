@@ -14,9 +14,9 @@ from ._enums import *
 __all__ = [
     'GetProjectsDefaultProperties',
     'GetProjectsProperties',
-    'ListProjects',
-    'ListProjectsResources',
-    'ListProjectsResourcesDefault',
+    'ListProjectsItems',
+    'ListProjectsResourcesDefaultItems',
+    'ListProjectsResourcesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -52,7 +52,7 @@ class GetProjectsProperties(dict):
 
 
 @pulumi.output_type
-class ListProjects(dict):
+class ListProjectsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -80,7 +80,7 @@ class ListProjects(dict):
 
 
 @pulumi.output_type
-class ListProjectsResources(dict):
+class ListProjectsResourcesDefaultItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -108,7 +108,7 @@ class ListProjectsResources(dict):
 
 
 @pulumi.output_type
-class ListProjectsResourcesDefault(dict):
+class ListProjectsResourcesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

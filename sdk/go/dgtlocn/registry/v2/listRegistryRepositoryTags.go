@@ -29,7 +29,7 @@ type ListRegistryRepositoryTagsArgs struct {
 }
 
 type ListRegistryRepositoryTagsResult struct {
-	Items ListRegistryRepositoryTags `pulumi:"items"`
+	Items ListRegistryRepositoryTagsItems `pulumi:"items"`
 }
 
 func ListRegistryRepositoryTagsOutput(ctx *pulumi.Context, args ListRegistryRepositoryTagsOutputArgs, opts ...pulumi.InvokeOption) ListRegistryRepositoryTagsResultOutput {
@@ -70,8 +70,8 @@ func (o ListRegistryRepositoryTagsResultOutput) ToListRegistryRepositoryTagsResu
 	return o
 }
 
-func (o ListRegistryRepositoryTagsResultOutput) Items() ListRegistryRepositoryTagsOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryTagsResult) ListRegistryRepositoryTags { return v.Items }).(ListRegistryRepositoryTagsOutput)
+func (o ListRegistryRepositoryTagsResultOutput) Items() ListRegistryRepositoryTagsItemsOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsResult) ListRegistryRepositoryTagsItems { return v.Items }).(ListRegistryRepositoryTagsItemsOutput)
 }
 
 func init() {

@@ -23,7 +23,7 @@ export interface ListVpcsMembersArgs {
 }
 
 export interface ListVpcsMembersResult {
-    readonly items: outputs.vpcs.v2.ListVpcsMembers;
+    readonly items: outputs.vpcs.v2.ListVpcsMembersItems;
 }
 export function listVpcsMembersOutput(args: ListVpcsMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVpcsMembersResult> {
     return pulumi.output(args).apply((a: any) => listVpcsMembers(a, opts))

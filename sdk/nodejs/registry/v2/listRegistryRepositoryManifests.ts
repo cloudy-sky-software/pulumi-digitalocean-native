@@ -28,7 +28,7 @@ export interface ListRegistryRepositoryManifestsArgs {
 }
 
 export interface ListRegistryRepositoryManifestsResult {
-    readonly items: outputs.registry.v2.ListRegistryRepositoryManifests;
+    readonly items: outputs.registry.v2.ListRegistryRepositoryManifestsItems;
 }
 export function listRegistryRepositoryManifestsOutput(args: ListRegistryRepositoryManifestsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryRepositoryManifestsResult> {
     return pulumi.output(args).apply((a: any) => listRegistryRepositoryManifests(a, opts))

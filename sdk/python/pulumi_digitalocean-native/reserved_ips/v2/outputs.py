@@ -24,8 +24,8 @@ __all__ = [
     'Image',
     'Kernel',
     'LinksProperties',
-    'ListReservedIPs',
-    'ListReservedIPsActions',
+    'ListReservedIPsActionsItems',
+    'ListReservedIPsItems',
     'MetaMeta',
     'NetworkV4',
     'NetworkV6',
@@ -996,35 +996,7 @@ class LinksProperties(dict):
 
 
 @pulumi.output_type
-class ListReservedIPs(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 reserved_ips: Optional[Sequence['outputs.ReservedIp']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if reserved_ips is not None:
-            pulumi.set(__self__, "reserved_ips", reserved_ips)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter(name="reservedIps")
-    def reserved_ips(self) -> Optional[Sequence['outputs.ReservedIp']]:
-        return pulumi.get(self, "reserved_ips")
-
-
-@pulumi.output_type
-class ListReservedIPsActions(dict):
+class ListReservedIPsActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.Action']] = None,
@@ -1049,6 +1021,34 @@ class ListReservedIPsActions(dict):
     @pulumi.getter
     def links(self) -> Optional['outputs.PageLinks']:
         return pulumi.get(self, "links")
+
+
+@pulumi.output_type
+class ListReservedIPsItems(dict):
+    def __init__(__self__, *,
+                 meta: 'outputs.MetaMeta',
+                 links: Optional['outputs.PageLinks'] = None,
+                 reserved_ips: Optional[Sequence['outputs.ReservedIp']] = None):
+        pulumi.set(__self__, "meta", meta)
+        if links is not None:
+            pulumi.set(__self__, "links", links)
+        if reserved_ips is not None:
+            pulumi.set(__self__, "reserved_ips", reserved_ips)
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter(name="reservedIps")
+    def reserved_ips(self) -> Optional[Sequence['outputs.ReservedIp']]:
+        return pulumi.get(self, "reserved_ips")
 
 
 @pulumi.output_type

@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     [OutputType]
     public sealed class ListImagesResult
     {
-        public readonly Outputs.ListImages Items;
+        public readonly Outputs.ListImagesItems Items;
 
         [OutputConstructor]
-        private ListImagesResult(Outputs.ListImages items)
+        private ListImagesResult(Outputs.ListImagesItems items)
         {
             Items = items;
         }

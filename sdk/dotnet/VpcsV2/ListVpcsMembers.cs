@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.VpcsV2
     [OutputType]
     public sealed class ListVpcsMembersResult
     {
-        public readonly Outputs.ListVpcsMembers Items;
+        public readonly Outputs.ListVpcsMembersItems Items;
 
         [OutputConstructor]
-        private ListVpcsMembersResult(Outputs.ListVpcsMembers items)
+        private ListVpcsMembersResult(Outputs.ListVpcsMembersItems items)
         {
             Items = items;
         }

@@ -28,7 +28,7 @@ export interface ListRegistryRepositoryTagsArgs {
 }
 
 export interface ListRegistryRepositoryTagsResult {
-    readonly items: outputs.registry.v2.ListRegistryRepositoryTags;
+    readonly items: outputs.registry.v2.ListRegistryRepositoryTagsItems;
 }
 export function listRegistryRepositoryTagsOutput(args: ListRegistryRepositoryTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryRepositoryTagsResult> {
     return pulumi.output(args).apply((a: any) => listRegistryRepositoryTags(a, opts))

@@ -15,8 +15,8 @@ __all__ = [
     'Balance',
     'BillingHistory',
     'InvoicePreview',
-    'ListBillingHistory',
-    'ListInvoices',
+    'ListBillingHistoryItems',
+    'ListInvoicesItems',
     'MetaMeta',
     'MetaProperties',
     'PageLinks',
@@ -217,7 +217,7 @@ class InvoicePreview(dict):
 
 
 @pulumi.output_type
-class ListBillingHistory(dict):
+class ListBillingHistoryItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaProperties',
                  billing_history: Optional[Sequence['outputs.BillingHistory']] = None,
@@ -251,7 +251,7 @@ class ListBillingHistory(dict):
 
 
 @pulumi.output_type
-class ListInvoices(dict):
+class ListInvoicesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  invoice_preview: Optional['outputs.InvoicePreview'] = None,

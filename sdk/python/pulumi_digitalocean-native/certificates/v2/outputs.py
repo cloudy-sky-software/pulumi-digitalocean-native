@@ -14,7 +14,7 @@ from ._enums import *
 __all__ = [
     'Certificate',
     'GetCertificatesProperties',
-    'ListCertificates',
+    'ListCertificatesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -160,7 +160,7 @@ class GetCertificatesProperties(dict):
 
 
 @pulumi.output_type
-class ListCertificates(dict):
+class ListCertificatesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  certificates: Optional[Sequence['outputs.Certificate']] = None,

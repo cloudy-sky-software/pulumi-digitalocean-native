@@ -25,7 +25,7 @@ type ListSnapshotsArgs struct {
 }
 
 type ListSnapshotsResult struct {
-	Items ListSnapshots `pulumi:"items"`
+	Items ListSnapshotsItems `pulumi:"items"`
 }
 
 func ListSnapshotsOutput(ctx *pulumi.Context, args ListSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListSnapshotsResultOutput {
@@ -62,8 +62,8 @@ func (o ListSnapshotsResultOutput) ToListSnapshotsResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListSnapshotsResultOutput) Items() ListSnapshotsOutput {
-	return o.ApplyT(func(v ListSnapshotsResult) ListSnapshots { return v.Items }).(ListSnapshotsOutput)
+func (o ListSnapshotsResultOutput) Items() ListSnapshotsItemsOutput {
+	return o.ApplyT(func(v ListSnapshotsResult) ListSnapshotsItems { return v.Items }).(ListSnapshotsItemsOutput)
 }
 
 func init() {

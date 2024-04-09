@@ -19,7 +19,7 @@ export interface ListActionsArgs {
 }
 
 export interface ListActionsResult {
-    readonly items: outputs.actions.v2.ListActions;
+    readonly items: outputs.actions.v2.ListActionsItems;
 }
 export function listActionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListActionsResult> {
     return pulumi.output(listActions(opts))

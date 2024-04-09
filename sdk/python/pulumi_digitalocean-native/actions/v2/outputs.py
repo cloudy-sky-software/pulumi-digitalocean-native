@@ -15,7 +15,7 @@ __all__ = [
     'Action',
     'ActionRegionSlug',
     'GetActionsProperties',
-    'ListActions',
+    'ListActionsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -151,7 +151,7 @@ class GetActionsProperties(dict):
 
 
 @pulumi.output_type
-class ListActions(dict):
+class ListActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.Action']] = None,

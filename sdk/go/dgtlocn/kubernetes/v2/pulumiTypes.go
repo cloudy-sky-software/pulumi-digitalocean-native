@@ -1655,36 +1655,36 @@ func (o KubernetesVersionArrayOutput) Index(i pulumi.IntInput) KubernetesVersion
 	}).(KubernetesVersionOutput)
 }
 
-type ListKubernetesClusters struct {
+type ListKubernetesClustersItems struct {
 	KubernetesClusters []Cluster  `pulumi:"kubernetesClusters"`
 	Links              *PageLinks `pulumi:"links"`
 	Meta               MetaMeta   `pulumi:"meta"`
 }
 
-type ListKubernetesClustersOutput struct{ *pulumi.OutputState }
+type ListKubernetesClustersItemsOutput struct{ *pulumi.OutputState }
 
-func (ListKubernetesClustersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListKubernetesClusters)(nil)).Elem()
+func (ListKubernetesClustersItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListKubernetesClustersItems)(nil)).Elem()
 }
 
-func (o ListKubernetesClustersOutput) ToListKubernetesClustersOutput() ListKubernetesClustersOutput {
+func (o ListKubernetesClustersItemsOutput) ToListKubernetesClustersItemsOutput() ListKubernetesClustersItemsOutput {
 	return o
 }
 
-func (o ListKubernetesClustersOutput) ToListKubernetesClustersOutputWithContext(ctx context.Context) ListKubernetesClustersOutput {
+func (o ListKubernetesClustersItemsOutput) ToListKubernetesClustersItemsOutputWithContext(ctx context.Context) ListKubernetesClustersItemsOutput {
 	return o
 }
 
-func (o ListKubernetesClustersOutput) KubernetesClusters() ClusterArrayOutput {
-	return o.ApplyT(func(v ListKubernetesClusters) []Cluster { return v.KubernetesClusters }).(ClusterArrayOutput)
+func (o ListKubernetesClustersItemsOutput) KubernetesClusters() ClusterArrayOutput {
+	return o.ApplyT(func(v ListKubernetesClustersItems) []Cluster { return v.KubernetesClusters }).(ClusterArrayOutput)
 }
 
-func (o ListKubernetesClustersOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListKubernetesClusters) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListKubernetesClustersItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListKubernetesClustersItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListKubernetesClustersOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListKubernetesClusters) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListKubernetesClustersItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListKubernetesClustersItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type ListKubernetesNodePoolsProperties struct {
@@ -2561,7 +2561,7 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesSizeArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesVersionOutput{})
 	pulumi.RegisterOutputType(KubernetesVersionArrayOutput{})
-	pulumi.RegisterOutputType(ListKubernetesClustersOutput{})
+	pulumi.RegisterOutputType(ListKubernetesClustersItemsOutput{})
 	pulumi.RegisterOutputType(ListKubernetesNodePoolsPropertiesOutput{})
 	pulumi.RegisterOutputType(MaintenancePolicyOutput{})
 	pulumi.RegisterOutputType(MaintenancePolicyPtrOutput{})

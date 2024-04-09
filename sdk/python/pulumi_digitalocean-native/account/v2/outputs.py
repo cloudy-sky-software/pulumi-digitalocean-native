@@ -16,7 +16,7 @@ __all__ = [
     'AccountTeamProperties',
     'GetAccountProperties',
     'GetSshKeysProperties',
-    'ListSshKeys',
+    'ListSshKeysItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -197,7 +197,7 @@ class GetSshKeysProperties(dict):
 
 
 @pulumi.output_type
-class ListSshKeys(dict):
+class ListSshKeysItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

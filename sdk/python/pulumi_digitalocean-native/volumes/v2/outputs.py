@@ -16,9 +16,9 @@ __all__ = [
     'GetVolumeActionsProperties',
     'GetVolumeSnapshotsByIdProperties',
     'GetVolumesProperties',
-    'ListVolumeActions',
-    'ListVolumeSnapshots',
-    'ListVolumes',
+    'ListVolumeActionsItems',
+    'ListVolumeSnapshotsItems',
+    'ListVolumesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -75,7 +75,7 @@ class GetVolumesProperties(dict):
 
 
 @pulumi.output_type
-class ListVolumeActions(dict):
+class ListVolumeActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.VolumeAction']] = None,
@@ -103,7 +103,7 @@ class ListVolumeActions(dict):
 
 
 @pulumi.output_type
-class ListVolumeSnapshots(dict):
+class ListVolumeSnapshotsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -131,7 +131,7 @@ class ListVolumeSnapshots(dict):
 
 
 @pulumi.output_type
-class ListVolumes(dict):
+class ListVolumesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  volumes: Sequence['outputs.VolumeFull'],

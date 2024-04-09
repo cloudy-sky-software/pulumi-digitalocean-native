@@ -19,7 +19,7 @@ export interface ListCertificatesArgs {
 }
 
 export interface ListCertificatesResult {
-    readonly items: outputs.certificates.v2.ListCertificates;
+    readonly items: outputs.certificates.v2.ListCertificatesItems;
 }
 export function listCertificatesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListCertificatesResult> {
     return pulumi.output(listCertificates(opts))

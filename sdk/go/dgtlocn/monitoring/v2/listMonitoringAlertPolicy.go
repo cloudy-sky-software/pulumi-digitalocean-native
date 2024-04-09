@@ -25,7 +25,7 @@ type ListMonitoringAlertPolicyArgs struct {
 }
 
 type ListMonitoringAlertPolicyResult struct {
-	Items ListMonitoringAlertPolicy `pulumi:"items"`
+	Items ListMonitoringAlertPolicyItems `pulumi:"items"`
 }
 
 func ListMonitoringAlertPolicyOutput(ctx *pulumi.Context, args ListMonitoringAlertPolicyOutputArgs, opts ...pulumi.InvokeOption) ListMonitoringAlertPolicyResultOutput {
@@ -62,8 +62,8 @@ func (o ListMonitoringAlertPolicyResultOutput) ToListMonitoringAlertPolicyResult
 	return o
 }
 
-func (o ListMonitoringAlertPolicyResultOutput) Items() ListMonitoringAlertPolicyOutput {
-	return o.ApplyT(func(v ListMonitoringAlertPolicyResult) ListMonitoringAlertPolicy { return v.Items }).(ListMonitoringAlertPolicyOutput)
+func (o ListMonitoringAlertPolicyResultOutput) Items() ListMonitoringAlertPolicyItemsOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyResult) ListMonitoringAlertPolicyItems { return v.Items }).(ListMonitoringAlertPolicyItemsOutput)
 }
 
 func init() {

@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.LoadBalancersV2
     [OutputType]
     public sealed class ListLoadBalancersResult
     {
-        public readonly Outputs.ListLoadBalancers Items;
+        public readonly Outputs.ListLoadBalancersItems Items;
 
         [OutputConstructor]
-        private ListLoadBalancersResult(Outputs.ListLoadBalancers items)
+        private ListLoadBalancersResult(Outputs.ListLoadBalancersItems items)
         {
             Items = items;
         }

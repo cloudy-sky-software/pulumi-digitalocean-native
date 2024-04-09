@@ -516,132 +516,132 @@ func (o ListRegistryGarbageCollectionsPropertiesOutput) GarbageCollections() Gar
 	return o.ApplyT(func(v ListRegistryGarbageCollectionsProperties) []GarbageCollection { return v.GarbageCollections }).(GarbageCollectionArrayOutput)
 }
 
-type ListRegistryRepositories struct {
+type ListRegistryRepositoriesItems struct {
 	Links        *PageLinks   `pulumi:"links"`
 	Meta         MetaMeta     `pulumi:"meta"`
 	Repositories []Repository `pulumi:"repositories"`
 }
 
-type ListRegistryRepositoriesOutput struct{ *pulumi.OutputState }
+type ListRegistryRepositoriesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListRegistryRepositoriesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListRegistryRepositories)(nil)).Elem()
+func (ListRegistryRepositoriesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRegistryRepositoriesItems)(nil)).Elem()
 }
 
-func (o ListRegistryRepositoriesOutput) ToListRegistryRepositoriesOutput() ListRegistryRepositoriesOutput {
+func (o ListRegistryRepositoriesItemsOutput) ToListRegistryRepositoriesItemsOutput() ListRegistryRepositoriesItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoriesOutput) ToListRegistryRepositoriesOutputWithContext(ctx context.Context) ListRegistryRepositoriesOutput {
+func (o ListRegistryRepositoriesItemsOutput) ToListRegistryRepositoriesItemsOutputWithContext(ctx context.Context) ListRegistryRepositoriesItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoriesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListRegistryRepositories) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListRegistryRepositoriesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListRegistryRepositoriesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListRegistryRepositories) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListRegistryRepositoriesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListRegistryRepositoriesOutput) Repositories() RepositoryArrayOutput {
-	return o.ApplyT(func(v ListRegistryRepositories) []Repository { return v.Repositories }).(RepositoryArrayOutput)
+func (o ListRegistryRepositoriesItemsOutput) Repositories() RepositoryArrayOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesItems) []Repository { return v.Repositories }).(RepositoryArrayOutput)
 }
 
-type ListRegistryRepositoriesV2 struct {
+type ListRegistryRepositoriesV2Items struct {
 	Links        *PageLinks     `pulumi:"links"`
 	Meta         MetaMeta       `pulumi:"meta"`
 	Repositories []RepositoryV2 `pulumi:"repositories"`
 }
 
-type ListRegistryRepositoriesV2Output struct{ *pulumi.OutputState }
+type ListRegistryRepositoriesV2ItemsOutput struct{ *pulumi.OutputState }
 
-func (ListRegistryRepositoriesV2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListRegistryRepositoriesV2)(nil)).Elem()
+func (ListRegistryRepositoriesV2ItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRegistryRepositoriesV2Items)(nil)).Elem()
 }
 
-func (o ListRegistryRepositoriesV2Output) ToListRegistryRepositoriesV2Output() ListRegistryRepositoriesV2Output {
+func (o ListRegistryRepositoriesV2ItemsOutput) ToListRegistryRepositoriesV2ItemsOutput() ListRegistryRepositoriesV2ItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoriesV2Output) ToListRegistryRepositoriesV2OutputWithContext(ctx context.Context) ListRegistryRepositoriesV2Output {
+func (o ListRegistryRepositoriesV2ItemsOutput) ToListRegistryRepositoriesV2ItemsOutputWithContext(ctx context.Context) ListRegistryRepositoriesV2ItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoriesV2Output) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListRegistryRepositoriesV2) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListRegistryRepositoriesV2ItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesV2Items) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListRegistryRepositoriesV2Output) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListRegistryRepositoriesV2) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListRegistryRepositoriesV2ItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesV2Items) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListRegistryRepositoriesV2Output) Repositories() RepositoryV2ArrayOutput {
-	return o.ApplyT(func(v ListRegistryRepositoriesV2) []RepositoryV2 { return v.Repositories }).(RepositoryV2ArrayOutput)
+func (o ListRegistryRepositoriesV2ItemsOutput) Repositories() RepositoryV2ArrayOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesV2Items) []RepositoryV2 { return v.Repositories }).(RepositoryV2ArrayOutput)
 }
 
-type ListRegistryRepositoryManifests struct {
+type ListRegistryRepositoryManifestsItems struct {
 	Links     *PageLinks           `pulumi:"links"`
 	Manifests []RepositoryManifest `pulumi:"manifests"`
 	Meta      MetaMeta             `pulumi:"meta"`
 }
 
-type ListRegistryRepositoryManifestsOutput struct{ *pulumi.OutputState }
+type ListRegistryRepositoryManifestsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListRegistryRepositoryManifestsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListRegistryRepositoryManifests)(nil)).Elem()
+func (ListRegistryRepositoryManifestsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRegistryRepositoryManifestsItems)(nil)).Elem()
 }
 
-func (o ListRegistryRepositoryManifestsOutput) ToListRegistryRepositoryManifestsOutput() ListRegistryRepositoryManifestsOutput {
+func (o ListRegistryRepositoryManifestsItemsOutput) ToListRegistryRepositoryManifestsItemsOutput() ListRegistryRepositoryManifestsItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoryManifestsOutput) ToListRegistryRepositoryManifestsOutputWithContext(ctx context.Context) ListRegistryRepositoryManifestsOutput {
+func (o ListRegistryRepositoryManifestsItemsOutput) ToListRegistryRepositoryManifestsItemsOutputWithContext(ctx context.Context) ListRegistryRepositoryManifestsItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoryManifestsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryManifests) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListRegistryRepositoryManifestsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryManifestsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListRegistryRepositoryManifestsOutput) Manifests() RepositoryManifestArrayOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryManifests) []RepositoryManifest { return v.Manifests }).(RepositoryManifestArrayOutput)
+func (o ListRegistryRepositoryManifestsItemsOutput) Manifests() RepositoryManifestArrayOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryManifestsItems) []RepositoryManifest { return v.Manifests }).(RepositoryManifestArrayOutput)
 }
 
-func (o ListRegistryRepositoryManifestsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryManifests) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListRegistryRepositoryManifestsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryManifestsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-type ListRegistryRepositoryTags struct {
+type ListRegistryRepositoryTagsItems struct {
 	Links *PageLinks      `pulumi:"links"`
 	Meta  MetaMeta        `pulumi:"meta"`
 	Tags  []RepositoryTag `pulumi:"tags"`
 }
 
-type ListRegistryRepositoryTagsOutput struct{ *pulumi.OutputState }
+type ListRegistryRepositoryTagsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListRegistryRepositoryTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListRegistryRepositoryTags)(nil)).Elem()
+func (ListRegistryRepositoryTagsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRegistryRepositoryTagsItems)(nil)).Elem()
 }
 
-func (o ListRegistryRepositoryTagsOutput) ToListRegistryRepositoryTagsOutput() ListRegistryRepositoryTagsOutput {
+func (o ListRegistryRepositoryTagsItemsOutput) ToListRegistryRepositoryTagsItemsOutput() ListRegistryRepositoryTagsItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoryTagsOutput) ToListRegistryRepositoryTagsOutputWithContext(ctx context.Context) ListRegistryRepositoryTagsOutput {
+func (o ListRegistryRepositoryTagsItemsOutput) ToListRegistryRepositoryTagsItemsOutputWithContext(ctx context.Context) ListRegistryRepositoryTagsItemsOutput {
 	return o
 }
 
-func (o ListRegistryRepositoryTagsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryTags) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListRegistryRepositoryTagsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListRegistryRepositoryTagsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryTags) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListRegistryRepositoryTagsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListRegistryRepositoryTagsOutput) Tags() RepositoryTagArrayOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryTags) []RepositoryTag { return v.Tags }).(RepositoryTagArrayOutput)
+func (o ListRegistryRepositoryTagsItemsOutput) Tags() RepositoryTagArrayOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsItems) []RepositoryTag { return v.Tags }).(RepositoryTagArrayOutput)
 }
 
 type MetaMeta struct {
@@ -1892,10 +1892,10 @@ func init() {
 	pulumi.RegisterOutputType(GetRegistryPropertiesOutput{})
 	pulumi.RegisterOutputType(GetRegistrySubscriptionPropertiesOutput{})
 	pulumi.RegisterOutputType(ListRegistryGarbageCollectionsPropertiesOutput{})
-	pulumi.RegisterOutputType(ListRegistryRepositoriesOutput{})
-	pulumi.RegisterOutputType(ListRegistryRepositoriesV2Output{})
-	pulumi.RegisterOutputType(ListRegistryRepositoryManifestsOutput{})
-	pulumi.RegisterOutputType(ListRegistryRepositoryTagsOutput{})
+	pulumi.RegisterOutputType(ListRegistryRepositoriesItemsOutput{})
+	pulumi.RegisterOutputType(ListRegistryRepositoriesV2ItemsOutput{})
+	pulumi.RegisterOutputType(ListRegistryRepositoryManifestsItemsOutput{})
+	pulumi.RegisterOutputType(ListRegistryRepositoryTagsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

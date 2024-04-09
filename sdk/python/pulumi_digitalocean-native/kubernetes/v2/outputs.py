@@ -30,7 +30,7 @@ __all__ = [
     'KubernetesRegion',
     'KubernetesSize',
     'KubernetesVersion',
-    'ListKubernetesClusters',
+    'ListKubernetesClustersItems',
     'ListKubernetesNodePoolsProperties',
     'MaintenancePolicy',
     'MetaMeta',
@@ -1078,7 +1078,7 @@ class KubernetesVersion(dict):
 
 
 @pulumi.output_type
-class ListKubernetesClusters(dict):
+class ListKubernetesClustersItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  kubernetes_clusters: Optional[Sequence['outputs.Cluster']] = None,

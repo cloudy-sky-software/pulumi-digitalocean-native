@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.AccountV2
     [OutputType]
     public sealed class ListSshKeysResult
     {
-        public readonly Outputs.ListSshKeys Items;
+        public readonly Outputs.ListSshKeysItems Items;
 
         [OutputConstructor]
-        private ListSshKeysResult(Outputs.ListSshKeys items)
+        private ListSshKeysResult(Outputs.ListSshKeysItems items)
         {
             Items = items;
         }

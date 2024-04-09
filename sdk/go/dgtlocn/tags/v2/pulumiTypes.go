@@ -39,36 +39,36 @@ func (o GetTagsPropertiesOutput) Tag() TagsTypePtrOutput {
 	return o.ApplyT(func(v GetTagsProperties) *TagsType { return v.Tag }).(TagsTypePtrOutput)
 }
 
-type ListTags struct {
+type ListTagsItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
 	Tags  []TagsType `pulumi:"tags"`
 }
 
-type ListTagsOutput struct{ *pulumi.OutputState }
+type ListTagsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListTags)(nil)).Elem()
+func (ListTagsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTagsItems)(nil)).Elem()
 }
 
-func (o ListTagsOutput) ToListTagsOutput() ListTagsOutput {
+func (o ListTagsItemsOutput) ToListTagsItemsOutput() ListTagsItemsOutput {
 	return o
 }
 
-func (o ListTagsOutput) ToListTagsOutputWithContext(ctx context.Context) ListTagsOutput {
+func (o ListTagsItemsOutput) ToListTagsItemsOutputWithContext(ctx context.Context) ListTagsItemsOutput {
 	return o
 }
 
-func (o ListTagsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListTags) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListTagsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListTagsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListTagsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListTags) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListTagsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListTagsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListTagsOutput) Tags() TagsTypeArrayOutput {
-	return o.ApplyT(func(v ListTags) []TagsType { return v.Tags }).(TagsTypeArrayOutput)
+func (o ListTagsItemsOutput) Tags() TagsTypeArrayOutput {
+	return o.ApplyT(func(v ListTagsItems) []TagsType { return v.Tags }).(TagsTypeArrayOutput)
 }
 
 type MetaMeta struct {
@@ -631,7 +631,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcesItemPropertiesInput)(nil)).Elem(), ResourcesItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcesItemPropertiesArrayInput)(nil)).Elem(), ResourcesItemPropertiesArray{})
 	pulumi.RegisterOutputType(GetTagsPropertiesOutput{})
-	pulumi.RegisterOutputType(ListTagsOutput{})
+	pulumi.RegisterOutputType(ListTagsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

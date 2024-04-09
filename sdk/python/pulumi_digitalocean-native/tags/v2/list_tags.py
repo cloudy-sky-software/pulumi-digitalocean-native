@@ -26,7 +26,7 @@ class ListTagsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListTags':
+    def items(self) -> 'outputs.ListTagsItems':
         return pulumi.get(self, "items")
 
 

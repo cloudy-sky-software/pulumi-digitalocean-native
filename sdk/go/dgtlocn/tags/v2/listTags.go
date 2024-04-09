@@ -25,7 +25,7 @@ type ListTagsArgs struct {
 }
 
 type ListTagsResult struct {
-	Items ListTags `pulumi:"items"`
+	Items ListTagsItems `pulumi:"items"`
 }
 
 func ListTagsOutput(ctx *pulumi.Context, args ListTagsOutputArgs, opts ...pulumi.InvokeOption) ListTagsResultOutput {
@@ -62,8 +62,8 @@ func (o ListTagsResultOutput) ToListTagsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ListTagsResultOutput) Items() ListTagsOutput {
-	return o.ApplyT(func(v ListTagsResult) ListTags { return v.Items }).(ListTagsOutput)
+func (o ListTagsResultOutput) Items() ListTagsItemsOutput {
+	return o.ApplyT(func(v ListTagsResult) ListTagsItems { return v.Items }).(ListTagsItemsOutput)
 }
 
 func init() {

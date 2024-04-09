@@ -26,7 +26,7 @@ class ListSizesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListSizes':
+    def items(self) -> 'outputs.ListSizesItems':
         return pulumi.get(self, "items")
 
 

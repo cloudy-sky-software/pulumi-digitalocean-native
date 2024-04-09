@@ -27,7 +27,7 @@ type ListVolumeSnapshotsArgs struct {
 }
 
 type ListVolumeSnapshotsResult struct {
-	Items ListVolumeSnapshots `pulumi:"items"`
+	Items ListVolumeSnapshotsItems `pulumi:"items"`
 }
 
 func ListVolumeSnapshotsOutput(ctx *pulumi.Context, args ListVolumeSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListVolumeSnapshotsResultOutput {
@@ -66,8 +66,8 @@ func (o ListVolumeSnapshotsResultOutput) ToListVolumeSnapshotsResultOutputWithCo
 	return o
 }
 
-func (o ListVolumeSnapshotsResultOutput) Items() ListVolumeSnapshotsOutput {
-	return o.ApplyT(func(v ListVolumeSnapshotsResult) ListVolumeSnapshots { return v.Items }).(ListVolumeSnapshotsOutput)
+func (o ListVolumeSnapshotsResultOutput) Items() ListVolumeSnapshotsItemsOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsResult) ListVolumeSnapshotsItems { return v.Items }).(ListVolumeSnapshotsItemsOutput)
 }
 
 func init() {

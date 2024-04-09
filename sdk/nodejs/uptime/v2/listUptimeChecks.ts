@@ -19,7 +19,7 @@ export interface ListUptimeChecksArgs {
 }
 
 export interface ListUptimeChecksResult {
-    readonly items: outputs.uptime.v2.ListUptimeChecks;
+    readonly items: outputs.uptime.v2.ListUptimeChecksItems;
 }
 export function listUptimeChecksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListUptimeChecksResult> {
     return pulumi.output(listUptimeChecks(opts))

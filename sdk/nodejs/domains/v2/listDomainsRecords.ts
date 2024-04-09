@@ -23,7 +23,7 @@ export interface ListDomainsRecordsArgs {
 }
 
 export interface ListDomainsRecordsResult {
-    readonly items: outputs.domains.v2.ListDomainsRecords;
+    readonly items: outputs.domains.v2.ListDomainsRecordsItems;
 }
 export function listDomainsRecordsOutput(args: ListDomainsRecordsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainsRecordsResult> {
     return pulumi.output(args).apply((a: any) => listDomainsRecords(a, opts))

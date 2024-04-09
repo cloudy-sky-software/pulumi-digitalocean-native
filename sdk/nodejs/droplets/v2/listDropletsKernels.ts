@@ -23,7 +23,7 @@ export interface ListDropletsKernelsArgs {
 }
 
 export interface ListDropletsKernelsResult {
-    readonly items: outputs.droplets.v2.ListDropletsKernels;
+    readonly items: outputs.droplets.v2.ListDropletsKernelsItems;
 }
 export function listDropletsKernelsOutput(args: ListDropletsKernelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsKernelsResult> {
     return pulumi.output(args).apply((a: any) => listDropletsKernels(a, opts))

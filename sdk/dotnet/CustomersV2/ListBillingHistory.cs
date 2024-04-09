@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.CustomersV2
     [OutputType]
     public sealed class ListBillingHistoryResult
     {
-        public readonly Outputs.ListBillingHistory Items;
+        public readonly Outputs.ListBillingHistoryItems Items;
 
         [OutputConstructor]
-        private ListBillingHistoryResult(Outputs.ListBillingHistory items)
+        private ListBillingHistoryResult(Outputs.ListBillingHistoryItems items)
         {
             Items = items;
         }

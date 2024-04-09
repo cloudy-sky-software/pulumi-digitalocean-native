@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
     [OutputType]
     public sealed class ListRegistryRepositoriesResult
     {
-        public readonly Outputs.ListRegistryRepositories Items;
+        public readonly Outputs.ListRegistryRepositoriesItems Items;
 
         [OutputConstructor]
-        private ListRegistryRepositoriesResult(Outputs.ListRegistryRepositories items)
+        private ListRegistryRepositoriesResult(Outputs.ListRegistryRepositoriesItems items)
         {
             Items = items;
         }

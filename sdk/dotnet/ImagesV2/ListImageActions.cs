@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     [OutputType]
     public sealed class ListImageActionsResult
     {
-        public readonly Outputs.ListImageActions Items;
+        public readonly Outputs.ListImageActionsItems Items;
 
         [OutputConstructor]
-        private ListImageActionsResult(Outputs.ListImageActions items)
+        private ListImageActionsResult(Outputs.ListImageActionsItems items)
         {
             Items = items;
         }

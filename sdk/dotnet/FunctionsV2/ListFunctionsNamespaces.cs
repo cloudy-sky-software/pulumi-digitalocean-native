@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.FunctionsV2
     [OutputType]
     public sealed class ListFunctionsNamespacesResult
     {
-        public readonly Outputs.ListFunctionsNamespaces Items;
+        public readonly Outputs.ListFunctionsNamespacesItems Items;
 
         [OutputConstructor]
-        private ListFunctionsNamespacesResult(Outputs.ListFunctionsNamespaces items)
+        private ListFunctionsNamespacesResult(Outputs.ListFunctionsNamespacesItems items)
         {
             Items = items;
         }

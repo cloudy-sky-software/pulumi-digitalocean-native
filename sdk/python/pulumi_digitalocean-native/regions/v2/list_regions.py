@@ -26,7 +26,7 @@ class ListRegionsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegions':
+    def items(self) -> 'outputs.ListRegionsItems':
         return pulumi.get(self, "items")
 
 

@@ -27,7 +27,7 @@ type ListDropletsFirewallsArgs struct {
 }
 
 type ListDropletsFirewallsResult struct {
-	Items ListDropletsFirewalls `pulumi:"items"`
+	Items ListDropletsFirewallsItems `pulumi:"items"`
 }
 
 func ListDropletsFirewallsOutput(ctx *pulumi.Context, args ListDropletsFirewallsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsFirewallsResultOutput {
@@ -66,8 +66,8 @@ func (o ListDropletsFirewallsResultOutput) ToListDropletsFirewallsResultOutputWi
 	return o
 }
 
-func (o ListDropletsFirewallsResultOutput) Items() ListDropletsFirewallsOutput {
-	return o.ApplyT(func(v ListDropletsFirewallsResult) ListDropletsFirewalls { return v.Items }).(ListDropletsFirewallsOutput)
+func (o ListDropletsFirewallsResultOutput) Items() ListDropletsFirewallsItemsOutput {
+	return o.ApplyT(func(v ListDropletsFirewallsResult) ListDropletsFirewallsItems { return v.Items }).(ListDropletsFirewallsItemsOutput)
 }
 
 func init() {

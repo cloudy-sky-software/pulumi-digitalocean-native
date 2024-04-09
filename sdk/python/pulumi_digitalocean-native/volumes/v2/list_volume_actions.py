@@ -27,7 +27,7 @@ class ListVolumeActionsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListVolumeActions':
+    def items(self) -> 'outputs.ListVolumeActionsItems':
         return pulumi.get(self, "items")
 
 

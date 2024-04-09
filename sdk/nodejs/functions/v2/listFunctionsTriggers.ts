@@ -23,7 +23,7 @@ export interface ListFunctionsTriggersArgs {
 }
 
 export interface ListFunctionsTriggersResult {
-    readonly items: outputs.functions.v2.ListFunctionsTriggers;
+    readonly items: outputs.functions.v2.ListFunctionsTriggersItems;
 }
 export function listFunctionsTriggersOutput(args: ListFunctionsTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFunctionsTriggersResult> {
     return pulumi.output(args).apply((a: any) => listFunctionsTriggers(a, opts))

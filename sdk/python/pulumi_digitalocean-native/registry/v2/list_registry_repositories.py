@@ -26,7 +26,7 @@ class ListRegistryRepositoriesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegistryRepositories':
+    def items(self) -> 'outputs.ListRegistryRepositoriesItems':
         return pulumi.get(self, "items")
 
 

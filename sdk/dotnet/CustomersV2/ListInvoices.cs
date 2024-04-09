@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.CustomersV2
     [OutputType]
     public sealed class ListInvoicesResult
     {
-        public readonly Outputs.ListInvoices Items;
+        public readonly Outputs.ListInvoicesItems Items;
 
         [OutputConstructor]
-        private ListInvoicesResult(Outputs.ListInvoices items)
+        private ListInvoicesResult(Outputs.ListInvoicesItems items)
         {
             Items = items;
         }

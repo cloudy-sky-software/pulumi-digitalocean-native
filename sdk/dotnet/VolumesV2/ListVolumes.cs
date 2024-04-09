@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
     [OutputType]
     public sealed class ListVolumesResult
     {
-        public readonly Outputs.ListVolumes Items;
+        public readonly Outputs.ListVolumesItems Items;
 
         [OutputConstructor]
-        private ListVolumesResult(Outputs.ListVolumes items)
+        private ListVolumesResult(Outputs.ListVolumesItems items)
         {
             Items = items;
         }

@@ -13,7 +13,7 @@ from ._enums import *
 
 __all__ = [
     'GetSnapshotsProperties',
-    'ListSnapshots',
+    'ListSnapshotsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -34,7 +34,7 @@ class GetSnapshotsProperties(dict):
 
 
 @pulumi.output_type
-class ListSnapshots(dict):
+class ListSnapshotsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

@@ -19,7 +19,7 @@ export interface ListDomainsArgs {
 }
 
 export interface ListDomainsResult {
-    readonly items: outputs.domains.v2.ListDomains;
+    readonly items: outputs.domains.v2.ListDomainsItems;
 }
 export function listDomainsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainsResult> {
     return pulumi.output(listDomains(opts))

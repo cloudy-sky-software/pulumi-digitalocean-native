@@ -26,7 +26,7 @@ class ListFunctionsNamespacesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFunctionsNamespaces':
+    def items(self) -> 'outputs.ListFunctionsNamespacesItems':
         return pulumi.get(self, "items")
 
 

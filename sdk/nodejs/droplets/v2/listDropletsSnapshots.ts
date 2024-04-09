@@ -23,7 +23,7 @@ export interface ListDropletsSnapshotsArgs {
 }
 
 export interface ListDropletsSnapshotsResult {
-    readonly items: outputs.droplets.v2.ListDropletsSnapshots;
+    readonly items: outputs.droplets.v2.ListDropletsSnapshotsItems;
 }
 export function listDropletsSnapshotsOutput(args: ListDropletsSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsSnapshotsResult> {
     return pulumi.output(args).apply((a: any) => listDropletsSnapshots(a, opts))

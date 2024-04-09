@@ -19,7 +19,7 @@ export interface ListVolumesArgs {
 }
 
 export interface ListVolumesResult {
-    readonly items: outputs.volumes.v2.ListVolumes;
+    readonly items: outputs.volumes.v2.ListVolumesItems;
 }
 export function listVolumesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumesResult> {
     return pulumi.output(listVolumes(opts))

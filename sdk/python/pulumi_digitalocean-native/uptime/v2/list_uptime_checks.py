@@ -27,7 +27,7 @@ class ListUptimeChecksResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListUptimeChecks':
+    def items(self) -> 'outputs.ListUptimeChecksItems':
         return pulumi.get(self, "items")
 
 

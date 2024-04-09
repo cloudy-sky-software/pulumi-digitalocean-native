@@ -16,7 +16,7 @@ __all__ = [
     'GetLoadBalancersProperties',
     'HealthCheck',
     'LbFirewall',
-    'ListLoadBalancers',
+    'ListLoadBalancersItems',
     'LoadBalancer',
     'MetaMeta',
     'PageLinks',
@@ -311,7 +311,7 @@ class LbFirewall(dict):
 
 
 @pulumi.output_type
-class ListLoadBalancers(dict):
+class ListLoadBalancersItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

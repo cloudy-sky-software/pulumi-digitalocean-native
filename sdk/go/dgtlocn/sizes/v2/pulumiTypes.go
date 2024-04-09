@@ -13,36 +13,36 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ListSizes struct {
+type ListSizesItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
 	Sizes []Size     `pulumi:"sizes"`
 }
 
-type ListSizesOutput struct{ *pulumi.OutputState }
+type ListSizesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListSizesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListSizes)(nil)).Elem()
+func (ListSizesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSizesItems)(nil)).Elem()
 }
 
-func (o ListSizesOutput) ToListSizesOutput() ListSizesOutput {
+func (o ListSizesItemsOutput) ToListSizesItemsOutput() ListSizesItemsOutput {
 	return o
 }
 
-func (o ListSizesOutput) ToListSizesOutputWithContext(ctx context.Context) ListSizesOutput {
+func (o ListSizesItemsOutput) ToListSizesItemsOutputWithContext(ctx context.Context) ListSizesItemsOutput {
 	return o
 }
 
-func (o ListSizesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListSizes) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListSizesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListSizesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListSizesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListSizes) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListSizesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListSizesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListSizesOutput) Sizes() SizeArrayOutput {
-	return o.ApplyT(func(v ListSizes) []Size { return v.Sizes }).(SizeArrayOutput)
+func (o ListSizesItemsOutput) Sizes() SizeArrayOutput {
+	return o.ApplyT(func(v ListSizesItems) []Size { return v.Sizes }).(SizeArrayOutput)
 }
 
 type MetaMeta struct {
@@ -341,7 +341,7 @@ func (o SizeArrayOutput) Index(i pulumi.IntInput) SizeOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ListSizesOutput{})
+	pulumi.RegisterOutputType(ListSizesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

@@ -19,7 +19,7 @@ export interface ListTagsArgs {
 }
 
 export interface ListTagsResult {
-    readonly items: outputs.tags.v2.ListTags;
+    readonly items: outputs.tags.v2.ListTagsItems;
 }
 export function listTagsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListTagsResult> {
     return pulumi.output(listTags(opts))

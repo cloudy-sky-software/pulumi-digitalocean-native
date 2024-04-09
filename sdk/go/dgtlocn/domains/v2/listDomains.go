@@ -25,7 +25,7 @@ type ListDomainsArgs struct {
 }
 
 type ListDomainsResult struct {
-	Items ListDomains `pulumi:"items"`
+	Items ListDomainsItems `pulumi:"items"`
 }
 
 func ListDomainsOutput(ctx *pulumi.Context, args ListDomainsOutputArgs, opts ...pulumi.InvokeOption) ListDomainsResultOutput {
@@ -62,8 +62,8 @@ func (o ListDomainsResultOutput) ToListDomainsResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListDomainsResultOutput) Items() ListDomainsOutput {
-	return o.ApplyT(func(v ListDomainsResult) ListDomains { return v.Items }).(ListDomainsOutput)
+func (o ListDomainsResultOutput) Items() ListDomainsItemsOutput {
+	return o.ApplyT(func(v ListDomainsResult) ListDomainsItems { return v.Items }).(ListDomainsItemsOutput)
 }
 
 func init() {

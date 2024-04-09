@@ -14,7 +14,7 @@ from ._enums import *
 __all__ = [
     'CdnEndpoint',
     'GetCdnEndpointProperties',
-    'ListCdnEndpoints',
+    'ListCdnEndpointsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -147,7 +147,7 @@ class GetCdnEndpointProperties(dict):
 
 
 @pulumi.output_type
-class ListCdnEndpoints(dict):
+class ListCdnEndpointsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  endpoints: Optional[Sequence['outputs.CdnEndpoint']] = None,

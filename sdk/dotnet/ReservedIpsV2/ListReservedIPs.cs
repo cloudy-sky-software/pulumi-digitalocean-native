@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.ReservedIpsV2
     [OutputType]
     public sealed class ListReservedIPsResult
     {
-        public readonly Outputs.ListReservedIPs Items;
+        public readonly Outputs.ListReservedIPsItems Items;
 
         [OutputConstructor]
-        private ListReservedIPsResult(Outputs.ListReservedIPs items)
+        private ListReservedIPsResult(Outputs.ListReservedIPsItems items)
         {
             Items = items;
         }

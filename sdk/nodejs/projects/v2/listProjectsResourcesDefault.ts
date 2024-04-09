@@ -19,7 +19,7 @@ export interface ListProjectsResourcesDefaultArgs {
 }
 
 export interface ListProjectsResourcesDefaultResult {
-    readonly items: outputs.projects.v2.ListProjectsResourcesDefault;
+    readonly items: outputs.projects.v2.ListProjectsResourcesDefaultItems;
 }
 export function listProjectsResourcesDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListProjectsResourcesDefaultResult> {
     return pulumi.output(listProjectsResourcesDefault(opts))

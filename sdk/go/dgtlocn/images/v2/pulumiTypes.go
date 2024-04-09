@@ -494,68 +494,68 @@ func (o ImageArrayOutput) Index(i pulumi.IntInput) ImageOutput {
 	}).(ImageOutput)
 }
 
-type ListImageActions struct {
+type ListImageActionsItems struct {
 	Actions []Action   `pulumi:"actions"`
 	Links   *PageLinks `pulumi:"links"`
 	Meta    MetaMeta   `pulumi:"meta"`
 }
 
-type ListImageActionsOutput struct{ *pulumi.OutputState }
+type ListImageActionsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListImageActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListImageActions)(nil)).Elem()
+func (ListImageActionsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListImageActionsItems)(nil)).Elem()
 }
 
-func (o ListImageActionsOutput) ToListImageActionsOutput() ListImageActionsOutput {
+func (o ListImageActionsItemsOutput) ToListImageActionsItemsOutput() ListImageActionsItemsOutput {
 	return o
 }
 
-func (o ListImageActionsOutput) ToListImageActionsOutputWithContext(ctx context.Context) ListImageActionsOutput {
+func (o ListImageActionsItemsOutput) ToListImageActionsItemsOutputWithContext(ctx context.Context) ListImageActionsItemsOutput {
 	return o
 }
 
-func (o ListImageActionsOutput) Actions() ActionArrayOutput {
-	return o.ApplyT(func(v ListImageActions) []Action { return v.Actions }).(ActionArrayOutput)
+func (o ListImageActionsItemsOutput) Actions() ActionArrayOutput {
+	return o.ApplyT(func(v ListImageActionsItems) []Action { return v.Actions }).(ActionArrayOutput)
 }
 
-func (o ListImageActionsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListImageActions) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListImageActionsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListImageActionsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListImageActionsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListImageActions) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListImageActionsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListImageActionsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-type ListImages struct {
+type ListImagesItems struct {
 	Images []Image    `pulumi:"images"`
 	Links  *PageLinks `pulumi:"links"`
 	Meta   MetaMeta   `pulumi:"meta"`
 }
 
-type ListImagesOutput struct{ *pulumi.OutputState }
+type ListImagesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListImagesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListImages)(nil)).Elem()
+func (ListImagesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListImagesItems)(nil)).Elem()
 }
 
-func (o ListImagesOutput) ToListImagesOutput() ListImagesOutput {
+func (o ListImagesItemsOutput) ToListImagesItemsOutput() ListImagesItemsOutput {
 	return o
 }
 
-func (o ListImagesOutput) ToListImagesOutputWithContext(ctx context.Context) ListImagesOutput {
+func (o ListImagesItemsOutput) ToListImagesItemsOutputWithContext(ctx context.Context) ListImagesItemsOutput {
 	return o
 }
 
-func (o ListImagesOutput) Images() ImageArrayOutput {
-	return o.ApplyT(func(v ListImages) []Image { return v.Images }).(ImageArrayOutput)
+func (o ListImagesItemsOutput) Images() ImageArrayOutput {
+	return o.ApplyT(func(v ListImagesItems) []Image { return v.Images }).(ImageArrayOutput)
 }
 
-func (o ListImagesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListImages) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListImagesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListImagesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListImagesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListImages) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListImagesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListImagesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -910,8 +910,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImagePtrOutput{})
 	pulumi.RegisterOutputType(ImageArrayOutput{})
-	pulumi.RegisterOutputType(ListImageActionsOutput{})
-	pulumi.RegisterOutputType(ListImagesOutput{})
+	pulumi.RegisterOutputType(ListImageActionsItemsOutput{})
+	pulumi.RegisterOutputType(ListImagesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

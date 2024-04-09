@@ -19,7 +19,7 @@ export interface ListSnapshotsArgs {
 }
 
 export interface ListSnapshotsResult {
-    readonly items: outputs.snapshots.v2.ListSnapshots;
+    readonly items: outputs.snapshots.v2.ListSnapshotsItems;
 }
 export function listSnapshotsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListSnapshotsResult> {
     return pulumi.output(listSnapshots(opts))

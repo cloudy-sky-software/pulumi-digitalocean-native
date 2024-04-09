@@ -27,7 +27,7 @@ type ListVpcsMembersArgs struct {
 }
 
 type ListVpcsMembersResult struct {
-	Items ListVpcsMembers `pulumi:"items"`
+	Items ListVpcsMembersItems `pulumi:"items"`
 }
 
 func ListVpcsMembersOutput(ctx *pulumi.Context, args ListVpcsMembersOutputArgs, opts ...pulumi.InvokeOption) ListVpcsMembersResultOutput {
@@ -66,8 +66,8 @@ func (o ListVpcsMembersResultOutput) ToListVpcsMembersResultOutputWithContext(ct
 	return o
 }
 
-func (o ListVpcsMembersResultOutput) Items() ListVpcsMembersOutput {
-	return o.ApplyT(func(v ListVpcsMembersResult) ListVpcsMembers { return v.Items }).(ListVpcsMembersOutput)
+func (o ListVpcsMembersResultOutput) Items() ListVpcsMembersItemsOutput {
+	return o.ApplyT(func(v ListVpcsMembersResult) ListVpcsMembersItems { return v.Items }).(ListVpcsMembersItemsOutput)
 }
 
 func init() {

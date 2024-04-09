@@ -341,36 +341,36 @@ func (o GetMonitoringAlertPolicyPropertiesOutput) Policy() AlertPolicyPtrOutput 
 	return o.ApplyT(func(v GetMonitoringAlertPolicyProperties) *AlertPolicy { return v.Policy }).(AlertPolicyPtrOutput)
 }
 
-type ListMonitoringAlertPolicy struct {
+type ListMonitoringAlertPolicyItems struct {
 	Links    *PageLinks    `pulumi:"links"`
 	Meta     MetaMeta      `pulumi:"meta"`
 	Policies []AlertPolicy `pulumi:"policies"`
 }
 
-type ListMonitoringAlertPolicyOutput struct{ *pulumi.OutputState }
+type ListMonitoringAlertPolicyItemsOutput struct{ *pulumi.OutputState }
 
-func (ListMonitoringAlertPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListMonitoringAlertPolicy)(nil)).Elem()
+func (ListMonitoringAlertPolicyItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListMonitoringAlertPolicyItems)(nil)).Elem()
 }
 
-func (o ListMonitoringAlertPolicyOutput) ToListMonitoringAlertPolicyOutput() ListMonitoringAlertPolicyOutput {
+func (o ListMonitoringAlertPolicyItemsOutput) ToListMonitoringAlertPolicyItemsOutput() ListMonitoringAlertPolicyItemsOutput {
 	return o
 }
 
-func (o ListMonitoringAlertPolicyOutput) ToListMonitoringAlertPolicyOutputWithContext(ctx context.Context) ListMonitoringAlertPolicyOutput {
+func (o ListMonitoringAlertPolicyItemsOutput) ToListMonitoringAlertPolicyItemsOutputWithContext(ctx context.Context) ListMonitoringAlertPolicyItemsOutput {
 	return o
 }
 
-func (o ListMonitoringAlertPolicyOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListMonitoringAlertPolicy) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListMonitoringAlertPolicyItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListMonitoringAlertPolicyOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListMonitoringAlertPolicy) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListMonitoringAlertPolicyItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListMonitoringAlertPolicyOutput) Policies() AlertPolicyArrayOutput {
-	return o.ApplyT(func(v ListMonitoringAlertPolicy) []AlertPolicy { return v.Policies }).(AlertPolicyArrayOutput)
+func (o ListMonitoringAlertPolicyItemsOutput) Policies() AlertPolicyArrayOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyItems) []AlertPolicy { return v.Policies }).(AlertPolicyArrayOutput)
 }
 
 type MetaMeta struct {
@@ -770,7 +770,7 @@ func init() {
 	pulumi.RegisterOutputType(AlertsOutput{})
 	pulumi.RegisterOutputType(AlertsPtrOutput{})
 	pulumi.RegisterOutputType(GetMonitoringAlertPolicyPropertiesOutput{})
-	pulumi.RegisterOutputType(ListMonitoringAlertPolicyOutput{})
+	pulumi.RegisterOutputType(ListMonitoringAlertPolicyItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(MetricsOutput{})
 	pulumi.RegisterOutputType(MetricsDataOutput{})
