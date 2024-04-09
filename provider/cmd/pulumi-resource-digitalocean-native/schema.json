@@ -211,7 +211,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:account/v2:ListSshKeys": {
+        "digitalocean-native:account/v2:ListSshKeysItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:account/v2:PageLinks"
@@ -364,7 +364,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:actions/v2:ListActions": {
+        "digitalocean-native:actions/v2:ListActionsItems": {
             "properties": {
                 "actions": {
                     "type": "array",
@@ -2800,7 +2800,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:cdn/v2:ListCdnEndpoints": {
+        "digitalocean-native:cdn/v2:ListCdnEndpointsItems": {
             "properties": {
                 "endpoints": {
                     "type": "array",
@@ -2965,7 +2965,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:certificates/v2:ListCertificates": {
+        "digitalocean-native:certificates/v2:ListCertificatesItems": {
             "properties": {
                 "certificates": {
                     "type": "array",
@@ -3142,7 +3142,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:customers/v2:ListBillingHistory": {
+        "digitalocean-native:customers/v2:ListBillingHistoryItems": {
             "properties": {
                 "billingHistory": {
                     "type": "array",
@@ -3163,7 +3163,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:customers/v2:ListInvoices": {
+        "digitalocean-native:customers/v2:ListInvoicesItems": {
             "properties": {
                 "invoicePreview": {
                     "$ref": "#/types/digitalocean-native:customers/v2:InvoicePreview",
@@ -5259,7 +5259,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:domains/v2:ListDomains": {
+        "digitalocean-native:domains/v2:ListDomainsItems": {
             "properties": {
                 "domains": {
                     "type": "array",
@@ -5286,7 +5286,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:domains/v2:ListDomainsRecords": {
+        "digitalocean-native:domains/v2:ListDomainsRecordsItems": {
             "properties": {
                 "domainRecords": {
                     "type": "array",
@@ -6210,7 +6210,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:ListDropletActions": {
+        "digitalocean-native:droplets/v2:ListDropletActionsItems": {
             "properties": {
                 "actions": {
                     "type": "array",
@@ -6235,32 +6235,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDroplets": {
-            "properties": {
-                "droplets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:Droplet"
-                    }
-                },
-                "links": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PageLinks"
-                },
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:MetaMeta",
-                    "language": {
-                        "csharp": {
-                            "name": "MetaValue"
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
-        "digitalocean-native:droplets/v2:ListDropletsAssociatedResources": {
+        "digitalocean-native:droplets/v2:ListDropletsAssociatedResourcesItems": {
             "properties": {
                 "floatingIps": {
                     "type": "array",
@@ -6295,7 +6270,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:ListDropletsBackups": {
+        "digitalocean-native:droplets/v2:ListDropletsBackupsItems": {
             "properties": {
                 "backups": {
                     "type": "array",
@@ -6320,7 +6295,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletsFirewalls": {
+        "digitalocean-native:droplets/v2:ListDropletsFirewallsItems": {
             "properties": {
                 "firewalls": {
                     "type": "array",
@@ -6345,7 +6320,32 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletsKernels": {
+        "digitalocean-native:droplets/v2:ListDropletsItems": {
+            "properties": {
+                "droplets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:droplets/v2:Droplet"
+                    }
+                },
+                "links": {
+                    "$ref": "#/types/digitalocean-native:droplets/v2:PageLinks"
+                },
+                "meta": {
+                    "$ref": "#/types/digitalocean-native:droplets/v2:MetaMeta",
+                    "language": {
+                        "csharp": {
+                            "name": "MetaValue"
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "meta"
+            ]
+        },
+        "digitalocean-native:droplets/v2:ListDropletsKernelsItems": {
             "properties": {
                 "kernels": {
                     "type": "array",
@@ -6370,7 +6370,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:droplets/v2:ListDropletsNeighbors": {
+        "digitalocean-native:droplets/v2:ListDropletsNeighborsItems": {
             "properties": {
                 "droplets": {
                     "type": "array",
@@ -6381,7 +6381,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:ListDropletsSnapshots": {
+        "digitalocean-native:droplets/v2:ListDropletsSnapshotsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:droplets/v2:PageLinks"
@@ -6816,7 +6816,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:firewalls/v2:ListFirewalls": {
+        "digitalocean-native:firewalls/v2:ListFirewallsItems": {
             "properties": {
                 "firewalls": {
                     "type": "array",
@@ -7547,12 +7547,12 @@
             },
             "type": "object"
         },
-        "digitalocean-native:floating_ips/v2:ListFloatingIPs": {
+        "digitalocean-native:floating_ips/v2:ListFloatingIPsActionItems": {
             "properties": {
-                "floatingIps": {
+                "actions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIp"
+                        "$ref": "#/types/digitalocean-native:floating_ips/v2:Action"
                     }
                 },
                 "links": {
@@ -7572,12 +7572,12 @@
                 "meta"
             ]
         },
-        "digitalocean-native:floating_ips/v2:ListFloatingIPsAction": {
+        "digitalocean-native:floating_ips/v2:ListFloatingIPsItems": {
             "properties": {
-                "actions": {
+                "floatingIps": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:Action"
+                        "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIp"
                     }
                 },
                 "links": {
@@ -7812,7 +7812,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:functions/v2:ListFunctionsNamespaces": {
+        "digitalocean-native:functions/v2:ListFunctionsNamespacesItems": {
             "properties": {
                 "namespaces": {
                     "type": "array",
@@ -7823,7 +7823,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:functions/v2:ListFunctionsTriggers": {
+        "digitalocean-native:functions/v2:ListFunctionsTriggersItems": {
             "properties": {
                 "triggers": {
                     "type": "array",
@@ -8457,7 +8457,7 @@
                 }
             ]
         },
-        "digitalocean-native:images/v2:ListImageActions": {
+        "digitalocean-native:images/v2:ListImageActionsItems": {
             "properties": {
                 "actions": {
                     "type": "array",
@@ -8482,7 +8482,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:images/v2:ListImages": {
+        "digitalocean-native:images/v2:ListImagesItems": {
             "properties": {
                 "images": {
                     "type": "array",
@@ -9093,7 +9093,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:kubernetes/v2:ListKubernetesClusters": {
+        "digitalocean-native:kubernetes/v2:ListKubernetesClustersItems": {
             "properties": {
                 "kubernetesClusters": {
                     "type": "array",
@@ -9531,7 +9531,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:load_balancers/v2:ListLoadBalancers": {
+        "digitalocean-native:load_balancers/v2:ListLoadBalancersItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:load_balancers/v2:PageLinks"
@@ -10058,7 +10058,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:monitoring/v2:ListMonitoringAlertPolicy": {
+        "digitalocean-native:monitoring/v2:ListMonitoringAlertPolicyItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:monitoring/v2:PageLinks"
@@ -10374,7 +10374,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:projects/v2:ListProjects": {
+        "digitalocean-native:projects/v2:ListProjectsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:projects/v2:PageLinks"
@@ -10399,7 +10399,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:projects/v2:ListProjectsResources": {
+        "digitalocean-native:projects/v2:ListProjectsResourcesDefaultItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:projects/v2:PageLinks"
@@ -10424,7 +10424,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:projects/v2:ListProjectsResourcesDefault": {
+        "digitalocean-native:projects/v2:ListProjectsResourcesItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:projects/v2:PageLinks"
@@ -10603,7 +10603,7 @@
                 }
             ]
         },
-        "digitalocean-native:regions/v2:ListRegions": {
+        "digitalocean-native:regions/v2:ListRegionsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:regions/v2:PageLinks"
@@ -10897,7 +10897,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositories": {
+        "digitalocean-native:registry/v2:ListRegistryRepositoriesItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:registry/v2:PageLinks"
@@ -10922,7 +10922,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositoriesV2": {
+        "digitalocean-native:registry/v2:ListRegistryRepositoriesV2Items": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:registry/v2:PageLinks"
@@ -10947,7 +10947,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositoryManifests": {
+        "digitalocean-native:registry/v2:ListRegistryRepositoryManifestsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:registry/v2:PageLinks"
@@ -10972,7 +10972,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:registry/v2:ListRegistryRepositoryTags": {
+        "digitalocean-native:registry/v2:ListRegistryRepositoryTagsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:registry/v2:PageLinks"
@@ -11949,32 +11949,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:reserved_ips/v2:ListReservedIPs": {
-            "properties": {
-                "links": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:PageLinks"
-                },
-                "meta": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:MetaMeta",
-                    "language": {
-                        "csharp": {
-                            "name": "MetaValue"
-                        }
-                    }
-                },
-                "reservedIps": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIp"
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "meta"
-            ]
-        },
-        "digitalocean-native:reserved_ips/v2:ListReservedIPsActions": {
+        "digitalocean-native:reserved_ips/v2:ListReservedIPsActionsItems": {
             "properties": {
                 "actions": {
                     "type": "array",
@@ -11991,6 +11966,31 @@
                         "csharp": {
                             "name": "MetaValue"
                         }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "meta"
+            ]
+        },
+        "digitalocean-native:reserved_ips/v2:ListReservedIPsItems": {
+            "properties": {
+                "links": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:PageLinks"
+                },
+                "meta": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:MetaMeta",
+                    "language": {
+                        "csharp": {
+                            "name": "MetaValue"
+                        }
+                    }
+                },
+                "reservedIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIp"
                     }
                 }
             },
@@ -12274,7 +12274,7 @@
                 "vcpus"
             ]
         },
-        "digitalocean-native:sizes/v2:ListSizes": {
+        "digitalocean-native:sizes/v2:ListSizesItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:sizes/v2:PageLinks"
@@ -12403,7 +12403,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:snapshots/v2:ListSnapshots": {
+        "digitalocean-native:snapshots/v2:ListSnapshotsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:snapshots/v2:PageLinks"
@@ -12538,7 +12538,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:tags/v2:ListTags": {
+        "digitalocean-native:tags/v2:ListTagsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:tags/v2:PageLinks"
@@ -12873,7 +12873,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:uptime/v2:ListUptimeAlerts": {
+        "digitalocean-native:uptime/v2:ListUptimeAlertsItems": {
             "properties": {
                 "alerts": {
                     "type": "array",
@@ -12898,7 +12898,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:uptime/v2:ListUptimeChecks": {
+        "digitalocean-native:uptime/v2:ListUptimeChecksItems": {
             "properties": {
                 "checks": {
                     "type": "array",
@@ -13115,7 +13115,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:volumes/v2:ListVolumeActions": {
+        "digitalocean-native:volumes/v2:ListVolumeActionsItems": {
             "properties": {
                 "actions": {
                     "type": "array",
@@ -13140,7 +13140,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:volumes/v2:ListVolumeSnapshots": {
+        "digitalocean-native:volumes/v2:ListVolumeSnapshotsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:PageLinks"
@@ -13165,7 +13165,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:volumes/v2:ListVolumes": {
+        "digitalocean-native:volumes/v2:ListVolumesItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:PageLinks"
@@ -13547,7 +13547,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:vpcs/v2:ListVpcs": {
+        "digitalocean-native:vpcs/v2:ListVpcsItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:vpcs/v2:PageLinks"
@@ -13572,7 +13572,7 @@
                 "meta"
             ]
         },
-        "digitalocean-native:vpcs/v2:ListVpcsMembers": {
+        "digitalocean-native:vpcs/v2:ListVpcsMembersItems": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:vpcs/v2:PageLinks"
@@ -18315,7 +18315,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:account/v2:ListSshKeys"
+                        "$ref": "#/types/digitalocean-native:account/v2:ListSshKeysItems"
                     }
                 },
                 "required": [
@@ -18351,7 +18351,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:actions/v2:ListActions"
+                        "$ref": "#/types/digitalocean-native:actions/v2:ListActionsItems"
                     }
                 },
                 "required": [
@@ -18717,7 +18717,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:cdn/v2:ListCdnEndpoints"
+                        "$ref": "#/types/digitalocean-native:cdn/v2:ListCdnEndpointsItems"
                     }
                 },
                 "required": [
@@ -18753,7 +18753,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:certificates/v2:ListCertificates"
+                        "$ref": "#/types/digitalocean-native:certificates/v2:ListCertificatesItems"
                     }
                 },
                 "required": [
@@ -18779,7 +18779,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:ListBillingHistory"
+                        "$ref": "#/types/digitalocean-native:customers/v2:ListBillingHistoryItems"
                     }
                 },
                 "required": [
@@ -18792,7 +18792,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:ListInvoices"
+                        "$ref": "#/types/digitalocean-native:customers/v2:ListInvoicesItems"
                     }
                 },
                 "required": [
@@ -19270,7 +19270,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:ListDomains"
+                        "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsItems"
                     }
                 },
                 "required": [
@@ -19293,7 +19293,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsRecords"
+                        "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsRecordsItems"
                     }
                 },
                 "required": [
@@ -19390,7 +19390,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletActions"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletActionsItems"
                     }
                 },
                 "required": [
@@ -19403,7 +19403,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDroplets"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsItems"
                     }
                 },
                 "required": [
@@ -19426,7 +19426,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsAssociatedResources"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsAssociatedResourcesItems"
                     }
                 },
                 "required": [
@@ -19449,7 +19449,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsBackups"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsBackupsItems"
                     }
                 },
                 "required": [
@@ -19472,7 +19472,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsFirewalls"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsFirewallsItems"
                     }
                 },
                 "required": [
@@ -19495,7 +19495,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsKernels"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsKernelsItems"
                     }
                 },
                 "required": [
@@ -19518,7 +19518,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsNeighbors"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsNeighborsItems"
                     }
                 },
                 "required": [
@@ -19541,7 +19541,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsSnapshots"
+                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsSnapshotsItems"
                     }
                 },
                 "required": [
@@ -19577,7 +19577,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:ListFirewalls"
+                        "$ref": "#/types/digitalocean-native:firewalls/v2:ListFirewallsItems"
                     }
                 },
                 "required": [
@@ -19641,7 +19641,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPs"
+                        "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsItems"
                     }
                 },
                 "required": [
@@ -19664,7 +19664,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsAction"
+                        "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsActionItems"
                     }
                 },
                 "required": [
@@ -19728,7 +19728,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsNamespaces"
+                        "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsNamespacesItems"
                     }
                 },
                 "required": [
@@ -19751,7 +19751,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsTriggers"
+                        "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsTriggersItems"
                     }
                 },
                 "required": [
@@ -19825,7 +19825,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:ListImageActions"
+                        "$ref": "#/types/digitalocean-native:images/v2:ListImageActionsItems"
                     }
                 },
                 "required": [
@@ -19838,7 +19838,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:ListImages"
+                        "$ref": "#/types/digitalocean-native:images/v2:ListImagesItems"
                     }
                 },
                 "required": [
@@ -20017,7 +20017,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:ListKubernetesClusters"
+                        "$ref": "#/types/digitalocean-native:kubernetes/v2:ListKubernetesClustersItems"
                     }
                 },
                 "required": [
@@ -20089,7 +20089,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:load_balancers/v2:ListLoadBalancers"
+                        "$ref": "#/types/digitalocean-native:load_balancers/v2:ListLoadBalancersItems"
                     }
                 },
                 "required": [
@@ -20268,7 +20268,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:ListMonitoringAlertPolicy"
+                        "$ref": "#/types/digitalocean-native:monitoring/v2:ListMonitoringAlertPolicyItems"
                     }
                 },
                 "required": [
@@ -20317,7 +20317,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjects"
+                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsItems"
                     }
                 },
                 "required": [
@@ -20340,7 +20340,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResources"
+                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesItems"
                     }
                 },
                 "required": [
@@ -20353,7 +20353,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesDefault"
+                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesDefaultItems"
                     }
                 },
                 "required": [
@@ -20366,7 +20366,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:regions/v2:ListRegions"
+                        "$ref": "#/types/digitalocean-native:regions/v2:ListRegionsItems"
                     }
                 },
                 "required": [
@@ -20464,7 +20464,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositories"
+                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesItems"
                     }
                 },
                 "required": [
@@ -20487,7 +20487,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesV2"
+                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesV2Items"
                     }
                 },
                 "required": [
@@ -20515,7 +20515,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryManifests"
+                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryManifestsItems"
                     }
                 },
                 "required": [
@@ -20543,7 +20543,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryTags"
+                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryTagsItems"
                     }
                 },
                 "required": [
@@ -20620,7 +20620,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPs"
+                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsItems"
                     }
                 },
                 "required": [
@@ -20643,7 +20643,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsActions"
+                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsActionsItems"
                     }
                 },
                 "required": [
@@ -20656,7 +20656,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:sizes/v2:ListSizes"
+                        "$ref": "#/types/digitalocean-native:sizes/v2:ListSizesItems"
                     }
                 },
                 "required": [
@@ -20692,7 +20692,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:snapshots/v2:ListSnapshots"
+                        "$ref": "#/types/digitalocean-native:snapshots/v2:ListSnapshotsItems"
                     }
                 },
                 "required": [
@@ -20728,7 +20728,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:tags/v2:ListTags"
+                        "$ref": "#/types/digitalocean-native:tags/v2:ListTagsItems"
                     }
                 },
                 "required": [
@@ -20825,7 +20825,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeAlerts"
+                        "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeAlertsItems"
                     }
                 },
                 "required": [
@@ -20838,7 +20838,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeChecks"
+                        "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeChecksItems"
                     }
                 },
                 "required": [
@@ -20935,7 +20935,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeActions"
+                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeActionsItems"
                     }
                 },
                 "required": [
@@ -20958,7 +20958,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeSnapshots"
+                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeSnapshotsItems"
                     }
                 },
                 "required": [
@@ -20971,7 +20971,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumes"
+                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumesItems"
                     }
                 },
                 "required": [
@@ -21007,7 +21007,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcs"
+                        "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsItems"
                     }
                 },
                 "required": [
@@ -21030,7 +21030,7 @@
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsMembers"
+                        "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsMembersItems"
                     }
                 },
                 "required": [
