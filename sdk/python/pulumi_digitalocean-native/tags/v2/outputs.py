@@ -216,10 +216,10 @@ class ResourcesItemProperties(dict):
 
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
-                 resource_type: Optional['TagsAssignResourcesResourcesItemPropertiesResourceType'] = None):
+                 resource_type: Optional['ResourcesItemPropertiesResourceType'] = None):
         """
         :param str resource_id: The identifier of a resource.
-        :param 'TagsAssignResourcesResourcesItemPropertiesResourceType' resource_type: The type of the resource.
+        :param 'ResourcesItemPropertiesResourceType' resource_type: The type of the resource.
         """
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
@@ -236,7 +236,7 @@ class ResourcesItemProperties(dict):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional['TagsAssignResourcesResourcesItemPropertiesResourceType']:
+    def resource_type(self) -> Optional['ResourcesItemPropertiesResourceType']:
         """
         The type of the resource.
         """

@@ -36,7 +36,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// - REDIS: Redis
         /// </summary>
         [Input("engine")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDatabaseSpecEngine>? Engine { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppDatabaseSpecEngine>? Engine { get; set; }
 
         /// <summary>
         /// The name. Must be unique across all components within the same app.
@@ -58,7 +58,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
 
         public AppDatabaseSpecArgs()
         {
-            Engine = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDatabaseSpecEngine.Unset;
+            Engine = Pulumi.DigitalOceanNative.AppsV2.AppDatabaseSpecEngine.Unset;
         }
         public static new AppDatabaseSpecArgs Empty => new AppDatabaseSpecArgs();
     }

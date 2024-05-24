@@ -18,7 +18,7 @@ type Reboot struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type RebootTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewReboot registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type rebootArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type RebootType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Reboot resource.
@@ -75,7 +75,7 @@ type RebootArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type RebootTypeInput
+	Type TypeInput
 }
 
 func (RebootArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o RebootOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o RebootOutput) Type() RebootTypeOutput {
-	return o.ApplyT(func(v *Reboot) RebootTypeOutput { return v.Type }).(RebootTypeOutput)
+func (o RebootOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *Reboot) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

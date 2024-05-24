@@ -13,16 +13,6 @@ export const ActionStatus = {
  */
 export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
-export const AssignFloatingIPsActionType = {
-    Assign: "assign",
-    Unassign: "unassign",
-} as const;
-
-/**
- * The type of action to initiate for the floating IP.
- */
-export type AssignFloatingIPsActionType = (typeof AssignFloatingIPsActionType)[keyof typeof AssignFloatingIPsActionType];
-
 export const DropletStatus = {
     New: "new",
     Active: "active",
@@ -34,6 +24,16 @@ export const DropletStatus = {
  * A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
  */
 export type DropletStatus = (typeof DropletStatus)[keyof typeof DropletStatus];
+
+export const FloatingIPsActionType = {
+    Assign: "assign",
+    Unassign: "unassign",
+} as const;
+
+/**
+ * The type of action to initiate for the floating IP.
+ */
+export type FloatingIPsActionType = (typeof FloatingIPsActionType)[keyof typeof FloatingIPsActionType];
 
 export const ImageDistribution = {
     ArchLinux: "Arch Linux",
@@ -125,13 +125,3 @@ export const NetworkV6Type = {
  * **Note**: IPv6 private  networking is not currently supported.
  */
 export type NetworkV6Type = (typeof NetworkV6Type)[keyof typeof NetworkV6Type];
-
-export const UnassignFloatingIPsActionType = {
-    Assign: "assign",
-    Unassign: "unassign",
-} as const;
-
-/**
- * The type of action to initiate for the floating IP.
- */
-export type UnassignFloatingIPsActionType = (typeof UnassignFloatingIPsActionType)[keyof typeof UnassignFloatingIPsActionType];

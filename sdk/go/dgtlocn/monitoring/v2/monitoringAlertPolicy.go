@@ -15,16 +15,16 @@ import (
 type MonitoringAlertPolicy struct {
 	pulumi.CustomResourceState
 
-	Alerts      AlertsOutput                       `pulumi:"alerts"`
-	Compare     MonitoringAlertPolicyCompareOutput `pulumi:"compare"`
-	Description pulumi.StringOutput                `pulumi:"description"`
-	Enabled     pulumi.BoolOutput                  `pulumi:"enabled"`
-	Entities    pulumi.StringArrayOutput           `pulumi:"entities"`
-	Policy      AlertPolicyPtrOutput               `pulumi:"policy"`
-	Tags        pulumi.StringArrayOutput           `pulumi:"tags"`
-	Type        MonitoringAlertPolicyTypeOutput    `pulumi:"type"`
-	Value       pulumi.Float64Output               `pulumi:"value"`
-	Window      MonitoringAlertPolicyWindowOutput  `pulumi:"window"`
+	Alerts      AlertsOutput             `pulumi:"alerts"`
+	Compare     CompareOutput            `pulumi:"compare"`
+	Description pulumi.StringOutput      `pulumi:"description"`
+	Enabled     pulumi.BoolOutput        `pulumi:"enabled"`
+	Entities    pulumi.StringArrayOutput `pulumi:"entities"`
+	Policy      AlertPolicyPtrOutput     `pulumi:"policy"`
+	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
+	Type        TypeOutput               `pulumi:"type"`
+	Value       pulumi.Float64Output     `pulumi:"value"`
+	Window      WindowOutput             `pulumi:"window"`
 }
 
 // NewMonitoringAlertPolicy registers a new resource with the given unique name, arguments, and options.
@@ -94,28 +94,28 @@ func (MonitoringAlertPolicyState) ElementType() reflect.Type {
 }
 
 type monitoringAlertPolicyArgs struct {
-	Alerts      Alerts                       `pulumi:"alerts"`
-	Compare     MonitoringAlertPolicyCompare `pulumi:"compare"`
-	Description string                       `pulumi:"description"`
-	Enabled     bool                         `pulumi:"enabled"`
-	Entities    []string                     `pulumi:"entities"`
-	Tags        []string                     `pulumi:"tags"`
-	Type        MonitoringAlertPolicyType    `pulumi:"type"`
-	Value       float64                      `pulumi:"value"`
-	Window      MonitoringAlertPolicyWindow  `pulumi:"window"`
+	Alerts      Alerts   `pulumi:"alerts"`
+	Compare     Compare  `pulumi:"compare"`
+	Description string   `pulumi:"description"`
+	Enabled     bool     `pulumi:"enabled"`
+	Entities    []string `pulumi:"entities"`
+	Tags        []string `pulumi:"tags"`
+	Type        Type     `pulumi:"type"`
+	Value       float64  `pulumi:"value"`
+	Window      Window   `pulumi:"window"`
 }
 
 // The set of arguments for constructing a MonitoringAlertPolicy resource.
 type MonitoringAlertPolicyArgs struct {
 	Alerts      AlertsInput
-	Compare     MonitoringAlertPolicyCompareInput
+	Compare     CompareInput
 	Description pulumi.StringInput
 	Enabled     pulumi.BoolInput
 	Entities    pulumi.StringArrayInput
 	Tags        pulumi.StringArrayInput
-	Type        MonitoringAlertPolicyTypeInput
+	Type        TypeInput
 	Value       pulumi.Float64Input
-	Window      MonitoringAlertPolicyWindowInput
+	Window      WindowInput
 }
 
 func (MonitoringAlertPolicyArgs) ElementType() reflect.Type {
@@ -159,8 +159,8 @@ func (o MonitoringAlertPolicyOutput) Alerts() AlertsOutput {
 	return o.ApplyT(func(v *MonitoringAlertPolicy) AlertsOutput { return v.Alerts }).(AlertsOutput)
 }
 
-func (o MonitoringAlertPolicyOutput) Compare() MonitoringAlertPolicyCompareOutput {
-	return o.ApplyT(func(v *MonitoringAlertPolicy) MonitoringAlertPolicyCompareOutput { return v.Compare }).(MonitoringAlertPolicyCompareOutput)
+func (o MonitoringAlertPolicyOutput) Compare() CompareOutput {
+	return o.ApplyT(func(v *MonitoringAlertPolicy) CompareOutput { return v.Compare }).(CompareOutput)
 }
 
 func (o MonitoringAlertPolicyOutput) Description() pulumi.StringOutput {
@@ -183,16 +183,16 @@ func (o MonitoringAlertPolicyOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitoringAlertPolicy) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-func (o MonitoringAlertPolicyOutput) Type() MonitoringAlertPolicyTypeOutput {
-	return o.ApplyT(func(v *MonitoringAlertPolicy) MonitoringAlertPolicyTypeOutput { return v.Type }).(MonitoringAlertPolicyTypeOutput)
+func (o MonitoringAlertPolicyOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *MonitoringAlertPolicy) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func (o MonitoringAlertPolicyOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v *MonitoringAlertPolicy) pulumi.Float64Output { return v.Value }).(pulumi.Float64Output)
 }
 
-func (o MonitoringAlertPolicyOutput) Window() MonitoringAlertPolicyWindowOutput {
-	return o.ApplyT(func(v *MonitoringAlertPolicy) MonitoringAlertPolicyWindowOutput { return v.Window }).(MonitoringAlertPolicyWindowOutput)
+func (o MonitoringAlertPolicyOutput) Window() WindowOutput {
+	return o.ApplyT(func(v *MonitoringAlertPolicy) WindowOutput { return v.Window }).(WindowOutput)
 }
 
 func init() {

@@ -19,7 +19,7 @@ type Unassign struct {
 	// The ID of the Droplet that the reserved IP will be unassigned from.
 	DropletId pulumi.IntOutput `pulumi:"dropletId"`
 	// The type of action to initiate for the reserved IP.
-	Type UnassignReservedIpActionTypeTypePtrOutput `pulumi:"type"`
+	Type ReservedIpActionTypeTypePtrOutput `pulumi:"type"`
 }
 
 // NewUnassign registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type unassignArgs struct {
 	// A reserved IP address.
 	ReservedIp *string `pulumi:"reservedIp"`
 	// The type of action to initiate for the reserved IP.
-	Type UnassignReservedIpActionTypeType `pulumi:"type"`
+	Type ReservedIpActionTypeType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Unassign resource.
@@ -80,7 +80,7 @@ type UnassignArgs struct {
 	// A reserved IP address.
 	ReservedIp pulumi.StringPtrInput
 	// The type of action to initiate for the reserved IP.
-	Type UnassignReservedIpActionTypeTypeInput
+	Type ReservedIpActionTypeTypeInput
 }
 
 func (UnassignArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o UnassignOutput) DropletId() pulumi.IntOutput {
 }
 
 // The type of action to initiate for the reserved IP.
-func (o UnassignOutput) Type() UnassignReservedIpActionTypeTypePtrOutput {
-	return o.ApplyT(func(v *Unassign) UnassignReservedIpActionTypeTypePtrOutput { return v.Type }).(UnassignReservedIpActionTypeTypePtrOutput)
+func (o UnassignOutput) Type() ReservedIpActionTypeTypePtrOutput {
+	return o.ApplyT(func(v *Unassign) ReservedIpActionTypeTypePtrOutput { return v.Type }).(ReservedIpActionTypeTypePtrOutput)
 }
 
 func init() {

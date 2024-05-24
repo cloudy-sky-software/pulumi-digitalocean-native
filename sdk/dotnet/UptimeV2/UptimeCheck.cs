@@ -31,7 +31,7 @@ namespace Pulumi.DigitalOceanNative.UptimeV2
         /// An array containing the selected regions to perform healthchecks from.
         /// </summary>
         [Output("regions")]
-        public Output<ImmutableArray<Pulumi.DigitalOceanNative.UptimeV2.UptimeCheckCheckUpdatableRegionsItem>> Regions { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.DigitalOceanNative.UptimeV2.CheckUpdatableRegionsItem>> Regions { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint to perform healthchecks on.
@@ -43,7 +43,7 @@ namespace Pulumi.DigitalOceanNative.UptimeV2
         /// The type of health check to perform.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.UptimeV2.UptimeCheckCheckUpdatableType> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.UptimeV2.CheckUpdatableType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -104,14 +104,14 @@ namespace Pulumi.DigitalOceanNative.UptimeV2
         public Input<string>? Name { get; set; }
 
         [Input("regions")]
-        private InputList<Pulumi.DigitalOceanNative.UptimeV2.UptimeCheckCheckUpdatableRegionsItem>? _regions;
+        private InputList<Pulumi.DigitalOceanNative.UptimeV2.CheckUpdatableRegionsItem>? _regions;
 
         /// <summary>
         /// An array containing the selected regions to perform healthchecks from.
         /// </summary>
-        public InputList<Pulumi.DigitalOceanNative.UptimeV2.UptimeCheckCheckUpdatableRegionsItem> Regions
+        public InputList<Pulumi.DigitalOceanNative.UptimeV2.CheckUpdatableRegionsItem> Regions
         {
-            get => _regions ?? (_regions = new InputList<Pulumi.DigitalOceanNative.UptimeV2.UptimeCheckCheckUpdatableRegionsItem>());
+            get => _regions ?? (_regions = new InputList<Pulumi.DigitalOceanNative.UptimeV2.CheckUpdatableRegionsItem>());
             set => _regions = value;
         }
 
@@ -125,7 +125,7 @@ namespace Pulumi.DigitalOceanNative.UptimeV2
         /// The type of health check to perform.
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.DigitalOceanNative.UptimeV2.UptimeCheckCheckUpdatableType>? Type { get; set; }
+        public Input<Pulumi.DigitalOceanNative.UptimeV2.CheckUpdatableType>? Type { get; set; }
 
         public UptimeCheckArgs()
         {

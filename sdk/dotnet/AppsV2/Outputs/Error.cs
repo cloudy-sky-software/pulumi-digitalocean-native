@@ -28,7 +28,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         ///   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
         ///   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateRollbackAppRollbackValidationConditionCode? Code;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppRollbackValidationConditionCode? Code;
         public readonly ImmutableArray<string> Components;
         /// <summary>
         /// A human-readable message describing the failing condition.
@@ -37,7 +37,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
 
         [OutputConstructor]
         private Error(
-            Pulumi.DigitalOceanNative.AppsV2.AppsValidateRollbackAppRollbackValidationConditionCode? code,
+            Pulumi.DigitalOceanNative.AppsV2.AppRollbackValidationConditionCode? code,
 
             ImmutableArray<string> components,
 

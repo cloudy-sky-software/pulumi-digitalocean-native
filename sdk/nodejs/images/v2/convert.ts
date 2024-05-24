@@ -55,7 +55,7 @@ export class Convert extends pulumi.CustomResource {
     /**
      * The current status of the action. This can be "in-progress", "completed", or "errored".
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.images.v2.ConvertStatus | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<enums.images.v2.Status | undefined>;
     /**
      * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
      */
@@ -110,5 +110,5 @@ export interface ConvertArgs {
     /**
      * The action to be taken on the image. Can be either `convert` or `transfer`.
      */
-    type: pulumi.Input<enums.images.v2.ConvertType>;
+    type: pulumi.Input<enums.images.v2.Type>;
 }

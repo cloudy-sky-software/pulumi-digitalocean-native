@@ -40,38 +40,6 @@ namespace Pulumi.DigitalOceanNative.ProjectsV2
     }
 
     /// <summary>
-    /// The environment of the project's resources.
-    /// </summary>
-    [EnumType]
-    public readonly struct ProjectsProjectBaseEnvironment : IEquatable<ProjectsProjectBaseEnvironment>
-    {
-        private readonly string _value;
-
-        private ProjectsProjectBaseEnvironment(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProjectsProjectBaseEnvironment Development { get; } = new ProjectsProjectBaseEnvironment("Development");
-        public static ProjectsProjectBaseEnvironment Staging { get; } = new ProjectsProjectBaseEnvironment("Staging");
-        public static ProjectsProjectBaseEnvironment Production { get; } = new ProjectsProjectBaseEnvironment("Production");
-
-        public static bool operator ==(ProjectsProjectBaseEnvironment left, ProjectsProjectBaseEnvironment right) => left.Equals(right);
-        public static bool operator !=(ProjectsProjectBaseEnvironment left, ProjectsProjectBaseEnvironment right) => !left.Equals(right);
-
-        public static explicit operator string(ProjectsProjectBaseEnvironment value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProjectsProjectBaseEnvironment other && Equals(other);
-        public bool Equals(ProjectsProjectBaseEnvironment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The status of assigning and fetching the resources.
     /// </summary>
     [EnumType]

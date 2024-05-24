@@ -40,231 +40,6 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
     }
 
     /// <summary>
-    /// The slug identifier for the region where the resource will initially be  available.
-    /// </summary>
-    [EnumType]
-    public readonly struct AttachVolumeActionCreateBaseRegion : IEquatable<AttachVolumeActionCreateBaseRegion>
-    {
-        private readonly string _value;
-
-        private AttachVolumeActionCreateBaseRegion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AttachVolumeActionCreateBaseRegion Ams1 { get; } = new AttachVolumeActionCreateBaseRegion("ams1");
-        public static AttachVolumeActionCreateBaseRegion Ams2 { get; } = new AttachVolumeActionCreateBaseRegion("ams2");
-        public static AttachVolumeActionCreateBaseRegion Ams3 { get; } = new AttachVolumeActionCreateBaseRegion("ams3");
-        public static AttachVolumeActionCreateBaseRegion Blr1 { get; } = new AttachVolumeActionCreateBaseRegion("blr1");
-        public static AttachVolumeActionCreateBaseRegion Fra1 { get; } = new AttachVolumeActionCreateBaseRegion("fra1");
-        public static AttachVolumeActionCreateBaseRegion Lon1 { get; } = new AttachVolumeActionCreateBaseRegion("lon1");
-        public static AttachVolumeActionCreateBaseRegion Nyc1 { get; } = new AttachVolumeActionCreateBaseRegion("nyc1");
-        public static AttachVolumeActionCreateBaseRegion Nyc2 { get; } = new AttachVolumeActionCreateBaseRegion("nyc2");
-        public static AttachVolumeActionCreateBaseRegion Nyc3 { get; } = new AttachVolumeActionCreateBaseRegion("nyc3");
-        public static AttachVolumeActionCreateBaseRegion Sfo1 { get; } = new AttachVolumeActionCreateBaseRegion("sfo1");
-        public static AttachVolumeActionCreateBaseRegion Sfo2 { get; } = new AttachVolumeActionCreateBaseRegion("sfo2");
-        public static AttachVolumeActionCreateBaseRegion Sfo3 { get; } = new AttachVolumeActionCreateBaseRegion("sfo3");
-        public static AttachVolumeActionCreateBaseRegion Sgp1 { get; } = new AttachVolumeActionCreateBaseRegion("sgp1");
-        public static AttachVolumeActionCreateBaseRegion Tor1 { get; } = new AttachVolumeActionCreateBaseRegion("tor1");
-
-        public static bool operator ==(AttachVolumeActionCreateBaseRegion left, AttachVolumeActionCreateBaseRegion right) => left.Equals(right);
-        public static bool operator !=(AttachVolumeActionCreateBaseRegion left, AttachVolumeActionCreateBaseRegion right) => !left.Equals(right);
-
-        public static explicit operator string(AttachVolumeActionCreateBaseRegion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AttachVolumeActionCreateBaseRegion other && Equals(other);
-        public bool Equals(AttachVolumeActionCreateBaseRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The volume action to initiate.
-    /// </summary>
-    [EnumType]
-    public readonly struct AttachVolumeActionCreateBaseType : IEquatable<AttachVolumeActionCreateBaseType>
-    {
-        private readonly string _value;
-
-        private AttachVolumeActionCreateBaseType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AttachVolumeActionCreateBaseType Attach { get; } = new AttachVolumeActionCreateBaseType("attach");
-        public static AttachVolumeActionCreateBaseType Detach { get; } = new AttachVolumeActionCreateBaseType("detach");
-        public static AttachVolumeActionCreateBaseType Resize { get; } = new AttachVolumeActionCreateBaseType("resize");
-
-        public static bool operator ==(AttachVolumeActionCreateBaseType left, AttachVolumeActionCreateBaseType right) => left.Equals(right);
-        public static bool operator !=(AttachVolumeActionCreateBaseType left, AttachVolumeActionCreateBaseType right) => !left.Equals(right);
-
-        public static explicit operator string(AttachVolumeActionCreateBaseType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AttachVolumeActionCreateBaseType other && Equals(other);
-        public bool Equals(AttachVolumeActionCreateBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The slug identifier for the region where the resource will initially be  available.
-    /// </summary>
-    [EnumType]
-    public readonly struct DetachVolumeActionCreateBaseRegion : IEquatable<DetachVolumeActionCreateBaseRegion>
-    {
-        private readonly string _value;
-
-        private DetachVolumeActionCreateBaseRegion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DetachVolumeActionCreateBaseRegion Ams1 { get; } = new DetachVolumeActionCreateBaseRegion("ams1");
-        public static DetachVolumeActionCreateBaseRegion Ams2 { get; } = new DetachVolumeActionCreateBaseRegion("ams2");
-        public static DetachVolumeActionCreateBaseRegion Ams3 { get; } = new DetachVolumeActionCreateBaseRegion("ams3");
-        public static DetachVolumeActionCreateBaseRegion Blr1 { get; } = new DetachVolumeActionCreateBaseRegion("blr1");
-        public static DetachVolumeActionCreateBaseRegion Fra1 { get; } = new DetachVolumeActionCreateBaseRegion("fra1");
-        public static DetachVolumeActionCreateBaseRegion Lon1 { get; } = new DetachVolumeActionCreateBaseRegion("lon1");
-        public static DetachVolumeActionCreateBaseRegion Nyc1 { get; } = new DetachVolumeActionCreateBaseRegion("nyc1");
-        public static DetachVolumeActionCreateBaseRegion Nyc2 { get; } = new DetachVolumeActionCreateBaseRegion("nyc2");
-        public static DetachVolumeActionCreateBaseRegion Nyc3 { get; } = new DetachVolumeActionCreateBaseRegion("nyc3");
-        public static DetachVolumeActionCreateBaseRegion Sfo1 { get; } = new DetachVolumeActionCreateBaseRegion("sfo1");
-        public static DetachVolumeActionCreateBaseRegion Sfo2 { get; } = new DetachVolumeActionCreateBaseRegion("sfo2");
-        public static DetachVolumeActionCreateBaseRegion Sfo3 { get; } = new DetachVolumeActionCreateBaseRegion("sfo3");
-        public static DetachVolumeActionCreateBaseRegion Sgp1 { get; } = new DetachVolumeActionCreateBaseRegion("sgp1");
-        public static DetachVolumeActionCreateBaseRegion Tor1 { get; } = new DetachVolumeActionCreateBaseRegion("tor1");
-
-        public static bool operator ==(DetachVolumeActionCreateBaseRegion left, DetachVolumeActionCreateBaseRegion right) => left.Equals(right);
-        public static bool operator !=(DetachVolumeActionCreateBaseRegion left, DetachVolumeActionCreateBaseRegion right) => !left.Equals(right);
-
-        public static explicit operator string(DetachVolumeActionCreateBaseRegion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DetachVolumeActionCreateBaseRegion other && Equals(other);
-        public bool Equals(DetachVolumeActionCreateBaseRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The volume action to initiate.
-    /// </summary>
-    [EnumType]
-    public readonly struct DetachVolumeActionCreateBaseType : IEquatable<DetachVolumeActionCreateBaseType>
-    {
-        private readonly string _value;
-
-        private DetachVolumeActionCreateBaseType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DetachVolumeActionCreateBaseType Attach { get; } = new DetachVolumeActionCreateBaseType("attach");
-        public static DetachVolumeActionCreateBaseType Detach { get; } = new DetachVolumeActionCreateBaseType("detach");
-        public static DetachVolumeActionCreateBaseType Resize { get; } = new DetachVolumeActionCreateBaseType("resize");
-
-        public static bool operator ==(DetachVolumeActionCreateBaseType left, DetachVolumeActionCreateBaseType right) => left.Equals(right);
-        public static bool operator !=(DetachVolumeActionCreateBaseType left, DetachVolumeActionCreateBaseType right) => !left.Equals(right);
-
-        public static explicit operator string(DetachVolumeActionCreateBaseType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DetachVolumeActionCreateBaseType other && Equals(other);
-        public bool Equals(DetachVolumeActionCreateBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The slug identifier for the region where the resource will initially be  available.
-    /// </summary>
-    [EnumType]
-    public readonly struct ResizeVolumeActionCreateBaseRegion : IEquatable<ResizeVolumeActionCreateBaseRegion>
-    {
-        private readonly string _value;
-
-        private ResizeVolumeActionCreateBaseRegion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ResizeVolumeActionCreateBaseRegion Ams1 { get; } = new ResizeVolumeActionCreateBaseRegion("ams1");
-        public static ResizeVolumeActionCreateBaseRegion Ams2 { get; } = new ResizeVolumeActionCreateBaseRegion("ams2");
-        public static ResizeVolumeActionCreateBaseRegion Ams3 { get; } = new ResizeVolumeActionCreateBaseRegion("ams3");
-        public static ResizeVolumeActionCreateBaseRegion Blr1 { get; } = new ResizeVolumeActionCreateBaseRegion("blr1");
-        public static ResizeVolumeActionCreateBaseRegion Fra1 { get; } = new ResizeVolumeActionCreateBaseRegion("fra1");
-        public static ResizeVolumeActionCreateBaseRegion Lon1 { get; } = new ResizeVolumeActionCreateBaseRegion("lon1");
-        public static ResizeVolumeActionCreateBaseRegion Nyc1 { get; } = new ResizeVolumeActionCreateBaseRegion("nyc1");
-        public static ResizeVolumeActionCreateBaseRegion Nyc2 { get; } = new ResizeVolumeActionCreateBaseRegion("nyc2");
-        public static ResizeVolumeActionCreateBaseRegion Nyc3 { get; } = new ResizeVolumeActionCreateBaseRegion("nyc3");
-        public static ResizeVolumeActionCreateBaseRegion Sfo1 { get; } = new ResizeVolumeActionCreateBaseRegion("sfo1");
-        public static ResizeVolumeActionCreateBaseRegion Sfo2 { get; } = new ResizeVolumeActionCreateBaseRegion("sfo2");
-        public static ResizeVolumeActionCreateBaseRegion Sfo3 { get; } = new ResizeVolumeActionCreateBaseRegion("sfo3");
-        public static ResizeVolumeActionCreateBaseRegion Sgp1 { get; } = new ResizeVolumeActionCreateBaseRegion("sgp1");
-        public static ResizeVolumeActionCreateBaseRegion Tor1 { get; } = new ResizeVolumeActionCreateBaseRegion("tor1");
-
-        public static bool operator ==(ResizeVolumeActionCreateBaseRegion left, ResizeVolumeActionCreateBaseRegion right) => left.Equals(right);
-        public static bool operator !=(ResizeVolumeActionCreateBaseRegion left, ResizeVolumeActionCreateBaseRegion right) => !left.Equals(right);
-
-        public static explicit operator string(ResizeVolumeActionCreateBaseRegion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResizeVolumeActionCreateBaseRegion other && Equals(other);
-        public bool Equals(ResizeVolumeActionCreateBaseRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The volume action to initiate.
-    /// </summary>
-    [EnumType]
-    public readonly struct ResizeVolumeActionCreateBaseType : IEquatable<ResizeVolumeActionCreateBaseType>
-    {
-        private readonly string _value;
-
-        private ResizeVolumeActionCreateBaseType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ResizeVolumeActionCreateBaseType Attach { get; } = new ResizeVolumeActionCreateBaseType("attach");
-        public static ResizeVolumeActionCreateBaseType Detach { get; } = new ResizeVolumeActionCreateBaseType("detach");
-        public static ResizeVolumeActionCreateBaseType Resize { get; } = new ResizeVolumeActionCreateBaseType("resize");
-
-        public static bool operator ==(ResizeVolumeActionCreateBaseType left, ResizeVolumeActionCreateBaseType right) => left.Equals(right);
-        public static bool operator !=(ResizeVolumeActionCreateBaseType left, ResizeVolumeActionCreateBaseType right) => !left.Equals(right);
-
-        public static explicit operator string(ResizeVolumeActionCreateBaseType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResizeVolumeActionCreateBaseType other && Equals(other);
-        public bool Equals(ResizeVolumeActionCreateBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of resource that the snapshot originated from.
     /// </summary>
     [EnumType]
@@ -288,6 +63,81 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SnapshotsPropertiesResourceType other && Equals(other);
         public bool Equals(SnapshotsPropertiesResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The slug identifier for the region where the resource will initially be  available.
+    /// </summary>
+    [EnumType]
+    public readonly struct VolumeActionCreateBaseRegion : IEquatable<VolumeActionCreateBaseRegion>
+    {
+        private readonly string _value;
+
+        private VolumeActionCreateBaseRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VolumeActionCreateBaseRegion Ams1 { get; } = new VolumeActionCreateBaseRegion("ams1");
+        public static VolumeActionCreateBaseRegion Ams2 { get; } = new VolumeActionCreateBaseRegion("ams2");
+        public static VolumeActionCreateBaseRegion Ams3 { get; } = new VolumeActionCreateBaseRegion("ams3");
+        public static VolumeActionCreateBaseRegion Blr1 { get; } = new VolumeActionCreateBaseRegion("blr1");
+        public static VolumeActionCreateBaseRegion Fra1 { get; } = new VolumeActionCreateBaseRegion("fra1");
+        public static VolumeActionCreateBaseRegion Lon1 { get; } = new VolumeActionCreateBaseRegion("lon1");
+        public static VolumeActionCreateBaseRegion Nyc1 { get; } = new VolumeActionCreateBaseRegion("nyc1");
+        public static VolumeActionCreateBaseRegion Nyc2 { get; } = new VolumeActionCreateBaseRegion("nyc2");
+        public static VolumeActionCreateBaseRegion Nyc3 { get; } = new VolumeActionCreateBaseRegion("nyc3");
+        public static VolumeActionCreateBaseRegion Sfo1 { get; } = new VolumeActionCreateBaseRegion("sfo1");
+        public static VolumeActionCreateBaseRegion Sfo2 { get; } = new VolumeActionCreateBaseRegion("sfo2");
+        public static VolumeActionCreateBaseRegion Sfo3 { get; } = new VolumeActionCreateBaseRegion("sfo3");
+        public static VolumeActionCreateBaseRegion Sgp1 { get; } = new VolumeActionCreateBaseRegion("sgp1");
+        public static VolumeActionCreateBaseRegion Tor1 { get; } = new VolumeActionCreateBaseRegion("tor1");
+
+        public static bool operator ==(VolumeActionCreateBaseRegion left, VolumeActionCreateBaseRegion right) => left.Equals(right);
+        public static bool operator !=(VolumeActionCreateBaseRegion left, VolumeActionCreateBaseRegion right) => !left.Equals(right);
+
+        public static explicit operator string(VolumeActionCreateBaseRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VolumeActionCreateBaseRegion other && Equals(other);
+        public bool Equals(VolumeActionCreateBaseRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The volume action to initiate.
+    /// </summary>
+    [EnumType]
+    public readonly struct VolumeActionCreateBaseType : IEquatable<VolumeActionCreateBaseType>
+    {
+        private readonly string _value;
+
+        private VolumeActionCreateBaseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VolumeActionCreateBaseType Attach { get; } = new VolumeActionCreateBaseType("attach");
+        public static VolumeActionCreateBaseType Detach { get; } = new VolumeActionCreateBaseType("detach");
+        public static VolumeActionCreateBaseType Resize { get; } = new VolumeActionCreateBaseType("resize");
+
+        public static bool operator ==(VolumeActionCreateBaseType left, VolumeActionCreateBaseType right) => left.Equals(right);
+        public static bool operator !=(VolumeActionCreateBaseType left, VolumeActionCreateBaseType right) => !left.Equals(right);
+
+        public static explicit operator string(VolumeActionCreateBaseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VolumeActionCreateBaseType other && Equals(other);
+        public bool Equals(VolumeActionCreateBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

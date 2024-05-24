@@ -102,172 +102,6 @@ func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of action to initiate for the reserved IP.
-type AssignReservedIpActionTypeType string
-
-const (
-	AssignReservedIpActionTypeTypeAssign   = AssignReservedIpActionTypeType("assign")
-	AssignReservedIpActionTypeTypeUnassign = AssignReservedIpActionTypeType("unassign")
-)
-
-func (AssignReservedIpActionTypeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignReservedIpActionTypeType)(nil)).Elem()
-}
-
-func (e AssignReservedIpActionTypeType) ToAssignReservedIpActionTypeTypeOutput() AssignReservedIpActionTypeTypeOutput {
-	return pulumi.ToOutput(e).(AssignReservedIpActionTypeTypeOutput)
-}
-
-func (e AssignReservedIpActionTypeType) ToAssignReservedIpActionTypeTypeOutputWithContext(ctx context.Context) AssignReservedIpActionTypeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AssignReservedIpActionTypeTypeOutput)
-}
-
-func (e AssignReservedIpActionTypeType) ToAssignReservedIpActionTypeTypePtrOutput() AssignReservedIpActionTypeTypePtrOutput {
-	return e.ToAssignReservedIpActionTypeTypePtrOutputWithContext(context.Background())
-}
-
-func (e AssignReservedIpActionTypeType) ToAssignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) AssignReservedIpActionTypeTypePtrOutput {
-	return AssignReservedIpActionTypeType(e).ToAssignReservedIpActionTypeTypeOutputWithContext(ctx).ToAssignReservedIpActionTypeTypePtrOutputWithContext(ctx)
-}
-
-func (e AssignReservedIpActionTypeType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssignReservedIpActionTypeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssignReservedIpActionTypeType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AssignReservedIpActionTypeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AssignReservedIpActionTypeTypeOutput struct{ *pulumi.OutputState }
-
-func (AssignReservedIpActionTypeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignReservedIpActionTypeType)(nil)).Elem()
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToAssignReservedIpActionTypeTypeOutput() AssignReservedIpActionTypeTypeOutput {
-	return o
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToAssignReservedIpActionTypeTypeOutputWithContext(ctx context.Context) AssignReservedIpActionTypeTypeOutput {
-	return o
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToAssignReservedIpActionTypeTypePtrOutput() AssignReservedIpActionTypeTypePtrOutput {
-	return o.ToAssignReservedIpActionTypeTypePtrOutputWithContext(context.Background())
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToAssignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) AssignReservedIpActionTypeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignReservedIpActionTypeType) *AssignReservedIpActionTypeType {
-		return &v
-	}).(AssignReservedIpActionTypeTypePtrOutput)
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssignReservedIpActionTypeType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssignReservedIpActionTypeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssignReservedIpActionTypeType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AssignReservedIpActionTypeTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AssignReservedIpActionTypeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignReservedIpActionTypeType)(nil)).Elem()
-}
-
-func (o AssignReservedIpActionTypeTypePtrOutput) ToAssignReservedIpActionTypeTypePtrOutput() AssignReservedIpActionTypeTypePtrOutput {
-	return o
-}
-
-func (o AssignReservedIpActionTypeTypePtrOutput) ToAssignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) AssignReservedIpActionTypeTypePtrOutput {
-	return o
-}
-
-func (o AssignReservedIpActionTypeTypePtrOutput) Elem() AssignReservedIpActionTypeTypeOutput {
-	return o.ApplyT(func(v *AssignReservedIpActionTypeType) AssignReservedIpActionTypeType {
-		if v != nil {
-			return *v
-		}
-		var ret AssignReservedIpActionTypeType
-		return ret
-	}).(AssignReservedIpActionTypeTypeOutput)
-}
-
-func (o AssignReservedIpActionTypeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssignReservedIpActionTypeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssignReservedIpActionTypeType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AssignReservedIpActionTypeTypeInput is an input type that accepts values of the AssignReservedIpActionTypeType enum
-// A concrete instance of `AssignReservedIpActionTypeTypeInput` can be one of the following:
-//
-//	AssignReservedIpActionTypeTypeAssign
-//	AssignReservedIpActionTypeTypeUnassign
-type AssignReservedIpActionTypeTypeInput interface {
-	pulumi.Input
-
-	ToAssignReservedIpActionTypeTypeOutput() AssignReservedIpActionTypeTypeOutput
-	ToAssignReservedIpActionTypeTypeOutputWithContext(context.Context) AssignReservedIpActionTypeTypeOutput
-}
-
-var assignReservedIpActionTypeTypePtrType = reflect.TypeOf((**AssignReservedIpActionTypeType)(nil)).Elem()
-
-type AssignReservedIpActionTypeTypePtrInput interface {
-	pulumi.Input
-
-	ToAssignReservedIpActionTypeTypePtrOutput() AssignReservedIpActionTypeTypePtrOutput
-	ToAssignReservedIpActionTypeTypePtrOutputWithContext(context.Context) AssignReservedIpActionTypeTypePtrOutput
-}
-
-type assignReservedIpActionTypeTypePtr string
-
-func AssignReservedIpActionTypeTypePtr(v string) AssignReservedIpActionTypeTypePtrInput {
-	return (*assignReservedIpActionTypeTypePtr)(&v)
-}
-
-func (*assignReservedIpActionTypeTypePtr) ElementType() reflect.Type {
-	return assignReservedIpActionTypeTypePtrType
-}
-
-func (in *assignReservedIpActionTypeTypePtr) ToAssignReservedIpActionTypeTypePtrOutput() AssignReservedIpActionTypeTypePtrOutput {
-	return pulumi.ToOutput(in).(AssignReservedIpActionTypeTypePtrOutput)
-}
-
-func (in *assignReservedIpActionTypeTypePtr) ToAssignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) AssignReservedIpActionTypeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AssignReservedIpActionTypeTypePtrOutput)
-}
-
 // A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
 type DropletStatus string
 
@@ -960,124 +794,124 @@ func (o NetworkV6TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 }
 
 // The type of action to initiate for the reserved IP.
-type UnassignReservedIpActionTypeType string
+type ReservedIpActionTypeType string
 
 const (
-	UnassignReservedIpActionTypeTypeAssign   = UnassignReservedIpActionTypeType("assign")
-	UnassignReservedIpActionTypeTypeUnassign = UnassignReservedIpActionTypeType("unassign")
+	ReservedIpActionTypeTypeAssign   = ReservedIpActionTypeType("assign")
+	ReservedIpActionTypeTypeUnassign = ReservedIpActionTypeType("unassign")
 )
 
-func (UnassignReservedIpActionTypeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnassignReservedIpActionTypeType)(nil)).Elem()
+func (ReservedIpActionTypeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedIpActionTypeType)(nil)).Elem()
 }
 
-func (e UnassignReservedIpActionTypeType) ToUnassignReservedIpActionTypeTypeOutput() UnassignReservedIpActionTypeTypeOutput {
-	return pulumi.ToOutput(e).(UnassignReservedIpActionTypeTypeOutput)
+func (e ReservedIpActionTypeType) ToReservedIpActionTypeTypeOutput() ReservedIpActionTypeTypeOutput {
+	return pulumi.ToOutput(e).(ReservedIpActionTypeTypeOutput)
 }
 
-func (e UnassignReservedIpActionTypeType) ToUnassignReservedIpActionTypeTypeOutputWithContext(ctx context.Context) UnassignReservedIpActionTypeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(UnassignReservedIpActionTypeTypeOutput)
+func (e ReservedIpActionTypeType) ToReservedIpActionTypeTypeOutputWithContext(ctx context.Context) ReservedIpActionTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReservedIpActionTypeTypeOutput)
 }
 
-func (e UnassignReservedIpActionTypeType) ToUnassignReservedIpActionTypeTypePtrOutput() UnassignReservedIpActionTypeTypePtrOutput {
-	return e.ToUnassignReservedIpActionTypeTypePtrOutputWithContext(context.Background())
+func (e ReservedIpActionTypeType) ToReservedIpActionTypeTypePtrOutput() ReservedIpActionTypeTypePtrOutput {
+	return e.ToReservedIpActionTypeTypePtrOutputWithContext(context.Background())
 }
 
-func (e UnassignReservedIpActionTypeType) ToUnassignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) UnassignReservedIpActionTypeTypePtrOutput {
-	return UnassignReservedIpActionTypeType(e).ToUnassignReservedIpActionTypeTypeOutputWithContext(ctx).ToUnassignReservedIpActionTypeTypePtrOutputWithContext(ctx)
+func (e ReservedIpActionTypeType) ToReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) ReservedIpActionTypeTypePtrOutput {
+	return ReservedIpActionTypeType(e).ToReservedIpActionTypeTypeOutputWithContext(ctx).ToReservedIpActionTypeTypePtrOutputWithContext(ctx)
 }
 
-func (e UnassignReservedIpActionTypeType) ToStringOutput() pulumi.StringOutput {
+func (e ReservedIpActionTypeType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e UnassignReservedIpActionTypeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ReservedIpActionTypeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e UnassignReservedIpActionTypeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ReservedIpActionTypeType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e UnassignReservedIpActionTypeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ReservedIpActionTypeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type UnassignReservedIpActionTypeTypeOutput struct{ *pulumi.OutputState }
+type ReservedIpActionTypeTypeOutput struct{ *pulumi.OutputState }
 
-func (UnassignReservedIpActionTypeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnassignReservedIpActionTypeType)(nil)).Elem()
+func (ReservedIpActionTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedIpActionTypeType)(nil)).Elem()
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToUnassignReservedIpActionTypeTypeOutput() UnassignReservedIpActionTypeTypeOutput {
+func (o ReservedIpActionTypeTypeOutput) ToReservedIpActionTypeTypeOutput() ReservedIpActionTypeTypeOutput {
 	return o
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToUnassignReservedIpActionTypeTypeOutputWithContext(ctx context.Context) UnassignReservedIpActionTypeTypeOutput {
+func (o ReservedIpActionTypeTypeOutput) ToReservedIpActionTypeTypeOutputWithContext(ctx context.Context) ReservedIpActionTypeTypeOutput {
 	return o
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToUnassignReservedIpActionTypeTypePtrOutput() UnassignReservedIpActionTypeTypePtrOutput {
-	return o.ToUnassignReservedIpActionTypeTypePtrOutputWithContext(context.Background())
+func (o ReservedIpActionTypeTypeOutput) ToReservedIpActionTypeTypePtrOutput() ReservedIpActionTypeTypePtrOutput {
+	return o.ToReservedIpActionTypeTypePtrOutputWithContext(context.Background())
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToUnassignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) UnassignReservedIpActionTypeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnassignReservedIpActionTypeType) *UnassignReservedIpActionTypeType {
+func (o ReservedIpActionTypeTypeOutput) ToReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) ReservedIpActionTypeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReservedIpActionTypeType) *ReservedIpActionTypeType {
 		return &v
-	}).(UnassignReservedIpActionTypeTypePtrOutput)
+	}).(ReservedIpActionTypeTypePtrOutput)
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o ReservedIpActionTypeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UnassignReservedIpActionTypeType) string {
+func (o ReservedIpActionTypeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReservedIpActionTypeType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ReservedIpActionTypeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o UnassignReservedIpActionTypeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UnassignReservedIpActionTypeType) *string {
+func (o ReservedIpActionTypeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReservedIpActionTypeType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type UnassignReservedIpActionTypeTypePtrOutput struct{ *pulumi.OutputState }
+type ReservedIpActionTypeTypePtrOutput struct{ *pulumi.OutputState }
 
-func (UnassignReservedIpActionTypeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UnassignReservedIpActionTypeType)(nil)).Elem()
+func (ReservedIpActionTypeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReservedIpActionTypeType)(nil)).Elem()
 }
 
-func (o UnassignReservedIpActionTypeTypePtrOutput) ToUnassignReservedIpActionTypeTypePtrOutput() UnassignReservedIpActionTypeTypePtrOutput {
+func (o ReservedIpActionTypeTypePtrOutput) ToReservedIpActionTypeTypePtrOutput() ReservedIpActionTypeTypePtrOutput {
 	return o
 }
 
-func (o UnassignReservedIpActionTypeTypePtrOutput) ToUnassignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) UnassignReservedIpActionTypeTypePtrOutput {
+func (o ReservedIpActionTypeTypePtrOutput) ToReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) ReservedIpActionTypeTypePtrOutput {
 	return o
 }
 
-func (o UnassignReservedIpActionTypeTypePtrOutput) Elem() UnassignReservedIpActionTypeTypeOutput {
-	return o.ApplyT(func(v *UnassignReservedIpActionTypeType) UnassignReservedIpActionTypeType {
+func (o ReservedIpActionTypeTypePtrOutput) Elem() ReservedIpActionTypeTypeOutput {
+	return o.ApplyT(func(v *ReservedIpActionTypeType) ReservedIpActionTypeType {
 		if v != nil {
 			return *v
 		}
-		var ret UnassignReservedIpActionTypeType
+		var ret ReservedIpActionTypeType
 		return ret
-	}).(UnassignReservedIpActionTypeTypeOutput)
+	}).(ReservedIpActionTypeTypeOutput)
 }
 
-func (o UnassignReservedIpActionTypeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ReservedIpActionTypeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o UnassignReservedIpActionTypeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UnassignReservedIpActionTypeType) *string {
+func (o ReservedIpActionTypeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReservedIpActionTypeType) *string {
 		if e == nil {
 			return nil
 		}
@@ -1086,54 +920,50 @@ func (o UnassignReservedIpActionTypeTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// UnassignReservedIpActionTypeTypeInput is an input type that accepts values of the UnassignReservedIpActionTypeType enum
-// A concrete instance of `UnassignReservedIpActionTypeTypeInput` can be one of the following:
+// ReservedIpActionTypeTypeInput is an input type that accepts values of the ReservedIpActionTypeType enum
+// A concrete instance of `ReservedIpActionTypeTypeInput` can be one of the following:
 //
-//	UnassignReservedIpActionTypeTypeAssign
-//	UnassignReservedIpActionTypeTypeUnassign
-type UnassignReservedIpActionTypeTypeInput interface {
+//	ReservedIpActionTypeTypeAssign
+//	ReservedIpActionTypeTypeUnassign
+type ReservedIpActionTypeTypeInput interface {
 	pulumi.Input
 
-	ToUnassignReservedIpActionTypeTypeOutput() UnassignReservedIpActionTypeTypeOutput
-	ToUnassignReservedIpActionTypeTypeOutputWithContext(context.Context) UnassignReservedIpActionTypeTypeOutput
+	ToReservedIpActionTypeTypeOutput() ReservedIpActionTypeTypeOutput
+	ToReservedIpActionTypeTypeOutputWithContext(context.Context) ReservedIpActionTypeTypeOutput
 }
 
-var unassignReservedIpActionTypeTypePtrType = reflect.TypeOf((**UnassignReservedIpActionTypeType)(nil)).Elem()
+var reservedIpActionTypeTypePtrType = reflect.TypeOf((**ReservedIpActionTypeType)(nil)).Elem()
 
-type UnassignReservedIpActionTypeTypePtrInput interface {
+type ReservedIpActionTypeTypePtrInput interface {
 	pulumi.Input
 
-	ToUnassignReservedIpActionTypeTypePtrOutput() UnassignReservedIpActionTypeTypePtrOutput
-	ToUnassignReservedIpActionTypeTypePtrOutputWithContext(context.Context) UnassignReservedIpActionTypeTypePtrOutput
+	ToReservedIpActionTypeTypePtrOutput() ReservedIpActionTypeTypePtrOutput
+	ToReservedIpActionTypeTypePtrOutputWithContext(context.Context) ReservedIpActionTypeTypePtrOutput
 }
 
-type unassignReservedIpActionTypeTypePtr string
+type reservedIpActionTypeTypePtr string
 
-func UnassignReservedIpActionTypeTypePtr(v string) UnassignReservedIpActionTypeTypePtrInput {
-	return (*unassignReservedIpActionTypeTypePtr)(&v)
+func ReservedIpActionTypeTypePtr(v string) ReservedIpActionTypeTypePtrInput {
+	return (*reservedIpActionTypeTypePtr)(&v)
 }
 
-func (*unassignReservedIpActionTypeTypePtr) ElementType() reflect.Type {
-	return unassignReservedIpActionTypeTypePtrType
+func (*reservedIpActionTypeTypePtr) ElementType() reflect.Type {
+	return reservedIpActionTypeTypePtrType
 }
 
-func (in *unassignReservedIpActionTypeTypePtr) ToUnassignReservedIpActionTypeTypePtrOutput() UnassignReservedIpActionTypeTypePtrOutput {
-	return pulumi.ToOutput(in).(UnassignReservedIpActionTypeTypePtrOutput)
+func (in *reservedIpActionTypeTypePtr) ToReservedIpActionTypeTypePtrOutput() ReservedIpActionTypeTypePtrOutput {
+	return pulumi.ToOutput(in).(ReservedIpActionTypeTypePtrOutput)
 }
 
-func (in *unassignReservedIpActionTypeTypePtr) ToUnassignReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) UnassignReservedIpActionTypeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(UnassignReservedIpActionTypeTypePtrOutput)
+func (in *reservedIpActionTypeTypePtr) ToReservedIpActionTypeTypePtrOutputWithContext(ctx context.Context) ReservedIpActionTypeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReservedIpActionTypeTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignReservedIpActionTypeTypeInput)(nil)).Elem(), AssignReservedIpActionTypeType("assign"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignReservedIpActionTypeTypePtrInput)(nil)).Elem(), AssignReservedIpActionTypeType("assign"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UnassignReservedIpActionTypeTypeInput)(nil)).Elem(), UnassignReservedIpActionTypeType("assign"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UnassignReservedIpActionTypeTypePtrInput)(nil)).Elem(), UnassignReservedIpActionTypeType("assign"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedIpActionTypeTypeInput)(nil)).Elem(), ReservedIpActionTypeType("assign"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedIpActionTypeTypePtrInput)(nil)).Elem(), ReservedIpActionTypeType("assign"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
-	pulumi.RegisterOutputType(AssignReservedIpActionTypeTypeOutput{})
-	pulumi.RegisterOutputType(AssignReservedIpActionTypeTypePtrOutput{})
 	pulumi.RegisterOutputType(DropletStatusOutput{})
 	pulumi.RegisterOutputType(DropletStatusPtrOutput{})
 	pulumi.RegisterOutputType(ImageDistributionOutput{})
@@ -1149,6 +979,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkV4TypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkV6TypeOutput{})
 	pulumi.RegisterOutputType(NetworkV6TypePtrOutput{})
-	pulumi.RegisterOutputType(UnassignReservedIpActionTypeTypeOutput{})
-	pulumi.RegisterOutputType(UnassignReservedIpActionTypeTypePtrOutput{})
+	pulumi.RegisterOutputType(ReservedIpActionTypeTypeOutput{})
+	pulumi.RegisterOutputType(ReservedIpActionTypeTypePtrOutput{})
 }

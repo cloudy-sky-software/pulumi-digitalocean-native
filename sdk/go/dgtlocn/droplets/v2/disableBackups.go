@@ -18,7 +18,7 @@ type DisableBackups struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type DisableBackupsTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewDisableBackups registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type disableBackupsArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type DisableBackupsType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DisableBackups resource.
@@ -75,7 +75,7 @@ type DisableBackupsArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type DisableBackupsTypeInput
+	Type TypeInput
 }
 
 func (DisableBackupsArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o DisableBackupsOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o DisableBackupsOutput) Type() DisableBackupsTypeOutput {
-	return o.ApplyT(func(v *DisableBackups) DisableBackupsTypeOutput { return v.Type }).(DisableBackupsTypeOutput)
+func (o DisableBackupsOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *DisableBackups) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

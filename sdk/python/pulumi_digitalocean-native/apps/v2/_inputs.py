@@ -75,10 +75,10 @@ class AppAlertSlackWebhookArgs:
 class AppAlertSpecArgs:
     def __init__(__self__, *,
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 operator: Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecOperator']] = None,
-                 rule: Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecRule']] = None,
+                 operator: Optional[pulumi.Input['AppAlertSpecOperator']] = None,
+                 rule: Optional[pulumi.Input['AppAlertSpecRule']] = None,
                  value: Optional[pulumi.Input[float]] = None,
-                 window: Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecWindow']] = None):
+                 window: Optional[pulumi.Input['AppAlertSpecWindow']] = None):
         """
         :param pulumi.Input[bool] disabled: Is the alert disabled?
         :param pulumi.Input[float] value: Threshold value for alert
@@ -114,20 +114,20 @@ class AppAlertSpecArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecOperator']]:
+    def operator(self) -> Optional[pulumi.Input['AppAlertSpecOperator']]:
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecOperator']]):
+    def operator(self, value: Optional[pulumi.Input['AppAlertSpecOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecRule']]:
+    def rule(self) -> Optional[pulumi.Input['AppAlertSpecRule']]:
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecRule']]):
+    def rule(self, value: Optional[pulumi.Input['AppAlertSpecRule']]):
         pulumi.set(self, "rule", value)
 
     @property
@@ -144,11 +144,11 @@ class AppAlertSpecArgs:
 
     @property
     @pulumi.getter
-    def window(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecWindow']]:
+    def window(self) -> Optional[pulumi.Input['AppAlertSpecWindow']]:
         return pulumi.get(self, "window")
 
     @window.setter
-    def window(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppAlertSpecWindow']]):
+    def window(self, value: Optional[pulumi.Input['AppAlertSpecWindow']]):
         pulumi.set(self, "window", value)
 
 
@@ -159,7 +159,7 @@ class AppDatabaseSpecArgs:
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input['AppsValidateAppSpecAppDatabaseSpecEngine']] = None,
+                 engine: Optional[pulumi.Input['AppDatabaseSpecEngine']] = None,
                  production: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -167,7 +167,7 @@ class AppDatabaseSpecArgs:
         :param pulumi.Input[str] cluster_name: The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.
         :param pulumi.Input[str] db_name: The name of the MySQL or PostgreSQL database to configure.
         :param pulumi.Input[str] db_user: The name of the MySQL or PostgreSQL user to configure.
-        :param pulumi.Input['AppsValidateAppSpecAppDatabaseSpecEngine'] engine: - MYSQL: MySQL
+        :param pulumi.Input['AppDatabaseSpecEngine'] engine: - MYSQL: MySQL
                - PG: PostgreSQL
                - REDIS: Redis
         :param pulumi.Input[bool] production: Whether this is a production or dev database.
@@ -239,7 +239,7 @@ class AppDatabaseSpecArgs:
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppDatabaseSpecEngine']]:
+    def engine(self) -> Optional[pulumi.Input['AppDatabaseSpecEngine']]:
         """
         - MYSQL: MySQL
         - PG: PostgreSQL
@@ -248,7 +248,7 @@ class AppDatabaseSpecArgs:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppDatabaseSpecEngine']]):
+    def engine(self, value: Optional[pulumi.Input['AppDatabaseSpecEngine']]):
         pulumi.set(self, "engine", value)
 
     @property
@@ -280,14 +280,14 @@ class AppDatabaseSpecArgs:
 class AppDomainSpecArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
-                 minimum_tls_version: Optional[pulumi.Input['AppsValidateAppSpecAppDomainSpecMinimumTlsVersion']] = None,
-                 type: Optional[pulumi.Input['AppsValidateAppSpecAppDomainSpecType']] = None,
+                 minimum_tls_version: Optional[pulumi.Input['AppDomainSpecMinimumTlsVersion']] = None,
+                 type: Optional[pulumi.Input['AppDomainSpecType']] = None,
                  wildcard: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: The hostname for the domain
-        :param pulumi.Input['AppsValidateAppSpecAppDomainSpecMinimumTlsVersion'] minimum_tls_version: The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-        :param pulumi.Input['AppsValidateAppSpecAppDomainSpecType'] type: - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
+        :param pulumi.Input['AppDomainSpecMinimumTlsVersion'] minimum_tls_version: The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
+        :param pulumi.Input['AppDomainSpecType'] type: - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
                - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
                - ALIAS: A non-primary domain
         :param pulumi.Input[bool] wildcard: Indicates whether the domain includes all sub-domains, in addition to the given domain
@@ -324,19 +324,19 @@ class AppDomainSpecArgs:
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppDomainSpecMinimumTlsVersion']]:
+    def minimum_tls_version(self) -> Optional[pulumi.Input['AppDomainSpecMinimumTlsVersion']]:
         """
         The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
     @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppDomainSpecMinimumTlsVersion']]):
+    def minimum_tls_version(self, value: Optional[pulumi.Input['AppDomainSpecMinimumTlsVersion']]):
         pulumi.set(self, "minimum_tls_version", value)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppDomainSpecType']]:
+    def type(self) -> Optional[pulumi.Input['AppDomainSpecType']]:
         """
         - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
         - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
@@ -345,7 +345,7 @@ class AppDomainSpecArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppDomainSpecType']]):
+    def type(self, value: Optional[pulumi.Input['AppDomainSpecType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -812,8 +812,8 @@ class AppJobSpecArgs:
                  gitlab: Optional[pulumi.Input['AppsGitlabSourceSpecArgs']] = None,
                  image: Optional[pulumi.Input['AppsImageSourceSpecArgs']] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size_slug: Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']] = None,
-                 kind: Optional[pulumi.Input['AppsValidateAppSpecAppJobSpecPropertiesKind']] = None,
+                 instance_size_slug: Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']] = None,
+                 kind: Optional[pulumi.Input['AppJobSpecPropertiesKind']] = None,
                  log_destinations: Optional[pulumi.Input['AppLogDestinationDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  run_command: Optional[pulumi.Input[str]] = None,
@@ -824,8 +824,8 @@ class AppJobSpecArgs:
         :param pulumi.Input[str] environment_slug: An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
         :param pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgs']]] envs: A list of environment variables made available to the component.
         :param pulumi.Input[int] instance_count: The amount of instances that this component should be scaled to. Default: 1
-        :param pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug'] instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
-        :param pulumi.Input['AppsValidateAppSpecAppJobSpecPropertiesKind'] kind: - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
+        :param pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug'] instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
+        :param pulumi.Input['AppJobSpecPropertiesKind'] kind: - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
                - PRE_DEPLOY: Indicates a job that runs before an app deployment.
                - POST_DEPLOY: Indicates a job that runs after an app deployment.
                - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
@@ -968,19 +968,19 @@ class AppJobSpecArgs:
 
     @property
     @pulumi.getter(name="instanceSizeSlug")
-    def instance_size_slug(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']]:
+    def instance_size_slug(self) -> Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]:
         """
         The instance size to use for this component. Default: `basic-xxs`
         """
         return pulumi.get(self, "instance_size_slug")
 
     @instance_size_slug.setter
-    def instance_size_slug(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']]):
+    def instance_size_slug(self, value: Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]):
         pulumi.set(self, "instance_size_slug", value)
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppJobSpecPropertiesKind']]:
+    def kind(self) -> Optional[pulumi.Input['AppJobSpecPropertiesKind']]:
         """
         - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
         - PRE_DEPLOY: Indicates a job that runs before an app deployment.
@@ -990,7 +990,7 @@ class AppJobSpecArgs:
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppJobSpecPropertiesKind']]):
+    def kind(self, value: Optional[pulumi.Input['AppJobSpecPropertiesKind']]):
         pulumi.set(self, "kind", value)
 
     @property
@@ -1364,7 +1364,7 @@ class AppServiceSpecArgs:
                  http_port: Optional[pulumi.Input[int]] = None,
                  image: Optional[pulumi.Input['AppsImageSourceSpecArgs']] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size_slug: Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']] = None,
+                 instance_size_slug: Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']] = None,
                  internal_ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  log_destinations: Optional[pulumi.Input['AppLogDestinationDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1379,7 +1379,7 @@ class AppServiceSpecArgs:
         :param pulumi.Input[int] http_port: The internal port on which this service's run command will listen. Default: 8080
                If there is not an environment variable with the name `PORT`, one will be automatically added with its value set to the value of this field.
         :param pulumi.Input[int] instance_count: The amount of instances that this component should be scaled to. Default: 1
-        :param pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug'] instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
+        :param pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug'] instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] internal_ports: The ports on which this service will listen for internal traffic.
         :param pulumi.Input[str] name: The name. Must be unique across all components within the same app.
         :param pulumi.Input[Sequence[pulumi.Input['AppRouteSpecArgs']]] routes: A list of HTTP routes that should be routed to this component.
@@ -1558,14 +1558,14 @@ class AppServiceSpecArgs:
 
     @property
     @pulumi.getter(name="instanceSizeSlug")
-    def instance_size_slug(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']]:
+    def instance_size_slug(self) -> Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]:
         """
         The instance size to use for this component. Default: `basic-xxs`
         """
         return pulumi.get(self, "instance_size_slug")
 
     @instance_size_slug.setter
-    def instance_size_slug(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']]):
+    def instance_size_slug(self, value: Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]):
         pulumi.set(self, "instance_size_slug", value)
 
     @property
@@ -1647,7 +1647,7 @@ class AppSpecArgs:
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input['AppFunctionsSpecArgs']]]] = None,
                  ingress: Optional[pulumi.Input['AppIngressSpecArgs']] = None,
                  jobs: Optional[pulumi.Input[Sequence[pulumi.Input['AppJobSpecArgs']]]] = None,
-                 region: Optional[pulumi.Input['AppsValidateAppSpecAppSpecRegion']] = None,
+                 region: Optional[pulumi.Input['AppSpecRegion']] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSpecArgs']]]] = None,
                  static_sites: Optional[pulumi.Input[Sequence[pulumi.Input['AppStaticSiteSpecArgs']]]] = None,
                  workers: Optional[pulumi.Input[Sequence[pulumi.Input['AppWorkerSpecArgs']]]] = None):
@@ -1660,7 +1660,7 @@ class AppSpecArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppFunctionsSpecArgs']]] functions: Workloads which expose publicly-accessible HTTP services via Functions Components.
         :param pulumi.Input['AppIngressSpecArgs'] ingress: Specification for app ingress configurations.
         :param pulumi.Input[Sequence[pulumi.Input['AppJobSpecArgs']]] jobs: Pre and post deployment workloads which do not expose publicly-accessible HTTP routes.
-        :param pulumi.Input['AppsValidateAppSpecAppSpecRegion'] region: The slug form of the geographical origin of the app. Default: `nearest available`
+        :param pulumi.Input['AppSpecRegion'] region: The slug form of the geographical origin of the app. Default: `nearest available`
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceSpecArgs']]] services: Workloads which expose publicly-accessible HTTP services.
         :param pulumi.Input[Sequence[pulumi.Input['AppStaticSiteSpecArgs']]] static_sites: Content which can be rendered to static web assets.
         :param pulumi.Input[Sequence[pulumi.Input['AppWorkerSpecArgs']]] workers: Workloads which do not expose publicly-accessible HTTP services.
@@ -1760,14 +1760,14 @@ class AppSpecArgs:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppSpecRegion']]:
+    def region(self) -> Optional[pulumi.Input['AppSpecRegion']]:
         """
         The slug form of the geographical origin of the app. Default: `nearest available`
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppSpecRegion']]):
+    def region(self, value: Optional[pulumi.Input['AppSpecRegion']]):
         pulumi.set(self, "region", value)
 
     @property
@@ -2086,15 +2086,15 @@ class AppStaticSiteSpecArgs:
 class AppVariableDefinitionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 scope: Optional[pulumi.Input['AppsValidateAppSpecAppVariableDefinitionScope']] = None,
-                 type: Optional[pulumi.Input['AppsValidateAppSpecAppVariableDefinitionType']] = None,
+                 scope: Optional[pulumi.Input['AppVariableDefinitionScope']] = None,
+                 type: Optional[pulumi.Input['AppVariableDefinitionType']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key: The variable name
-        :param pulumi.Input['AppsValidateAppSpecAppVariableDefinitionScope'] scope: - RUN_TIME: Made available only at run-time
+        :param pulumi.Input['AppVariableDefinitionScope'] scope: - RUN_TIME: Made available only at run-time
                - BUILD_TIME: Made available only at build-time
                - RUN_AND_BUILD_TIME: Made available at both build and run-time
-        :param pulumi.Input['AppsValidateAppSpecAppVariableDefinitionType'] type: - GENERAL: A plain-text environment variable
+        :param pulumi.Input['AppVariableDefinitionType'] type: - GENERAL: A plain-text environment variable
                - SECRET: A secret encrypted environment variable
         :param pulumi.Input[str] value: The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
         """
@@ -2124,7 +2124,7 @@ class AppVariableDefinitionArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppVariableDefinitionScope']]:
+    def scope(self) -> Optional[pulumi.Input['AppVariableDefinitionScope']]:
         """
         - RUN_TIME: Made available only at run-time
         - BUILD_TIME: Made available only at build-time
@@ -2133,12 +2133,12 @@ class AppVariableDefinitionArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppVariableDefinitionScope']]):
+    def scope(self, value: Optional[pulumi.Input['AppVariableDefinitionScope']]):
         pulumi.set(self, "scope", value)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppVariableDefinitionType']]:
+    def type(self) -> Optional[pulumi.Input['AppVariableDefinitionType']]:
         """
         - GENERAL: A plain-text environment variable
         - SECRET: A secret encrypted environment variable
@@ -2146,7 +2146,7 @@ class AppVariableDefinitionArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppVariableDefinitionType']]):
+    def type(self, value: Optional[pulumi.Input['AppVariableDefinitionType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -2174,7 +2174,7 @@ class AppWorkerSpecArgs:
                  gitlab: Optional[pulumi.Input['AppsGitlabSourceSpecArgs']] = None,
                  image: Optional[pulumi.Input['AppsImageSourceSpecArgs']] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
-                 instance_size_slug: Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']] = None,
+                 instance_size_slug: Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']] = None,
                  log_destinations: Optional[pulumi.Input['AppLogDestinationDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  run_command: Optional[pulumi.Input[str]] = None,
@@ -2185,7 +2185,7 @@ class AppWorkerSpecArgs:
         :param pulumi.Input[str] environment_slug: An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
         :param pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgs']]] envs: A list of environment variables made available to the component.
         :param pulumi.Input[int] instance_count: The amount of instances that this component should be scaled to. Default: 1
-        :param pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug'] instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
+        :param pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug'] instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
         :param pulumi.Input[str] name: The name. Must be unique across all components within the same app.
         :param pulumi.Input[str] run_command: An optional run command to override the component's default.
         :param pulumi.Input[str] source_dir: An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
@@ -2321,14 +2321,14 @@ class AppWorkerSpecArgs:
 
     @property
     @pulumi.getter(name="instanceSizeSlug")
-    def instance_size_slug(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']]:
+    def instance_size_slug(self) -> Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]:
         """
         The instance size to use for this component. Default: `basic-xxs`
         """
         return pulumi.get(self, "instance_size_slug")
 
     @instance_size_slug.setter
-    def instance_size_slug(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']]):
+    def instance_size_slug(self, value: Optional[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]):
         pulumi.set(self, "instance_size_slug", value)
 
     @property
@@ -2633,12 +2633,12 @@ class AppsGitlabSourceSpecArgs:
 class AppsImageSourceSpecArgs:
     def __init__(__self__, *,
                  registry: Optional[pulumi.Input[str]] = None,
-                 registry_type: Optional[pulumi.Input['AppsValidateAppSpecAppsImageSourceSpecRegistryType']] = None,
+                 registry_type: Optional[pulumi.Input['AppsImageSourceSpecRegistryType']] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] registry: The registry name. Must be left empty for the `DOCR` registry type.
-        :param pulumi.Input['AppsValidateAppSpecAppsImageSourceSpecRegistryType'] registry_type: - DOCKER_HUB: The DockerHub container registry type.
+        :param pulumi.Input['AppsImageSourceSpecRegistryType'] registry_type: - DOCKER_HUB: The DockerHub container registry type.
                - DOCR: The DigitalOcean container registry type.
         :param pulumi.Input[str] repository: The repository name.
         :param pulumi.Input[str] tag: The repository tag. Defaults to `latest` if not provided.
@@ -2668,7 +2668,7 @@ class AppsImageSourceSpecArgs:
 
     @property
     @pulumi.getter(name="registryType")
-    def registry_type(self) -> Optional[pulumi.Input['AppsValidateAppSpecAppsImageSourceSpecRegistryType']]:
+    def registry_type(self) -> Optional[pulumi.Input['AppsImageSourceSpecRegistryType']]:
         """
         - DOCKER_HUB: The DockerHub container registry type.
         - DOCR: The DigitalOcean container registry type.
@@ -2676,7 +2676,7 @@ class AppsImageSourceSpecArgs:
         return pulumi.get(self, "registry_type")
 
     @registry_type.setter
-    def registry_type(self, value: Optional[pulumi.Input['AppsValidateAppSpecAppsImageSourceSpecRegistryType']]):
+    def registry_type(self, value: Optional[pulumi.Input['AppsImageSourceSpecRegistryType']]):
         pulumi.set(self, "registry_type", value)
 
     @property

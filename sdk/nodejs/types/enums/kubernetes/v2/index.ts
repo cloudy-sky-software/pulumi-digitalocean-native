@@ -17,21 +17,6 @@ export const ClusterStatusPropertiesState = {
  */
 export type ClusterStatusPropertiesState = (typeof ClusterStatusPropertiesState)[keyof typeof ClusterStatusPropertiesState];
 
-export const KubernetesClusterStatusPropertiesState = {
-    Running: "running",
-    Provisioning: "provisioning",
-    Degraded: "degraded",
-    Error: "error",
-    Deleted: "deleted",
-    Upgrading: "upgrading",
-    Deleting: "deleting",
-} as const;
-
-/**
- * A string indicating the current status of the cluster.
- */
-export type KubernetesClusterStatusPropertiesState = (typeof KubernetesClusterStatusPropertiesState)[keyof typeof KubernetesClusterStatusPropertiesState];
-
 export const KubernetesNodePoolTaintEffect = {
     NoSchedule: "NoSchedule",
     PreferNoSchedule: "PreferNoSchedule",
@@ -70,3 +55,18 @@ export const NodeStatusPropertiesState = {
  * A string indicating the current status of the node.
  */
 export type NodeStatusPropertiesState = (typeof NodeStatusPropertiesState)[keyof typeof NodeStatusPropertiesState];
+
+export const StatusPropertiesState = {
+    Running: "running",
+    Provisioning: "provisioning",
+    Degraded: "degraded",
+    Error: "error",
+    Deleted: "deleted",
+    Upgrading: "upgrading",
+    Deleting: "deleting",
+} as const;
+
+/**
+ * A string indicating the current status of the cluster.
+ */
+export type StatusPropertiesState = (typeof StatusPropertiesState)[keyof typeof StatusPropertiesState];

@@ -17,7 +17,7 @@ __all__ = ['ImagesCustomArgs', 'ImagesCustom']
 class ImagesCustomArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 distribution: Optional[pulumi.Input['ImagesCustomImageUpdateDistribution']] = None,
+                 distribution: Optional[pulumi.Input['ImageUpdateDistribution']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input['ImagesCustomPropertiesRegion']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -25,7 +25,7 @@ class ImagesCustomArgs:
         """
         The set of arguments for constructing a ImagesCustom resource.
         :param pulumi.Input[str] description: An optional free-form text field to describe an image.
-        :param pulumi.Input['ImagesCustomImageUpdateDistribution'] distribution: The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
+        :param pulumi.Input['ImageUpdateDistribution'] distribution: The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
         :param pulumi.Input[str] name: The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.
         :param pulumi.Input['ImagesCustomPropertiesRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
@@ -58,14 +58,14 @@ class ImagesCustomArgs:
 
     @property
     @pulumi.getter
-    def distribution(self) -> Optional[pulumi.Input['ImagesCustomImageUpdateDistribution']]:
+    def distribution(self) -> Optional[pulumi.Input['ImageUpdateDistribution']]:
         """
         The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
         """
         return pulumi.get(self, "distribution")
 
     @distribution.setter
-    def distribution(self, value: Optional[pulumi.Input['ImagesCustomImageUpdateDistribution']]):
+    def distribution(self, value: Optional[pulumi.Input['ImageUpdateDistribution']]):
         pulumi.set(self, "distribution", value)
 
     @property
@@ -123,7 +123,7 @@ class ImagesCustom(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distribution: Optional[pulumi.Input['ImagesCustomImageUpdateDistribution']] = None,
+                 distribution: Optional[pulumi.Input['ImageUpdateDistribution']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input['ImagesCustomPropertiesRegion']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -134,7 +134,7 @@ class ImagesCustom(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: An optional free-form text field to describe an image.
-        :param pulumi.Input['ImagesCustomImageUpdateDistribution'] distribution: The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
+        :param pulumi.Input['ImageUpdateDistribution'] distribution: The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
         :param pulumi.Input[str] name: The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.
         :param pulumi.Input['ImagesCustomPropertiesRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
@@ -164,7 +164,7 @@ class ImagesCustom(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distribution: Optional[pulumi.Input['ImagesCustomImageUpdateDistribution']] = None,
+                 distribution: Optional[pulumi.Input['ImageUpdateDistribution']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input['ImagesCustomPropertiesRegion']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -226,7 +226,7 @@ class ImagesCustom(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def distribution(self) -> pulumi.Output[Optional['ImagesCustomImageUpdateDistribution']]:
+    def distribution(self) -> pulumi.Output[Optional['ImageUpdateDistribution']]:
         """
         The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
         """

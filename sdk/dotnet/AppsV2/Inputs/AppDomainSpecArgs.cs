@@ -22,7 +22,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecMinimumTlsVersion>? MinimumTlsVersion { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecMinimumTlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
@@ -30,7 +30,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// - ALIAS: A non-primary domain
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecType>? Type { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecType>? Type { get; set; }
 
         /// <summary>
         /// Indicates whether the domain includes all sub-domains, in addition to the given domain
@@ -51,7 +51,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
 
         public AppDomainSpecArgs()
         {
-            Type = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecType.Unspecified;
+            Type = Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecType.Unspecified;
         }
         public static new AppDomainSpecArgs Empty => new AppDomainSpecArgs();
     }

@@ -17,8 +17,8 @@ type ImagesCustom struct {
 	// An optional free-form text field to describe an image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
-	Distribution ImagesCustomImageUpdateDistributionPtrOutput `pulumi:"distribution"`
-	Image        ImagePtrOutput                               `pulumi:"image"`
+	Distribution ImageUpdateDistributionPtrOutput `pulumi:"distribution"`
+	Image        ImagePtrOutput                   `pulumi:"image"`
 	// The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The slug identifier for the region where the resource will initially be  available.
@@ -72,7 +72,7 @@ type imagesCustomArgs struct {
 	// An optional free-form text field to describe an image.
 	Description *string `pulumi:"description"`
 	// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
-	Distribution *ImagesCustomImageUpdateDistribution `pulumi:"distribution"`
+	Distribution *ImageUpdateDistribution `pulumi:"distribution"`
 	// The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.
 	Name *string `pulumi:"name"`
 	// The slug identifier for the region where the resource will initially be  available.
@@ -88,7 +88,7 @@ type ImagesCustomArgs struct {
 	// An optional free-form text field to describe an image.
 	Description pulumi.StringPtrInput
 	// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
-	Distribution ImagesCustomImageUpdateDistributionPtrInput
+	Distribution ImageUpdateDistributionPtrInput
 	// The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.
 	Name pulumi.StringPtrInput
 	// The slug identifier for the region where the resource will initially be  available.
@@ -142,8 +142,8 @@ func (o ImagesCustomOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
-func (o ImagesCustomOutput) Distribution() ImagesCustomImageUpdateDistributionPtrOutput {
-	return o.ApplyT(func(v *ImagesCustom) ImagesCustomImageUpdateDistributionPtrOutput { return v.Distribution }).(ImagesCustomImageUpdateDistributionPtrOutput)
+func (o ImagesCustomOutput) Distribution() ImageUpdateDistributionPtrOutput {
+	return o.ApplyT(func(v *ImagesCustom) ImageUpdateDistributionPtrOutput { return v.Distribution }).(ImageUpdateDistributionPtrOutput)
 }
 
 func (o ImagesCustomOutput) Image() ImagePtrOutput {

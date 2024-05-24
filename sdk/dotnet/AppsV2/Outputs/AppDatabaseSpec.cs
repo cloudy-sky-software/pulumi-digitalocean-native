@@ -30,7 +30,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// - PG: PostgreSQL
         /// - REDIS: Redis
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDatabaseSpecEngine? Engine;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppDatabaseSpecEngine? Engine;
         /// <summary>
         /// The name. Must be unique across all components within the same app.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
 
             string? dbUser,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDatabaseSpecEngine? engine,
+            Pulumi.DigitalOceanNative.AppsV2.AppDatabaseSpecEngine? engine,
 
             string name,
 

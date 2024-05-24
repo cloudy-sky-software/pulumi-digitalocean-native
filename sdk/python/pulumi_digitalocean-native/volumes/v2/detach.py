@@ -17,14 +17,14 @@ __all__ = ['DetachArgs', 'Detach']
 class DetachArgs:
     def __init__(__self__, *,
                  droplet_id: pulumi.Input[int],
-                 type: pulumi.Input['DetachVolumeActionCreateBaseType'],
-                 region: Optional[pulumi.Input['DetachVolumeActionCreateBaseRegion']] = None,
+                 type: pulumi.Input['VolumeActionCreateBaseType'],
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Detach resource.
         :param pulumi.Input[int] droplet_id: The unique identifier for the Droplet the volume will be attached or detached from.
-        :param pulumi.Input['DetachVolumeActionCreateBaseType'] type: The volume action to initiate.
-        :param pulumi.Input['DetachVolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
+        :param pulumi.Input['VolumeActionCreateBaseType'] type: The volume action to initiate.
+        :param pulumi.Input['VolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[str] volume_id: The ID of the block storage volume.
         """
         pulumi.set(__self__, "droplet_id", droplet_id)
@@ -48,26 +48,26 @@ class DetachArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['DetachVolumeActionCreateBaseType']:
+    def type(self) -> pulumi.Input['VolumeActionCreateBaseType']:
         """
         The volume action to initiate.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['DetachVolumeActionCreateBaseType']):
+    def type(self, value: pulumi.Input['VolumeActionCreateBaseType']):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['DetachVolumeActionCreateBaseRegion']]:
+    def region(self) -> Optional[pulumi.Input['VolumeActionCreateBaseRegion']]:
         """
         The slug identifier for the region where the resource will initially be  available.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['DetachVolumeActionCreateBaseRegion']]):
+    def region(self, value: Optional[pulumi.Input['VolumeActionCreateBaseRegion']]):
         pulumi.set(self, "region", value)
 
     @property
@@ -89,8 +89,8 @@ class Detach(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
-                 region: Optional[pulumi.Input['DetachVolumeActionCreateBaseRegion']] = None,
-                 type: Optional[pulumi.Input['DetachVolumeActionCreateBaseType']] = None,
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
+                 type: Optional[pulumi.Input['VolumeActionCreateBaseType']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -98,8 +98,8 @@ class Detach(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] droplet_id: The unique identifier for the Droplet the volume will be attached or detached from.
-        :param pulumi.Input['DetachVolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
-        :param pulumi.Input['DetachVolumeActionCreateBaseType'] type: The volume action to initiate.
+        :param pulumi.Input['VolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
+        :param pulumi.Input['VolumeActionCreateBaseType'] type: The volume action to initiate.
         :param pulumi.Input[str] volume_id: The ID of the block storage volume.
         """
         ...
@@ -126,8 +126,8 @@ class Detach(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
-                 region: Optional[pulumi.Input['DetachVolumeActionCreateBaseRegion']] = None,
-                 type: Optional[pulumi.Input['DetachVolumeActionCreateBaseType']] = None,
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
+                 type: Optional[pulumi.Input['VolumeActionCreateBaseType']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -190,7 +190,7 @@ class Detach(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[Optional['DetachVolumeActionCreateBaseRegion']]:
+    def region(self) -> pulumi.Output[Optional['VolumeActionCreateBaseRegion']]:
         """
         The slug identifier for the region where the resource will initially be  available.
         """
@@ -198,7 +198,7 @@ class Detach(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['DetachVolumeActionCreateBaseType']]:
+    def type(self) -> pulumi.Output[Optional['VolumeActionCreateBaseType']]:
         """
         The volume action to initiate.
         """

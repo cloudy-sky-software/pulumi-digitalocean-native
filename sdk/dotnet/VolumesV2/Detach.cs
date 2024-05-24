@@ -25,13 +25,13 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         /// The slug identifier for the region where the resource will initially be  available.
         /// </summary>
         [Output("region")]
-        public Output<Pulumi.DigitalOceanNative.VolumesV2.DetachVolumeActionCreateBaseRegion?> Region { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseRegion?> Region { get; private set; } = null!;
 
         /// <summary>
         /// The volume action to initiate.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.VolumesV2.DetachVolumeActionCreateBaseType?> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,13 +89,13 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         /// The slug identifier for the region where the resource will initially be  available.
         /// </summary>
         [Input("region")]
-        public Input<Pulumi.DigitalOceanNative.VolumesV2.DetachVolumeActionCreateBaseRegion>? Region { get; set; }
+        public Input<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseRegion>? Region { get; set; }
 
         /// <summary>
         /// The volume action to initiate.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.VolumesV2.DetachVolumeActionCreateBaseType> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseType> Type { get; set; } = null!;
 
         /// <summary>
         /// The ID of the block storage volume.

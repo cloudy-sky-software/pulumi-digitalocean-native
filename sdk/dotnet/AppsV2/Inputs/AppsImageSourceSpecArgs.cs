@@ -23,7 +23,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// - DOCR: The DigitalOcean container registry type.
         /// </summary>
         [Input("registryType")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppsImageSourceSpecRegistryType>? RegistryType { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsImageSourceSpecRegistryType>? RegistryType { get; set; }
 
         /// <summary>
         /// The repository name.

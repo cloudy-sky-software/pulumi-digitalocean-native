@@ -28,7 +28,7 @@ namespace Pulumi.DigitalOceanNative.ProjectsV2
         /// The environment of the project's resources.
         /// </summary>
         [Output("environment")]
-        public Output<Pulumi.DigitalOceanNative.ProjectsV2.ProjectsProjectBaseEnvironment?> Environment { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.ProjectsV2.ProjectBaseEnvironment?> Environment { get; private set; } = null!;
 
         /// <summary>
         /// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
@@ -139,7 +139,7 @@ namespace Pulumi.DigitalOceanNative.ProjectsV2
         /// The environment of the project's resources.
         /// </summary>
         [Input("environment")]
-        public Input<Pulumi.DigitalOceanNative.ProjectsV2.ProjectsProjectBaseEnvironment>? Environment { get; set; }
+        public Input<Pulumi.DigitalOceanNative.ProjectsV2.ProjectBaseEnvironment>? Environment { get; set; }
 
         /// <summary>
         /// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.

@@ -13,17 +13,6 @@ export const ProjectBaseEnvironment = {
  */
 export type ProjectBaseEnvironment = (typeof ProjectBaseEnvironment)[keyof typeof ProjectBaseEnvironment];
 
-export const ProjectsProjectBaseEnvironment = {
-    Development: "Development",
-    Staging: "Staging",
-    Production: "Production",
-} as const;
-
-/**
- * The environment of the project's resources.
- */
-export type ProjectsProjectBaseEnvironment = (typeof ProjectsProjectBaseEnvironment)[keyof typeof ProjectsProjectBaseEnvironment];
-
 export const ResourceStatus = {
     Ok: "ok",
     NotFound: "not_found",

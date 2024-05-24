@@ -23,14 +23,3 @@ export const FirewallRuleBaseProtocol = {
  * The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
  */
 export type FirewallRuleBaseProtocol = (typeof FirewallRuleBaseProtocol)[keyof typeof FirewallRuleBaseProtocol];
-
-export const FirewallsRulesFirewallRuleBaseProtocol = {
-    Tcp: "tcp",
-    Udp: "udp",
-    Icmp: "icmp",
-} as const;
-
-/**
- * The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
- */
-export type FirewallsRulesFirewallRuleBaseProtocol = (typeof FirewallsRulesFirewallRuleBaseProtocol)[keyof typeof FirewallsRulesFirewallRuleBaseProtocol];

@@ -18,10 +18,10 @@ __all__ = [
 class ResourcesItemPropertiesArgs:
     def __init__(__self__, *,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 resource_type: Optional[pulumi.Input['TagsAssignResourcesResourcesItemPropertiesResourceType']] = None):
+                 resource_type: Optional[pulumi.Input['ResourcesItemPropertiesResourceType']] = None):
         """
         :param pulumi.Input[str] resource_id: The identifier of a resource.
-        :param pulumi.Input['TagsAssignResourcesResourcesItemPropertiesResourceType'] resource_type: The type of the resource.
+        :param pulumi.Input['ResourcesItemPropertiesResourceType'] resource_type: The type of the resource.
         """
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
@@ -42,14 +42,14 @@ class ResourcesItemPropertiesArgs:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input['TagsAssignResourcesResourcesItemPropertiesResourceType']]:
+    def resource_type(self) -> Optional[pulumi.Input['ResourcesItemPropertiesResourceType']]:
         """
         The type of the resource.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input['TagsAssignResourcesResourcesItemPropertiesResourceType']]):
+    def resource_type(self, value: Optional[pulumi.Input['ResourcesItemPropertiesResourceType']]):
         pulumi.set(self, "resource_type", value)
 
 

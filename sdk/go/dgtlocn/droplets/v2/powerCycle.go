@@ -18,7 +18,7 @@ type PowerCycle struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type PowerCycleTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewPowerCycle registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type powerCycleArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type PowerCycleType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PowerCycle resource.
@@ -75,7 +75,7 @@ type PowerCycleArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type PowerCycleTypeInput
+	Type TypeInput
 }
 
 func (PowerCycleArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o PowerCycleOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o PowerCycleOutput) Type() PowerCycleTypeOutput {
-	return o.ApplyT(func(v *PowerCycle) PowerCycleTypeOutput { return v.Type }).(PowerCycleTypeOutput)
+func (o PowerCycleOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *PowerCycle) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

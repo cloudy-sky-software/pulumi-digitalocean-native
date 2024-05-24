@@ -308,6 +308,171 @@ func (o AlertPolicyWindowPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+type Compare string
+
+const (
+	CompareGreaterThan = Compare("GreaterThan")
+	CompareLessThan    = Compare("LessThan")
+)
+
+func (Compare) ElementType() reflect.Type {
+	return reflect.TypeOf((*Compare)(nil)).Elem()
+}
+
+func (e Compare) ToCompareOutput() CompareOutput {
+	return pulumi.ToOutput(e).(CompareOutput)
+}
+
+func (e Compare) ToCompareOutputWithContext(ctx context.Context) CompareOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CompareOutput)
+}
+
+func (e Compare) ToComparePtrOutput() ComparePtrOutput {
+	return e.ToComparePtrOutputWithContext(context.Background())
+}
+
+func (e Compare) ToComparePtrOutputWithContext(ctx context.Context) ComparePtrOutput {
+	return Compare(e).ToCompareOutputWithContext(ctx).ToComparePtrOutputWithContext(ctx)
+}
+
+func (e Compare) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Compare) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Compare) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Compare) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CompareOutput struct{ *pulumi.OutputState }
+
+func (CompareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Compare)(nil)).Elem()
+}
+
+func (o CompareOutput) ToCompareOutput() CompareOutput {
+	return o
+}
+
+func (o CompareOutput) ToCompareOutputWithContext(ctx context.Context) CompareOutput {
+	return o
+}
+
+func (o CompareOutput) ToComparePtrOutput() ComparePtrOutput {
+	return o.ToComparePtrOutputWithContext(context.Background())
+}
+
+func (o CompareOutput) ToComparePtrOutputWithContext(ctx context.Context) ComparePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Compare) *Compare {
+		return &v
+	}).(ComparePtrOutput)
+}
+
+func (o CompareOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CompareOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Compare) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CompareOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CompareOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Compare) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComparePtrOutput struct{ *pulumi.OutputState }
+
+func (ComparePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Compare)(nil)).Elem()
+}
+
+func (o ComparePtrOutput) ToComparePtrOutput() ComparePtrOutput {
+	return o
+}
+
+func (o ComparePtrOutput) ToComparePtrOutputWithContext(ctx context.Context) ComparePtrOutput {
+	return o
+}
+
+func (o ComparePtrOutput) Elem() CompareOutput {
+	return o.ApplyT(func(v *Compare) Compare {
+		if v != nil {
+			return *v
+		}
+		var ret Compare
+		return ret
+	}).(CompareOutput)
+}
+
+func (o ComparePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComparePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Compare) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CompareInput is an input type that accepts values of the Compare enum
+// A concrete instance of `CompareInput` can be one of the following:
+//
+//	CompareGreaterThan
+//	CompareLessThan
+type CompareInput interface {
+	pulumi.Input
+
+	ToCompareOutput() CompareOutput
+	ToCompareOutputWithContext(context.Context) CompareOutput
+}
+
+var comparePtrType = reflect.TypeOf((**Compare)(nil)).Elem()
+
+type ComparePtrInput interface {
+	pulumi.Input
+
+	ToComparePtrOutput() ComparePtrOutput
+	ToComparePtrOutputWithContext(context.Context) ComparePtrOutput
+}
+
+type comparePtr string
+
+func ComparePtr(v string) ComparePtrInput {
+	return (*comparePtr)(&v)
+}
+
+func (*comparePtr) ElementType() reflect.Type {
+	return comparePtrType
+}
+
+func (in *comparePtr) ToComparePtrOutput() ComparePtrOutput {
+	return pulumi.ToOutput(in).(ComparePtrOutput)
+}
+
+func (in *comparePtr) ToComparePtrOutputWithContext(ctx context.Context) ComparePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComparePtrOutput)
+}
+
 type MetricsDataResultType string
 
 const (
@@ -487,124 +652,150 @@ func (o MetricsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-type MonitoringAlertPolicyCompare string
+type Type string
 
 const (
-	MonitoringAlertPolicyCompareGreaterThan = MonitoringAlertPolicyCompare("GreaterThan")
-	MonitoringAlertPolicyCompareLessThan    = MonitoringAlertPolicyCompare("LessThan")
+	TypeV1insightsdropletload1                                   = Type("v1/insights/droplet/load_1")
+	TypeV1insightsdropletload5                                   = Type("v1/insights/droplet/load_5")
+	TypeV1insightsdropletload15                                  = Type("v1/insights/droplet/load_15")
+	TypeV1insightsdropletmemoryUtilizationPercent                = Type("v1/insights/droplet/memory_utilization_percent")
+	TypeV1insightsdropletdiskUtilizationPercent                  = Type("v1/insights/droplet/disk_utilization_percent")
+	TypeV1insightsdropletcpu                                     = Type("v1/insights/droplet/cpu")
+	TypeV1insightsdropletdiskRead                                = Type("v1/insights/droplet/disk_read")
+	TypeV1insightsdropletdiskWrite                               = Type("v1/insights/droplet/disk_write")
+	TypeV1insightsdropletpublicOutboundBandwidth                 = Type("v1/insights/droplet/public_outbound_bandwidth")
+	TypeV1insightsdropletpublicInboundBandwidth                  = Type("v1/insights/droplet/public_inbound_bandwidth")
+	TypeV1insightsdropletprivateOutboundBandwidth                = Type("v1/insights/droplet/private_outbound_bandwidth")
+	TypeV1insightsdropletprivateInboundBandwidth                 = Type("v1/insights/droplet/private_inbound_bandwidth")
+	TypeV1insightslbaasavgCpuUtilizationPercent                  = Type("v1/insights/lbaas/avg_cpu_utilization_percent")
+	TypeV1insightslbaasconnectionUtilizationPercent              = Type("v1/insights/lbaas/connection_utilization_percent")
+	TypeV1insightslbaasdropletHealth                             = Type("v1/insights/lbaas/droplet_health")
+	TypeV1insightslbaastlsConnectionsPerSecondUtilizationPercent = Type("v1/insights/lbaas/tls_connections_per_second_utilization_percent")
+	TypeV1insightslbaasincreaseInHttpErrorRatePercentage5xx      = Type("v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx")
+	TypeV1insightslbaasincreaseInHttpErrorRatePercentage4xx      = Type("v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx")
+	TypeV1insightslbaasincreaseInHttpErrorRateCount5xx           = Type("v1/insights/lbaas/increase_in_http_error_rate_count_5xx")
+	TypeV1insightslbaasincreaseInHttpErrorRateCount4xx           = Type("v1/insights/lbaas/increase_in_http_error_rate_count_4xx")
+	TypeV1insightslbaashighHttpRequestResponseTime               = Type("v1/insights/lbaas/high_http_request_response_time")
+	TypeV1insightslbaashighHttpRequestResponseTime50p            = Type("v1/insights/lbaas/high_http_request_response_time_50p")
+	TypeV1insightslbaashighHttpRequestResponseTime95p            = Type("v1/insights/lbaas/high_http_request_response_time_95p")
+	TypeV1insightslbaashighHttpRequestResponseTime99p            = Type("v1/insights/lbaas/high_http_request_response_time_99p")
+	TypeV1dbaasalertsload15Alerts                                = Type("v1/dbaas/alerts/load_15_alerts")
+	TypeV1dbaasalertsmemoryUtilizationAlerts                     = Type("v1/dbaas/alerts/memory_utilization_alerts")
+	TypeV1dbaasalertsdiskUtilizationAlerts                       = Type("v1/dbaas/alerts/disk_utilization_alerts")
+	TypeV1dbaasalertscpuAlerts                                   = Type("v1/dbaas/alerts/cpu_alerts")
 )
 
-func (MonitoringAlertPolicyCompare) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringAlertPolicyCompare)(nil)).Elem()
+func (Type) ElementType() reflect.Type {
+	return reflect.TypeOf((*Type)(nil)).Elem()
 }
 
-func (e MonitoringAlertPolicyCompare) ToMonitoringAlertPolicyCompareOutput() MonitoringAlertPolicyCompareOutput {
-	return pulumi.ToOutput(e).(MonitoringAlertPolicyCompareOutput)
+func (e Type) ToTypeOutput() TypeOutput {
+	return pulumi.ToOutput(e).(TypeOutput)
 }
 
-func (e MonitoringAlertPolicyCompare) ToMonitoringAlertPolicyCompareOutputWithContext(ctx context.Context) MonitoringAlertPolicyCompareOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MonitoringAlertPolicyCompareOutput)
+func (e Type) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TypeOutput)
 }
 
-func (e MonitoringAlertPolicyCompare) ToMonitoringAlertPolicyComparePtrOutput() MonitoringAlertPolicyComparePtrOutput {
-	return e.ToMonitoringAlertPolicyComparePtrOutputWithContext(context.Background())
+func (e Type) ToTypePtrOutput() TypePtrOutput {
+	return e.ToTypePtrOutputWithContext(context.Background())
 }
 
-func (e MonitoringAlertPolicyCompare) ToMonitoringAlertPolicyComparePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyComparePtrOutput {
-	return MonitoringAlertPolicyCompare(e).ToMonitoringAlertPolicyCompareOutputWithContext(ctx).ToMonitoringAlertPolicyComparePtrOutputWithContext(ctx)
+func (e Type) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return Type(e).ToTypeOutputWithContext(ctx).ToTypePtrOutputWithContext(ctx)
 }
 
-func (e MonitoringAlertPolicyCompare) ToStringOutput() pulumi.StringOutput {
+func (e Type) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e MonitoringAlertPolicyCompare) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Type) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e MonitoringAlertPolicyCompare) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Type) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e MonitoringAlertPolicyCompare) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Type) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MonitoringAlertPolicyCompareOutput struct{ *pulumi.OutputState }
+type TypeOutput struct{ *pulumi.OutputState }
 
-func (MonitoringAlertPolicyCompareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringAlertPolicyCompare)(nil)).Elem()
+func (TypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Type)(nil)).Elem()
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToMonitoringAlertPolicyCompareOutput() MonitoringAlertPolicyCompareOutput {
+func (o TypeOutput) ToTypeOutput() TypeOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToMonitoringAlertPolicyCompareOutputWithContext(ctx context.Context) MonitoringAlertPolicyCompareOutput {
+func (o TypeOutput) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToMonitoringAlertPolicyComparePtrOutput() MonitoringAlertPolicyComparePtrOutput {
-	return o.ToMonitoringAlertPolicyComparePtrOutputWithContext(context.Background())
+func (o TypeOutput) ToTypePtrOutput() TypePtrOutput {
+	return o.ToTypePtrOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToMonitoringAlertPolicyComparePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyComparePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringAlertPolicyCompare) *MonitoringAlertPolicyCompare {
+func (o TypeOutput) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Type) *Type {
 		return &v
-	}).(MonitoringAlertPolicyComparePtrOutput)
+	}).(TypePtrOutput)
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToStringOutput() pulumi.StringOutput {
+func (o TypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringAlertPolicyCompare) string {
+func (o TypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Type) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyCompareOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringAlertPolicyCompare) *string {
+func (o TypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Type) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type MonitoringAlertPolicyComparePtrOutput struct{ *pulumi.OutputState }
+type TypePtrOutput struct{ *pulumi.OutputState }
 
-func (MonitoringAlertPolicyComparePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringAlertPolicyCompare)(nil)).Elem()
+func (TypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Type)(nil)).Elem()
 }
 
-func (o MonitoringAlertPolicyComparePtrOutput) ToMonitoringAlertPolicyComparePtrOutput() MonitoringAlertPolicyComparePtrOutput {
+func (o TypePtrOutput) ToTypePtrOutput() TypePtrOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyComparePtrOutput) ToMonitoringAlertPolicyComparePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyComparePtrOutput {
+func (o TypePtrOutput) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyComparePtrOutput) Elem() MonitoringAlertPolicyCompareOutput {
-	return o.ApplyT(func(v *MonitoringAlertPolicyCompare) MonitoringAlertPolicyCompare {
+func (o TypePtrOutput) Elem() TypeOutput {
+	return o.ApplyT(func(v *Type) Type {
 		if v != nil {
 			return *v
 		}
-		var ret MonitoringAlertPolicyCompare
+		var ret Type
 		return ret
-	}).(MonitoringAlertPolicyCompareOutput)
+	}).(TypeOutput)
 }
 
-func (o MonitoringAlertPolicyComparePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyComparePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringAlertPolicyCompare) *string {
+func (o TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Type) *string {
 		if e == nil {
 			return nil
 		}
@@ -613,189 +804,191 @@ func (o MonitoringAlertPolicyComparePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitoringAlertPolicyCompareInput is an input type that accepts values of the MonitoringAlertPolicyCompare enum
-// A concrete instance of `MonitoringAlertPolicyCompareInput` can be one of the following:
+// TypeInput is an input type that accepts values of the Type enum
+// A concrete instance of `TypeInput` can be one of the following:
 //
-//	MonitoringAlertPolicyCompareGreaterThan
-//	MonitoringAlertPolicyCompareLessThan
-type MonitoringAlertPolicyCompareInput interface {
+//	TypeV1insightsdropletload1
+//	TypeV1insightsdropletload5
+//	TypeV1insightsdropletload15
+//	TypeV1insightsdropletmemoryUtilizationPercent
+//	TypeV1insightsdropletdiskUtilizationPercent
+//	TypeV1insightsdropletcpu
+//	TypeV1insightsdropletdiskRead
+//	TypeV1insightsdropletdiskWrite
+//	TypeV1insightsdropletpublicOutboundBandwidth
+//	TypeV1insightsdropletpublicInboundBandwidth
+//	TypeV1insightsdropletprivateOutboundBandwidth
+//	TypeV1insightsdropletprivateInboundBandwidth
+//	TypeV1insightslbaasavgCpuUtilizationPercent
+//	TypeV1insightslbaasconnectionUtilizationPercent
+//	TypeV1insightslbaasdropletHealth
+//	TypeV1insightslbaastlsConnectionsPerSecondUtilizationPercent
+//	TypeV1insightslbaasincreaseInHttpErrorRatePercentage5xx
+//	TypeV1insightslbaasincreaseInHttpErrorRatePercentage4xx
+//	TypeV1insightslbaasincreaseInHttpErrorRateCount5xx
+//	TypeV1insightslbaasincreaseInHttpErrorRateCount4xx
+//	TypeV1insightslbaashighHttpRequestResponseTime
+//	TypeV1insightslbaashighHttpRequestResponseTime50p
+//	TypeV1insightslbaashighHttpRequestResponseTime95p
+//	TypeV1insightslbaashighHttpRequestResponseTime99p
+//	TypeV1dbaasalertsload15Alerts
+//	TypeV1dbaasalertsmemoryUtilizationAlerts
+//	TypeV1dbaasalertsdiskUtilizationAlerts
+//	TypeV1dbaasalertscpuAlerts
+type TypeInput interface {
 	pulumi.Input
 
-	ToMonitoringAlertPolicyCompareOutput() MonitoringAlertPolicyCompareOutput
-	ToMonitoringAlertPolicyCompareOutputWithContext(context.Context) MonitoringAlertPolicyCompareOutput
+	ToTypeOutput() TypeOutput
+	ToTypeOutputWithContext(context.Context) TypeOutput
 }
 
-var monitoringAlertPolicyComparePtrType = reflect.TypeOf((**MonitoringAlertPolicyCompare)(nil)).Elem()
+var typePtrType = reflect.TypeOf((**Type)(nil)).Elem()
 
-type MonitoringAlertPolicyComparePtrInput interface {
+type TypePtrInput interface {
 	pulumi.Input
 
-	ToMonitoringAlertPolicyComparePtrOutput() MonitoringAlertPolicyComparePtrOutput
-	ToMonitoringAlertPolicyComparePtrOutputWithContext(context.Context) MonitoringAlertPolicyComparePtrOutput
+	ToTypePtrOutput() TypePtrOutput
+	ToTypePtrOutputWithContext(context.Context) TypePtrOutput
 }
 
-type monitoringAlertPolicyComparePtr string
+type typePtr string
 
-func MonitoringAlertPolicyComparePtr(v string) MonitoringAlertPolicyComparePtrInput {
-	return (*monitoringAlertPolicyComparePtr)(&v)
+func TypePtr(v string) TypePtrInput {
+	return (*typePtr)(&v)
 }
 
-func (*monitoringAlertPolicyComparePtr) ElementType() reflect.Type {
-	return monitoringAlertPolicyComparePtrType
+func (*typePtr) ElementType() reflect.Type {
+	return typePtrType
 }
 
-func (in *monitoringAlertPolicyComparePtr) ToMonitoringAlertPolicyComparePtrOutput() MonitoringAlertPolicyComparePtrOutput {
-	return pulumi.ToOutput(in).(MonitoringAlertPolicyComparePtrOutput)
+func (in *typePtr) ToTypePtrOutput() TypePtrOutput {
+	return pulumi.ToOutput(in).(TypePtrOutput)
 }
 
-func (in *monitoringAlertPolicyComparePtr) ToMonitoringAlertPolicyComparePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyComparePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MonitoringAlertPolicyComparePtrOutput)
+func (in *typePtr) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TypePtrOutput)
 }
 
-type MonitoringAlertPolicyType string
+type Window string
 
 const (
-	MonitoringAlertPolicyTypeV1insightsdropletload1                                   = MonitoringAlertPolicyType("v1/insights/droplet/load_1")
-	MonitoringAlertPolicyTypeV1insightsdropletload5                                   = MonitoringAlertPolicyType("v1/insights/droplet/load_5")
-	MonitoringAlertPolicyTypeV1insightsdropletload15                                  = MonitoringAlertPolicyType("v1/insights/droplet/load_15")
-	MonitoringAlertPolicyTypeV1insightsdropletmemoryUtilizationPercent                = MonitoringAlertPolicyType("v1/insights/droplet/memory_utilization_percent")
-	MonitoringAlertPolicyTypeV1insightsdropletdiskUtilizationPercent                  = MonitoringAlertPolicyType("v1/insights/droplet/disk_utilization_percent")
-	MonitoringAlertPolicyTypeV1insightsdropletcpu                                     = MonitoringAlertPolicyType("v1/insights/droplet/cpu")
-	MonitoringAlertPolicyTypeV1insightsdropletdiskRead                                = MonitoringAlertPolicyType("v1/insights/droplet/disk_read")
-	MonitoringAlertPolicyTypeV1insightsdropletdiskWrite                               = MonitoringAlertPolicyType("v1/insights/droplet/disk_write")
-	MonitoringAlertPolicyTypeV1insightsdropletpublicOutboundBandwidth                 = MonitoringAlertPolicyType("v1/insights/droplet/public_outbound_bandwidth")
-	MonitoringAlertPolicyTypeV1insightsdropletpublicInboundBandwidth                  = MonitoringAlertPolicyType("v1/insights/droplet/public_inbound_bandwidth")
-	MonitoringAlertPolicyTypeV1insightsdropletprivateOutboundBandwidth                = MonitoringAlertPolicyType("v1/insights/droplet/private_outbound_bandwidth")
-	MonitoringAlertPolicyTypeV1insightsdropletprivateInboundBandwidth                 = MonitoringAlertPolicyType("v1/insights/droplet/private_inbound_bandwidth")
-	MonitoringAlertPolicyTypeV1insightslbaasavgCpuUtilizationPercent                  = MonitoringAlertPolicyType("v1/insights/lbaas/avg_cpu_utilization_percent")
-	MonitoringAlertPolicyTypeV1insightslbaasconnectionUtilizationPercent              = MonitoringAlertPolicyType("v1/insights/lbaas/connection_utilization_percent")
-	MonitoringAlertPolicyTypeV1insightslbaasdropletHealth                             = MonitoringAlertPolicyType("v1/insights/lbaas/droplet_health")
-	MonitoringAlertPolicyTypeV1insightslbaastlsConnectionsPerSecondUtilizationPercent = MonitoringAlertPolicyType("v1/insights/lbaas/tls_connections_per_second_utilization_percent")
-	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRatePercentage5xx      = MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx")
-	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRatePercentage4xx      = MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx")
-	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRateCount5xx           = MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_count_5xx")
-	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRateCount4xx           = MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_count_4xx")
-	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime               = MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time")
-	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime50p            = MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time_50p")
-	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime95p            = MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time_95p")
-	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime99p            = MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time_99p")
-	MonitoringAlertPolicyTypeV1dbaasalertsload15Alerts                                = MonitoringAlertPolicyType("v1/dbaas/alerts/load_15_alerts")
-	MonitoringAlertPolicyTypeV1dbaasalertsmemoryUtilizationAlerts                     = MonitoringAlertPolicyType("v1/dbaas/alerts/memory_utilization_alerts")
-	MonitoringAlertPolicyTypeV1dbaasalertsdiskUtilizationAlerts                       = MonitoringAlertPolicyType("v1/dbaas/alerts/disk_utilization_alerts")
-	MonitoringAlertPolicyTypeV1dbaasalertscpuAlerts                                   = MonitoringAlertPolicyType("v1/dbaas/alerts/cpu_alerts")
+	Window_5m  = Window("5m")
+	Window_10m = Window("10m")
+	Window_30m = Window("30m")
+	Window_1h  = Window("1h")
 )
 
-func (MonitoringAlertPolicyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringAlertPolicyType)(nil)).Elem()
+func (Window) ElementType() reflect.Type {
+	return reflect.TypeOf((*Window)(nil)).Elem()
 }
 
-func (e MonitoringAlertPolicyType) ToMonitoringAlertPolicyTypeOutput() MonitoringAlertPolicyTypeOutput {
-	return pulumi.ToOutput(e).(MonitoringAlertPolicyTypeOutput)
+func (e Window) ToWindowOutput() WindowOutput {
+	return pulumi.ToOutput(e).(WindowOutput)
 }
 
-func (e MonitoringAlertPolicyType) ToMonitoringAlertPolicyTypeOutputWithContext(ctx context.Context) MonitoringAlertPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MonitoringAlertPolicyTypeOutput)
+func (e Window) ToWindowOutputWithContext(ctx context.Context) WindowOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WindowOutput)
 }
 
-func (e MonitoringAlertPolicyType) ToMonitoringAlertPolicyTypePtrOutput() MonitoringAlertPolicyTypePtrOutput {
-	return e.ToMonitoringAlertPolicyTypePtrOutputWithContext(context.Background())
+func (e Window) ToWindowPtrOutput() WindowPtrOutput {
+	return e.ToWindowPtrOutputWithContext(context.Background())
 }
 
-func (e MonitoringAlertPolicyType) ToMonitoringAlertPolicyTypePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyTypePtrOutput {
-	return MonitoringAlertPolicyType(e).ToMonitoringAlertPolicyTypeOutputWithContext(ctx).ToMonitoringAlertPolicyTypePtrOutputWithContext(ctx)
+func (e Window) ToWindowPtrOutputWithContext(ctx context.Context) WindowPtrOutput {
+	return Window(e).ToWindowOutputWithContext(ctx).ToWindowPtrOutputWithContext(ctx)
 }
 
-func (e MonitoringAlertPolicyType) ToStringOutput() pulumi.StringOutput {
+func (e Window) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e MonitoringAlertPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Window) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e MonitoringAlertPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Window) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e MonitoringAlertPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Window) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MonitoringAlertPolicyTypeOutput struct{ *pulumi.OutputState }
+type WindowOutput struct{ *pulumi.OutputState }
 
-func (MonitoringAlertPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringAlertPolicyType)(nil)).Elem()
+func (WindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Window)(nil)).Elem()
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToMonitoringAlertPolicyTypeOutput() MonitoringAlertPolicyTypeOutput {
+func (o WindowOutput) ToWindowOutput() WindowOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToMonitoringAlertPolicyTypeOutputWithContext(ctx context.Context) MonitoringAlertPolicyTypeOutput {
+func (o WindowOutput) ToWindowOutputWithContext(ctx context.Context) WindowOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToMonitoringAlertPolicyTypePtrOutput() MonitoringAlertPolicyTypePtrOutput {
-	return o.ToMonitoringAlertPolicyTypePtrOutputWithContext(context.Background())
+func (o WindowOutput) ToWindowPtrOutput() WindowPtrOutput {
+	return o.ToWindowPtrOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToMonitoringAlertPolicyTypePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringAlertPolicyType) *MonitoringAlertPolicyType {
+func (o WindowOutput) ToWindowPtrOutputWithContext(ctx context.Context) WindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Window) *Window {
 		return &v
-	}).(MonitoringAlertPolicyTypePtrOutput)
+	}).(WindowPtrOutput)
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o WindowOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringAlertPolicyType) string {
+func (o WindowOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Window) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WindowOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringAlertPolicyType) *string {
+func (o WindowOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Window) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type MonitoringAlertPolicyTypePtrOutput struct{ *pulumi.OutputState }
+type WindowPtrOutput struct{ *pulumi.OutputState }
 
-func (MonitoringAlertPolicyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringAlertPolicyType)(nil)).Elem()
+func (WindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Window)(nil)).Elem()
 }
 
-func (o MonitoringAlertPolicyTypePtrOutput) ToMonitoringAlertPolicyTypePtrOutput() MonitoringAlertPolicyTypePtrOutput {
+func (o WindowPtrOutput) ToWindowPtrOutput() WindowPtrOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyTypePtrOutput) ToMonitoringAlertPolicyTypePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyTypePtrOutput {
+func (o WindowPtrOutput) ToWindowPtrOutputWithContext(ctx context.Context) WindowPtrOutput {
 	return o
 }
 
-func (o MonitoringAlertPolicyTypePtrOutput) Elem() MonitoringAlertPolicyTypeOutput {
-	return o.ApplyT(func(v *MonitoringAlertPolicyType) MonitoringAlertPolicyType {
+func (o WindowPtrOutput) Elem() WindowOutput {
+	return o.ApplyT(func(v *Window) Window {
 		if v != nil {
 			return *v
 		}
-		var ret MonitoringAlertPolicyType
+		var ret Window
 		return ret
-	}).(MonitoringAlertPolicyTypeOutput)
+	}).(WindowOutput)
 }
 
-func (o MonitoringAlertPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o WindowPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o MonitoringAlertPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringAlertPolicyType) *string {
+func (o WindowPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Window) *string {
 		if e == nil {
 			return nil
 		}
@@ -804,261 +997,68 @@ func (o MonitoringAlertPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitoringAlertPolicyTypeInput is an input type that accepts values of the MonitoringAlertPolicyType enum
-// A concrete instance of `MonitoringAlertPolicyTypeInput` can be one of the following:
+// WindowInput is an input type that accepts values of the Window enum
+// A concrete instance of `WindowInput` can be one of the following:
 //
-//	MonitoringAlertPolicyTypeV1insightsdropletload1
-//	MonitoringAlertPolicyTypeV1insightsdropletload5
-//	MonitoringAlertPolicyTypeV1insightsdropletload15
-//	MonitoringAlertPolicyTypeV1insightsdropletmemoryUtilizationPercent
-//	MonitoringAlertPolicyTypeV1insightsdropletdiskUtilizationPercent
-//	MonitoringAlertPolicyTypeV1insightsdropletcpu
-//	MonitoringAlertPolicyTypeV1insightsdropletdiskRead
-//	MonitoringAlertPolicyTypeV1insightsdropletdiskWrite
-//	MonitoringAlertPolicyTypeV1insightsdropletpublicOutboundBandwidth
-//	MonitoringAlertPolicyTypeV1insightsdropletpublicInboundBandwidth
-//	MonitoringAlertPolicyTypeV1insightsdropletprivateOutboundBandwidth
-//	MonitoringAlertPolicyTypeV1insightsdropletprivateInboundBandwidth
-//	MonitoringAlertPolicyTypeV1insightslbaasavgCpuUtilizationPercent
-//	MonitoringAlertPolicyTypeV1insightslbaasconnectionUtilizationPercent
-//	MonitoringAlertPolicyTypeV1insightslbaasdropletHealth
-//	MonitoringAlertPolicyTypeV1insightslbaastlsConnectionsPerSecondUtilizationPercent
-//	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRatePercentage5xx
-//	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRatePercentage4xx
-//	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRateCount5xx
-//	MonitoringAlertPolicyTypeV1insightslbaasincreaseInHttpErrorRateCount4xx
-//	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime
-//	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime50p
-//	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime95p
-//	MonitoringAlertPolicyTypeV1insightslbaashighHttpRequestResponseTime99p
-//	MonitoringAlertPolicyTypeV1dbaasalertsload15Alerts
-//	MonitoringAlertPolicyTypeV1dbaasalertsmemoryUtilizationAlerts
-//	MonitoringAlertPolicyTypeV1dbaasalertsdiskUtilizationAlerts
-//	MonitoringAlertPolicyTypeV1dbaasalertscpuAlerts
-type MonitoringAlertPolicyTypeInput interface {
+//	Window_5m
+//	Window_10m
+//	Window_30m
+//	Window_1h
+type WindowInput interface {
 	pulumi.Input
 
-	ToMonitoringAlertPolicyTypeOutput() MonitoringAlertPolicyTypeOutput
-	ToMonitoringAlertPolicyTypeOutputWithContext(context.Context) MonitoringAlertPolicyTypeOutput
+	ToWindowOutput() WindowOutput
+	ToWindowOutputWithContext(context.Context) WindowOutput
 }
 
-var monitoringAlertPolicyTypePtrType = reflect.TypeOf((**MonitoringAlertPolicyType)(nil)).Elem()
+var windowPtrType = reflect.TypeOf((**Window)(nil)).Elem()
 
-type MonitoringAlertPolicyTypePtrInput interface {
+type WindowPtrInput interface {
 	pulumi.Input
 
-	ToMonitoringAlertPolicyTypePtrOutput() MonitoringAlertPolicyTypePtrOutput
-	ToMonitoringAlertPolicyTypePtrOutputWithContext(context.Context) MonitoringAlertPolicyTypePtrOutput
+	ToWindowPtrOutput() WindowPtrOutput
+	ToWindowPtrOutputWithContext(context.Context) WindowPtrOutput
 }
 
-type monitoringAlertPolicyTypePtr string
+type windowPtr string
 
-func MonitoringAlertPolicyTypePtr(v string) MonitoringAlertPolicyTypePtrInput {
-	return (*monitoringAlertPolicyTypePtr)(&v)
+func WindowPtr(v string) WindowPtrInput {
+	return (*windowPtr)(&v)
 }
 
-func (*monitoringAlertPolicyTypePtr) ElementType() reflect.Type {
-	return monitoringAlertPolicyTypePtrType
+func (*windowPtr) ElementType() reflect.Type {
+	return windowPtrType
 }
 
-func (in *monitoringAlertPolicyTypePtr) ToMonitoringAlertPolicyTypePtrOutput() MonitoringAlertPolicyTypePtrOutput {
-	return pulumi.ToOutput(in).(MonitoringAlertPolicyTypePtrOutput)
+func (in *windowPtr) ToWindowPtrOutput() WindowPtrOutput {
+	return pulumi.ToOutput(in).(WindowPtrOutput)
 }
 
-func (in *monitoringAlertPolicyTypePtr) ToMonitoringAlertPolicyTypePtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MonitoringAlertPolicyTypePtrOutput)
-}
-
-type MonitoringAlertPolicyWindow string
-
-const (
-	MonitoringAlertPolicyWindow_5m  = MonitoringAlertPolicyWindow("5m")
-	MonitoringAlertPolicyWindow_10m = MonitoringAlertPolicyWindow("10m")
-	MonitoringAlertPolicyWindow_30m = MonitoringAlertPolicyWindow("30m")
-	MonitoringAlertPolicyWindow_1h  = MonitoringAlertPolicyWindow("1h")
-)
-
-func (MonitoringAlertPolicyWindow) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringAlertPolicyWindow)(nil)).Elem()
-}
-
-func (e MonitoringAlertPolicyWindow) ToMonitoringAlertPolicyWindowOutput() MonitoringAlertPolicyWindowOutput {
-	return pulumi.ToOutput(e).(MonitoringAlertPolicyWindowOutput)
-}
-
-func (e MonitoringAlertPolicyWindow) ToMonitoringAlertPolicyWindowOutputWithContext(ctx context.Context) MonitoringAlertPolicyWindowOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MonitoringAlertPolicyWindowOutput)
-}
-
-func (e MonitoringAlertPolicyWindow) ToMonitoringAlertPolicyWindowPtrOutput() MonitoringAlertPolicyWindowPtrOutput {
-	return e.ToMonitoringAlertPolicyWindowPtrOutputWithContext(context.Background())
-}
-
-func (e MonitoringAlertPolicyWindow) ToMonitoringAlertPolicyWindowPtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyWindowPtrOutput {
-	return MonitoringAlertPolicyWindow(e).ToMonitoringAlertPolicyWindowOutputWithContext(ctx).ToMonitoringAlertPolicyWindowPtrOutputWithContext(ctx)
-}
-
-func (e MonitoringAlertPolicyWindow) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MonitoringAlertPolicyWindow) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MonitoringAlertPolicyWindow) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MonitoringAlertPolicyWindow) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type MonitoringAlertPolicyWindowOutput struct{ *pulumi.OutputState }
-
-func (MonitoringAlertPolicyWindowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringAlertPolicyWindow)(nil)).Elem()
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToMonitoringAlertPolicyWindowOutput() MonitoringAlertPolicyWindowOutput {
-	return o
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToMonitoringAlertPolicyWindowOutputWithContext(ctx context.Context) MonitoringAlertPolicyWindowOutput {
-	return o
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToMonitoringAlertPolicyWindowPtrOutput() MonitoringAlertPolicyWindowPtrOutput {
-	return o.ToMonitoringAlertPolicyWindowPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToMonitoringAlertPolicyWindowPtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyWindowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringAlertPolicyWindow) *MonitoringAlertPolicyWindow {
-		return &v
-	}).(MonitoringAlertPolicyWindowPtrOutput)
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringAlertPolicyWindow) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringAlertPolicyWindowOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringAlertPolicyWindow) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MonitoringAlertPolicyWindowPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringAlertPolicyWindowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringAlertPolicyWindow)(nil)).Elem()
-}
-
-func (o MonitoringAlertPolicyWindowPtrOutput) ToMonitoringAlertPolicyWindowPtrOutput() MonitoringAlertPolicyWindowPtrOutput {
-	return o
-}
-
-func (o MonitoringAlertPolicyWindowPtrOutput) ToMonitoringAlertPolicyWindowPtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyWindowPtrOutput {
-	return o
-}
-
-func (o MonitoringAlertPolicyWindowPtrOutput) Elem() MonitoringAlertPolicyWindowOutput {
-	return o.ApplyT(func(v *MonitoringAlertPolicyWindow) MonitoringAlertPolicyWindow {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringAlertPolicyWindow
-		return ret
-	}).(MonitoringAlertPolicyWindowOutput)
-}
-
-func (o MonitoringAlertPolicyWindowPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringAlertPolicyWindowPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringAlertPolicyWindow) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MonitoringAlertPolicyWindowInput is an input type that accepts values of the MonitoringAlertPolicyWindow enum
-// A concrete instance of `MonitoringAlertPolicyWindowInput` can be one of the following:
-//
-//	MonitoringAlertPolicyWindow_5m
-//	MonitoringAlertPolicyWindow_10m
-//	MonitoringAlertPolicyWindow_30m
-//	MonitoringAlertPolicyWindow_1h
-type MonitoringAlertPolicyWindowInput interface {
-	pulumi.Input
-
-	ToMonitoringAlertPolicyWindowOutput() MonitoringAlertPolicyWindowOutput
-	ToMonitoringAlertPolicyWindowOutputWithContext(context.Context) MonitoringAlertPolicyWindowOutput
-}
-
-var monitoringAlertPolicyWindowPtrType = reflect.TypeOf((**MonitoringAlertPolicyWindow)(nil)).Elem()
-
-type MonitoringAlertPolicyWindowPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringAlertPolicyWindowPtrOutput() MonitoringAlertPolicyWindowPtrOutput
-	ToMonitoringAlertPolicyWindowPtrOutputWithContext(context.Context) MonitoringAlertPolicyWindowPtrOutput
-}
-
-type monitoringAlertPolicyWindowPtr string
-
-func MonitoringAlertPolicyWindowPtr(v string) MonitoringAlertPolicyWindowPtrInput {
-	return (*monitoringAlertPolicyWindowPtr)(&v)
-}
-
-func (*monitoringAlertPolicyWindowPtr) ElementType() reflect.Type {
-	return monitoringAlertPolicyWindowPtrType
-}
-
-func (in *monitoringAlertPolicyWindowPtr) ToMonitoringAlertPolicyWindowPtrOutput() MonitoringAlertPolicyWindowPtrOutput {
-	return pulumi.ToOutput(in).(MonitoringAlertPolicyWindowPtrOutput)
-}
-
-func (in *monitoringAlertPolicyWindowPtr) ToMonitoringAlertPolicyWindowPtrOutputWithContext(ctx context.Context) MonitoringAlertPolicyWindowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MonitoringAlertPolicyWindowPtrOutput)
+func (in *windowPtr) ToWindowPtrOutputWithContext(ctx context.Context) WindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WindowPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringAlertPolicyCompareInput)(nil)).Elem(), MonitoringAlertPolicyCompare("GreaterThan"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringAlertPolicyComparePtrInput)(nil)).Elem(), MonitoringAlertPolicyCompare("GreaterThan"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringAlertPolicyTypeInput)(nil)).Elem(), MonitoringAlertPolicyType("v1/insights/droplet/load_1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringAlertPolicyTypePtrInput)(nil)).Elem(), MonitoringAlertPolicyType("v1/insights/droplet/load_1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringAlertPolicyWindowInput)(nil)).Elem(), MonitoringAlertPolicyWindow("5m"))
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringAlertPolicyWindowPtrInput)(nil)).Elem(), MonitoringAlertPolicyWindow("5m"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CompareInput)(nil)).Elem(), Compare("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComparePtrInput)(nil)).Elem(), Compare("GreaterThan"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeInput)(nil)).Elem(), Type("v1/insights/droplet/load_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypePtrInput)(nil)).Elem(), Type("v1/insights/droplet/load_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowInput)(nil)).Elem(), Window("5m"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowPtrInput)(nil)).Elem(), Window("5m"))
 	pulumi.RegisterOutputType(AlertPolicyCompareOutput{})
 	pulumi.RegisterOutputType(AlertPolicyComparePtrOutput{})
 	pulumi.RegisterOutputType(AlertPolicyTypeOutput{})
 	pulumi.RegisterOutputType(AlertPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(AlertPolicyWindowOutput{})
 	pulumi.RegisterOutputType(AlertPolicyWindowPtrOutput{})
+	pulumi.RegisterOutputType(CompareOutput{})
+	pulumi.RegisterOutputType(ComparePtrOutput{})
 	pulumi.RegisterOutputType(MetricsDataResultTypeOutput{})
 	pulumi.RegisterOutputType(MetricsDataResultTypePtrOutput{})
 	pulumi.RegisterOutputType(MetricsStatusOutput{})
 	pulumi.RegisterOutputType(MetricsStatusPtrOutput{})
-	pulumi.RegisterOutputType(MonitoringAlertPolicyCompareOutput{})
-	pulumi.RegisterOutputType(MonitoringAlertPolicyComparePtrOutput{})
-	pulumi.RegisterOutputType(MonitoringAlertPolicyTypeOutput{})
-	pulumi.RegisterOutputType(MonitoringAlertPolicyTypePtrOutput{})
-	pulumi.RegisterOutputType(MonitoringAlertPolicyWindowOutput{})
-	pulumi.RegisterOutputType(MonitoringAlertPolicyWindowPtrOutput{})
+	pulumi.RegisterOutputType(TypeOutput{})
+	pulumi.RegisterOutputType(TypePtrOutput{})
+	pulumi.RegisterOutputType(WindowOutput{})
+	pulumi.RegisterOutputType(WindowPtrOutput{})
 }

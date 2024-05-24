@@ -19,7 +19,7 @@ type Assign struct {
 	// The ID of the Droplet that the floating IP will be assigned to.
 	DropletId pulumi.IntPtrOutput `pulumi:"dropletId"`
 	// The type of action to initiate for the floating IP.
-	Type AssignFloatingIPsActionTypePtrOutput `pulumi:"type"`
+	Type FloatingIPsActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewAssign registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ type assignArgs struct {
 	// A floating IP address.
 	FloatingIp *string `pulumi:"floatingIp"`
 	// The type of action to initiate for the floating IP.
-	Type AssignFloatingIPsActionType `pulumi:"type"`
+	Type FloatingIPsActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Assign resource.
@@ -83,7 +83,7 @@ type AssignArgs struct {
 	// A floating IP address.
 	FloatingIp pulumi.StringPtrInput
 	// The type of action to initiate for the floating IP.
-	Type AssignFloatingIPsActionTypeInput
+	Type FloatingIPsActionTypeInput
 }
 
 func (AssignArgs) ElementType() reflect.Type {
@@ -133,8 +133,8 @@ func (o AssignOutput) DropletId() pulumi.IntPtrOutput {
 }
 
 // The type of action to initiate for the floating IP.
-func (o AssignOutput) Type() AssignFloatingIPsActionTypePtrOutput {
-	return o.ApplyT(func(v *Assign) AssignFloatingIPsActionTypePtrOutput { return v.Type }).(AssignFloatingIPsActionTypePtrOutput)
+func (o AssignOutput) Type() FloatingIPsActionTypePtrOutput {
+	return o.ApplyT(func(v *Assign) FloatingIPsActionTypePtrOutput { return v.Type }).(FloatingIPsActionTypePtrOutput)
 }
 
 func init() {

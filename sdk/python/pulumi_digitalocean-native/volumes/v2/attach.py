@@ -17,15 +17,15 @@ __all__ = ['AttachArgs', 'Attach']
 class AttachArgs:
     def __init__(__self__, *,
                  droplet_id: pulumi.Input[int],
-                 type: pulumi.Input['AttachVolumeActionCreateBaseType'],
-                 region: Optional[pulumi.Input['AttachVolumeActionCreateBaseRegion']] = None,
+                 type: pulumi.Input['VolumeActionCreateBaseType'],
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Attach resource.
         :param pulumi.Input[int] droplet_id: The unique identifier for the Droplet the volume will be attached or detached from.
-        :param pulumi.Input['AttachVolumeActionCreateBaseType'] type: The volume action to initiate.
-        :param pulumi.Input['AttachVolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
+        :param pulumi.Input['VolumeActionCreateBaseType'] type: The volume action to initiate.
+        :param pulumi.Input['VolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
         :param pulumi.Input[str] volume_id: The ID of the block storage volume.
         """
@@ -52,26 +52,26 @@ class AttachArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['AttachVolumeActionCreateBaseType']:
+    def type(self) -> pulumi.Input['VolumeActionCreateBaseType']:
         """
         The volume action to initiate.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['AttachVolumeActionCreateBaseType']):
+    def type(self, value: pulumi.Input['VolumeActionCreateBaseType']):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['AttachVolumeActionCreateBaseRegion']]:
+    def region(self) -> Optional[pulumi.Input['VolumeActionCreateBaseRegion']]:
         """
         The slug identifier for the region where the resource will initially be  available.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['AttachVolumeActionCreateBaseRegion']]):
+    def region(self, value: Optional[pulumi.Input['VolumeActionCreateBaseRegion']]):
         pulumi.set(self, "region", value)
 
     @property
@@ -105,9 +105,9 @@ class Attach(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
-                 region: Optional[pulumi.Input['AttachVolumeActionCreateBaseRegion']] = None,
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input['AttachVolumeActionCreateBaseType']] = None,
+                 type: Optional[pulumi.Input['VolumeActionCreateBaseType']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -115,9 +115,9 @@ class Attach(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] droplet_id: The unique identifier for the Droplet the volume will be attached or detached from.
-        :param pulumi.Input['AttachVolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
+        :param pulumi.Input['VolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
-        :param pulumi.Input['AttachVolumeActionCreateBaseType'] type: The volume action to initiate.
+        :param pulumi.Input['VolumeActionCreateBaseType'] type: The volume action to initiate.
         :param pulumi.Input[str] volume_id: The ID of the block storage volume.
         """
         ...
@@ -144,9 +144,9 @@ class Attach(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
-                 region: Optional[pulumi.Input['AttachVolumeActionCreateBaseRegion']] = None,
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input['AttachVolumeActionCreateBaseType']] = None,
+                 type: Optional[pulumi.Input['VolumeActionCreateBaseType']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -211,7 +211,7 @@ class Attach(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[Optional['AttachVolumeActionCreateBaseRegion']]:
+    def region(self) -> pulumi.Output[Optional['VolumeActionCreateBaseRegion']]:
         """
         The slug identifier for the region where the resource will initially be  available.
         """
@@ -227,7 +227,7 @@ class Attach(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['AttachVolumeActionCreateBaseType']]:
+    def type(self) -> pulumi.Output[Optional['VolumeActionCreateBaseType']]:
         """
         The volume action to initiate.
         """

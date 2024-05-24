@@ -135,7 +135,7 @@ export const DatabaseUserRole = {
  */
 export type DatabaseUserRole = (typeof DatabaseUserRole)[keyof typeof DatabaseUserRole];
 
-export const DatabasesEvictionPolicyEvictionPolicy = {
+export const EvictionPolicy = {
     Noeviction: "noeviction",
     AllkeysLru: "allkeys_lru",
     AllkeysRandom: "allkeys_random",
@@ -154,7 +154,7 @@ export const DatabasesEvictionPolicyEvictionPolicy = {
  * - `volatile_random`: Evict keys with expiration only in a random order.
  * - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
  */
-export type DatabasesEvictionPolicyEvictionPolicy = (typeof DatabasesEvictionPolicyEvictionPolicy)[keyof typeof DatabasesEvictionPolicyEvictionPolicy];
+export type EvictionPolicy = (typeof EvictionPolicy)[keyof typeof EvictionPolicy];
 
 export const FirewallRuleType = {
     Droplet: "droplet",

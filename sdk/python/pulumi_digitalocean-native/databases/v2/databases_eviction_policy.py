@@ -15,11 +15,11 @@ __all__ = ['DatabasesEvictionPolicyArgs', 'DatabasesEvictionPolicy']
 @pulumi.input_type
 class DatabasesEvictionPolicyArgs:
     def __init__(__self__, *,
-                 eviction_policy: pulumi.Input['DatabasesEvictionPolicyEvictionPolicy'],
+                 eviction_policy: pulumi.Input['EvictionPolicy'],
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatabasesEvictionPolicy resource.
-        :param pulumi.Input['DatabasesEvictionPolicyEvictionPolicy'] eviction_policy: A string specifying the desired eviction policy for the Redis cluster.
+        :param pulumi.Input['EvictionPolicy'] eviction_policy: A string specifying the desired eviction policy for the Redis cluster.
                
                - `noeviction`: Don't evict any data, returns error when memory limit is reached.
                - `allkeys_lru:` Evict any key, least recently used (LRU) first.
@@ -35,7 +35,7 @@ class DatabasesEvictionPolicyArgs:
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> pulumi.Input['DatabasesEvictionPolicyEvictionPolicy']:
+    def eviction_policy(self) -> pulumi.Input['EvictionPolicy']:
         """
         A string specifying the desired eviction policy for the Redis cluster.
 
@@ -49,7 +49,7 @@ class DatabasesEvictionPolicyArgs:
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: pulumi.Input['DatabasesEvictionPolicyEvictionPolicy']):
+    def eviction_policy(self, value: pulumi.Input['EvictionPolicy']):
         pulumi.set(self, "eviction_policy", value)
 
     @property
@@ -71,14 +71,14 @@ class DatabasesEvictionPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                 eviction_policy: Optional[pulumi.Input['DatabasesEvictionPolicyEvictionPolicy']] = None,
+                 eviction_policy: Optional[pulumi.Input['EvictionPolicy']] = None,
                  __props__=None):
         """
         Create a DatabasesEvictionPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_cluster_uuid: A unique identifier for a database cluster.
-        :param pulumi.Input['DatabasesEvictionPolicyEvictionPolicy'] eviction_policy: A string specifying the desired eviction policy for the Redis cluster.
+        :param pulumi.Input['EvictionPolicy'] eviction_policy: A string specifying the desired eviction policy for the Redis cluster.
                
                - `noeviction`: Don't evict any data, returns error when memory limit is reached.
                - `allkeys_lru:` Evict any key, least recently used (LRU) first.
@@ -111,7 +111,7 @@ class DatabasesEvictionPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                 eviction_policy: Optional[pulumi.Input['DatabasesEvictionPolicyEvictionPolicy']] = None,
+                 eviction_policy: Optional[pulumi.Input['EvictionPolicy']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -152,7 +152,7 @@ class DatabasesEvictionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> pulumi.Output['DatabasesEvictionPolicyEvictionPolicy']:
+    def eviction_policy(self) -> pulumi.Output['EvictionPolicy']:
         """
         A string specifying the desired eviction policy for the Redis cluster.
 

@@ -17,7 +17,7 @@ type Unassign struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the floating IP.
-	Type UnassignFloatingIPsActionTypePtrOutput `pulumi:"type"`
+	Type FloatingIPsActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewUnassign registers a new resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ type unassignArgs struct {
 	// A floating IP address.
 	FloatingIp *string `pulumi:"floatingIp"`
 	// The type of action to initiate for the floating IP.
-	Type UnassignFloatingIPsActionType `pulumi:"type"`
+	Type FloatingIPsActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Unassign resource.
@@ -74,7 +74,7 @@ type UnassignArgs struct {
 	// A floating IP address.
 	FloatingIp pulumi.StringPtrInput
 	// The type of action to initiate for the floating IP.
-	Type UnassignFloatingIPsActionTypeInput
+	Type FloatingIPsActionTypeInput
 }
 
 func (UnassignArgs) ElementType() reflect.Type {
@@ -119,8 +119,8 @@ func (o UnassignOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the floating IP.
-func (o UnassignOutput) Type() UnassignFloatingIPsActionTypePtrOutput {
-	return o.ApplyT(func(v *Unassign) UnassignFloatingIPsActionTypePtrOutput { return v.Type }).(UnassignFloatingIPsActionTypePtrOutput)
+func (o UnassignOutput) Type() FloatingIPsActionTypePtrOutput {
+	return o.ApplyT(func(v *Unassign) FloatingIPsActionTypePtrOutput { return v.Type }).(FloatingIPsActionTypePtrOutput)
 }
 
 func init() {

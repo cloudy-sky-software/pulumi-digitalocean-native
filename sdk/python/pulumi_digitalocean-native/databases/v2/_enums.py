@@ -17,7 +17,7 @@ __all__ = [
     'DatabaseClusterStatus',
     'DatabaseReplicaStatus',
     'DatabaseUserRole',
-    'DatabasesEvictionPolicyEvictionPolicy',
+    'EvictionPolicy',
     'FirewallRuleType',
     'GetDatabasesEvictionPolicyPropertiesEvictionPolicy',
     'MysqlInternalTmpMemStorageEngine',
@@ -140,7 +140,7 @@ class DatabaseUserRole(str, Enum):
     NORMAL = "normal"
 
 
-class DatabasesEvictionPolicyEvictionPolicy(str, Enum):
+class EvictionPolicy(str, Enum):
     """
     A string specifying the desired eviction policy for the Redis cluster.
 

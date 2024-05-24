@@ -16,11 +16,11 @@ __all__ = ['RebootArgs', 'Reboot']
 @pulumi.input_type
 class RebootArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['RebootType'],
+                 type: pulumi.Input['Type'],
                  droplet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Reboot resource.
-        :param pulumi.Input['RebootType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['Type'] type: The type of action to initiate for the Droplet.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         """
         pulumi.set(__self__, "type", type)
@@ -29,14 +29,14 @@ class RebootArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['RebootType']:
+    def type(self) -> pulumi.Input['Type']:
         """
         The type of action to initiate for the Droplet.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['RebootType']):
+    def type(self, value: pulumi.Input['Type']):
         pulumi.set(self, "type", value)
 
     @property
@@ -58,7 +58,7 @@ class Reboot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['RebootType']] = None,
+                 type: Optional[pulumi.Input['Type']] = None,
                  __props__=None):
         """
         Specifies the action that will be taken on the Droplet.
@@ -66,7 +66,7 @@ class Reboot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
-        :param pulumi.Input['RebootType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['Type'] type: The type of action to initiate for the Droplet.
         """
         ...
     @overload
@@ -93,7 +93,7 @@ class Reboot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['RebootType']] = None,
+                 type: Optional[pulumi.Input['Type']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -141,7 +141,7 @@ class Reboot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output['RebootType']:
+    def type(self) -> pulumi.Output['Type']:
         """
         The type of action to initiate for the Droplet.
         """

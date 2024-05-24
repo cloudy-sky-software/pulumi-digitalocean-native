@@ -17,14 +17,14 @@ __all__ = ['ResizeArgs', 'Resize']
 class ResizeArgs:
     def __init__(__self__, *,
                  size_gigabytes: pulumi.Input[int],
-                 type: pulumi.Input['ResizeVolumeActionCreateBaseType'],
-                 region: Optional[pulumi.Input['ResizeVolumeActionCreateBaseRegion']] = None,
+                 type: pulumi.Input['VolumeActionCreateBaseType'],
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Resize resource.
         :param pulumi.Input[int] size_gigabytes: The new size of the block storage volume in GiB (1024^3).
-        :param pulumi.Input['ResizeVolumeActionCreateBaseType'] type: The volume action to initiate.
-        :param pulumi.Input['ResizeVolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
+        :param pulumi.Input['VolumeActionCreateBaseType'] type: The volume action to initiate.
+        :param pulumi.Input['VolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[str] volume_id: The ID of the block storage volume.
         """
         pulumi.set(__self__, "size_gigabytes", size_gigabytes)
@@ -48,26 +48,26 @@ class ResizeArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ResizeVolumeActionCreateBaseType']:
+    def type(self) -> pulumi.Input['VolumeActionCreateBaseType']:
         """
         The volume action to initiate.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ResizeVolumeActionCreateBaseType']):
+    def type(self, value: pulumi.Input['VolumeActionCreateBaseType']):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['ResizeVolumeActionCreateBaseRegion']]:
+    def region(self) -> Optional[pulumi.Input['VolumeActionCreateBaseRegion']]:
         """
         The slug identifier for the region where the resource will initially be  available.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['ResizeVolumeActionCreateBaseRegion']]):
+    def region(self, value: Optional[pulumi.Input['VolumeActionCreateBaseRegion']]):
         pulumi.set(self, "region", value)
 
     @property
@@ -88,18 +88,18 @@ class Resize(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input['ResizeVolumeActionCreateBaseRegion']] = None,
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  size_gigabytes: Optional[pulumi.Input[int]] = None,
-                 type: Optional[pulumi.Input['ResizeVolumeActionCreateBaseType']] = None,
+                 type: Optional[pulumi.Input['VolumeActionCreateBaseType']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a Resize resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['ResizeVolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
+        :param pulumi.Input['VolumeActionCreateBaseRegion'] region: The slug identifier for the region where the resource will initially be  available.
         :param pulumi.Input[int] size_gigabytes: The new size of the block storage volume in GiB (1024^3).
-        :param pulumi.Input['ResizeVolumeActionCreateBaseType'] type: The volume action to initiate.
+        :param pulumi.Input['VolumeActionCreateBaseType'] type: The volume action to initiate.
         :param pulumi.Input[str] volume_id: The ID of the block storage volume.
         """
         ...
@@ -125,9 +125,9 @@ class Resize(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input['ResizeVolumeActionCreateBaseRegion']] = None,
+                 region: Optional[pulumi.Input['VolumeActionCreateBaseRegion']] = None,
                  size_gigabytes: Optional[pulumi.Input[int]] = None,
-                 type: Optional[pulumi.Input['ResizeVolumeActionCreateBaseType']] = None,
+                 type: Optional[pulumi.Input['VolumeActionCreateBaseType']] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -182,7 +182,7 @@ class Resize(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[Optional['ResizeVolumeActionCreateBaseRegion']]:
+    def region(self) -> pulumi.Output[Optional['VolumeActionCreateBaseRegion']]:
         """
         The slug identifier for the region where the resource will initially be  available.
         """
@@ -198,7 +198,7 @@ class Resize(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['ResizeVolumeActionCreateBaseType']]:
+    def type(self) -> pulumi.Output[Optional['VolumeActionCreateBaseType']]:
         """
         The volume action to initiate.
         """

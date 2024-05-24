@@ -18,16 +18,16 @@ class UptimeCheckArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['UptimeCheckCheckUpdatableType']] = None):
+                 type: Optional[pulumi.Input['CheckUpdatableType']] = None):
         """
         The set of arguments for constructing a UptimeCheck resource.
         :param pulumi.Input[bool] enabled: A boolean value indicating whether the check is enabled/disabled.
         :param pulumi.Input[str] name: A human-friendly display name.
-        :param pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]] regions: An array containing the selected regions to perform healthchecks from.
+        :param pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]] regions: An array containing the selected regions to perform healthchecks from.
         :param pulumi.Input[str] target: The endpoint to perform healthchecks on.
-        :param pulumi.Input['UptimeCheckCheckUpdatableType'] type: The type of health check to perform.
+        :param pulumi.Input['CheckUpdatableType'] type: The type of health check to perform.
         """
         if enabled is None:
             enabled = True
@@ -68,14 +68,14 @@ class UptimeCheckArgs:
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]]]:
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]]]:
         """
         An array containing the selected regions to perform healthchecks from.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]]]):
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]]]):
         pulumi.set(self, "regions", value)
 
     @property
@@ -92,14 +92,14 @@ class UptimeCheckArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['UptimeCheckCheckUpdatableType']]:
+    def type(self) -> Optional[pulumi.Input['CheckUpdatableType']]:
         """
         The type of health check to perform.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['UptimeCheckCheckUpdatableType']]):
+    def type(self, value: Optional[pulumi.Input['CheckUpdatableType']]):
         pulumi.set(self, "type", value)
 
 
@@ -110,9 +110,9 @@ class UptimeCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['UptimeCheckCheckUpdatableType']] = None,
+                 type: Optional[pulumi.Input['CheckUpdatableType']] = None,
                  __props__=None):
         """
         Create a UptimeCheck resource with the given unique name, props, and options.
@@ -120,9 +120,9 @@ class UptimeCheck(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: A boolean value indicating whether the check is enabled/disabled.
         :param pulumi.Input[str] name: A human-friendly display name.
-        :param pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]] regions: An array containing the selected regions to perform healthchecks from.
+        :param pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]] regions: An array containing the selected regions to perform healthchecks from.
         :param pulumi.Input[str] target: The endpoint to perform healthchecks on.
-        :param pulumi.Input['UptimeCheckCheckUpdatableType'] type: The type of health check to perform.
+        :param pulumi.Input['CheckUpdatableType'] type: The type of health check to perform.
         """
         ...
     @overload
@@ -149,9 +149,9 @@ class UptimeCheck(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['UptimeCheckCheckUpdatableRegionsItem']]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['CheckUpdatableRegionsItem']]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['UptimeCheckCheckUpdatableType']] = None,
+                 type: Optional[pulumi.Input['CheckUpdatableType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,7 +222,7 @@ class UptimeCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def regions(self) -> pulumi.Output[Sequence['UptimeCheckCheckUpdatableRegionsItem']]:
+    def regions(self) -> pulumi.Output[Sequence['CheckUpdatableRegionsItem']]:
         """
         An array containing the selected regions to perform healthchecks from.
         """
@@ -238,7 +238,7 @@ class UptimeCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output['UptimeCheckCheckUpdatableType']:
+    def type(self) -> pulumi.Output['CheckUpdatableType']:
         """
         The type of health check to perform.
         """

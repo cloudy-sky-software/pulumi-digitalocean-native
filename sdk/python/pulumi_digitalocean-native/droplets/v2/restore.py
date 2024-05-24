@@ -16,12 +16,12 @@ __all__ = ['RestoreArgs', 'Restore']
 @pulumi.input_type
 class RestoreArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['RestoreDropletActionType'],
+                 type: pulumi.Input['DropletActionType'],
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Restore resource.
-        :param pulumi.Input['RestoreDropletActionType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['DropletActionType'] type: The type of action to initiate for the Droplet.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         :param pulumi.Input[int] image: The ID of a backup of the current Droplet instance to restore from.
         """
@@ -33,14 +33,14 @@ class RestoreArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['RestoreDropletActionType']:
+    def type(self) -> pulumi.Input['DropletActionType']:
         """
         The type of action to initiate for the Droplet.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['RestoreDropletActionType']):
+    def type(self, value: pulumi.Input['DropletActionType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -75,7 +75,7 @@ class Restore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input[int]] = None,
-                 type: Optional[pulumi.Input['RestoreDropletActionType']] = None,
+                 type: Optional[pulumi.Input['DropletActionType']] = None,
                  __props__=None):
         """
         Create a Restore resource with the given unique name, props, and options.
@@ -83,7 +83,7 @@ class Restore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         :param pulumi.Input[int] image: The ID of a backup of the current Droplet instance to restore from.
-        :param pulumi.Input['RestoreDropletActionType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['DropletActionType'] type: The type of action to initiate for the Droplet.
         """
         ...
     @overload
@@ -110,7 +110,7 @@ class Restore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input[int]] = None,
-                 type: Optional[pulumi.Input['RestoreDropletActionType']] = None,
+                 type: Optional[pulumi.Input['DropletActionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,7 +168,7 @@ class Restore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['RestoreDropletActionType']]:
+    def type(self) -> pulumi.Output[Optional['DropletActionType']]:
         """
         The type of action to initiate for the Droplet.
         """

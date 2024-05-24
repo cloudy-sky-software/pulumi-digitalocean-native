@@ -18,7 +18,7 @@ type PowerOn struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type PowerOnTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewPowerOn registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type powerOnArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type PowerOnType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PowerOn resource.
@@ -75,7 +75,7 @@ type PowerOnArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type PowerOnTypeInput
+	Type TypeInput
 }
 
 func (PowerOnArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o PowerOnOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o PowerOnOutput) Type() PowerOnTypeOutput {
-	return o.ApplyT(func(v *PowerOn) PowerOnTypeOutput { return v.Type }).(PowerOnTypeOutput)
+func (o PowerOnOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *PowerOn) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

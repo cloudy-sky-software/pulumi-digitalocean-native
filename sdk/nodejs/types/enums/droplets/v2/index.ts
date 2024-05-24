@@ -2,30 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ChangeKernelDropletActionType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type ChangeKernelDropletActionType = (typeof ChangeKernelDropletActionType)[keyof typeof ChangeKernelDropletActionType];
-
-export const DisableBackupsActionStatus = {
+export const ActionStatus = {
     InProgress: "in-progress",
     Completed: "completed",
     Errored: "errored",
@@ -34,9 +11,9 @@ export const DisableBackupsActionStatus = {
 /**
  * The current status of the action. This can be "in-progress", "completed", or "errored".
  */
-export type DisableBackupsActionStatus = (typeof DisableBackupsActionStatus)[keyof typeof DisableBackupsActionStatus];
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
-export const DisableBackupsType = {
+export const DropletActionType = {
     EnableBackups: "enable_backups",
     DisableBackups: "disable_backups",
     Reboot: "reboot",
@@ -57,7 +34,7 @@ export const DisableBackupsType = {
 /**
  * The type of action to initiate for the Droplet.
  */
-export type DisableBackupsType = (typeof DisableBackupsType)[keyof typeof DisableBackupsType];
+export type DropletActionType = (typeof DropletActionType)[keyof typeof DropletActionType];
 
 export const DropletSnapshotPropertiesType = {
     Snapshot: "snapshot",
@@ -80,52 +57,6 @@ export const DropletStatus = {
  * A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
  */
 export type DropletStatus = (typeof DropletStatus)[keyof typeof DropletStatus];
-
-export const EnableBackupsType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type EnableBackupsType = (typeof EnableBackupsType)[keyof typeof EnableBackupsType];
-
-export const EnableIpv6Type = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type EnableIpv6Type = (typeof EnableIpv6Type)[keyof typeof EnableIpv6Type];
 
 export const FirewallPropertiesStatus = {
     Waiting: "waiting",
@@ -240,7 +171,7 @@ export const NetworkV6Type = {
  */
 export type NetworkV6Type = (typeof NetworkV6Type)[keyof typeof NetworkV6Type];
 
-export const PasswordResetType = {
+export const Type = {
     EnableBackups: "enable_backups",
     DisableBackups: "disable_backups",
     Reboot: "reboot",
@@ -261,234 +192,4 @@ export const PasswordResetType = {
 /**
  * The type of action to initiate for the Droplet.
  */
-export type PasswordResetType = (typeof PasswordResetType)[keyof typeof PasswordResetType];
-
-export const PowerCycleType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type PowerCycleType = (typeof PowerCycleType)[keyof typeof PowerCycleType];
-
-export const PowerOffType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type PowerOffType = (typeof PowerOffType)[keyof typeof PowerOffType];
-
-export const PowerOnType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type PowerOnType = (typeof PowerOnType)[keyof typeof PowerOnType];
-
-export const RebootType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type RebootType = (typeof RebootType)[keyof typeof RebootType];
-
-export const RebuildDropletActionType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type RebuildDropletActionType = (typeof RebuildDropletActionType)[keyof typeof RebuildDropletActionType];
-
-export const RenameDropletActionType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type RenameDropletActionType = (typeof RenameDropletActionType)[keyof typeof RenameDropletActionType];
-
-export const ResizeDropletActionType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type ResizeDropletActionType = (typeof ResizeDropletActionType)[keyof typeof ResizeDropletActionType];
-
-export const RestoreDropletActionType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type RestoreDropletActionType = (typeof RestoreDropletActionType)[keyof typeof RestoreDropletActionType];
-
-export const ShutdownType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type ShutdownType = (typeof ShutdownType)[keyof typeof ShutdownType];
-
-export const SnapshotDropletActionType = {
-    EnableBackups: "enable_backups",
-    DisableBackups: "disable_backups",
-    Reboot: "reboot",
-    PowerCycle: "power_cycle",
-    Shutdown: "shutdown",
-    PowerOff: "power_off",
-    PowerOn: "power_on",
-    Restore: "restore",
-    PasswordReset: "password_reset",
-    Resize: "resize",
-    Rebuild: "rebuild",
-    Rename: "rename",
-    ChangeKernel: "change_kernel",
-    EnableIpv6: "enable_ipv6",
-    Snapshot: "snapshot",
-} as const;
-
-/**
- * The type of action to initiate for the Droplet.
- */
-export type SnapshotDropletActionType = (typeof SnapshotDropletActionType)[keyof typeof SnapshotDropletActionType];
+export type Type = (typeof Type)[keyof typeof Type];

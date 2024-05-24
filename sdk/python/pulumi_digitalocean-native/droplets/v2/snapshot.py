@@ -16,12 +16,12 @@ __all__ = ['SnapshotArgs', 'Snapshot']
 @pulumi.input_type
 class SnapshotArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['SnapshotDropletActionType'],
+                 type: pulumi.Input['DropletActionType'],
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
-        :param pulumi.Input['SnapshotDropletActionType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['DropletActionType'] type: The type of action to initiate for the Droplet.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         :param pulumi.Input[str] name: The name to give the new snapshot of the Droplet.
         """
@@ -33,14 +33,14 @@ class SnapshotArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['SnapshotDropletActionType']:
+    def type(self) -> pulumi.Input['DropletActionType']:
         """
         The type of action to initiate for the Droplet.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['SnapshotDropletActionType']):
+    def type(self, value: pulumi.Input['DropletActionType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -75,7 +75,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['SnapshotDropletActionType']] = None,
+                 type: Optional[pulumi.Input['DropletActionType']] = None,
                  __props__=None):
         """
         Create a Snapshot resource with the given unique name, props, and options.
@@ -83,7 +83,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         :param pulumi.Input[str] name: The name to give the new snapshot of the Droplet.
-        :param pulumi.Input['SnapshotDropletActionType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['DropletActionType'] type: The type of action to initiate for the Droplet.
         """
         ...
     @overload
@@ -110,7 +110,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['SnapshotDropletActionType']] = None,
+                 type: Optional[pulumi.Input['DropletActionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,7 +168,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['SnapshotDropletActionType']]:
+    def type(self) -> pulumi.Output[Optional['DropletActionType']]:
         """
         The type of action to initiate for the Droplet.
         """

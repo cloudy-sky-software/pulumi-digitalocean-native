@@ -80,7 +80,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// The slug form of the geographical origin of the app. Default: `nearest available`
         /// </summary>
         [Input("region")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppSpecRegion>? Region { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppSpecRegion>? Region { get; set; }
 
         [Input("services")]
         private InputList<Inputs.AppServiceSpecArgs>? _services;

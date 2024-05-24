@@ -40,61 +40,29 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     }
 
     /// <summary>
-    /// The current status of the action. This can be "in-progress", "completed", or "errored".
-    /// </summary>
-    [EnumType]
-    public readonly struct ConvertStatus : IEquatable<ConvertStatus>
-    {
-        private readonly string _value;
-
-        private ConvertStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConvertStatus InProgress { get; } = new ConvertStatus("in-progress");
-        public static ConvertStatus Completed { get; } = new ConvertStatus("completed");
-        public static ConvertStatus Errored { get; } = new ConvertStatus("errored");
-
-        public static bool operator ==(ConvertStatus left, ConvertStatus right) => left.Equals(right);
-        public static bool operator !=(ConvertStatus left, ConvertStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ConvertStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConvertStatus other && Equals(other);
-        public bool Equals(ConvertStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The action to be taken on the image. Can be either `convert` or `transfer`.
     /// </summary>
     [EnumType]
-    public readonly struct ConvertType : IEquatable<ConvertType>
+    public readonly struct ImageActionBaseType : IEquatable<ImageActionBaseType>
     {
         private readonly string _value;
 
-        private ConvertType(string value)
+        private ImageActionBaseType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConvertType Convert { get; } = new ConvertType("convert");
-        public static ConvertType Transfer { get; } = new ConvertType("transfer");
+        public static ImageActionBaseType Convert { get; } = new ImageActionBaseType("convert");
+        public static ImageActionBaseType Transfer { get; } = new ImageActionBaseType("transfer");
 
-        public static bool operator ==(ConvertType left, ConvertType right) => left.Equals(right);
-        public static bool operator !=(ConvertType left, ConvertType right) => !left.Equals(right);
+        public static bool operator ==(ImageActionBaseType left, ImageActionBaseType right) => left.Equals(right);
+        public static bool operator !=(ImageActionBaseType left, ImageActionBaseType right) => !left.Equals(right);
 
-        public static explicit operator string(ConvertType value) => value._value;
+        public static explicit operator string(ImageActionBaseType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConvertType other && Equals(other);
-        public bool Equals(ConvertType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ImageActionBaseType other && Equals(other);
+        public bool Equals(ImageActionBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -260,37 +228,37 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     /// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
     /// </summary>
     [EnumType]
-    public readonly struct ImagesCustomImageUpdateDistribution : IEquatable<ImagesCustomImageUpdateDistribution>
+    public readonly struct ImageUpdateDistribution : IEquatable<ImageUpdateDistribution>
     {
         private readonly string _value;
 
-        private ImagesCustomImageUpdateDistribution(string value)
+        private ImageUpdateDistribution(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ImagesCustomImageUpdateDistribution ArchLinux { get; } = new ImagesCustomImageUpdateDistribution("Arch Linux");
-        public static ImagesCustomImageUpdateDistribution CentOS { get; } = new ImagesCustomImageUpdateDistribution("CentOS");
-        public static ImagesCustomImageUpdateDistribution CoreOS { get; } = new ImagesCustomImageUpdateDistribution("CoreOS");
-        public static ImagesCustomImageUpdateDistribution Debian { get; } = new ImagesCustomImageUpdateDistribution("Debian");
-        public static ImagesCustomImageUpdateDistribution Fedora { get; } = new ImagesCustomImageUpdateDistribution("Fedora");
-        public static ImagesCustomImageUpdateDistribution FedoraAtomic { get; } = new ImagesCustomImageUpdateDistribution("Fedora Atomic");
-        public static ImagesCustomImageUpdateDistribution FreeBSD { get; } = new ImagesCustomImageUpdateDistribution("FreeBSD");
-        public static ImagesCustomImageUpdateDistribution Gentoo { get; } = new ImagesCustomImageUpdateDistribution("Gentoo");
-        public static ImagesCustomImageUpdateDistribution OpenSUSE { get; } = new ImagesCustomImageUpdateDistribution("openSUSE");
-        public static ImagesCustomImageUpdateDistribution RancherOS { get; } = new ImagesCustomImageUpdateDistribution("RancherOS");
-        public static ImagesCustomImageUpdateDistribution RockyLinux { get; } = new ImagesCustomImageUpdateDistribution("Rocky Linux");
-        public static ImagesCustomImageUpdateDistribution Ubuntu { get; } = new ImagesCustomImageUpdateDistribution("Ubuntu");
-        public static ImagesCustomImageUpdateDistribution Unknown { get; } = new ImagesCustomImageUpdateDistribution("Unknown");
+        public static ImageUpdateDistribution ArchLinux { get; } = new ImageUpdateDistribution("Arch Linux");
+        public static ImageUpdateDistribution CentOS { get; } = new ImageUpdateDistribution("CentOS");
+        public static ImageUpdateDistribution CoreOS { get; } = new ImageUpdateDistribution("CoreOS");
+        public static ImageUpdateDistribution Debian { get; } = new ImageUpdateDistribution("Debian");
+        public static ImageUpdateDistribution Fedora { get; } = new ImageUpdateDistribution("Fedora");
+        public static ImageUpdateDistribution FedoraAtomic { get; } = new ImageUpdateDistribution("Fedora Atomic");
+        public static ImageUpdateDistribution FreeBSD { get; } = new ImageUpdateDistribution("FreeBSD");
+        public static ImageUpdateDistribution Gentoo { get; } = new ImageUpdateDistribution("Gentoo");
+        public static ImageUpdateDistribution OpenSUSE { get; } = new ImageUpdateDistribution("openSUSE");
+        public static ImageUpdateDistribution RancherOS { get; } = new ImageUpdateDistribution("RancherOS");
+        public static ImageUpdateDistribution RockyLinux { get; } = new ImageUpdateDistribution("Rocky Linux");
+        public static ImageUpdateDistribution Ubuntu { get; } = new ImageUpdateDistribution("Ubuntu");
+        public static ImageUpdateDistribution Unknown { get; } = new ImageUpdateDistribution("Unknown");
 
-        public static bool operator ==(ImagesCustomImageUpdateDistribution left, ImagesCustomImageUpdateDistribution right) => left.Equals(right);
-        public static bool operator !=(ImagesCustomImageUpdateDistribution left, ImagesCustomImageUpdateDistribution right) => !left.Equals(right);
+        public static bool operator ==(ImageUpdateDistribution left, ImageUpdateDistribution right) => left.Equals(right);
+        public static bool operator !=(ImageUpdateDistribution left, ImageUpdateDistribution right) => !left.Equals(right);
 
-        public static explicit operator string(ImagesCustomImageUpdateDistribution value) => value._value;
+        public static explicit operator string(ImageUpdateDistribution value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ImagesCustomImageUpdateDistribution other && Equals(other);
-        public bool Equals(ImagesCustomImageUpdateDistribution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ImageUpdateDistribution other && Equals(other);
+        public bool Equals(ImageUpdateDistribution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -342,29 +310,30 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     }
 
     /// <summary>
-    /// The action to be taken on the image. Can be either `convert` or `transfer`.
+    /// The current status of the action. This can be "in-progress", "completed", or "errored".
     /// </summary>
     [EnumType]
-    public readonly struct TransferImageActionBaseType : IEquatable<TransferImageActionBaseType>
+    public readonly struct Status : IEquatable<Status>
     {
         private readonly string _value;
 
-        private TransferImageActionBaseType(string value)
+        private Status(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TransferImageActionBaseType Convert { get; } = new TransferImageActionBaseType("convert");
-        public static TransferImageActionBaseType Transfer { get; } = new TransferImageActionBaseType("transfer");
+        public static Status InProgress { get; } = new Status("in-progress");
+        public static Status Completed { get; } = new Status("completed");
+        public static Status Errored { get; } = new Status("errored");
 
-        public static bool operator ==(TransferImageActionBaseType left, TransferImageActionBaseType right) => left.Equals(right);
-        public static bool operator !=(TransferImageActionBaseType left, TransferImageActionBaseType right) => !left.Equals(right);
+        public static bool operator ==(Status left, Status right) => left.Equals(right);
+        public static bool operator !=(Status left, Status right) => !left.Equals(right);
 
-        public static explicit operator string(TransferImageActionBaseType value) => value._value;
+        public static explicit operator string(Status value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TransferImageActionBaseType other && Equals(other);
-        public bool Equals(TransferImageActionBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Status other && Equals(other);
+        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -416,30 +385,29 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     }
 
     /// <summary>
-    /// The current status of the action. This can be "in-progress", "completed", or "errored".
+    /// The action to be taken on the image. Can be either `convert` or `transfer`.
     /// </summary>
     [EnumType]
-    public readonly struct TransferStatus : IEquatable<TransferStatus>
+    public readonly struct Type : IEquatable<Type>
     {
         private readonly string _value;
 
-        private TransferStatus(string value)
+        private Type(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TransferStatus InProgress { get; } = new TransferStatus("in-progress");
-        public static TransferStatus Completed { get; } = new TransferStatus("completed");
-        public static TransferStatus Errored { get; } = new TransferStatus("errored");
+        public static Type Convert { get; } = new Type("convert");
+        public static Type Transfer { get; } = new Type("transfer");
 
-        public static bool operator ==(TransferStatus left, TransferStatus right) => left.Equals(right);
-        public static bool operator !=(TransferStatus left, TransferStatus right) => !left.Equals(right);
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
 
-        public static explicit operator string(TransferStatus value) => value._value;
+        public static explicit operator string(Type value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TransferStatus other && Equals(other);
-        public bool Equals(TransferStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

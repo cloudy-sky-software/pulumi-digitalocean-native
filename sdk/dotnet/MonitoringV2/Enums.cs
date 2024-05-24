@@ -120,6 +120,34 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
     }
 
     [EnumType]
+    public readonly struct Compare : IEquatable<Compare>
+    {
+        private readonly string _value;
+
+        private Compare(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Compare GreaterThan { get; } = new Compare("GreaterThan");
+        public static Compare LessThan { get; } = new Compare("LessThan");
+
+        public static bool operator ==(Compare left, Compare right) => left.Equals(right);
+        public static bool operator !=(Compare left, Compare right) => !left.Equals(right);
+
+        public static explicit operator string(Compare value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Compare other && Equals(other);
+        public bool Equals(Compare other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MetricsDataResultType : IEquatable<MetricsDataResultType>
     {
         private readonly string _value;
@@ -175,26 +203,52 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
     }
 
     [EnumType]
-    public readonly struct MonitoringAlertPolicyCompare : IEquatable<MonitoringAlertPolicyCompare>
+    public readonly struct Type : IEquatable<Type>
     {
         private readonly string _value;
 
-        private MonitoringAlertPolicyCompare(string value)
+        private Type(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static MonitoringAlertPolicyCompare GreaterThan { get; } = new MonitoringAlertPolicyCompare("GreaterThan");
-        public static MonitoringAlertPolicyCompare LessThan { get; } = new MonitoringAlertPolicyCompare("LessThan");
+        public static Type V1insightsdropletload1 { get; } = new Type("v1/insights/droplet/load_1");
+        public static Type V1insightsdropletload5 { get; } = new Type("v1/insights/droplet/load_5");
+        public static Type V1insightsdropletload15 { get; } = new Type("v1/insights/droplet/load_15");
+        public static Type V1insightsdropletmemoryUtilizationPercent { get; } = new Type("v1/insights/droplet/memory_utilization_percent");
+        public static Type V1insightsdropletdiskUtilizationPercent { get; } = new Type("v1/insights/droplet/disk_utilization_percent");
+        public static Type V1insightsdropletcpu { get; } = new Type("v1/insights/droplet/cpu");
+        public static Type V1insightsdropletdiskRead { get; } = new Type("v1/insights/droplet/disk_read");
+        public static Type V1insightsdropletdiskWrite { get; } = new Type("v1/insights/droplet/disk_write");
+        public static Type V1insightsdropletpublicOutboundBandwidth { get; } = new Type("v1/insights/droplet/public_outbound_bandwidth");
+        public static Type V1insightsdropletpublicInboundBandwidth { get; } = new Type("v1/insights/droplet/public_inbound_bandwidth");
+        public static Type V1insightsdropletprivateOutboundBandwidth { get; } = new Type("v1/insights/droplet/private_outbound_bandwidth");
+        public static Type V1insightsdropletprivateInboundBandwidth { get; } = new Type("v1/insights/droplet/private_inbound_bandwidth");
+        public static Type V1insightslbaasavgCpuUtilizationPercent { get; } = new Type("v1/insights/lbaas/avg_cpu_utilization_percent");
+        public static Type V1insightslbaasconnectionUtilizationPercent { get; } = new Type("v1/insights/lbaas/connection_utilization_percent");
+        public static Type V1insightslbaasdropletHealth { get; } = new Type("v1/insights/lbaas/droplet_health");
+        public static Type V1insightslbaastlsConnectionsPerSecondUtilizationPercent { get; } = new Type("v1/insights/lbaas/tls_connections_per_second_utilization_percent");
+        public static Type V1insightslbaasincreaseInHttpErrorRatePercentage5xx { get; } = new Type("v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx");
+        public static Type V1insightslbaasincreaseInHttpErrorRatePercentage4xx { get; } = new Type("v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx");
+        public static Type V1insightslbaasincreaseInHttpErrorRateCount5xx { get; } = new Type("v1/insights/lbaas/increase_in_http_error_rate_count_5xx");
+        public static Type V1insightslbaasincreaseInHttpErrorRateCount4xx { get; } = new Type("v1/insights/lbaas/increase_in_http_error_rate_count_4xx");
+        public static Type V1insightslbaashighHttpRequestResponseTime { get; } = new Type("v1/insights/lbaas/high_http_request_response_time");
+        public static Type V1insightslbaashighHttpRequestResponseTime50p { get; } = new Type("v1/insights/lbaas/high_http_request_response_time_50p");
+        public static Type V1insightslbaashighHttpRequestResponseTime95p { get; } = new Type("v1/insights/lbaas/high_http_request_response_time_95p");
+        public static Type V1insightslbaashighHttpRequestResponseTime99p { get; } = new Type("v1/insights/lbaas/high_http_request_response_time_99p");
+        public static Type V1dbaasalertsload15Alerts { get; } = new Type("v1/dbaas/alerts/load_15_alerts");
+        public static Type V1dbaasalertsmemoryUtilizationAlerts { get; } = new Type("v1/dbaas/alerts/memory_utilization_alerts");
+        public static Type V1dbaasalertsdiskUtilizationAlerts { get; } = new Type("v1/dbaas/alerts/disk_utilization_alerts");
+        public static Type V1dbaasalertscpuAlerts { get; } = new Type("v1/dbaas/alerts/cpu_alerts");
 
-        public static bool operator ==(MonitoringAlertPolicyCompare left, MonitoringAlertPolicyCompare right) => left.Equals(right);
-        public static bool operator !=(MonitoringAlertPolicyCompare left, MonitoringAlertPolicyCompare right) => !left.Equals(right);
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
 
-        public static explicit operator string(MonitoringAlertPolicyCompare value) => value._value;
+        public static explicit operator string(Type value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MonitoringAlertPolicyCompare other && Equals(other);
-        public bool Equals(MonitoringAlertPolicyCompare other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -203,82 +257,28 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
     }
 
     [EnumType]
-    public readonly struct MonitoringAlertPolicyType : IEquatable<MonitoringAlertPolicyType>
+    public readonly struct Window : IEquatable<Window>
     {
         private readonly string _value;
 
-        private MonitoringAlertPolicyType(string value)
+        private Window(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static MonitoringAlertPolicyType V1insightsdropletload1 { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/load_1");
-        public static MonitoringAlertPolicyType V1insightsdropletload5 { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/load_5");
-        public static MonitoringAlertPolicyType V1insightsdropletload15 { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/load_15");
-        public static MonitoringAlertPolicyType V1insightsdropletmemoryUtilizationPercent { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/memory_utilization_percent");
-        public static MonitoringAlertPolicyType V1insightsdropletdiskUtilizationPercent { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/disk_utilization_percent");
-        public static MonitoringAlertPolicyType V1insightsdropletcpu { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/cpu");
-        public static MonitoringAlertPolicyType V1insightsdropletdiskRead { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/disk_read");
-        public static MonitoringAlertPolicyType V1insightsdropletdiskWrite { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/disk_write");
-        public static MonitoringAlertPolicyType V1insightsdropletpublicOutboundBandwidth { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/public_outbound_bandwidth");
-        public static MonitoringAlertPolicyType V1insightsdropletpublicInboundBandwidth { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/public_inbound_bandwidth");
-        public static MonitoringAlertPolicyType V1insightsdropletprivateOutboundBandwidth { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/private_outbound_bandwidth");
-        public static MonitoringAlertPolicyType V1insightsdropletprivateInboundBandwidth { get; } = new MonitoringAlertPolicyType("v1/insights/droplet/private_inbound_bandwidth");
-        public static MonitoringAlertPolicyType V1insightslbaasavgCpuUtilizationPercent { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/avg_cpu_utilization_percent");
-        public static MonitoringAlertPolicyType V1insightslbaasconnectionUtilizationPercent { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/connection_utilization_percent");
-        public static MonitoringAlertPolicyType V1insightslbaasdropletHealth { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/droplet_health");
-        public static MonitoringAlertPolicyType V1insightslbaastlsConnectionsPerSecondUtilizationPercent { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/tls_connections_per_second_utilization_percent");
-        public static MonitoringAlertPolicyType V1insightslbaasincreaseInHttpErrorRatePercentage5xx { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx");
-        public static MonitoringAlertPolicyType V1insightslbaasincreaseInHttpErrorRatePercentage4xx { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx");
-        public static MonitoringAlertPolicyType V1insightslbaasincreaseInHttpErrorRateCount5xx { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_count_5xx");
-        public static MonitoringAlertPolicyType V1insightslbaasincreaseInHttpErrorRateCount4xx { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/increase_in_http_error_rate_count_4xx");
-        public static MonitoringAlertPolicyType V1insightslbaashighHttpRequestResponseTime { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time");
-        public static MonitoringAlertPolicyType V1insightslbaashighHttpRequestResponseTime50p { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time_50p");
-        public static MonitoringAlertPolicyType V1insightslbaashighHttpRequestResponseTime95p { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time_95p");
-        public static MonitoringAlertPolicyType V1insightslbaashighHttpRequestResponseTime99p { get; } = new MonitoringAlertPolicyType("v1/insights/lbaas/high_http_request_response_time_99p");
-        public static MonitoringAlertPolicyType V1dbaasalertsload15Alerts { get; } = new MonitoringAlertPolicyType("v1/dbaas/alerts/load_15_alerts");
-        public static MonitoringAlertPolicyType V1dbaasalertsmemoryUtilizationAlerts { get; } = new MonitoringAlertPolicyType("v1/dbaas/alerts/memory_utilization_alerts");
-        public static MonitoringAlertPolicyType V1dbaasalertsdiskUtilizationAlerts { get; } = new MonitoringAlertPolicyType("v1/dbaas/alerts/disk_utilization_alerts");
-        public static MonitoringAlertPolicyType V1dbaasalertscpuAlerts { get; } = new MonitoringAlertPolicyType("v1/dbaas/alerts/cpu_alerts");
+        public static Window Window_5m { get; } = new Window("5m");
+        public static Window Window_10m { get; } = new Window("10m");
+        public static Window Window_30m { get; } = new Window("30m");
+        public static Window Window_1h { get; } = new Window("1h");
 
-        public static bool operator ==(MonitoringAlertPolicyType left, MonitoringAlertPolicyType right) => left.Equals(right);
-        public static bool operator !=(MonitoringAlertPolicyType left, MonitoringAlertPolicyType right) => !left.Equals(right);
+        public static bool operator ==(Window left, Window right) => left.Equals(right);
+        public static bool operator !=(Window left, Window right) => !left.Equals(right);
 
-        public static explicit operator string(MonitoringAlertPolicyType value) => value._value;
+        public static explicit operator string(Window value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MonitoringAlertPolicyType other && Equals(other);
-        public bool Equals(MonitoringAlertPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct MonitoringAlertPolicyWindow : IEquatable<MonitoringAlertPolicyWindow>
-    {
-        private readonly string _value;
-
-        private MonitoringAlertPolicyWindow(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MonitoringAlertPolicyWindow MonitoringAlertPolicyWindow_5m { get; } = new MonitoringAlertPolicyWindow("5m");
-        public static MonitoringAlertPolicyWindow MonitoringAlertPolicyWindow_10m { get; } = new MonitoringAlertPolicyWindow("10m");
-        public static MonitoringAlertPolicyWindow MonitoringAlertPolicyWindow_30m { get; } = new MonitoringAlertPolicyWindow("30m");
-        public static MonitoringAlertPolicyWindow MonitoringAlertPolicyWindow_1h { get; } = new MonitoringAlertPolicyWindow("1h");
-
-        public static bool operator ==(MonitoringAlertPolicyWindow left, MonitoringAlertPolicyWindow right) => left.Equals(right);
-        public static bool operator !=(MonitoringAlertPolicyWindow left, MonitoringAlertPolicyWindow right) => !left.Equals(right);
-
-        public static explicit operator string(MonitoringAlertPolicyWindow value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MonitoringAlertPolicyWindow other && Equals(other);
-        public bool Equals(MonitoringAlertPolicyWindow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Window other && Equals(other);
+        public bool Equals(Window other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

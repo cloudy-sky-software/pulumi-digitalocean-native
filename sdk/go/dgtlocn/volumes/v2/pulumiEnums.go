@@ -102,1080 +102,6 @@ func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The slug identifier for the region where the resource will initially be  available.
-type AttachVolumeActionCreateBaseRegion string
-
-const (
-	AttachVolumeActionCreateBaseRegionAms1 = AttachVolumeActionCreateBaseRegion("ams1")
-	AttachVolumeActionCreateBaseRegionAms2 = AttachVolumeActionCreateBaseRegion("ams2")
-	AttachVolumeActionCreateBaseRegionAms3 = AttachVolumeActionCreateBaseRegion("ams3")
-	AttachVolumeActionCreateBaseRegionBlr1 = AttachVolumeActionCreateBaseRegion("blr1")
-	AttachVolumeActionCreateBaseRegionFra1 = AttachVolumeActionCreateBaseRegion("fra1")
-	AttachVolumeActionCreateBaseRegionLon1 = AttachVolumeActionCreateBaseRegion("lon1")
-	AttachVolumeActionCreateBaseRegionNyc1 = AttachVolumeActionCreateBaseRegion("nyc1")
-	AttachVolumeActionCreateBaseRegionNyc2 = AttachVolumeActionCreateBaseRegion("nyc2")
-	AttachVolumeActionCreateBaseRegionNyc3 = AttachVolumeActionCreateBaseRegion("nyc3")
-	AttachVolumeActionCreateBaseRegionSfo1 = AttachVolumeActionCreateBaseRegion("sfo1")
-	AttachVolumeActionCreateBaseRegionSfo2 = AttachVolumeActionCreateBaseRegion("sfo2")
-	AttachVolumeActionCreateBaseRegionSfo3 = AttachVolumeActionCreateBaseRegion("sfo3")
-	AttachVolumeActionCreateBaseRegionSgp1 = AttachVolumeActionCreateBaseRegion("sgp1")
-	AttachVolumeActionCreateBaseRegionTor1 = AttachVolumeActionCreateBaseRegion("tor1")
-)
-
-func (AttachVolumeActionCreateBaseRegion) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToAttachVolumeActionCreateBaseRegionOutput() AttachVolumeActionCreateBaseRegionOutput {
-	return pulumi.ToOutput(e).(AttachVolumeActionCreateBaseRegionOutput)
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToAttachVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AttachVolumeActionCreateBaseRegionOutput)
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToAttachVolumeActionCreateBaseRegionPtrOutput() AttachVolumeActionCreateBaseRegionPtrOutput {
-	return e.ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseRegionPtrOutput {
-	return AttachVolumeActionCreateBaseRegion(e).ToAttachVolumeActionCreateBaseRegionOutputWithContext(ctx).ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx)
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AttachVolumeActionCreateBaseRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AttachVolumeActionCreateBaseRegionOutput struct{ *pulumi.OutputState }
-
-func (AttachVolumeActionCreateBaseRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToAttachVolumeActionCreateBaseRegionOutput() AttachVolumeActionCreateBaseRegionOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToAttachVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseRegionOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToAttachVolumeActionCreateBaseRegionPtrOutput() AttachVolumeActionCreateBaseRegionPtrOutput {
-	return o.ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseRegionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttachVolumeActionCreateBaseRegion) *AttachVolumeActionCreateBaseRegion {
-		return &v
-	}).(AttachVolumeActionCreateBaseRegionPtrOutput)
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AttachVolumeActionCreateBaseRegion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AttachVolumeActionCreateBaseRegion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AttachVolumeActionCreateBaseRegionPtrOutput struct{ *pulumi.OutputState }
-
-func (AttachVolumeActionCreateBaseRegionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AttachVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (o AttachVolumeActionCreateBaseRegionPtrOutput) ToAttachVolumeActionCreateBaseRegionPtrOutput() AttachVolumeActionCreateBaseRegionPtrOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseRegionPtrOutput) ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseRegionPtrOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseRegionPtrOutput) Elem() AttachVolumeActionCreateBaseRegionOutput {
-	return o.ApplyT(func(v *AttachVolumeActionCreateBaseRegion) AttachVolumeActionCreateBaseRegion {
-		if v != nil {
-			return *v
-		}
-		var ret AttachVolumeActionCreateBaseRegion
-		return ret
-	}).(AttachVolumeActionCreateBaseRegionOutput)
-}
-
-func (o AttachVolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AttachVolumeActionCreateBaseRegion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AttachVolumeActionCreateBaseRegionInput is an input type that accepts values of the AttachVolumeActionCreateBaseRegion enum
-// A concrete instance of `AttachVolumeActionCreateBaseRegionInput` can be one of the following:
-//
-//	AttachVolumeActionCreateBaseRegionAms1
-//	AttachVolumeActionCreateBaseRegionAms2
-//	AttachVolumeActionCreateBaseRegionAms3
-//	AttachVolumeActionCreateBaseRegionBlr1
-//	AttachVolumeActionCreateBaseRegionFra1
-//	AttachVolumeActionCreateBaseRegionLon1
-//	AttachVolumeActionCreateBaseRegionNyc1
-//	AttachVolumeActionCreateBaseRegionNyc2
-//	AttachVolumeActionCreateBaseRegionNyc3
-//	AttachVolumeActionCreateBaseRegionSfo1
-//	AttachVolumeActionCreateBaseRegionSfo2
-//	AttachVolumeActionCreateBaseRegionSfo3
-//	AttachVolumeActionCreateBaseRegionSgp1
-//	AttachVolumeActionCreateBaseRegionTor1
-type AttachVolumeActionCreateBaseRegionInput interface {
-	pulumi.Input
-
-	ToAttachVolumeActionCreateBaseRegionOutput() AttachVolumeActionCreateBaseRegionOutput
-	ToAttachVolumeActionCreateBaseRegionOutputWithContext(context.Context) AttachVolumeActionCreateBaseRegionOutput
-}
-
-var attachVolumeActionCreateBaseRegionPtrType = reflect.TypeOf((**AttachVolumeActionCreateBaseRegion)(nil)).Elem()
-
-type AttachVolumeActionCreateBaseRegionPtrInput interface {
-	pulumi.Input
-
-	ToAttachVolumeActionCreateBaseRegionPtrOutput() AttachVolumeActionCreateBaseRegionPtrOutput
-	ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(context.Context) AttachVolumeActionCreateBaseRegionPtrOutput
-}
-
-type attachVolumeActionCreateBaseRegionPtr string
-
-func AttachVolumeActionCreateBaseRegionPtr(v string) AttachVolumeActionCreateBaseRegionPtrInput {
-	return (*attachVolumeActionCreateBaseRegionPtr)(&v)
-}
-
-func (*attachVolumeActionCreateBaseRegionPtr) ElementType() reflect.Type {
-	return attachVolumeActionCreateBaseRegionPtrType
-}
-
-func (in *attachVolumeActionCreateBaseRegionPtr) ToAttachVolumeActionCreateBaseRegionPtrOutput() AttachVolumeActionCreateBaseRegionPtrOutput {
-	return pulumi.ToOutput(in).(AttachVolumeActionCreateBaseRegionPtrOutput)
-}
-
-func (in *attachVolumeActionCreateBaseRegionPtr) ToAttachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseRegionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AttachVolumeActionCreateBaseRegionPtrOutput)
-}
-
-// The volume action to initiate.
-type AttachVolumeActionCreateBaseType string
-
-const (
-	AttachVolumeActionCreateBaseTypeAttach = AttachVolumeActionCreateBaseType("attach")
-	AttachVolumeActionCreateBaseTypeDetach = AttachVolumeActionCreateBaseType("detach")
-	AttachVolumeActionCreateBaseTypeResize = AttachVolumeActionCreateBaseType("resize")
-)
-
-func (AttachVolumeActionCreateBaseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (e AttachVolumeActionCreateBaseType) ToAttachVolumeActionCreateBaseTypeOutput() AttachVolumeActionCreateBaseTypeOutput {
-	return pulumi.ToOutput(e).(AttachVolumeActionCreateBaseTypeOutput)
-}
-
-func (e AttachVolumeActionCreateBaseType) ToAttachVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AttachVolumeActionCreateBaseTypeOutput)
-}
-
-func (e AttachVolumeActionCreateBaseType) ToAttachVolumeActionCreateBaseTypePtrOutput() AttachVolumeActionCreateBaseTypePtrOutput {
-	return e.ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (e AttachVolumeActionCreateBaseType) ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseTypePtrOutput {
-	return AttachVolumeActionCreateBaseType(e).ToAttachVolumeActionCreateBaseTypeOutputWithContext(ctx).ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(ctx)
-}
-
-func (e AttachVolumeActionCreateBaseType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AttachVolumeActionCreateBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AttachVolumeActionCreateBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AttachVolumeActionCreateBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AttachVolumeActionCreateBaseTypeOutput struct{ *pulumi.OutputState }
-
-func (AttachVolumeActionCreateBaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToAttachVolumeActionCreateBaseTypeOutput() AttachVolumeActionCreateBaseTypeOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToAttachVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseTypeOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToAttachVolumeActionCreateBaseTypePtrOutput() AttachVolumeActionCreateBaseTypePtrOutput {
-	return o.ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttachVolumeActionCreateBaseType) *AttachVolumeActionCreateBaseType {
-		return &v
-	}).(AttachVolumeActionCreateBaseTypePtrOutput)
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AttachVolumeActionCreateBaseType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AttachVolumeActionCreateBaseType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AttachVolumeActionCreateBaseTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AttachVolumeActionCreateBaseTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AttachVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (o AttachVolumeActionCreateBaseTypePtrOutput) ToAttachVolumeActionCreateBaseTypePtrOutput() AttachVolumeActionCreateBaseTypePtrOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseTypePtrOutput) ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseTypePtrOutput {
-	return o
-}
-
-func (o AttachVolumeActionCreateBaseTypePtrOutput) Elem() AttachVolumeActionCreateBaseTypeOutput {
-	return o.ApplyT(func(v *AttachVolumeActionCreateBaseType) AttachVolumeActionCreateBaseType {
-		if v != nil {
-			return *v
-		}
-		var ret AttachVolumeActionCreateBaseType
-		return ret
-	}).(AttachVolumeActionCreateBaseTypeOutput)
-}
-
-func (o AttachVolumeActionCreateBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AttachVolumeActionCreateBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AttachVolumeActionCreateBaseType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AttachVolumeActionCreateBaseTypeInput is an input type that accepts values of the AttachVolumeActionCreateBaseType enum
-// A concrete instance of `AttachVolumeActionCreateBaseTypeInput` can be one of the following:
-//
-//	AttachVolumeActionCreateBaseTypeAttach
-//	AttachVolumeActionCreateBaseTypeDetach
-//	AttachVolumeActionCreateBaseTypeResize
-type AttachVolumeActionCreateBaseTypeInput interface {
-	pulumi.Input
-
-	ToAttachVolumeActionCreateBaseTypeOutput() AttachVolumeActionCreateBaseTypeOutput
-	ToAttachVolumeActionCreateBaseTypeOutputWithContext(context.Context) AttachVolumeActionCreateBaseTypeOutput
-}
-
-var attachVolumeActionCreateBaseTypePtrType = reflect.TypeOf((**AttachVolumeActionCreateBaseType)(nil)).Elem()
-
-type AttachVolumeActionCreateBaseTypePtrInput interface {
-	pulumi.Input
-
-	ToAttachVolumeActionCreateBaseTypePtrOutput() AttachVolumeActionCreateBaseTypePtrOutput
-	ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(context.Context) AttachVolumeActionCreateBaseTypePtrOutput
-}
-
-type attachVolumeActionCreateBaseTypePtr string
-
-func AttachVolumeActionCreateBaseTypePtr(v string) AttachVolumeActionCreateBaseTypePtrInput {
-	return (*attachVolumeActionCreateBaseTypePtr)(&v)
-}
-
-func (*attachVolumeActionCreateBaseTypePtr) ElementType() reflect.Type {
-	return attachVolumeActionCreateBaseTypePtrType
-}
-
-func (in *attachVolumeActionCreateBaseTypePtr) ToAttachVolumeActionCreateBaseTypePtrOutput() AttachVolumeActionCreateBaseTypePtrOutput {
-	return pulumi.ToOutput(in).(AttachVolumeActionCreateBaseTypePtrOutput)
-}
-
-func (in *attachVolumeActionCreateBaseTypePtr) ToAttachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) AttachVolumeActionCreateBaseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AttachVolumeActionCreateBaseTypePtrOutput)
-}
-
-// The slug identifier for the region where the resource will initially be  available.
-type DetachVolumeActionCreateBaseRegion string
-
-const (
-	DetachVolumeActionCreateBaseRegionAms1 = DetachVolumeActionCreateBaseRegion("ams1")
-	DetachVolumeActionCreateBaseRegionAms2 = DetachVolumeActionCreateBaseRegion("ams2")
-	DetachVolumeActionCreateBaseRegionAms3 = DetachVolumeActionCreateBaseRegion("ams3")
-	DetachVolumeActionCreateBaseRegionBlr1 = DetachVolumeActionCreateBaseRegion("blr1")
-	DetachVolumeActionCreateBaseRegionFra1 = DetachVolumeActionCreateBaseRegion("fra1")
-	DetachVolumeActionCreateBaseRegionLon1 = DetachVolumeActionCreateBaseRegion("lon1")
-	DetachVolumeActionCreateBaseRegionNyc1 = DetachVolumeActionCreateBaseRegion("nyc1")
-	DetachVolumeActionCreateBaseRegionNyc2 = DetachVolumeActionCreateBaseRegion("nyc2")
-	DetachVolumeActionCreateBaseRegionNyc3 = DetachVolumeActionCreateBaseRegion("nyc3")
-	DetachVolumeActionCreateBaseRegionSfo1 = DetachVolumeActionCreateBaseRegion("sfo1")
-	DetachVolumeActionCreateBaseRegionSfo2 = DetachVolumeActionCreateBaseRegion("sfo2")
-	DetachVolumeActionCreateBaseRegionSfo3 = DetachVolumeActionCreateBaseRegion("sfo3")
-	DetachVolumeActionCreateBaseRegionSgp1 = DetachVolumeActionCreateBaseRegion("sgp1")
-	DetachVolumeActionCreateBaseRegionTor1 = DetachVolumeActionCreateBaseRegion("tor1")
-)
-
-func (DetachVolumeActionCreateBaseRegion) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetachVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToDetachVolumeActionCreateBaseRegionOutput() DetachVolumeActionCreateBaseRegionOutput {
-	return pulumi.ToOutput(e).(DetachVolumeActionCreateBaseRegionOutput)
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToDetachVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DetachVolumeActionCreateBaseRegionOutput)
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToDetachVolumeActionCreateBaseRegionPtrOutput() DetachVolumeActionCreateBaseRegionPtrOutput {
-	return e.ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseRegionPtrOutput {
-	return DetachVolumeActionCreateBaseRegion(e).ToDetachVolumeActionCreateBaseRegionOutputWithContext(ctx).ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx)
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DetachVolumeActionCreateBaseRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DetachVolumeActionCreateBaseRegionOutput struct{ *pulumi.OutputState }
-
-func (DetachVolumeActionCreateBaseRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetachVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToDetachVolumeActionCreateBaseRegionOutput() DetachVolumeActionCreateBaseRegionOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToDetachVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseRegionOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToDetachVolumeActionCreateBaseRegionPtrOutput() DetachVolumeActionCreateBaseRegionPtrOutput {
-	return o.ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseRegionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetachVolumeActionCreateBaseRegion) *DetachVolumeActionCreateBaseRegion {
-		return &v
-	}).(DetachVolumeActionCreateBaseRegionPtrOutput)
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetachVolumeActionCreateBaseRegion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetachVolumeActionCreateBaseRegion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DetachVolumeActionCreateBaseRegionPtrOutput struct{ *pulumi.OutputState }
-
-func (DetachVolumeActionCreateBaseRegionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetachVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (o DetachVolumeActionCreateBaseRegionPtrOutput) ToDetachVolumeActionCreateBaseRegionPtrOutput() DetachVolumeActionCreateBaseRegionPtrOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseRegionPtrOutput) ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseRegionPtrOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseRegionPtrOutput) Elem() DetachVolumeActionCreateBaseRegionOutput {
-	return o.ApplyT(func(v *DetachVolumeActionCreateBaseRegion) DetachVolumeActionCreateBaseRegion {
-		if v != nil {
-			return *v
-		}
-		var ret DetachVolumeActionCreateBaseRegion
-		return ret
-	}).(DetachVolumeActionCreateBaseRegionOutput)
-}
-
-func (o DetachVolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DetachVolumeActionCreateBaseRegion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DetachVolumeActionCreateBaseRegionInput is an input type that accepts values of the DetachVolumeActionCreateBaseRegion enum
-// A concrete instance of `DetachVolumeActionCreateBaseRegionInput` can be one of the following:
-//
-//	DetachVolumeActionCreateBaseRegionAms1
-//	DetachVolumeActionCreateBaseRegionAms2
-//	DetachVolumeActionCreateBaseRegionAms3
-//	DetachVolumeActionCreateBaseRegionBlr1
-//	DetachVolumeActionCreateBaseRegionFra1
-//	DetachVolumeActionCreateBaseRegionLon1
-//	DetachVolumeActionCreateBaseRegionNyc1
-//	DetachVolumeActionCreateBaseRegionNyc2
-//	DetachVolumeActionCreateBaseRegionNyc3
-//	DetachVolumeActionCreateBaseRegionSfo1
-//	DetachVolumeActionCreateBaseRegionSfo2
-//	DetachVolumeActionCreateBaseRegionSfo3
-//	DetachVolumeActionCreateBaseRegionSgp1
-//	DetachVolumeActionCreateBaseRegionTor1
-type DetachVolumeActionCreateBaseRegionInput interface {
-	pulumi.Input
-
-	ToDetachVolumeActionCreateBaseRegionOutput() DetachVolumeActionCreateBaseRegionOutput
-	ToDetachVolumeActionCreateBaseRegionOutputWithContext(context.Context) DetachVolumeActionCreateBaseRegionOutput
-}
-
-var detachVolumeActionCreateBaseRegionPtrType = reflect.TypeOf((**DetachVolumeActionCreateBaseRegion)(nil)).Elem()
-
-type DetachVolumeActionCreateBaseRegionPtrInput interface {
-	pulumi.Input
-
-	ToDetachVolumeActionCreateBaseRegionPtrOutput() DetachVolumeActionCreateBaseRegionPtrOutput
-	ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(context.Context) DetachVolumeActionCreateBaseRegionPtrOutput
-}
-
-type detachVolumeActionCreateBaseRegionPtr string
-
-func DetachVolumeActionCreateBaseRegionPtr(v string) DetachVolumeActionCreateBaseRegionPtrInput {
-	return (*detachVolumeActionCreateBaseRegionPtr)(&v)
-}
-
-func (*detachVolumeActionCreateBaseRegionPtr) ElementType() reflect.Type {
-	return detachVolumeActionCreateBaseRegionPtrType
-}
-
-func (in *detachVolumeActionCreateBaseRegionPtr) ToDetachVolumeActionCreateBaseRegionPtrOutput() DetachVolumeActionCreateBaseRegionPtrOutput {
-	return pulumi.ToOutput(in).(DetachVolumeActionCreateBaseRegionPtrOutput)
-}
-
-func (in *detachVolumeActionCreateBaseRegionPtr) ToDetachVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseRegionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DetachVolumeActionCreateBaseRegionPtrOutput)
-}
-
-// The volume action to initiate.
-type DetachVolumeActionCreateBaseType string
-
-const (
-	DetachVolumeActionCreateBaseTypeAttach = DetachVolumeActionCreateBaseType("attach")
-	DetachVolumeActionCreateBaseTypeDetach = DetachVolumeActionCreateBaseType("detach")
-	DetachVolumeActionCreateBaseTypeResize = DetachVolumeActionCreateBaseType("resize")
-)
-
-func (DetachVolumeActionCreateBaseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetachVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (e DetachVolumeActionCreateBaseType) ToDetachVolumeActionCreateBaseTypeOutput() DetachVolumeActionCreateBaseTypeOutput {
-	return pulumi.ToOutput(e).(DetachVolumeActionCreateBaseTypeOutput)
-}
-
-func (e DetachVolumeActionCreateBaseType) ToDetachVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DetachVolumeActionCreateBaseTypeOutput)
-}
-
-func (e DetachVolumeActionCreateBaseType) ToDetachVolumeActionCreateBaseTypePtrOutput() DetachVolumeActionCreateBaseTypePtrOutput {
-	return e.ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (e DetachVolumeActionCreateBaseType) ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseTypePtrOutput {
-	return DetachVolumeActionCreateBaseType(e).ToDetachVolumeActionCreateBaseTypeOutputWithContext(ctx).ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(ctx)
-}
-
-func (e DetachVolumeActionCreateBaseType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DetachVolumeActionCreateBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DetachVolumeActionCreateBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DetachVolumeActionCreateBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DetachVolumeActionCreateBaseTypeOutput struct{ *pulumi.OutputState }
-
-func (DetachVolumeActionCreateBaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetachVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToDetachVolumeActionCreateBaseTypeOutput() DetachVolumeActionCreateBaseTypeOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToDetachVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseTypeOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToDetachVolumeActionCreateBaseTypePtrOutput() DetachVolumeActionCreateBaseTypePtrOutput {
-	return o.ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetachVolumeActionCreateBaseType) *DetachVolumeActionCreateBaseType {
-		return &v
-	}).(DetachVolumeActionCreateBaseTypePtrOutput)
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetachVolumeActionCreateBaseType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetachVolumeActionCreateBaseType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DetachVolumeActionCreateBaseTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DetachVolumeActionCreateBaseTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetachVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (o DetachVolumeActionCreateBaseTypePtrOutput) ToDetachVolumeActionCreateBaseTypePtrOutput() DetachVolumeActionCreateBaseTypePtrOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseTypePtrOutput) ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseTypePtrOutput {
-	return o
-}
-
-func (o DetachVolumeActionCreateBaseTypePtrOutput) Elem() DetachVolumeActionCreateBaseTypeOutput {
-	return o.ApplyT(func(v *DetachVolumeActionCreateBaseType) DetachVolumeActionCreateBaseType {
-		if v != nil {
-			return *v
-		}
-		var ret DetachVolumeActionCreateBaseType
-		return ret
-	}).(DetachVolumeActionCreateBaseTypeOutput)
-}
-
-func (o DetachVolumeActionCreateBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DetachVolumeActionCreateBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DetachVolumeActionCreateBaseType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DetachVolumeActionCreateBaseTypeInput is an input type that accepts values of the DetachVolumeActionCreateBaseType enum
-// A concrete instance of `DetachVolumeActionCreateBaseTypeInput` can be one of the following:
-//
-//	DetachVolumeActionCreateBaseTypeAttach
-//	DetachVolumeActionCreateBaseTypeDetach
-//	DetachVolumeActionCreateBaseTypeResize
-type DetachVolumeActionCreateBaseTypeInput interface {
-	pulumi.Input
-
-	ToDetachVolumeActionCreateBaseTypeOutput() DetachVolumeActionCreateBaseTypeOutput
-	ToDetachVolumeActionCreateBaseTypeOutputWithContext(context.Context) DetachVolumeActionCreateBaseTypeOutput
-}
-
-var detachVolumeActionCreateBaseTypePtrType = reflect.TypeOf((**DetachVolumeActionCreateBaseType)(nil)).Elem()
-
-type DetachVolumeActionCreateBaseTypePtrInput interface {
-	pulumi.Input
-
-	ToDetachVolumeActionCreateBaseTypePtrOutput() DetachVolumeActionCreateBaseTypePtrOutput
-	ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(context.Context) DetachVolumeActionCreateBaseTypePtrOutput
-}
-
-type detachVolumeActionCreateBaseTypePtr string
-
-func DetachVolumeActionCreateBaseTypePtr(v string) DetachVolumeActionCreateBaseTypePtrInput {
-	return (*detachVolumeActionCreateBaseTypePtr)(&v)
-}
-
-func (*detachVolumeActionCreateBaseTypePtr) ElementType() reflect.Type {
-	return detachVolumeActionCreateBaseTypePtrType
-}
-
-func (in *detachVolumeActionCreateBaseTypePtr) ToDetachVolumeActionCreateBaseTypePtrOutput() DetachVolumeActionCreateBaseTypePtrOutput {
-	return pulumi.ToOutput(in).(DetachVolumeActionCreateBaseTypePtrOutput)
-}
-
-func (in *detachVolumeActionCreateBaseTypePtr) ToDetachVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) DetachVolumeActionCreateBaseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DetachVolumeActionCreateBaseTypePtrOutput)
-}
-
-// The slug identifier for the region where the resource will initially be  available.
-type ResizeVolumeActionCreateBaseRegion string
-
-const (
-	ResizeVolumeActionCreateBaseRegionAms1 = ResizeVolumeActionCreateBaseRegion("ams1")
-	ResizeVolumeActionCreateBaseRegionAms2 = ResizeVolumeActionCreateBaseRegion("ams2")
-	ResizeVolumeActionCreateBaseRegionAms3 = ResizeVolumeActionCreateBaseRegion("ams3")
-	ResizeVolumeActionCreateBaseRegionBlr1 = ResizeVolumeActionCreateBaseRegion("blr1")
-	ResizeVolumeActionCreateBaseRegionFra1 = ResizeVolumeActionCreateBaseRegion("fra1")
-	ResizeVolumeActionCreateBaseRegionLon1 = ResizeVolumeActionCreateBaseRegion("lon1")
-	ResizeVolumeActionCreateBaseRegionNyc1 = ResizeVolumeActionCreateBaseRegion("nyc1")
-	ResizeVolumeActionCreateBaseRegionNyc2 = ResizeVolumeActionCreateBaseRegion("nyc2")
-	ResizeVolumeActionCreateBaseRegionNyc3 = ResizeVolumeActionCreateBaseRegion("nyc3")
-	ResizeVolumeActionCreateBaseRegionSfo1 = ResizeVolumeActionCreateBaseRegion("sfo1")
-	ResizeVolumeActionCreateBaseRegionSfo2 = ResizeVolumeActionCreateBaseRegion("sfo2")
-	ResizeVolumeActionCreateBaseRegionSfo3 = ResizeVolumeActionCreateBaseRegion("sfo3")
-	ResizeVolumeActionCreateBaseRegionSgp1 = ResizeVolumeActionCreateBaseRegion("sgp1")
-	ResizeVolumeActionCreateBaseRegionTor1 = ResizeVolumeActionCreateBaseRegion("tor1")
-)
-
-func (ResizeVolumeActionCreateBaseRegion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResizeVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToResizeVolumeActionCreateBaseRegionOutput() ResizeVolumeActionCreateBaseRegionOutput {
-	return pulumi.ToOutput(e).(ResizeVolumeActionCreateBaseRegionOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToResizeVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResizeVolumeActionCreateBaseRegionOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToResizeVolumeActionCreateBaseRegionPtrOutput() ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return e.ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return ResizeVolumeActionCreateBaseRegion(e).ToResizeVolumeActionCreateBaseRegionOutputWithContext(ctx).ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(ctx)
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResizeVolumeActionCreateBaseRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ResizeVolumeActionCreateBaseRegionOutput struct{ *pulumi.OutputState }
-
-func (ResizeVolumeActionCreateBaseRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResizeVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToResizeVolumeActionCreateBaseRegionOutput() ResizeVolumeActionCreateBaseRegionOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToResizeVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseRegionOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToResizeVolumeActionCreateBaseRegionPtrOutput() ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return o.ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResizeVolumeActionCreateBaseRegion) *ResizeVolumeActionCreateBaseRegion {
-		return &v
-	}).(ResizeVolumeActionCreateBaseRegionPtrOutput)
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResizeVolumeActionCreateBaseRegion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResizeVolumeActionCreateBaseRegion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ResizeVolumeActionCreateBaseRegionPtrOutput struct{ *pulumi.OutputState }
-
-func (ResizeVolumeActionCreateBaseRegionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResizeVolumeActionCreateBaseRegion)(nil)).Elem()
-}
-
-func (o ResizeVolumeActionCreateBaseRegionPtrOutput) ToResizeVolumeActionCreateBaseRegionPtrOutput() ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseRegionPtrOutput) ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseRegionPtrOutput) Elem() ResizeVolumeActionCreateBaseRegionOutput {
-	return o.ApplyT(func(v *ResizeVolumeActionCreateBaseRegion) ResizeVolumeActionCreateBaseRegion {
-		if v != nil {
-			return *v
-		}
-		var ret ResizeVolumeActionCreateBaseRegion
-		return ret
-	}).(ResizeVolumeActionCreateBaseRegionOutput)
-}
-
-func (o ResizeVolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResizeVolumeActionCreateBaseRegion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ResizeVolumeActionCreateBaseRegionInput is an input type that accepts values of the ResizeVolumeActionCreateBaseRegion enum
-// A concrete instance of `ResizeVolumeActionCreateBaseRegionInput` can be one of the following:
-//
-//	ResizeVolumeActionCreateBaseRegionAms1
-//	ResizeVolumeActionCreateBaseRegionAms2
-//	ResizeVolumeActionCreateBaseRegionAms3
-//	ResizeVolumeActionCreateBaseRegionBlr1
-//	ResizeVolumeActionCreateBaseRegionFra1
-//	ResizeVolumeActionCreateBaseRegionLon1
-//	ResizeVolumeActionCreateBaseRegionNyc1
-//	ResizeVolumeActionCreateBaseRegionNyc2
-//	ResizeVolumeActionCreateBaseRegionNyc3
-//	ResizeVolumeActionCreateBaseRegionSfo1
-//	ResizeVolumeActionCreateBaseRegionSfo2
-//	ResizeVolumeActionCreateBaseRegionSfo3
-//	ResizeVolumeActionCreateBaseRegionSgp1
-//	ResizeVolumeActionCreateBaseRegionTor1
-type ResizeVolumeActionCreateBaseRegionInput interface {
-	pulumi.Input
-
-	ToResizeVolumeActionCreateBaseRegionOutput() ResizeVolumeActionCreateBaseRegionOutput
-	ToResizeVolumeActionCreateBaseRegionOutputWithContext(context.Context) ResizeVolumeActionCreateBaseRegionOutput
-}
-
-var resizeVolumeActionCreateBaseRegionPtrType = reflect.TypeOf((**ResizeVolumeActionCreateBaseRegion)(nil)).Elem()
-
-type ResizeVolumeActionCreateBaseRegionPtrInput interface {
-	pulumi.Input
-
-	ToResizeVolumeActionCreateBaseRegionPtrOutput() ResizeVolumeActionCreateBaseRegionPtrOutput
-	ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(context.Context) ResizeVolumeActionCreateBaseRegionPtrOutput
-}
-
-type resizeVolumeActionCreateBaseRegionPtr string
-
-func ResizeVolumeActionCreateBaseRegionPtr(v string) ResizeVolumeActionCreateBaseRegionPtrInput {
-	return (*resizeVolumeActionCreateBaseRegionPtr)(&v)
-}
-
-func (*resizeVolumeActionCreateBaseRegionPtr) ElementType() reflect.Type {
-	return resizeVolumeActionCreateBaseRegionPtrType
-}
-
-func (in *resizeVolumeActionCreateBaseRegionPtr) ToResizeVolumeActionCreateBaseRegionPtrOutput() ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return pulumi.ToOutput(in).(ResizeVolumeActionCreateBaseRegionPtrOutput)
-}
-
-func (in *resizeVolumeActionCreateBaseRegionPtr) ToResizeVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResizeVolumeActionCreateBaseRegionPtrOutput)
-}
-
-// The volume action to initiate.
-type ResizeVolumeActionCreateBaseType string
-
-const (
-	ResizeVolumeActionCreateBaseTypeAttach = ResizeVolumeActionCreateBaseType("attach")
-	ResizeVolumeActionCreateBaseTypeDetach = ResizeVolumeActionCreateBaseType("detach")
-	ResizeVolumeActionCreateBaseTypeResize = ResizeVolumeActionCreateBaseType("resize")
-)
-
-func (ResizeVolumeActionCreateBaseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResizeVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToResizeVolumeActionCreateBaseTypeOutput() ResizeVolumeActionCreateBaseTypeOutput {
-	return pulumi.ToOutput(e).(ResizeVolumeActionCreateBaseTypeOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToResizeVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResizeVolumeActionCreateBaseTypeOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToResizeVolumeActionCreateBaseTypePtrOutput() ResizeVolumeActionCreateBaseTypePtrOutput {
-	return e.ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseTypePtrOutput {
-	return ResizeVolumeActionCreateBaseType(e).ToResizeVolumeActionCreateBaseTypeOutputWithContext(ctx).ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(ctx)
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResizeVolumeActionCreateBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ResizeVolumeActionCreateBaseTypeOutput struct{ *pulumi.OutputState }
-
-func (ResizeVolumeActionCreateBaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResizeVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToResizeVolumeActionCreateBaseTypeOutput() ResizeVolumeActionCreateBaseTypeOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToResizeVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseTypeOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToResizeVolumeActionCreateBaseTypePtrOutput() ResizeVolumeActionCreateBaseTypePtrOutput {
-	return o.ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResizeVolumeActionCreateBaseType) *ResizeVolumeActionCreateBaseType {
-		return &v
-	}).(ResizeVolumeActionCreateBaseTypePtrOutput)
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResizeVolumeActionCreateBaseType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResizeVolumeActionCreateBaseType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ResizeVolumeActionCreateBaseTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ResizeVolumeActionCreateBaseTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResizeVolumeActionCreateBaseType)(nil)).Elem()
-}
-
-func (o ResizeVolumeActionCreateBaseTypePtrOutput) ToResizeVolumeActionCreateBaseTypePtrOutput() ResizeVolumeActionCreateBaseTypePtrOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseTypePtrOutput) ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseTypePtrOutput {
-	return o
-}
-
-func (o ResizeVolumeActionCreateBaseTypePtrOutput) Elem() ResizeVolumeActionCreateBaseTypeOutput {
-	return o.ApplyT(func(v *ResizeVolumeActionCreateBaseType) ResizeVolumeActionCreateBaseType {
-		if v != nil {
-			return *v
-		}
-		var ret ResizeVolumeActionCreateBaseType
-		return ret
-	}).(ResizeVolumeActionCreateBaseTypeOutput)
-}
-
-func (o ResizeVolumeActionCreateBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeVolumeActionCreateBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResizeVolumeActionCreateBaseType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ResizeVolumeActionCreateBaseTypeInput is an input type that accepts values of the ResizeVolumeActionCreateBaseType enum
-// A concrete instance of `ResizeVolumeActionCreateBaseTypeInput` can be one of the following:
-//
-//	ResizeVolumeActionCreateBaseTypeAttach
-//	ResizeVolumeActionCreateBaseTypeDetach
-//	ResizeVolumeActionCreateBaseTypeResize
-type ResizeVolumeActionCreateBaseTypeInput interface {
-	pulumi.Input
-
-	ToResizeVolumeActionCreateBaseTypeOutput() ResizeVolumeActionCreateBaseTypeOutput
-	ToResizeVolumeActionCreateBaseTypeOutputWithContext(context.Context) ResizeVolumeActionCreateBaseTypeOutput
-}
-
-var resizeVolumeActionCreateBaseTypePtrType = reflect.TypeOf((**ResizeVolumeActionCreateBaseType)(nil)).Elem()
-
-type ResizeVolumeActionCreateBaseTypePtrInput interface {
-	pulumi.Input
-
-	ToResizeVolumeActionCreateBaseTypePtrOutput() ResizeVolumeActionCreateBaseTypePtrOutput
-	ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(context.Context) ResizeVolumeActionCreateBaseTypePtrOutput
-}
-
-type resizeVolumeActionCreateBaseTypePtr string
-
-func ResizeVolumeActionCreateBaseTypePtr(v string) ResizeVolumeActionCreateBaseTypePtrInput {
-	return (*resizeVolumeActionCreateBaseTypePtr)(&v)
-}
-
-func (*resizeVolumeActionCreateBaseTypePtr) ElementType() reflect.Type {
-	return resizeVolumeActionCreateBaseTypePtrType
-}
-
-func (in *resizeVolumeActionCreateBaseTypePtr) ToResizeVolumeActionCreateBaseTypePtrOutput() ResizeVolumeActionCreateBaseTypePtrOutput {
-	return pulumi.ToOutput(in).(ResizeVolumeActionCreateBaseTypePtrOutput)
-}
-
-func (in *resizeVolumeActionCreateBaseTypePtr) ToResizeVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) ResizeVolumeActionCreateBaseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResizeVolumeActionCreateBaseTypePtrOutput)
-}
-
 // The type of resource that the snapshot originated from.
 type SnapshotsPropertiesResourceType string
 
@@ -1267,33 +193,375 @@ func (o SnapshotsPropertiesResourceTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
+// The slug identifier for the region where the resource will initially be  available.
+type VolumeActionCreateBaseRegion string
+
+const (
+	VolumeActionCreateBaseRegionAms1 = VolumeActionCreateBaseRegion("ams1")
+	VolumeActionCreateBaseRegionAms2 = VolumeActionCreateBaseRegion("ams2")
+	VolumeActionCreateBaseRegionAms3 = VolumeActionCreateBaseRegion("ams3")
+	VolumeActionCreateBaseRegionBlr1 = VolumeActionCreateBaseRegion("blr1")
+	VolumeActionCreateBaseRegionFra1 = VolumeActionCreateBaseRegion("fra1")
+	VolumeActionCreateBaseRegionLon1 = VolumeActionCreateBaseRegion("lon1")
+	VolumeActionCreateBaseRegionNyc1 = VolumeActionCreateBaseRegion("nyc1")
+	VolumeActionCreateBaseRegionNyc2 = VolumeActionCreateBaseRegion("nyc2")
+	VolumeActionCreateBaseRegionNyc3 = VolumeActionCreateBaseRegion("nyc3")
+	VolumeActionCreateBaseRegionSfo1 = VolumeActionCreateBaseRegion("sfo1")
+	VolumeActionCreateBaseRegionSfo2 = VolumeActionCreateBaseRegion("sfo2")
+	VolumeActionCreateBaseRegionSfo3 = VolumeActionCreateBaseRegion("sfo3")
+	VolumeActionCreateBaseRegionSgp1 = VolumeActionCreateBaseRegion("sgp1")
+	VolumeActionCreateBaseRegionTor1 = VolumeActionCreateBaseRegion("tor1")
+)
+
+func (VolumeActionCreateBaseRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeActionCreateBaseRegion)(nil)).Elem()
+}
+
+func (e VolumeActionCreateBaseRegion) ToVolumeActionCreateBaseRegionOutput() VolumeActionCreateBaseRegionOutput {
+	return pulumi.ToOutput(e).(VolumeActionCreateBaseRegionOutput)
+}
+
+func (e VolumeActionCreateBaseRegion) ToVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) VolumeActionCreateBaseRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VolumeActionCreateBaseRegionOutput)
+}
+
+func (e VolumeActionCreateBaseRegion) ToVolumeActionCreateBaseRegionPtrOutput() VolumeActionCreateBaseRegionPtrOutput {
+	return e.ToVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
+}
+
+func (e VolumeActionCreateBaseRegion) ToVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseRegionPtrOutput {
+	return VolumeActionCreateBaseRegion(e).ToVolumeActionCreateBaseRegionOutputWithContext(ctx).ToVolumeActionCreateBaseRegionPtrOutputWithContext(ctx)
+}
+
+func (e VolumeActionCreateBaseRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VolumeActionCreateBaseRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VolumeActionCreateBaseRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VolumeActionCreateBaseRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VolumeActionCreateBaseRegionOutput struct{ *pulumi.OutputState }
+
+func (VolumeActionCreateBaseRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeActionCreateBaseRegion)(nil)).Elem()
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToVolumeActionCreateBaseRegionOutput() VolumeActionCreateBaseRegionOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToVolumeActionCreateBaseRegionOutputWithContext(ctx context.Context) VolumeActionCreateBaseRegionOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToVolumeActionCreateBaseRegionPtrOutput() VolumeActionCreateBaseRegionPtrOutput {
+	return o.ToVolumeActionCreateBaseRegionPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeActionCreateBaseRegion) *VolumeActionCreateBaseRegion {
+		return &v
+	}).(VolumeActionCreateBaseRegionPtrOutput)
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeActionCreateBaseRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeActionCreateBaseRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeActionCreateBaseRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeActionCreateBaseRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeActionCreateBaseRegion)(nil)).Elem()
+}
+
+func (o VolumeActionCreateBaseRegionPtrOutput) ToVolumeActionCreateBaseRegionPtrOutput() VolumeActionCreateBaseRegionPtrOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseRegionPtrOutput) ToVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseRegionPtrOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseRegionPtrOutput) Elem() VolumeActionCreateBaseRegionOutput {
+	return o.ApplyT(func(v *VolumeActionCreateBaseRegion) VolumeActionCreateBaseRegion {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeActionCreateBaseRegion
+		return ret
+	}).(VolumeActionCreateBaseRegionOutput)
+}
+
+func (o VolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VolumeActionCreateBaseRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VolumeActionCreateBaseRegionInput is an input type that accepts values of the VolumeActionCreateBaseRegion enum
+// A concrete instance of `VolumeActionCreateBaseRegionInput` can be one of the following:
+//
+//	VolumeActionCreateBaseRegionAms1
+//	VolumeActionCreateBaseRegionAms2
+//	VolumeActionCreateBaseRegionAms3
+//	VolumeActionCreateBaseRegionBlr1
+//	VolumeActionCreateBaseRegionFra1
+//	VolumeActionCreateBaseRegionLon1
+//	VolumeActionCreateBaseRegionNyc1
+//	VolumeActionCreateBaseRegionNyc2
+//	VolumeActionCreateBaseRegionNyc3
+//	VolumeActionCreateBaseRegionSfo1
+//	VolumeActionCreateBaseRegionSfo2
+//	VolumeActionCreateBaseRegionSfo3
+//	VolumeActionCreateBaseRegionSgp1
+//	VolumeActionCreateBaseRegionTor1
+type VolumeActionCreateBaseRegionInput interface {
+	pulumi.Input
+
+	ToVolumeActionCreateBaseRegionOutput() VolumeActionCreateBaseRegionOutput
+	ToVolumeActionCreateBaseRegionOutputWithContext(context.Context) VolumeActionCreateBaseRegionOutput
+}
+
+var volumeActionCreateBaseRegionPtrType = reflect.TypeOf((**VolumeActionCreateBaseRegion)(nil)).Elem()
+
+type VolumeActionCreateBaseRegionPtrInput interface {
+	pulumi.Input
+
+	ToVolumeActionCreateBaseRegionPtrOutput() VolumeActionCreateBaseRegionPtrOutput
+	ToVolumeActionCreateBaseRegionPtrOutputWithContext(context.Context) VolumeActionCreateBaseRegionPtrOutput
+}
+
+type volumeActionCreateBaseRegionPtr string
+
+func VolumeActionCreateBaseRegionPtr(v string) VolumeActionCreateBaseRegionPtrInput {
+	return (*volumeActionCreateBaseRegionPtr)(&v)
+}
+
+func (*volumeActionCreateBaseRegionPtr) ElementType() reflect.Type {
+	return volumeActionCreateBaseRegionPtrType
+}
+
+func (in *volumeActionCreateBaseRegionPtr) ToVolumeActionCreateBaseRegionPtrOutput() VolumeActionCreateBaseRegionPtrOutput {
+	return pulumi.ToOutput(in).(VolumeActionCreateBaseRegionPtrOutput)
+}
+
+func (in *volumeActionCreateBaseRegionPtr) ToVolumeActionCreateBaseRegionPtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VolumeActionCreateBaseRegionPtrOutput)
+}
+
+// The volume action to initiate.
+type VolumeActionCreateBaseType string
+
+const (
+	VolumeActionCreateBaseTypeAttach = VolumeActionCreateBaseType("attach")
+	VolumeActionCreateBaseTypeDetach = VolumeActionCreateBaseType("detach")
+	VolumeActionCreateBaseTypeResize = VolumeActionCreateBaseType("resize")
+)
+
+func (VolumeActionCreateBaseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeActionCreateBaseType)(nil)).Elem()
+}
+
+func (e VolumeActionCreateBaseType) ToVolumeActionCreateBaseTypeOutput() VolumeActionCreateBaseTypeOutput {
+	return pulumi.ToOutput(e).(VolumeActionCreateBaseTypeOutput)
+}
+
+func (e VolumeActionCreateBaseType) ToVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) VolumeActionCreateBaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VolumeActionCreateBaseTypeOutput)
+}
+
+func (e VolumeActionCreateBaseType) ToVolumeActionCreateBaseTypePtrOutput() VolumeActionCreateBaseTypePtrOutput {
+	return e.ToVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
+}
+
+func (e VolumeActionCreateBaseType) ToVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseTypePtrOutput {
+	return VolumeActionCreateBaseType(e).ToVolumeActionCreateBaseTypeOutputWithContext(ctx).ToVolumeActionCreateBaseTypePtrOutputWithContext(ctx)
+}
+
+func (e VolumeActionCreateBaseType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VolumeActionCreateBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VolumeActionCreateBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VolumeActionCreateBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VolumeActionCreateBaseTypeOutput struct{ *pulumi.OutputState }
+
+func (VolumeActionCreateBaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeActionCreateBaseType)(nil)).Elem()
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToVolumeActionCreateBaseTypeOutput() VolumeActionCreateBaseTypeOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToVolumeActionCreateBaseTypeOutputWithContext(ctx context.Context) VolumeActionCreateBaseTypeOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToVolumeActionCreateBaseTypePtrOutput() VolumeActionCreateBaseTypePtrOutput {
+	return o.ToVolumeActionCreateBaseTypePtrOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeActionCreateBaseType) *VolumeActionCreateBaseType {
+		return &v
+	}).(VolumeActionCreateBaseTypePtrOutput)
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeActionCreateBaseType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeActionCreateBaseType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeActionCreateBaseTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeActionCreateBaseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeActionCreateBaseType)(nil)).Elem()
+}
+
+func (o VolumeActionCreateBaseTypePtrOutput) ToVolumeActionCreateBaseTypePtrOutput() VolumeActionCreateBaseTypePtrOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseTypePtrOutput) ToVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseTypePtrOutput {
+	return o
+}
+
+func (o VolumeActionCreateBaseTypePtrOutput) Elem() VolumeActionCreateBaseTypeOutput {
+	return o.ApplyT(func(v *VolumeActionCreateBaseType) VolumeActionCreateBaseType {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeActionCreateBaseType
+		return ret
+	}).(VolumeActionCreateBaseTypeOutput)
+}
+
+func (o VolumeActionCreateBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeActionCreateBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VolumeActionCreateBaseType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VolumeActionCreateBaseTypeInput is an input type that accepts values of the VolumeActionCreateBaseType enum
+// A concrete instance of `VolumeActionCreateBaseTypeInput` can be one of the following:
+//
+//	VolumeActionCreateBaseTypeAttach
+//	VolumeActionCreateBaseTypeDetach
+//	VolumeActionCreateBaseTypeResize
+type VolumeActionCreateBaseTypeInput interface {
+	pulumi.Input
+
+	ToVolumeActionCreateBaseTypeOutput() VolumeActionCreateBaseTypeOutput
+	ToVolumeActionCreateBaseTypeOutputWithContext(context.Context) VolumeActionCreateBaseTypeOutput
+}
+
+var volumeActionCreateBaseTypePtrType = reflect.TypeOf((**VolumeActionCreateBaseType)(nil)).Elem()
+
+type VolumeActionCreateBaseTypePtrInput interface {
+	pulumi.Input
+
+	ToVolumeActionCreateBaseTypePtrOutput() VolumeActionCreateBaseTypePtrOutput
+	ToVolumeActionCreateBaseTypePtrOutputWithContext(context.Context) VolumeActionCreateBaseTypePtrOutput
+}
+
+type volumeActionCreateBaseTypePtr string
+
+func VolumeActionCreateBaseTypePtr(v string) VolumeActionCreateBaseTypePtrInput {
+	return (*volumeActionCreateBaseTypePtr)(&v)
+}
+
+func (*volumeActionCreateBaseTypePtr) ElementType() reflect.Type {
+	return volumeActionCreateBaseTypePtrType
+}
+
+func (in *volumeActionCreateBaseTypePtr) ToVolumeActionCreateBaseTypePtrOutput() VolumeActionCreateBaseTypePtrOutput {
+	return pulumi.ToOutput(in).(VolumeActionCreateBaseTypePtrOutput)
+}
+
+func (in *volumeActionCreateBaseTypePtr) ToVolumeActionCreateBaseTypePtrOutputWithContext(ctx context.Context) VolumeActionCreateBaseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VolumeActionCreateBaseTypePtrOutput)
+}
+
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AttachVolumeActionCreateBaseRegionInput)(nil)).Elem(), AttachVolumeActionCreateBaseRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AttachVolumeActionCreateBaseRegionPtrInput)(nil)).Elem(), AttachVolumeActionCreateBaseRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AttachVolumeActionCreateBaseTypeInput)(nil)).Elem(), AttachVolumeActionCreateBaseType("attach"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AttachVolumeActionCreateBaseTypePtrInput)(nil)).Elem(), AttachVolumeActionCreateBaseType("attach"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DetachVolumeActionCreateBaseRegionInput)(nil)).Elem(), DetachVolumeActionCreateBaseRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DetachVolumeActionCreateBaseRegionPtrInput)(nil)).Elem(), DetachVolumeActionCreateBaseRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DetachVolumeActionCreateBaseTypeInput)(nil)).Elem(), DetachVolumeActionCreateBaseType("attach"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DetachVolumeActionCreateBaseTypePtrInput)(nil)).Elem(), DetachVolumeActionCreateBaseType("attach"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResizeVolumeActionCreateBaseRegionInput)(nil)).Elem(), ResizeVolumeActionCreateBaseRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResizeVolumeActionCreateBaseRegionPtrInput)(nil)).Elem(), ResizeVolumeActionCreateBaseRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResizeVolumeActionCreateBaseTypeInput)(nil)).Elem(), ResizeVolumeActionCreateBaseType("attach"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResizeVolumeActionCreateBaseTypePtrInput)(nil)).Elem(), ResizeVolumeActionCreateBaseType("attach"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseRegionInput)(nil)).Elem(), VolumeActionCreateBaseRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseRegionPtrInput)(nil)).Elem(), VolumeActionCreateBaseRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseTypeInput)(nil)).Elem(), VolumeActionCreateBaseType("attach"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseTypePtrInput)(nil)).Elem(), VolumeActionCreateBaseType("attach"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
-	pulumi.RegisterOutputType(AttachVolumeActionCreateBaseRegionOutput{})
-	pulumi.RegisterOutputType(AttachVolumeActionCreateBaseRegionPtrOutput{})
-	pulumi.RegisterOutputType(AttachVolumeActionCreateBaseTypeOutput{})
-	pulumi.RegisterOutputType(AttachVolumeActionCreateBaseTypePtrOutput{})
-	pulumi.RegisterOutputType(DetachVolumeActionCreateBaseRegionOutput{})
-	pulumi.RegisterOutputType(DetachVolumeActionCreateBaseRegionPtrOutput{})
-	pulumi.RegisterOutputType(DetachVolumeActionCreateBaseTypeOutput{})
-	pulumi.RegisterOutputType(DetachVolumeActionCreateBaseTypePtrOutput{})
-	pulumi.RegisterOutputType(ResizeVolumeActionCreateBaseRegionOutput{})
-	pulumi.RegisterOutputType(ResizeVolumeActionCreateBaseRegionPtrOutput{})
-	pulumi.RegisterOutputType(ResizeVolumeActionCreateBaseTypeOutput{})
-	pulumi.RegisterOutputType(ResizeVolumeActionCreateBaseTypePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotsPropertiesResourceTypeOutput{})
 	pulumi.RegisterOutputType(SnapshotsPropertiesResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(VolumeActionCreateBaseRegionOutput{})
+	pulumi.RegisterOutputType(VolumeActionCreateBaseRegionPtrOutput{})
+	pulumi.RegisterOutputType(VolumeActionCreateBaseTypeOutput{})
+	pulumi.RegisterOutputType(VolumeActionCreateBaseTypePtrOutput{})
 }

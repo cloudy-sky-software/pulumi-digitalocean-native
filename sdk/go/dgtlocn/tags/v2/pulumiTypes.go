@@ -328,7 +328,7 @@ type ResourcesItemProperties struct {
 	// The identifier of a resource.
 	ResourceId *string `pulumi:"resourceId"`
 	// The type of the resource.
-	ResourceType *TagsAssignResourcesResourcesItemPropertiesResourceType `pulumi:"resourceType"`
+	ResourceType *ResourcesItemPropertiesResourceType `pulumi:"resourceType"`
 }
 
 // ResourcesItemPropertiesInput is an input type that accepts ResourcesItemPropertiesArgs and ResourcesItemPropertiesOutput values.
@@ -346,7 +346,7 @@ type ResourcesItemPropertiesArgs struct {
 	// The identifier of a resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 	// The type of the resource.
-	ResourceType TagsAssignResourcesResourcesItemPropertiesResourceTypePtrInput `pulumi:"resourceType"`
+	ResourceType ResourcesItemPropertiesResourceTypePtrInput `pulumi:"resourceType"`
 }
 
 func (ResourcesItemPropertiesArgs) ElementType() reflect.Type {
@@ -406,10 +406,8 @@ func (o ResourcesItemPropertiesOutput) ResourceId() pulumi.StringPtrOutput {
 }
 
 // The type of the resource.
-func (o ResourcesItemPropertiesOutput) ResourceType() TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return o.ApplyT(func(v ResourcesItemProperties) *TagsAssignResourcesResourcesItemPropertiesResourceType {
-		return v.ResourceType
-	}).(TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput)
+func (o ResourcesItemPropertiesOutput) ResourceType() ResourcesItemPropertiesResourceTypePtrOutput {
+	return o.ApplyT(func(v ResourcesItemProperties) *ResourcesItemPropertiesResourceType { return v.ResourceType }).(ResourcesItemPropertiesResourceTypePtrOutput)
 }
 
 type ResourcesItemPropertiesArrayOutput struct{ *pulumi.OutputState }

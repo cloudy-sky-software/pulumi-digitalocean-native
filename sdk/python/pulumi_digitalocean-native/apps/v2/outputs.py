@@ -491,10 +491,10 @@ class AppAlertSlackWebhook(dict):
 class AppAlertSpec(dict):
     def __init__(__self__, *,
                  disabled: Optional[bool] = None,
-                 operator: Optional['AppsValidateAppSpecAppAlertSpecOperator'] = None,
-                 rule: Optional['AppsValidateAppSpecAppAlertSpecRule'] = None,
+                 operator: Optional['AppAlertSpecOperator'] = None,
+                 rule: Optional['AppAlertSpecRule'] = None,
                  value: Optional[float] = None,
-                 window: Optional['AppsValidateAppSpecAppAlertSpecWindow'] = None):
+                 window: Optional['AppAlertSpecWindow'] = None):
         """
         :param bool disabled: Is the alert disabled?
         :param float value: Threshold value for alert
@@ -526,12 +526,12 @@ class AppAlertSpec(dict):
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional['AppsValidateAppSpecAppAlertSpecOperator']:
+    def operator(self) -> Optional['AppAlertSpecOperator']:
         return pulumi.get(self, "operator")
 
     @property
     @pulumi.getter
-    def rule(self) -> Optional['AppsValidateAppSpecAppAlertSpecRule']:
+    def rule(self) -> Optional['AppAlertSpecRule']:
         return pulumi.get(self, "rule")
 
     @property
@@ -544,7 +544,7 @@ class AppAlertSpec(dict):
 
     @property
     @pulumi.getter
-    def window(self) -> Optional['AppsValidateAppSpecAppAlertSpecWindow']:
+    def window(self) -> Optional['AppAlertSpecWindow']:
         return pulumi.get(self, "window")
 
 
@@ -576,7 +576,7 @@ class AppDatabaseSpec(dict):
                  cluster_name: Optional[str] = None,
                  db_name: Optional[str] = None,
                  db_user: Optional[str] = None,
-                 engine: Optional['AppsValidateAppSpecAppDatabaseSpecEngine'] = None,
+                 engine: Optional['AppDatabaseSpecEngine'] = None,
                  production: Optional[bool] = None,
                  version: Optional[str] = None):
         """
@@ -584,7 +584,7 @@ class AppDatabaseSpec(dict):
         :param str cluster_name: The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.
         :param str db_name: The name of the MySQL or PostgreSQL database to configure.
         :param str db_user: The name of the MySQL or PostgreSQL user to configure.
-        :param 'AppsValidateAppSpecAppDatabaseSpecEngine' engine: - MYSQL: MySQL
+        :param 'AppDatabaseSpecEngine' engine: - MYSQL: MySQL
                - PG: PostgreSQL
                - REDIS: Redis
         :param bool production: Whether this is a production or dev database.
@@ -640,7 +640,7 @@ class AppDatabaseSpec(dict):
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional['AppsValidateAppSpecAppDatabaseSpecEngine']:
+    def engine(self) -> Optional['AppDatabaseSpecEngine']:
         """
         - MYSQL: MySQL
         - PG: PostgreSQL
@@ -686,14 +686,14 @@ class AppDomainSpec(dict):
 
     def __init__(__self__, *,
                  domain: str,
-                 minimum_tls_version: Optional['AppsValidateAppSpecAppDomainSpecMinimumTlsVersion'] = None,
-                 type: Optional['AppsValidateAppSpecAppDomainSpecType'] = None,
+                 minimum_tls_version: Optional['AppDomainSpecMinimumTlsVersion'] = None,
+                 type: Optional['AppDomainSpecType'] = None,
                  wildcard: Optional[bool] = None,
                  zone: Optional[str] = None):
         """
         :param str domain: The hostname for the domain
-        :param 'AppsValidateAppSpecAppDomainSpecMinimumTlsVersion' minimum_tls_version: The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-        :param 'AppsValidateAppSpecAppDomainSpecType' type: - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
+        :param 'AppDomainSpecMinimumTlsVersion' minimum_tls_version: The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
+        :param 'AppDomainSpecType' type: - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
                - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
                - ALIAS: A non-primary domain
         :param bool wildcard: Indicates whether the domain includes all sub-domains, in addition to the given domain
@@ -726,7 +726,7 @@ class AppDomainSpec(dict):
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional['AppsValidateAppSpecAppDomainSpecMinimumTlsVersion']:
+    def minimum_tls_version(self) -> Optional['AppDomainSpecMinimumTlsVersion']:
         """
         The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
         """
@@ -734,7 +734,7 @@ class AppDomainSpec(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional['AppsValidateAppSpecAppDomainSpecType']:
+    def type(self) -> Optional['AppDomainSpecType']:
         """
         - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
         - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
@@ -1237,8 +1237,8 @@ class AppJobSpec(dict):
                  gitlab: Optional['outputs.AppsGitlabSourceSpec'] = None,
                  image: Optional['outputs.AppsImageSourceSpec'] = None,
                  instance_count: Optional[int] = None,
-                 instance_size_slug: Optional['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug'] = None,
-                 kind: Optional['AppsValidateAppSpecAppJobSpecPropertiesKind'] = None,
+                 instance_size_slug: Optional['AppComponentInstanceBaseInstanceSizeSlug'] = None,
+                 kind: Optional['AppJobSpecPropertiesKind'] = None,
                  log_destinations: Optional['outputs.AppLogDestinationDefinition'] = None,
                  name: Optional[str] = None,
                  run_command: Optional[str] = None,
@@ -1249,8 +1249,8 @@ class AppJobSpec(dict):
         :param str environment_slug: An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
         :param Sequence['AppVariableDefinition'] envs: A list of environment variables made available to the component.
         :param int instance_count: The amount of instances that this component should be scaled to. Default: 1
-        :param 'AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug' instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
-        :param 'AppsValidateAppSpecAppJobSpecPropertiesKind' kind: - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
+        :param 'AppComponentInstanceBaseInstanceSizeSlug' instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
+        :param 'AppJobSpecPropertiesKind' kind: - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
                - PRE_DEPLOY: Indicates a job that runs before an app deployment.
                - POST_DEPLOY: Indicates a job that runs after an app deployment.
                - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
@@ -1357,7 +1357,7 @@ class AppJobSpec(dict):
 
     @property
     @pulumi.getter(name="instanceSizeSlug")
-    def instance_size_slug(self) -> Optional['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']:
+    def instance_size_slug(self) -> Optional['AppComponentInstanceBaseInstanceSizeSlug']:
         """
         The instance size to use for this component. Default: `basic-xxs`
         """
@@ -1365,7 +1365,7 @@ class AppJobSpec(dict):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional['AppsValidateAppSpecAppJobSpecPropertiesKind']:
+    def kind(self) -> Optional['AppJobSpecPropertiesKind']:
         """
         - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
         - PRE_DEPLOY: Indicates a job that runs before an app deployment.
@@ -1977,11 +1977,11 @@ class AppResponse(dict):
 @pulumi.output_type
 class AppRollbackValidationCondition(dict):
     def __init__(__self__, *,
-                 code: Optional['AppsValidateRollbackAppRollbackValidationConditionCode'] = None,
+                 code: Optional['AppRollbackValidationConditionCode'] = None,
                  components: Optional[Sequence[str]] = None,
                  message: Optional[str] = None):
         """
-        :param 'AppsValidateRollbackAppRollbackValidationConditionCode' code: A code identifier that represents the failing condition.
+        :param 'AppRollbackValidationConditionCode' code: A code identifier that represents the failing condition.
                
                Failing conditions:
                  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
@@ -2005,7 +2005,7 @@ class AppRollbackValidationCondition(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional['AppsValidateRollbackAppRollbackValidationConditionCode']:
+    def code(self) -> Optional['AppRollbackValidationConditionCode']:
         """
         A code identifier that represents the failing condition.
 
@@ -2137,7 +2137,7 @@ class AppServiceSpec(dict):
                  http_port: Optional[int] = None,
                  image: Optional['outputs.AppsImageSourceSpec'] = None,
                  instance_count: Optional[int] = None,
-                 instance_size_slug: Optional['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug'] = None,
+                 instance_size_slug: Optional['AppComponentInstanceBaseInstanceSizeSlug'] = None,
                  internal_ports: Optional[Sequence[int]] = None,
                  log_destinations: Optional['outputs.AppLogDestinationDefinition'] = None,
                  name: Optional[str] = None,
@@ -2152,7 +2152,7 @@ class AppServiceSpec(dict):
         :param int http_port: The internal port on which this service's run command will listen. Default: 8080
                If there is not an environment variable with the name `PORT`, one will be automatically added with its value set to the value of this field.
         :param int instance_count: The amount of instances that this component should be scaled to. Default: 1
-        :param 'AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug' instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
+        :param 'AppComponentInstanceBaseInstanceSizeSlug' instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
         :param Sequence[int] internal_ports: The ports on which this service will listen for internal traffic.
         :param str name: The name. Must be unique across all components within the same app.
         :param Sequence['AppRouteSpec'] routes: A list of HTTP routes that should be routed to this component.
@@ -2283,7 +2283,7 @@ class AppServiceSpec(dict):
 
     @property
     @pulumi.getter(name="instanceSizeSlug")
-    def instance_size_slug(self) -> Optional['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']:
+    def instance_size_slug(self) -> Optional['AppComponentInstanceBaseInstanceSizeSlug']:
         """
         The instance size to use for this component. Default: `basic-xxs`
         """
@@ -2482,7 +2482,7 @@ class AppSpec(dict):
                  functions: Optional[Sequence['outputs.AppFunctionsSpec']] = None,
                  ingress: Optional['outputs.AppIngressSpec'] = None,
                  jobs: Optional[Sequence['outputs.AppJobSpec']] = None,
-                 region: Optional['AppsValidateAppSpecAppSpecRegion'] = None,
+                 region: Optional['AppSpecRegion'] = None,
                  services: Optional[Sequence['outputs.AppServiceSpec']] = None,
                  static_sites: Optional[Sequence['outputs.AppStaticSiteSpec']] = None,
                  workers: Optional[Sequence['outputs.AppWorkerSpec']] = None):
@@ -2495,7 +2495,7 @@ class AppSpec(dict):
         :param Sequence['AppFunctionsSpec'] functions: Workloads which expose publicly-accessible HTTP services via Functions Components.
         :param 'AppIngressSpec' ingress: Specification for app ingress configurations.
         :param Sequence['AppJobSpec'] jobs: Pre and post deployment workloads which do not expose publicly-accessible HTTP routes.
-        :param 'AppsValidateAppSpecAppSpecRegion' region: The slug form of the geographical origin of the app. Default: `nearest available`
+        :param 'AppSpecRegion' region: The slug form of the geographical origin of the app. Default: `nearest available`
         :param Sequence['AppServiceSpec'] services: Workloads which expose publicly-accessible HTTP services.
         :param Sequence['AppStaticSiteSpec'] static_sites: Content which can be rendered to static web assets.
         :param Sequence['AppWorkerSpec'] workers: Workloads which do not expose publicly-accessible HTTP services.
@@ -2571,7 +2571,7 @@ class AppSpec(dict):
 
     @property
     @pulumi.getter
-    def region(self) -> Optional['AppsValidateAppSpecAppSpecRegion']:
+    def region(self) -> Optional['AppSpecRegion']:
         """
         The slug form of the geographical origin of the app. Default: `nearest available`
         """
@@ -2844,15 +2844,15 @@ class AppStaticSiteSpec(dict):
 class AppVariableDefinition(dict):
     def __init__(__self__, *,
                  key: str,
-                 scope: Optional['AppsValidateAppSpecAppVariableDefinitionScope'] = None,
-                 type: Optional['AppsValidateAppSpecAppVariableDefinitionType'] = None,
+                 scope: Optional['AppVariableDefinitionScope'] = None,
+                 type: Optional['AppVariableDefinitionType'] = None,
                  value: Optional[str] = None):
         """
         :param str key: The variable name
-        :param 'AppsValidateAppSpecAppVariableDefinitionScope' scope: - RUN_TIME: Made available only at run-time
+        :param 'AppVariableDefinitionScope' scope: - RUN_TIME: Made available only at run-time
                - BUILD_TIME: Made available only at build-time
                - RUN_AND_BUILD_TIME: Made available at both build and run-time
-        :param 'AppsValidateAppSpecAppVariableDefinitionType' type: - GENERAL: A plain-text environment variable
+        :param 'AppVariableDefinitionType' type: - GENERAL: A plain-text environment variable
                - SECRET: A secret encrypted environment variable
         :param str value: The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
         """
@@ -2878,7 +2878,7 @@ class AppVariableDefinition(dict):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional['AppsValidateAppSpecAppVariableDefinitionScope']:
+    def scope(self) -> Optional['AppVariableDefinitionScope']:
         """
         - RUN_TIME: Made available only at run-time
         - BUILD_TIME: Made available only at build-time
@@ -2888,7 +2888,7 @@ class AppVariableDefinition(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional['AppsValidateAppSpecAppVariableDefinitionType']:
+    def type(self) -> Optional['AppVariableDefinitionType']:
         """
         - GENERAL: A plain-text environment variable
         - SECRET: A secret encrypted environment variable
@@ -2947,7 +2947,7 @@ class AppWorkerSpec(dict):
                  gitlab: Optional['outputs.AppsGitlabSourceSpec'] = None,
                  image: Optional['outputs.AppsImageSourceSpec'] = None,
                  instance_count: Optional[int] = None,
-                 instance_size_slug: Optional['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug'] = None,
+                 instance_size_slug: Optional['AppComponentInstanceBaseInstanceSizeSlug'] = None,
                  log_destinations: Optional['outputs.AppLogDestinationDefinition'] = None,
                  name: Optional[str] = None,
                  run_command: Optional[str] = None,
@@ -2958,7 +2958,7 @@ class AppWorkerSpec(dict):
         :param str environment_slug: An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
         :param Sequence['AppVariableDefinition'] envs: A list of environment variables made available to the component.
         :param int instance_count: The amount of instances that this component should be scaled to. Default: 1
-        :param 'AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug' instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
+        :param 'AppComponentInstanceBaseInstanceSizeSlug' instance_size_slug: The instance size to use for this component. Default: `basic-xxs`
         :param str name: The name. Must be unique across all components within the same app.
         :param str run_command: An optional run command to override the component's default.
         :param str source_dir: An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
@@ -3058,7 +3058,7 @@ class AppWorkerSpec(dict):
 
     @property
     @pulumi.getter(name="instanceSizeSlug")
-    def instance_size_slug(self) -> Optional['AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug']:
+    def instance_size_slug(self) -> Optional['AppComponentInstanceBaseInstanceSizeSlug']:
         """
         The instance size to use for this component. Default: `basic-xxs`
         """
@@ -4161,12 +4161,12 @@ class AppsImageSourceSpec(dict):
 
     def __init__(__self__, *,
                  registry: Optional[str] = None,
-                 registry_type: Optional['AppsValidateAppSpecAppsImageSourceSpecRegistryType'] = None,
+                 registry_type: Optional['AppsImageSourceSpecRegistryType'] = None,
                  repository: Optional[str] = None,
                  tag: Optional[str] = None):
         """
         :param str registry: The registry name. Must be left empty for the `DOCR` registry type.
-        :param 'AppsValidateAppSpecAppsImageSourceSpecRegistryType' registry_type: - DOCKER_HUB: The DockerHub container registry type.
+        :param 'AppsImageSourceSpecRegistryType' registry_type: - DOCKER_HUB: The DockerHub container registry type.
                - DOCR: The DigitalOcean container registry type.
         :param str repository: The repository name.
         :param str tag: The repository tag. Defaults to `latest` if not provided.
@@ -4192,7 +4192,7 @@ class AppsImageSourceSpec(dict):
 
     @property
     @pulumi.getter(name="registryType")
-    def registry_type(self) -> Optional['AppsValidateAppSpecAppsImageSourceSpecRegistryType']:
+    def registry_type(self) -> Optional['AppsImageSourceSpecRegistryType']:
         """
         - DOCKER_HUB: The DockerHub container registry type.
         - DOCR: The DigitalOcean container registry type.
@@ -4574,11 +4574,11 @@ class AppsTier(dict):
 @pulumi.output_type
 class Error(dict):
     def __init__(__self__, *,
-                 code: Optional['AppsValidateRollbackAppRollbackValidationConditionCode'] = None,
+                 code: Optional['AppRollbackValidationConditionCode'] = None,
                  components: Optional[Sequence[str]] = None,
                  message: Optional[str] = None):
         """
-        :param 'AppsValidateRollbackAppRollbackValidationConditionCode' code: A code identifier that represents the failing condition.
+        :param 'AppRollbackValidationConditionCode' code: A code identifier that represents the failing condition.
                
                Failing conditions:
                  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
@@ -4602,7 +4602,7 @@ class Error(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional['AppsValidateRollbackAppRollbackValidationConditionCode']:
+    def code(self) -> Optional['AppRollbackValidationConditionCode']:
         """
         A code identifier that represents the failing condition.
 

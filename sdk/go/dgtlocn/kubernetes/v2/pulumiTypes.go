@@ -2348,7 +2348,7 @@ type StatusProperties struct {
 	// An optional message providing additional information about the current cluster state.
 	Message *string `pulumi:"message"`
 	// A string indicating the current status of the cluster.
-	State *KubernetesClusterStatusPropertiesState `pulumi:"state"`
+	State *StatusPropertiesState `pulumi:"state"`
 }
 
 // An object containing a `state` attribute whose value is set to a string indicating the current status of the cluster.
@@ -2372,8 +2372,8 @@ func (o StatusPropertiesOutput) Message() pulumi.StringPtrOutput {
 }
 
 // A string indicating the current status of the cluster.
-func (o StatusPropertiesOutput) State() KubernetesClusterStatusPropertiesStatePtrOutput {
-	return o.ApplyT(func(v StatusProperties) *KubernetesClusterStatusPropertiesState { return v.State }).(KubernetesClusterStatusPropertiesStatePtrOutput)
+func (o StatusPropertiesOutput) State() StatusPropertiesStatePtrOutput {
+	return o.ApplyT(func(v StatusProperties) *StatusPropertiesState { return v.State }).(StatusPropertiesStatePtrOutput)
 }
 
 type StatusPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2411,13 +2411,13 @@ func (o StatusPropertiesPtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 // A string indicating the current status of the cluster.
-func (o StatusPropertiesPtrOutput) State() KubernetesClusterStatusPropertiesStatePtrOutput {
-	return o.ApplyT(func(v *StatusProperties) *KubernetesClusterStatusPropertiesState {
+func (o StatusPropertiesPtrOutput) State() StatusPropertiesStatePtrOutput {
+	return o.ApplyT(func(v *StatusProperties) *StatusPropertiesState {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(KubernetesClusterStatusPropertiesStatePtrOutput)
+	}).(StatusPropertiesStatePtrOutput)
 }
 
 type User struct {

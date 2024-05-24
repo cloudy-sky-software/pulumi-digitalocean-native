@@ -26,7 +26,7 @@ type Transfer struct {
 	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
 	StartedAt pulumi.StringPtrOutput `pulumi:"startedAt"`
 	// The current status of the action. This can be "in-progress", "completed", or "errored".
-	Status TransferStatusPtrOutput `pulumi:"status"`
+	Status StatusPtrOutput `pulumi:"status"`
 	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -82,7 +82,7 @@ type transferArgs struct {
 	// The slug identifier for the region where the resource will initially be  available.
 	Region TransferPropertiesRegion `pulumi:"region"`
 	// The action to be taken on the image. Can be either `convert` or `transfer`.
-	Type TransferImageActionBaseType `pulumi:"type"`
+	Type ImageActionBaseType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Transfer resource.
@@ -92,7 +92,7 @@ type TransferArgs struct {
 	// The slug identifier for the region where the resource will initially be  available.
 	Region TransferPropertiesRegionInput
 	// The action to be taken on the image. Can be either `convert` or `transfer`.
-	Type TransferImageActionBaseTypeInput
+	Type ImageActionBaseTypeInput
 }
 
 func (TransferArgs) ElementType() reflect.Type {
@@ -161,8 +161,8 @@ func (o TransferOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o TransferOutput) Status() TransferStatusPtrOutput {
-	return o.ApplyT(func(v *Transfer) TransferStatusPtrOutput { return v.Status }).(TransferStatusPtrOutput)
+func (o TransferOutput) Status() StatusPtrOutput {
+	return o.ApplyT(func(v *Transfer) StatusPtrOutput { return v.Status }).(StatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.

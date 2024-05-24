@@ -44,7 +44,7 @@ export class DatabasesEvictionPolicy extends pulumi.CustomResource {
      * - `volatile_random`: Evict keys with expiration only in a random order.
      * - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
      */
-    public readonly evictionPolicy!: pulumi.Output<enums.databases.v2.DatabasesEvictionPolicyEvictionPolicy>;
+    public readonly evictionPolicy!: pulumi.Output<enums.databases.v2.EvictionPolicy>;
 
     /**
      * Create a DatabasesEvictionPolicy resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface DatabasesEvictionPolicyArgs {
      * - `volatile_random`: Evict keys with expiration only in a random order.
      * - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
      */
-    evictionPolicy: pulumi.Input<enums.databases.v2.DatabasesEvictionPolicyEvictionPolicy>;
+    evictionPolicy: pulumi.Input<enums.databases.v2.EvictionPolicy>;
 }

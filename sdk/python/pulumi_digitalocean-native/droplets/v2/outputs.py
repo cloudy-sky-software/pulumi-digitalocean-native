@@ -83,7 +83,7 @@ class Action(dict):
                  resource_id: Optional[int] = None,
                  resource_type: Optional[str] = None,
                  started_at: Optional[str] = None,
-                 status: Optional['DisableBackupsActionStatus'] = None,
+                 status: Optional['ActionStatus'] = None,
                  type: Optional[str] = None):
         """
         :param str completed_at: A time value given in ISO8601 combined date and time format that represents when the action was completed.
@@ -91,7 +91,7 @@ class Action(dict):
         :param int resource_id: A unique identifier for the resource that the action is associated with.
         :param str resource_type: The type of resource that the action is associated with.
         :param str started_at: A time value given in ISO8601 combined date and time format that represents when the action was initiated.
-        :param 'DisableBackupsActionStatus' status: The current status of the action. This can be "in-progress", "completed", or "errored".
+        :param 'ActionStatus' status: The current status of the action. This can be "in-progress", "completed", or "errored".
         :param str type: This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
         """
         if completed_at is not None:
@@ -167,7 +167,7 @@ class Action(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['DisableBackupsActionStatus']:
+    def status(self) -> Optional['ActionStatus']:
         """
         The current status of the action. This can be "in-progress", "completed", or "errored".
         """

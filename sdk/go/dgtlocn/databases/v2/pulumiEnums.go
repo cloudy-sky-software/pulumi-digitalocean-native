@@ -1431,128 +1431,128 @@ func (in *databaseUserRolePtr) ToDatabaseUserRolePtrOutputWithContext(ctx contex
 // - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
 // - `volatile_random`: Evict keys with expiration only in a random order.
 // - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-type DatabasesEvictionPolicyEvictionPolicy string
+type EvictionPolicy string
 
 const (
-	DatabasesEvictionPolicyEvictionPolicyNoeviction     = DatabasesEvictionPolicyEvictionPolicy("noeviction")
-	DatabasesEvictionPolicyEvictionPolicyAllkeysLru     = DatabasesEvictionPolicyEvictionPolicy("allkeys_lru")
-	DatabasesEvictionPolicyEvictionPolicyAllkeysRandom  = DatabasesEvictionPolicyEvictionPolicy("allkeys_random")
-	DatabasesEvictionPolicyEvictionPolicyVolatileLru    = DatabasesEvictionPolicyEvictionPolicy("volatile_lru")
-	DatabasesEvictionPolicyEvictionPolicyVolatileRandom = DatabasesEvictionPolicyEvictionPolicy("volatile_random")
-	DatabasesEvictionPolicyEvictionPolicyVolatileTtl    = DatabasesEvictionPolicyEvictionPolicy("volatile_ttl")
+	EvictionPolicyNoeviction     = EvictionPolicy("noeviction")
+	EvictionPolicyAllkeysLru     = EvictionPolicy("allkeys_lru")
+	EvictionPolicyAllkeysRandom  = EvictionPolicy("allkeys_random")
+	EvictionPolicyVolatileLru    = EvictionPolicy("volatile_lru")
+	EvictionPolicyVolatileRandom = EvictionPolicy("volatile_random")
+	EvictionPolicyVolatileTtl    = EvictionPolicy("volatile_ttl")
 )
 
-func (DatabasesEvictionPolicyEvictionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
+func (EvictionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvictionPolicy)(nil)).Elem()
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyOutput() DatabasesEvictionPolicyEvictionPolicyOutput {
-	return pulumi.ToOutput(e).(DatabasesEvictionPolicyEvictionPolicyOutput)
+func (e EvictionPolicy) ToEvictionPolicyOutput() EvictionPolicyOutput {
+	return pulumi.ToOutput(e).(EvictionPolicyOutput)
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DatabasesEvictionPolicyEvictionPolicyOutput)
+func (e EvictionPolicy) ToEvictionPolicyOutputWithContext(ctx context.Context) EvictionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvictionPolicyOutput)
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
-	return e.ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(context.Background())
+func (e EvictionPolicy) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
+	return e.ToEvictionPolicyPtrOutputWithContext(context.Background())
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
-	return DatabasesEvictionPolicyEvictionPolicy(e).ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(ctx).ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx)
+func (e EvictionPolicy) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
+	return EvictionPolicy(e).ToEvictionPolicyOutputWithContext(ctx).ToEvictionPolicyPtrOutputWithContext(ctx)
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToStringOutput() pulumi.StringOutput {
+func (e EvictionPolicy) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e EvictionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e EvictionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DatabasesEvictionPolicyEvictionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e EvictionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DatabasesEvictionPolicyEvictionPolicyOutput struct{ *pulumi.OutputState }
+type EvictionPolicyOutput struct{ *pulumi.OutputState }
 
-func (DatabasesEvictionPolicyEvictionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
+func (EvictionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvictionPolicy)(nil)).Elem()
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyOutput() DatabasesEvictionPolicyEvictionPolicyOutput {
+func (o EvictionPolicyOutput) ToEvictionPolicyOutput() EvictionPolicyOutput {
 	return o
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyOutput {
+func (o EvictionPolicyOutput) ToEvictionPolicyOutputWithContext(ctx context.Context) EvictionPolicyOutput {
 	return o
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
-	return o.ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(context.Background())
+func (o EvictionPolicyOutput) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
+	return o.ToEvictionPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabasesEvictionPolicyEvictionPolicy) *DatabasesEvictionPolicyEvictionPolicy {
+func (o EvictionPolicyOutput) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvictionPolicy) *EvictionPolicy {
 		return &v
-	}).(DatabasesEvictionPolicyEvictionPolicyPtrOutput)
+	}).(EvictionPolicyPtrOutput)
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+func (o EvictionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabasesEvictionPolicyEvictionPolicy) string {
+func (o EvictionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvictionPolicy) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o EvictionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabasesEvictionPolicyEvictionPolicy) *string {
+func (o EvictionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvictionPolicy) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatabasesEvictionPolicyEvictionPolicyPtrOutput struct{ *pulumi.OutputState }
+type EvictionPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (DatabasesEvictionPolicyEvictionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
+func (EvictionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvictionPolicy)(nil)).Elem()
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+func (o EvictionPolicyPtrOutput) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
 	return o
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+func (o EvictionPolicyPtrOutput) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
 	return o
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) Elem() DatabasesEvictionPolicyEvictionPolicyOutput {
-	return o.ApplyT(func(v *DatabasesEvictionPolicyEvictionPolicy) DatabasesEvictionPolicyEvictionPolicy {
+func (o EvictionPolicyPtrOutput) Elem() EvictionPolicyOutput {
+	return o.ApplyT(func(v *EvictionPolicy) EvictionPolicy {
 		if v != nil {
 			return *v
 		}
-		var ret DatabasesEvictionPolicyEvictionPolicy
+		var ret EvictionPolicy
 		return ret
-	}).(DatabasesEvictionPolicyEvictionPolicyOutput)
+	}).(EvictionPolicyOutput)
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o EvictionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatabasesEvictionPolicyEvictionPolicy) *string {
+func (o EvictionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvictionPolicy) *string {
 		if e == nil {
 			return nil
 		}
@@ -1561,47 +1561,47 @@ func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabasesEvictionPolicyEvictionPolicyInput is an input type that accepts values of the DatabasesEvictionPolicyEvictionPolicy enum
-// A concrete instance of `DatabasesEvictionPolicyEvictionPolicyInput` can be one of the following:
+// EvictionPolicyInput is an input type that accepts values of the EvictionPolicy enum
+// A concrete instance of `EvictionPolicyInput` can be one of the following:
 //
-//	DatabasesEvictionPolicyEvictionPolicyNoeviction
-//	DatabasesEvictionPolicyEvictionPolicyAllkeysLru
-//	DatabasesEvictionPolicyEvictionPolicyAllkeysRandom
-//	DatabasesEvictionPolicyEvictionPolicyVolatileLru
-//	DatabasesEvictionPolicyEvictionPolicyVolatileRandom
-//	DatabasesEvictionPolicyEvictionPolicyVolatileTtl
-type DatabasesEvictionPolicyEvictionPolicyInput interface {
+//	EvictionPolicyNoeviction
+//	EvictionPolicyAllkeysLru
+//	EvictionPolicyAllkeysRandom
+//	EvictionPolicyVolatileLru
+//	EvictionPolicyVolatileRandom
+//	EvictionPolicyVolatileTtl
+type EvictionPolicyInput interface {
 	pulumi.Input
 
-	ToDatabasesEvictionPolicyEvictionPolicyOutput() DatabasesEvictionPolicyEvictionPolicyOutput
-	ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(context.Context) DatabasesEvictionPolicyEvictionPolicyOutput
+	ToEvictionPolicyOutput() EvictionPolicyOutput
+	ToEvictionPolicyOutputWithContext(context.Context) EvictionPolicyOutput
 }
 
-var databasesEvictionPolicyEvictionPolicyPtrType = reflect.TypeOf((**DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
+var evictionPolicyPtrType = reflect.TypeOf((**EvictionPolicy)(nil)).Elem()
 
-type DatabasesEvictionPolicyEvictionPolicyPtrInput interface {
+type EvictionPolicyPtrInput interface {
 	pulumi.Input
 
-	ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput
-	ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput
+	ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput
+	ToEvictionPolicyPtrOutputWithContext(context.Context) EvictionPolicyPtrOutput
 }
 
-type databasesEvictionPolicyEvictionPolicyPtr string
+type evictionPolicyPtr string
 
-func DatabasesEvictionPolicyEvictionPolicyPtr(v string) DatabasesEvictionPolicyEvictionPolicyPtrInput {
-	return (*databasesEvictionPolicyEvictionPolicyPtr)(&v)
+func EvictionPolicyPtr(v string) EvictionPolicyPtrInput {
+	return (*evictionPolicyPtr)(&v)
 }
 
-func (*databasesEvictionPolicyEvictionPolicyPtr) ElementType() reflect.Type {
-	return databasesEvictionPolicyEvictionPolicyPtrType
+func (*evictionPolicyPtr) ElementType() reflect.Type {
+	return evictionPolicyPtrType
 }
 
-func (in *databasesEvictionPolicyEvictionPolicyPtr) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
-	return pulumi.ToOutput(in).(DatabasesEvictionPolicyEvictionPolicyPtrOutput)
+func (in *evictionPolicyPtr) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(EvictionPolicyPtrOutput)
 }
 
-func (in *databasesEvictionPolicyEvictionPolicyPtr) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DatabasesEvictionPolicyEvictionPolicyPtrOutput)
+func (in *evictionPolicyPtr) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvictionPolicyPtrOutput)
 }
 
 // The type of resource that the firewall rule allows to access the database cluster.
@@ -2728,8 +2728,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicaStatusPtrInput)(nil)).Elem(), DatabaseReplicaStatus("creating"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseUserRoleInput)(nil)).Elem(), DatabaseUserRole("primary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseUserRolePtrInput)(nil)).Elem(), DatabaseUserRole("primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicyInput)(nil)).Elem(), DatabasesEvictionPolicyEvictionPolicy("noeviction"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicyPtrInput)(nil)).Elem(), DatabasesEvictionPolicyEvictionPolicy("noeviction"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyInput)(nil)).Elem(), EvictionPolicy("noeviction"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyPtrInput)(nil)).Elem(), EvictionPolicy("noeviction"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleTypeInput)(nil)).Elem(), FirewallRuleType("droplet"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleTypePtrInput)(nil)).Elem(), FirewallRuleType("droplet"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlSettingsAuthPluginInput)(nil)).Elem(), MysqlSettingsAuthPlugin("mysql_native_password"))
@@ -2758,8 +2758,8 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseReplicaStatusPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseUserRoleOutput{})
 	pulumi.RegisterOutputType(DatabaseUserRolePtrOutput{})
-	pulumi.RegisterOutputType(DatabasesEvictionPolicyEvictionPolicyOutput{})
-	pulumi.RegisterOutputType(DatabasesEvictionPolicyEvictionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EvictionPolicyOutput{})
+	pulumi.RegisterOutputType(EvictionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(GetDatabasesEvictionPolicyPropertiesEvictionPolicyOutput{})

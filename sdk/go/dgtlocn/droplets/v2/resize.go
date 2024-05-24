@@ -21,7 +21,7 @@ type Resize struct {
 	// The slug identifier for the size to which you wish to resize the Droplet.
 	Size pulumi.StringPtrOutput `pulumi:"size"`
 	// The type of action to initiate for the Droplet.
-	Type ResizeDropletActionTypePtrOutput `pulumi:"type"`
+	Type DropletActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewResize registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ type resizeArgs struct {
 	// The slug identifier for the size to which you wish to resize the Droplet.
 	Size *string `pulumi:"size"`
 	// The type of action to initiate for the Droplet.
-	Type ResizeDropletActionType `pulumi:"type"`
+	Type DropletActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Resize resource.
@@ -86,7 +86,7 @@ type ResizeArgs struct {
 	// The slug identifier for the size to which you wish to resize the Droplet.
 	Size pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type ResizeDropletActionTypeInput
+	Type DropletActionTypeInput
 }
 
 func (ResizeArgs) ElementType() reflect.Type {
@@ -141,8 +141,8 @@ func (o ResizeOutput) Size() pulumi.StringPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o ResizeOutput) Type() ResizeDropletActionTypePtrOutput {
-	return o.ApplyT(func(v *Resize) ResizeDropletActionTypePtrOutput { return v.Type }).(ResizeDropletActionTypePtrOutput)
+func (o ResizeOutput) Type() DropletActionTypePtrOutput {
+	return o.ApplyT(func(v *Resize) DropletActionTypePtrOutput { return v.Type }).(DropletActionTypePtrOutput)
 }
 
 func init() {

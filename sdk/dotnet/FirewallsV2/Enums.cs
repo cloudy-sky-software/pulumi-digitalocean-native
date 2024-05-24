@@ -70,36 +70,4 @@ namespace Pulumi.DigitalOceanNative.FirewallsV2
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-    /// </summary>
-    [EnumType]
-    public readonly struct FirewallsRulesFirewallRuleBaseProtocol : IEquatable<FirewallsRulesFirewallRuleBaseProtocol>
-    {
-        private readonly string _value;
-
-        private FirewallsRulesFirewallRuleBaseProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FirewallsRulesFirewallRuleBaseProtocol Tcp { get; } = new FirewallsRulesFirewallRuleBaseProtocol("tcp");
-        public static FirewallsRulesFirewallRuleBaseProtocol Udp { get; } = new FirewallsRulesFirewallRuleBaseProtocol("udp");
-        public static FirewallsRulesFirewallRuleBaseProtocol Icmp { get; } = new FirewallsRulesFirewallRuleBaseProtocol("icmp");
-
-        public static bool operator ==(FirewallsRulesFirewallRuleBaseProtocol left, FirewallsRulesFirewallRuleBaseProtocol right) => left.Equals(right);
-        public static bool operator !=(FirewallsRulesFirewallRuleBaseProtocol left, FirewallsRulesFirewallRuleBaseProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(FirewallsRulesFirewallRuleBaseProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FirewallsRulesFirewallRuleBaseProtocol other && Equals(other);
-        public bool Equals(FirewallsRulesFirewallRuleBaseProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

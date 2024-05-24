@@ -187,126 +187,117 @@ const (
 	FirewallRuleBaseProtocolIcmp = FirewallRuleBaseProtocol("icmp")
 )
 
-// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-type FirewallsRulesFirewallRuleBaseProtocol string
-
-const (
-	FirewallsRulesFirewallRuleBaseProtocolTcp  = FirewallsRulesFirewallRuleBaseProtocol("tcp")
-	FirewallsRulesFirewallRuleBaseProtocolUdp  = FirewallsRulesFirewallRuleBaseProtocol("udp")
-	FirewallsRulesFirewallRuleBaseProtocolIcmp = FirewallsRulesFirewallRuleBaseProtocol("icmp")
-)
-
-func (FirewallsRulesFirewallRuleBaseProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallsRulesFirewallRuleBaseProtocol)(nil)).Elem()
+func (FirewallRuleBaseProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleBaseProtocol)(nil)).Elem()
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToFirewallsRulesFirewallRuleBaseProtocolOutput() FirewallsRulesFirewallRuleBaseProtocolOutput {
-	return pulumi.ToOutput(e).(FirewallsRulesFirewallRuleBaseProtocolOutput)
+func (e FirewallRuleBaseProtocol) ToFirewallRuleBaseProtocolOutput() FirewallRuleBaseProtocolOutput {
+	return pulumi.ToOutput(e).(FirewallRuleBaseProtocolOutput)
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToFirewallsRulesFirewallRuleBaseProtocolOutputWithContext(ctx context.Context) FirewallsRulesFirewallRuleBaseProtocolOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FirewallsRulesFirewallRuleBaseProtocolOutput)
+func (e FirewallRuleBaseProtocol) ToFirewallRuleBaseProtocolOutputWithContext(ctx context.Context) FirewallRuleBaseProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleBaseProtocolOutput)
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutput() FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
-	return e.ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(context.Background())
+func (e FirewallRuleBaseProtocol) ToFirewallRuleBaseProtocolPtrOutput() FirewallRuleBaseProtocolPtrOutput {
+	return e.ToFirewallRuleBaseProtocolPtrOutputWithContext(context.Background())
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
-	return FirewallsRulesFirewallRuleBaseProtocol(e).ToFirewallsRulesFirewallRuleBaseProtocolOutputWithContext(ctx).ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(ctx)
+func (e FirewallRuleBaseProtocol) ToFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallRuleBaseProtocolPtrOutput {
+	return FirewallRuleBaseProtocol(e).ToFirewallRuleBaseProtocolOutputWithContext(ctx).ToFirewallRuleBaseProtocolPtrOutputWithContext(ctx)
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToStringOutput() pulumi.StringOutput {
+func (e FirewallRuleBaseProtocol) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e FirewallRuleBaseProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e FirewallRuleBaseProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e FirewallsRulesFirewallRuleBaseProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e FirewallRuleBaseProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type FirewallsRulesFirewallRuleBaseProtocolOutput struct{ *pulumi.OutputState }
+type FirewallRuleBaseProtocolOutput struct{ *pulumi.OutputState }
 
-func (FirewallsRulesFirewallRuleBaseProtocolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallsRulesFirewallRuleBaseProtocol)(nil)).Elem()
+func (FirewallRuleBaseProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleBaseProtocol)(nil)).Elem()
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToFirewallsRulesFirewallRuleBaseProtocolOutput() FirewallsRulesFirewallRuleBaseProtocolOutput {
+func (o FirewallRuleBaseProtocolOutput) ToFirewallRuleBaseProtocolOutput() FirewallRuleBaseProtocolOutput {
 	return o
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToFirewallsRulesFirewallRuleBaseProtocolOutputWithContext(ctx context.Context) FirewallsRulesFirewallRuleBaseProtocolOutput {
+func (o FirewallRuleBaseProtocolOutput) ToFirewallRuleBaseProtocolOutputWithContext(ctx context.Context) FirewallRuleBaseProtocolOutput {
 	return o
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutput() FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
-	return o.ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(context.Background())
+func (o FirewallRuleBaseProtocolOutput) ToFirewallRuleBaseProtocolPtrOutput() FirewallRuleBaseProtocolPtrOutput {
+	return o.ToFirewallRuleBaseProtocolPtrOutputWithContext(context.Background())
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallsRulesFirewallRuleBaseProtocol) *FirewallsRulesFirewallRuleBaseProtocol {
+func (o FirewallRuleBaseProtocolOutput) ToFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallRuleBaseProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleBaseProtocol) *FirewallRuleBaseProtocol {
 		return &v
-	}).(FirewallsRulesFirewallRuleBaseProtocolPtrOutput)
+	}).(FirewallRuleBaseProtocolPtrOutput)
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToStringOutput() pulumi.StringOutput {
+func (o FirewallRuleBaseProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallsRulesFirewallRuleBaseProtocol) string {
+func (o FirewallRuleBaseProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleBaseProtocol) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o FirewallRuleBaseProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallsRulesFirewallRuleBaseProtocol) *string {
+func (o FirewallRuleBaseProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleBaseProtocol) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type FirewallsRulesFirewallRuleBaseProtocolPtrOutput struct{ *pulumi.OutputState }
+type FirewallRuleBaseProtocolPtrOutput struct{ *pulumi.OutputState }
 
-func (FirewallsRulesFirewallRuleBaseProtocolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallsRulesFirewallRuleBaseProtocol)(nil)).Elem()
+func (FirewallRuleBaseProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleBaseProtocol)(nil)).Elem()
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolPtrOutput) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutput() FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
+func (o FirewallRuleBaseProtocolPtrOutput) ToFirewallRuleBaseProtocolPtrOutput() FirewallRuleBaseProtocolPtrOutput {
 	return o
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolPtrOutput) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
+func (o FirewallRuleBaseProtocolPtrOutput) ToFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallRuleBaseProtocolPtrOutput {
 	return o
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolPtrOutput) Elem() FirewallsRulesFirewallRuleBaseProtocolOutput {
-	return o.ApplyT(func(v *FirewallsRulesFirewallRuleBaseProtocol) FirewallsRulesFirewallRuleBaseProtocol {
+func (o FirewallRuleBaseProtocolPtrOutput) Elem() FirewallRuleBaseProtocolOutput {
+	return o.ApplyT(func(v *FirewallRuleBaseProtocol) FirewallRuleBaseProtocol {
 		if v != nil {
 			return *v
 		}
-		var ret FirewallsRulesFirewallRuleBaseProtocol
+		var ret FirewallRuleBaseProtocol
 		return ret
-	}).(FirewallsRulesFirewallRuleBaseProtocolOutput)
+	}).(FirewallRuleBaseProtocolOutput)
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o FirewallRuleBaseProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o FirewallsRulesFirewallRuleBaseProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallsRulesFirewallRuleBaseProtocol) *string {
+func (o FirewallRuleBaseProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallRuleBaseProtocol) *string {
 		if e == nil {
 			return nil
 		}
@@ -315,53 +306,53 @@ func (o FirewallsRulesFirewallRuleBaseProtocolPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallsRulesFirewallRuleBaseProtocolInput is an input type that accepts values of the FirewallsRulesFirewallRuleBaseProtocol enum
-// A concrete instance of `FirewallsRulesFirewallRuleBaseProtocolInput` can be one of the following:
+// FirewallRuleBaseProtocolInput is an input type that accepts values of the FirewallRuleBaseProtocol enum
+// A concrete instance of `FirewallRuleBaseProtocolInput` can be one of the following:
 //
-//	FirewallsRulesFirewallRuleBaseProtocolTcp
-//	FirewallsRulesFirewallRuleBaseProtocolUdp
-//	FirewallsRulesFirewallRuleBaseProtocolIcmp
-type FirewallsRulesFirewallRuleBaseProtocolInput interface {
+//	FirewallRuleBaseProtocolTcp
+//	FirewallRuleBaseProtocolUdp
+//	FirewallRuleBaseProtocolIcmp
+type FirewallRuleBaseProtocolInput interface {
 	pulumi.Input
 
-	ToFirewallsRulesFirewallRuleBaseProtocolOutput() FirewallsRulesFirewallRuleBaseProtocolOutput
-	ToFirewallsRulesFirewallRuleBaseProtocolOutputWithContext(context.Context) FirewallsRulesFirewallRuleBaseProtocolOutput
+	ToFirewallRuleBaseProtocolOutput() FirewallRuleBaseProtocolOutput
+	ToFirewallRuleBaseProtocolOutputWithContext(context.Context) FirewallRuleBaseProtocolOutput
 }
 
-var firewallsRulesFirewallRuleBaseProtocolPtrType = reflect.TypeOf((**FirewallsRulesFirewallRuleBaseProtocol)(nil)).Elem()
+var firewallRuleBaseProtocolPtrType = reflect.TypeOf((**FirewallRuleBaseProtocol)(nil)).Elem()
 
-type FirewallsRulesFirewallRuleBaseProtocolPtrInput interface {
+type FirewallRuleBaseProtocolPtrInput interface {
 	pulumi.Input
 
-	ToFirewallsRulesFirewallRuleBaseProtocolPtrOutput() FirewallsRulesFirewallRuleBaseProtocolPtrOutput
-	ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(context.Context) FirewallsRulesFirewallRuleBaseProtocolPtrOutput
+	ToFirewallRuleBaseProtocolPtrOutput() FirewallRuleBaseProtocolPtrOutput
+	ToFirewallRuleBaseProtocolPtrOutputWithContext(context.Context) FirewallRuleBaseProtocolPtrOutput
 }
 
-type firewallsRulesFirewallRuleBaseProtocolPtr string
+type firewallRuleBaseProtocolPtr string
 
-func FirewallsRulesFirewallRuleBaseProtocolPtr(v string) FirewallsRulesFirewallRuleBaseProtocolPtrInput {
-	return (*firewallsRulesFirewallRuleBaseProtocolPtr)(&v)
+func FirewallRuleBaseProtocolPtr(v string) FirewallRuleBaseProtocolPtrInput {
+	return (*firewallRuleBaseProtocolPtr)(&v)
 }
 
-func (*firewallsRulesFirewallRuleBaseProtocolPtr) ElementType() reflect.Type {
-	return firewallsRulesFirewallRuleBaseProtocolPtrType
+func (*firewallRuleBaseProtocolPtr) ElementType() reflect.Type {
+	return firewallRuleBaseProtocolPtrType
 }
 
-func (in *firewallsRulesFirewallRuleBaseProtocolPtr) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutput() FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
-	return pulumi.ToOutput(in).(FirewallsRulesFirewallRuleBaseProtocolPtrOutput)
+func (in *firewallRuleBaseProtocolPtr) ToFirewallRuleBaseProtocolPtrOutput() FirewallRuleBaseProtocolPtrOutput {
+	return pulumi.ToOutput(in).(FirewallRuleBaseProtocolPtrOutput)
 }
 
-func (in *firewallsRulesFirewallRuleBaseProtocolPtr) ToFirewallsRulesFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallsRulesFirewallRuleBaseProtocolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FirewallsRulesFirewallRuleBaseProtocolPtrOutput)
+func (in *firewallRuleBaseProtocolPtr) ToFirewallRuleBaseProtocolPtrOutputWithContext(ctx context.Context) FirewallRuleBaseProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleBaseProtocolPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPropertiesStatusInput)(nil)).Elem(), FirewallPropertiesStatus("waiting"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPropertiesStatusPtrInput)(nil)).Elem(), FirewallPropertiesStatus("waiting"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallsRulesFirewallRuleBaseProtocolInput)(nil)).Elem(), FirewallsRulesFirewallRuleBaseProtocol("tcp"))
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallsRulesFirewallRuleBaseProtocolPtrInput)(nil)).Elem(), FirewallsRulesFirewallRuleBaseProtocol("tcp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleBaseProtocolInput)(nil)).Elem(), FirewallRuleBaseProtocol("tcp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleBaseProtocolPtrInput)(nil)).Elem(), FirewallRuleBaseProtocol("tcp"))
 	pulumi.RegisterOutputType(FirewallPropertiesStatusOutput{})
 	pulumi.RegisterOutputType(FirewallPropertiesStatusPtrOutput{})
-	pulumi.RegisterOutputType(FirewallsRulesFirewallRuleBaseProtocolOutput{})
-	pulumi.RegisterOutputType(FirewallsRulesFirewallRuleBaseProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleBaseProtocolOutput{})
+	pulumi.RegisterOutputType(FirewallRuleBaseProtocolPtrOutput{})
 }

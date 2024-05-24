@@ -19,7 +19,7 @@ type Restore struct {
 	// The ID of a backup of the current Droplet instance to restore from.
 	Image pulumi.IntPtrOutput `pulumi:"image"`
 	// The type of action to initiate for the Droplet.
-	Type RestoreDropletActionTypePtrOutput `pulumi:"type"`
+	Type DropletActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewRestore registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type restoreArgs struct {
 	// The ID of a backup of the current Droplet instance to restore from.
 	Image *int `pulumi:"image"`
 	// The type of action to initiate for the Droplet.
-	Type RestoreDropletActionType `pulumi:"type"`
+	Type DropletActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Restore resource.
@@ -80,7 +80,7 @@ type RestoreArgs struct {
 	// The ID of a backup of the current Droplet instance to restore from.
 	Image pulumi.IntPtrInput
 	// The type of action to initiate for the Droplet.
-	Type RestoreDropletActionTypeInput
+	Type DropletActionTypeInput
 }
 
 func (RestoreArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o RestoreOutput) Image() pulumi.IntPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o RestoreOutput) Type() RestoreDropletActionTypePtrOutput {
-	return o.ApplyT(func(v *Restore) RestoreDropletActionTypePtrOutput { return v.Type }).(RestoreDropletActionTypePtrOutput)
+func (o RestoreOutput) Type() DropletActionTypePtrOutput {
+	return o.ApplyT(func(v *Restore) DropletActionTypePtrOutput { return v.Type }).(DropletActionTypePtrOutput)
 }
 
 func init() {

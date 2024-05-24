@@ -41,7 +41,7 @@ export class PasswordReset extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.PasswordResetType>;
+    public readonly type!: pulumi.Output<enums.droplets.v2.Type>;
 
     /**
      * Create a PasswordReset resource with the given unique name, arguments, and options.
@@ -80,5 +80,5 @@ export interface PasswordResetArgs {
     /**
      * The type of action to initiate for the Droplet.
      */
-    type: pulumi.Input<enums.droplets.v2.PasswordResetType>;
+    type: pulumi.Input<enums.droplets.v2.Type>;
 }

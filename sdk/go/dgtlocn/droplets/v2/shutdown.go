@@ -18,7 +18,7 @@ type Shutdown struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type ShutdownTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewShutdown registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type shutdownArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type ShutdownType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Shutdown resource.
@@ -75,7 +75,7 @@ type ShutdownArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type ShutdownTypeInput
+	Type TypeInput
 }
 
 func (ShutdownArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o ShutdownOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o ShutdownOutput) Type() ShutdownTypeOutput {
-	return o.ApplyT(func(v *Shutdown) ShutdownTypeOutput { return v.Type }).(ShutdownTypeOutput)
+func (o ShutdownOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *Shutdown) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

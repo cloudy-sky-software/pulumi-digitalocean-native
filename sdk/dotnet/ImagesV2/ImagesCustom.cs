@@ -22,7 +22,7 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
         /// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
         /// </summary>
         [Output("distribution")]
-        public Output<Pulumi.DigitalOceanNative.ImagesV2.ImagesCustomImageUpdateDistribution?> Distribution { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.ImagesV2.ImageUpdateDistribution?> Distribution { get; private set; } = null!;
 
         [Output("image")]
         public Output<Outputs.Image?> Image { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
         /// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
         /// </summary>
         [Input("distribution")]
-        public Input<Pulumi.DigitalOceanNative.ImagesV2.ImagesCustomImageUpdateDistribution>? Distribution { get; set; }
+        public Input<Pulumi.DigitalOceanNative.ImagesV2.ImageUpdateDistribution>? Distribution { get; set; }
 
         /// <summary>
         /// The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.

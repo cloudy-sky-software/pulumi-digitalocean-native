@@ -6,27 +6,14 @@ from enum import Enum
 
 __all__ = [
     'ClusterStatusPropertiesState',
-    'KubernetesClusterStatusPropertiesState',
     'KubernetesNodePoolTaintEffect',
     'MaintenancePolicyDay',
     'NodeStatusPropertiesState',
+    'StatusPropertiesState',
 ]
 
 
 class ClusterStatusPropertiesState(str, Enum):
-    """
-    A string indicating the current status of the cluster.
-    """
-    RUNNING = "running"
-    PROVISIONING = "provisioning"
-    DEGRADED = "degraded"
-    ERROR = "error"
-    DELETED = "deleted"
-    UPGRADING = "upgrading"
-    DELETING = "deleting"
-
-
-class KubernetesClusterStatusPropertiesState(str, Enum):
     """
     A string indicating the current status of the cluster.
     """
@@ -69,4 +56,17 @@ class NodeStatusPropertiesState(str, Enum):
     PROVISIONING = "provisioning"
     RUNNING = "running"
     DRAINING = "draining"
+    DELETING = "deleting"
+
+
+class StatusPropertiesState(str, Enum):
+    """
+    A string indicating the current status of the cluster.
+    """
+    RUNNING = "running"
+    PROVISIONING = "provisioning"
+    DEGRADED = "degraded"
+    ERROR = "error"
+    DELETED = "deleted"
+    UPGRADING = "upgrading"
     DELETING = "deleting"

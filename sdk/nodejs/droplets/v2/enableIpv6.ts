@@ -41,7 +41,7 @@ export class EnableIpv6 extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.EnableIpv6Type>;
+    public readonly type!: pulumi.Output<enums.droplets.v2.Type>;
 
     /**
      * Create a EnableIpv6 resource with the given unique name, arguments, and options.
@@ -80,5 +80,5 @@ export interface EnableIpv6Args {
     /**
      * The type of action to initiate for the Droplet.
      */
-    type: pulumi.Input<enums.droplets.v2.EnableIpv6Type>;
+    type: pulumi.Input<enums.droplets.v2.Type>;
 }

@@ -45,7 +45,7 @@ export class Projects extends pulumi.CustomResource {
     /**
      * The environment of the project's resources.
      */
-    public readonly environment!: pulumi.Output<enums.projects.v2.ProjectsProjectBaseEnvironment | undefined>;
+    public readonly environment!: pulumi.Output<enums.projects.v2.ProjectBaseEnvironment | undefined>;
     /**
      * The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
      */
@@ -133,7 +133,7 @@ export interface ProjectsArgs {
     /**
      * The environment of the project's resources.
      */
-    environment?: pulumi.Input<enums.projects.v2.ProjectsProjectBaseEnvironment>;
+    environment?: pulumi.Input<enums.projects.v2.ProjectBaseEnvironment>;
     /**
      * The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
      */

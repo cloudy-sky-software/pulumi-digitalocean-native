@@ -19,7 +19,7 @@ type Assign struct {
 	// The ID of the Droplet that the reserved IP will be assigned to.
 	DropletId pulumi.IntPtrOutput `pulumi:"dropletId"`
 	// The type of action to initiate for the reserved IP.
-	Type AssignReservedIpActionTypeTypePtrOutput `pulumi:"type"`
+	Type ReservedIpActionTypeTypePtrOutput `pulumi:"type"`
 }
 
 // NewAssign registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ type assignArgs struct {
 	// A reserved IP address.
 	ReservedIp *string `pulumi:"reservedIp"`
 	// The type of action to initiate for the reserved IP.
-	Type AssignReservedIpActionTypeType `pulumi:"type"`
+	Type ReservedIpActionTypeType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Assign resource.
@@ -83,7 +83,7 @@ type AssignArgs struct {
 	// A reserved IP address.
 	ReservedIp pulumi.StringPtrInput
 	// The type of action to initiate for the reserved IP.
-	Type AssignReservedIpActionTypeTypeInput
+	Type ReservedIpActionTypeTypeInput
 }
 
 func (AssignArgs) ElementType() reflect.Type {
@@ -133,8 +133,8 @@ func (o AssignOutput) DropletId() pulumi.IntPtrOutput {
 }
 
 // The type of action to initiate for the reserved IP.
-func (o AssignOutput) Type() AssignReservedIpActionTypeTypePtrOutput {
-	return o.ApplyT(func(v *Assign) AssignReservedIpActionTypeTypePtrOutput { return v.Type }).(AssignReservedIpActionTypeTypePtrOutput)
+func (o AssignOutput) Type() ReservedIpActionTypeTypePtrOutput {
+	return o.ApplyT(func(v *Assign) ReservedIpActionTypeTypePtrOutput { return v.Type }).(ReservedIpActionTypeTypePtrOutput)
 }
 
 func init() {

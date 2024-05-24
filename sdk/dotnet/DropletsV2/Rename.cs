@@ -25,7 +25,7 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
         /// The type of action to initiate for the Droplet.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.DropletsV2.RenameDropletActionType?> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.DropletsV2.DropletActionType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
         /// The type of action to initiate for the Droplet.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.DropletsV2.RenameDropletActionType> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.DropletsV2.DropletActionType> Type { get; set; } = null!;
 
         public RenameArgs()
         {

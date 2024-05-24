@@ -16,11 +16,11 @@ __all__ = ['ConvertArgs', 'Convert']
 @pulumi.input_type
 class ConvertArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['ConvertType'],
+                 type: pulumi.Input['Type'],
                  image_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Convert resource.
-        :param pulumi.Input['ConvertType'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
+        :param pulumi.Input['Type'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
         :param pulumi.Input[str] image_id: A unique number that can be used to identify and reference a specific image.
         """
         pulumi.set(__self__, "type", type)
@@ -29,14 +29,14 @@ class ConvertArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ConvertType']:
+    def type(self) -> pulumi.Input['Type']:
         """
         The action to be taken on the image. Can be either `convert` or `transfer`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ConvertType']):
+    def type(self, value: pulumi.Input['Type']):
         pulumi.set(self, "type", value)
 
     @property
@@ -58,14 +58,14 @@ class Convert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['ConvertType']] = None,
+                 type: Optional[pulumi.Input['Type']] = None,
                  __props__=None):
         """
         Create a Convert resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] image_id: A unique number that can be used to identify and reference a specific image.
-        :param pulumi.Input['ConvertType'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
+        :param pulumi.Input['Type'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
         """
         ...
     @overload
@@ -91,7 +91,7 @@ class Convert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['ConvertType']] = None,
+                 type: Optional[pulumi.Input['Type']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,7 +188,7 @@ class Convert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['ConvertStatus']]:
+    def status(self) -> pulumi.Output[Optional['Status']]:
         """
         The current status of the action. This can be "in-progress", "completed", or "errored".
         """

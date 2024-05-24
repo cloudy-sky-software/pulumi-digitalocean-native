@@ -16,7 +16,7 @@ type RegistryUpdateSubscription struct {
 
 	Subscription SubscriptionPtrOutput `pulumi:"subscription"`
 	// The slug of the subscription tier to sign up for.
-	TierSlug RegistryUpdateSubscriptionTierSlugPtrOutput `pulumi:"tierSlug"`
+	TierSlug TierSlugPtrOutput `pulumi:"tierSlug"`
 }
 
 // NewRegistryUpdateSubscription registers a new resource with the given unique name, arguments, and options.
@@ -60,13 +60,13 @@ func (RegistryUpdateSubscriptionState) ElementType() reflect.Type {
 
 type registryUpdateSubscriptionArgs struct {
 	// The slug of the subscription tier to sign up for.
-	TierSlug *RegistryUpdateSubscriptionTierSlug `pulumi:"tierSlug"`
+	TierSlug *TierSlug `pulumi:"tierSlug"`
 }
 
 // The set of arguments for constructing a RegistryUpdateSubscription resource.
 type RegistryUpdateSubscriptionArgs struct {
 	// The slug of the subscription tier to sign up for.
-	TierSlug RegistryUpdateSubscriptionTierSlugPtrInput
+	TierSlug TierSlugPtrInput
 }
 
 func (RegistryUpdateSubscriptionArgs) ElementType() reflect.Type {
@@ -111,8 +111,8 @@ func (o RegistryUpdateSubscriptionOutput) Subscription() SubscriptionPtrOutput {
 }
 
 // The slug of the subscription tier to sign up for.
-func (o RegistryUpdateSubscriptionOutput) TierSlug() RegistryUpdateSubscriptionTierSlugPtrOutput {
-	return o.ApplyT(func(v *RegistryUpdateSubscription) RegistryUpdateSubscriptionTierSlugPtrOutput { return v.TierSlug }).(RegistryUpdateSubscriptionTierSlugPtrOutput)
+func (o RegistryUpdateSubscriptionOutput) TierSlug() TierSlugPtrOutput {
+	return o.ApplyT(func(v *RegistryUpdateSubscription) TierSlugPtrOutput { return v.TierSlug }).(TierSlugPtrOutput)
 }
 
 func init() {

@@ -42,7 +42,7 @@ export class Attach extends pulumi.CustomResource {
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.volumes.v2.AttachVolumeActionCreateBaseRegion | undefined>;
+    public readonly region!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseRegion | undefined>;
     /**
      * A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
      */
@@ -50,7 +50,7 @@ export class Attach extends pulumi.CustomResource {
     /**
      * The volume action to initiate.
      */
-    public readonly type!: pulumi.Output<enums.volumes.v2.AttachVolumeActionCreateBaseType | undefined>;
+    public readonly type!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseType | undefined>;
 
     /**
      * Create a Attach resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export interface AttachArgs {
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    region?: pulumi.Input<enums.volumes.v2.AttachVolumeActionCreateBaseRegion>;
+    region?: pulumi.Input<enums.volumes.v2.VolumeActionCreateBaseRegion>;
     /**
      * A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
      */
@@ -106,7 +106,7 @@ export interface AttachArgs {
     /**
      * The volume action to initiate.
      */
-    type: pulumi.Input<enums.volumes.v2.AttachVolumeActionCreateBaseType>;
+    type: pulumi.Input<enums.volumes.v2.VolumeActionCreateBaseType>;
     /**
      * The ID of the block storage volume.
      */

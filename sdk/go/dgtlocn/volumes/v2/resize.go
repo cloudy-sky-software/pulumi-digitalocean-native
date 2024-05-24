@@ -17,11 +17,11 @@ type Resize struct {
 
 	Action VolumeActionPtrOutput `pulumi:"action"`
 	// The slug identifier for the region where the resource will initially be  available.
-	Region ResizeVolumeActionCreateBaseRegionPtrOutput `pulumi:"region"`
+	Region VolumeActionCreateBaseRegionPtrOutput `pulumi:"region"`
 	// The new size of the block storage volume in GiB (1024^3).
 	SizeGigabytes pulumi.IntPtrOutput `pulumi:"sizeGigabytes"`
 	// The volume action to initiate.
-	Type ResizeVolumeActionCreateBaseTypePtrOutput `pulumi:"type"`
+	Type VolumeActionCreateBaseTypePtrOutput `pulumi:"type"`
 }
 
 // NewResize registers a new resource with the given unique name, arguments, and options.
@@ -71,11 +71,11 @@ func (ResizeState) ElementType() reflect.Type {
 
 type resizeArgs struct {
 	// The slug identifier for the region where the resource will initially be  available.
-	Region *ResizeVolumeActionCreateBaseRegion `pulumi:"region"`
+	Region *VolumeActionCreateBaseRegion `pulumi:"region"`
 	// The new size of the block storage volume in GiB (1024^3).
 	SizeGigabytes int `pulumi:"sizeGigabytes"`
 	// The volume action to initiate.
-	Type ResizeVolumeActionCreateBaseType `pulumi:"type"`
+	Type VolumeActionCreateBaseType `pulumi:"type"`
 	// The ID of the block storage volume.
 	VolumeId *string `pulumi:"volumeId"`
 }
@@ -83,11 +83,11 @@ type resizeArgs struct {
 // The set of arguments for constructing a Resize resource.
 type ResizeArgs struct {
 	// The slug identifier for the region where the resource will initially be  available.
-	Region ResizeVolumeActionCreateBaseRegionPtrInput
+	Region VolumeActionCreateBaseRegionPtrInput
 	// The new size of the block storage volume in GiB (1024^3).
 	SizeGigabytes pulumi.IntInput
 	// The volume action to initiate.
-	Type ResizeVolumeActionCreateBaseTypeInput
+	Type VolumeActionCreateBaseTypeInput
 	// The ID of the block storage volume.
 	VolumeId pulumi.StringPtrInput
 }
@@ -134,8 +134,8 @@ func (o ResizeOutput) Action() VolumeActionPtrOutput {
 }
 
 // The slug identifier for the region where the resource will initially be  available.
-func (o ResizeOutput) Region() ResizeVolumeActionCreateBaseRegionPtrOutput {
-	return o.ApplyT(func(v *Resize) ResizeVolumeActionCreateBaseRegionPtrOutput { return v.Region }).(ResizeVolumeActionCreateBaseRegionPtrOutput)
+func (o ResizeOutput) Region() VolumeActionCreateBaseRegionPtrOutput {
+	return o.ApplyT(func(v *Resize) VolumeActionCreateBaseRegionPtrOutput { return v.Region }).(VolumeActionCreateBaseRegionPtrOutput)
 }
 
 // The new size of the block storage volume in GiB (1024^3).
@@ -144,8 +144,8 @@ func (o ResizeOutput) SizeGigabytes() pulumi.IntPtrOutput {
 }
 
 // The volume action to initiate.
-func (o ResizeOutput) Type() ResizeVolumeActionCreateBaseTypePtrOutput {
-	return o.ApplyT(func(v *Resize) ResizeVolumeActionCreateBaseTypePtrOutput { return v.Type }).(ResizeVolumeActionCreateBaseTypePtrOutput)
+func (o ResizeOutput) Type() VolumeActionCreateBaseTypePtrOutput {
+	return o.ApplyT(func(v *Resize) VolumeActionCreateBaseTypePtrOutput { return v.Type }).(VolumeActionCreateBaseTypePtrOutput)
 }
 
 func init() {

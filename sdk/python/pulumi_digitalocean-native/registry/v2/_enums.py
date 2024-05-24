@@ -6,10 +6,10 @@ from enum import Enum
 
 __all__ = [
     'GarbageCollectionStatus',
-    'RegistryRegion',
-    'RegistrySubscriptionTierSlug',
-    'RegistryUpdateSubscriptionTierSlug',
+    'Region',
     'SubscriptionTierExtendedEligibilityReasonsItem',
+    'SubscriptionTierSlug',
+    'TierSlug',
 ]
 
 
@@ -27,7 +27,7 @@ class GarbageCollectionStatus(str, Enum):
     CANCELLED = "cancelled"
 
 
-class RegistryRegion(str, Enum):
+class Region(str, Enum):
     """
     Slug of the region where registry data is stored. When not provided, a region will be selected.
     """
@@ -38,7 +38,12 @@ class RegistryRegion(str, Enum):
     FRA1 = "fra1"
 
 
-class RegistrySubscriptionTierSlug(str, Enum):
+class SubscriptionTierExtendedEligibilityReasonsItem(str, Enum):
+    OVER_REPOSITORY_LIMIT = "OverRepositoryLimit"
+    OVER_STORAGE_LIMIT = "OverStorageLimit"
+
+
+class SubscriptionTierSlug(str, Enum):
     """
     The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
     """
@@ -47,15 +52,10 @@ class RegistrySubscriptionTierSlug(str, Enum):
     PROFESSIONAL = "professional"
 
 
-class RegistryUpdateSubscriptionTierSlug(str, Enum):
+class TierSlug(str, Enum):
     """
     The slug of the subscription tier to sign up for.
     """
     STARTER = "starter"
     BASIC = "basic"
     PROFESSIONAL = "professional"
-
-
-class SubscriptionTierExtendedEligibilityReasonsItem(str, Enum):
-    OVER_REPOSITORY_LIMIT = "OverRepositoryLimit"
-    OVER_STORAGE_LIMIT = "OverStorageLimit"

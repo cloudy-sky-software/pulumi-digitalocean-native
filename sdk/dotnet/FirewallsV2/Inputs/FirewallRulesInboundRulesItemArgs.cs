@@ -22,7 +22,7 @@ namespace Pulumi.DigitalOceanNative.FirewallsV2.Inputs
         /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<Pulumi.DigitalOceanNative.FirewallsV2.FirewallsRulesFirewallRuleBaseProtocol> Protocol { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.FirewallsV2.FirewallRuleBaseProtocol> Protocol { get; set; } = null!;
 
         public FirewallRulesInboundRulesItemArgs()
         {

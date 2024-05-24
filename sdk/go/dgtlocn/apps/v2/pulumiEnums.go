@@ -196,6 +196,2026 @@ func (o AppAlertProgressStepStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+type AppAlertSpecOperator string
+
+const (
+	AppAlertSpecOperatorUnspecifiedOperator = AppAlertSpecOperator("UNSPECIFIED_OPERATOR")
+	AppAlertSpecOperatorGreaterThan         = AppAlertSpecOperator("GREATER_THAN")
+	AppAlertSpecOperatorLessThan            = AppAlertSpecOperator("LESS_THAN")
+)
+
+func (AppAlertSpecOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAlertSpecOperator)(nil)).Elem()
+}
+
+func (e AppAlertSpecOperator) ToAppAlertSpecOperatorOutput() AppAlertSpecOperatorOutput {
+	return pulumi.ToOutput(e).(AppAlertSpecOperatorOutput)
+}
+
+func (e AppAlertSpecOperator) ToAppAlertSpecOperatorOutputWithContext(ctx context.Context) AppAlertSpecOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppAlertSpecOperatorOutput)
+}
+
+func (e AppAlertSpecOperator) ToAppAlertSpecOperatorPtrOutput() AppAlertSpecOperatorPtrOutput {
+	return e.ToAppAlertSpecOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e AppAlertSpecOperator) ToAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppAlertSpecOperatorPtrOutput {
+	return AppAlertSpecOperator(e).ToAppAlertSpecOperatorOutputWithContext(ctx).ToAppAlertSpecOperatorPtrOutputWithContext(ctx)
+}
+
+func (e AppAlertSpecOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAlertSpecOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAlertSpecOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppAlertSpecOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppAlertSpecOperatorOutput struct{ *pulumi.OutputState }
+
+func (AppAlertSpecOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAlertSpecOperator)(nil)).Elem()
+}
+
+func (o AppAlertSpecOperatorOutput) ToAppAlertSpecOperatorOutput() AppAlertSpecOperatorOutput {
+	return o
+}
+
+func (o AppAlertSpecOperatorOutput) ToAppAlertSpecOperatorOutputWithContext(ctx context.Context) AppAlertSpecOperatorOutput {
+	return o
+}
+
+func (o AppAlertSpecOperatorOutput) ToAppAlertSpecOperatorPtrOutput() AppAlertSpecOperatorPtrOutput {
+	return o.ToAppAlertSpecOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecOperatorOutput) ToAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppAlertSpecOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAlertSpecOperator) *AppAlertSpecOperator {
+		return &v
+	}).(AppAlertSpecOperatorPtrOutput)
+}
+
+func (o AppAlertSpecOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAlertSpecOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppAlertSpecOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAlertSpecOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppAlertSpecOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (AppAlertSpecOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppAlertSpecOperator)(nil)).Elem()
+}
+
+func (o AppAlertSpecOperatorPtrOutput) ToAppAlertSpecOperatorPtrOutput() AppAlertSpecOperatorPtrOutput {
+	return o
+}
+
+func (o AppAlertSpecOperatorPtrOutput) ToAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppAlertSpecOperatorPtrOutput {
+	return o
+}
+
+func (o AppAlertSpecOperatorPtrOutput) Elem() AppAlertSpecOperatorOutput {
+	return o.ApplyT(func(v *AppAlertSpecOperator) AppAlertSpecOperator {
+		if v != nil {
+			return *v
+		}
+		var ret AppAlertSpecOperator
+		return ret
+	}).(AppAlertSpecOperatorOutput)
+}
+
+func (o AppAlertSpecOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppAlertSpecOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppAlertSpecOperatorInput is an input type that accepts values of the AppAlertSpecOperator enum
+// A concrete instance of `AppAlertSpecOperatorInput` can be one of the following:
+//
+//	AppAlertSpecOperatorUnspecifiedOperator
+//	AppAlertSpecOperatorGreaterThan
+//	AppAlertSpecOperatorLessThan
+type AppAlertSpecOperatorInput interface {
+	pulumi.Input
+
+	ToAppAlertSpecOperatorOutput() AppAlertSpecOperatorOutput
+	ToAppAlertSpecOperatorOutputWithContext(context.Context) AppAlertSpecOperatorOutput
+}
+
+var appAlertSpecOperatorPtrType = reflect.TypeOf((**AppAlertSpecOperator)(nil)).Elem()
+
+type AppAlertSpecOperatorPtrInput interface {
+	pulumi.Input
+
+	ToAppAlertSpecOperatorPtrOutput() AppAlertSpecOperatorPtrOutput
+	ToAppAlertSpecOperatorPtrOutputWithContext(context.Context) AppAlertSpecOperatorPtrOutput
+}
+
+type appAlertSpecOperatorPtr string
+
+func AppAlertSpecOperatorPtr(v string) AppAlertSpecOperatorPtrInput {
+	return (*appAlertSpecOperatorPtr)(&v)
+}
+
+func (*appAlertSpecOperatorPtr) ElementType() reflect.Type {
+	return appAlertSpecOperatorPtrType
+}
+
+func (in *appAlertSpecOperatorPtr) ToAppAlertSpecOperatorPtrOutput() AppAlertSpecOperatorPtrOutput {
+	return pulumi.ToOutput(in).(AppAlertSpecOperatorPtrOutput)
+}
+
+func (in *appAlertSpecOperatorPtr) ToAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppAlertSpecOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppAlertSpecOperatorPtrOutput)
+}
+
+type AppAlertSpecRule string
+
+const (
+	AppAlertSpecRuleUnspecifiedRule             = AppAlertSpecRule("UNSPECIFIED_RULE")
+	AppAlertSpecRuleCpuUtilization              = AppAlertSpecRule("CPU_UTILIZATION")
+	AppAlertSpecRuleMemUtilization              = AppAlertSpecRule("MEM_UTILIZATION")
+	AppAlertSpecRuleRestartCount                = AppAlertSpecRule("RESTART_COUNT")
+	AppAlertSpecRuleDeploymentFailed            = AppAlertSpecRule("DEPLOYMENT_FAILED")
+	AppAlertSpecRuleDeploymentLive              = AppAlertSpecRule("DEPLOYMENT_LIVE")
+	AppAlertSpecRuleDomainFailed                = AppAlertSpecRule("DOMAIN_FAILED")
+	AppAlertSpecRuleDomainLive                  = AppAlertSpecRule("DOMAIN_LIVE")
+	AppAlertSpecRuleFunctionsActivationCount    = AppAlertSpecRule("FUNCTIONS_ACTIVATION_COUNT")
+	AppAlertSpecRuleFunctionsAverageDurationMs  = AppAlertSpecRule("FUNCTIONS_AVERAGE_DURATION_MS")
+	AppAlertSpecRuleFunctionsErrorRatePerMinute = AppAlertSpecRule("FUNCTIONS_ERROR_RATE_PER_MINUTE")
+	AppAlertSpecRuleFunctionsAverageWaitTimeMs  = AppAlertSpecRule("FUNCTIONS_AVERAGE_WAIT_TIME_MS")
+	AppAlertSpecRuleFunctionsErrorCount         = AppAlertSpecRule("FUNCTIONS_ERROR_COUNT")
+	AppAlertSpecRuleFunctionsGbRatePerSecond    = AppAlertSpecRule("FUNCTIONS_GB_RATE_PER_SECOND")
+)
+
+func (AppAlertSpecRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAlertSpecRule)(nil)).Elem()
+}
+
+func (e AppAlertSpecRule) ToAppAlertSpecRuleOutput() AppAlertSpecRuleOutput {
+	return pulumi.ToOutput(e).(AppAlertSpecRuleOutput)
+}
+
+func (e AppAlertSpecRule) ToAppAlertSpecRuleOutputWithContext(ctx context.Context) AppAlertSpecRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppAlertSpecRuleOutput)
+}
+
+func (e AppAlertSpecRule) ToAppAlertSpecRulePtrOutput() AppAlertSpecRulePtrOutput {
+	return e.ToAppAlertSpecRulePtrOutputWithContext(context.Background())
+}
+
+func (e AppAlertSpecRule) ToAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppAlertSpecRulePtrOutput {
+	return AppAlertSpecRule(e).ToAppAlertSpecRuleOutputWithContext(ctx).ToAppAlertSpecRulePtrOutputWithContext(ctx)
+}
+
+func (e AppAlertSpecRule) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAlertSpecRule) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAlertSpecRule) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppAlertSpecRule) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppAlertSpecRuleOutput struct{ *pulumi.OutputState }
+
+func (AppAlertSpecRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAlertSpecRule)(nil)).Elem()
+}
+
+func (o AppAlertSpecRuleOutput) ToAppAlertSpecRuleOutput() AppAlertSpecRuleOutput {
+	return o
+}
+
+func (o AppAlertSpecRuleOutput) ToAppAlertSpecRuleOutputWithContext(ctx context.Context) AppAlertSpecRuleOutput {
+	return o
+}
+
+func (o AppAlertSpecRuleOutput) ToAppAlertSpecRulePtrOutput() AppAlertSpecRulePtrOutput {
+	return o.ToAppAlertSpecRulePtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecRuleOutput) ToAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppAlertSpecRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAlertSpecRule) *AppAlertSpecRule {
+		return &v
+	}).(AppAlertSpecRulePtrOutput)
+}
+
+func (o AppAlertSpecRuleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecRuleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAlertSpecRule) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppAlertSpecRuleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecRuleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAlertSpecRule) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppAlertSpecRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AppAlertSpecRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppAlertSpecRule)(nil)).Elem()
+}
+
+func (o AppAlertSpecRulePtrOutput) ToAppAlertSpecRulePtrOutput() AppAlertSpecRulePtrOutput {
+	return o
+}
+
+func (o AppAlertSpecRulePtrOutput) ToAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppAlertSpecRulePtrOutput {
+	return o
+}
+
+func (o AppAlertSpecRulePtrOutput) Elem() AppAlertSpecRuleOutput {
+	return o.ApplyT(func(v *AppAlertSpecRule) AppAlertSpecRule {
+		if v != nil {
+			return *v
+		}
+		var ret AppAlertSpecRule
+		return ret
+	}).(AppAlertSpecRuleOutput)
+}
+
+func (o AppAlertSpecRulePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecRulePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppAlertSpecRule) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppAlertSpecRuleInput is an input type that accepts values of the AppAlertSpecRule enum
+// A concrete instance of `AppAlertSpecRuleInput` can be one of the following:
+//
+//	AppAlertSpecRuleUnspecifiedRule
+//	AppAlertSpecRuleCpuUtilization
+//	AppAlertSpecRuleMemUtilization
+//	AppAlertSpecRuleRestartCount
+//	AppAlertSpecRuleDeploymentFailed
+//	AppAlertSpecRuleDeploymentLive
+//	AppAlertSpecRuleDomainFailed
+//	AppAlertSpecRuleDomainLive
+//	AppAlertSpecRuleFunctionsActivationCount
+//	AppAlertSpecRuleFunctionsAverageDurationMs
+//	AppAlertSpecRuleFunctionsErrorRatePerMinute
+//	AppAlertSpecRuleFunctionsAverageWaitTimeMs
+//	AppAlertSpecRuleFunctionsErrorCount
+//	AppAlertSpecRuleFunctionsGbRatePerSecond
+type AppAlertSpecRuleInput interface {
+	pulumi.Input
+
+	ToAppAlertSpecRuleOutput() AppAlertSpecRuleOutput
+	ToAppAlertSpecRuleOutputWithContext(context.Context) AppAlertSpecRuleOutput
+}
+
+var appAlertSpecRulePtrType = reflect.TypeOf((**AppAlertSpecRule)(nil)).Elem()
+
+type AppAlertSpecRulePtrInput interface {
+	pulumi.Input
+
+	ToAppAlertSpecRulePtrOutput() AppAlertSpecRulePtrOutput
+	ToAppAlertSpecRulePtrOutputWithContext(context.Context) AppAlertSpecRulePtrOutput
+}
+
+type appAlertSpecRulePtr string
+
+func AppAlertSpecRulePtr(v string) AppAlertSpecRulePtrInput {
+	return (*appAlertSpecRulePtr)(&v)
+}
+
+func (*appAlertSpecRulePtr) ElementType() reflect.Type {
+	return appAlertSpecRulePtrType
+}
+
+func (in *appAlertSpecRulePtr) ToAppAlertSpecRulePtrOutput() AppAlertSpecRulePtrOutput {
+	return pulumi.ToOutput(in).(AppAlertSpecRulePtrOutput)
+}
+
+func (in *appAlertSpecRulePtr) ToAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppAlertSpecRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppAlertSpecRulePtrOutput)
+}
+
+type AppAlertSpecWindow string
+
+const (
+	AppAlertSpecWindowUnspecifiedWindow = AppAlertSpecWindow("UNSPECIFIED_WINDOW")
+	AppAlertSpecWindowFiveMinutes       = AppAlertSpecWindow("FIVE_MINUTES")
+	AppAlertSpecWindowTenMinutes        = AppAlertSpecWindow("TEN_MINUTES")
+	AppAlertSpecWindowThirtyMinutes     = AppAlertSpecWindow("THIRTY_MINUTES")
+	AppAlertSpecWindowOneHour           = AppAlertSpecWindow("ONE_HOUR")
+)
+
+func (AppAlertSpecWindow) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAlertSpecWindow)(nil)).Elem()
+}
+
+func (e AppAlertSpecWindow) ToAppAlertSpecWindowOutput() AppAlertSpecWindowOutput {
+	return pulumi.ToOutput(e).(AppAlertSpecWindowOutput)
+}
+
+func (e AppAlertSpecWindow) ToAppAlertSpecWindowOutputWithContext(ctx context.Context) AppAlertSpecWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppAlertSpecWindowOutput)
+}
+
+func (e AppAlertSpecWindow) ToAppAlertSpecWindowPtrOutput() AppAlertSpecWindowPtrOutput {
+	return e.ToAppAlertSpecWindowPtrOutputWithContext(context.Background())
+}
+
+func (e AppAlertSpecWindow) ToAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppAlertSpecWindowPtrOutput {
+	return AppAlertSpecWindow(e).ToAppAlertSpecWindowOutputWithContext(ctx).ToAppAlertSpecWindowPtrOutputWithContext(ctx)
+}
+
+func (e AppAlertSpecWindow) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAlertSpecWindow) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppAlertSpecWindow) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppAlertSpecWindow) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppAlertSpecWindowOutput struct{ *pulumi.OutputState }
+
+func (AppAlertSpecWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppAlertSpecWindow)(nil)).Elem()
+}
+
+func (o AppAlertSpecWindowOutput) ToAppAlertSpecWindowOutput() AppAlertSpecWindowOutput {
+	return o
+}
+
+func (o AppAlertSpecWindowOutput) ToAppAlertSpecWindowOutputWithContext(ctx context.Context) AppAlertSpecWindowOutput {
+	return o
+}
+
+func (o AppAlertSpecWindowOutput) ToAppAlertSpecWindowPtrOutput() AppAlertSpecWindowPtrOutput {
+	return o.ToAppAlertSpecWindowPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecWindowOutput) ToAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppAlertSpecWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAlertSpecWindow) *AppAlertSpecWindow {
+		return &v
+	}).(AppAlertSpecWindowPtrOutput)
+}
+
+func (o AppAlertSpecWindowOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecWindowOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAlertSpecWindow) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppAlertSpecWindowOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecWindowOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAlertSpecWindow) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppAlertSpecWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (AppAlertSpecWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppAlertSpecWindow)(nil)).Elem()
+}
+
+func (o AppAlertSpecWindowPtrOutput) ToAppAlertSpecWindowPtrOutput() AppAlertSpecWindowPtrOutput {
+	return o
+}
+
+func (o AppAlertSpecWindowPtrOutput) ToAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppAlertSpecWindowPtrOutput {
+	return o
+}
+
+func (o AppAlertSpecWindowPtrOutput) Elem() AppAlertSpecWindowOutput {
+	return o.ApplyT(func(v *AppAlertSpecWindow) AppAlertSpecWindow {
+		if v != nil {
+			return *v
+		}
+		var ret AppAlertSpecWindow
+		return ret
+	}).(AppAlertSpecWindowOutput)
+}
+
+func (o AppAlertSpecWindowPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppAlertSpecWindowPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppAlertSpecWindow) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppAlertSpecWindowInput is an input type that accepts values of the AppAlertSpecWindow enum
+// A concrete instance of `AppAlertSpecWindowInput` can be one of the following:
+//
+//	AppAlertSpecWindowUnspecifiedWindow
+//	AppAlertSpecWindowFiveMinutes
+//	AppAlertSpecWindowTenMinutes
+//	AppAlertSpecWindowThirtyMinutes
+//	AppAlertSpecWindowOneHour
+type AppAlertSpecWindowInput interface {
+	pulumi.Input
+
+	ToAppAlertSpecWindowOutput() AppAlertSpecWindowOutput
+	ToAppAlertSpecWindowOutputWithContext(context.Context) AppAlertSpecWindowOutput
+}
+
+var appAlertSpecWindowPtrType = reflect.TypeOf((**AppAlertSpecWindow)(nil)).Elem()
+
+type AppAlertSpecWindowPtrInput interface {
+	pulumi.Input
+
+	ToAppAlertSpecWindowPtrOutput() AppAlertSpecWindowPtrOutput
+	ToAppAlertSpecWindowPtrOutputWithContext(context.Context) AppAlertSpecWindowPtrOutput
+}
+
+type appAlertSpecWindowPtr string
+
+func AppAlertSpecWindowPtr(v string) AppAlertSpecWindowPtrInput {
+	return (*appAlertSpecWindowPtr)(&v)
+}
+
+func (*appAlertSpecWindowPtr) ElementType() reflect.Type {
+	return appAlertSpecWindowPtrType
+}
+
+func (in *appAlertSpecWindowPtr) ToAppAlertSpecWindowPtrOutput() AppAlertSpecWindowPtrOutput {
+	return pulumi.ToOutput(in).(AppAlertSpecWindowPtrOutput)
+}
+
+func (in *appAlertSpecWindowPtr) ToAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppAlertSpecWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppAlertSpecWindowPtrOutput)
+}
+
+// The instance size to use for this component. Default: `basic-xxs`
+type AppComponentInstanceBaseInstanceSizeSlug string
+
+const (
+	AppComponentInstanceBaseInstanceSizeSlugBasicXxs       = AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+	AppComponentInstanceBaseInstanceSizeSlugBasicXs        = AppComponentInstanceBaseInstanceSizeSlug("basic-xs")
+	AppComponentInstanceBaseInstanceSizeSlugBasicS         = AppComponentInstanceBaseInstanceSizeSlug("basic-s")
+	AppComponentInstanceBaseInstanceSizeSlugBasicM         = AppComponentInstanceBaseInstanceSizeSlug("basic-m")
+	AppComponentInstanceBaseInstanceSizeSlugProfessionalXs = AppComponentInstanceBaseInstanceSizeSlug("professional-xs")
+	AppComponentInstanceBaseInstanceSizeSlugProfessionalS  = AppComponentInstanceBaseInstanceSizeSlug("professional-s")
+	AppComponentInstanceBaseInstanceSizeSlugProfessionalM  = AppComponentInstanceBaseInstanceSizeSlug("professional-m")
+	AppComponentInstanceBaseInstanceSizeSlugProfessional1l = AppComponentInstanceBaseInstanceSizeSlug("professional-1l")
+	AppComponentInstanceBaseInstanceSizeSlugProfessionalL  = AppComponentInstanceBaseInstanceSizeSlug("professional-l")
+	AppComponentInstanceBaseInstanceSizeSlugProfessionalXl = AppComponentInstanceBaseInstanceSizeSlug("professional-xl")
+)
+
+func (AppComponentInstanceBaseInstanceSizeSlug) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToAppComponentInstanceBaseInstanceSizeSlugOutput() AppComponentInstanceBaseInstanceSizeSlugOutput {
+	return pulumi.ToOutput(e).(AppComponentInstanceBaseInstanceSizeSlugOutput)
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(ctx context.Context) AppComponentInstanceBaseInstanceSizeSlugOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppComponentInstanceBaseInstanceSizeSlugOutput)
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return e.ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(context.Background())
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return AppComponentInstanceBaseInstanceSizeSlug(e).ToAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(ctx).ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx)
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppComponentInstanceBaseInstanceSizeSlug) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppComponentInstanceBaseInstanceSizeSlugOutput struct{ *pulumi.OutputState }
+
+func (AppComponentInstanceBaseInstanceSizeSlugOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToAppComponentInstanceBaseInstanceSizeSlugOutput() AppComponentInstanceBaseInstanceSizeSlugOutput {
+	return o
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(ctx context.Context) AppComponentInstanceBaseInstanceSizeSlugOutput {
+	return o
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o.ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(context.Background())
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppComponentInstanceBaseInstanceSizeSlug) *AppComponentInstanceBaseInstanceSizeSlug {
+		return &v
+	}).(AppComponentInstanceBaseInstanceSizeSlugPtrOutput)
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppComponentInstanceBaseInstanceSizeSlug) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppComponentInstanceBaseInstanceSizeSlug) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppComponentInstanceBaseInstanceSizeSlugPtrOutput struct{ *pulumi.OutputState }
+
+func (AppComponentInstanceBaseInstanceSizeSlugPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugPtrOutput) Elem() AppComponentInstanceBaseInstanceSizeSlugOutput {
+	return o.ApplyT(func(v *AppComponentInstanceBaseInstanceSizeSlug) AppComponentInstanceBaseInstanceSizeSlug {
+		if v != nil {
+			return *v
+		}
+		var ret AppComponentInstanceBaseInstanceSizeSlug
+		return ret
+	}).(AppComponentInstanceBaseInstanceSizeSlugOutput)
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppComponentInstanceBaseInstanceSizeSlug) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppComponentInstanceBaseInstanceSizeSlugInput is an input type that accepts values of the AppComponentInstanceBaseInstanceSizeSlug enum
+// A concrete instance of `AppComponentInstanceBaseInstanceSizeSlugInput` can be one of the following:
+//
+//	AppComponentInstanceBaseInstanceSizeSlugBasicXxs
+//	AppComponentInstanceBaseInstanceSizeSlugBasicXs
+//	AppComponentInstanceBaseInstanceSizeSlugBasicS
+//	AppComponentInstanceBaseInstanceSizeSlugBasicM
+//	AppComponentInstanceBaseInstanceSizeSlugProfessionalXs
+//	AppComponentInstanceBaseInstanceSizeSlugProfessionalS
+//	AppComponentInstanceBaseInstanceSizeSlugProfessionalM
+//	AppComponentInstanceBaseInstanceSizeSlugProfessional1l
+//	AppComponentInstanceBaseInstanceSizeSlugProfessionalL
+//	AppComponentInstanceBaseInstanceSizeSlugProfessionalXl
+type AppComponentInstanceBaseInstanceSizeSlugInput interface {
+	pulumi.Input
+
+	ToAppComponentInstanceBaseInstanceSizeSlugOutput() AppComponentInstanceBaseInstanceSizeSlugOutput
+	ToAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(context.Context) AppComponentInstanceBaseInstanceSizeSlugOutput
+}
+
+var appComponentInstanceBaseInstanceSizeSlugPtrType = reflect.TypeOf((**AppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
+
+type AppComponentInstanceBaseInstanceSizeSlugPtrInput interface {
+	pulumi.Input
+
+	ToAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppComponentInstanceBaseInstanceSizeSlugPtrOutput
+	ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(context.Context) AppComponentInstanceBaseInstanceSizeSlugPtrOutput
+}
+
+type appComponentInstanceBaseInstanceSizeSlugPtr string
+
+func AppComponentInstanceBaseInstanceSizeSlugPtr(v string) AppComponentInstanceBaseInstanceSizeSlugPtrInput {
+	return (*appComponentInstanceBaseInstanceSizeSlugPtr)(&v)
+}
+
+func (*appComponentInstanceBaseInstanceSizeSlugPtr) ElementType() reflect.Type {
+	return appComponentInstanceBaseInstanceSizeSlugPtrType
+}
+
+func (in *appComponentInstanceBaseInstanceSizeSlugPtr) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return pulumi.ToOutput(in).(AppComponentInstanceBaseInstanceSizeSlugPtrOutput)
+}
+
+func (in *appComponentInstanceBaseInstanceSizeSlugPtr) ToAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppComponentInstanceBaseInstanceSizeSlugPtrOutput)
+}
+
+// - MYSQL: MySQL
+// - PG: PostgreSQL
+// - REDIS: Redis
+type AppDatabaseSpecEngine string
+
+const (
+	AppDatabaseSpecEngineUnset = AppDatabaseSpecEngine("UNSET")
+	AppDatabaseSpecEngineMysql = AppDatabaseSpecEngine("MYSQL")
+	AppDatabaseSpecEnginePg    = AppDatabaseSpecEngine("PG")
+	AppDatabaseSpecEngineRedis = AppDatabaseSpecEngine("REDIS")
+)
+
+func (AppDatabaseSpecEngine) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDatabaseSpecEngine)(nil)).Elem()
+}
+
+func (e AppDatabaseSpecEngine) ToAppDatabaseSpecEngineOutput() AppDatabaseSpecEngineOutput {
+	return pulumi.ToOutput(e).(AppDatabaseSpecEngineOutput)
+}
+
+func (e AppDatabaseSpecEngine) ToAppDatabaseSpecEngineOutputWithContext(ctx context.Context) AppDatabaseSpecEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppDatabaseSpecEngineOutput)
+}
+
+func (e AppDatabaseSpecEngine) ToAppDatabaseSpecEnginePtrOutput() AppDatabaseSpecEnginePtrOutput {
+	return e.ToAppDatabaseSpecEnginePtrOutputWithContext(context.Background())
+}
+
+func (e AppDatabaseSpecEngine) ToAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppDatabaseSpecEnginePtrOutput {
+	return AppDatabaseSpecEngine(e).ToAppDatabaseSpecEngineOutputWithContext(ctx).ToAppDatabaseSpecEnginePtrOutputWithContext(ctx)
+}
+
+func (e AppDatabaseSpecEngine) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppDatabaseSpecEngine) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppDatabaseSpecEngine) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppDatabaseSpecEngine) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppDatabaseSpecEngineOutput struct{ *pulumi.OutputState }
+
+func (AppDatabaseSpecEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDatabaseSpecEngine)(nil)).Elem()
+}
+
+func (o AppDatabaseSpecEngineOutput) ToAppDatabaseSpecEngineOutput() AppDatabaseSpecEngineOutput {
+	return o
+}
+
+func (o AppDatabaseSpecEngineOutput) ToAppDatabaseSpecEngineOutputWithContext(ctx context.Context) AppDatabaseSpecEngineOutput {
+	return o
+}
+
+func (o AppDatabaseSpecEngineOutput) ToAppDatabaseSpecEnginePtrOutput() AppDatabaseSpecEnginePtrOutput {
+	return o.ToAppDatabaseSpecEnginePtrOutputWithContext(context.Background())
+}
+
+func (o AppDatabaseSpecEngineOutput) ToAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppDatabaseSpecEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppDatabaseSpecEngine) *AppDatabaseSpecEngine {
+		return &v
+	}).(AppDatabaseSpecEnginePtrOutput)
+}
+
+func (o AppDatabaseSpecEngineOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppDatabaseSpecEngineOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDatabaseSpecEngine) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppDatabaseSpecEngineOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDatabaseSpecEngineOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDatabaseSpecEngine) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppDatabaseSpecEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (AppDatabaseSpecEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppDatabaseSpecEngine)(nil)).Elem()
+}
+
+func (o AppDatabaseSpecEnginePtrOutput) ToAppDatabaseSpecEnginePtrOutput() AppDatabaseSpecEnginePtrOutput {
+	return o
+}
+
+func (o AppDatabaseSpecEnginePtrOutput) ToAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppDatabaseSpecEnginePtrOutput {
+	return o
+}
+
+func (o AppDatabaseSpecEnginePtrOutput) Elem() AppDatabaseSpecEngineOutput {
+	return o.ApplyT(func(v *AppDatabaseSpecEngine) AppDatabaseSpecEngine {
+		if v != nil {
+			return *v
+		}
+		var ret AppDatabaseSpecEngine
+		return ret
+	}).(AppDatabaseSpecEngineOutput)
+}
+
+func (o AppDatabaseSpecEnginePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDatabaseSpecEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppDatabaseSpecEngine) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppDatabaseSpecEngineInput is an input type that accepts values of the AppDatabaseSpecEngine enum
+// A concrete instance of `AppDatabaseSpecEngineInput` can be one of the following:
+//
+//	AppDatabaseSpecEngineUnset
+//	AppDatabaseSpecEngineMysql
+//	AppDatabaseSpecEnginePg
+//	AppDatabaseSpecEngineRedis
+type AppDatabaseSpecEngineInput interface {
+	pulumi.Input
+
+	ToAppDatabaseSpecEngineOutput() AppDatabaseSpecEngineOutput
+	ToAppDatabaseSpecEngineOutputWithContext(context.Context) AppDatabaseSpecEngineOutput
+}
+
+var appDatabaseSpecEnginePtrType = reflect.TypeOf((**AppDatabaseSpecEngine)(nil)).Elem()
+
+type AppDatabaseSpecEnginePtrInput interface {
+	pulumi.Input
+
+	ToAppDatabaseSpecEnginePtrOutput() AppDatabaseSpecEnginePtrOutput
+	ToAppDatabaseSpecEnginePtrOutputWithContext(context.Context) AppDatabaseSpecEnginePtrOutput
+}
+
+type appDatabaseSpecEnginePtr string
+
+func AppDatabaseSpecEnginePtr(v string) AppDatabaseSpecEnginePtrInput {
+	return (*appDatabaseSpecEnginePtr)(&v)
+}
+
+func (*appDatabaseSpecEnginePtr) ElementType() reflect.Type {
+	return appDatabaseSpecEnginePtrType
+}
+
+func (in *appDatabaseSpecEnginePtr) ToAppDatabaseSpecEnginePtrOutput() AppDatabaseSpecEnginePtrOutput {
+	return pulumi.ToOutput(in).(AppDatabaseSpecEnginePtrOutput)
+}
+
+func (in *appDatabaseSpecEnginePtr) ToAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppDatabaseSpecEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppDatabaseSpecEnginePtrOutput)
+}
+
+// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
+type AppDomainSpecMinimumTlsVersion string
+
+const (
+	AppDomainSpecMinimumTlsVersion_12 = AppDomainSpecMinimumTlsVersion("1.2")
+	AppDomainSpecMinimumTlsVersion_13 = AppDomainSpecMinimumTlsVersion("1.3")
+)
+
+func (AppDomainSpecMinimumTlsVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDomainSpecMinimumTlsVersion)(nil)).Elem()
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToAppDomainSpecMinimumTlsVersionOutput() AppDomainSpecMinimumTlsVersionOutput {
+	return pulumi.ToOutput(e).(AppDomainSpecMinimumTlsVersionOutput)
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToAppDomainSpecMinimumTlsVersionOutputWithContext(ctx context.Context) AppDomainSpecMinimumTlsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppDomainSpecMinimumTlsVersionOutput)
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToAppDomainSpecMinimumTlsVersionPtrOutput() AppDomainSpecMinimumTlsVersionPtrOutput {
+	return e.ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(context.Background())
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppDomainSpecMinimumTlsVersionPtrOutput {
+	return AppDomainSpecMinimumTlsVersion(e).ToAppDomainSpecMinimumTlsVersionOutputWithContext(ctx).ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx)
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppDomainSpecMinimumTlsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppDomainSpecMinimumTlsVersionOutput struct{ *pulumi.OutputState }
+
+func (AppDomainSpecMinimumTlsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDomainSpecMinimumTlsVersion)(nil)).Elem()
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToAppDomainSpecMinimumTlsVersionOutput() AppDomainSpecMinimumTlsVersionOutput {
+	return o
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToAppDomainSpecMinimumTlsVersionOutputWithContext(ctx context.Context) AppDomainSpecMinimumTlsVersionOutput {
+	return o
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToAppDomainSpecMinimumTlsVersionPtrOutput() AppDomainSpecMinimumTlsVersionPtrOutput {
+	return o.ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppDomainSpecMinimumTlsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppDomainSpecMinimumTlsVersion) *AppDomainSpecMinimumTlsVersion {
+		return &v
+	}).(AppDomainSpecMinimumTlsVersionPtrOutput)
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDomainSpecMinimumTlsVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecMinimumTlsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDomainSpecMinimumTlsVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppDomainSpecMinimumTlsVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (AppDomainSpecMinimumTlsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppDomainSpecMinimumTlsVersion)(nil)).Elem()
+}
+
+func (o AppDomainSpecMinimumTlsVersionPtrOutput) ToAppDomainSpecMinimumTlsVersionPtrOutput() AppDomainSpecMinimumTlsVersionPtrOutput {
+	return o
+}
+
+func (o AppDomainSpecMinimumTlsVersionPtrOutput) ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppDomainSpecMinimumTlsVersionPtrOutput {
+	return o
+}
+
+func (o AppDomainSpecMinimumTlsVersionPtrOutput) Elem() AppDomainSpecMinimumTlsVersionOutput {
+	return o.ApplyT(func(v *AppDomainSpecMinimumTlsVersion) AppDomainSpecMinimumTlsVersion {
+		if v != nil {
+			return *v
+		}
+		var ret AppDomainSpecMinimumTlsVersion
+		return ret
+	}).(AppDomainSpecMinimumTlsVersionOutput)
+}
+
+func (o AppDomainSpecMinimumTlsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecMinimumTlsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppDomainSpecMinimumTlsVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppDomainSpecMinimumTlsVersionInput is an input type that accepts values of the AppDomainSpecMinimumTlsVersion enum
+// A concrete instance of `AppDomainSpecMinimumTlsVersionInput` can be one of the following:
+//
+//	AppDomainSpecMinimumTlsVersion_12
+//	AppDomainSpecMinimumTlsVersion_13
+type AppDomainSpecMinimumTlsVersionInput interface {
+	pulumi.Input
+
+	ToAppDomainSpecMinimumTlsVersionOutput() AppDomainSpecMinimumTlsVersionOutput
+	ToAppDomainSpecMinimumTlsVersionOutputWithContext(context.Context) AppDomainSpecMinimumTlsVersionOutput
+}
+
+var appDomainSpecMinimumTlsVersionPtrType = reflect.TypeOf((**AppDomainSpecMinimumTlsVersion)(nil)).Elem()
+
+type AppDomainSpecMinimumTlsVersionPtrInput interface {
+	pulumi.Input
+
+	ToAppDomainSpecMinimumTlsVersionPtrOutput() AppDomainSpecMinimumTlsVersionPtrOutput
+	ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(context.Context) AppDomainSpecMinimumTlsVersionPtrOutput
+}
+
+type appDomainSpecMinimumTlsVersionPtr string
+
+func AppDomainSpecMinimumTlsVersionPtr(v string) AppDomainSpecMinimumTlsVersionPtrInput {
+	return (*appDomainSpecMinimumTlsVersionPtr)(&v)
+}
+
+func (*appDomainSpecMinimumTlsVersionPtr) ElementType() reflect.Type {
+	return appDomainSpecMinimumTlsVersionPtrType
+}
+
+func (in *appDomainSpecMinimumTlsVersionPtr) ToAppDomainSpecMinimumTlsVersionPtrOutput() AppDomainSpecMinimumTlsVersionPtrOutput {
+	return pulumi.ToOutput(in).(AppDomainSpecMinimumTlsVersionPtrOutput)
+}
+
+func (in *appDomainSpecMinimumTlsVersionPtr) ToAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppDomainSpecMinimumTlsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppDomainSpecMinimumTlsVersionPtrOutput)
+}
+
+// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
+// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
+// - ALIAS: A non-primary domain
+type AppDomainSpecType string
+
+const (
+	AppDomainSpecTypeUnspecified = AppDomainSpecType("UNSPECIFIED")
+	AppDomainSpecTypeDefault     = AppDomainSpecType("DEFAULT")
+	AppDomainSpecTypePrimary     = AppDomainSpecType("PRIMARY")
+	AppDomainSpecTypeAlias       = AppDomainSpecType("ALIAS")
+)
+
+func (AppDomainSpecType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDomainSpecType)(nil)).Elem()
+}
+
+func (e AppDomainSpecType) ToAppDomainSpecTypeOutput() AppDomainSpecTypeOutput {
+	return pulumi.ToOutput(e).(AppDomainSpecTypeOutput)
+}
+
+func (e AppDomainSpecType) ToAppDomainSpecTypeOutputWithContext(ctx context.Context) AppDomainSpecTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppDomainSpecTypeOutput)
+}
+
+func (e AppDomainSpecType) ToAppDomainSpecTypePtrOutput() AppDomainSpecTypePtrOutput {
+	return e.ToAppDomainSpecTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppDomainSpecType) ToAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppDomainSpecTypePtrOutput {
+	return AppDomainSpecType(e).ToAppDomainSpecTypeOutputWithContext(ctx).ToAppDomainSpecTypePtrOutputWithContext(ctx)
+}
+
+func (e AppDomainSpecType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppDomainSpecType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppDomainSpecType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppDomainSpecType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppDomainSpecTypeOutput struct{ *pulumi.OutputState }
+
+func (AppDomainSpecTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppDomainSpecType)(nil)).Elem()
+}
+
+func (o AppDomainSpecTypeOutput) ToAppDomainSpecTypeOutput() AppDomainSpecTypeOutput {
+	return o
+}
+
+func (o AppDomainSpecTypeOutput) ToAppDomainSpecTypeOutputWithContext(ctx context.Context) AppDomainSpecTypeOutput {
+	return o
+}
+
+func (o AppDomainSpecTypeOutput) ToAppDomainSpecTypePtrOutput() AppDomainSpecTypePtrOutput {
+	return o.ToAppDomainSpecTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecTypeOutput) ToAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppDomainSpecTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppDomainSpecType) *AppDomainSpecType {
+		return &v
+	}).(AppDomainSpecTypePtrOutput)
+}
+
+func (o AppDomainSpecTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDomainSpecType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppDomainSpecTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppDomainSpecType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppDomainSpecTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppDomainSpecTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppDomainSpecType)(nil)).Elem()
+}
+
+func (o AppDomainSpecTypePtrOutput) ToAppDomainSpecTypePtrOutput() AppDomainSpecTypePtrOutput {
+	return o
+}
+
+func (o AppDomainSpecTypePtrOutput) ToAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppDomainSpecTypePtrOutput {
+	return o
+}
+
+func (o AppDomainSpecTypePtrOutput) Elem() AppDomainSpecTypeOutput {
+	return o.ApplyT(func(v *AppDomainSpecType) AppDomainSpecType {
+		if v != nil {
+			return *v
+		}
+		var ret AppDomainSpecType
+		return ret
+	}).(AppDomainSpecTypeOutput)
+}
+
+func (o AppDomainSpecTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppDomainSpecTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppDomainSpecType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppDomainSpecTypeInput is an input type that accepts values of the AppDomainSpecType enum
+// A concrete instance of `AppDomainSpecTypeInput` can be one of the following:
+//
+//	AppDomainSpecTypeUnspecified
+//	AppDomainSpecTypeDefault
+//	AppDomainSpecTypePrimary
+//	AppDomainSpecTypeAlias
+type AppDomainSpecTypeInput interface {
+	pulumi.Input
+
+	ToAppDomainSpecTypeOutput() AppDomainSpecTypeOutput
+	ToAppDomainSpecTypeOutputWithContext(context.Context) AppDomainSpecTypeOutput
+}
+
+var appDomainSpecTypePtrType = reflect.TypeOf((**AppDomainSpecType)(nil)).Elem()
+
+type AppDomainSpecTypePtrInput interface {
+	pulumi.Input
+
+	ToAppDomainSpecTypePtrOutput() AppDomainSpecTypePtrOutput
+	ToAppDomainSpecTypePtrOutputWithContext(context.Context) AppDomainSpecTypePtrOutput
+}
+
+type appDomainSpecTypePtr string
+
+func AppDomainSpecTypePtr(v string) AppDomainSpecTypePtrInput {
+	return (*appDomainSpecTypePtr)(&v)
+}
+
+func (*appDomainSpecTypePtr) ElementType() reflect.Type {
+	return appDomainSpecTypePtrType
+}
+
+func (in *appDomainSpecTypePtr) ToAppDomainSpecTypePtrOutput() AppDomainSpecTypePtrOutput {
+	return pulumi.ToOutput(in).(AppDomainSpecTypePtrOutput)
+}
+
+func (in *appDomainSpecTypePtr) ToAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppDomainSpecTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppDomainSpecTypePtrOutput)
+}
+
+// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
+// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
+// - POST_DEPLOY: Indicates a job that runs after an app deployment.
+// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
+type AppJobSpecPropertiesKind string
+
+const (
+	AppJobSpecPropertiesKindUnspecified  = AppJobSpecPropertiesKind("UNSPECIFIED")
+	AppJobSpecPropertiesKindPreDeploy    = AppJobSpecPropertiesKind("PRE_DEPLOY")
+	AppJobSpecPropertiesKindPostDeploy   = AppJobSpecPropertiesKind("POST_DEPLOY")
+	AppJobSpecPropertiesKindFailedDeploy = AppJobSpecPropertiesKind("FAILED_DEPLOY")
+)
+
+func (AppJobSpecPropertiesKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobSpecPropertiesKind)(nil)).Elem()
+}
+
+func (e AppJobSpecPropertiesKind) ToAppJobSpecPropertiesKindOutput() AppJobSpecPropertiesKindOutput {
+	return pulumi.ToOutput(e).(AppJobSpecPropertiesKindOutput)
+}
+
+func (e AppJobSpecPropertiesKind) ToAppJobSpecPropertiesKindOutputWithContext(ctx context.Context) AppJobSpecPropertiesKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppJobSpecPropertiesKindOutput)
+}
+
+func (e AppJobSpecPropertiesKind) ToAppJobSpecPropertiesKindPtrOutput() AppJobSpecPropertiesKindPtrOutput {
+	return e.ToAppJobSpecPropertiesKindPtrOutputWithContext(context.Background())
+}
+
+func (e AppJobSpecPropertiesKind) ToAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppJobSpecPropertiesKindPtrOutput {
+	return AppJobSpecPropertiesKind(e).ToAppJobSpecPropertiesKindOutputWithContext(ctx).ToAppJobSpecPropertiesKindPtrOutputWithContext(ctx)
+}
+
+func (e AppJobSpecPropertiesKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppJobSpecPropertiesKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppJobSpecPropertiesKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppJobSpecPropertiesKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppJobSpecPropertiesKindOutput struct{ *pulumi.OutputState }
+
+func (AppJobSpecPropertiesKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobSpecPropertiesKind)(nil)).Elem()
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToAppJobSpecPropertiesKindOutput() AppJobSpecPropertiesKindOutput {
+	return o
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToAppJobSpecPropertiesKindOutputWithContext(ctx context.Context) AppJobSpecPropertiesKindOutput {
+	return o
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToAppJobSpecPropertiesKindPtrOutput() AppJobSpecPropertiesKindPtrOutput {
+	return o.ToAppJobSpecPropertiesKindPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppJobSpecPropertiesKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppJobSpecPropertiesKind) *AppJobSpecPropertiesKind {
+		return &v
+	}).(AppJobSpecPropertiesKindPtrOutput)
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppJobSpecPropertiesKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobSpecPropertiesKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppJobSpecPropertiesKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppJobSpecPropertiesKindPtrOutput struct{ *pulumi.OutputState }
+
+func (AppJobSpecPropertiesKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppJobSpecPropertiesKind)(nil)).Elem()
+}
+
+func (o AppJobSpecPropertiesKindPtrOutput) ToAppJobSpecPropertiesKindPtrOutput() AppJobSpecPropertiesKindPtrOutput {
+	return o
+}
+
+func (o AppJobSpecPropertiesKindPtrOutput) ToAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppJobSpecPropertiesKindPtrOutput {
+	return o
+}
+
+func (o AppJobSpecPropertiesKindPtrOutput) Elem() AppJobSpecPropertiesKindOutput {
+	return o.ApplyT(func(v *AppJobSpecPropertiesKind) AppJobSpecPropertiesKind {
+		if v != nil {
+			return *v
+		}
+		var ret AppJobSpecPropertiesKind
+		return ret
+	}).(AppJobSpecPropertiesKindOutput)
+}
+
+func (o AppJobSpecPropertiesKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobSpecPropertiesKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppJobSpecPropertiesKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppJobSpecPropertiesKindInput is an input type that accepts values of the AppJobSpecPropertiesKind enum
+// A concrete instance of `AppJobSpecPropertiesKindInput` can be one of the following:
+//
+//	AppJobSpecPropertiesKindUnspecified
+//	AppJobSpecPropertiesKindPreDeploy
+//	AppJobSpecPropertiesKindPostDeploy
+//	AppJobSpecPropertiesKindFailedDeploy
+type AppJobSpecPropertiesKindInput interface {
+	pulumi.Input
+
+	ToAppJobSpecPropertiesKindOutput() AppJobSpecPropertiesKindOutput
+	ToAppJobSpecPropertiesKindOutputWithContext(context.Context) AppJobSpecPropertiesKindOutput
+}
+
+var appJobSpecPropertiesKindPtrType = reflect.TypeOf((**AppJobSpecPropertiesKind)(nil)).Elem()
+
+type AppJobSpecPropertiesKindPtrInput interface {
+	pulumi.Input
+
+	ToAppJobSpecPropertiesKindPtrOutput() AppJobSpecPropertiesKindPtrOutput
+	ToAppJobSpecPropertiesKindPtrOutputWithContext(context.Context) AppJobSpecPropertiesKindPtrOutput
+}
+
+type appJobSpecPropertiesKindPtr string
+
+func AppJobSpecPropertiesKindPtr(v string) AppJobSpecPropertiesKindPtrInput {
+	return (*appJobSpecPropertiesKindPtr)(&v)
+}
+
+func (*appJobSpecPropertiesKindPtr) ElementType() reflect.Type {
+	return appJobSpecPropertiesKindPtrType
+}
+
+func (in *appJobSpecPropertiesKindPtr) ToAppJobSpecPropertiesKindPtrOutput() AppJobSpecPropertiesKindPtrOutput {
+	return pulumi.ToOutput(in).(AppJobSpecPropertiesKindPtrOutput)
+}
+
+func (in *appJobSpecPropertiesKindPtr) ToAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppJobSpecPropertiesKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppJobSpecPropertiesKindPtrOutput)
+}
+
+// A code identifier that represents the failing condition.
+//
+// Failing conditions:
+//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
+//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
+//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
+//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
+//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
+//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
+//
+// Warning conditions:
+//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
+//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
+type AppRollbackValidationConditionCode string
+
+const (
+	AppRollbackValidationConditionCodeIncompatiblePhase         = AppRollbackValidationConditionCode("incompatible_phase")
+	AppRollbackValidationConditionCodeIncompatibleResult        = AppRollbackValidationConditionCode("incompatible_result")
+	AppRollbackValidationConditionCodeExceededRevisionLimit     = AppRollbackValidationConditionCode("exceeded_revision_limit")
+	AppRollbackValidationConditionCodeAppPinned                 = AppRollbackValidationConditionCode("app_pinned")
+	AppRollbackValidationConditionCodeDatabaseConfigConflict    = AppRollbackValidationConditionCode("database_config_conflict")
+	AppRollbackValidationConditionCodeRegionConflict            = AppRollbackValidationConditionCode("region_conflict")
+	AppRollbackValidationConditionCodeStaticSiteRequiresRebuild = AppRollbackValidationConditionCode("static_site_requires_rebuild")
+	AppRollbackValidationConditionCodeImageSourceMissingDigest  = AppRollbackValidationConditionCode("image_source_missing_digest")
+)
+
+type AppRollbackValidationConditionCodeOutput struct{ *pulumi.OutputState }
+
+func (AppRollbackValidationConditionCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppRollbackValidationConditionCode)(nil)).Elem()
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToAppRollbackValidationConditionCodeOutput() AppRollbackValidationConditionCodeOutput {
+	return o
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToAppRollbackValidationConditionCodeOutputWithContext(ctx context.Context) AppRollbackValidationConditionCodeOutput {
+	return o
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToAppRollbackValidationConditionCodePtrOutput() AppRollbackValidationConditionCodePtrOutput {
+	return o.ToAppRollbackValidationConditionCodePtrOutputWithContext(context.Background())
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToAppRollbackValidationConditionCodePtrOutputWithContext(ctx context.Context) AppRollbackValidationConditionCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppRollbackValidationConditionCode) *AppRollbackValidationConditionCode {
+		return &v
+	}).(AppRollbackValidationConditionCodePtrOutput)
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppRollbackValidationConditionCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppRollbackValidationConditionCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppRollbackValidationConditionCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppRollbackValidationConditionCodePtrOutput struct{ *pulumi.OutputState }
+
+func (AppRollbackValidationConditionCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppRollbackValidationConditionCode)(nil)).Elem()
+}
+
+func (o AppRollbackValidationConditionCodePtrOutput) ToAppRollbackValidationConditionCodePtrOutput() AppRollbackValidationConditionCodePtrOutput {
+	return o
+}
+
+func (o AppRollbackValidationConditionCodePtrOutput) ToAppRollbackValidationConditionCodePtrOutputWithContext(ctx context.Context) AppRollbackValidationConditionCodePtrOutput {
+	return o
+}
+
+func (o AppRollbackValidationConditionCodePtrOutput) Elem() AppRollbackValidationConditionCodeOutput {
+	return o.ApplyT(func(v *AppRollbackValidationConditionCode) AppRollbackValidationConditionCode {
+		if v != nil {
+			return *v
+		}
+		var ret AppRollbackValidationConditionCode
+		return ret
+	}).(AppRollbackValidationConditionCodeOutput)
+}
+
+func (o AppRollbackValidationConditionCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppRollbackValidationConditionCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppRollbackValidationConditionCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The slug form of the geographical origin of the app. Default: `nearest available`
+type AppSpecRegion string
+
+const (
+	AppSpecRegionAms = AppSpecRegion("ams")
+	AppSpecRegionNyc = AppSpecRegion("nyc")
+	AppSpecRegionFra = AppSpecRegion("fra")
+	AppSpecRegionSfo = AppSpecRegion("sfo")
+	AppSpecRegionSgp = AppSpecRegion("sgp")
+	AppSpecRegionBlr = AppSpecRegion("blr")
+	AppSpecRegionTor = AppSpecRegion("tor")
+	AppSpecRegionLon = AppSpecRegion("lon")
+	AppSpecRegionSyd = AppSpecRegion("syd")
+)
+
+func (AppSpecRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSpecRegion)(nil)).Elem()
+}
+
+func (e AppSpecRegion) ToAppSpecRegionOutput() AppSpecRegionOutput {
+	return pulumi.ToOutput(e).(AppSpecRegionOutput)
+}
+
+func (e AppSpecRegion) ToAppSpecRegionOutputWithContext(ctx context.Context) AppSpecRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppSpecRegionOutput)
+}
+
+func (e AppSpecRegion) ToAppSpecRegionPtrOutput() AppSpecRegionPtrOutput {
+	return e.ToAppSpecRegionPtrOutputWithContext(context.Background())
+}
+
+func (e AppSpecRegion) ToAppSpecRegionPtrOutputWithContext(ctx context.Context) AppSpecRegionPtrOutput {
+	return AppSpecRegion(e).ToAppSpecRegionOutputWithContext(ctx).ToAppSpecRegionPtrOutputWithContext(ctx)
+}
+
+func (e AppSpecRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppSpecRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppSpecRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppSpecRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppSpecRegionOutput struct{ *pulumi.OutputState }
+
+func (AppSpecRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSpecRegion)(nil)).Elem()
+}
+
+func (o AppSpecRegionOutput) ToAppSpecRegionOutput() AppSpecRegionOutput {
+	return o
+}
+
+func (o AppSpecRegionOutput) ToAppSpecRegionOutputWithContext(ctx context.Context) AppSpecRegionOutput {
+	return o
+}
+
+func (o AppSpecRegionOutput) ToAppSpecRegionPtrOutput() AppSpecRegionPtrOutput {
+	return o.ToAppSpecRegionPtrOutputWithContext(context.Background())
+}
+
+func (o AppSpecRegionOutput) ToAppSpecRegionPtrOutputWithContext(ctx context.Context) AppSpecRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSpecRegion) *AppSpecRegion {
+		return &v
+	}).(AppSpecRegionPtrOutput)
+}
+
+func (o AppSpecRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppSpecRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppSpecRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppSpecRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppSpecRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppSpecRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppSpecRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (AppSpecRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppSpecRegion)(nil)).Elem()
+}
+
+func (o AppSpecRegionPtrOutput) ToAppSpecRegionPtrOutput() AppSpecRegionPtrOutput {
+	return o
+}
+
+func (o AppSpecRegionPtrOutput) ToAppSpecRegionPtrOutputWithContext(ctx context.Context) AppSpecRegionPtrOutput {
+	return o
+}
+
+func (o AppSpecRegionPtrOutput) Elem() AppSpecRegionOutput {
+	return o.ApplyT(func(v *AppSpecRegion) AppSpecRegion {
+		if v != nil {
+			return *v
+		}
+		var ret AppSpecRegion
+		return ret
+	}).(AppSpecRegionOutput)
+}
+
+func (o AppSpecRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppSpecRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppSpecRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppSpecRegionInput is an input type that accepts values of the AppSpecRegion enum
+// A concrete instance of `AppSpecRegionInput` can be one of the following:
+//
+//	AppSpecRegionAms
+//	AppSpecRegionNyc
+//	AppSpecRegionFra
+//	AppSpecRegionSfo
+//	AppSpecRegionSgp
+//	AppSpecRegionBlr
+//	AppSpecRegionTor
+//	AppSpecRegionLon
+//	AppSpecRegionSyd
+type AppSpecRegionInput interface {
+	pulumi.Input
+
+	ToAppSpecRegionOutput() AppSpecRegionOutput
+	ToAppSpecRegionOutputWithContext(context.Context) AppSpecRegionOutput
+}
+
+var appSpecRegionPtrType = reflect.TypeOf((**AppSpecRegion)(nil)).Elem()
+
+type AppSpecRegionPtrInput interface {
+	pulumi.Input
+
+	ToAppSpecRegionPtrOutput() AppSpecRegionPtrOutput
+	ToAppSpecRegionPtrOutputWithContext(context.Context) AppSpecRegionPtrOutput
+}
+
+type appSpecRegionPtr string
+
+func AppSpecRegionPtr(v string) AppSpecRegionPtrInput {
+	return (*appSpecRegionPtr)(&v)
+}
+
+func (*appSpecRegionPtr) ElementType() reflect.Type {
+	return appSpecRegionPtrType
+}
+
+func (in *appSpecRegionPtr) ToAppSpecRegionPtrOutput() AppSpecRegionPtrOutput {
+	return pulumi.ToOutput(in).(AppSpecRegionPtrOutput)
+}
+
+func (in *appSpecRegionPtr) ToAppSpecRegionPtrOutputWithContext(ctx context.Context) AppSpecRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppSpecRegionPtrOutput)
+}
+
+// - RUN_TIME: Made available only at run-time
+// - BUILD_TIME: Made available only at build-time
+// - RUN_AND_BUILD_TIME: Made available at both build and run-time
+type AppVariableDefinitionScope string
+
+const (
+	AppVariableDefinitionScopeUnset           = AppVariableDefinitionScope("UNSET")
+	AppVariableDefinitionScopeRunTime         = AppVariableDefinitionScope("RUN_TIME")
+	AppVariableDefinitionScopeBuildTime       = AppVariableDefinitionScope("BUILD_TIME")
+	AppVariableDefinitionScopeRunAndBuildTime = AppVariableDefinitionScope("RUN_AND_BUILD_TIME")
+)
+
+func (AppVariableDefinitionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppVariableDefinitionScope)(nil)).Elem()
+}
+
+func (e AppVariableDefinitionScope) ToAppVariableDefinitionScopeOutput() AppVariableDefinitionScopeOutput {
+	return pulumi.ToOutput(e).(AppVariableDefinitionScopeOutput)
+}
+
+func (e AppVariableDefinitionScope) ToAppVariableDefinitionScopeOutputWithContext(ctx context.Context) AppVariableDefinitionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppVariableDefinitionScopeOutput)
+}
+
+func (e AppVariableDefinitionScope) ToAppVariableDefinitionScopePtrOutput() AppVariableDefinitionScopePtrOutput {
+	return e.ToAppVariableDefinitionScopePtrOutputWithContext(context.Background())
+}
+
+func (e AppVariableDefinitionScope) ToAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppVariableDefinitionScopePtrOutput {
+	return AppVariableDefinitionScope(e).ToAppVariableDefinitionScopeOutputWithContext(ctx).ToAppVariableDefinitionScopePtrOutputWithContext(ctx)
+}
+
+func (e AppVariableDefinitionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppVariableDefinitionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppVariableDefinitionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppVariableDefinitionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppVariableDefinitionScopeOutput struct{ *pulumi.OutputState }
+
+func (AppVariableDefinitionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppVariableDefinitionScope)(nil)).Elem()
+}
+
+func (o AppVariableDefinitionScopeOutput) ToAppVariableDefinitionScopeOutput() AppVariableDefinitionScopeOutput {
+	return o
+}
+
+func (o AppVariableDefinitionScopeOutput) ToAppVariableDefinitionScopeOutputWithContext(ctx context.Context) AppVariableDefinitionScopeOutput {
+	return o
+}
+
+func (o AppVariableDefinitionScopeOutput) ToAppVariableDefinitionScopePtrOutput() AppVariableDefinitionScopePtrOutput {
+	return o.ToAppVariableDefinitionScopePtrOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionScopeOutput) ToAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppVariableDefinitionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppVariableDefinitionScope) *AppVariableDefinitionScope {
+		return &v
+	}).(AppVariableDefinitionScopePtrOutput)
+}
+
+func (o AppVariableDefinitionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppVariableDefinitionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppVariableDefinitionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppVariableDefinitionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppVariableDefinitionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AppVariableDefinitionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppVariableDefinitionScope)(nil)).Elem()
+}
+
+func (o AppVariableDefinitionScopePtrOutput) ToAppVariableDefinitionScopePtrOutput() AppVariableDefinitionScopePtrOutput {
+	return o
+}
+
+func (o AppVariableDefinitionScopePtrOutput) ToAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppVariableDefinitionScopePtrOutput {
+	return o
+}
+
+func (o AppVariableDefinitionScopePtrOutput) Elem() AppVariableDefinitionScopeOutput {
+	return o.ApplyT(func(v *AppVariableDefinitionScope) AppVariableDefinitionScope {
+		if v != nil {
+			return *v
+		}
+		var ret AppVariableDefinitionScope
+		return ret
+	}).(AppVariableDefinitionScopeOutput)
+}
+
+func (o AppVariableDefinitionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppVariableDefinitionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppVariableDefinitionScopeInput is an input type that accepts values of the AppVariableDefinitionScope enum
+// A concrete instance of `AppVariableDefinitionScopeInput` can be one of the following:
+//
+//	AppVariableDefinitionScopeUnset
+//	AppVariableDefinitionScopeRunTime
+//	AppVariableDefinitionScopeBuildTime
+//	AppVariableDefinitionScopeRunAndBuildTime
+type AppVariableDefinitionScopeInput interface {
+	pulumi.Input
+
+	ToAppVariableDefinitionScopeOutput() AppVariableDefinitionScopeOutput
+	ToAppVariableDefinitionScopeOutputWithContext(context.Context) AppVariableDefinitionScopeOutput
+}
+
+var appVariableDefinitionScopePtrType = reflect.TypeOf((**AppVariableDefinitionScope)(nil)).Elem()
+
+type AppVariableDefinitionScopePtrInput interface {
+	pulumi.Input
+
+	ToAppVariableDefinitionScopePtrOutput() AppVariableDefinitionScopePtrOutput
+	ToAppVariableDefinitionScopePtrOutputWithContext(context.Context) AppVariableDefinitionScopePtrOutput
+}
+
+type appVariableDefinitionScopePtr string
+
+func AppVariableDefinitionScopePtr(v string) AppVariableDefinitionScopePtrInput {
+	return (*appVariableDefinitionScopePtr)(&v)
+}
+
+func (*appVariableDefinitionScopePtr) ElementType() reflect.Type {
+	return appVariableDefinitionScopePtrType
+}
+
+func (in *appVariableDefinitionScopePtr) ToAppVariableDefinitionScopePtrOutput() AppVariableDefinitionScopePtrOutput {
+	return pulumi.ToOutput(in).(AppVariableDefinitionScopePtrOutput)
+}
+
+func (in *appVariableDefinitionScopePtr) ToAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppVariableDefinitionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppVariableDefinitionScopePtrOutput)
+}
+
+// - GENERAL: A plain-text environment variable
+// - SECRET: A secret encrypted environment variable
+type AppVariableDefinitionType string
+
+const (
+	AppVariableDefinitionTypeGeneral = AppVariableDefinitionType("GENERAL")
+	AppVariableDefinitionTypeSecret  = AppVariableDefinitionType("SECRET")
+)
+
+func (AppVariableDefinitionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppVariableDefinitionType)(nil)).Elem()
+}
+
+func (e AppVariableDefinitionType) ToAppVariableDefinitionTypeOutput() AppVariableDefinitionTypeOutput {
+	return pulumi.ToOutput(e).(AppVariableDefinitionTypeOutput)
+}
+
+func (e AppVariableDefinitionType) ToAppVariableDefinitionTypeOutputWithContext(ctx context.Context) AppVariableDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppVariableDefinitionTypeOutput)
+}
+
+func (e AppVariableDefinitionType) ToAppVariableDefinitionTypePtrOutput() AppVariableDefinitionTypePtrOutput {
+	return e.ToAppVariableDefinitionTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppVariableDefinitionType) ToAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppVariableDefinitionTypePtrOutput {
+	return AppVariableDefinitionType(e).ToAppVariableDefinitionTypeOutputWithContext(ctx).ToAppVariableDefinitionTypePtrOutputWithContext(ctx)
+}
+
+func (e AppVariableDefinitionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppVariableDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppVariableDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppVariableDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppVariableDefinitionTypeOutput struct{ *pulumi.OutputState }
+
+func (AppVariableDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppVariableDefinitionType)(nil)).Elem()
+}
+
+func (o AppVariableDefinitionTypeOutput) ToAppVariableDefinitionTypeOutput() AppVariableDefinitionTypeOutput {
+	return o
+}
+
+func (o AppVariableDefinitionTypeOutput) ToAppVariableDefinitionTypeOutputWithContext(ctx context.Context) AppVariableDefinitionTypeOutput {
+	return o
+}
+
+func (o AppVariableDefinitionTypeOutput) ToAppVariableDefinitionTypePtrOutput() AppVariableDefinitionTypePtrOutput {
+	return o.ToAppVariableDefinitionTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionTypeOutput) ToAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppVariableDefinitionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppVariableDefinitionType) *AppVariableDefinitionType {
+		return &v
+	}).(AppVariableDefinitionTypePtrOutput)
+}
+
+func (o AppVariableDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppVariableDefinitionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppVariableDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppVariableDefinitionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppVariableDefinitionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppVariableDefinitionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppVariableDefinitionType)(nil)).Elem()
+}
+
+func (o AppVariableDefinitionTypePtrOutput) ToAppVariableDefinitionTypePtrOutput() AppVariableDefinitionTypePtrOutput {
+	return o
+}
+
+func (o AppVariableDefinitionTypePtrOutput) ToAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppVariableDefinitionTypePtrOutput {
+	return o
+}
+
+func (o AppVariableDefinitionTypePtrOutput) Elem() AppVariableDefinitionTypeOutput {
+	return o.ApplyT(func(v *AppVariableDefinitionType) AppVariableDefinitionType {
+		if v != nil {
+			return *v
+		}
+		var ret AppVariableDefinitionType
+		return ret
+	}).(AppVariableDefinitionTypeOutput)
+}
+
+func (o AppVariableDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppVariableDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppVariableDefinitionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppVariableDefinitionTypeInput is an input type that accepts values of the AppVariableDefinitionType enum
+// A concrete instance of `AppVariableDefinitionTypeInput` can be one of the following:
+//
+//	AppVariableDefinitionTypeGeneral
+//	AppVariableDefinitionTypeSecret
+type AppVariableDefinitionTypeInput interface {
+	pulumi.Input
+
+	ToAppVariableDefinitionTypeOutput() AppVariableDefinitionTypeOutput
+	ToAppVariableDefinitionTypeOutputWithContext(context.Context) AppVariableDefinitionTypeOutput
+}
+
+var appVariableDefinitionTypePtrType = reflect.TypeOf((**AppVariableDefinitionType)(nil)).Elem()
+
+type AppVariableDefinitionTypePtrInput interface {
+	pulumi.Input
+
+	ToAppVariableDefinitionTypePtrOutput() AppVariableDefinitionTypePtrOutput
+	ToAppVariableDefinitionTypePtrOutputWithContext(context.Context) AppVariableDefinitionTypePtrOutput
+}
+
+type appVariableDefinitionTypePtr string
+
+func AppVariableDefinitionTypePtr(v string) AppVariableDefinitionTypePtrInput {
+	return (*appVariableDefinitionTypePtr)(&v)
+}
+
+func (*appVariableDefinitionTypePtr) ElementType() reflect.Type {
+	return appVariableDefinitionTypePtrType
+}
+
+func (in *appVariableDefinitionTypePtr) ToAppVariableDefinitionTypePtrOutput() AppVariableDefinitionTypePtrOutput {
+	return pulumi.ToOutput(in).(AppVariableDefinitionTypePtrOutput)
+}
+
+func (in *appVariableDefinitionTypePtr) ToAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppVariableDefinitionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppVariableDefinitionTypePtrOutput)
+}
+
 type AppsDeploymentPhase string
 
 const (
@@ -479,6 +2499,173 @@ func (o AppsDomainPhasePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// - DOCKER_HUB: The DockerHub container registry type.
+// - DOCR: The DigitalOcean container registry type.
+type AppsImageSourceSpecRegistryType string
+
+const (
+	AppsImageSourceSpecRegistryTypeDockerHub = AppsImageSourceSpecRegistryType("DOCKER_HUB")
+	AppsImageSourceSpecRegistryTypeDocr      = AppsImageSourceSpecRegistryType("DOCR")
+)
+
+func (AppsImageSourceSpecRegistryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppsImageSourceSpecRegistryType)(nil)).Elem()
+}
+
+func (e AppsImageSourceSpecRegistryType) ToAppsImageSourceSpecRegistryTypeOutput() AppsImageSourceSpecRegistryTypeOutput {
+	return pulumi.ToOutput(e).(AppsImageSourceSpecRegistryTypeOutput)
+}
+
+func (e AppsImageSourceSpecRegistryType) ToAppsImageSourceSpecRegistryTypeOutputWithContext(ctx context.Context) AppsImageSourceSpecRegistryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppsImageSourceSpecRegistryTypeOutput)
+}
+
+func (e AppsImageSourceSpecRegistryType) ToAppsImageSourceSpecRegistryTypePtrOutput() AppsImageSourceSpecRegistryTypePtrOutput {
+	return e.ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppsImageSourceSpecRegistryType) ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsImageSourceSpecRegistryTypePtrOutput {
+	return AppsImageSourceSpecRegistryType(e).ToAppsImageSourceSpecRegistryTypeOutputWithContext(ctx).ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx)
+}
+
+func (e AppsImageSourceSpecRegistryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppsImageSourceSpecRegistryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppsImageSourceSpecRegistryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppsImageSourceSpecRegistryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppsImageSourceSpecRegistryTypeOutput struct{ *pulumi.OutputState }
+
+func (AppsImageSourceSpecRegistryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppsImageSourceSpecRegistryType)(nil)).Elem()
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToAppsImageSourceSpecRegistryTypeOutput() AppsImageSourceSpecRegistryTypeOutput {
+	return o
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToAppsImageSourceSpecRegistryTypeOutputWithContext(ctx context.Context) AppsImageSourceSpecRegistryTypeOutput {
+	return o
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToAppsImageSourceSpecRegistryTypePtrOutput() AppsImageSourceSpecRegistryTypePtrOutput {
+	return o.ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsImageSourceSpecRegistryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsImageSourceSpecRegistryType) *AppsImageSourceSpecRegistryType {
+		return &v
+	}).(AppsImageSourceSpecRegistryTypePtrOutput)
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsImageSourceSpecRegistryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppsImageSourceSpecRegistryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsImageSourceSpecRegistryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppsImageSourceSpecRegistryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppsImageSourceSpecRegistryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppsImageSourceSpecRegistryType)(nil)).Elem()
+}
+
+func (o AppsImageSourceSpecRegistryTypePtrOutput) ToAppsImageSourceSpecRegistryTypePtrOutput() AppsImageSourceSpecRegistryTypePtrOutput {
+	return o
+}
+
+func (o AppsImageSourceSpecRegistryTypePtrOutput) ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsImageSourceSpecRegistryTypePtrOutput {
+	return o
+}
+
+func (o AppsImageSourceSpecRegistryTypePtrOutput) Elem() AppsImageSourceSpecRegistryTypeOutput {
+	return o.ApplyT(func(v *AppsImageSourceSpecRegistryType) AppsImageSourceSpecRegistryType {
+		if v != nil {
+			return *v
+		}
+		var ret AppsImageSourceSpecRegistryType
+		return ret
+	}).(AppsImageSourceSpecRegistryTypeOutput)
+}
+
+func (o AppsImageSourceSpecRegistryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppsImageSourceSpecRegistryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsImageSourceSpecRegistryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppsImageSourceSpecRegistryTypeInput is an input type that accepts values of the AppsImageSourceSpecRegistryType enum
+// A concrete instance of `AppsImageSourceSpecRegistryTypeInput` can be one of the following:
+//
+//	AppsImageSourceSpecRegistryTypeDockerHub
+//	AppsImageSourceSpecRegistryTypeDocr
+type AppsImageSourceSpecRegistryTypeInput interface {
+	pulumi.Input
+
+	ToAppsImageSourceSpecRegistryTypeOutput() AppsImageSourceSpecRegistryTypeOutput
+	ToAppsImageSourceSpecRegistryTypeOutputWithContext(context.Context) AppsImageSourceSpecRegistryTypeOutput
+}
+
+var appsImageSourceSpecRegistryTypePtrType = reflect.TypeOf((**AppsImageSourceSpecRegistryType)(nil)).Elem()
+
+type AppsImageSourceSpecRegistryTypePtrInput interface {
+	pulumi.Input
+
+	ToAppsImageSourceSpecRegistryTypePtrOutput() AppsImageSourceSpecRegistryTypePtrOutput
+	ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(context.Context) AppsImageSourceSpecRegistryTypePtrOutput
+}
+
+type appsImageSourceSpecRegistryTypePtr string
+
+func AppsImageSourceSpecRegistryTypePtr(v string) AppsImageSourceSpecRegistryTypePtrInput {
+	return (*appsImageSourceSpecRegistryTypePtr)(&v)
+}
+
+func (*appsImageSourceSpecRegistryTypePtr) ElementType() reflect.Type {
+	return appsImageSourceSpecRegistryTypePtrType
+}
+
+func (in *appsImageSourceSpecRegistryTypePtr) ToAppsImageSourceSpecRegistryTypePtrOutput() AppsImageSourceSpecRegistryTypePtrOutput {
+	return pulumi.ToOutput(in).(AppsImageSourceSpecRegistryTypePtrOutput)
+}
+
+func (in *appsImageSourceSpecRegistryTypePtr) ToAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsImageSourceSpecRegistryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppsImageSourceSpecRegistryTypePtrOutput)
+}
+
 type AppsInstanceSizeCpuType string
 
 const (
@@ -570,2254 +2757,67 @@ func (o AppsInstanceSizeCpuTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-type AppsValidateAppSpecAppAlertSpecOperator string
-
-const (
-	AppsValidateAppSpecAppAlertSpecOperatorUnspecifiedOperator = AppsValidateAppSpecAppAlertSpecOperator("UNSPECIFIED_OPERATOR")
-	AppsValidateAppSpecAppAlertSpecOperatorGreaterThan         = AppsValidateAppSpecAppAlertSpecOperator("GREATER_THAN")
-	AppsValidateAppSpecAppAlertSpecOperatorLessThan            = AppsValidateAppSpecAppAlertSpecOperator("LESS_THAN")
-)
-
-func (AppsValidateAppSpecAppAlertSpecOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecOperator)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToAppsValidateAppSpecAppAlertSpecOperatorOutput() AppsValidateAppSpecAppAlertSpecOperatorOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppAlertSpecOperatorOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToAppsValidateAppSpecAppAlertSpecOperatorOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppAlertSpecOperatorOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutput() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return e.ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return AppsValidateAppSpecAppAlertSpecOperator(e).ToAppsValidateAppSpecAppAlertSpecOperatorOutputWithContext(ctx).ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppAlertSpecOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppAlertSpecOperatorOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppAlertSpecOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecOperator)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToAppsValidateAppSpecAppAlertSpecOperatorOutput() AppsValidateAppSpecAppAlertSpecOperatorOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToAppsValidateAppSpecAppAlertSpecOperatorOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecOperatorOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutput() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return o.ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppAlertSpecOperator) *AppsValidateAppSpecAppAlertSpecOperator {
-		return &v
-	}).(AppsValidateAppSpecAppAlertSpecOperatorPtrOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppAlertSpecOperator) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppAlertSpecOperator) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppAlertSpecOperatorPtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppAlertSpecOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppAlertSpecOperator)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorPtrOutput) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutput() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorPtrOutput) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorPtrOutput) Elem() AppsValidateAppSpecAppAlertSpecOperatorOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppAlertSpecOperator) AppsValidateAppSpecAppAlertSpecOperator {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppAlertSpecOperator
-		return ret
-	}).(AppsValidateAppSpecAppAlertSpecOperatorOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppAlertSpecOperator) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppAlertSpecOperatorInput is an input type that accepts values of the AppsValidateAppSpecAppAlertSpecOperator enum
-// A concrete instance of `AppsValidateAppSpecAppAlertSpecOperatorInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppAlertSpecOperatorUnspecifiedOperator
-//	AppsValidateAppSpecAppAlertSpecOperatorGreaterThan
-//	AppsValidateAppSpecAppAlertSpecOperatorLessThan
-type AppsValidateAppSpecAppAlertSpecOperatorInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppAlertSpecOperatorOutput() AppsValidateAppSpecAppAlertSpecOperatorOutput
-	ToAppsValidateAppSpecAppAlertSpecOperatorOutputWithContext(context.Context) AppsValidateAppSpecAppAlertSpecOperatorOutput
-}
-
-var appsValidateAppSpecAppAlertSpecOperatorPtrType = reflect.TypeOf((**AppsValidateAppSpecAppAlertSpecOperator)(nil)).Elem()
-
-type AppsValidateAppSpecAppAlertSpecOperatorPtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutput() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput
-	ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(context.Context) AppsValidateAppSpecAppAlertSpecOperatorPtrOutput
-}
-
-type appsValidateAppSpecAppAlertSpecOperatorPtr string
-
-func AppsValidateAppSpecAppAlertSpecOperatorPtr(v string) AppsValidateAppSpecAppAlertSpecOperatorPtrInput {
-	return (*appsValidateAppSpecAppAlertSpecOperatorPtr)(&v)
-}
-
-func (*appsValidateAppSpecAppAlertSpecOperatorPtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppAlertSpecOperatorPtrType
-}
-
-func (in *appsValidateAppSpecAppAlertSpecOperatorPtr) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutput() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppAlertSpecOperatorPtrOutput)
-}
-
-func (in *appsValidateAppSpecAppAlertSpecOperatorPtr) ToAppsValidateAppSpecAppAlertSpecOperatorPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppAlertSpecOperatorPtrOutput)
-}
-
-type AppsValidateAppSpecAppAlertSpecRule string
-
-const (
-	AppsValidateAppSpecAppAlertSpecRuleUnspecifiedRule             = AppsValidateAppSpecAppAlertSpecRule("UNSPECIFIED_RULE")
-	AppsValidateAppSpecAppAlertSpecRuleCpuUtilization              = AppsValidateAppSpecAppAlertSpecRule("CPU_UTILIZATION")
-	AppsValidateAppSpecAppAlertSpecRuleMemUtilization              = AppsValidateAppSpecAppAlertSpecRule("MEM_UTILIZATION")
-	AppsValidateAppSpecAppAlertSpecRuleRestartCount                = AppsValidateAppSpecAppAlertSpecRule("RESTART_COUNT")
-	AppsValidateAppSpecAppAlertSpecRuleDeploymentFailed            = AppsValidateAppSpecAppAlertSpecRule("DEPLOYMENT_FAILED")
-	AppsValidateAppSpecAppAlertSpecRuleDeploymentLive              = AppsValidateAppSpecAppAlertSpecRule("DEPLOYMENT_LIVE")
-	AppsValidateAppSpecAppAlertSpecRuleDomainFailed                = AppsValidateAppSpecAppAlertSpecRule("DOMAIN_FAILED")
-	AppsValidateAppSpecAppAlertSpecRuleDomainLive                  = AppsValidateAppSpecAppAlertSpecRule("DOMAIN_LIVE")
-	AppsValidateAppSpecAppAlertSpecRuleFunctionsActivationCount    = AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_ACTIVATION_COUNT")
-	AppsValidateAppSpecAppAlertSpecRuleFunctionsAverageDurationMs  = AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_AVERAGE_DURATION_MS")
-	AppsValidateAppSpecAppAlertSpecRuleFunctionsErrorRatePerMinute = AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_ERROR_RATE_PER_MINUTE")
-	AppsValidateAppSpecAppAlertSpecRuleFunctionsAverageWaitTimeMs  = AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_AVERAGE_WAIT_TIME_MS")
-	AppsValidateAppSpecAppAlertSpecRuleFunctionsErrorCount         = AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_ERROR_COUNT")
-	AppsValidateAppSpecAppAlertSpecRuleFunctionsGbRatePerSecond    = AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_GB_RATE_PER_SECOND")
-)
-
-func (AppsValidateAppSpecAppAlertSpecRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecRule)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToAppsValidateAppSpecAppAlertSpecRuleOutput() AppsValidateAppSpecAppAlertSpecRuleOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppAlertSpecRuleOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToAppsValidateAppSpecAppAlertSpecRuleOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppAlertSpecRuleOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToAppsValidateAppSpecAppAlertSpecRulePtrOutput() AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return e.ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return AppsValidateAppSpecAppAlertSpecRule(e).ToAppsValidateAppSpecAppAlertSpecRuleOutputWithContext(ctx).ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppAlertSpecRule) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppAlertSpecRuleOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppAlertSpecRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecRule)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToAppsValidateAppSpecAppAlertSpecRuleOutput() AppsValidateAppSpecAppAlertSpecRuleOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToAppsValidateAppSpecAppAlertSpecRuleOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecRuleOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToAppsValidateAppSpecAppAlertSpecRulePtrOutput() AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return o.ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppAlertSpecRule) *AppsValidateAppSpecAppAlertSpecRule {
-		return &v
-	}).(AppsValidateAppSpecAppAlertSpecRulePtrOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppAlertSpecRule) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRuleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppAlertSpecRule) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppAlertSpecRulePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppAlertSpecRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppAlertSpecRule)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRulePtrOutput) ToAppsValidateAppSpecAppAlertSpecRulePtrOutput() AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRulePtrOutput) ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRulePtrOutput) Elem() AppsValidateAppSpecAppAlertSpecRuleOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppAlertSpecRule) AppsValidateAppSpecAppAlertSpecRule {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppAlertSpecRule
-		return ret
-	}).(AppsValidateAppSpecAppAlertSpecRuleOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRulePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecRulePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppAlertSpecRule) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppAlertSpecRuleInput is an input type that accepts values of the AppsValidateAppSpecAppAlertSpecRule enum
-// A concrete instance of `AppsValidateAppSpecAppAlertSpecRuleInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppAlertSpecRuleUnspecifiedRule
-//	AppsValidateAppSpecAppAlertSpecRuleCpuUtilization
-//	AppsValidateAppSpecAppAlertSpecRuleMemUtilization
-//	AppsValidateAppSpecAppAlertSpecRuleRestartCount
-//	AppsValidateAppSpecAppAlertSpecRuleDeploymentFailed
-//	AppsValidateAppSpecAppAlertSpecRuleDeploymentLive
-//	AppsValidateAppSpecAppAlertSpecRuleDomainFailed
-//	AppsValidateAppSpecAppAlertSpecRuleDomainLive
-//	AppsValidateAppSpecAppAlertSpecRuleFunctionsActivationCount
-//	AppsValidateAppSpecAppAlertSpecRuleFunctionsAverageDurationMs
-//	AppsValidateAppSpecAppAlertSpecRuleFunctionsErrorRatePerMinute
-//	AppsValidateAppSpecAppAlertSpecRuleFunctionsAverageWaitTimeMs
-//	AppsValidateAppSpecAppAlertSpecRuleFunctionsErrorCount
-//	AppsValidateAppSpecAppAlertSpecRuleFunctionsGbRatePerSecond
-type AppsValidateAppSpecAppAlertSpecRuleInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppAlertSpecRuleOutput() AppsValidateAppSpecAppAlertSpecRuleOutput
-	ToAppsValidateAppSpecAppAlertSpecRuleOutputWithContext(context.Context) AppsValidateAppSpecAppAlertSpecRuleOutput
-}
-
-var appsValidateAppSpecAppAlertSpecRulePtrType = reflect.TypeOf((**AppsValidateAppSpecAppAlertSpecRule)(nil)).Elem()
-
-type AppsValidateAppSpecAppAlertSpecRulePtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppAlertSpecRulePtrOutput() AppsValidateAppSpecAppAlertSpecRulePtrOutput
-	ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(context.Context) AppsValidateAppSpecAppAlertSpecRulePtrOutput
-}
-
-type appsValidateAppSpecAppAlertSpecRulePtr string
-
-func AppsValidateAppSpecAppAlertSpecRulePtr(v string) AppsValidateAppSpecAppAlertSpecRulePtrInput {
-	return (*appsValidateAppSpecAppAlertSpecRulePtr)(&v)
-}
-
-func (*appsValidateAppSpecAppAlertSpecRulePtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppAlertSpecRulePtrType
-}
-
-func (in *appsValidateAppSpecAppAlertSpecRulePtr) ToAppsValidateAppSpecAppAlertSpecRulePtrOutput() AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppAlertSpecRulePtrOutput)
-}
-
-func (in *appsValidateAppSpecAppAlertSpecRulePtr) ToAppsValidateAppSpecAppAlertSpecRulePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppAlertSpecRulePtrOutput)
-}
-
-type AppsValidateAppSpecAppAlertSpecWindow string
-
-const (
-	AppsValidateAppSpecAppAlertSpecWindowUnspecifiedWindow = AppsValidateAppSpecAppAlertSpecWindow("UNSPECIFIED_WINDOW")
-	AppsValidateAppSpecAppAlertSpecWindowFiveMinutes       = AppsValidateAppSpecAppAlertSpecWindow("FIVE_MINUTES")
-	AppsValidateAppSpecAppAlertSpecWindowTenMinutes        = AppsValidateAppSpecAppAlertSpecWindow("TEN_MINUTES")
-	AppsValidateAppSpecAppAlertSpecWindowThirtyMinutes     = AppsValidateAppSpecAppAlertSpecWindow("THIRTY_MINUTES")
-	AppsValidateAppSpecAppAlertSpecWindowOneHour           = AppsValidateAppSpecAppAlertSpecWindow("ONE_HOUR")
-)
-
-func (AppsValidateAppSpecAppAlertSpecWindow) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecWindow)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToAppsValidateAppSpecAppAlertSpecWindowOutput() AppsValidateAppSpecAppAlertSpecWindowOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppAlertSpecWindowOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToAppsValidateAppSpecAppAlertSpecWindowOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecWindowOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppAlertSpecWindowOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutput() AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return e.ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return AppsValidateAppSpecAppAlertSpecWindow(e).ToAppsValidateAppSpecAppAlertSpecWindowOutputWithContext(ctx).ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppAlertSpecWindow) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppAlertSpecWindowOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppAlertSpecWindowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecWindow)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToAppsValidateAppSpecAppAlertSpecWindowOutput() AppsValidateAppSpecAppAlertSpecWindowOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToAppsValidateAppSpecAppAlertSpecWindowOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecWindowOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutput() AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return o.ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppAlertSpecWindow) *AppsValidateAppSpecAppAlertSpecWindow {
-		return &v
-	}).(AppsValidateAppSpecAppAlertSpecWindowPtrOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppAlertSpecWindow) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppAlertSpecWindow) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppAlertSpecWindowPtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppAlertSpecWindowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppAlertSpecWindow)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowPtrOutput) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutput() AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowPtrOutput) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowPtrOutput) Elem() AppsValidateAppSpecAppAlertSpecWindowOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppAlertSpecWindow) AppsValidateAppSpecAppAlertSpecWindow {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppAlertSpecWindow
-		return ret
-	}).(AppsValidateAppSpecAppAlertSpecWindowOutput)
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppAlertSpecWindowPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppAlertSpecWindow) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppAlertSpecWindowInput is an input type that accepts values of the AppsValidateAppSpecAppAlertSpecWindow enum
-// A concrete instance of `AppsValidateAppSpecAppAlertSpecWindowInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppAlertSpecWindowUnspecifiedWindow
-//	AppsValidateAppSpecAppAlertSpecWindowFiveMinutes
-//	AppsValidateAppSpecAppAlertSpecWindowTenMinutes
-//	AppsValidateAppSpecAppAlertSpecWindowThirtyMinutes
-//	AppsValidateAppSpecAppAlertSpecWindowOneHour
-type AppsValidateAppSpecAppAlertSpecWindowInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppAlertSpecWindowOutput() AppsValidateAppSpecAppAlertSpecWindowOutput
-	ToAppsValidateAppSpecAppAlertSpecWindowOutputWithContext(context.Context) AppsValidateAppSpecAppAlertSpecWindowOutput
-}
-
-var appsValidateAppSpecAppAlertSpecWindowPtrType = reflect.TypeOf((**AppsValidateAppSpecAppAlertSpecWindow)(nil)).Elem()
-
-type AppsValidateAppSpecAppAlertSpecWindowPtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppAlertSpecWindowPtrOutput() AppsValidateAppSpecAppAlertSpecWindowPtrOutput
-	ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(context.Context) AppsValidateAppSpecAppAlertSpecWindowPtrOutput
-}
-
-type appsValidateAppSpecAppAlertSpecWindowPtr string
-
-func AppsValidateAppSpecAppAlertSpecWindowPtr(v string) AppsValidateAppSpecAppAlertSpecWindowPtrInput {
-	return (*appsValidateAppSpecAppAlertSpecWindowPtr)(&v)
-}
-
-func (*appsValidateAppSpecAppAlertSpecWindowPtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppAlertSpecWindowPtrType
-}
-
-func (in *appsValidateAppSpecAppAlertSpecWindowPtr) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutput() AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppAlertSpecWindowPtrOutput)
-}
-
-func (in *appsValidateAppSpecAppAlertSpecWindowPtr) ToAppsValidateAppSpecAppAlertSpecWindowPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppAlertSpecWindowPtrOutput)
-}
-
-// The instance size to use for this component. Default: `basic-xxs`
-type AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug string
-
-const (
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicXxs       = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicXs        = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xs")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicS         = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-s")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicM         = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-m")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalXs = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-xs")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalS  = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-s")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalM  = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-m")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessional1l = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-1l")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalL  = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-l")
-	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalXl = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-xl")
-)
-
-func (AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput)
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(ctx context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput)
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return e.ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug(e).ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(ctx).ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(ctx context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o.ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug {
-		return &v
-	}).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput)
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput) Elem() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug
-		return ret
-	}).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput)
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugInput is an input type that accepts values of the AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug enum
-// A concrete instance of `AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicXxs
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicXs
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicS
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugBasicM
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalXs
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalS
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalM
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessional1l
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalL
-//	AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugProfessionalXl
-type AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput
-	ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutputWithContext(context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput
-}
-
-var appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrType = reflect.TypeOf((**AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug)(nil)).Elem()
-
-type AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput
-	ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput
-}
-
-type appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtr string
-
-func AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtr(v string) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrInput {
-	return (*appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtr)(&v)
-}
-
-func (*appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrType
-}
-
-func (in *appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtr) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput)
-}
-
-func (in *appsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtr) ToAppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput)
-}
-
-// - MYSQL: MySQL
-// - PG: PostgreSQL
-// - REDIS: Redis
-type AppsValidateAppSpecAppDatabaseSpecEngine string
-
-const (
-	AppsValidateAppSpecAppDatabaseSpecEngineUnset = AppsValidateAppSpecAppDatabaseSpecEngine("UNSET")
-	AppsValidateAppSpecAppDatabaseSpecEngineMysql = AppsValidateAppSpecAppDatabaseSpecEngine("MYSQL")
-	AppsValidateAppSpecAppDatabaseSpecEnginePg    = AppsValidateAppSpecAppDatabaseSpecEngine("PG")
-	AppsValidateAppSpecAppDatabaseSpecEngineRedis = AppsValidateAppSpecAppDatabaseSpecEngine("REDIS")
-)
-
-func (AppsValidateAppSpecAppDatabaseSpecEngine) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppDatabaseSpecEngine)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToAppsValidateAppSpecAppDatabaseSpecEngineOutput() AppsValidateAppSpecAppDatabaseSpecEngineOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppDatabaseSpecEngineOutput)
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToAppsValidateAppSpecAppDatabaseSpecEngineOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDatabaseSpecEngineOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppDatabaseSpecEngineOutput)
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutput() AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return e.ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return AppsValidateAppSpecAppDatabaseSpecEngine(e).ToAppsValidateAppSpecAppDatabaseSpecEngineOutputWithContext(ctx).ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppDatabaseSpecEngine) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppDatabaseSpecEngineOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppDatabaseSpecEngineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppDatabaseSpecEngine)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToAppsValidateAppSpecAppDatabaseSpecEngineOutput() AppsValidateAppSpecAppDatabaseSpecEngineOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToAppsValidateAppSpecAppDatabaseSpecEngineOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDatabaseSpecEngineOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutput() AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return o.ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppDatabaseSpecEngine) *AppsValidateAppSpecAppDatabaseSpecEngine {
-		return &v
-	}).(AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput)
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppDatabaseSpecEngine) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEngineOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppDatabaseSpecEngine) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppDatabaseSpecEngine)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutput() AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput) Elem() AppsValidateAppSpecAppDatabaseSpecEngineOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppDatabaseSpecEngine) AppsValidateAppSpecAppDatabaseSpecEngine {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppDatabaseSpecEngine
-		return ret
-	}).(AppsValidateAppSpecAppDatabaseSpecEngineOutput)
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppDatabaseSpecEngine) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppDatabaseSpecEngineInput is an input type that accepts values of the AppsValidateAppSpecAppDatabaseSpecEngine enum
-// A concrete instance of `AppsValidateAppSpecAppDatabaseSpecEngineInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppDatabaseSpecEngineUnset
-//	AppsValidateAppSpecAppDatabaseSpecEngineMysql
-//	AppsValidateAppSpecAppDatabaseSpecEnginePg
-//	AppsValidateAppSpecAppDatabaseSpecEngineRedis
-type AppsValidateAppSpecAppDatabaseSpecEngineInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppDatabaseSpecEngineOutput() AppsValidateAppSpecAppDatabaseSpecEngineOutput
-	ToAppsValidateAppSpecAppDatabaseSpecEngineOutputWithContext(context.Context) AppsValidateAppSpecAppDatabaseSpecEngineOutput
-}
-
-var appsValidateAppSpecAppDatabaseSpecEnginePtrType = reflect.TypeOf((**AppsValidateAppSpecAppDatabaseSpecEngine)(nil)).Elem()
-
-type AppsValidateAppSpecAppDatabaseSpecEnginePtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutput() AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput
-	ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(context.Context) AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput
-}
-
-type appsValidateAppSpecAppDatabaseSpecEnginePtr string
-
-func AppsValidateAppSpecAppDatabaseSpecEnginePtr(v string) AppsValidateAppSpecAppDatabaseSpecEnginePtrInput {
-	return (*appsValidateAppSpecAppDatabaseSpecEnginePtr)(&v)
-}
-
-func (*appsValidateAppSpecAppDatabaseSpecEnginePtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppDatabaseSpecEnginePtrType
-}
-
-func (in *appsValidateAppSpecAppDatabaseSpecEnginePtr) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutput() AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput)
-}
-
-func (in *appsValidateAppSpecAppDatabaseSpecEnginePtr) ToAppsValidateAppSpecAppDatabaseSpecEnginePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput)
-}
-
-// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-type AppsValidateAppSpecAppDomainSpecMinimumTlsVersion string
-
-const (
-	AppsValidateAppSpecAppDomainSpecMinimumTlsVersion_12 = AppsValidateAppSpecAppDomainSpecMinimumTlsVersion("1.2")
-	AppsValidateAppSpecAppDomainSpecMinimumTlsVersion_13 = AppsValidateAppSpecAppDomainSpecMinimumTlsVersion("1.3")
-)
-
-func (AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecMinimumTlsVersion)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return e.ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return AppsValidateAppSpecAppDomainSpecMinimumTlsVersion(e).ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutputWithContext(ctx).ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecMinimumTlsVersion)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return o.ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) *AppsValidateAppSpecAppDomainSpecMinimumTlsVersion {
-		return &v
-	}).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput)
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppDomainSpecMinimumTlsVersion)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput) Elem() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) AppsValidateAppSpecAppDomainSpecMinimumTlsVersion {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppDomainSpecMinimumTlsVersion
-		return ret
-	}).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput)
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppDomainSpecMinimumTlsVersion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppDomainSpecMinimumTlsVersionInput is an input type that accepts values of the AppsValidateAppSpecAppDomainSpecMinimumTlsVersion enum
-// A concrete instance of `AppsValidateAppSpecAppDomainSpecMinimumTlsVersionInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppDomainSpecMinimumTlsVersion_12
-//	AppsValidateAppSpecAppDomainSpecMinimumTlsVersion_13
-type AppsValidateAppSpecAppDomainSpecMinimumTlsVersionInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput
-	ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutputWithContext(context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput
-}
-
-var appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrType = reflect.TypeOf((**AppsValidateAppSpecAppDomainSpecMinimumTlsVersion)(nil)).Elem()
-
-type AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput
-	ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput
-}
-
-type appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtr string
-
-func AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtr(v string) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrInput {
-	return (*appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtr)(&v)
-}
-
-func (*appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrType
-}
-
-func (in *appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtr) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput)
-}
-
-func (in *appsValidateAppSpecAppDomainSpecMinimumTlsVersionPtr) ToAppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput)
-}
-
-// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
-// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
-// - ALIAS: A non-primary domain
-type AppsValidateAppSpecAppDomainSpecType string
-
-const (
-	AppsValidateAppSpecAppDomainSpecTypeUnspecified = AppsValidateAppSpecAppDomainSpecType("UNSPECIFIED")
-	AppsValidateAppSpecAppDomainSpecTypeDefault     = AppsValidateAppSpecAppDomainSpecType("DEFAULT")
-	AppsValidateAppSpecAppDomainSpecTypePrimary     = AppsValidateAppSpecAppDomainSpecType("PRIMARY")
-	AppsValidateAppSpecAppDomainSpecTypeAlias       = AppsValidateAppSpecAppDomainSpecType("ALIAS")
-)
-
-func (AppsValidateAppSpecAppDomainSpecType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecType)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToAppsValidateAppSpecAppDomainSpecTypeOutput() AppsValidateAppSpecAppDomainSpecTypeOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppDomainSpecTypeOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToAppsValidateAppSpecAppDomainSpecTypeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppDomainSpecTypeOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToAppsValidateAppSpecAppDomainSpecTypePtrOutput() AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return e.ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return AppsValidateAppSpecAppDomainSpecType(e).ToAppsValidateAppSpecAppDomainSpecTypeOutputWithContext(ctx).ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppDomainSpecType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppDomainSpecTypeOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppDomainSpecTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecType)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToAppsValidateAppSpecAppDomainSpecTypeOutput() AppsValidateAppSpecAppDomainSpecTypeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToAppsValidateAppSpecAppDomainSpecTypeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecTypeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToAppsValidateAppSpecAppDomainSpecTypePtrOutput() AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return o.ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppDomainSpecType) *AppsValidateAppSpecAppDomainSpecType {
-		return &v
-	}).(AppsValidateAppSpecAppDomainSpecTypePtrOutput)
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppDomainSpecType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppDomainSpecType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppDomainSpecTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppDomainSpecTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppDomainSpecType)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypePtrOutput) ToAppsValidateAppSpecAppDomainSpecTypePtrOutput() AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypePtrOutput) ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypePtrOutput) Elem() AppsValidateAppSpecAppDomainSpecTypeOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppDomainSpecType) AppsValidateAppSpecAppDomainSpecType {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppDomainSpecType
-		return ret
-	}).(AppsValidateAppSpecAppDomainSpecTypeOutput)
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppDomainSpecTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppDomainSpecType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppDomainSpecTypeInput is an input type that accepts values of the AppsValidateAppSpecAppDomainSpecType enum
-// A concrete instance of `AppsValidateAppSpecAppDomainSpecTypeInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppDomainSpecTypeUnspecified
-//	AppsValidateAppSpecAppDomainSpecTypeDefault
-//	AppsValidateAppSpecAppDomainSpecTypePrimary
-//	AppsValidateAppSpecAppDomainSpecTypeAlias
-type AppsValidateAppSpecAppDomainSpecTypeInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppDomainSpecTypeOutput() AppsValidateAppSpecAppDomainSpecTypeOutput
-	ToAppsValidateAppSpecAppDomainSpecTypeOutputWithContext(context.Context) AppsValidateAppSpecAppDomainSpecTypeOutput
-}
-
-var appsValidateAppSpecAppDomainSpecTypePtrType = reflect.TypeOf((**AppsValidateAppSpecAppDomainSpecType)(nil)).Elem()
-
-type AppsValidateAppSpecAppDomainSpecTypePtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppDomainSpecTypePtrOutput() AppsValidateAppSpecAppDomainSpecTypePtrOutput
-	ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(context.Context) AppsValidateAppSpecAppDomainSpecTypePtrOutput
-}
-
-type appsValidateAppSpecAppDomainSpecTypePtr string
-
-func AppsValidateAppSpecAppDomainSpecTypePtr(v string) AppsValidateAppSpecAppDomainSpecTypePtrInput {
-	return (*appsValidateAppSpecAppDomainSpecTypePtr)(&v)
-}
-
-func (*appsValidateAppSpecAppDomainSpecTypePtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppDomainSpecTypePtrType
-}
-
-func (in *appsValidateAppSpecAppDomainSpecTypePtr) ToAppsValidateAppSpecAppDomainSpecTypePtrOutput() AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppDomainSpecTypePtrOutput)
-}
-
-func (in *appsValidateAppSpecAppDomainSpecTypePtr) ToAppsValidateAppSpecAppDomainSpecTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppDomainSpecTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppDomainSpecTypePtrOutput)
-}
-
-// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
-// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
-// - POST_DEPLOY: Indicates a job that runs after an app deployment.
-// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
-type AppsValidateAppSpecAppJobSpecPropertiesKind string
-
-const (
-	AppsValidateAppSpecAppJobSpecPropertiesKindUnspecified  = AppsValidateAppSpecAppJobSpecPropertiesKind("UNSPECIFIED")
-	AppsValidateAppSpecAppJobSpecPropertiesKindPreDeploy    = AppsValidateAppSpecAppJobSpecPropertiesKind("PRE_DEPLOY")
-	AppsValidateAppSpecAppJobSpecPropertiesKindPostDeploy   = AppsValidateAppSpecAppJobSpecPropertiesKind("POST_DEPLOY")
-	AppsValidateAppSpecAppJobSpecPropertiesKindFailedDeploy = AppsValidateAppSpecAppJobSpecPropertiesKind("FAILED_DEPLOY")
-)
-
-func (AppsValidateAppSpecAppJobSpecPropertiesKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppJobSpecPropertiesKind)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToAppsValidateAppSpecAppJobSpecPropertiesKindOutput() AppsValidateAppSpecAppJobSpecPropertiesKindOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppJobSpecPropertiesKindOutput)
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToAppsValidateAppSpecAppJobSpecPropertiesKindOutputWithContext(ctx context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppJobSpecPropertiesKindOutput)
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput() AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return e.ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return AppsValidateAppSpecAppJobSpecPropertiesKind(e).ToAppsValidateAppSpecAppJobSpecPropertiesKindOutputWithContext(ctx).ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppJobSpecPropertiesKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppJobSpecPropertiesKindOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppJobSpecPropertiesKind)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToAppsValidateAppSpecAppJobSpecPropertiesKindOutput() AppsValidateAppSpecAppJobSpecPropertiesKindOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToAppsValidateAppSpecAppJobSpecPropertiesKindOutputWithContext(ctx context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput() AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return o.ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppJobSpecPropertiesKind) *AppsValidateAppSpecAppJobSpecPropertiesKind {
-		return &v
-	}).(AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput)
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppJobSpecPropertiesKind) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppJobSpecPropertiesKind) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppJobSpecPropertiesKind)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput() AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput) Elem() AppsValidateAppSpecAppJobSpecPropertiesKindOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppJobSpecPropertiesKind) AppsValidateAppSpecAppJobSpecPropertiesKind {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppJobSpecPropertiesKind
-		return ret
-	}).(AppsValidateAppSpecAppJobSpecPropertiesKindOutput)
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppJobSpecPropertiesKind) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppJobSpecPropertiesKindInput is an input type that accepts values of the AppsValidateAppSpecAppJobSpecPropertiesKind enum
-// A concrete instance of `AppsValidateAppSpecAppJobSpecPropertiesKindInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppJobSpecPropertiesKindUnspecified
-//	AppsValidateAppSpecAppJobSpecPropertiesKindPreDeploy
-//	AppsValidateAppSpecAppJobSpecPropertiesKindPostDeploy
-//	AppsValidateAppSpecAppJobSpecPropertiesKindFailedDeploy
-type AppsValidateAppSpecAppJobSpecPropertiesKindInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppJobSpecPropertiesKindOutput() AppsValidateAppSpecAppJobSpecPropertiesKindOutput
-	ToAppsValidateAppSpecAppJobSpecPropertiesKindOutputWithContext(context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindOutput
-}
-
-var appsValidateAppSpecAppJobSpecPropertiesKindPtrType = reflect.TypeOf((**AppsValidateAppSpecAppJobSpecPropertiesKind)(nil)).Elem()
-
-type AppsValidateAppSpecAppJobSpecPropertiesKindPtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput() AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput
-	ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput
-}
-
-type appsValidateAppSpecAppJobSpecPropertiesKindPtr string
-
-func AppsValidateAppSpecAppJobSpecPropertiesKindPtr(v string) AppsValidateAppSpecAppJobSpecPropertiesKindPtrInput {
-	return (*appsValidateAppSpecAppJobSpecPropertiesKindPtr)(&v)
-}
-
-func (*appsValidateAppSpecAppJobSpecPropertiesKindPtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppJobSpecPropertiesKindPtrType
-}
-
-func (in *appsValidateAppSpecAppJobSpecPropertiesKindPtr) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput() AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput)
-}
-
-func (in *appsValidateAppSpecAppJobSpecPropertiesKindPtr) ToAppsValidateAppSpecAppJobSpecPropertiesKindPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput)
-}
-
-// The slug form of the geographical origin of the app. Default: `nearest available`
-type AppsValidateAppSpecAppSpecRegion string
-
-const (
-	AppsValidateAppSpecAppSpecRegionAms = AppsValidateAppSpecAppSpecRegion("ams")
-	AppsValidateAppSpecAppSpecRegionNyc = AppsValidateAppSpecAppSpecRegion("nyc")
-	AppsValidateAppSpecAppSpecRegionFra = AppsValidateAppSpecAppSpecRegion("fra")
-	AppsValidateAppSpecAppSpecRegionSfo = AppsValidateAppSpecAppSpecRegion("sfo")
-	AppsValidateAppSpecAppSpecRegionSgp = AppsValidateAppSpecAppSpecRegion("sgp")
-	AppsValidateAppSpecAppSpecRegionBlr = AppsValidateAppSpecAppSpecRegion("blr")
-	AppsValidateAppSpecAppSpecRegionTor = AppsValidateAppSpecAppSpecRegion("tor")
-	AppsValidateAppSpecAppSpecRegionLon = AppsValidateAppSpecAppSpecRegion("lon")
-	AppsValidateAppSpecAppSpecRegionSyd = AppsValidateAppSpecAppSpecRegion("syd")
-)
-
-func (AppsValidateAppSpecAppSpecRegion) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppSpecRegion)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToAppsValidateAppSpecAppSpecRegionOutput() AppsValidateAppSpecAppSpecRegionOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppSpecRegionOutput)
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToAppsValidateAppSpecAppSpecRegionOutputWithContext(ctx context.Context) AppsValidateAppSpecAppSpecRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppSpecRegionOutput)
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToAppsValidateAppSpecAppSpecRegionPtrOutput() AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return e.ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return AppsValidateAppSpecAppSpecRegion(e).ToAppsValidateAppSpecAppSpecRegionOutputWithContext(ctx).ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppSpecRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppSpecRegionOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppSpecRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppSpecRegion)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToAppsValidateAppSpecAppSpecRegionOutput() AppsValidateAppSpecAppSpecRegionOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToAppsValidateAppSpecAppSpecRegionOutputWithContext(ctx context.Context) AppsValidateAppSpecAppSpecRegionOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToAppsValidateAppSpecAppSpecRegionPtrOutput() AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return o.ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppSpecRegion) *AppsValidateAppSpecAppSpecRegion {
-		return &v
-	}).(AppsValidateAppSpecAppSpecRegionPtrOutput)
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppSpecRegion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppSpecRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppSpecRegion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppSpecRegionPtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppSpecRegionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppSpecRegion)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppSpecRegionPtrOutput) ToAppsValidateAppSpecAppSpecRegionPtrOutput() AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppSpecRegionPtrOutput) ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppSpecRegionPtrOutput) Elem() AppsValidateAppSpecAppSpecRegionOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppSpecRegion) AppsValidateAppSpecAppSpecRegion {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppSpecRegion
-		return ret
-	}).(AppsValidateAppSpecAppSpecRegionOutput)
-}
-
-func (o AppsValidateAppSpecAppSpecRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppSpecRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppSpecRegion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppSpecRegionInput is an input type that accepts values of the AppsValidateAppSpecAppSpecRegion enum
-// A concrete instance of `AppsValidateAppSpecAppSpecRegionInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppSpecRegionAms
-//	AppsValidateAppSpecAppSpecRegionNyc
-//	AppsValidateAppSpecAppSpecRegionFra
-//	AppsValidateAppSpecAppSpecRegionSfo
-//	AppsValidateAppSpecAppSpecRegionSgp
-//	AppsValidateAppSpecAppSpecRegionBlr
-//	AppsValidateAppSpecAppSpecRegionTor
-//	AppsValidateAppSpecAppSpecRegionLon
-//	AppsValidateAppSpecAppSpecRegionSyd
-type AppsValidateAppSpecAppSpecRegionInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppSpecRegionOutput() AppsValidateAppSpecAppSpecRegionOutput
-	ToAppsValidateAppSpecAppSpecRegionOutputWithContext(context.Context) AppsValidateAppSpecAppSpecRegionOutput
-}
-
-var appsValidateAppSpecAppSpecRegionPtrType = reflect.TypeOf((**AppsValidateAppSpecAppSpecRegion)(nil)).Elem()
-
-type AppsValidateAppSpecAppSpecRegionPtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppSpecRegionPtrOutput() AppsValidateAppSpecAppSpecRegionPtrOutput
-	ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(context.Context) AppsValidateAppSpecAppSpecRegionPtrOutput
-}
-
-type appsValidateAppSpecAppSpecRegionPtr string
-
-func AppsValidateAppSpecAppSpecRegionPtr(v string) AppsValidateAppSpecAppSpecRegionPtrInput {
-	return (*appsValidateAppSpecAppSpecRegionPtr)(&v)
-}
-
-func (*appsValidateAppSpecAppSpecRegionPtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppSpecRegionPtrType
-}
-
-func (in *appsValidateAppSpecAppSpecRegionPtr) ToAppsValidateAppSpecAppSpecRegionPtrOutput() AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppSpecRegionPtrOutput)
-}
-
-func (in *appsValidateAppSpecAppSpecRegionPtr) ToAppsValidateAppSpecAppSpecRegionPtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppSpecRegionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppSpecRegionPtrOutput)
-}
-
-// - RUN_TIME: Made available only at run-time
-// - BUILD_TIME: Made available only at build-time
-// - RUN_AND_BUILD_TIME: Made available at both build and run-time
-type AppsValidateAppSpecAppVariableDefinitionScope string
-
-const (
-	AppsValidateAppSpecAppVariableDefinitionScopeUnset           = AppsValidateAppSpecAppVariableDefinitionScope("UNSET")
-	AppsValidateAppSpecAppVariableDefinitionScopeRunTime         = AppsValidateAppSpecAppVariableDefinitionScope("RUN_TIME")
-	AppsValidateAppSpecAppVariableDefinitionScopeBuildTime       = AppsValidateAppSpecAppVariableDefinitionScope("BUILD_TIME")
-	AppsValidateAppSpecAppVariableDefinitionScopeRunAndBuildTime = AppsValidateAppSpecAppVariableDefinitionScope("RUN_AND_BUILD_TIME")
-)
-
-func (AppsValidateAppSpecAppVariableDefinitionScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionScope)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToAppsValidateAppSpecAppVariableDefinitionScopeOutput() AppsValidateAppSpecAppVariableDefinitionScopeOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppVariableDefinitionScopeOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToAppsValidateAppSpecAppVariableDefinitionScopeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppVariableDefinitionScopeOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutput() AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return e.ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return AppsValidateAppSpecAppVariableDefinitionScope(e).ToAppsValidateAppSpecAppVariableDefinitionScopeOutputWithContext(ctx).ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppVariableDefinitionScopeOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppVariableDefinitionScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionScope)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToAppsValidateAppSpecAppVariableDefinitionScopeOutput() AppsValidateAppSpecAppVariableDefinitionScopeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToAppsValidateAppSpecAppVariableDefinitionScopeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionScopeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutput() AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return o.ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppVariableDefinitionScope) *AppsValidateAppSpecAppVariableDefinitionScope {
-		return &v
-	}).(AppsValidateAppSpecAppVariableDefinitionScopePtrOutput)
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppVariableDefinitionScope) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppVariableDefinitionScope) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppVariableDefinitionScopePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppVariableDefinitionScopePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppVariableDefinitionScope)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopePtrOutput) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutput() AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopePtrOutput) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopePtrOutput) Elem() AppsValidateAppSpecAppVariableDefinitionScopeOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppVariableDefinitionScope) AppsValidateAppSpecAppVariableDefinitionScope {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppVariableDefinitionScope
-		return ret
-	}).(AppsValidateAppSpecAppVariableDefinitionScopeOutput)
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppVariableDefinitionScope) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppVariableDefinitionScopeInput is an input type that accepts values of the AppsValidateAppSpecAppVariableDefinitionScope enum
-// A concrete instance of `AppsValidateAppSpecAppVariableDefinitionScopeInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppVariableDefinitionScopeUnset
-//	AppsValidateAppSpecAppVariableDefinitionScopeRunTime
-//	AppsValidateAppSpecAppVariableDefinitionScopeBuildTime
-//	AppsValidateAppSpecAppVariableDefinitionScopeRunAndBuildTime
-type AppsValidateAppSpecAppVariableDefinitionScopeInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppVariableDefinitionScopeOutput() AppsValidateAppSpecAppVariableDefinitionScopeOutput
-	ToAppsValidateAppSpecAppVariableDefinitionScopeOutputWithContext(context.Context) AppsValidateAppSpecAppVariableDefinitionScopeOutput
-}
-
-var appsValidateAppSpecAppVariableDefinitionScopePtrType = reflect.TypeOf((**AppsValidateAppSpecAppVariableDefinitionScope)(nil)).Elem()
-
-type AppsValidateAppSpecAppVariableDefinitionScopePtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutput() AppsValidateAppSpecAppVariableDefinitionScopePtrOutput
-	ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(context.Context) AppsValidateAppSpecAppVariableDefinitionScopePtrOutput
-}
-
-type appsValidateAppSpecAppVariableDefinitionScopePtr string
-
-func AppsValidateAppSpecAppVariableDefinitionScopePtr(v string) AppsValidateAppSpecAppVariableDefinitionScopePtrInput {
-	return (*appsValidateAppSpecAppVariableDefinitionScopePtr)(&v)
-}
-
-func (*appsValidateAppSpecAppVariableDefinitionScopePtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppVariableDefinitionScopePtrType
-}
-
-func (in *appsValidateAppSpecAppVariableDefinitionScopePtr) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutput() AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppVariableDefinitionScopePtrOutput)
-}
-
-func (in *appsValidateAppSpecAppVariableDefinitionScopePtr) ToAppsValidateAppSpecAppVariableDefinitionScopePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppVariableDefinitionScopePtrOutput)
-}
-
-// - GENERAL: A plain-text environment variable
-// - SECRET: A secret encrypted environment variable
-type AppsValidateAppSpecAppVariableDefinitionType string
-
-const (
-	AppsValidateAppSpecAppVariableDefinitionTypeGeneral = AppsValidateAppSpecAppVariableDefinitionType("GENERAL")
-	AppsValidateAppSpecAppVariableDefinitionTypeSecret  = AppsValidateAppSpecAppVariableDefinitionType("SECRET")
-)
-
-func (AppsValidateAppSpecAppVariableDefinitionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionType)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToAppsValidateAppSpecAppVariableDefinitionTypeOutput() AppsValidateAppSpecAppVariableDefinitionTypeOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppVariableDefinitionTypeOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToAppsValidateAppSpecAppVariableDefinitionTypeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppVariableDefinitionTypeOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutput() AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return e.ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return AppsValidateAppSpecAppVariableDefinitionType(e).ToAppsValidateAppSpecAppVariableDefinitionTypeOutputWithContext(ctx).ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppVariableDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppVariableDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppVariableDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionType)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToAppsValidateAppSpecAppVariableDefinitionTypeOutput() AppsValidateAppSpecAppVariableDefinitionTypeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToAppsValidateAppSpecAppVariableDefinitionTypeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionTypeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutput() AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return o.ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppVariableDefinitionType) *AppsValidateAppSpecAppVariableDefinitionType {
-		return &v
-	}).(AppsValidateAppSpecAppVariableDefinitionTypePtrOutput)
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppVariableDefinitionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppVariableDefinitionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppVariableDefinitionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppVariableDefinitionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppVariableDefinitionType)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypePtrOutput) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutput() AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypePtrOutput) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypePtrOutput) Elem() AppsValidateAppSpecAppVariableDefinitionTypeOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppVariableDefinitionType) AppsValidateAppSpecAppVariableDefinitionType {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppVariableDefinitionType
-		return ret
-	}).(AppsValidateAppSpecAppVariableDefinitionTypeOutput)
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppVariableDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppVariableDefinitionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppVariableDefinitionTypeInput is an input type that accepts values of the AppsValidateAppSpecAppVariableDefinitionType enum
-// A concrete instance of `AppsValidateAppSpecAppVariableDefinitionTypeInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppVariableDefinitionTypeGeneral
-//	AppsValidateAppSpecAppVariableDefinitionTypeSecret
-type AppsValidateAppSpecAppVariableDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppVariableDefinitionTypeOutput() AppsValidateAppSpecAppVariableDefinitionTypeOutput
-	ToAppsValidateAppSpecAppVariableDefinitionTypeOutputWithContext(context.Context) AppsValidateAppSpecAppVariableDefinitionTypeOutput
-}
-
-var appsValidateAppSpecAppVariableDefinitionTypePtrType = reflect.TypeOf((**AppsValidateAppSpecAppVariableDefinitionType)(nil)).Elem()
-
-type AppsValidateAppSpecAppVariableDefinitionTypePtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutput() AppsValidateAppSpecAppVariableDefinitionTypePtrOutput
-	ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(context.Context) AppsValidateAppSpecAppVariableDefinitionTypePtrOutput
-}
-
-type appsValidateAppSpecAppVariableDefinitionTypePtr string
-
-func AppsValidateAppSpecAppVariableDefinitionTypePtr(v string) AppsValidateAppSpecAppVariableDefinitionTypePtrInput {
-	return (*appsValidateAppSpecAppVariableDefinitionTypePtr)(&v)
-}
-
-func (*appsValidateAppSpecAppVariableDefinitionTypePtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppVariableDefinitionTypePtrType
-}
-
-func (in *appsValidateAppSpecAppVariableDefinitionTypePtr) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutput() AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppVariableDefinitionTypePtrOutput)
-}
-
-func (in *appsValidateAppSpecAppVariableDefinitionTypePtr) ToAppsValidateAppSpecAppVariableDefinitionTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppVariableDefinitionTypePtrOutput)
-}
-
-// - DOCKER_HUB: The DockerHub container registry type.
-// - DOCR: The DigitalOcean container registry type.
-type AppsValidateAppSpecAppsImageSourceSpecRegistryType string
-
-const (
-	AppsValidateAppSpecAppsImageSourceSpecRegistryTypeDockerHub = AppsValidateAppSpecAppsImageSourceSpecRegistryType("DOCKER_HUB")
-	AppsValidateAppSpecAppsImageSourceSpecRegistryTypeDocr      = AppsValidateAppSpecAppsImageSourceSpecRegistryType("DOCR")
-)
-
-func (AppsValidateAppSpecAppsImageSourceSpecRegistryType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppsImageSourceSpecRegistryType)(nil)).Elem()
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput {
-	return pulumi.ToOutput(e).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput)
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput)
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return e.ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return AppsValidateAppSpecAppsImageSourceSpecRegistryType(e).ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutputWithContext(ctx).ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx)
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppsValidateAppSpecAppsImageSourceSpecRegistryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateAppSpecAppsImageSourceSpecRegistryType)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutputWithContext(ctx context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return o.ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateAppSpecAppsImageSourceSpecRegistryType) *AppsValidateAppSpecAppsImageSourceSpecRegistryType {
-		return &v
-	}).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput)
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppsImageSourceSpecRegistryType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateAppSpecAppsImageSourceSpecRegistryType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateAppSpecAppsImageSourceSpecRegistryType)(nil)).Elem()
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return o
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput) Elem() AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput {
-	return o.ApplyT(func(v *AppsValidateAppSpecAppsImageSourceSpecRegistryType) AppsValidateAppSpecAppsImageSourceSpecRegistryType {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateAppSpecAppsImageSourceSpecRegistryType
-		return ret
-	}).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput)
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateAppSpecAppsImageSourceSpecRegistryType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppsValidateAppSpecAppsImageSourceSpecRegistryTypeInput is an input type that accepts values of the AppsValidateAppSpecAppsImageSourceSpecRegistryType enum
-// A concrete instance of `AppsValidateAppSpecAppsImageSourceSpecRegistryTypeInput` can be one of the following:
-//
-//	AppsValidateAppSpecAppsImageSourceSpecRegistryTypeDockerHub
-//	AppsValidateAppSpecAppsImageSourceSpecRegistryTypeDocr
-type AppsValidateAppSpecAppsImageSourceSpecRegistryTypeInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput
-	ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutputWithContext(context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput
-}
-
-var appsValidateAppSpecAppsImageSourceSpecRegistryTypePtrType = reflect.TypeOf((**AppsValidateAppSpecAppsImageSourceSpecRegistryType)(nil)).Elem()
-
-type AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrInput interface {
-	pulumi.Input
-
-	ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput
-	ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput
-}
-
-type appsValidateAppSpecAppsImageSourceSpecRegistryTypePtr string
-
-func AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtr(v string) AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrInput {
-	return (*appsValidateAppSpecAppsImageSourceSpecRegistryTypePtr)(&v)
-}
-
-func (*appsValidateAppSpecAppsImageSourceSpecRegistryTypePtr) ElementType() reflect.Type {
-	return appsValidateAppSpecAppsImageSourceSpecRegistryTypePtrType
-}
-
-func (in *appsValidateAppSpecAppsImageSourceSpecRegistryTypePtr) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return pulumi.ToOutput(in).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput)
-}
-
-func (in *appsValidateAppSpecAppsImageSourceSpecRegistryTypePtr) ToAppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutputWithContext(ctx context.Context) AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput)
-}
-
-// A code identifier that represents the failing condition.
-//
-// Failing conditions:
-//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
-//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
-//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
-//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
-//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
-//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
-//
-// Warning conditions:
-//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
-//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-type AppsValidateRollbackAppRollbackValidationConditionCode string
-
-const (
-	AppsValidateRollbackAppRollbackValidationConditionCodeIncompatiblePhase         = AppsValidateRollbackAppRollbackValidationConditionCode("incompatible_phase")
-	AppsValidateRollbackAppRollbackValidationConditionCodeIncompatibleResult        = AppsValidateRollbackAppRollbackValidationConditionCode("incompatible_result")
-	AppsValidateRollbackAppRollbackValidationConditionCodeExceededRevisionLimit     = AppsValidateRollbackAppRollbackValidationConditionCode("exceeded_revision_limit")
-	AppsValidateRollbackAppRollbackValidationConditionCodeAppPinned                 = AppsValidateRollbackAppRollbackValidationConditionCode("app_pinned")
-	AppsValidateRollbackAppRollbackValidationConditionCodeDatabaseConfigConflict    = AppsValidateRollbackAppRollbackValidationConditionCode("database_config_conflict")
-	AppsValidateRollbackAppRollbackValidationConditionCodeRegionConflict            = AppsValidateRollbackAppRollbackValidationConditionCode("region_conflict")
-	AppsValidateRollbackAppRollbackValidationConditionCodeStaticSiteRequiresRebuild = AppsValidateRollbackAppRollbackValidationConditionCode("static_site_requires_rebuild")
-	AppsValidateRollbackAppRollbackValidationConditionCodeImageSourceMissingDigest  = AppsValidateRollbackAppRollbackValidationConditionCode("image_source_missing_digest")
-)
-
-type AppsValidateRollbackAppRollbackValidationConditionCodeOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppsValidateRollbackAppRollbackValidationConditionCode)(nil)).Elem()
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToAppsValidateRollbackAppRollbackValidationConditionCodeOutput() AppsValidateRollbackAppRollbackValidationConditionCodeOutput {
-	return o
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToAppsValidateRollbackAppRollbackValidationConditionCodeOutputWithContext(ctx context.Context) AppsValidateRollbackAppRollbackValidationConditionCodeOutput {
-	return o
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToAppsValidateRollbackAppRollbackValidationConditionCodePtrOutput() AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
-	return o.ToAppsValidateRollbackAppRollbackValidationConditionCodePtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToAppsValidateRollbackAppRollbackValidationConditionCodePtrOutputWithContext(ctx context.Context) AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppsValidateRollbackAppRollbackValidationConditionCode) *AppsValidateRollbackAppRollbackValidationConditionCode {
-		return &v
-	}).(AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput)
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateRollbackAppRollbackValidationConditionCode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppsValidateRollbackAppRollbackValidationConditionCode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput struct{ *pulumi.OutputState }
-
-func (AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppsValidateRollbackAppRollbackValidationConditionCode)(nil)).Elem()
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput) ToAppsValidateRollbackAppRollbackValidationConditionCodePtrOutput() AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
-	return o
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput) ToAppsValidateRollbackAppRollbackValidationConditionCodePtrOutputWithContext(ctx context.Context) AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
-	return o
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput) Elem() AppsValidateRollbackAppRollbackValidationConditionCodeOutput {
-	return o.ApplyT(func(v *AppsValidateRollbackAppRollbackValidationConditionCode) AppsValidateRollbackAppRollbackValidationConditionCode {
-		if v != nil {
-			return *v
-		}
-		var ret AppsValidateRollbackAppRollbackValidationConditionCode
-		return ret
-	}).(AppsValidateRollbackAppRollbackValidationConditionCodeOutput)
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppsValidateRollbackAppRollbackValidationConditionCode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecOperatorInput)(nil)).Elem(), AppsValidateAppSpecAppAlertSpecOperator("UNSPECIFIED_OPERATOR"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecOperatorPtrInput)(nil)).Elem(), AppsValidateAppSpecAppAlertSpecOperator("UNSPECIFIED_OPERATOR"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecRuleInput)(nil)).Elem(), AppsValidateAppSpecAppAlertSpecRule("UNSPECIFIED_RULE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecRulePtrInput)(nil)).Elem(), AppsValidateAppSpecAppAlertSpecRule("UNSPECIFIED_RULE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecWindowInput)(nil)).Elem(), AppsValidateAppSpecAppAlertSpecWindow("UNSPECIFIED_WINDOW"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppAlertSpecWindowPtrInput)(nil)).Elem(), AppsValidateAppSpecAppAlertSpecWindow("UNSPECIFIED_WINDOW"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugInput)(nil)).Elem(), AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrInput)(nil)).Elem(), AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppDatabaseSpecEngineInput)(nil)).Elem(), AppsValidateAppSpecAppDatabaseSpecEngine("UNSET"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppDatabaseSpecEnginePtrInput)(nil)).Elem(), AppsValidateAppSpecAppDatabaseSpecEngine("UNSET"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecMinimumTlsVersionInput)(nil)).Elem(), AppsValidateAppSpecAppDomainSpecMinimumTlsVersion("1.2"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrInput)(nil)).Elem(), AppsValidateAppSpecAppDomainSpecMinimumTlsVersion("1.2"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecTypeInput)(nil)).Elem(), AppsValidateAppSpecAppDomainSpecType("UNSPECIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppDomainSpecTypePtrInput)(nil)).Elem(), AppsValidateAppSpecAppDomainSpecType("UNSPECIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppJobSpecPropertiesKindInput)(nil)).Elem(), AppsValidateAppSpecAppJobSpecPropertiesKind("UNSPECIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppJobSpecPropertiesKindPtrInput)(nil)).Elem(), AppsValidateAppSpecAppJobSpecPropertiesKind("UNSPECIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppSpecRegionInput)(nil)).Elem(), AppsValidateAppSpecAppSpecRegion("ams"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppSpecRegionPtrInput)(nil)).Elem(), AppsValidateAppSpecAppSpecRegion("ams"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionScopeInput)(nil)).Elem(), AppsValidateAppSpecAppVariableDefinitionScope("UNSET"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionScopePtrInput)(nil)).Elem(), AppsValidateAppSpecAppVariableDefinitionScope("UNSET"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionTypeInput)(nil)).Elem(), AppsValidateAppSpecAppVariableDefinitionType("GENERAL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppVariableDefinitionTypePtrInput)(nil)).Elem(), AppsValidateAppSpecAppVariableDefinitionType("GENERAL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppsImageSourceSpecRegistryTypeInput)(nil)).Elem(), AppsValidateAppSpecAppsImageSourceSpecRegistryType("DOCKER_HUB"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrInput)(nil)).Elem(), AppsValidateAppSpecAppsImageSourceSpecRegistryType("DOCKER_HUB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAlertSpecOperatorInput)(nil)).Elem(), AppAlertSpecOperator("UNSPECIFIED_OPERATOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAlertSpecOperatorPtrInput)(nil)).Elem(), AppAlertSpecOperator("UNSPECIFIED_OPERATOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAlertSpecRuleInput)(nil)).Elem(), AppAlertSpecRule("UNSPECIFIED_RULE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAlertSpecRulePtrInput)(nil)).Elem(), AppAlertSpecRule("UNSPECIFIED_RULE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAlertSpecWindowInput)(nil)).Elem(), AppAlertSpecWindow("UNSPECIFIED_WINDOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAlertSpecWindowPtrInput)(nil)).Elem(), AppAlertSpecWindow("UNSPECIFIED_WINDOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppComponentInstanceBaseInstanceSizeSlugInput)(nil)).Elem(), AppComponentInstanceBaseInstanceSizeSlug("basic-xxs"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppComponentInstanceBaseInstanceSizeSlugPtrInput)(nil)).Elem(), AppComponentInstanceBaseInstanceSizeSlug("basic-xxs"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppDatabaseSpecEngineInput)(nil)).Elem(), AppDatabaseSpecEngine("UNSET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppDatabaseSpecEnginePtrInput)(nil)).Elem(), AppDatabaseSpecEngine("UNSET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppDomainSpecMinimumTlsVersionInput)(nil)).Elem(), AppDomainSpecMinimumTlsVersion("1.2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppDomainSpecMinimumTlsVersionPtrInput)(nil)).Elem(), AppDomainSpecMinimumTlsVersion("1.2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppDomainSpecTypeInput)(nil)).Elem(), AppDomainSpecType("UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppDomainSpecTypePtrInput)(nil)).Elem(), AppDomainSpecType("UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobSpecPropertiesKindInput)(nil)).Elem(), AppJobSpecPropertiesKind("UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobSpecPropertiesKindPtrInput)(nil)).Elem(), AppJobSpecPropertiesKind("UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSpecRegionInput)(nil)).Elem(), AppSpecRegion("ams"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSpecRegionPtrInput)(nil)).Elem(), AppSpecRegion("ams"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppVariableDefinitionScopeInput)(nil)).Elem(), AppVariableDefinitionScope("UNSET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppVariableDefinitionScopePtrInput)(nil)).Elem(), AppVariableDefinitionScope("UNSET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppVariableDefinitionTypeInput)(nil)).Elem(), AppVariableDefinitionType("GENERAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppVariableDefinitionTypePtrInput)(nil)).Elem(), AppVariableDefinitionType("GENERAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppsImageSourceSpecRegistryTypeInput)(nil)).Elem(), AppsImageSourceSpecRegistryType("DOCKER_HUB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppsImageSourceSpecRegistryTypePtrInput)(nil)).Elem(), AppsImageSourceSpecRegistryType("DOCKER_HUB"))
 	pulumi.RegisterOutputType(AppAlertPhaseOutput{})
 	pulumi.RegisterOutputType(AppAlertPhasePtrOutput{})
 	pulumi.RegisterOutputType(AppAlertProgressStepStatusOutput{})
 	pulumi.RegisterOutputType(AppAlertProgressStepStatusPtrOutput{})
+	pulumi.RegisterOutputType(AppAlertSpecOperatorOutput{})
+	pulumi.RegisterOutputType(AppAlertSpecOperatorPtrOutput{})
+	pulumi.RegisterOutputType(AppAlertSpecRuleOutput{})
+	pulumi.RegisterOutputType(AppAlertSpecRulePtrOutput{})
+	pulumi.RegisterOutputType(AppAlertSpecWindowOutput{})
+	pulumi.RegisterOutputType(AppAlertSpecWindowPtrOutput{})
+	pulumi.RegisterOutputType(AppComponentInstanceBaseInstanceSizeSlugOutput{})
+	pulumi.RegisterOutputType(AppComponentInstanceBaseInstanceSizeSlugPtrOutput{})
+	pulumi.RegisterOutputType(AppDatabaseSpecEngineOutput{})
+	pulumi.RegisterOutputType(AppDatabaseSpecEnginePtrOutput{})
+	pulumi.RegisterOutputType(AppDomainSpecMinimumTlsVersionOutput{})
+	pulumi.RegisterOutputType(AppDomainSpecMinimumTlsVersionPtrOutput{})
+	pulumi.RegisterOutputType(AppDomainSpecTypeOutput{})
+	pulumi.RegisterOutputType(AppDomainSpecTypePtrOutput{})
+	pulumi.RegisterOutputType(AppJobSpecPropertiesKindOutput{})
+	pulumi.RegisterOutputType(AppJobSpecPropertiesKindPtrOutput{})
+	pulumi.RegisterOutputType(AppRollbackValidationConditionCodeOutput{})
+	pulumi.RegisterOutputType(AppRollbackValidationConditionCodePtrOutput{})
+	pulumi.RegisterOutputType(AppSpecRegionOutput{})
+	pulumi.RegisterOutputType(AppSpecRegionPtrOutput{})
+	pulumi.RegisterOutputType(AppVariableDefinitionScopeOutput{})
+	pulumi.RegisterOutputType(AppVariableDefinitionScopePtrOutput{})
+	pulumi.RegisterOutputType(AppVariableDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(AppVariableDefinitionTypePtrOutput{})
 	pulumi.RegisterOutputType(AppsDeploymentPhaseOutput{})
 	pulumi.RegisterOutputType(AppsDeploymentPhasePtrOutput{})
 	pulumi.RegisterOutputType(AppsDeploymentProgressStepStatusOutput{})
 	pulumi.RegisterOutputType(AppsDeploymentProgressStepStatusPtrOutput{})
 	pulumi.RegisterOutputType(AppsDomainPhaseOutput{})
 	pulumi.RegisterOutputType(AppsDomainPhasePtrOutput{})
+	pulumi.RegisterOutputType(AppsImageSourceSpecRegistryTypeOutput{})
+	pulumi.RegisterOutputType(AppsImageSourceSpecRegistryTypePtrOutput{})
 	pulumi.RegisterOutputType(AppsInstanceSizeCpuTypeOutput{})
 	pulumi.RegisterOutputType(AppsInstanceSizeCpuTypePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppAlertSpecOperatorOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppAlertSpecOperatorPtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppAlertSpecRuleOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppAlertSpecRulePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppAlertSpecWindowOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppAlertSpecWindowPtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppDatabaseSpecEngineOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppDomainSpecTypeOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppDomainSpecTypePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppJobSpecPropertiesKindOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppSpecRegionOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppSpecRegionPtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppVariableDefinitionScopeOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppVariableDefinitionScopePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppVariableDefinitionTypeOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppVariableDefinitionTypePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppsImageSourceSpecRegistryTypeOutput{})
-	pulumi.RegisterOutputType(AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput{})
-	pulumi.RegisterOutputType(AppsValidateRollbackAppRollbackValidationConditionCodeOutput{})
-	pulumi.RegisterOutputType(AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput{})
 }

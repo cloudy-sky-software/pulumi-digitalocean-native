@@ -40,37 +40,6 @@ namespace Pulumi.DigitalOceanNative.ReservedIpsV2
     }
 
     /// <summary>
-    /// The type of action to initiate for the reserved IP.
-    /// </summary>
-    [EnumType]
-    public readonly struct AssignReservedIpActionTypeType : IEquatable<AssignReservedIpActionTypeType>
-    {
-        private readonly string _value;
-
-        private AssignReservedIpActionTypeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AssignReservedIpActionTypeType Assign { get; } = new AssignReservedIpActionTypeType("assign");
-        public static AssignReservedIpActionTypeType Unassign { get; } = new AssignReservedIpActionTypeType("unassign");
-
-        public static bool operator ==(AssignReservedIpActionTypeType left, AssignReservedIpActionTypeType right) => left.Equals(right);
-        public static bool operator !=(AssignReservedIpActionTypeType left, AssignReservedIpActionTypeType right) => !left.Equals(right);
-
-        public static explicit operator string(AssignReservedIpActionTypeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssignReservedIpActionTypeType other && Equals(other);
-        public bool Equals(AssignReservedIpActionTypeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
     /// </summary>
     [EnumType]
@@ -324,26 +293,26 @@ namespace Pulumi.DigitalOceanNative.ReservedIpsV2
     /// The type of action to initiate for the reserved IP.
     /// </summary>
     [EnumType]
-    public readonly struct UnassignReservedIpActionTypeType : IEquatable<UnassignReservedIpActionTypeType>
+    public readonly struct ReservedIpActionTypeType : IEquatable<ReservedIpActionTypeType>
     {
         private readonly string _value;
 
-        private UnassignReservedIpActionTypeType(string value)
+        private ReservedIpActionTypeType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static UnassignReservedIpActionTypeType Assign { get; } = new UnassignReservedIpActionTypeType("assign");
-        public static UnassignReservedIpActionTypeType Unassign { get; } = new UnassignReservedIpActionTypeType("unassign");
+        public static ReservedIpActionTypeType Assign { get; } = new ReservedIpActionTypeType("assign");
+        public static ReservedIpActionTypeType Unassign { get; } = new ReservedIpActionTypeType("unassign");
 
-        public static bool operator ==(UnassignReservedIpActionTypeType left, UnassignReservedIpActionTypeType right) => left.Equals(right);
-        public static bool operator !=(UnassignReservedIpActionTypeType left, UnassignReservedIpActionTypeType right) => !left.Equals(right);
+        public static bool operator ==(ReservedIpActionTypeType left, ReservedIpActionTypeType right) => left.Equals(right);
+        public static bool operator !=(ReservedIpActionTypeType left, ReservedIpActionTypeType right) => !left.Equals(right);
 
-        public static explicit operator string(UnassignReservedIpActionTypeType value) => value._value;
+        public static explicit operator string(ReservedIpActionTypeType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UnassignReservedIpActionTypeType other && Equals(other);
-        public bool Equals(UnassignReservedIpActionTypeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ReservedIpActionTypeType other && Equals(other);
+        public bool Equals(ReservedIpActionTypeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

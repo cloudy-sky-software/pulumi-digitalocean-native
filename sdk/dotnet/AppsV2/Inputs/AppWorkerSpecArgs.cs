@@ -64,7 +64,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// The instance size to use for this component. Default: `basic-xxs`
         /// </summary>
         [Input("instanceSizeSlug")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>? InstanceSizeSlug { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug>? InstanceSizeSlug { get; set; }
 
         [Input("logDestinations")]
         public Input<Inputs.AppLogDestinationDefinitionArgs>? LogDestinations { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         public AppWorkerSpecArgs()
         {
             InstanceCount = 1;
-            InstanceSizeSlug = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug.BasicXxs;
+            InstanceSizeSlug = Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug.BasicXxs;
         }
         public static new AppWorkerSpecArgs Empty => new AppWorkerSpecArgs();
     }

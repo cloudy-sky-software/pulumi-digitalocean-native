@@ -48,93 +48,29 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
     /// Slug of the region where registry data is stored. When not provided, a region will be selected.
     /// </summary>
     [EnumType]
-    public readonly struct RegistryRegion : IEquatable<RegistryRegion>
+    public readonly struct Region : IEquatable<Region>
     {
         private readonly string _value;
 
-        private RegistryRegion(string value)
+        private Region(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static RegistryRegion Nyc3 { get; } = new RegistryRegion("nyc3");
-        public static RegistryRegion Sfo3 { get; } = new RegistryRegion("sfo3");
-        public static RegistryRegion Ams3 { get; } = new RegistryRegion("ams3");
-        public static RegistryRegion Sgp1 { get; } = new RegistryRegion("sgp1");
-        public static RegistryRegion Fra1 { get; } = new RegistryRegion("fra1");
+        public static Region Nyc3 { get; } = new Region("nyc3");
+        public static Region Sfo3 { get; } = new Region("sfo3");
+        public static Region Ams3 { get; } = new Region("ams3");
+        public static Region Sgp1 { get; } = new Region("sgp1");
+        public static Region Fra1 { get; } = new Region("fra1");
 
-        public static bool operator ==(RegistryRegion left, RegistryRegion right) => left.Equals(right);
-        public static bool operator !=(RegistryRegion left, RegistryRegion right) => !left.Equals(right);
+        public static bool operator ==(Region left, Region right) => left.Equals(right);
+        public static bool operator !=(Region left, Region right) => !left.Equals(right);
 
-        public static explicit operator string(RegistryRegion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RegistryRegion other && Equals(other);
-        public bool Equals(RegistryRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(Region value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-    /// </summary>
-    [EnumType]
-    public readonly struct RegistrySubscriptionTierSlug : IEquatable<RegistrySubscriptionTierSlug>
-    {
-        private readonly string _value;
-
-        private RegistrySubscriptionTierSlug(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RegistrySubscriptionTierSlug Starter { get; } = new RegistrySubscriptionTierSlug("starter");
-        public static RegistrySubscriptionTierSlug Basic { get; } = new RegistrySubscriptionTierSlug("basic");
-        public static RegistrySubscriptionTierSlug Professional { get; } = new RegistrySubscriptionTierSlug("professional");
-
-        public static bool operator ==(RegistrySubscriptionTierSlug left, RegistrySubscriptionTierSlug right) => left.Equals(right);
-        public static bool operator !=(RegistrySubscriptionTierSlug left, RegistrySubscriptionTierSlug right) => !left.Equals(right);
-
-        public static explicit operator string(RegistrySubscriptionTierSlug value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RegistrySubscriptionTierSlug other && Equals(other);
-        public bool Equals(RegistrySubscriptionTierSlug other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The slug of the subscription tier to sign up for.
-    /// </summary>
-    [EnumType]
-    public readonly struct RegistryUpdateSubscriptionTierSlug : IEquatable<RegistryUpdateSubscriptionTierSlug>
-    {
-        private readonly string _value;
-
-        private RegistryUpdateSubscriptionTierSlug(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RegistryUpdateSubscriptionTierSlug Starter { get; } = new RegistryUpdateSubscriptionTierSlug("starter");
-        public static RegistryUpdateSubscriptionTierSlug Basic { get; } = new RegistryUpdateSubscriptionTierSlug("basic");
-        public static RegistryUpdateSubscriptionTierSlug Professional { get; } = new RegistryUpdateSubscriptionTierSlug("professional");
-
-        public static bool operator ==(RegistryUpdateSubscriptionTierSlug left, RegistryUpdateSubscriptionTierSlug right) => left.Equals(right);
-        public static bool operator !=(RegistryUpdateSubscriptionTierSlug left, RegistryUpdateSubscriptionTierSlug right) => !left.Equals(right);
-
-        public static explicit operator string(RegistryUpdateSubscriptionTierSlug value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RegistryUpdateSubscriptionTierSlug other && Equals(other);
-        public bool Equals(RegistryUpdateSubscriptionTierSlug other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is Region other && Equals(other);
+        public bool Equals(Region other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -163,6 +99,70 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SubscriptionTierExtendedEligibilityReasonsItem other && Equals(other);
         public bool Equals(SubscriptionTierExtendedEligibilityReasonsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubscriptionTierSlug : IEquatable<SubscriptionTierSlug>
+    {
+        private readonly string _value;
+
+        private SubscriptionTierSlug(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriptionTierSlug Starter { get; } = new SubscriptionTierSlug("starter");
+        public static SubscriptionTierSlug Basic { get; } = new SubscriptionTierSlug("basic");
+        public static SubscriptionTierSlug Professional { get; } = new SubscriptionTierSlug("professional");
+
+        public static bool operator ==(SubscriptionTierSlug left, SubscriptionTierSlug right) => left.Equals(right);
+        public static bool operator !=(SubscriptionTierSlug left, SubscriptionTierSlug right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriptionTierSlug value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriptionTierSlug other && Equals(other);
+        public bool Equals(SubscriptionTierSlug other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The slug of the subscription tier to sign up for.
+    /// </summary>
+    [EnumType]
+    public readonly struct TierSlug : IEquatable<TierSlug>
+    {
+        private readonly string _value;
+
+        private TierSlug(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TierSlug Starter { get; } = new TierSlug("starter");
+        public static TierSlug Basic { get; } = new TierSlug("basic");
+        public static TierSlug Professional { get; } = new TierSlug("professional");
+
+        public static bool operator ==(TierSlug left, TierSlug right) => left.Equals(right);
+        public static bool operator !=(TierSlug left, TierSlug right) => !left.Equals(right);
+
+        public static explicit operator string(TierSlug value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TierSlug other && Equals(other);
+        public bool Equals(TierSlug other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

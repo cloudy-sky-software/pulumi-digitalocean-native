@@ -25,7 +25,7 @@ namespace Pulumi.DigitalOceanNative.ReservedIpsV2
         /// The type of action to initiate for the reserved IP.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.ReservedIpsV2.AssignReservedIpActionTypeType?> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.ReservedIpsV2.ReservedIpActionTypeType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pulumi.DigitalOceanNative.ReservedIpsV2
         /// The type of action to initiate for the reserved IP.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.ReservedIpsV2.AssignReservedIpActionTypeType> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.ReservedIpsV2.ReservedIpActionTypeType> Type { get; set; } = null!;
 
         public AssignArgs()
         {

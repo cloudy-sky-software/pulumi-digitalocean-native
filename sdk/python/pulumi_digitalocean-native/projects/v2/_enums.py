@@ -6,21 +6,11 @@ from enum import Enum
 
 __all__ = [
     'ProjectBaseEnvironment',
-    'ProjectsProjectBaseEnvironment',
     'ResourceStatus',
 ]
 
 
 class ProjectBaseEnvironment(str, Enum):
-    """
-    The environment of the project's resources.
-    """
-    DEVELOPMENT = "Development"
-    STAGING = "Staging"
-    PRODUCTION = "Production"
-
-
-class ProjectsProjectBaseEnvironment(str, Enum):
     """
     The environment of the project's resources.
     """

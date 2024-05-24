@@ -46,7 +46,7 @@ export class UptimeCheck extends pulumi.CustomResource {
     /**
      * An array containing the selected regions to perform healthchecks from.
      */
-    public readonly regions!: pulumi.Output<enums.uptime.v2.UptimeCheckCheckUpdatableRegionsItem[]>;
+    public readonly regions!: pulumi.Output<enums.uptime.v2.CheckUpdatableRegionsItem[]>;
     /**
      * The endpoint to perform healthchecks on.
      */
@@ -54,7 +54,7 @@ export class UptimeCheck extends pulumi.CustomResource {
     /**
      * The type of health check to perform.
      */
-    public readonly type!: pulumi.Output<enums.uptime.v2.UptimeCheckCheckUpdatableType>;
+    public readonly type!: pulumi.Output<enums.uptime.v2.CheckUpdatableType>;
 
     /**
      * Create a UptimeCheck resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ export interface UptimeCheckArgs {
     /**
      * An array containing the selected regions to perform healthchecks from.
      */
-    regions?: pulumi.Input<pulumi.Input<enums.uptime.v2.UptimeCheckCheckUpdatableRegionsItem>[]>;
+    regions?: pulumi.Input<pulumi.Input<enums.uptime.v2.CheckUpdatableRegionsItem>[]>;
     /**
      * The endpoint to perform healthchecks on.
      */
@@ -109,5 +109,5 @@ export interface UptimeCheckArgs {
     /**
      * The type of health check to perform.
      */
-    type?: pulumi.Input<enums.uptime.v2.UptimeCheckCheckUpdatableType>;
+    type?: pulumi.Input<enums.uptime.v2.CheckUpdatableType>;
 }

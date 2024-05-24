@@ -16,13 +16,13 @@ __all__ = ['ResizeArgs', 'Resize']
 @pulumi.input_type
 class ResizeArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['ResizeDropletActionType'],
+                 type: pulumi.Input['DropletActionType'],
                  disk: Optional[pulumi.Input[bool]] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Resize resource.
-        :param pulumi.Input['ResizeDropletActionType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['DropletActionType'] type: The type of action to initiate for the Droplet.
         :param pulumi.Input[bool] disk: When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         :param pulumi.Input[str] size: The slug identifier for the size to which you wish to resize the Droplet.
@@ -37,14 +37,14 @@ class ResizeArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ResizeDropletActionType']:
+    def type(self) -> pulumi.Input['DropletActionType']:
         """
         The type of action to initiate for the Droplet.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ResizeDropletActionType']):
+    def type(self, value: pulumi.Input['DropletActionType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -92,7 +92,7 @@ class Resize(pulumi.CustomResource):
                  disk: Optional[pulumi.Input[bool]] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['ResizeDropletActionType']] = None,
+                 type: Optional[pulumi.Input['DropletActionType']] = None,
                  __props__=None):
         """
         Create a Resize resource with the given unique name, props, and options.
@@ -101,7 +101,7 @@ class Resize(pulumi.CustomResource):
         :param pulumi.Input[bool] disk: When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased.
         :param pulumi.Input[str] droplet_id: A unique identifier for a Droplet instance.
         :param pulumi.Input[str] size: The slug identifier for the size to which you wish to resize the Droplet.
-        :param pulumi.Input['ResizeDropletActionType'] type: The type of action to initiate for the Droplet.
+        :param pulumi.Input['DropletActionType'] type: The type of action to initiate for the Droplet.
         """
         ...
     @overload
@@ -129,7 +129,7 @@ class Resize(pulumi.CustomResource):
                  disk: Optional[pulumi.Input[bool]] = None,
                  droplet_id: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['ResizeDropletActionType']] = None,
+                 type: Optional[pulumi.Input['DropletActionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,7 +197,7 @@ class Resize(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['ResizeDropletActionType']]:
+    def type(self) -> pulumi.Output[Optional['DropletActionType']]:
         """
         The type of action to initiate for the Droplet.
         """

@@ -11,28 +11,28 @@ namespace Pulumi.DigitalOceanNative.TagsV2
     /// The type of the resource.
     /// </summary>
     [EnumType]
-    public readonly struct TagsAssignResourcesResourcesItemPropertiesResourceType : IEquatable<TagsAssignResourcesResourcesItemPropertiesResourceType>
+    public readonly struct ResourcesItemPropertiesResourceType : IEquatable<ResourcesItemPropertiesResourceType>
     {
         private readonly string _value;
 
-        private TagsAssignResourcesResourcesItemPropertiesResourceType(string value)
+        private ResourcesItemPropertiesResourceType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TagsAssignResourcesResourcesItemPropertiesResourceType Droplet { get; } = new TagsAssignResourcesResourcesItemPropertiesResourceType("droplet");
-        public static TagsAssignResourcesResourcesItemPropertiesResourceType Image { get; } = new TagsAssignResourcesResourcesItemPropertiesResourceType("image");
-        public static TagsAssignResourcesResourcesItemPropertiesResourceType Volume { get; } = new TagsAssignResourcesResourcesItemPropertiesResourceType("volume");
-        public static TagsAssignResourcesResourcesItemPropertiesResourceType VolumeSnapshot { get; } = new TagsAssignResourcesResourcesItemPropertiesResourceType("volume_snapshot");
+        public static ResourcesItemPropertiesResourceType Droplet { get; } = new ResourcesItemPropertiesResourceType("droplet");
+        public static ResourcesItemPropertiesResourceType Image { get; } = new ResourcesItemPropertiesResourceType("image");
+        public static ResourcesItemPropertiesResourceType Volume { get; } = new ResourcesItemPropertiesResourceType("volume");
+        public static ResourcesItemPropertiesResourceType VolumeSnapshot { get; } = new ResourcesItemPropertiesResourceType("volume_snapshot");
 
-        public static bool operator ==(TagsAssignResourcesResourcesItemPropertiesResourceType left, TagsAssignResourcesResourcesItemPropertiesResourceType right) => left.Equals(right);
-        public static bool operator !=(TagsAssignResourcesResourcesItemPropertiesResourceType left, TagsAssignResourcesResourcesItemPropertiesResourceType right) => !left.Equals(right);
+        public static bool operator ==(ResourcesItemPropertiesResourceType left, ResourcesItemPropertiesResourceType right) => left.Equals(right);
+        public static bool operator !=(ResourcesItemPropertiesResourceType left, ResourcesItemPropertiesResourceType right) => !left.Equals(right);
 
-        public static explicit operator string(TagsAssignResourcesResourcesItemPropertiesResourceType value) => value._value;
+        public static explicit operator string(ResourcesItemPropertiesResourceType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TagsAssignResourcesResourcesItemPropertiesResourceType other && Equals(other);
-        public bool Equals(TagsAssignResourcesResourcesItemPropertiesResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ResourcesItemPropertiesResourceType other && Equals(other);
+        public bool Equals(ResourcesItemPropertiesResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

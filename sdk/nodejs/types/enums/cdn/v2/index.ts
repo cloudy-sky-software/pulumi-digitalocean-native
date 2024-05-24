@@ -14,3 +14,16 @@ export const CdnEndpointTtl = {
  * The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
  */
 export type CdnEndpointTtl = (typeof CdnEndpointTtl)[keyof typeof CdnEndpointTtl];
+
+export const Ttl = {
+    Ttl_d_float64_60_: 60,
+    Ttl_d_float64_600_: 600,
+    Ttl_d_float64_3600_: 3600,
+    Ttl_d_float64_86400_: 86400,
+    Ttl_d_float64_604800_: 604800,
+} as const;
+
+/**
+ * The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
+ */
+export type Ttl = (typeof Ttl)[keyof typeof Ttl];

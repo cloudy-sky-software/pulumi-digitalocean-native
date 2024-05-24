@@ -13,18 +13,7 @@ export const ActionStatus = {
  */
 export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
-export const ConvertStatus = {
-    InProgress: "in-progress",
-    Completed: "completed",
-    Errored: "errored",
-} as const;
-
-/**
- * The current status of the action. This can be "in-progress", "completed", or "errored".
- */
-export type ConvertStatus = (typeof ConvertStatus)[keyof typeof ConvertStatus];
-
-export const ConvertType = {
+export const ImageActionBaseType = {
     Convert: "convert",
     Transfer: "transfer",
 } as const;
@@ -32,7 +21,7 @@ export const ConvertType = {
 /**
  * The action to be taken on the image. Can be either `convert` or `transfer`.
  */
-export type ConvertType = (typeof ConvertType)[keyof typeof ConvertType];
+export type ImageActionBaseType = (typeof ImageActionBaseType)[keyof typeof ImageActionBaseType];
 
 export const ImageDistribution = {
     ArchLinux: "Arch Linux",
@@ -104,7 +93,7 @@ export const ImageType = {
  */
 export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
-export const ImagesCustomImageUpdateDistribution = {
+export const ImageUpdateDistribution = {
     ArchLinux: "Arch Linux",
     CentOS: "CentOS",
     CoreOS: "CoreOS",
@@ -123,7 +112,7 @@ export const ImagesCustomImageUpdateDistribution = {
 /**
  * The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
  */
-export type ImagesCustomImageUpdateDistribution = (typeof ImagesCustomImageUpdateDistribution)[keyof typeof ImagesCustomImageUpdateDistribution];
+export type ImageUpdateDistribution = (typeof ImageUpdateDistribution)[keyof typeof ImageUpdateDistribution];
 
 export const ImagesCustomPropertiesRegion = {
     Ams1: "ams1",
@@ -147,15 +136,16 @@ export const ImagesCustomPropertiesRegion = {
  */
 export type ImagesCustomPropertiesRegion = (typeof ImagesCustomPropertiesRegion)[keyof typeof ImagesCustomPropertiesRegion];
 
-export const TransferImageActionBaseType = {
-    Convert: "convert",
-    Transfer: "transfer",
+export const Status = {
+    InProgress: "in-progress",
+    Completed: "completed",
+    Errored: "errored",
 } as const;
 
 /**
- * The action to be taken on the image. Can be either `convert` or `transfer`.
+ * The current status of the action. This can be "in-progress", "completed", or "errored".
  */
-export type TransferImageActionBaseType = (typeof TransferImageActionBaseType)[keyof typeof TransferImageActionBaseType];
+export type Status = (typeof Status)[keyof typeof Status];
 
 export const TransferPropertiesRegion = {
     Ams1: "ams1",
@@ -179,13 +169,12 @@ export const TransferPropertiesRegion = {
  */
 export type TransferPropertiesRegion = (typeof TransferPropertiesRegion)[keyof typeof TransferPropertiesRegion];
 
-export const TransferStatus = {
-    InProgress: "in-progress",
-    Completed: "completed",
-    Errored: "errored",
+export const Type = {
+    Convert: "convert",
+    Transfer: "transfer",
 } as const;
 
 /**
- * The current status of the action. This can be "in-progress", "completed", or "errored".
+ * The action to be taken on the image. Can be either `convert` or `transfer`.
  */
-export type TransferStatus = (typeof TransferStatus)[keyof typeof TransferStatus];
+export type Type = (typeof Type)[keyof typeof Type];

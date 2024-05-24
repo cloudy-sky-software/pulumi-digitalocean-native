@@ -41,7 +41,7 @@ export class PowerOn extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.PowerOnType>;
+    public readonly type!: pulumi.Output<enums.droplets.v2.Type>;
 
     /**
      * Create a PowerOn resource with the given unique name, arguments, and options.
@@ -80,5 +80,5 @@ export interface PowerOnArgs {
     /**
      * The type of action to initiate for the Droplet.
      */
-    type: pulumi.Input<enums.droplets.v2.PowerOnType>;
+    type: pulumi.Input<enums.droplets.v2.Type>;
 }

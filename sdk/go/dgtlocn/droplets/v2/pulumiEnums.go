@@ -10,282 +10,90 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of action to initiate for the Droplet.
-type ChangeKernelDropletActionType string
-
-const (
-	ChangeKernelDropletActionTypeEnableBackups  = ChangeKernelDropletActionType("enable_backups")
-	ChangeKernelDropletActionTypeDisableBackups = ChangeKernelDropletActionType("disable_backups")
-	ChangeKernelDropletActionTypeReboot         = ChangeKernelDropletActionType("reboot")
-	ChangeKernelDropletActionTypePowerCycle     = ChangeKernelDropletActionType("power_cycle")
-	ChangeKernelDropletActionTypeShutdown       = ChangeKernelDropletActionType("shutdown")
-	ChangeKernelDropletActionTypePowerOff       = ChangeKernelDropletActionType("power_off")
-	ChangeKernelDropletActionTypePowerOn        = ChangeKernelDropletActionType("power_on")
-	ChangeKernelDropletActionTypeRestore        = ChangeKernelDropletActionType("restore")
-	ChangeKernelDropletActionTypePasswordReset  = ChangeKernelDropletActionType("password_reset")
-	ChangeKernelDropletActionTypeResize         = ChangeKernelDropletActionType("resize")
-	ChangeKernelDropletActionTypeRebuild        = ChangeKernelDropletActionType("rebuild")
-	ChangeKernelDropletActionTypeRename         = ChangeKernelDropletActionType("rename")
-	ChangeKernelDropletActionTypeChangeKernel   = ChangeKernelDropletActionType("change_kernel")
-	ChangeKernelDropletActionTypeEnableIpv6     = ChangeKernelDropletActionType("enable_ipv6")
-	ChangeKernelDropletActionTypeSnapshot       = ChangeKernelDropletActionType("snapshot")
-)
-
-func (ChangeKernelDropletActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChangeKernelDropletActionType)(nil)).Elem()
-}
-
-func (e ChangeKernelDropletActionType) ToChangeKernelDropletActionTypeOutput() ChangeKernelDropletActionTypeOutput {
-	return pulumi.ToOutput(e).(ChangeKernelDropletActionTypeOutput)
-}
-
-func (e ChangeKernelDropletActionType) ToChangeKernelDropletActionTypeOutputWithContext(ctx context.Context) ChangeKernelDropletActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ChangeKernelDropletActionTypeOutput)
-}
-
-func (e ChangeKernelDropletActionType) ToChangeKernelDropletActionTypePtrOutput() ChangeKernelDropletActionTypePtrOutput {
-	return e.ToChangeKernelDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e ChangeKernelDropletActionType) ToChangeKernelDropletActionTypePtrOutputWithContext(ctx context.Context) ChangeKernelDropletActionTypePtrOutput {
-	return ChangeKernelDropletActionType(e).ToChangeKernelDropletActionTypeOutputWithContext(ctx).ToChangeKernelDropletActionTypePtrOutputWithContext(ctx)
-}
-
-func (e ChangeKernelDropletActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ChangeKernelDropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ChangeKernelDropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ChangeKernelDropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ChangeKernelDropletActionTypeOutput struct{ *pulumi.OutputState }
-
-func (ChangeKernelDropletActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChangeKernelDropletActionType)(nil)).Elem()
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToChangeKernelDropletActionTypeOutput() ChangeKernelDropletActionTypeOutput {
-	return o
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToChangeKernelDropletActionTypeOutputWithContext(ctx context.Context) ChangeKernelDropletActionTypeOutput {
-	return o
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToChangeKernelDropletActionTypePtrOutput() ChangeKernelDropletActionTypePtrOutput {
-	return o.ToChangeKernelDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToChangeKernelDropletActionTypePtrOutputWithContext(ctx context.Context) ChangeKernelDropletActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChangeKernelDropletActionType) *ChangeKernelDropletActionType {
-		return &v
-	}).(ChangeKernelDropletActionTypePtrOutput)
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeKernelDropletActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ChangeKernelDropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeKernelDropletActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ChangeKernelDropletActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ChangeKernelDropletActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChangeKernelDropletActionType)(nil)).Elem()
-}
-
-func (o ChangeKernelDropletActionTypePtrOutput) ToChangeKernelDropletActionTypePtrOutput() ChangeKernelDropletActionTypePtrOutput {
-	return o
-}
-
-func (o ChangeKernelDropletActionTypePtrOutput) ToChangeKernelDropletActionTypePtrOutputWithContext(ctx context.Context) ChangeKernelDropletActionTypePtrOutput {
-	return o
-}
-
-func (o ChangeKernelDropletActionTypePtrOutput) Elem() ChangeKernelDropletActionTypeOutput {
-	return o.ApplyT(func(v *ChangeKernelDropletActionType) ChangeKernelDropletActionType {
-		if v != nil {
-			return *v
-		}
-		var ret ChangeKernelDropletActionType
-		return ret
-	}).(ChangeKernelDropletActionTypeOutput)
-}
-
-func (o ChangeKernelDropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ChangeKernelDropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChangeKernelDropletActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ChangeKernelDropletActionTypeInput is an input type that accepts values of the ChangeKernelDropletActionType enum
-// A concrete instance of `ChangeKernelDropletActionTypeInput` can be one of the following:
-//
-//	ChangeKernelDropletActionTypeEnableBackups
-//	ChangeKernelDropletActionTypeDisableBackups
-//	ChangeKernelDropletActionTypeReboot
-//	ChangeKernelDropletActionTypePowerCycle
-//	ChangeKernelDropletActionTypeShutdown
-//	ChangeKernelDropletActionTypePowerOff
-//	ChangeKernelDropletActionTypePowerOn
-//	ChangeKernelDropletActionTypeRestore
-//	ChangeKernelDropletActionTypePasswordReset
-//	ChangeKernelDropletActionTypeResize
-//	ChangeKernelDropletActionTypeRebuild
-//	ChangeKernelDropletActionTypeRename
-//	ChangeKernelDropletActionTypeChangeKernel
-//	ChangeKernelDropletActionTypeEnableIpv6
-//	ChangeKernelDropletActionTypeSnapshot
-type ChangeKernelDropletActionTypeInput interface {
-	pulumi.Input
-
-	ToChangeKernelDropletActionTypeOutput() ChangeKernelDropletActionTypeOutput
-	ToChangeKernelDropletActionTypeOutputWithContext(context.Context) ChangeKernelDropletActionTypeOutput
-}
-
-var changeKernelDropletActionTypePtrType = reflect.TypeOf((**ChangeKernelDropletActionType)(nil)).Elem()
-
-type ChangeKernelDropletActionTypePtrInput interface {
-	pulumi.Input
-
-	ToChangeKernelDropletActionTypePtrOutput() ChangeKernelDropletActionTypePtrOutput
-	ToChangeKernelDropletActionTypePtrOutputWithContext(context.Context) ChangeKernelDropletActionTypePtrOutput
-}
-
-type changeKernelDropletActionTypePtr string
-
-func ChangeKernelDropletActionTypePtr(v string) ChangeKernelDropletActionTypePtrInput {
-	return (*changeKernelDropletActionTypePtr)(&v)
-}
-
-func (*changeKernelDropletActionTypePtr) ElementType() reflect.Type {
-	return changeKernelDropletActionTypePtrType
-}
-
-func (in *changeKernelDropletActionTypePtr) ToChangeKernelDropletActionTypePtrOutput() ChangeKernelDropletActionTypePtrOutput {
-	return pulumi.ToOutput(in).(ChangeKernelDropletActionTypePtrOutput)
-}
-
-func (in *changeKernelDropletActionTypePtr) ToChangeKernelDropletActionTypePtrOutputWithContext(ctx context.Context) ChangeKernelDropletActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ChangeKernelDropletActionTypePtrOutput)
-}
-
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-type DisableBackupsActionStatus string
+type ActionStatus string
 
 const (
-	DisableBackupsActionStatusInProgress = DisableBackupsActionStatus("in-progress")
-	DisableBackupsActionStatusCompleted  = DisableBackupsActionStatus("completed")
-	DisableBackupsActionStatusErrored    = DisableBackupsActionStatus("errored")
+	ActionStatusInProgress = ActionStatus("in-progress")
+	ActionStatusCompleted  = ActionStatus("completed")
+	ActionStatusErrored    = ActionStatus("errored")
 )
 
-type DisableBackupsActionStatusOutput struct{ *pulumi.OutputState }
+type ActionStatusOutput struct{ *pulumi.OutputState }
 
-func (DisableBackupsActionStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisableBackupsActionStatus)(nil)).Elem()
+func (ActionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionStatus)(nil)).Elem()
 }
 
-func (o DisableBackupsActionStatusOutput) ToDisableBackupsActionStatusOutput() DisableBackupsActionStatusOutput {
+func (o ActionStatusOutput) ToActionStatusOutput() ActionStatusOutput {
 	return o
 }
 
-func (o DisableBackupsActionStatusOutput) ToDisableBackupsActionStatusOutputWithContext(ctx context.Context) DisableBackupsActionStatusOutput {
+func (o ActionStatusOutput) ToActionStatusOutputWithContext(ctx context.Context) ActionStatusOutput {
 	return o
 }
 
-func (o DisableBackupsActionStatusOutput) ToDisableBackupsActionStatusPtrOutput() DisableBackupsActionStatusPtrOutput {
-	return o.ToDisableBackupsActionStatusPtrOutputWithContext(context.Background())
+func (o ActionStatusOutput) ToActionStatusPtrOutput() ActionStatusPtrOutput {
+	return o.ToActionStatusPtrOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsActionStatusOutput) ToDisableBackupsActionStatusPtrOutputWithContext(ctx context.Context) DisableBackupsActionStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DisableBackupsActionStatus) *DisableBackupsActionStatus {
+func (o ActionStatusOutput) ToActionStatusPtrOutputWithContext(ctx context.Context) ActionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionStatus) *ActionStatus {
 		return &v
-	}).(DisableBackupsActionStatusPtrOutput)
+	}).(ActionStatusPtrOutput)
 }
 
-func (o DisableBackupsActionStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ActionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsActionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DisableBackupsActionStatus) string {
+func (o ActionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DisableBackupsActionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ActionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsActionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DisableBackupsActionStatus) *string {
+func (o ActionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DisableBackupsActionStatusPtrOutput struct{ *pulumi.OutputState }
+type ActionStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (DisableBackupsActionStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DisableBackupsActionStatus)(nil)).Elem()
+func (ActionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionStatus)(nil)).Elem()
 }
 
-func (o DisableBackupsActionStatusPtrOutput) ToDisableBackupsActionStatusPtrOutput() DisableBackupsActionStatusPtrOutput {
+func (o ActionStatusPtrOutput) ToActionStatusPtrOutput() ActionStatusPtrOutput {
 	return o
 }
 
-func (o DisableBackupsActionStatusPtrOutput) ToDisableBackupsActionStatusPtrOutputWithContext(ctx context.Context) DisableBackupsActionStatusPtrOutput {
+func (o ActionStatusPtrOutput) ToActionStatusPtrOutputWithContext(ctx context.Context) ActionStatusPtrOutput {
 	return o
 }
 
-func (o DisableBackupsActionStatusPtrOutput) Elem() DisableBackupsActionStatusOutput {
-	return o.ApplyT(func(v *DisableBackupsActionStatus) DisableBackupsActionStatus {
+func (o ActionStatusPtrOutput) Elem() ActionStatusOutput {
+	return o.ApplyT(func(v *ActionStatus) ActionStatus {
 		if v != nil {
 			return *v
 		}
-		var ret DisableBackupsActionStatus
+		var ret ActionStatus
 		return ret
-	}).(DisableBackupsActionStatusOutput)
+	}).(ActionStatusOutput)
 }
 
-func (o DisableBackupsActionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ActionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DisableBackupsActionStatus) *string {
+func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -295,137 +103,137 @@ func (o DisableBackupsActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 }
 
 // The type of action to initiate for the Droplet.
-type DisableBackupsType string
+type DropletActionType string
 
 const (
-	DisableBackupsTypeEnableBackups  = DisableBackupsType("enable_backups")
-	DisableBackupsTypeDisableBackups = DisableBackupsType("disable_backups")
-	DisableBackupsTypeReboot         = DisableBackupsType("reboot")
-	DisableBackupsTypePowerCycle     = DisableBackupsType("power_cycle")
-	DisableBackupsTypeShutdown       = DisableBackupsType("shutdown")
-	DisableBackupsTypePowerOff       = DisableBackupsType("power_off")
-	DisableBackupsTypePowerOn        = DisableBackupsType("power_on")
-	DisableBackupsTypeRestore        = DisableBackupsType("restore")
-	DisableBackupsTypePasswordReset  = DisableBackupsType("password_reset")
-	DisableBackupsTypeResize         = DisableBackupsType("resize")
-	DisableBackupsTypeRebuild        = DisableBackupsType("rebuild")
-	DisableBackupsTypeRename         = DisableBackupsType("rename")
-	DisableBackupsTypeChangeKernel   = DisableBackupsType("change_kernel")
-	DisableBackupsTypeEnableIpv6     = DisableBackupsType("enable_ipv6")
-	DisableBackupsTypeSnapshot       = DisableBackupsType("snapshot")
+	DropletActionTypeEnableBackups  = DropletActionType("enable_backups")
+	DropletActionTypeDisableBackups = DropletActionType("disable_backups")
+	DropletActionTypeReboot         = DropletActionType("reboot")
+	DropletActionTypePowerCycle     = DropletActionType("power_cycle")
+	DropletActionTypeShutdown       = DropletActionType("shutdown")
+	DropletActionTypePowerOff       = DropletActionType("power_off")
+	DropletActionTypePowerOn        = DropletActionType("power_on")
+	DropletActionTypeRestore        = DropletActionType("restore")
+	DropletActionTypePasswordReset  = DropletActionType("password_reset")
+	DropletActionTypeResize         = DropletActionType("resize")
+	DropletActionTypeRebuild        = DropletActionType("rebuild")
+	DropletActionTypeRename         = DropletActionType("rename")
+	DropletActionTypeChangeKernel   = DropletActionType("change_kernel")
+	DropletActionTypeEnableIpv6     = DropletActionType("enable_ipv6")
+	DropletActionTypeSnapshot       = DropletActionType("snapshot")
 )
 
-func (DisableBackupsType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisableBackupsType)(nil)).Elem()
+func (DropletActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DropletActionType)(nil)).Elem()
 }
 
-func (e DisableBackupsType) ToDisableBackupsTypeOutput() DisableBackupsTypeOutput {
-	return pulumi.ToOutput(e).(DisableBackupsTypeOutput)
+func (e DropletActionType) ToDropletActionTypeOutput() DropletActionTypeOutput {
+	return pulumi.ToOutput(e).(DropletActionTypeOutput)
 }
 
-func (e DisableBackupsType) ToDisableBackupsTypeOutputWithContext(ctx context.Context) DisableBackupsTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DisableBackupsTypeOutput)
+func (e DropletActionType) ToDropletActionTypeOutputWithContext(ctx context.Context) DropletActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DropletActionTypeOutput)
 }
 
-func (e DisableBackupsType) ToDisableBackupsTypePtrOutput() DisableBackupsTypePtrOutput {
-	return e.ToDisableBackupsTypePtrOutputWithContext(context.Background())
+func (e DropletActionType) ToDropletActionTypePtrOutput() DropletActionTypePtrOutput {
+	return e.ToDropletActionTypePtrOutputWithContext(context.Background())
 }
 
-func (e DisableBackupsType) ToDisableBackupsTypePtrOutputWithContext(ctx context.Context) DisableBackupsTypePtrOutput {
-	return DisableBackupsType(e).ToDisableBackupsTypeOutputWithContext(ctx).ToDisableBackupsTypePtrOutputWithContext(ctx)
+func (e DropletActionType) ToDropletActionTypePtrOutputWithContext(ctx context.Context) DropletActionTypePtrOutput {
+	return DropletActionType(e).ToDropletActionTypeOutputWithContext(ctx).ToDropletActionTypePtrOutputWithContext(ctx)
 }
 
-func (e DisableBackupsType) ToStringOutput() pulumi.StringOutput {
+func (e DropletActionType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DisableBackupsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DisableBackupsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DisableBackupsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DisableBackupsTypeOutput struct{ *pulumi.OutputState }
+type DropletActionTypeOutput struct{ *pulumi.OutputState }
 
-func (DisableBackupsTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisableBackupsType)(nil)).Elem()
+func (DropletActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DropletActionType)(nil)).Elem()
 }
 
-func (o DisableBackupsTypeOutput) ToDisableBackupsTypeOutput() DisableBackupsTypeOutput {
+func (o DropletActionTypeOutput) ToDropletActionTypeOutput() DropletActionTypeOutput {
 	return o
 }
 
-func (o DisableBackupsTypeOutput) ToDisableBackupsTypeOutputWithContext(ctx context.Context) DisableBackupsTypeOutput {
+func (o DropletActionTypeOutput) ToDropletActionTypeOutputWithContext(ctx context.Context) DropletActionTypeOutput {
 	return o
 }
 
-func (o DisableBackupsTypeOutput) ToDisableBackupsTypePtrOutput() DisableBackupsTypePtrOutput {
-	return o.ToDisableBackupsTypePtrOutputWithContext(context.Background())
+func (o DropletActionTypeOutput) ToDropletActionTypePtrOutput() DropletActionTypePtrOutput {
+	return o.ToDropletActionTypePtrOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsTypeOutput) ToDisableBackupsTypePtrOutputWithContext(ctx context.Context) DisableBackupsTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DisableBackupsType) *DisableBackupsType {
+func (o DropletActionTypeOutput) ToDropletActionTypePtrOutputWithContext(ctx context.Context) DropletActionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DropletActionType) *DropletActionType {
 		return &v
-	}).(DisableBackupsTypePtrOutput)
+	}).(DropletActionTypePtrOutput)
 }
 
-func (o DisableBackupsTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o DropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DisableBackupsType) string {
+func (o DropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DropletActionType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DisableBackupsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DisableBackupsType) *string {
+func (o DropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DropletActionType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DisableBackupsTypePtrOutput struct{ *pulumi.OutputState }
+type DropletActionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DisableBackupsTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DisableBackupsType)(nil)).Elem()
+func (DropletActionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DropletActionType)(nil)).Elem()
 }
 
-func (o DisableBackupsTypePtrOutput) ToDisableBackupsTypePtrOutput() DisableBackupsTypePtrOutput {
+func (o DropletActionTypePtrOutput) ToDropletActionTypePtrOutput() DropletActionTypePtrOutput {
 	return o
 }
 
-func (o DisableBackupsTypePtrOutput) ToDisableBackupsTypePtrOutputWithContext(ctx context.Context) DisableBackupsTypePtrOutput {
+func (o DropletActionTypePtrOutput) ToDropletActionTypePtrOutputWithContext(ctx context.Context) DropletActionTypePtrOutput {
 	return o
 }
 
-func (o DisableBackupsTypePtrOutput) Elem() DisableBackupsTypeOutput {
-	return o.ApplyT(func(v *DisableBackupsType) DisableBackupsType {
+func (o DropletActionTypePtrOutput) Elem() DropletActionTypeOutput {
+	return o.ApplyT(func(v *DropletActionType) DropletActionType {
 		if v != nil {
 			return *v
 		}
-		var ret DisableBackupsType
+		var ret DropletActionType
 		return ret
-	}).(DisableBackupsTypeOutput)
+	}).(DropletActionTypeOutput)
 }
 
-func (o DisableBackupsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DisableBackupsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DisableBackupsType) *string {
+func (o DropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DropletActionType) *string {
 		if e == nil {
 			return nil
 		}
@@ -434,56 +242,56 @@ func (o DisableBackupsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DisableBackupsTypeInput is an input type that accepts values of the DisableBackupsType enum
-// A concrete instance of `DisableBackupsTypeInput` can be one of the following:
+// DropletActionTypeInput is an input type that accepts values of the DropletActionType enum
+// A concrete instance of `DropletActionTypeInput` can be one of the following:
 //
-//	DisableBackupsTypeEnableBackups
-//	DisableBackupsTypeDisableBackups
-//	DisableBackupsTypeReboot
-//	DisableBackupsTypePowerCycle
-//	DisableBackupsTypeShutdown
-//	DisableBackupsTypePowerOff
-//	DisableBackupsTypePowerOn
-//	DisableBackupsTypeRestore
-//	DisableBackupsTypePasswordReset
-//	DisableBackupsTypeResize
-//	DisableBackupsTypeRebuild
-//	DisableBackupsTypeRename
-//	DisableBackupsTypeChangeKernel
-//	DisableBackupsTypeEnableIpv6
-//	DisableBackupsTypeSnapshot
-type DisableBackupsTypeInput interface {
+//	DropletActionTypeEnableBackups
+//	DropletActionTypeDisableBackups
+//	DropletActionTypeReboot
+//	DropletActionTypePowerCycle
+//	DropletActionTypeShutdown
+//	DropletActionTypePowerOff
+//	DropletActionTypePowerOn
+//	DropletActionTypeRestore
+//	DropletActionTypePasswordReset
+//	DropletActionTypeResize
+//	DropletActionTypeRebuild
+//	DropletActionTypeRename
+//	DropletActionTypeChangeKernel
+//	DropletActionTypeEnableIpv6
+//	DropletActionTypeSnapshot
+type DropletActionTypeInput interface {
 	pulumi.Input
 
-	ToDisableBackupsTypeOutput() DisableBackupsTypeOutput
-	ToDisableBackupsTypeOutputWithContext(context.Context) DisableBackupsTypeOutput
+	ToDropletActionTypeOutput() DropletActionTypeOutput
+	ToDropletActionTypeOutputWithContext(context.Context) DropletActionTypeOutput
 }
 
-var disableBackupsTypePtrType = reflect.TypeOf((**DisableBackupsType)(nil)).Elem()
+var dropletActionTypePtrType = reflect.TypeOf((**DropletActionType)(nil)).Elem()
 
-type DisableBackupsTypePtrInput interface {
+type DropletActionTypePtrInput interface {
 	pulumi.Input
 
-	ToDisableBackupsTypePtrOutput() DisableBackupsTypePtrOutput
-	ToDisableBackupsTypePtrOutputWithContext(context.Context) DisableBackupsTypePtrOutput
+	ToDropletActionTypePtrOutput() DropletActionTypePtrOutput
+	ToDropletActionTypePtrOutputWithContext(context.Context) DropletActionTypePtrOutput
 }
 
-type disableBackupsTypePtr string
+type dropletActionTypePtr string
 
-func DisableBackupsTypePtr(v string) DisableBackupsTypePtrInput {
-	return (*disableBackupsTypePtr)(&v)
+func DropletActionTypePtr(v string) DropletActionTypePtrInput {
+	return (*dropletActionTypePtr)(&v)
 }
 
-func (*disableBackupsTypePtr) ElementType() reflect.Type {
-	return disableBackupsTypePtrType
+func (*dropletActionTypePtr) ElementType() reflect.Type {
+	return dropletActionTypePtrType
 }
 
-func (in *disableBackupsTypePtr) ToDisableBackupsTypePtrOutput() DisableBackupsTypePtrOutput {
-	return pulumi.ToOutput(in).(DisableBackupsTypePtrOutput)
+func (in *dropletActionTypePtr) ToDropletActionTypePtrOutput() DropletActionTypePtrOutput {
+	return pulumi.ToOutput(in).(DropletActionTypePtrOutput)
 }
 
-func (in *disableBackupsTypePtr) ToDisableBackupsTypePtrOutputWithContext(ctx context.Context) DisableBackupsTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DisableBackupsTypePtrOutput)
+func (in *dropletActionTypePtr) ToDropletActionTypePtrOutputWithContext(ctx context.Context) DropletActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DropletActionTypePtrOutput)
 }
 
 // Describes the kind of image. It may be one of `snapshot` or `backup`. This specifies whether an image is a user-generated Droplet snapshot or automatically created Droplet backup.
@@ -668,390 +476,6 @@ func (o DropletStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type EnableBackupsType string
-
-const (
-	EnableBackupsTypeEnableBackups  = EnableBackupsType("enable_backups")
-	EnableBackupsTypeDisableBackups = EnableBackupsType("disable_backups")
-	EnableBackupsTypeReboot         = EnableBackupsType("reboot")
-	EnableBackupsTypePowerCycle     = EnableBackupsType("power_cycle")
-	EnableBackupsTypeShutdown       = EnableBackupsType("shutdown")
-	EnableBackupsTypePowerOff       = EnableBackupsType("power_off")
-	EnableBackupsTypePowerOn        = EnableBackupsType("power_on")
-	EnableBackupsTypeRestore        = EnableBackupsType("restore")
-	EnableBackupsTypePasswordReset  = EnableBackupsType("password_reset")
-	EnableBackupsTypeResize         = EnableBackupsType("resize")
-	EnableBackupsTypeRebuild        = EnableBackupsType("rebuild")
-	EnableBackupsTypeRename         = EnableBackupsType("rename")
-	EnableBackupsTypeChangeKernel   = EnableBackupsType("change_kernel")
-	EnableBackupsTypeEnableIpv6     = EnableBackupsType("enable_ipv6")
-	EnableBackupsTypeSnapshot       = EnableBackupsType("snapshot")
-)
-
-func (EnableBackupsType) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnableBackupsType)(nil)).Elem()
-}
-
-func (e EnableBackupsType) ToEnableBackupsTypeOutput() EnableBackupsTypeOutput {
-	return pulumi.ToOutput(e).(EnableBackupsTypeOutput)
-}
-
-func (e EnableBackupsType) ToEnableBackupsTypeOutputWithContext(ctx context.Context) EnableBackupsTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EnableBackupsTypeOutput)
-}
-
-func (e EnableBackupsType) ToEnableBackupsTypePtrOutput() EnableBackupsTypePtrOutput {
-	return e.ToEnableBackupsTypePtrOutputWithContext(context.Background())
-}
-
-func (e EnableBackupsType) ToEnableBackupsTypePtrOutputWithContext(ctx context.Context) EnableBackupsTypePtrOutput {
-	return EnableBackupsType(e).ToEnableBackupsTypeOutputWithContext(ctx).ToEnableBackupsTypePtrOutputWithContext(ctx)
-}
-
-func (e EnableBackupsType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnableBackupsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnableBackupsType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EnableBackupsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type EnableBackupsTypeOutput struct{ *pulumi.OutputState }
-
-func (EnableBackupsTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnableBackupsType)(nil)).Elem()
-}
-
-func (o EnableBackupsTypeOutput) ToEnableBackupsTypeOutput() EnableBackupsTypeOutput {
-	return o
-}
-
-func (o EnableBackupsTypeOutput) ToEnableBackupsTypeOutputWithContext(ctx context.Context) EnableBackupsTypeOutput {
-	return o
-}
-
-func (o EnableBackupsTypeOutput) ToEnableBackupsTypePtrOutput() EnableBackupsTypePtrOutput {
-	return o.ToEnableBackupsTypePtrOutputWithContext(context.Background())
-}
-
-func (o EnableBackupsTypeOutput) ToEnableBackupsTypePtrOutputWithContext(ctx context.Context) EnableBackupsTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnableBackupsType) *EnableBackupsType {
-		return &v
-	}).(EnableBackupsTypePtrOutput)
-}
-
-func (o EnableBackupsTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EnableBackupsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnableBackupsType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EnableBackupsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EnableBackupsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnableBackupsType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EnableBackupsTypePtrOutput struct{ *pulumi.OutputState }
-
-func (EnableBackupsTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnableBackupsType)(nil)).Elem()
-}
-
-func (o EnableBackupsTypePtrOutput) ToEnableBackupsTypePtrOutput() EnableBackupsTypePtrOutput {
-	return o
-}
-
-func (o EnableBackupsTypePtrOutput) ToEnableBackupsTypePtrOutputWithContext(ctx context.Context) EnableBackupsTypePtrOutput {
-	return o
-}
-
-func (o EnableBackupsTypePtrOutput) Elem() EnableBackupsTypeOutput {
-	return o.ApplyT(func(v *EnableBackupsType) EnableBackupsType {
-		if v != nil {
-			return *v
-		}
-		var ret EnableBackupsType
-		return ret
-	}).(EnableBackupsTypeOutput)
-}
-
-func (o EnableBackupsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EnableBackupsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnableBackupsType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// EnableBackupsTypeInput is an input type that accepts values of the EnableBackupsType enum
-// A concrete instance of `EnableBackupsTypeInput` can be one of the following:
-//
-//	EnableBackupsTypeEnableBackups
-//	EnableBackupsTypeDisableBackups
-//	EnableBackupsTypeReboot
-//	EnableBackupsTypePowerCycle
-//	EnableBackupsTypeShutdown
-//	EnableBackupsTypePowerOff
-//	EnableBackupsTypePowerOn
-//	EnableBackupsTypeRestore
-//	EnableBackupsTypePasswordReset
-//	EnableBackupsTypeResize
-//	EnableBackupsTypeRebuild
-//	EnableBackupsTypeRename
-//	EnableBackupsTypeChangeKernel
-//	EnableBackupsTypeEnableIpv6
-//	EnableBackupsTypeSnapshot
-type EnableBackupsTypeInput interface {
-	pulumi.Input
-
-	ToEnableBackupsTypeOutput() EnableBackupsTypeOutput
-	ToEnableBackupsTypeOutputWithContext(context.Context) EnableBackupsTypeOutput
-}
-
-var enableBackupsTypePtrType = reflect.TypeOf((**EnableBackupsType)(nil)).Elem()
-
-type EnableBackupsTypePtrInput interface {
-	pulumi.Input
-
-	ToEnableBackupsTypePtrOutput() EnableBackupsTypePtrOutput
-	ToEnableBackupsTypePtrOutputWithContext(context.Context) EnableBackupsTypePtrOutput
-}
-
-type enableBackupsTypePtr string
-
-func EnableBackupsTypePtr(v string) EnableBackupsTypePtrInput {
-	return (*enableBackupsTypePtr)(&v)
-}
-
-func (*enableBackupsTypePtr) ElementType() reflect.Type {
-	return enableBackupsTypePtrType
-}
-
-func (in *enableBackupsTypePtr) ToEnableBackupsTypePtrOutput() EnableBackupsTypePtrOutput {
-	return pulumi.ToOutput(in).(EnableBackupsTypePtrOutput)
-}
-
-func (in *enableBackupsTypePtr) ToEnableBackupsTypePtrOutputWithContext(ctx context.Context) EnableBackupsTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EnableBackupsTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type EnableIpv6Type string
-
-const (
-	EnableIpv6TypeEnableBackups  = EnableIpv6Type("enable_backups")
-	EnableIpv6TypeDisableBackups = EnableIpv6Type("disable_backups")
-	EnableIpv6TypeReboot         = EnableIpv6Type("reboot")
-	EnableIpv6TypePowerCycle     = EnableIpv6Type("power_cycle")
-	EnableIpv6TypeShutdown       = EnableIpv6Type("shutdown")
-	EnableIpv6TypePowerOff       = EnableIpv6Type("power_off")
-	EnableIpv6TypePowerOn        = EnableIpv6Type("power_on")
-	EnableIpv6TypeRestore        = EnableIpv6Type("restore")
-	EnableIpv6TypePasswordReset  = EnableIpv6Type("password_reset")
-	EnableIpv6TypeResize         = EnableIpv6Type("resize")
-	EnableIpv6TypeRebuild        = EnableIpv6Type("rebuild")
-	EnableIpv6TypeRename         = EnableIpv6Type("rename")
-	EnableIpv6TypeChangeKernel   = EnableIpv6Type("change_kernel")
-	EnableIpv6TypeEnableIpv6     = EnableIpv6Type("enable_ipv6")
-	EnableIpv6TypeSnapshot       = EnableIpv6Type("snapshot")
-)
-
-func (EnableIpv6Type) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnableIpv6Type)(nil)).Elem()
-}
-
-func (e EnableIpv6Type) ToEnableIpv6TypeOutput() EnableIpv6TypeOutput {
-	return pulumi.ToOutput(e).(EnableIpv6TypeOutput)
-}
-
-func (e EnableIpv6Type) ToEnableIpv6TypeOutputWithContext(ctx context.Context) EnableIpv6TypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EnableIpv6TypeOutput)
-}
-
-func (e EnableIpv6Type) ToEnableIpv6TypePtrOutput() EnableIpv6TypePtrOutput {
-	return e.ToEnableIpv6TypePtrOutputWithContext(context.Background())
-}
-
-func (e EnableIpv6Type) ToEnableIpv6TypePtrOutputWithContext(ctx context.Context) EnableIpv6TypePtrOutput {
-	return EnableIpv6Type(e).ToEnableIpv6TypeOutputWithContext(ctx).ToEnableIpv6TypePtrOutputWithContext(ctx)
-}
-
-func (e EnableIpv6Type) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnableIpv6Type) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e EnableIpv6Type) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e EnableIpv6Type) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type EnableIpv6TypeOutput struct{ *pulumi.OutputState }
-
-func (EnableIpv6TypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnableIpv6Type)(nil)).Elem()
-}
-
-func (o EnableIpv6TypeOutput) ToEnableIpv6TypeOutput() EnableIpv6TypeOutput {
-	return o
-}
-
-func (o EnableIpv6TypeOutput) ToEnableIpv6TypeOutputWithContext(ctx context.Context) EnableIpv6TypeOutput {
-	return o
-}
-
-func (o EnableIpv6TypeOutput) ToEnableIpv6TypePtrOutput() EnableIpv6TypePtrOutput {
-	return o.ToEnableIpv6TypePtrOutputWithContext(context.Background())
-}
-
-func (o EnableIpv6TypeOutput) ToEnableIpv6TypePtrOutputWithContext(ctx context.Context) EnableIpv6TypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnableIpv6Type) *EnableIpv6Type {
-		return &v
-	}).(EnableIpv6TypePtrOutput)
-}
-
-func (o EnableIpv6TypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EnableIpv6TypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnableIpv6Type) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EnableIpv6TypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EnableIpv6TypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnableIpv6Type) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EnableIpv6TypePtrOutput struct{ *pulumi.OutputState }
-
-func (EnableIpv6TypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnableIpv6Type)(nil)).Elem()
-}
-
-func (o EnableIpv6TypePtrOutput) ToEnableIpv6TypePtrOutput() EnableIpv6TypePtrOutput {
-	return o
-}
-
-func (o EnableIpv6TypePtrOutput) ToEnableIpv6TypePtrOutputWithContext(ctx context.Context) EnableIpv6TypePtrOutput {
-	return o
-}
-
-func (o EnableIpv6TypePtrOutput) Elem() EnableIpv6TypeOutput {
-	return o.ApplyT(func(v *EnableIpv6Type) EnableIpv6Type {
-		if v != nil {
-			return *v
-		}
-		var ret EnableIpv6Type
-		return ret
-	}).(EnableIpv6TypeOutput)
-}
-
-func (o EnableIpv6TypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EnableIpv6TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnableIpv6Type) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// EnableIpv6TypeInput is an input type that accepts values of the EnableIpv6Type enum
-// A concrete instance of `EnableIpv6TypeInput` can be one of the following:
-//
-//	EnableIpv6TypeEnableBackups
-//	EnableIpv6TypeDisableBackups
-//	EnableIpv6TypeReboot
-//	EnableIpv6TypePowerCycle
-//	EnableIpv6TypeShutdown
-//	EnableIpv6TypePowerOff
-//	EnableIpv6TypePowerOn
-//	EnableIpv6TypeRestore
-//	EnableIpv6TypePasswordReset
-//	EnableIpv6TypeResize
-//	EnableIpv6TypeRebuild
-//	EnableIpv6TypeRename
-//	EnableIpv6TypeChangeKernel
-//	EnableIpv6TypeEnableIpv6
-//	EnableIpv6TypeSnapshot
-type EnableIpv6TypeInput interface {
-	pulumi.Input
-
-	ToEnableIpv6TypeOutput() EnableIpv6TypeOutput
-	ToEnableIpv6TypeOutputWithContext(context.Context) EnableIpv6TypeOutput
-}
-
-var enableIpv6TypePtrType = reflect.TypeOf((**EnableIpv6Type)(nil)).Elem()
-
-type EnableIpv6TypePtrInput interface {
-	pulumi.Input
-
-	ToEnableIpv6TypePtrOutput() EnableIpv6TypePtrOutput
-	ToEnableIpv6TypePtrOutputWithContext(context.Context) EnableIpv6TypePtrOutput
-}
-
-type enableIpv6TypePtr string
-
-func EnableIpv6TypePtr(v string) EnableIpv6TypePtrInput {
-	return (*enableIpv6TypePtr)(&v)
-}
-
-func (*enableIpv6TypePtr) ElementType() reflect.Type {
-	return enableIpv6TypePtrType
-}
-
-func (in *enableIpv6TypePtr) ToEnableIpv6TypePtrOutput() EnableIpv6TypePtrOutput {
-	return pulumi.ToOutput(in).(EnableIpv6TypePtrOutput)
-}
-
-func (in *enableIpv6TypePtr) ToEnableIpv6TypePtrOutputWithContext(ctx context.Context) EnableIpv6TypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EnableIpv6TypePtrOutput)
 }
 
 // A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
@@ -1837,137 +1261,137 @@ func (o NetworkV6TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 }
 
 // The type of action to initiate for the Droplet.
-type PasswordResetType string
+type Type string
 
 const (
-	PasswordResetTypeEnableBackups  = PasswordResetType("enable_backups")
-	PasswordResetTypeDisableBackups = PasswordResetType("disable_backups")
-	PasswordResetTypeReboot         = PasswordResetType("reboot")
-	PasswordResetTypePowerCycle     = PasswordResetType("power_cycle")
-	PasswordResetTypeShutdown       = PasswordResetType("shutdown")
-	PasswordResetTypePowerOff       = PasswordResetType("power_off")
-	PasswordResetTypePowerOn        = PasswordResetType("power_on")
-	PasswordResetTypeRestore        = PasswordResetType("restore")
-	PasswordResetTypePasswordReset  = PasswordResetType("password_reset")
-	PasswordResetTypeResize         = PasswordResetType("resize")
-	PasswordResetTypeRebuild        = PasswordResetType("rebuild")
-	PasswordResetTypeRename         = PasswordResetType("rename")
-	PasswordResetTypeChangeKernel   = PasswordResetType("change_kernel")
-	PasswordResetTypeEnableIpv6     = PasswordResetType("enable_ipv6")
-	PasswordResetTypeSnapshot       = PasswordResetType("snapshot")
+	TypeEnableBackups  = Type("enable_backups")
+	TypeDisableBackups = Type("disable_backups")
+	TypeReboot         = Type("reboot")
+	TypePowerCycle     = Type("power_cycle")
+	TypeShutdown       = Type("shutdown")
+	TypePowerOff       = Type("power_off")
+	TypePowerOn        = Type("power_on")
+	TypeRestore        = Type("restore")
+	TypePasswordReset  = Type("password_reset")
+	TypeResize         = Type("resize")
+	TypeRebuild        = Type("rebuild")
+	TypeRename         = Type("rename")
+	TypeChangeKernel   = Type("change_kernel")
+	TypeEnableIpv6     = Type("enable_ipv6")
+	TypeSnapshot       = Type("snapshot")
 )
 
-func (PasswordResetType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PasswordResetType)(nil)).Elem()
+func (Type) ElementType() reflect.Type {
+	return reflect.TypeOf((*Type)(nil)).Elem()
 }
 
-func (e PasswordResetType) ToPasswordResetTypeOutput() PasswordResetTypeOutput {
-	return pulumi.ToOutput(e).(PasswordResetTypeOutput)
+func (e Type) ToTypeOutput() TypeOutput {
+	return pulumi.ToOutput(e).(TypeOutput)
 }
 
-func (e PasswordResetType) ToPasswordResetTypeOutputWithContext(ctx context.Context) PasswordResetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PasswordResetTypeOutput)
+func (e Type) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TypeOutput)
 }
 
-func (e PasswordResetType) ToPasswordResetTypePtrOutput() PasswordResetTypePtrOutput {
-	return e.ToPasswordResetTypePtrOutputWithContext(context.Background())
+func (e Type) ToTypePtrOutput() TypePtrOutput {
+	return e.ToTypePtrOutputWithContext(context.Background())
 }
 
-func (e PasswordResetType) ToPasswordResetTypePtrOutputWithContext(ctx context.Context) PasswordResetTypePtrOutput {
-	return PasswordResetType(e).ToPasswordResetTypeOutputWithContext(ctx).ToPasswordResetTypePtrOutputWithContext(ctx)
+func (e Type) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return Type(e).ToTypeOutputWithContext(ctx).ToTypePtrOutputWithContext(ctx)
 }
 
-func (e PasswordResetType) ToStringOutput() pulumi.StringOutput {
+func (e Type) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PasswordResetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Type) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PasswordResetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Type) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PasswordResetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Type) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PasswordResetTypeOutput struct{ *pulumi.OutputState }
+type TypeOutput struct{ *pulumi.OutputState }
 
-func (PasswordResetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PasswordResetType)(nil)).Elem()
+func (TypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Type)(nil)).Elem()
 }
 
-func (o PasswordResetTypeOutput) ToPasswordResetTypeOutput() PasswordResetTypeOutput {
+func (o TypeOutput) ToTypeOutput() TypeOutput {
 	return o
 }
 
-func (o PasswordResetTypeOutput) ToPasswordResetTypeOutputWithContext(ctx context.Context) PasswordResetTypeOutput {
+func (o TypeOutput) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
 	return o
 }
 
-func (o PasswordResetTypeOutput) ToPasswordResetTypePtrOutput() PasswordResetTypePtrOutput {
-	return o.ToPasswordResetTypePtrOutputWithContext(context.Background())
+func (o TypeOutput) ToTypePtrOutput() TypePtrOutput {
+	return o.ToTypePtrOutputWithContext(context.Background())
 }
 
-func (o PasswordResetTypeOutput) ToPasswordResetTypePtrOutputWithContext(ctx context.Context) PasswordResetTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PasswordResetType) *PasswordResetType {
+func (o TypeOutput) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Type) *Type {
 		return &v
-	}).(PasswordResetTypePtrOutput)
+	}).(TypePtrOutput)
 }
 
-func (o PasswordResetTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o TypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PasswordResetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PasswordResetType) string {
+func (o TypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Type) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PasswordResetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PasswordResetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PasswordResetType) *string {
+func (o TypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Type) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PasswordResetTypePtrOutput struct{ *pulumi.OutputState }
+type TypePtrOutput struct{ *pulumi.OutputState }
 
-func (PasswordResetTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PasswordResetType)(nil)).Elem()
+func (TypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Type)(nil)).Elem()
 }
 
-func (o PasswordResetTypePtrOutput) ToPasswordResetTypePtrOutput() PasswordResetTypePtrOutput {
+func (o TypePtrOutput) ToTypePtrOutput() TypePtrOutput {
 	return o
 }
 
-func (o PasswordResetTypePtrOutput) ToPasswordResetTypePtrOutputWithContext(ctx context.Context) PasswordResetTypePtrOutput {
+func (o TypePtrOutput) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
 	return o
 }
 
-func (o PasswordResetTypePtrOutput) Elem() PasswordResetTypeOutput {
-	return o.ApplyT(func(v *PasswordResetType) PasswordResetType {
+func (o TypePtrOutput) Elem() TypeOutput {
+	return o.ApplyT(func(v *Type) Type {
 		if v != nil {
 			return *v
 		}
-		var ret PasswordResetType
+		var ret Type
 		return ret
-	}).(PasswordResetTypeOutput)
+	}).(TypeOutput)
 }
 
-func (o PasswordResetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PasswordResetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PasswordResetType) *string {
+func (o TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Type) *string {
 		if e == nil {
 			return nil
 		}
@@ -1976,2023 +1400,71 @@ func (o PasswordResetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PasswordResetTypeInput is an input type that accepts values of the PasswordResetType enum
-// A concrete instance of `PasswordResetTypeInput` can be one of the following:
+// TypeInput is an input type that accepts values of the Type enum
+// A concrete instance of `TypeInput` can be one of the following:
 //
-//	PasswordResetTypeEnableBackups
-//	PasswordResetTypeDisableBackups
-//	PasswordResetTypeReboot
-//	PasswordResetTypePowerCycle
-//	PasswordResetTypeShutdown
-//	PasswordResetTypePowerOff
-//	PasswordResetTypePowerOn
-//	PasswordResetTypeRestore
-//	PasswordResetTypePasswordReset
-//	PasswordResetTypeResize
-//	PasswordResetTypeRebuild
-//	PasswordResetTypeRename
-//	PasswordResetTypeChangeKernel
-//	PasswordResetTypeEnableIpv6
-//	PasswordResetTypeSnapshot
-type PasswordResetTypeInput interface {
+//	TypeEnableBackups
+//	TypeDisableBackups
+//	TypeReboot
+//	TypePowerCycle
+//	TypeShutdown
+//	TypePowerOff
+//	TypePowerOn
+//	TypeRestore
+//	TypePasswordReset
+//	TypeResize
+//	TypeRebuild
+//	TypeRename
+//	TypeChangeKernel
+//	TypeEnableIpv6
+//	TypeSnapshot
+type TypeInput interface {
 	pulumi.Input
 
-	ToPasswordResetTypeOutput() PasswordResetTypeOutput
-	ToPasswordResetTypeOutputWithContext(context.Context) PasswordResetTypeOutput
+	ToTypeOutput() TypeOutput
+	ToTypeOutputWithContext(context.Context) TypeOutput
 }
 
-var passwordResetTypePtrType = reflect.TypeOf((**PasswordResetType)(nil)).Elem()
+var typePtrType = reflect.TypeOf((**Type)(nil)).Elem()
 
-type PasswordResetTypePtrInput interface {
+type TypePtrInput interface {
 	pulumi.Input
 
-	ToPasswordResetTypePtrOutput() PasswordResetTypePtrOutput
-	ToPasswordResetTypePtrOutputWithContext(context.Context) PasswordResetTypePtrOutput
+	ToTypePtrOutput() TypePtrOutput
+	ToTypePtrOutputWithContext(context.Context) TypePtrOutput
 }
 
-type passwordResetTypePtr string
+type typePtr string
 
-func PasswordResetTypePtr(v string) PasswordResetTypePtrInput {
-	return (*passwordResetTypePtr)(&v)
+func TypePtr(v string) TypePtrInput {
+	return (*typePtr)(&v)
 }
 
-func (*passwordResetTypePtr) ElementType() reflect.Type {
-	return passwordResetTypePtrType
+func (*typePtr) ElementType() reflect.Type {
+	return typePtrType
 }
 
-func (in *passwordResetTypePtr) ToPasswordResetTypePtrOutput() PasswordResetTypePtrOutput {
-	return pulumi.ToOutput(in).(PasswordResetTypePtrOutput)
+func (in *typePtr) ToTypePtrOutput() TypePtrOutput {
+	return pulumi.ToOutput(in).(TypePtrOutput)
 }
 
-func (in *passwordResetTypePtr) ToPasswordResetTypePtrOutputWithContext(ctx context.Context) PasswordResetTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PasswordResetTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type PowerCycleType string
-
-const (
-	PowerCycleTypeEnableBackups  = PowerCycleType("enable_backups")
-	PowerCycleTypeDisableBackups = PowerCycleType("disable_backups")
-	PowerCycleTypeReboot         = PowerCycleType("reboot")
-	PowerCycleTypePowerCycle     = PowerCycleType("power_cycle")
-	PowerCycleTypeShutdown       = PowerCycleType("shutdown")
-	PowerCycleTypePowerOff       = PowerCycleType("power_off")
-	PowerCycleTypePowerOn        = PowerCycleType("power_on")
-	PowerCycleTypeRestore        = PowerCycleType("restore")
-	PowerCycleTypePasswordReset  = PowerCycleType("password_reset")
-	PowerCycleTypeResize         = PowerCycleType("resize")
-	PowerCycleTypeRebuild        = PowerCycleType("rebuild")
-	PowerCycleTypeRename         = PowerCycleType("rename")
-	PowerCycleTypeChangeKernel   = PowerCycleType("change_kernel")
-	PowerCycleTypeEnableIpv6     = PowerCycleType("enable_ipv6")
-	PowerCycleTypeSnapshot       = PowerCycleType("snapshot")
-)
-
-func (PowerCycleType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerCycleType)(nil)).Elem()
-}
-
-func (e PowerCycleType) ToPowerCycleTypeOutput() PowerCycleTypeOutput {
-	return pulumi.ToOutput(e).(PowerCycleTypeOutput)
-}
-
-func (e PowerCycleType) ToPowerCycleTypeOutputWithContext(ctx context.Context) PowerCycleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PowerCycleTypeOutput)
-}
-
-func (e PowerCycleType) ToPowerCycleTypePtrOutput() PowerCycleTypePtrOutput {
-	return e.ToPowerCycleTypePtrOutputWithContext(context.Background())
-}
-
-func (e PowerCycleType) ToPowerCycleTypePtrOutputWithContext(ctx context.Context) PowerCycleTypePtrOutput {
-	return PowerCycleType(e).ToPowerCycleTypeOutputWithContext(ctx).ToPowerCycleTypePtrOutputWithContext(ctx)
-}
-
-func (e PowerCycleType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PowerCycleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PowerCycleType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PowerCycleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PowerCycleTypeOutput struct{ *pulumi.OutputState }
-
-func (PowerCycleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerCycleType)(nil)).Elem()
-}
-
-func (o PowerCycleTypeOutput) ToPowerCycleTypeOutput() PowerCycleTypeOutput {
-	return o
-}
-
-func (o PowerCycleTypeOutput) ToPowerCycleTypeOutputWithContext(ctx context.Context) PowerCycleTypeOutput {
-	return o
-}
-
-func (o PowerCycleTypeOutput) ToPowerCycleTypePtrOutput() PowerCycleTypePtrOutput {
-	return o.ToPowerCycleTypePtrOutputWithContext(context.Background())
-}
-
-func (o PowerCycleTypeOutput) ToPowerCycleTypePtrOutputWithContext(ctx context.Context) PowerCycleTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerCycleType) *PowerCycleType {
-		return &v
-	}).(PowerCycleTypePtrOutput)
-}
-
-func (o PowerCycleTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PowerCycleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PowerCycleType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PowerCycleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PowerCycleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PowerCycleType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerCycleTypePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerCycleTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerCycleType)(nil)).Elem()
-}
-
-func (o PowerCycleTypePtrOutput) ToPowerCycleTypePtrOutput() PowerCycleTypePtrOutput {
-	return o
-}
-
-func (o PowerCycleTypePtrOutput) ToPowerCycleTypePtrOutputWithContext(ctx context.Context) PowerCycleTypePtrOutput {
-	return o
-}
-
-func (o PowerCycleTypePtrOutput) Elem() PowerCycleTypeOutput {
-	return o.ApplyT(func(v *PowerCycleType) PowerCycleType {
-		if v != nil {
-			return *v
-		}
-		var ret PowerCycleType
-		return ret
-	}).(PowerCycleTypeOutput)
-}
-
-func (o PowerCycleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PowerCycleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PowerCycleType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// PowerCycleTypeInput is an input type that accepts values of the PowerCycleType enum
-// A concrete instance of `PowerCycleTypeInput` can be one of the following:
-//
-//	PowerCycleTypeEnableBackups
-//	PowerCycleTypeDisableBackups
-//	PowerCycleTypeReboot
-//	PowerCycleTypePowerCycle
-//	PowerCycleTypeShutdown
-//	PowerCycleTypePowerOff
-//	PowerCycleTypePowerOn
-//	PowerCycleTypeRestore
-//	PowerCycleTypePasswordReset
-//	PowerCycleTypeResize
-//	PowerCycleTypeRebuild
-//	PowerCycleTypeRename
-//	PowerCycleTypeChangeKernel
-//	PowerCycleTypeEnableIpv6
-//	PowerCycleTypeSnapshot
-type PowerCycleTypeInput interface {
-	pulumi.Input
-
-	ToPowerCycleTypeOutput() PowerCycleTypeOutput
-	ToPowerCycleTypeOutputWithContext(context.Context) PowerCycleTypeOutput
-}
-
-var powerCycleTypePtrType = reflect.TypeOf((**PowerCycleType)(nil)).Elem()
-
-type PowerCycleTypePtrInput interface {
-	pulumi.Input
-
-	ToPowerCycleTypePtrOutput() PowerCycleTypePtrOutput
-	ToPowerCycleTypePtrOutputWithContext(context.Context) PowerCycleTypePtrOutput
-}
-
-type powerCycleTypePtr string
-
-func PowerCycleTypePtr(v string) PowerCycleTypePtrInput {
-	return (*powerCycleTypePtr)(&v)
-}
-
-func (*powerCycleTypePtr) ElementType() reflect.Type {
-	return powerCycleTypePtrType
-}
-
-func (in *powerCycleTypePtr) ToPowerCycleTypePtrOutput() PowerCycleTypePtrOutput {
-	return pulumi.ToOutput(in).(PowerCycleTypePtrOutput)
-}
-
-func (in *powerCycleTypePtr) ToPowerCycleTypePtrOutputWithContext(ctx context.Context) PowerCycleTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PowerCycleTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type PowerOffType string
-
-const (
-	PowerOffTypeEnableBackups  = PowerOffType("enable_backups")
-	PowerOffTypeDisableBackups = PowerOffType("disable_backups")
-	PowerOffTypeReboot         = PowerOffType("reboot")
-	PowerOffTypePowerCycle     = PowerOffType("power_cycle")
-	PowerOffTypeShutdown       = PowerOffType("shutdown")
-	PowerOffTypePowerOff       = PowerOffType("power_off")
-	PowerOffTypePowerOn        = PowerOffType("power_on")
-	PowerOffTypeRestore        = PowerOffType("restore")
-	PowerOffTypePasswordReset  = PowerOffType("password_reset")
-	PowerOffTypeResize         = PowerOffType("resize")
-	PowerOffTypeRebuild        = PowerOffType("rebuild")
-	PowerOffTypeRename         = PowerOffType("rename")
-	PowerOffTypeChangeKernel   = PowerOffType("change_kernel")
-	PowerOffTypeEnableIpv6     = PowerOffType("enable_ipv6")
-	PowerOffTypeSnapshot       = PowerOffType("snapshot")
-)
-
-func (PowerOffType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerOffType)(nil)).Elem()
-}
-
-func (e PowerOffType) ToPowerOffTypeOutput() PowerOffTypeOutput {
-	return pulumi.ToOutput(e).(PowerOffTypeOutput)
-}
-
-func (e PowerOffType) ToPowerOffTypeOutputWithContext(ctx context.Context) PowerOffTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PowerOffTypeOutput)
-}
-
-func (e PowerOffType) ToPowerOffTypePtrOutput() PowerOffTypePtrOutput {
-	return e.ToPowerOffTypePtrOutputWithContext(context.Background())
-}
-
-func (e PowerOffType) ToPowerOffTypePtrOutputWithContext(ctx context.Context) PowerOffTypePtrOutput {
-	return PowerOffType(e).ToPowerOffTypeOutputWithContext(ctx).ToPowerOffTypePtrOutputWithContext(ctx)
-}
-
-func (e PowerOffType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PowerOffType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PowerOffType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PowerOffType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PowerOffTypeOutput struct{ *pulumi.OutputState }
-
-func (PowerOffTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerOffType)(nil)).Elem()
-}
-
-func (o PowerOffTypeOutput) ToPowerOffTypeOutput() PowerOffTypeOutput {
-	return o
-}
-
-func (o PowerOffTypeOutput) ToPowerOffTypeOutputWithContext(ctx context.Context) PowerOffTypeOutput {
-	return o
-}
-
-func (o PowerOffTypeOutput) ToPowerOffTypePtrOutput() PowerOffTypePtrOutput {
-	return o.ToPowerOffTypePtrOutputWithContext(context.Background())
-}
-
-func (o PowerOffTypeOutput) ToPowerOffTypePtrOutputWithContext(ctx context.Context) PowerOffTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerOffType) *PowerOffType {
-		return &v
-	}).(PowerOffTypePtrOutput)
-}
-
-func (o PowerOffTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PowerOffTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PowerOffType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PowerOffTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PowerOffTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PowerOffType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerOffTypePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerOffTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerOffType)(nil)).Elem()
-}
-
-func (o PowerOffTypePtrOutput) ToPowerOffTypePtrOutput() PowerOffTypePtrOutput {
-	return o
-}
-
-func (o PowerOffTypePtrOutput) ToPowerOffTypePtrOutputWithContext(ctx context.Context) PowerOffTypePtrOutput {
-	return o
-}
-
-func (o PowerOffTypePtrOutput) Elem() PowerOffTypeOutput {
-	return o.ApplyT(func(v *PowerOffType) PowerOffType {
-		if v != nil {
-			return *v
-		}
-		var ret PowerOffType
-		return ret
-	}).(PowerOffTypeOutput)
-}
-
-func (o PowerOffTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PowerOffTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PowerOffType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// PowerOffTypeInput is an input type that accepts values of the PowerOffType enum
-// A concrete instance of `PowerOffTypeInput` can be one of the following:
-//
-//	PowerOffTypeEnableBackups
-//	PowerOffTypeDisableBackups
-//	PowerOffTypeReboot
-//	PowerOffTypePowerCycle
-//	PowerOffTypeShutdown
-//	PowerOffTypePowerOff
-//	PowerOffTypePowerOn
-//	PowerOffTypeRestore
-//	PowerOffTypePasswordReset
-//	PowerOffTypeResize
-//	PowerOffTypeRebuild
-//	PowerOffTypeRename
-//	PowerOffTypeChangeKernel
-//	PowerOffTypeEnableIpv6
-//	PowerOffTypeSnapshot
-type PowerOffTypeInput interface {
-	pulumi.Input
-
-	ToPowerOffTypeOutput() PowerOffTypeOutput
-	ToPowerOffTypeOutputWithContext(context.Context) PowerOffTypeOutput
-}
-
-var powerOffTypePtrType = reflect.TypeOf((**PowerOffType)(nil)).Elem()
-
-type PowerOffTypePtrInput interface {
-	pulumi.Input
-
-	ToPowerOffTypePtrOutput() PowerOffTypePtrOutput
-	ToPowerOffTypePtrOutputWithContext(context.Context) PowerOffTypePtrOutput
-}
-
-type powerOffTypePtr string
-
-func PowerOffTypePtr(v string) PowerOffTypePtrInput {
-	return (*powerOffTypePtr)(&v)
-}
-
-func (*powerOffTypePtr) ElementType() reflect.Type {
-	return powerOffTypePtrType
-}
-
-func (in *powerOffTypePtr) ToPowerOffTypePtrOutput() PowerOffTypePtrOutput {
-	return pulumi.ToOutput(in).(PowerOffTypePtrOutput)
-}
-
-func (in *powerOffTypePtr) ToPowerOffTypePtrOutputWithContext(ctx context.Context) PowerOffTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PowerOffTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type PowerOnType string
-
-const (
-	PowerOnTypeEnableBackups  = PowerOnType("enable_backups")
-	PowerOnTypeDisableBackups = PowerOnType("disable_backups")
-	PowerOnTypeReboot         = PowerOnType("reboot")
-	PowerOnTypePowerCycle     = PowerOnType("power_cycle")
-	PowerOnTypeShutdown       = PowerOnType("shutdown")
-	PowerOnTypePowerOff       = PowerOnType("power_off")
-	PowerOnTypePowerOn        = PowerOnType("power_on")
-	PowerOnTypeRestore        = PowerOnType("restore")
-	PowerOnTypePasswordReset  = PowerOnType("password_reset")
-	PowerOnTypeResize         = PowerOnType("resize")
-	PowerOnTypeRebuild        = PowerOnType("rebuild")
-	PowerOnTypeRename         = PowerOnType("rename")
-	PowerOnTypeChangeKernel   = PowerOnType("change_kernel")
-	PowerOnTypeEnableIpv6     = PowerOnType("enable_ipv6")
-	PowerOnTypeSnapshot       = PowerOnType("snapshot")
-)
-
-func (PowerOnType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerOnType)(nil)).Elem()
-}
-
-func (e PowerOnType) ToPowerOnTypeOutput() PowerOnTypeOutput {
-	return pulumi.ToOutput(e).(PowerOnTypeOutput)
-}
-
-func (e PowerOnType) ToPowerOnTypeOutputWithContext(ctx context.Context) PowerOnTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PowerOnTypeOutput)
-}
-
-func (e PowerOnType) ToPowerOnTypePtrOutput() PowerOnTypePtrOutput {
-	return e.ToPowerOnTypePtrOutputWithContext(context.Background())
-}
-
-func (e PowerOnType) ToPowerOnTypePtrOutputWithContext(ctx context.Context) PowerOnTypePtrOutput {
-	return PowerOnType(e).ToPowerOnTypeOutputWithContext(ctx).ToPowerOnTypePtrOutputWithContext(ctx)
-}
-
-func (e PowerOnType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PowerOnType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e PowerOnType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e PowerOnType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PowerOnTypeOutput struct{ *pulumi.OutputState }
-
-func (PowerOnTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerOnType)(nil)).Elem()
-}
-
-func (o PowerOnTypeOutput) ToPowerOnTypeOutput() PowerOnTypeOutput {
-	return o
-}
-
-func (o PowerOnTypeOutput) ToPowerOnTypeOutputWithContext(ctx context.Context) PowerOnTypeOutput {
-	return o
-}
-
-func (o PowerOnTypeOutput) ToPowerOnTypePtrOutput() PowerOnTypePtrOutput {
-	return o.ToPowerOnTypePtrOutputWithContext(context.Background())
-}
-
-func (o PowerOnTypeOutput) ToPowerOnTypePtrOutputWithContext(ctx context.Context) PowerOnTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerOnType) *PowerOnType {
-		return &v
-	}).(PowerOnTypePtrOutput)
-}
-
-func (o PowerOnTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PowerOnTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PowerOnType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PowerOnTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PowerOnTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PowerOnType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerOnTypePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerOnTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerOnType)(nil)).Elem()
-}
-
-func (o PowerOnTypePtrOutput) ToPowerOnTypePtrOutput() PowerOnTypePtrOutput {
-	return o
-}
-
-func (o PowerOnTypePtrOutput) ToPowerOnTypePtrOutputWithContext(ctx context.Context) PowerOnTypePtrOutput {
-	return o
-}
-
-func (o PowerOnTypePtrOutput) Elem() PowerOnTypeOutput {
-	return o.ApplyT(func(v *PowerOnType) PowerOnType {
-		if v != nil {
-			return *v
-		}
-		var ret PowerOnType
-		return ret
-	}).(PowerOnTypeOutput)
-}
-
-func (o PowerOnTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PowerOnTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PowerOnType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// PowerOnTypeInput is an input type that accepts values of the PowerOnType enum
-// A concrete instance of `PowerOnTypeInput` can be one of the following:
-//
-//	PowerOnTypeEnableBackups
-//	PowerOnTypeDisableBackups
-//	PowerOnTypeReboot
-//	PowerOnTypePowerCycle
-//	PowerOnTypeShutdown
-//	PowerOnTypePowerOff
-//	PowerOnTypePowerOn
-//	PowerOnTypeRestore
-//	PowerOnTypePasswordReset
-//	PowerOnTypeResize
-//	PowerOnTypeRebuild
-//	PowerOnTypeRename
-//	PowerOnTypeChangeKernel
-//	PowerOnTypeEnableIpv6
-//	PowerOnTypeSnapshot
-type PowerOnTypeInput interface {
-	pulumi.Input
-
-	ToPowerOnTypeOutput() PowerOnTypeOutput
-	ToPowerOnTypeOutputWithContext(context.Context) PowerOnTypeOutput
-}
-
-var powerOnTypePtrType = reflect.TypeOf((**PowerOnType)(nil)).Elem()
-
-type PowerOnTypePtrInput interface {
-	pulumi.Input
-
-	ToPowerOnTypePtrOutput() PowerOnTypePtrOutput
-	ToPowerOnTypePtrOutputWithContext(context.Context) PowerOnTypePtrOutput
-}
-
-type powerOnTypePtr string
-
-func PowerOnTypePtr(v string) PowerOnTypePtrInput {
-	return (*powerOnTypePtr)(&v)
-}
-
-func (*powerOnTypePtr) ElementType() reflect.Type {
-	return powerOnTypePtrType
-}
-
-func (in *powerOnTypePtr) ToPowerOnTypePtrOutput() PowerOnTypePtrOutput {
-	return pulumi.ToOutput(in).(PowerOnTypePtrOutput)
-}
-
-func (in *powerOnTypePtr) ToPowerOnTypePtrOutputWithContext(ctx context.Context) PowerOnTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PowerOnTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type RebootType string
-
-const (
-	RebootTypeEnableBackups  = RebootType("enable_backups")
-	RebootTypeDisableBackups = RebootType("disable_backups")
-	RebootTypeReboot         = RebootType("reboot")
-	RebootTypePowerCycle     = RebootType("power_cycle")
-	RebootTypeShutdown       = RebootType("shutdown")
-	RebootTypePowerOff       = RebootType("power_off")
-	RebootTypePowerOn        = RebootType("power_on")
-	RebootTypeRestore        = RebootType("restore")
-	RebootTypePasswordReset  = RebootType("password_reset")
-	RebootTypeResize         = RebootType("resize")
-	RebootTypeRebuild        = RebootType("rebuild")
-	RebootTypeRename         = RebootType("rename")
-	RebootTypeChangeKernel   = RebootType("change_kernel")
-	RebootTypeEnableIpv6     = RebootType("enable_ipv6")
-	RebootTypeSnapshot       = RebootType("snapshot")
-)
-
-func (RebootType) ElementType() reflect.Type {
-	return reflect.TypeOf((*RebootType)(nil)).Elem()
-}
-
-func (e RebootType) ToRebootTypeOutput() RebootTypeOutput {
-	return pulumi.ToOutput(e).(RebootTypeOutput)
-}
-
-func (e RebootType) ToRebootTypeOutputWithContext(ctx context.Context) RebootTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RebootTypeOutput)
-}
-
-func (e RebootType) ToRebootTypePtrOutput() RebootTypePtrOutput {
-	return e.ToRebootTypePtrOutputWithContext(context.Background())
-}
-
-func (e RebootType) ToRebootTypePtrOutputWithContext(ctx context.Context) RebootTypePtrOutput {
-	return RebootType(e).ToRebootTypeOutputWithContext(ctx).ToRebootTypePtrOutputWithContext(ctx)
-}
-
-func (e RebootType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RebootType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RebootType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RebootType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type RebootTypeOutput struct{ *pulumi.OutputState }
-
-func (RebootTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RebootType)(nil)).Elem()
-}
-
-func (o RebootTypeOutput) ToRebootTypeOutput() RebootTypeOutput {
-	return o
-}
-
-func (o RebootTypeOutput) ToRebootTypeOutputWithContext(ctx context.Context) RebootTypeOutput {
-	return o
-}
-
-func (o RebootTypeOutput) ToRebootTypePtrOutput() RebootTypePtrOutput {
-	return o.ToRebootTypePtrOutputWithContext(context.Background())
-}
-
-func (o RebootTypeOutput) ToRebootTypePtrOutputWithContext(ctx context.Context) RebootTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RebootType) *RebootType {
-		return &v
-	}).(RebootTypePtrOutput)
-}
-
-func (o RebootTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RebootTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RebootType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RebootTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RebootTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RebootType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RebootTypePtrOutput struct{ *pulumi.OutputState }
-
-func (RebootTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RebootType)(nil)).Elem()
-}
-
-func (o RebootTypePtrOutput) ToRebootTypePtrOutput() RebootTypePtrOutput {
-	return o
-}
-
-func (o RebootTypePtrOutput) ToRebootTypePtrOutputWithContext(ctx context.Context) RebootTypePtrOutput {
-	return o
-}
-
-func (o RebootTypePtrOutput) Elem() RebootTypeOutput {
-	return o.ApplyT(func(v *RebootType) RebootType {
-		if v != nil {
-			return *v
-		}
-		var ret RebootType
-		return ret
-	}).(RebootTypeOutput)
-}
-
-func (o RebootTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RebootTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RebootType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RebootTypeInput is an input type that accepts values of the RebootType enum
-// A concrete instance of `RebootTypeInput` can be one of the following:
-//
-//	RebootTypeEnableBackups
-//	RebootTypeDisableBackups
-//	RebootTypeReboot
-//	RebootTypePowerCycle
-//	RebootTypeShutdown
-//	RebootTypePowerOff
-//	RebootTypePowerOn
-//	RebootTypeRestore
-//	RebootTypePasswordReset
-//	RebootTypeResize
-//	RebootTypeRebuild
-//	RebootTypeRename
-//	RebootTypeChangeKernel
-//	RebootTypeEnableIpv6
-//	RebootTypeSnapshot
-type RebootTypeInput interface {
-	pulumi.Input
-
-	ToRebootTypeOutput() RebootTypeOutput
-	ToRebootTypeOutputWithContext(context.Context) RebootTypeOutput
-}
-
-var rebootTypePtrType = reflect.TypeOf((**RebootType)(nil)).Elem()
-
-type RebootTypePtrInput interface {
-	pulumi.Input
-
-	ToRebootTypePtrOutput() RebootTypePtrOutput
-	ToRebootTypePtrOutputWithContext(context.Context) RebootTypePtrOutput
-}
-
-type rebootTypePtr string
-
-func RebootTypePtr(v string) RebootTypePtrInput {
-	return (*rebootTypePtr)(&v)
-}
-
-func (*rebootTypePtr) ElementType() reflect.Type {
-	return rebootTypePtrType
-}
-
-func (in *rebootTypePtr) ToRebootTypePtrOutput() RebootTypePtrOutput {
-	return pulumi.ToOutput(in).(RebootTypePtrOutput)
-}
-
-func (in *rebootTypePtr) ToRebootTypePtrOutputWithContext(ctx context.Context) RebootTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RebootTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type RebuildDropletActionType string
-
-const (
-	RebuildDropletActionTypeEnableBackups  = RebuildDropletActionType("enable_backups")
-	RebuildDropletActionTypeDisableBackups = RebuildDropletActionType("disable_backups")
-	RebuildDropletActionTypeReboot         = RebuildDropletActionType("reboot")
-	RebuildDropletActionTypePowerCycle     = RebuildDropletActionType("power_cycle")
-	RebuildDropletActionTypeShutdown       = RebuildDropletActionType("shutdown")
-	RebuildDropletActionTypePowerOff       = RebuildDropletActionType("power_off")
-	RebuildDropletActionTypePowerOn        = RebuildDropletActionType("power_on")
-	RebuildDropletActionTypeRestore        = RebuildDropletActionType("restore")
-	RebuildDropletActionTypePasswordReset  = RebuildDropletActionType("password_reset")
-	RebuildDropletActionTypeResize         = RebuildDropletActionType("resize")
-	RebuildDropletActionTypeRebuild        = RebuildDropletActionType("rebuild")
-	RebuildDropletActionTypeRename         = RebuildDropletActionType("rename")
-	RebuildDropletActionTypeChangeKernel   = RebuildDropletActionType("change_kernel")
-	RebuildDropletActionTypeEnableIpv6     = RebuildDropletActionType("enable_ipv6")
-	RebuildDropletActionTypeSnapshot       = RebuildDropletActionType("snapshot")
-)
-
-func (RebuildDropletActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*RebuildDropletActionType)(nil)).Elem()
-}
-
-func (e RebuildDropletActionType) ToRebuildDropletActionTypeOutput() RebuildDropletActionTypeOutput {
-	return pulumi.ToOutput(e).(RebuildDropletActionTypeOutput)
-}
-
-func (e RebuildDropletActionType) ToRebuildDropletActionTypeOutputWithContext(ctx context.Context) RebuildDropletActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RebuildDropletActionTypeOutput)
-}
-
-func (e RebuildDropletActionType) ToRebuildDropletActionTypePtrOutput() RebuildDropletActionTypePtrOutput {
-	return e.ToRebuildDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e RebuildDropletActionType) ToRebuildDropletActionTypePtrOutputWithContext(ctx context.Context) RebuildDropletActionTypePtrOutput {
-	return RebuildDropletActionType(e).ToRebuildDropletActionTypeOutputWithContext(ctx).ToRebuildDropletActionTypePtrOutputWithContext(ctx)
-}
-
-func (e RebuildDropletActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RebuildDropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RebuildDropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RebuildDropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type RebuildDropletActionTypeOutput struct{ *pulumi.OutputState }
-
-func (RebuildDropletActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RebuildDropletActionType)(nil)).Elem()
-}
-
-func (o RebuildDropletActionTypeOutput) ToRebuildDropletActionTypeOutput() RebuildDropletActionTypeOutput {
-	return o
-}
-
-func (o RebuildDropletActionTypeOutput) ToRebuildDropletActionTypeOutputWithContext(ctx context.Context) RebuildDropletActionTypeOutput {
-	return o
-}
-
-func (o RebuildDropletActionTypeOutput) ToRebuildDropletActionTypePtrOutput() RebuildDropletActionTypePtrOutput {
-	return o.ToRebuildDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o RebuildDropletActionTypeOutput) ToRebuildDropletActionTypePtrOutputWithContext(ctx context.Context) RebuildDropletActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RebuildDropletActionType) *RebuildDropletActionType {
-		return &v
-	}).(RebuildDropletActionTypePtrOutput)
-}
-
-func (o RebuildDropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RebuildDropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RebuildDropletActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RebuildDropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RebuildDropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RebuildDropletActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RebuildDropletActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (RebuildDropletActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RebuildDropletActionType)(nil)).Elem()
-}
-
-func (o RebuildDropletActionTypePtrOutput) ToRebuildDropletActionTypePtrOutput() RebuildDropletActionTypePtrOutput {
-	return o
-}
-
-func (o RebuildDropletActionTypePtrOutput) ToRebuildDropletActionTypePtrOutputWithContext(ctx context.Context) RebuildDropletActionTypePtrOutput {
-	return o
-}
-
-func (o RebuildDropletActionTypePtrOutput) Elem() RebuildDropletActionTypeOutput {
-	return o.ApplyT(func(v *RebuildDropletActionType) RebuildDropletActionType {
-		if v != nil {
-			return *v
-		}
-		var ret RebuildDropletActionType
-		return ret
-	}).(RebuildDropletActionTypeOutput)
-}
-
-func (o RebuildDropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RebuildDropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RebuildDropletActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RebuildDropletActionTypeInput is an input type that accepts values of the RebuildDropletActionType enum
-// A concrete instance of `RebuildDropletActionTypeInput` can be one of the following:
-//
-//	RebuildDropletActionTypeEnableBackups
-//	RebuildDropletActionTypeDisableBackups
-//	RebuildDropletActionTypeReboot
-//	RebuildDropletActionTypePowerCycle
-//	RebuildDropletActionTypeShutdown
-//	RebuildDropletActionTypePowerOff
-//	RebuildDropletActionTypePowerOn
-//	RebuildDropletActionTypeRestore
-//	RebuildDropletActionTypePasswordReset
-//	RebuildDropletActionTypeResize
-//	RebuildDropletActionTypeRebuild
-//	RebuildDropletActionTypeRename
-//	RebuildDropletActionTypeChangeKernel
-//	RebuildDropletActionTypeEnableIpv6
-//	RebuildDropletActionTypeSnapshot
-type RebuildDropletActionTypeInput interface {
-	pulumi.Input
-
-	ToRebuildDropletActionTypeOutput() RebuildDropletActionTypeOutput
-	ToRebuildDropletActionTypeOutputWithContext(context.Context) RebuildDropletActionTypeOutput
-}
-
-var rebuildDropletActionTypePtrType = reflect.TypeOf((**RebuildDropletActionType)(nil)).Elem()
-
-type RebuildDropletActionTypePtrInput interface {
-	pulumi.Input
-
-	ToRebuildDropletActionTypePtrOutput() RebuildDropletActionTypePtrOutput
-	ToRebuildDropletActionTypePtrOutputWithContext(context.Context) RebuildDropletActionTypePtrOutput
-}
-
-type rebuildDropletActionTypePtr string
-
-func RebuildDropletActionTypePtr(v string) RebuildDropletActionTypePtrInput {
-	return (*rebuildDropletActionTypePtr)(&v)
-}
-
-func (*rebuildDropletActionTypePtr) ElementType() reflect.Type {
-	return rebuildDropletActionTypePtrType
-}
-
-func (in *rebuildDropletActionTypePtr) ToRebuildDropletActionTypePtrOutput() RebuildDropletActionTypePtrOutput {
-	return pulumi.ToOutput(in).(RebuildDropletActionTypePtrOutput)
-}
-
-func (in *rebuildDropletActionTypePtr) ToRebuildDropletActionTypePtrOutputWithContext(ctx context.Context) RebuildDropletActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RebuildDropletActionTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type RenameDropletActionType string
-
-const (
-	RenameDropletActionTypeEnableBackups  = RenameDropletActionType("enable_backups")
-	RenameDropletActionTypeDisableBackups = RenameDropletActionType("disable_backups")
-	RenameDropletActionTypeReboot         = RenameDropletActionType("reboot")
-	RenameDropletActionTypePowerCycle     = RenameDropletActionType("power_cycle")
-	RenameDropletActionTypeShutdown       = RenameDropletActionType("shutdown")
-	RenameDropletActionTypePowerOff       = RenameDropletActionType("power_off")
-	RenameDropletActionTypePowerOn        = RenameDropletActionType("power_on")
-	RenameDropletActionTypeRestore        = RenameDropletActionType("restore")
-	RenameDropletActionTypePasswordReset  = RenameDropletActionType("password_reset")
-	RenameDropletActionTypeResize         = RenameDropletActionType("resize")
-	RenameDropletActionTypeRebuild        = RenameDropletActionType("rebuild")
-	RenameDropletActionTypeRename         = RenameDropletActionType("rename")
-	RenameDropletActionTypeChangeKernel   = RenameDropletActionType("change_kernel")
-	RenameDropletActionTypeEnableIpv6     = RenameDropletActionType("enable_ipv6")
-	RenameDropletActionTypeSnapshot       = RenameDropletActionType("snapshot")
-)
-
-func (RenameDropletActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*RenameDropletActionType)(nil)).Elem()
-}
-
-func (e RenameDropletActionType) ToRenameDropletActionTypeOutput() RenameDropletActionTypeOutput {
-	return pulumi.ToOutput(e).(RenameDropletActionTypeOutput)
-}
-
-func (e RenameDropletActionType) ToRenameDropletActionTypeOutputWithContext(ctx context.Context) RenameDropletActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RenameDropletActionTypeOutput)
-}
-
-func (e RenameDropletActionType) ToRenameDropletActionTypePtrOutput() RenameDropletActionTypePtrOutput {
-	return e.ToRenameDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e RenameDropletActionType) ToRenameDropletActionTypePtrOutputWithContext(ctx context.Context) RenameDropletActionTypePtrOutput {
-	return RenameDropletActionType(e).ToRenameDropletActionTypeOutputWithContext(ctx).ToRenameDropletActionTypePtrOutputWithContext(ctx)
-}
-
-func (e RenameDropletActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RenameDropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RenameDropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RenameDropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type RenameDropletActionTypeOutput struct{ *pulumi.OutputState }
-
-func (RenameDropletActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RenameDropletActionType)(nil)).Elem()
-}
-
-func (o RenameDropletActionTypeOutput) ToRenameDropletActionTypeOutput() RenameDropletActionTypeOutput {
-	return o
-}
-
-func (o RenameDropletActionTypeOutput) ToRenameDropletActionTypeOutputWithContext(ctx context.Context) RenameDropletActionTypeOutput {
-	return o
-}
-
-func (o RenameDropletActionTypeOutput) ToRenameDropletActionTypePtrOutput() RenameDropletActionTypePtrOutput {
-	return o.ToRenameDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o RenameDropletActionTypeOutput) ToRenameDropletActionTypePtrOutputWithContext(ctx context.Context) RenameDropletActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RenameDropletActionType) *RenameDropletActionType {
-		return &v
-	}).(RenameDropletActionTypePtrOutput)
-}
-
-func (o RenameDropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RenameDropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RenameDropletActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RenameDropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RenameDropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RenameDropletActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RenameDropletActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (RenameDropletActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RenameDropletActionType)(nil)).Elem()
-}
-
-func (o RenameDropletActionTypePtrOutput) ToRenameDropletActionTypePtrOutput() RenameDropletActionTypePtrOutput {
-	return o
-}
-
-func (o RenameDropletActionTypePtrOutput) ToRenameDropletActionTypePtrOutputWithContext(ctx context.Context) RenameDropletActionTypePtrOutput {
-	return o
-}
-
-func (o RenameDropletActionTypePtrOutput) Elem() RenameDropletActionTypeOutput {
-	return o.ApplyT(func(v *RenameDropletActionType) RenameDropletActionType {
-		if v != nil {
-			return *v
-		}
-		var ret RenameDropletActionType
-		return ret
-	}).(RenameDropletActionTypeOutput)
-}
-
-func (o RenameDropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RenameDropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RenameDropletActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RenameDropletActionTypeInput is an input type that accepts values of the RenameDropletActionType enum
-// A concrete instance of `RenameDropletActionTypeInput` can be one of the following:
-//
-//	RenameDropletActionTypeEnableBackups
-//	RenameDropletActionTypeDisableBackups
-//	RenameDropletActionTypeReboot
-//	RenameDropletActionTypePowerCycle
-//	RenameDropletActionTypeShutdown
-//	RenameDropletActionTypePowerOff
-//	RenameDropletActionTypePowerOn
-//	RenameDropletActionTypeRestore
-//	RenameDropletActionTypePasswordReset
-//	RenameDropletActionTypeResize
-//	RenameDropletActionTypeRebuild
-//	RenameDropletActionTypeRename
-//	RenameDropletActionTypeChangeKernel
-//	RenameDropletActionTypeEnableIpv6
-//	RenameDropletActionTypeSnapshot
-type RenameDropletActionTypeInput interface {
-	pulumi.Input
-
-	ToRenameDropletActionTypeOutput() RenameDropletActionTypeOutput
-	ToRenameDropletActionTypeOutputWithContext(context.Context) RenameDropletActionTypeOutput
-}
-
-var renameDropletActionTypePtrType = reflect.TypeOf((**RenameDropletActionType)(nil)).Elem()
-
-type RenameDropletActionTypePtrInput interface {
-	pulumi.Input
-
-	ToRenameDropletActionTypePtrOutput() RenameDropletActionTypePtrOutput
-	ToRenameDropletActionTypePtrOutputWithContext(context.Context) RenameDropletActionTypePtrOutput
-}
-
-type renameDropletActionTypePtr string
-
-func RenameDropletActionTypePtr(v string) RenameDropletActionTypePtrInput {
-	return (*renameDropletActionTypePtr)(&v)
-}
-
-func (*renameDropletActionTypePtr) ElementType() reflect.Type {
-	return renameDropletActionTypePtrType
-}
-
-func (in *renameDropletActionTypePtr) ToRenameDropletActionTypePtrOutput() RenameDropletActionTypePtrOutput {
-	return pulumi.ToOutput(in).(RenameDropletActionTypePtrOutput)
-}
-
-func (in *renameDropletActionTypePtr) ToRenameDropletActionTypePtrOutputWithContext(ctx context.Context) RenameDropletActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RenameDropletActionTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type ResizeDropletActionType string
-
-const (
-	ResizeDropletActionTypeEnableBackups  = ResizeDropletActionType("enable_backups")
-	ResizeDropletActionTypeDisableBackups = ResizeDropletActionType("disable_backups")
-	ResizeDropletActionTypeReboot         = ResizeDropletActionType("reboot")
-	ResizeDropletActionTypePowerCycle     = ResizeDropletActionType("power_cycle")
-	ResizeDropletActionTypeShutdown       = ResizeDropletActionType("shutdown")
-	ResizeDropletActionTypePowerOff       = ResizeDropletActionType("power_off")
-	ResizeDropletActionTypePowerOn        = ResizeDropletActionType("power_on")
-	ResizeDropletActionTypeRestore        = ResizeDropletActionType("restore")
-	ResizeDropletActionTypePasswordReset  = ResizeDropletActionType("password_reset")
-	ResizeDropletActionTypeResize         = ResizeDropletActionType("resize")
-	ResizeDropletActionTypeRebuild        = ResizeDropletActionType("rebuild")
-	ResizeDropletActionTypeRename         = ResizeDropletActionType("rename")
-	ResizeDropletActionTypeChangeKernel   = ResizeDropletActionType("change_kernel")
-	ResizeDropletActionTypeEnableIpv6     = ResizeDropletActionType("enable_ipv6")
-	ResizeDropletActionTypeSnapshot       = ResizeDropletActionType("snapshot")
-)
-
-func (ResizeDropletActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResizeDropletActionType)(nil)).Elem()
-}
-
-func (e ResizeDropletActionType) ToResizeDropletActionTypeOutput() ResizeDropletActionTypeOutput {
-	return pulumi.ToOutput(e).(ResizeDropletActionTypeOutput)
-}
-
-func (e ResizeDropletActionType) ToResizeDropletActionTypeOutputWithContext(ctx context.Context) ResizeDropletActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResizeDropletActionTypeOutput)
-}
-
-func (e ResizeDropletActionType) ToResizeDropletActionTypePtrOutput() ResizeDropletActionTypePtrOutput {
-	return e.ToResizeDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e ResizeDropletActionType) ToResizeDropletActionTypePtrOutputWithContext(ctx context.Context) ResizeDropletActionTypePtrOutput {
-	return ResizeDropletActionType(e).ToResizeDropletActionTypeOutputWithContext(ctx).ToResizeDropletActionTypePtrOutputWithContext(ctx)
-}
-
-func (e ResizeDropletActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResizeDropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ResizeDropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ResizeDropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ResizeDropletActionTypeOutput struct{ *pulumi.OutputState }
-
-func (ResizeDropletActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResizeDropletActionType)(nil)).Elem()
-}
-
-func (o ResizeDropletActionTypeOutput) ToResizeDropletActionTypeOutput() ResizeDropletActionTypeOutput {
-	return o
-}
-
-func (o ResizeDropletActionTypeOutput) ToResizeDropletActionTypeOutputWithContext(ctx context.Context) ResizeDropletActionTypeOutput {
-	return o
-}
-
-func (o ResizeDropletActionTypeOutput) ToResizeDropletActionTypePtrOutput() ResizeDropletActionTypePtrOutput {
-	return o.ToResizeDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o ResizeDropletActionTypeOutput) ToResizeDropletActionTypePtrOutputWithContext(ctx context.Context) ResizeDropletActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResizeDropletActionType) *ResizeDropletActionType {
-		return &v
-	}).(ResizeDropletActionTypePtrOutput)
-}
-
-func (o ResizeDropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ResizeDropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResizeDropletActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ResizeDropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeDropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResizeDropletActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ResizeDropletActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ResizeDropletActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResizeDropletActionType)(nil)).Elem()
-}
-
-func (o ResizeDropletActionTypePtrOutput) ToResizeDropletActionTypePtrOutput() ResizeDropletActionTypePtrOutput {
-	return o
-}
-
-func (o ResizeDropletActionTypePtrOutput) ToResizeDropletActionTypePtrOutputWithContext(ctx context.Context) ResizeDropletActionTypePtrOutput {
-	return o
-}
-
-func (o ResizeDropletActionTypePtrOutput) Elem() ResizeDropletActionTypeOutput {
-	return o.ApplyT(func(v *ResizeDropletActionType) ResizeDropletActionType {
-		if v != nil {
-			return *v
-		}
-		var ret ResizeDropletActionType
-		return ret
-	}).(ResizeDropletActionTypeOutput)
-}
-
-func (o ResizeDropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ResizeDropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResizeDropletActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ResizeDropletActionTypeInput is an input type that accepts values of the ResizeDropletActionType enum
-// A concrete instance of `ResizeDropletActionTypeInput` can be one of the following:
-//
-//	ResizeDropletActionTypeEnableBackups
-//	ResizeDropletActionTypeDisableBackups
-//	ResizeDropletActionTypeReboot
-//	ResizeDropletActionTypePowerCycle
-//	ResizeDropletActionTypeShutdown
-//	ResizeDropletActionTypePowerOff
-//	ResizeDropletActionTypePowerOn
-//	ResizeDropletActionTypeRestore
-//	ResizeDropletActionTypePasswordReset
-//	ResizeDropletActionTypeResize
-//	ResizeDropletActionTypeRebuild
-//	ResizeDropletActionTypeRename
-//	ResizeDropletActionTypeChangeKernel
-//	ResizeDropletActionTypeEnableIpv6
-//	ResizeDropletActionTypeSnapshot
-type ResizeDropletActionTypeInput interface {
-	pulumi.Input
-
-	ToResizeDropletActionTypeOutput() ResizeDropletActionTypeOutput
-	ToResizeDropletActionTypeOutputWithContext(context.Context) ResizeDropletActionTypeOutput
-}
-
-var resizeDropletActionTypePtrType = reflect.TypeOf((**ResizeDropletActionType)(nil)).Elem()
-
-type ResizeDropletActionTypePtrInput interface {
-	pulumi.Input
-
-	ToResizeDropletActionTypePtrOutput() ResizeDropletActionTypePtrOutput
-	ToResizeDropletActionTypePtrOutputWithContext(context.Context) ResizeDropletActionTypePtrOutput
-}
-
-type resizeDropletActionTypePtr string
-
-func ResizeDropletActionTypePtr(v string) ResizeDropletActionTypePtrInput {
-	return (*resizeDropletActionTypePtr)(&v)
-}
-
-func (*resizeDropletActionTypePtr) ElementType() reflect.Type {
-	return resizeDropletActionTypePtrType
-}
-
-func (in *resizeDropletActionTypePtr) ToResizeDropletActionTypePtrOutput() ResizeDropletActionTypePtrOutput {
-	return pulumi.ToOutput(in).(ResizeDropletActionTypePtrOutput)
-}
-
-func (in *resizeDropletActionTypePtr) ToResizeDropletActionTypePtrOutputWithContext(ctx context.Context) ResizeDropletActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResizeDropletActionTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type RestoreDropletActionType string
-
-const (
-	RestoreDropletActionTypeEnableBackups  = RestoreDropletActionType("enable_backups")
-	RestoreDropletActionTypeDisableBackups = RestoreDropletActionType("disable_backups")
-	RestoreDropletActionTypeReboot         = RestoreDropletActionType("reboot")
-	RestoreDropletActionTypePowerCycle     = RestoreDropletActionType("power_cycle")
-	RestoreDropletActionTypeShutdown       = RestoreDropletActionType("shutdown")
-	RestoreDropletActionTypePowerOff       = RestoreDropletActionType("power_off")
-	RestoreDropletActionTypePowerOn        = RestoreDropletActionType("power_on")
-	RestoreDropletActionTypeRestore        = RestoreDropletActionType("restore")
-	RestoreDropletActionTypePasswordReset  = RestoreDropletActionType("password_reset")
-	RestoreDropletActionTypeResize         = RestoreDropletActionType("resize")
-	RestoreDropletActionTypeRebuild        = RestoreDropletActionType("rebuild")
-	RestoreDropletActionTypeRename         = RestoreDropletActionType("rename")
-	RestoreDropletActionTypeChangeKernel   = RestoreDropletActionType("change_kernel")
-	RestoreDropletActionTypeEnableIpv6     = RestoreDropletActionType("enable_ipv6")
-	RestoreDropletActionTypeSnapshot       = RestoreDropletActionType("snapshot")
-)
-
-func (RestoreDropletActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestoreDropletActionType)(nil)).Elem()
-}
-
-func (e RestoreDropletActionType) ToRestoreDropletActionTypeOutput() RestoreDropletActionTypeOutput {
-	return pulumi.ToOutput(e).(RestoreDropletActionTypeOutput)
-}
-
-func (e RestoreDropletActionType) ToRestoreDropletActionTypeOutputWithContext(ctx context.Context) RestoreDropletActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RestoreDropletActionTypeOutput)
-}
-
-func (e RestoreDropletActionType) ToRestoreDropletActionTypePtrOutput() RestoreDropletActionTypePtrOutput {
-	return e.ToRestoreDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e RestoreDropletActionType) ToRestoreDropletActionTypePtrOutputWithContext(ctx context.Context) RestoreDropletActionTypePtrOutput {
-	return RestoreDropletActionType(e).ToRestoreDropletActionTypeOutputWithContext(ctx).ToRestoreDropletActionTypePtrOutputWithContext(ctx)
-}
-
-func (e RestoreDropletActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RestoreDropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e RestoreDropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e RestoreDropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type RestoreDropletActionTypeOutput struct{ *pulumi.OutputState }
-
-func (RestoreDropletActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestoreDropletActionType)(nil)).Elem()
-}
-
-func (o RestoreDropletActionTypeOutput) ToRestoreDropletActionTypeOutput() RestoreDropletActionTypeOutput {
-	return o
-}
-
-func (o RestoreDropletActionTypeOutput) ToRestoreDropletActionTypeOutputWithContext(ctx context.Context) RestoreDropletActionTypeOutput {
-	return o
-}
-
-func (o RestoreDropletActionTypeOutput) ToRestoreDropletActionTypePtrOutput() RestoreDropletActionTypePtrOutput {
-	return o.ToRestoreDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o RestoreDropletActionTypeOutput) ToRestoreDropletActionTypePtrOutputWithContext(ctx context.Context) RestoreDropletActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreDropletActionType) *RestoreDropletActionType {
-		return &v
-	}).(RestoreDropletActionTypePtrOutput)
-}
-
-func (o RestoreDropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RestoreDropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RestoreDropletActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RestoreDropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RestoreDropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RestoreDropletActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RestoreDropletActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (RestoreDropletActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RestoreDropletActionType)(nil)).Elem()
-}
-
-func (o RestoreDropletActionTypePtrOutput) ToRestoreDropletActionTypePtrOutput() RestoreDropletActionTypePtrOutput {
-	return o
-}
-
-func (o RestoreDropletActionTypePtrOutput) ToRestoreDropletActionTypePtrOutputWithContext(ctx context.Context) RestoreDropletActionTypePtrOutput {
-	return o
-}
-
-func (o RestoreDropletActionTypePtrOutput) Elem() RestoreDropletActionTypeOutput {
-	return o.ApplyT(func(v *RestoreDropletActionType) RestoreDropletActionType {
-		if v != nil {
-			return *v
-		}
-		var ret RestoreDropletActionType
-		return ret
-	}).(RestoreDropletActionTypeOutput)
-}
-
-func (o RestoreDropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RestoreDropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RestoreDropletActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// RestoreDropletActionTypeInput is an input type that accepts values of the RestoreDropletActionType enum
-// A concrete instance of `RestoreDropletActionTypeInput` can be one of the following:
-//
-//	RestoreDropletActionTypeEnableBackups
-//	RestoreDropletActionTypeDisableBackups
-//	RestoreDropletActionTypeReboot
-//	RestoreDropletActionTypePowerCycle
-//	RestoreDropletActionTypeShutdown
-//	RestoreDropletActionTypePowerOff
-//	RestoreDropletActionTypePowerOn
-//	RestoreDropletActionTypeRestore
-//	RestoreDropletActionTypePasswordReset
-//	RestoreDropletActionTypeResize
-//	RestoreDropletActionTypeRebuild
-//	RestoreDropletActionTypeRename
-//	RestoreDropletActionTypeChangeKernel
-//	RestoreDropletActionTypeEnableIpv6
-//	RestoreDropletActionTypeSnapshot
-type RestoreDropletActionTypeInput interface {
-	pulumi.Input
-
-	ToRestoreDropletActionTypeOutput() RestoreDropletActionTypeOutput
-	ToRestoreDropletActionTypeOutputWithContext(context.Context) RestoreDropletActionTypeOutput
-}
-
-var restoreDropletActionTypePtrType = reflect.TypeOf((**RestoreDropletActionType)(nil)).Elem()
-
-type RestoreDropletActionTypePtrInput interface {
-	pulumi.Input
-
-	ToRestoreDropletActionTypePtrOutput() RestoreDropletActionTypePtrOutput
-	ToRestoreDropletActionTypePtrOutputWithContext(context.Context) RestoreDropletActionTypePtrOutput
-}
-
-type restoreDropletActionTypePtr string
-
-func RestoreDropletActionTypePtr(v string) RestoreDropletActionTypePtrInput {
-	return (*restoreDropletActionTypePtr)(&v)
-}
-
-func (*restoreDropletActionTypePtr) ElementType() reflect.Type {
-	return restoreDropletActionTypePtrType
-}
-
-func (in *restoreDropletActionTypePtr) ToRestoreDropletActionTypePtrOutput() RestoreDropletActionTypePtrOutput {
-	return pulumi.ToOutput(in).(RestoreDropletActionTypePtrOutput)
-}
-
-func (in *restoreDropletActionTypePtr) ToRestoreDropletActionTypePtrOutputWithContext(ctx context.Context) RestoreDropletActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RestoreDropletActionTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type ShutdownType string
-
-const (
-	ShutdownTypeEnableBackups  = ShutdownType("enable_backups")
-	ShutdownTypeDisableBackups = ShutdownType("disable_backups")
-	ShutdownTypeReboot         = ShutdownType("reboot")
-	ShutdownTypePowerCycle     = ShutdownType("power_cycle")
-	ShutdownTypeShutdown       = ShutdownType("shutdown")
-	ShutdownTypePowerOff       = ShutdownType("power_off")
-	ShutdownTypePowerOn        = ShutdownType("power_on")
-	ShutdownTypeRestore        = ShutdownType("restore")
-	ShutdownTypePasswordReset  = ShutdownType("password_reset")
-	ShutdownTypeResize         = ShutdownType("resize")
-	ShutdownTypeRebuild        = ShutdownType("rebuild")
-	ShutdownTypeRename         = ShutdownType("rename")
-	ShutdownTypeChangeKernel   = ShutdownType("change_kernel")
-	ShutdownTypeEnableIpv6     = ShutdownType("enable_ipv6")
-	ShutdownTypeSnapshot       = ShutdownType("snapshot")
-)
-
-func (ShutdownType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShutdownType)(nil)).Elem()
-}
-
-func (e ShutdownType) ToShutdownTypeOutput() ShutdownTypeOutput {
-	return pulumi.ToOutput(e).(ShutdownTypeOutput)
-}
-
-func (e ShutdownType) ToShutdownTypeOutputWithContext(ctx context.Context) ShutdownTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ShutdownTypeOutput)
-}
-
-func (e ShutdownType) ToShutdownTypePtrOutput() ShutdownTypePtrOutput {
-	return e.ToShutdownTypePtrOutputWithContext(context.Background())
-}
-
-func (e ShutdownType) ToShutdownTypePtrOutputWithContext(ctx context.Context) ShutdownTypePtrOutput {
-	return ShutdownType(e).ToShutdownTypeOutputWithContext(ctx).ToShutdownTypePtrOutputWithContext(ctx)
-}
-
-func (e ShutdownType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ShutdownType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ShutdownType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ShutdownType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ShutdownTypeOutput struct{ *pulumi.OutputState }
-
-func (ShutdownTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShutdownType)(nil)).Elem()
-}
-
-func (o ShutdownTypeOutput) ToShutdownTypeOutput() ShutdownTypeOutput {
-	return o
-}
-
-func (o ShutdownTypeOutput) ToShutdownTypeOutputWithContext(ctx context.Context) ShutdownTypeOutput {
-	return o
-}
-
-func (o ShutdownTypeOutput) ToShutdownTypePtrOutput() ShutdownTypePtrOutput {
-	return o.ToShutdownTypePtrOutputWithContext(context.Background())
-}
-
-func (o ShutdownTypeOutput) ToShutdownTypePtrOutputWithContext(ctx context.Context) ShutdownTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShutdownType) *ShutdownType {
-		return &v
-	}).(ShutdownTypePtrOutput)
-}
-
-func (o ShutdownTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ShutdownTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ShutdownType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ShutdownTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ShutdownTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ShutdownType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ShutdownTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ShutdownTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShutdownType)(nil)).Elem()
-}
-
-func (o ShutdownTypePtrOutput) ToShutdownTypePtrOutput() ShutdownTypePtrOutput {
-	return o
-}
-
-func (o ShutdownTypePtrOutput) ToShutdownTypePtrOutputWithContext(ctx context.Context) ShutdownTypePtrOutput {
-	return o
-}
-
-func (o ShutdownTypePtrOutput) Elem() ShutdownTypeOutput {
-	return o.ApplyT(func(v *ShutdownType) ShutdownType {
-		if v != nil {
-			return *v
-		}
-		var ret ShutdownType
-		return ret
-	}).(ShutdownTypeOutput)
-}
-
-func (o ShutdownTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ShutdownTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ShutdownType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ShutdownTypeInput is an input type that accepts values of the ShutdownType enum
-// A concrete instance of `ShutdownTypeInput` can be one of the following:
-//
-//	ShutdownTypeEnableBackups
-//	ShutdownTypeDisableBackups
-//	ShutdownTypeReboot
-//	ShutdownTypePowerCycle
-//	ShutdownTypeShutdown
-//	ShutdownTypePowerOff
-//	ShutdownTypePowerOn
-//	ShutdownTypeRestore
-//	ShutdownTypePasswordReset
-//	ShutdownTypeResize
-//	ShutdownTypeRebuild
-//	ShutdownTypeRename
-//	ShutdownTypeChangeKernel
-//	ShutdownTypeEnableIpv6
-//	ShutdownTypeSnapshot
-type ShutdownTypeInput interface {
-	pulumi.Input
-
-	ToShutdownTypeOutput() ShutdownTypeOutput
-	ToShutdownTypeOutputWithContext(context.Context) ShutdownTypeOutput
-}
-
-var shutdownTypePtrType = reflect.TypeOf((**ShutdownType)(nil)).Elem()
-
-type ShutdownTypePtrInput interface {
-	pulumi.Input
-
-	ToShutdownTypePtrOutput() ShutdownTypePtrOutput
-	ToShutdownTypePtrOutputWithContext(context.Context) ShutdownTypePtrOutput
-}
-
-type shutdownTypePtr string
-
-func ShutdownTypePtr(v string) ShutdownTypePtrInput {
-	return (*shutdownTypePtr)(&v)
-}
-
-func (*shutdownTypePtr) ElementType() reflect.Type {
-	return shutdownTypePtrType
-}
-
-func (in *shutdownTypePtr) ToShutdownTypePtrOutput() ShutdownTypePtrOutput {
-	return pulumi.ToOutput(in).(ShutdownTypePtrOutput)
-}
-
-func (in *shutdownTypePtr) ToShutdownTypePtrOutputWithContext(ctx context.Context) ShutdownTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ShutdownTypePtrOutput)
-}
-
-// The type of action to initiate for the Droplet.
-type SnapshotDropletActionType string
-
-const (
-	SnapshotDropletActionTypeEnableBackups  = SnapshotDropletActionType("enable_backups")
-	SnapshotDropletActionTypeDisableBackups = SnapshotDropletActionType("disable_backups")
-	SnapshotDropletActionTypeReboot         = SnapshotDropletActionType("reboot")
-	SnapshotDropletActionTypePowerCycle     = SnapshotDropletActionType("power_cycle")
-	SnapshotDropletActionTypeShutdown       = SnapshotDropletActionType("shutdown")
-	SnapshotDropletActionTypePowerOff       = SnapshotDropletActionType("power_off")
-	SnapshotDropletActionTypePowerOn        = SnapshotDropletActionType("power_on")
-	SnapshotDropletActionTypeRestore        = SnapshotDropletActionType("restore")
-	SnapshotDropletActionTypePasswordReset  = SnapshotDropletActionType("password_reset")
-	SnapshotDropletActionTypeResize         = SnapshotDropletActionType("resize")
-	SnapshotDropletActionTypeRebuild        = SnapshotDropletActionType("rebuild")
-	SnapshotDropletActionTypeRename         = SnapshotDropletActionType("rename")
-	SnapshotDropletActionTypeChangeKernel   = SnapshotDropletActionType("change_kernel")
-	SnapshotDropletActionTypeEnableIpv6     = SnapshotDropletActionType("enable_ipv6")
-	SnapshotDropletActionTypeSnapshot       = SnapshotDropletActionType("snapshot")
-)
-
-func (SnapshotDropletActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotDropletActionType)(nil)).Elem()
-}
-
-func (e SnapshotDropletActionType) ToSnapshotDropletActionTypeOutput() SnapshotDropletActionTypeOutput {
-	return pulumi.ToOutput(e).(SnapshotDropletActionTypeOutput)
-}
-
-func (e SnapshotDropletActionType) ToSnapshotDropletActionTypeOutputWithContext(ctx context.Context) SnapshotDropletActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SnapshotDropletActionTypeOutput)
-}
-
-func (e SnapshotDropletActionType) ToSnapshotDropletActionTypePtrOutput() SnapshotDropletActionTypePtrOutput {
-	return e.ToSnapshotDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e SnapshotDropletActionType) ToSnapshotDropletActionTypePtrOutputWithContext(ctx context.Context) SnapshotDropletActionTypePtrOutput {
-	return SnapshotDropletActionType(e).ToSnapshotDropletActionTypeOutputWithContext(ctx).ToSnapshotDropletActionTypePtrOutputWithContext(ctx)
-}
-
-func (e SnapshotDropletActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SnapshotDropletActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SnapshotDropletActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SnapshotDropletActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SnapshotDropletActionTypeOutput struct{ *pulumi.OutputState }
-
-func (SnapshotDropletActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotDropletActionType)(nil)).Elem()
-}
-
-func (o SnapshotDropletActionTypeOutput) ToSnapshotDropletActionTypeOutput() SnapshotDropletActionTypeOutput {
-	return o
-}
-
-func (o SnapshotDropletActionTypeOutput) ToSnapshotDropletActionTypeOutputWithContext(ctx context.Context) SnapshotDropletActionTypeOutput {
-	return o
-}
-
-func (o SnapshotDropletActionTypeOutput) ToSnapshotDropletActionTypePtrOutput() SnapshotDropletActionTypePtrOutput {
-	return o.ToSnapshotDropletActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotDropletActionTypeOutput) ToSnapshotDropletActionTypePtrOutputWithContext(ctx context.Context) SnapshotDropletActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotDropletActionType) *SnapshotDropletActionType {
-		return &v
-	}).(SnapshotDropletActionTypePtrOutput)
-}
-
-func (o SnapshotDropletActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SnapshotDropletActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotDropletActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SnapshotDropletActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotDropletActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotDropletActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SnapshotDropletActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotDropletActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotDropletActionType)(nil)).Elem()
-}
-
-func (o SnapshotDropletActionTypePtrOutput) ToSnapshotDropletActionTypePtrOutput() SnapshotDropletActionTypePtrOutput {
-	return o
-}
-
-func (o SnapshotDropletActionTypePtrOutput) ToSnapshotDropletActionTypePtrOutputWithContext(ctx context.Context) SnapshotDropletActionTypePtrOutput {
-	return o
-}
-
-func (o SnapshotDropletActionTypePtrOutput) Elem() SnapshotDropletActionTypeOutput {
-	return o.ApplyT(func(v *SnapshotDropletActionType) SnapshotDropletActionType {
-		if v != nil {
-			return *v
-		}
-		var ret SnapshotDropletActionType
-		return ret
-	}).(SnapshotDropletActionTypeOutput)
-}
-
-func (o SnapshotDropletActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotDropletActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotDropletActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SnapshotDropletActionTypeInput is an input type that accepts values of the SnapshotDropletActionType enum
-// A concrete instance of `SnapshotDropletActionTypeInput` can be one of the following:
-//
-//	SnapshotDropletActionTypeEnableBackups
-//	SnapshotDropletActionTypeDisableBackups
-//	SnapshotDropletActionTypeReboot
-//	SnapshotDropletActionTypePowerCycle
-//	SnapshotDropletActionTypeShutdown
-//	SnapshotDropletActionTypePowerOff
-//	SnapshotDropletActionTypePowerOn
-//	SnapshotDropletActionTypeRestore
-//	SnapshotDropletActionTypePasswordReset
-//	SnapshotDropletActionTypeResize
-//	SnapshotDropletActionTypeRebuild
-//	SnapshotDropletActionTypeRename
-//	SnapshotDropletActionTypeChangeKernel
-//	SnapshotDropletActionTypeEnableIpv6
-//	SnapshotDropletActionTypeSnapshot
-type SnapshotDropletActionTypeInput interface {
-	pulumi.Input
-
-	ToSnapshotDropletActionTypeOutput() SnapshotDropletActionTypeOutput
-	ToSnapshotDropletActionTypeOutputWithContext(context.Context) SnapshotDropletActionTypeOutput
-}
-
-var snapshotDropletActionTypePtrType = reflect.TypeOf((**SnapshotDropletActionType)(nil)).Elem()
-
-type SnapshotDropletActionTypePtrInput interface {
-	pulumi.Input
-
-	ToSnapshotDropletActionTypePtrOutput() SnapshotDropletActionTypePtrOutput
-	ToSnapshotDropletActionTypePtrOutputWithContext(context.Context) SnapshotDropletActionTypePtrOutput
-}
-
-type snapshotDropletActionTypePtr string
-
-func SnapshotDropletActionTypePtr(v string) SnapshotDropletActionTypePtrInput {
-	return (*snapshotDropletActionTypePtr)(&v)
-}
-
-func (*snapshotDropletActionTypePtr) ElementType() reflect.Type {
-	return snapshotDropletActionTypePtrType
-}
-
-func (in *snapshotDropletActionTypePtr) ToSnapshotDropletActionTypePtrOutput() SnapshotDropletActionTypePtrOutput {
-	return pulumi.ToOutput(in).(SnapshotDropletActionTypePtrOutput)
-}
-
-func (in *snapshotDropletActionTypePtr) ToSnapshotDropletActionTypePtrOutputWithContext(ctx context.Context) SnapshotDropletActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SnapshotDropletActionTypePtrOutput)
+func (in *typePtr) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ChangeKernelDropletActionTypeInput)(nil)).Elem(), ChangeKernelDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ChangeKernelDropletActionTypePtrInput)(nil)).Elem(), ChangeKernelDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DisableBackupsTypeInput)(nil)).Elem(), DisableBackupsType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DisableBackupsTypePtrInput)(nil)).Elem(), DisableBackupsType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableBackupsTypeInput)(nil)).Elem(), EnableBackupsType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableBackupsTypePtrInput)(nil)).Elem(), EnableBackupsType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableIpv6TypeInput)(nil)).Elem(), EnableIpv6Type("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EnableIpv6TypePtrInput)(nil)).Elem(), EnableIpv6Type("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PasswordResetTypeInput)(nil)).Elem(), PasswordResetType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PasswordResetTypePtrInput)(nil)).Elem(), PasswordResetType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerCycleTypeInput)(nil)).Elem(), PowerCycleType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerCycleTypePtrInput)(nil)).Elem(), PowerCycleType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerOffTypeInput)(nil)).Elem(), PowerOffType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerOffTypePtrInput)(nil)).Elem(), PowerOffType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerOnTypeInput)(nil)).Elem(), PowerOnType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerOnTypePtrInput)(nil)).Elem(), PowerOnType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RebootTypeInput)(nil)).Elem(), RebootType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RebootTypePtrInput)(nil)).Elem(), RebootType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RebuildDropletActionTypeInput)(nil)).Elem(), RebuildDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RebuildDropletActionTypePtrInput)(nil)).Elem(), RebuildDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RenameDropletActionTypeInput)(nil)).Elem(), RenameDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RenameDropletActionTypePtrInput)(nil)).Elem(), RenameDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResizeDropletActionTypeInput)(nil)).Elem(), ResizeDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ResizeDropletActionTypePtrInput)(nil)).Elem(), ResizeDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestoreDropletActionTypeInput)(nil)).Elem(), RestoreDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RestoreDropletActionTypePtrInput)(nil)).Elem(), RestoreDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ShutdownTypeInput)(nil)).Elem(), ShutdownType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ShutdownTypePtrInput)(nil)).Elem(), ShutdownType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotDropletActionTypeInput)(nil)).Elem(), SnapshotDropletActionType("enable_backups"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotDropletActionTypePtrInput)(nil)).Elem(), SnapshotDropletActionType("enable_backups"))
-	pulumi.RegisterOutputType(ChangeKernelDropletActionTypeOutput{})
-	pulumi.RegisterOutputType(ChangeKernelDropletActionTypePtrOutput{})
-	pulumi.RegisterOutputType(DisableBackupsActionStatusOutput{})
-	pulumi.RegisterOutputType(DisableBackupsActionStatusPtrOutput{})
-	pulumi.RegisterOutputType(DisableBackupsTypeOutput{})
-	pulumi.RegisterOutputType(DisableBackupsTypePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DropletActionTypeInput)(nil)).Elem(), DropletActionType("enable_backups"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DropletActionTypePtrInput)(nil)).Elem(), DropletActionType("enable_backups"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeInput)(nil)).Elem(), Type("enable_backups"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypePtrInput)(nil)).Elem(), Type("enable_backups"))
+	pulumi.RegisterOutputType(ActionStatusOutput{})
+	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
+	pulumi.RegisterOutputType(DropletActionTypeOutput{})
+	pulumi.RegisterOutputType(DropletActionTypePtrOutput{})
 	pulumi.RegisterOutputType(DropletSnapshotPropertiesTypeOutput{})
 	pulumi.RegisterOutputType(DropletSnapshotPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(DropletStatusOutput{})
 	pulumi.RegisterOutputType(DropletStatusPtrOutput{})
-	pulumi.RegisterOutputType(EnableBackupsTypeOutput{})
-	pulumi.RegisterOutputType(EnableBackupsTypePtrOutput{})
-	pulumi.RegisterOutputType(EnableIpv6TypeOutput{})
-	pulumi.RegisterOutputType(EnableIpv6TypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPropertiesStatusOutput{})
 	pulumi.RegisterOutputType(FirewallPropertiesStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleBaseProtocolOutput{})
@@ -4010,26 +1482,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkV4TypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkV6TypeOutput{})
 	pulumi.RegisterOutputType(NetworkV6TypePtrOutput{})
-	pulumi.RegisterOutputType(PasswordResetTypeOutput{})
-	pulumi.RegisterOutputType(PasswordResetTypePtrOutput{})
-	pulumi.RegisterOutputType(PowerCycleTypeOutput{})
-	pulumi.RegisterOutputType(PowerCycleTypePtrOutput{})
-	pulumi.RegisterOutputType(PowerOffTypeOutput{})
-	pulumi.RegisterOutputType(PowerOffTypePtrOutput{})
-	pulumi.RegisterOutputType(PowerOnTypeOutput{})
-	pulumi.RegisterOutputType(PowerOnTypePtrOutput{})
-	pulumi.RegisterOutputType(RebootTypeOutput{})
-	pulumi.RegisterOutputType(RebootTypePtrOutput{})
-	pulumi.RegisterOutputType(RebuildDropletActionTypeOutput{})
-	pulumi.RegisterOutputType(RebuildDropletActionTypePtrOutput{})
-	pulumi.RegisterOutputType(RenameDropletActionTypeOutput{})
-	pulumi.RegisterOutputType(RenameDropletActionTypePtrOutput{})
-	pulumi.RegisterOutputType(ResizeDropletActionTypeOutput{})
-	pulumi.RegisterOutputType(ResizeDropletActionTypePtrOutput{})
-	pulumi.RegisterOutputType(RestoreDropletActionTypeOutput{})
-	pulumi.RegisterOutputType(RestoreDropletActionTypePtrOutput{})
-	pulumi.RegisterOutputType(ShutdownTypeOutput{})
-	pulumi.RegisterOutputType(ShutdownTypePtrOutput{})
-	pulumi.RegisterOutputType(SnapshotDropletActionTypeOutput{})
-	pulumi.RegisterOutputType(SnapshotDropletActionTypePtrOutput{})
+	pulumi.RegisterOutputType(TypeOutput{})
+	pulumi.RegisterOutputType(TypePtrOutput{})
 }

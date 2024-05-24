@@ -40,37 +40,6 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
     }
 
     /// <summary>
-    /// The type of action to initiate for the floating IP.
-    /// </summary>
-    [EnumType]
-    public readonly struct AssignFloatingIPsActionType : IEquatable<AssignFloatingIPsActionType>
-    {
-        private readonly string _value;
-
-        private AssignFloatingIPsActionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AssignFloatingIPsActionType Assign { get; } = new AssignFloatingIPsActionType("assign");
-        public static AssignFloatingIPsActionType Unassign { get; } = new AssignFloatingIPsActionType("unassign");
-
-        public static bool operator ==(AssignFloatingIPsActionType left, AssignFloatingIPsActionType right) => left.Equals(right);
-        public static bool operator !=(AssignFloatingIPsActionType left, AssignFloatingIPsActionType right) => !left.Equals(right);
-
-        public static explicit operator string(AssignFloatingIPsActionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssignFloatingIPsActionType other && Equals(other);
-        public bool Equals(AssignFloatingIPsActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
     /// </summary>
     [EnumType]
@@ -96,6 +65,37 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DropletStatus other && Equals(other);
         public bool Equals(DropletStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the floating IP.
+    /// </summary>
+    [EnumType]
+    public readonly struct FloatingIPsActionType : IEquatable<FloatingIPsActionType>
+    {
+        private readonly string _value;
+
+        private FloatingIPsActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FloatingIPsActionType Assign { get; } = new FloatingIPsActionType("assign");
+        public static FloatingIPsActionType Unassign { get; } = new FloatingIPsActionType("unassign");
+
+        public static bool operator ==(FloatingIPsActionType left, FloatingIPsActionType right) => left.Equals(right);
+        public static bool operator !=(FloatingIPsActionType left, FloatingIPsActionType right) => !left.Equals(right);
+
+        public static explicit operator string(FloatingIPsActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FloatingIPsActionType other && Equals(other);
+        public bool Equals(FloatingIPsActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -313,37 +313,6 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkV6Type other && Equals(other);
         public bool Equals(NetworkV6Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of action to initiate for the floating IP.
-    /// </summary>
-    [EnumType]
-    public readonly struct UnassignFloatingIPsActionType : IEquatable<UnassignFloatingIPsActionType>
-    {
-        private readonly string _value;
-
-        private UnassignFloatingIPsActionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static UnassignFloatingIPsActionType Assign { get; } = new UnassignFloatingIPsActionType("assign");
-        public static UnassignFloatingIPsActionType Unassign { get; } = new UnassignFloatingIPsActionType("unassign");
-
-        public static bool operator ==(UnassignFloatingIPsActionType left, UnassignFloatingIPsActionType right) => left.Equals(right);
-        public static bool operator !=(UnassignFloatingIPsActionType left, UnassignFloatingIPsActionType right) => !left.Equals(right);
-
-        public static explicit operator string(UnassignFloatingIPsActionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UnassignFloatingIPsActionType other && Equals(other);
-        public bool Equals(UnassignFloatingIPsActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

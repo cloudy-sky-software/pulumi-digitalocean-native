@@ -19,7 +19,7 @@ type Rename struct {
 	// The new name for the Droplet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The type of action to initiate for the Droplet.
-	Type RenameDropletActionTypePtrOutput `pulumi:"type"`
+	Type DropletActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewRename registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type renameArgs struct {
 	// The new name for the Droplet.
 	Name *string `pulumi:"name"`
 	// The type of action to initiate for the Droplet.
-	Type RenameDropletActionType `pulumi:"type"`
+	Type DropletActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Rename resource.
@@ -80,7 +80,7 @@ type RenameArgs struct {
 	// The new name for the Droplet.
 	Name pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type RenameDropletActionTypeInput
+	Type DropletActionTypeInput
 }
 
 func (RenameArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o RenameOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o RenameOutput) Type() RenameDropletActionTypePtrOutput {
-	return o.ApplyT(func(v *Rename) RenameDropletActionTypePtrOutput { return v.Type }).(RenameDropletActionTypePtrOutput)
+func (o RenameOutput) Type() DropletActionTypePtrOutput {
+	return o.ApplyT(func(v *Rename) DropletActionTypePtrOutput { return v.Type }).(DropletActionTypePtrOutput)
 }
 
 func init() {

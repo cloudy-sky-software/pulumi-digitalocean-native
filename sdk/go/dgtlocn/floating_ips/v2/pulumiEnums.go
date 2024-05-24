@@ -102,172 +102,6 @@ func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of action to initiate for the floating IP.
-type AssignFloatingIPsActionType string
-
-const (
-	AssignFloatingIPsActionTypeAssign   = AssignFloatingIPsActionType("assign")
-	AssignFloatingIPsActionTypeUnassign = AssignFloatingIPsActionType("unassign")
-)
-
-func (AssignFloatingIPsActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignFloatingIPsActionType)(nil)).Elem()
-}
-
-func (e AssignFloatingIPsActionType) ToAssignFloatingIPsActionTypeOutput() AssignFloatingIPsActionTypeOutput {
-	return pulumi.ToOutput(e).(AssignFloatingIPsActionTypeOutput)
-}
-
-func (e AssignFloatingIPsActionType) ToAssignFloatingIPsActionTypeOutputWithContext(ctx context.Context) AssignFloatingIPsActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AssignFloatingIPsActionTypeOutput)
-}
-
-func (e AssignFloatingIPsActionType) ToAssignFloatingIPsActionTypePtrOutput() AssignFloatingIPsActionTypePtrOutput {
-	return e.ToAssignFloatingIPsActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e AssignFloatingIPsActionType) ToAssignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) AssignFloatingIPsActionTypePtrOutput {
-	return AssignFloatingIPsActionType(e).ToAssignFloatingIPsActionTypeOutputWithContext(ctx).ToAssignFloatingIPsActionTypePtrOutputWithContext(ctx)
-}
-
-func (e AssignFloatingIPsActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssignFloatingIPsActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssignFloatingIPsActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AssignFloatingIPsActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AssignFloatingIPsActionTypeOutput struct{ *pulumi.OutputState }
-
-func (AssignFloatingIPsActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssignFloatingIPsActionType)(nil)).Elem()
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToAssignFloatingIPsActionTypeOutput() AssignFloatingIPsActionTypeOutput {
-	return o
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToAssignFloatingIPsActionTypeOutputWithContext(ctx context.Context) AssignFloatingIPsActionTypeOutput {
-	return o
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToAssignFloatingIPsActionTypePtrOutput() AssignFloatingIPsActionTypePtrOutput {
-	return o.ToAssignFloatingIPsActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToAssignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) AssignFloatingIPsActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignFloatingIPsActionType) *AssignFloatingIPsActionType {
-		return &v
-	}).(AssignFloatingIPsActionTypePtrOutput)
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssignFloatingIPsActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssignFloatingIPsActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssignFloatingIPsActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AssignFloatingIPsActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AssignFloatingIPsActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssignFloatingIPsActionType)(nil)).Elem()
-}
-
-func (o AssignFloatingIPsActionTypePtrOutput) ToAssignFloatingIPsActionTypePtrOutput() AssignFloatingIPsActionTypePtrOutput {
-	return o
-}
-
-func (o AssignFloatingIPsActionTypePtrOutput) ToAssignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) AssignFloatingIPsActionTypePtrOutput {
-	return o
-}
-
-func (o AssignFloatingIPsActionTypePtrOutput) Elem() AssignFloatingIPsActionTypeOutput {
-	return o.ApplyT(func(v *AssignFloatingIPsActionType) AssignFloatingIPsActionType {
-		if v != nil {
-			return *v
-		}
-		var ret AssignFloatingIPsActionType
-		return ret
-	}).(AssignFloatingIPsActionTypeOutput)
-}
-
-func (o AssignFloatingIPsActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssignFloatingIPsActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssignFloatingIPsActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AssignFloatingIPsActionTypeInput is an input type that accepts values of the AssignFloatingIPsActionType enum
-// A concrete instance of `AssignFloatingIPsActionTypeInput` can be one of the following:
-//
-//	AssignFloatingIPsActionTypeAssign
-//	AssignFloatingIPsActionTypeUnassign
-type AssignFloatingIPsActionTypeInput interface {
-	pulumi.Input
-
-	ToAssignFloatingIPsActionTypeOutput() AssignFloatingIPsActionTypeOutput
-	ToAssignFloatingIPsActionTypeOutputWithContext(context.Context) AssignFloatingIPsActionTypeOutput
-}
-
-var assignFloatingIPsActionTypePtrType = reflect.TypeOf((**AssignFloatingIPsActionType)(nil)).Elem()
-
-type AssignFloatingIPsActionTypePtrInput interface {
-	pulumi.Input
-
-	ToAssignFloatingIPsActionTypePtrOutput() AssignFloatingIPsActionTypePtrOutput
-	ToAssignFloatingIPsActionTypePtrOutputWithContext(context.Context) AssignFloatingIPsActionTypePtrOutput
-}
-
-type assignFloatingIPsActionTypePtr string
-
-func AssignFloatingIPsActionTypePtr(v string) AssignFloatingIPsActionTypePtrInput {
-	return (*assignFloatingIPsActionTypePtr)(&v)
-}
-
-func (*assignFloatingIPsActionTypePtr) ElementType() reflect.Type {
-	return assignFloatingIPsActionTypePtrType
-}
-
-func (in *assignFloatingIPsActionTypePtr) ToAssignFloatingIPsActionTypePtrOutput() AssignFloatingIPsActionTypePtrOutput {
-	return pulumi.ToOutput(in).(AssignFloatingIPsActionTypePtrOutput)
-}
-
-func (in *assignFloatingIPsActionTypePtr) ToAssignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) AssignFloatingIPsActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AssignFloatingIPsActionTypePtrOutput)
-}
-
 // A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
 type DropletStatus string
 
@@ -359,6 +193,172 @@ func (o DropletStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// The type of action to initiate for the floating IP.
+type FloatingIPsActionType string
+
+const (
+	FloatingIPsActionTypeAssign   = FloatingIPsActionType("assign")
+	FloatingIPsActionTypeUnassign = FloatingIPsActionType("unassign")
+)
+
+func (FloatingIPsActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIPsActionType)(nil)).Elem()
+}
+
+func (e FloatingIPsActionType) ToFloatingIPsActionTypeOutput() FloatingIPsActionTypeOutput {
+	return pulumi.ToOutput(e).(FloatingIPsActionTypeOutput)
+}
+
+func (e FloatingIPsActionType) ToFloatingIPsActionTypeOutputWithContext(ctx context.Context) FloatingIPsActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FloatingIPsActionTypeOutput)
+}
+
+func (e FloatingIPsActionType) ToFloatingIPsActionTypePtrOutput() FloatingIPsActionTypePtrOutput {
+	return e.ToFloatingIPsActionTypePtrOutputWithContext(context.Background())
+}
+
+func (e FloatingIPsActionType) ToFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) FloatingIPsActionTypePtrOutput {
+	return FloatingIPsActionType(e).ToFloatingIPsActionTypeOutputWithContext(ctx).ToFloatingIPsActionTypePtrOutputWithContext(ctx)
+}
+
+func (e FloatingIPsActionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FloatingIPsActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FloatingIPsActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FloatingIPsActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FloatingIPsActionTypeOutput struct{ *pulumi.OutputState }
+
+func (FloatingIPsActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIPsActionType)(nil)).Elem()
+}
+
+func (o FloatingIPsActionTypeOutput) ToFloatingIPsActionTypeOutput() FloatingIPsActionTypeOutput {
+	return o
+}
+
+func (o FloatingIPsActionTypeOutput) ToFloatingIPsActionTypeOutputWithContext(ctx context.Context) FloatingIPsActionTypeOutput {
+	return o
+}
+
+func (o FloatingIPsActionTypeOutput) ToFloatingIPsActionTypePtrOutput() FloatingIPsActionTypePtrOutput {
+	return o.ToFloatingIPsActionTypePtrOutputWithContext(context.Background())
+}
+
+func (o FloatingIPsActionTypeOutput) ToFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) FloatingIPsActionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FloatingIPsActionType) *FloatingIPsActionType {
+		return &v
+	}).(FloatingIPsActionTypePtrOutput)
+}
+
+func (o FloatingIPsActionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FloatingIPsActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FloatingIPsActionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FloatingIPsActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FloatingIPsActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FloatingIPsActionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FloatingIPsActionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FloatingIPsActionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FloatingIPsActionType)(nil)).Elem()
+}
+
+func (o FloatingIPsActionTypePtrOutput) ToFloatingIPsActionTypePtrOutput() FloatingIPsActionTypePtrOutput {
+	return o
+}
+
+func (o FloatingIPsActionTypePtrOutput) ToFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) FloatingIPsActionTypePtrOutput {
+	return o
+}
+
+func (o FloatingIPsActionTypePtrOutput) Elem() FloatingIPsActionTypeOutput {
+	return o.ApplyT(func(v *FloatingIPsActionType) FloatingIPsActionType {
+		if v != nil {
+			return *v
+		}
+		var ret FloatingIPsActionType
+		return ret
+	}).(FloatingIPsActionTypeOutput)
+}
+
+func (o FloatingIPsActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FloatingIPsActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FloatingIPsActionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FloatingIPsActionTypeInput is an input type that accepts values of the FloatingIPsActionType enum
+// A concrete instance of `FloatingIPsActionTypeInput` can be one of the following:
+//
+//	FloatingIPsActionTypeAssign
+//	FloatingIPsActionTypeUnassign
+type FloatingIPsActionTypeInput interface {
+	pulumi.Input
+
+	ToFloatingIPsActionTypeOutput() FloatingIPsActionTypeOutput
+	ToFloatingIPsActionTypeOutputWithContext(context.Context) FloatingIPsActionTypeOutput
+}
+
+var floatingIPsActionTypePtrType = reflect.TypeOf((**FloatingIPsActionType)(nil)).Elem()
+
+type FloatingIPsActionTypePtrInput interface {
+	pulumi.Input
+
+	ToFloatingIPsActionTypePtrOutput() FloatingIPsActionTypePtrOutput
+	ToFloatingIPsActionTypePtrOutputWithContext(context.Context) FloatingIPsActionTypePtrOutput
+}
+
+type floatingIPsActionTypePtr string
+
+func FloatingIPsActionTypePtr(v string) FloatingIPsActionTypePtrInput {
+	return (*floatingIPsActionTypePtr)(&v)
+}
+
+func (*floatingIPsActionTypePtr) ElementType() reflect.Type {
+	return floatingIPsActionTypePtrType
+}
+
+func (in *floatingIPsActionTypePtr) ToFloatingIPsActionTypePtrOutput() FloatingIPsActionTypePtrOutput {
+	return pulumi.ToOutput(in).(FloatingIPsActionTypePtrOutput)
+}
+
+func (in *floatingIPsActionTypePtr) ToFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) FloatingIPsActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FloatingIPsActionTypePtrOutput)
 }
 
 // The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
@@ -959,183 +959,15 @@ func (o NetworkV6TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of action to initiate for the floating IP.
-type UnassignFloatingIPsActionType string
-
-const (
-	UnassignFloatingIPsActionTypeAssign   = UnassignFloatingIPsActionType("assign")
-	UnassignFloatingIPsActionTypeUnassign = UnassignFloatingIPsActionType("unassign")
-)
-
-func (UnassignFloatingIPsActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnassignFloatingIPsActionType)(nil)).Elem()
-}
-
-func (e UnassignFloatingIPsActionType) ToUnassignFloatingIPsActionTypeOutput() UnassignFloatingIPsActionTypeOutput {
-	return pulumi.ToOutput(e).(UnassignFloatingIPsActionTypeOutput)
-}
-
-func (e UnassignFloatingIPsActionType) ToUnassignFloatingIPsActionTypeOutputWithContext(ctx context.Context) UnassignFloatingIPsActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(UnassignFloatingIPsActionTypeOutput)
-}
-
-func (e UnassignFloatingIPsActionType) ToUnassignFloatingIPsActionTypePtrOutput() UnassignFloatingIPsActionTypePtrOutput {
-	return e.ToUnassignFloatingIPsActionTypePtrOutputWithContext(context.Background())
-}
-
-func (e UnassignFloatingIPsActionType) ToUnassignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) UnassignFloatingIPsActionTypePtrOutput {
-	return UnassignFloatingIPsActionType(e).ToUnassignFloatingIPsActionTypeOutputWithContext(ctx).ToUnassignFloatingIPsActionTypePtrOutputWithContext(ctx)
-}
-
-func (e UnassignFloatingIPsActionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e UnassignFloatingIPsActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e UnassignFloatingIPsActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e UnassignFloatingIPsActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type UnassignFloatingIPsActionTypeOutput struct{ *pulumi.OutputState }
-
-func (UnassignFloatingIPsActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnassignFloatingIPsActionType)(nil)).Elem()
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToUnassignFloatingIPsActionTypeOutput() UnassignFloatingIPsActionTypeOutput {
-	return o
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToUnassignFloatingIPsActionTypeOutputWithContext(ctx context.Context) UnassignFloatingIPsActionTypeOutput {
-	return o
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToUnassignFloatingIPsActionTypePtrOutput() UnassignFloatingIPsActionTypePtrOutput {
-	return o.ToUnassignFloatingIPsActionTypePtrOutputWithContext(context.Background())
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToUnassignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) UnassignFloatingIPsActionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnassignFloatingIPsActionType) *UnassignFloatingIPsActionType {
-		return &v
-	}).(UnassignFloatingIPsActionTypePtrOutput)
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UnassignFloatingIPsActionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o UnassignFloatingIPsActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UnassignFloatingIPsActionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type UnassignFloatingIPsActionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (UnassignFloatingIPsActionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UnassignFloatingIPsActionType)(nil)).Elem()
-}
-
-func (o UnassignFloatingIPsActionTypePtrOutput) ToUnassignFloatingIPsActionTypePtrOutput() UnassignFloatingIPsActionTypePtrOutput {
-	return o
-}
-
-func (o UnassignFloatingIPsActionTypePtrOutput) ToUnassignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) UnassignFloatingIPsActionTypePtrOutput {
-	return o
-}
-
-func (o UnassignFloatingIPsActionTypePtrOutput) Elem() UnassignFloatingIPsActionTypeOutput {
-	return o.ApplyT(func(v *UnassignFloatingIPsActionType) UnassignFloatingIPsActionType {
-		if v != nil {
-			return *v
-		}
-		var ret UnassignFloatingIPsActionType
-		return ret
-	}).(UnassignFloatingIPsActionTypeOutput)
-}
-
-func (o UnassignFloatingIPsActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o UnassignFloatingIPsActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UnassignFloatingIPsActionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// UnassignFloatingIPsActionTypeInput is an input type that accepts values of the UnassignFloatingIPsActionType enum
-// A concrete instance of `UnassignFloatingIPsActionTypeInput` can be one of the following:
-//
-//	UnassignFloatingIPsActionTypeAssign
-//	UnassignFloatingIPsActionTypeUnassign
-type UnassignFloatingIPsActionTypeInput interface {
-	pulumi.Input
-
-	ToUnassignFloatingIPsActionTypeOutput() UnassignFloatingIPsActionTypeOutput
-	ToUnassignFloatingIPsActionTypeOutputWithContext(context.Context) UnassignFloatingIPsActionTypeOutput
-}
-
-var unassignFloatingIPsActionTypePtrType = reflect.TypeOf((**UnassignFloatingIPsActionType)(nil)).Elem()
-
-type UnassignFloatingIPsActionTypePtrInput interface {
-	pulumi.Input
-
-	ToUnassignFloatingIPsActionTypePtrOutput() UnassignFloatingIPsActionTypePtrOutput
-	ToUnassignFloatingIPsActionTypePtrOutputWithContext(context.Context) UnassignFloatingIPsActionTypePtrOutput
-}
-
-type unassignFloatingIPsActionTypePtr string
-
-func UnassignFloatingIPsActionTypePtr(v string) UnassignFloatingIPsActionTypePtrInput {
-	return (*unassignFloatingIPsActionTypePtr)(&v)
-}
-
-func (*unassignFloatingIPsActionTypePtr) ElementType() reflect.Type {
-	return unassignFloatingIPsActionTypePtrType
-}
-
-func (in *unassignFloatingIPsActionTypePtr) ToUnassignFloatingIPsActionTypePtrOutput() UnassignFloatingIPsActionTypePtrOutput {
-	return pulumi.ToOutput(in).(UnassignFloatingIPsActionTypePtrOutput)
-}
-
-func (in *unassignFloatingIPsActionTypePtr) ToUnassignFloatingIPsActionTypePtrOutputWithContext(ctx context.Context) UnassignFloatingIPsActionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(UnassignFloatingIPsActionTypePtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignFloatingIPsActionTypeInput)(nil)).Elem(), AssignFloatingIPsActionType("assign"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignFloatingIPsActionTypePtrInput)(nil)).Elem(), AssignFloatingIPsActionType("assign"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UnassignFloatingIPsActionTypeInput)(nil)).Elem(), UnassignFloatingIPsActionType("assign"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UnassignFloatingIPsActionTypePtrInput)(nil)).Elem(), UnassignFloatingIPsActionType("assign"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FloatingIPsActionTypeInput)(nil)).Elem(), FloatingIPsActionType("assign"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FloatingIPsActionTypePtrInput)(nil)).Elem(), FloatingIPsActionType("assign"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
-	pulumi.RegisterOutputType(AssignFloatingIPsActionTypeOutput{})
-	pulumi.RegisterOutputType(AssignFloatingIPsActionTypePtrOutput{})
 	pulumi.RegisterOutputType(DropletStatusOutput{})
 	pulumi.RegisterOutputType(DropletStatusPtrOutput{})
+	pulumi.RegisterOutputType(FloatingIPsActionTypeOutput{})
+	pulumi.RegisterOutputType(FloatingIPsActionTypePtrOutput{})
 	pulumi.RegisterOutputType(ImageDistributionOutput{})
 	pulumi.RegisterOutputType(ImageDistributionPtrOutput{})
 	pulumi.RegisterOutputType(ImageRegionsItemOutput{})
@@ -1149,6 +981,4 @@ func init() {
 	pulumi.RegisterOutputType(NetworkV4TypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkV6TypeOutput{})
 	pulumi.RegisterOutputType(NetworkV6TypePtrOutput{})
-	pulumi.RegisterOutputType(UnassignFloatingIPsActionTypeOutput{})
-	pulumi.RegisterOutputType(UnassignFloatingIPsActionTypePtrOutput{})
 }

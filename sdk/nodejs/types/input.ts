@@ -30,13 +30,13 @@ export namespace apps {
              * Is the alert disabled?
              */
             disabled?: pulumi.Input<boolean>;
-            operator?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppAlertSpecOperator>;
-            rule?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppAlertSpecRule>;
+            operator?: pulumi.Input<enums.apps.v2.AppAlertSpecOperator>;
+            rule?: pulumi.Input<enums.apps.v2.AppAlertSpecRule>;
             /**
              * Threshold value for alert
              */
             value?: pulumi.Input<number>;
-            window?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppAlertSpecWindow>;
+            window?: pulumi.Input<enums.apps.v2.AppAlertSpecWindow>;
         }
         /**
          * appAlertSpecArgsProvideDefaults sets the appropriate defaults for AppAlertSpecArgs
@@ -68,7 +68,7 @@ export namespace apps {
              * - PG: PostgreSQL
              * - REDIS: Redis
              */
-            engine?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppDatabaseSpecEngine>;
+            engine?: pulumi.Input<enums.apps.v2.AppDatabaseSpecEngine>;
             /**
              * The name. Must be unique across all components within the same app.
              */
@@ -100,13 +100,13 @@ export namespace apps {
             /**
              * The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
              */
-            minimumTlsVersion?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppDomainSpecMinimumTlsVersion>;
+            minimumTlsVersion?: pulumi.Input<enums.apps.v2.AppDomainSpecMinimumTlsVersion>;
             /**
              * - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
              * - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
              * - ALIAS: A non-primary domain
              */
-            type?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppDomainSpecType>;
+            type?: pulumi.Input<enums.apps.v2.AppDomainSpecType>;
             /**
              * Indicates whether the domain includes all sub-domains, in addition to the given domain
              */
@@ -274,14 +274,14 @@ export namespace apps {
             /**
              * The instance size to use for this component. Default: `basic-xxs`
              */
-            instanceSizeSlug?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>;
+            instanceSizeSlug?: pulumi.Input<enums.apps.v2.AppComponentInstanceBaseInstanceSizeSlug>;
             /**
              * - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
              * - PRE_DEPLOY: Indicates a job that runs before an app deployment.
              * - POST_DEPLOY: Indicates a job that runs after an app deployment.
              * - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
              */
-            kind?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppJobSpecPropertiesKind>;
+            kind?: pulumi.Input<enums.apps.v2.AppJobSpecPropertiesKind>;
             logDestinations?: pulumi.Input<inputs.apps.v2.AppLogDestinationDefinitionArgs>;
             /**
              * The name. Must be unique across all components within the same app.
@@ -405,7 +405,7 @@ export namespace apps {
             /**
              * The instance size to use for this component. Default: `basic-xxs`
              */
-            instanceSizeSlug?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>;
+            instanceSizeSlug?: pulumi.Input<enums.apps.v2.AppComponentInstanceBaseInstanceSizeSlug>;
             /**
              * The ports on which this service will listen for internal traffic.
              */
@@ -503,7 +503,7 @@ export namespace apps {
             /**
              * The slug form of the geographical origin of the app. Default: `nearest available`
              */
-            region?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppSpecRegion>;
+            region?: pulumi.Input<enums.apps.v2.AppSpecRegion>;
             /**
              * Workloads which expose publicly-accessible HTTP services.
              */
@@ -596,12 +596,12 @@ export namespace apps {
              * - BUILD_TIME: Made available only at build-time
              * - RUN_AND_BUILD_TIME: Made available at both build and run-time
              */
-            scope?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppVariableDefinitionScope>;
+            scope?: pulumi.Input<enums.apps.v2.AppVariableDefinitionScope>;
             /**
              * - GENERAL: A plain-text environment variable
              * - SECRET: A secret encrypted environment variable
              */
-            type?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppVariableDefinitionType>;
+            type?: pulumi.Input<enums.apps.v2.AppVariableDefinitionType>;
             /**
              * The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
              */
@@ -646,7 +646,7 @@ export namespace apps {
             /**
              * The instance size to use for this component. Default: `basic-xxs`
              */
-            instanceSizeSlug?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>;
+            instanceSizeSlug?: pulumi.Input<enums.apps.v2.AppComponentInstanceBaseInstanceSizeSlug>;
             logDestinations?: pulumi.Input<inputs.apps.v2.AppLogDestinationDefinitionArgs>;
             /**
              * The name. Must be unique across all components within the same app.
@@ -750,7 +750,7 @@ export namespace apps {
              * - DOCKER_HUB: The DockerHub container registry type.
              * - DOCR: The DigitalOcean container registry type.
              */
-            registryType?: pulumi.Input<enums.apps.v2.AppsValidateAppSpecAppsImageSourceSpecRegistryType>;
+            registryType?: pulumi.Input<enums.apps.v2.AppsImageSourceSpecRegistryType>;
             /**
              * The repository name.
              */
@@ -1127,7 +1127,7 @@ export namespace firewalls {
             /**
              * The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
              */
-            protocol: pulumi.Input<enums.firewalls.v2.FirewallsRulesFirewallRuleBaseProtocol>;
+            protocol: pulumi.Input<enums.firewalls.v2.FirewallRuleBaseProtocol>;
         }
 
         export interface FirewallRulesOutboundRulesItemArgs {
@@ -1138,7 +1138,7 @@ export namespace firewalls {
             /**
              * The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
              */
-            protocol: pulumi.Input<enums.firewalls.v2.FirewallsRulesFirewallRuleBaseProtocol>;
+            protocol: pulumi.Input<enums.firewalls.v2.FirewallRuleBaseProtocol>;
         }
 
         export interface TagsArgs {
@@ -1415,7 +1415,7 @@ export namespace tags {
             /**
              * The type of the resource.
              */
-            resourceType?: pulumi.Input<enums.tags.v2.TagsAssignResourcesResourcesItemPropertiesResourceType>;
+            resourceType?: pulumi.Input<enums.tags.v2.ResourcesItemPropertiesResourceType>;
         }
 
     }

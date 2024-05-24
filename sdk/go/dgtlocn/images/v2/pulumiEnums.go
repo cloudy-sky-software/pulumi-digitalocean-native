@@ -102,217 +102,125 @@ func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current status of the action. This can be "in-progress", "completed", or "errored".
-type ConvertStatus string
-
-const (
-	ConvertStatusInProgress = ConvertStatus("in-progress")
-	ConvertStatusCompleted  = ConvertStatus("completed")
-	ConvertStatusErrored    = ConvertStatus("errored")
-)
-
-type ConvertStatusOutput struct{ *pulumi.OutputState }
-
-func (ConvertStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConvertStatus)(nil)).Elem()
-}
-
-func (o ConvertStatusOutput) ToConvertStatusOutput() ConvertStatusOutput {
-	return o
-}
-
-func (o ConvertStatusOutput) ToConvertStatusOutputWithContext(ctx context.Context) ConvertStatusOutput {
-	return o
-}
-
-func (o ConvertStatusOutput) ToConvertStatusPtrOutput() ConvertStatusPtrOutput {
-	return o.ToConvertStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ConvertStatusOutput) ToConvertStatusPtrOutputWithContext(ctx context.Context) ConvertStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConvertStatus) *ConvertStatus {
-		return &v
-	}).(ConvertStatusPtrOutput)
-}
-
-func (o ConvertStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ConvertStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConvertStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ConvertStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ConvertStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConvertStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConvertStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ConvertStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConvertStatus)(nil)).Elem()
-}
-
-func (o ConvertStatusPtrOutput) ToConvertStatusPtrOutput() ConvertStatusPtrOutput {
-	return o
-}
-
-func (o ConvertStatusPtrOutput) ToConvertStatusPtrOutputWithContext(ctx context.Context) ConvertStatusPtrOutput {
-	return o
-}
-
-func (o ConvertStatusPtrOutput) Elem() ConvertStatusOutput {
-	return o.ApplyT(func(v *ConvertStatus) ConvertStatus {
-		if v != nil {
-			return *v
-		}
-		var ret ConvertStatus
-		return ret
-	}).(ConvertStatusOutput)
-}
-
-func (o ConvertStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ConvertStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConvertStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
 // The action to be taken on the image. Can be either `convert` or `transfer`.
-type ConvertType string
+type ImageActionBaseType string
 
 const (
-	ConvertTypeConvert  = ConvertType("convert")
-	ConvertTypeTransfer = ConvertType("transfer")
+	ImageActionBaseTypeConvert  = ImageActionBaseType("convert")
+	ImageActionBaseTypeTransfer = ImageActionBaseType("transfer")
 )
 
-func (ConvertType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConvertType)(nil)).Elem()
+func (ImageActionBaseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageActionBaseType)(nil)).Elem()
 }
 
-func (e ConvertType) ToConvertTypeOutput() ConvertTypeOutput {
-	return pulumi.ToOutput(e).(ConvertTypeOutput)
+func (e ImageActionBaseType) ToImageActionBaseTypeOutput() ImageActionBaseTypeOutput {
+	return pulumi.ToOutput(e).(ImageActionBaseTypeOutput)
 }
 
-func (e ConvertType) ToConvertTypeOutputWithContext(ctx context.Context) ConvertTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ConvertTypeOutput)
+func (e ImageActionBaseType) ToImageActionBaseTypeOutputWithContext(ctx context.Context) ImageActionBaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageActionBaseTypeOutput)
 }
 
-func (e ConvertType) ToConvertTypePtrOutput() ConvertTypePtrOutput {
-	return e.ToConvertTypePtrOutputWithContext(context.Background())
+func (e ImageActionBaseType) ToImageActionBaseTypePtrOutput() ImageActionBaseTypePtrOutput {
+	return e.ToImageActionBaseTypePtrOutputWithContext(context.Background())
 }
 
-func (e ConvertType) ToConvertTypePtrOutputWithContext(ctx context.Context) ConvertTypePtrOutput {
-	return ConvertType(e).ToConvertTypeOutputWithContext(ctx).ToConvertTypePtrOutputWithContext(ctx)
+func (e ImageActionBaseType) ToImageActionBaseTypePtrOutputWithContext(ctx context.Context) ImageActionBaseTypePtrOutput {
+	return ImageActionBaseType(e).ToImageActionBaseTypeOutputWithContext(ctx).ToImageActionBaseTypePtrOutputWithContext(ctx)
 }
 
-func (e ConvertType) ToStringOutput() pulumi.StringOutput {
+func (e ImageActionBaseType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ConvertType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ImageActionBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ConvertType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ImageActionBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ConvertType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ImageActionBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ConvertTypeOutput struct{ *pulumi.OutputState }
+type ImageActionBaseTypeOutput struct{ *pulumi.OutputState }
 
-func (ConvertTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConvertType)(nil)).Elem()
+func (ImageActionBaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageActionBaseType)(nil)).Elem()
 }
 
-func (o ConvertTypeOutput) ToConvertTypeOutput() ConvertTypeOutput {
+func (o ImageActionBaseTypeOutput) ToImageActionBaseTypeOutput() ImageActionBaseTypeOutput {
 	return o
 }
 
-func (o ConvertTypeOutput) ToConvertTypeOutputWithContext(ctx context.Context) ConvertTypeOutput {
+func (o ImageActionBaseTypeOutput) ToImageActionBaseTypeOutputWithContext(ctx context.Context) ImageActionBaseTypeOutput {
 	return o
 }
 
-func (o ConvertTypeOutput) ToConvertTypePtrOutput() ConvertTypePtrOutput {
-	return o.ToConvertTypePtrOutputWithContext(context.Background())
+func (o ImageActionBaseTypeOutput) ToImageActionBaseTypePtrOutput() ImageActionBaseTypePtrOutput {
+	return o.ToImageActionBaseTypePtrOutputWithContext(context.Background())
 }
 
-func (o ConvertTypeOutput) ToConvertTypePtrOutputWithContext(ctx context.Context) ConvertTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConvertType) *ConvertType {
+func (o ImageActionBaseTypeOutput) ToImageActionBaseTypePtrOutputWithContext(ctx context.Context) ImageActionBaseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageActionBaseType) *ImageActionBaseType {
 		return &v
-	}).(ConvertTypePtrOutput)
+	}).(ImageActionBaseTypePtrOutput)
 }
 
-func (o ConvertTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o ImageActionBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ConvertTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConvertType) string {
+func (o ImageActionBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageActionBaseType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ConvertTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ImageActionBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConvertTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConvertType) *string {
+func (o ImageActionBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageActionBaseType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConvertTypePtrOutput struct{ *pulumi.OutputState }
+type ImageActionBaseTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ConvertTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConvertType)(nil)).Elem()
+func (ImageActionBaseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageActionBaseType)(nil)).Elem()
 }
 
-func (o ConvertTypePtrOutput) ToConvertTypePtrOutput() ConvertTypePtrOutput {
+func (o ImageActionBaseTypePtrOutput) ToImageActionBaseTypePtrOutput() ImageActionBaseTypePtrOutput {
 	return o
 }
 
-func (o ConvertTypePtrOutput) ToConvertTypePtrOutputWithContext(ctx context.Context) ConvertTypePtrOutput {
+func (o ImageActionBaseTypePtrOutput) ToImageActionBaseTypePtrOutputWithContext(ctx context.Context) ImageActionBaseTypePtrOutput {
 	return o
 }
 
-func (o ConvertTypePtrOutput) Elem() ConvertTypeOutput {
-	return o.ApplyT(func(v *ConvertType) ConvertType {
+func (o ImageActionBaseTypePtrOutput) Elem() ImageActionBaseTypeOutput {
+	return o.ApplyT(func(v *ImageActionBaseType) ImageActionBaseType {
 		if v != nil {
 			return *v
 		}
-		var ret ConvertType
+		var ret ImageActionBaseType
 		return ret
-	}).(ConvertTypeOutput)
+	}).(ImageActionBaseTypeOutput)
 }
 
-func (o ConvertTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ImageActionBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConvertTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConvertType) *string {
+func (o ImageActionBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageActionBaseType) *string {
 		if e == nil {
 			return nil
 		}
@@ -321,43 +229,43 @@ func (o ConvertTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConvertTypeInput is an input type that accepts values of the ConvertType enum
-// A concrete instance of `ConvertTypeInput` can be one of the following:
+// ImageActionBaseTypeInput is an input type that accepts values of the ImageActionBaseType enum
+// A concrete instance of `ImageActionBaseTypeInput` can be one of the following:
 //
-//	ConvertTypeConvert
-//	ConvertTypeTransfer
-type ConvertTypeInput interface {
+//	ImageActionBaseTypeConvert
+//	ImageActionBaseTypeTransfer
+type ImageActionBaseTypeInput interface {
 	pulumi.Input
 
-	ToConvertTypeOutput() ConvertTypeOutput
-	ToConvertTypeOutputWithContext(context.Context) ConvertTypeOutput
+	ToImageActionBaseTypeOutput() ImageActionBaseTypeOutput
+	ToImageActionBaseTypeOutputWithContext(context.Context) ImageActionBaseTypeOutput
 }
 
-var convertTypePtrType = reflect.TypeOf((**ConvertType)(nil)).Elem()
+var imageActionBaseTypePtrType = reflect.TypeOf((**ImageActionBaseType)(nil)).Elem()
 
-type ConvertTypePtrInput interface {
+type ImageActionBaseTypePtrInput interface {
 	pulumi.Input
 
-	ToConvertTypePtrOutput() ConvertTypePtrOutput
-	ToConvertTypePtrOutputWithContext(context.Context) ConvertTypePtrOutput
+	ToImageActionBaseTypePtrOutput() ImageActionBaseTypePtrOutput
+	ToImageActionBaseTypePtrOutputWithContext(context.Context) ImageActionBaseTypePtrOutput
 }
 
-type convertTypePtr string
+type imageActionBaseTypePtr string
 
-func ConvertTypePtr(v string) ConvertTypePtrInput {
-	return (*convertTypePtr)(&v)
+func ImageActionBaseTypePtr(v string) ImageActionBaseTypePtrInput {
+	return (*imageActionBaseTypePtr)(&v)
 }
 
-func (*convertTypePtr) ElementType() reflect.Type {
-	return convertTypePtrType
+func (*imageActionBaseTypePtr) ElementType() reflect.Type {
+	return imageActionBaseTypePtrType
 }
 
-func (in *convertTypePtr) ToConvertTypePtrOutput() ConvertTypePtrOutput {
-	return pulumi.ToOutput(in).(ConvertTypePtrOutput)
+func (in *imageActionBaseTypePtr) ToImageActionBaseTypePtrOutput() ImageActionBaseTypePtrOutput {
+	return pulumi.ToOutput(in).(ImageActionBaseTypePtrOutput)
 }
 
-func (in *convertTypePtr) ToConvertTypePtrOutputWithContext(ctx context.Context) ConvertTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ConvertTypePtrOutput)
+func (in *imageActionBaseTypePtr) ToImageActionBaseTypePtrOutputWithContext(ctx context.Context) ImageActionBaseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageActionBaseTypePtrOutput)
 }
 
 // The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
@@ -776,135 +684,135 @@ func (o ImageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 }
 
 // The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
-type ImagesCustomImageUpdateDistribution string
+type ImageUpdateDistribution string
 
 const (
-	ImagesCustomImageUpdateDistributionArchLinux    = ImagesCustomImageUpdateDistribution("Arch Linux")
-	ImagesCustomImageUpdateDistributionCentOS       = ImagesCustomImageUpdateDistribution("CentOS")
-	ImagesCustomImageUpdateDistributionCoreOS       = ImagesCustomImageUpdateDistribution("CoreOS")
-	ImagesCustomImageUpdateDistributionDebian       = ImagesCustomImageUpdateDistribution("Debian")
-	ImagesCustomImageUpdateDistributionFedora       = ImagesCustomImageUpdateDistribution("Fedora")
-	ImagesCustomImageUpdateDistributionFedoraAtomic = ImagesCustomImageUpdateDistribution("Fedora Atomic")
-	ImagesCustomImageUpdateDistributionFreeBSD      = ImagesCustomImageUpdateDistribution("FreeBSD")
-	ImagesCustomImageUpdateDistributionGentoo       = ImagesCustomImageUpdateDistribution("Gentoo")
-	ImagesCustomImageUpdateDistributionOpenSUSE     = ImagesCustomImageUpdateDistribution("openSUSE")
-	ImagesCustomImageUpdateDistributionRancherOS    = ImagesCustomImageUpdateDistribution("RancherOS")
-	ImagesCustomImageUpdateDistributionRockyLinux   = ImagesCustomImageUpdateDistribution("Rocky Linux")
-	ImagesCustomImageUpdateDistributionUbuntu       = ImagesCustomImageUpdateDistribution("Ubuntu")
-	ImagesCustomImageUpdateDistributionUnknown      = ImagesCustomImageUpdateDistribution("Unknown")
+	ImageUpdateDistributionArchLinux    = ImageUpdateDistribution("Arch Linux")
+	ImageUpdateDistributionCentOS       = ImageUpdateDistribution("CentOS")
+	ImageUpdateDistributionCoreOS       = ImageUpdateDistribution("CoreOS")
+	ImageUpdateDistributionDebian       = ImageUpdateDistribution("Debian")
+	ImageUpdateDistributionFedora       = ImageUpdateDistribution("Fedora")
+	ImageUpdateDistributionFedoraAtomic = ImageUpdateDistribution("Fedora Atomic")
+	ImageUpdateDistributionFreeBSD      = ImageUpdateDistribution("FreeBSD")
+	ImageUpdateDistributionGentoo       = ImageUpdateDistribution("Gentoo")
+	ImageUpdateDistributionOpenSUSE     = ImageUpdateDistribution("openSUSE")
+	ImageUpdateDistributionRancherOS    = ImageUpdateDistribution("RancherOS")
+	ImageUpdateDistributionRockyLinux   = ImageUpdateDistribution("Rocky Linux")
+	ImageUpdateDistributionUbuntu       = ImageUpdateDistribution("Ubuntu")
+	ImageUpdateDistributionUnknown      = ImageUpdateDistribution("Unknown")
 )
 
-func (ImagesCustomImageUpdateDistribution) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagesCustomImageUpdateDistribution)(nil)).Elem()
+func (ImageUpdateDistribution) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageUpdateDistribution)(nil)).Elem()
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToImagesCustomImageUpdateDistributionOutput() ImagesCustomImageUpdateDistributionOutput {
-	return pulumi.ToOutput(e).(ImagesCustomImageUpdateDistributionOutput)
+func (e ImageUpdateDistribution) ToImageUpdateDistributionOutput() ImageUpdateDistributionOutput {
+	return pulumi.ToOutput(e).(ImageUpdateDistributionOutput)
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToImagesCustomImageUpdateDistributionOutputWithContext(ctx context.Context) ImagesCustomImageUpdateDistributionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ImagesCustomImageUpdateDistributionOutput)
+func (e ImageUpdateDistribution) ToImageUpdateDistributionOutputWithContext(ctx context.Context) ImageUpdateDistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageUpdateDistributionOutput)
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToImagesCustomImageUpdateDistributionPtrOutput() ImagesCustomImageUpdateDistributionPtrOutput {
-	return e.ToImagesCustomImageUpdateDistributionPtrOutputWithContext(context.Background())
+func (e ImageUpdateDistribution) ToImageUpdateDistributionPtrOutput() ImageUpdateDistributionPtrOutput {
+	return e.ToImageUpdateDistributionPtrOutputWithContext(context.Background())
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToImagesCustomImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImagesCustomImageUpdateDistributionPtrOutput {
-	return ImagesCustomImageUpdateDistribution(e).ToImagesCustomImageUpdateDistributionOutputWithContext(ctx).ToImagesCustomImageUpdateDistributionPtrOutputWithContext(ctx)
+func (e ImageUpdateDistribution) ToImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImageUpdateDistributionPtrOutput {
+	return ImageUpdateDistribution(e).ToImageUpdateDistributionOutputWithContext(ctx).ToImageUpdateDistributionPtrOutputWithContext(ctx)
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToStringOutput() pulumi.StringOutput {
+func (e ImageUpdateDistribution) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ImageUpdateDistribution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ImageUpdateDistribution) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ImagesCustomImageUpdateDistribution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ImageUpdateDistribution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ImagesCustomImageUpdateDistributionOutput struct{ *pulumi.OutputState }
+type ImageUpdateDistributionOutput struct{ *pulumi.OutputState }
 
-func (ImagesCustomImageUpdateDistributionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagesCustomImageUpdateDistribution)(nil)).Elem()
+func (ImageUpdateDistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageUpdateDistribution)(nil)).Elem()
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToImagesCustomImageUpdateDistributionOutput() ImagesCustomImageUpdateDistributionOutput {
+func (o ImageUpdateDistributionOutput) ToImageUpdateDistributionOutput() ImageUpdateDistributionOutput {
 	return o
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToImagesCustomImageUpdateDistributionOutputWithContext(ctx context.Context) ImagesCustomImageUpdateDistributionOutput {
+func (o ImageUpdateDistributionOutput) ToImageUpdateDistributionOutputWithContext(ctx context.Context) ImageUpdateDistributionOutput {
 	return o
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToImagesCustomImageUpdateDistributionPtrOutput() ImagesCustomImageUpdateDistributionPtrOutput {
-	return o.ToImagesCustomImageUpdateDistributionPtrOutputWithContext(context.Background())
+func (o ImageUpdateDistributionOutput) ToImageUpdateDistributionPtrOutput() ImageUpdateDistributionPtrOutput {
+	return o.ToImageUpdateDistributionPtrOutputWithContext(context.Background())
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToImagesCustomImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImagesCustomImageUpdateDistributionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagesCustomImageUpdateDistribution) *ImagesCustomImageUpdateDistribution {
+func (o ImageUpdateDistributionOutput) ToImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImageUpdateDistributionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageUpdateDistribution) *ImageUpdateDistribution {
 		return &v
-	}).(ImagesCustomImageUpdateDistributionPtrOutput)
+	}).(ImageUpdateDistributionPtrOutput)
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToStringOutput() pulumi.StringOutput {
+func (o ImageUpdateDistributionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagesCustomImageUpdateDistribution) string {
+func (o ImageUpdateDistributionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageUpdateDistribution) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ImageUpdateDistributionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ImagesCustomImageUpdateDistributionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagesCustomImageUpdateDistribution) *string {
+func (o ImageUpdateDistributionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageUpdateDistribution) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ImagesCustomImageUpdateDistributionPtrOutput struct{ *pulumi.OutputState }
+type ImageUpdateDistributionPtrOutput struct{ *pulumi.OutputState }
 
-func (ImagesCustomImageUpdateDistributionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImagesCustomImageUpdateDistribution)(nil)).Elem()
+func (ImageUpdateDistributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageUpdateDistribution)(nil)).Elem()
 }
 
-func (o ImagesCustomImageUpdateDistributionPtrOutput) ToImagesCustomImageUpdateDistributionPtrOutput() ImagesCustomImageUpdateDistributionPtrOutput {
+func (o ImageUpdateDistributionPtrOutput) ToImageUpdateDistributionPtrOutput() ImageUpdateDistributionPtrOutput {
 	return o
 }
 
-func (o ImagesCustomImageUpdateDistributionPtrOutput) ToImagesCustomImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImagesCustomImageUpdateDistributionPtrOutput {
+func (o ImageUpdateDistributionPtrOutput) ToImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImageUpdateDistributionPtrOutput {
 	return o
 }
 
-func (o ImagesCustomImageUpdateDistributionPtrOutput) Elem() ImagesCustomImageUpdateDistributionOutput {
-	return o.ApplyT(func(v *ImagesCustomImageUpdateDistribution) ImagesCustomImageUpdateDistribution {
+func (o ImageUpdateDistributionPtrOutput) Elem() ImageUpdateDistributionOutput {
+	return o.ApplyT(func(v *ImageUpdateDistribution) ImageUpdateDistribution {
 		if v != nil {
 			return *v
 		}
-		var ret ImagesCustomImageUpdateDistribution
+		var ret ImageUpdateDistribution
 		return ret
-	}).(ImagesCustomImageUpdateDistributionOutput)
+	}).(ImageUpdateDistributionOutput)
 }
 
-func (o ImagesCustomImageUpdateDistributionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ImageUpdateDistributionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ImagesCustomImageUpdateDistributionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImagesCustomImageUpdateDistribution) *string {
+func (o ImageUpdateDistributionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageUpdateDistribution) *string {
 		if e == nil {
 			return nil
 		}
@@ -913,54 +821,54 @@ func (o ImagesCustomImageUpdateDistributionPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImagesCustomImageUpdateDistributionInput is an input type that accepts values of the ImagesCustomImageUpdateDistribution enum
-// A concrete instance of `ImagesCustomImageUpdateDistributionInput` can be one of the following:
+// ImageUpdateDistributionInput is an input type that accepts values of the ImageUpdateDistribution enum
+// A concrete instance of `ImageUpdateDistributionInput` can be one of the following:
 //
-//	ImagesCustomImageUpdateDistributionArchLinux
-//	ImagesCustomImageUpdateDistributionCentOS
-//	ImagesCustomImageUpdateDistributionCoreOS
-//	ImagesCustomImageUpdateDistributionDebian
-//	ImagesCustomImageUpdateDistributionFedora
-//	ImagesCustomImageUpdateDistributionFedoraAtomic
-//	ImagesCustomImageUpdateDistributionFreeBSD
-//	ImagesCustomImageUpdateDistributionGentoo
-//	ImagesCustomImageUpdateDistributionOpenSUSE
-//	ImagesCustomImageUpdateDistributionRancherOS
-//	ImagesCustomImageUpdateDistributionRockyLinux
-//	ImagesCustomImageUpdateDistributionUbuntu
-//	ImagesCustomImageUpdateDistributionUnknown
-type ImagesCustomImageUpdateDistributionInput interface {
+//	ImageUpdateDistributionArchLinux
+//	ImageUpdateDistributionCentOS
+//	ImageUpdateDistributionCoreOS
+//	ImageUpdateDistributionDebian
+//	ImageUpdateDistributionFedora
+//	ImageUpdateDistributionFedoraAtomic
+//	ImageUpdateDistributionFreeBSD
+//	ImageUpdateDistributionGentoo
+//	ImageUpdateDistributionOpenSUSE
+//	ImageUpdateDistributionRancherOS
+//	ImageUpdateDistributionRockyLinux
+//	ImageUpdateDistributionUbuntu
+//	ImageUpdateDistributionUnknown
+type ImageUpdateDistributionInput interface {
 	pulumi.Input
 
-	ToImagesCustomImageUpdateDistributionOutput() ImagesCustomImageUpdateDistributionOutput
-	ToImagesCustomImageUpdateDistributionOutputWithContext(context.Context) ImagesCustomImageUpdateDistributionOutput
+	ToImageUpdateDistributionOutput() ImageUpdateDistributionOutput
+	ToImageUpdateDistributionOutputWithContext(context.Context) ImageUpdateDistributionOutput
 }
 
-var imagesCustomImageUpdateDistributionPtrType = reflect.TypeOf((**ImagesCustomImageUpdateDistribution)(nil)).Elem()
+var imageUpdateDistributionPtrType = reflect.TypeOf((**ImageUpdateDistribution)(nil)).Elem()
 
-type ImagesCustomImageUpdateDistributionPtrInput interface {
+type ImageUpdateDistributionPtrInput interface {
 	pulumi.Input
 
-	ToImagesCustomImageUpdateDistributionPtrOutput() ImagesCustomImageUpdateDistributionPtrOutput
-	ToImagesCustomImageUpdateDistributionPtrOutputWithContext(context.Context) ImagesCustomImageUpdateDistributionPtrOutput
+	ToImageUpdateDistributionPtrOutput() ImageUpdateDistributionPtrOutput
+	ToImageUpdateDistributionPtrOutputWithContext(context.Context) ImageUpdateDistributionPtrOutput
 }
 
-type imagesCustomImageUpdateDistributionPtr string
+type imageUpdateDistributionPtr string
 
-func ImagesCustomImageUpdateDistributionPtr(v string) ImagesCustomImageUpdateDistributionPtrInput {
-	return (*imagesCustomImageUpdateDistributionPtr)(&v)
+func ImageUpdateDistributionPtr(v string) ImageUpdateDistributionPtrInput {
+	return (*imageUpdateDistributionPtr)(&v)
 }
 
-func (*imagesCustomImageUpdateDistributionPtr) ElementType() reflect.Type {
-	return imagesCustomImageUpdateDistributionPtrType
+func (*imageUpdateDistributionPtr) ElementType() reflect.Type {
+	return imageUpdateDistributionPtrType
 }
 
-func (in *imagesCustomImageUpdateDistributionPtr) ToImagesCustomImageUpdateDistributionPtrOutput() ImagesCustomImageUpdateDistributionPtrOutput {
-	return pulumi.ToOutput(in).(ImagesCustomImageUpdateDistributionPtrOutput)
+func (in *imageUpdateDistributionPtr) ToImageUpdateDistributionPtrOutput() ImageUpdateDistributionPtrOutput {
+	return pulumi.ToOutput(in).(ImageUpdateDistributionPtrOutput)
 }
 
-func (in *imagesCustomImageUpdateDistributionPtr) ToImagesCustomImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImagesCustomImageUpdateDistributionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ImagesCustomImageUpdateDistributionPtrOutput)
+func (in *imageUpdateDistributionPtr) ToImageUpdateDistributionPtrOutputWithContext(ctx context.Context) ImageUpdateDistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageUpdateDistributionPtrOutput)
 }
 
 // The slug identifier for the region where the resource will initially be  available.
@@ -1153,170 +1061,96 @@ func (in *imagesCustomPropertiesRegionPtr) ToImagesCustomPropertiesRegionPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ImagesCustomPropertiesRegionPtrOutput)
 }
 
-// The action to be taken on the image. Can be either `convert` or `transfer`.
-type TransferImageActionBaseType string
+// The current status of the action. This can be "in-progress", "completed", or "errored".
+type Status string
 
 const (
-	TransferImageActionBaseTypeConvert  = TransferImageActionBaseType("convert")
-	TransferImageActionBaseTypeTransfer = TransferImageActionBaseType("transfer")
+	StatusInProgress = Status("in-progress")
+	StatusCompleted  = Status("completed")
+	StatusErrored    = Status("errored")
 )
 
-func (TransferImageActionBaseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransferImageActionBaseType)(nil)).Elem()
+type StatusOutput struct{ *pulumi.OutputState }
+
+func (StatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Status)(nil)).Elem()
 }
 
-func (e TransferImageActionBaseType) ToTransferImageActionBaseTypeOutput() TransferImageActionBaseTypeOutput {
-	return pulumi.ToOutput(e).(TransferImageActionBaseTypeOutput)
-}
-
-func (e TransferImageActionBaseType) ToTransferImageActionBaseTypeOutputWithContext(ctx context.Context) TransferImageActionBaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TransferImageActionBaseTypeOutput)
-}
-
-func (e TransferImageActionBaseType) ToTransferImageActionBaseTypePtrOutput() TransferImageActionBaseTypePtrOutput {
-	return e.ToTransferImageActionBaseTypePtrOutputWithContext(context.Background())
-}
-
-func (e TransferImageActionBaseType) ToTransferImageActionBaseTypePtrOutputWithContext(ctx context.Context) TransferImageActionBaseTypePtrOutput {
-	return TransferImageActionBaseType(e).ToTransferImageActionBaseTypeOutputWithContext(ctx).ToTransferImageActionBaseTypePtrOutputWithContext(ctx)
-}
-
-func (e TransferImageActionBaseType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TransferImageActionBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TransferImageActionBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TransferImageActionBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type TransferImageActionBaseTypeOutput struct{ *pulumi.OutputState }
-
-func (TransferImageActionBaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransferImageActionBaseType)(nil)).Elem()
-}
-
-func (o TransferImageActionBaseTypeOutput) ToTransferImageActionBaseTypeOutput() TransferImageActionBaseTypeOutput {
+func (o StatusOutput) ToStatusOutput() StatusOutput {
 	return o
 }
 
-func (o TransferImageActionBaseTypeOutput) ToTransferImageActionBaseTypeOutputWithContext(ctx context.Context) TransferImageActionBaseTypeOutput {
+func (o StatusOutput) ToStatusOutputWithContext(ctx context.Context) StatusOutput {
 	return o
 }
 
-func (o TransferImageActionBaseTypeOutput) ToTransferImageActionBaseTypePtrOutput() TransferImageActionBaseTypePtrOutput {
-	return o.ToTransferImageActionBaseTypePtrOutputWithContext(context.Background())
+func (o StatusOutput) ToStatusPtrOutput() StatusPtrOutput {
+	return o.ToStatusPtrOutputWithContext(context.Background())
 }
 
-func (o TransferImageActionBaseTypeOutput) ToTransferImageActionBaseTypePtrOutputWithContext(ctx context.Context) TransferImageActionBaseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferImageActionBaseType) *TransferImageActionBaseType {
+func (o StatusOutput) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Status) *Status {
 		return &v
-	}).(TransferImageActionBaseTypePtrOutput)
+	}).(StatusPtrOutput)
 }
 
-func (o TransferImageActionBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o StatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TransferImageActionBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransferImageActionBaseType) string {
+func (o StatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Status) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TransferImageActionBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TransferImageActionBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransferImageActionBaseType) *string {
+func (o StatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Status) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TransferImageActionBaseTypePtrOutput struct{ *pulumi.OutputState }
+type StatusPtrOutput struct{ *pulumi.OutputState }
 
-func (TransferImageActionBaseTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransferImageActionBaseType)(nil)).Elem()
+func (StatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Status)(nil)).Elem()
 }
 
-func (o TransferImageActionBaseTypePtrOutput) ToTransferImageActionBaseTypePtrOutput() TransferImageActionBaseTypePtrOutput {
+func (o StatusPtrOutput) ToStatusPtrOutput() StatusPtrOutput {
 	return o
 }
 
-func (o TransferImageActionBaseTypePtrOutput) ToTransferImageActionBaseTypePtrOutputWithContext(ctx context.Context) TransferImageActionBaseTypePtrOutput {
+func (o StatusPtrOutput) ToStatusPtrOutputWithContext(ctx context.Context) StatusPtrOutput {
 	return o
 }
 
-func (o TransferImageActionBaseTypePtrOutput) Elem() TransferImageActionBaseTypeOutput {
-	return o.ApplyT(func(v *TransferImageActionBaseType) TransferImageActionBaseType {
+func (o StatusPtrOutput) Elem() StatusOutput {
+	return o.ApplyT(func(v *Status) Status {
 		if v != nil {
 			return *v
 		}
-		var ret TransferImageActionBaseType
+		var ret Status
 		return ret
-	}).(TransferImageActionBaseTypeOutput)
+	}).(StatusOutput)
 }
 
-func (o TransferImageActionBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TransferImageActionBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransferImageActionBaseType) *string {
+func (o StatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Status) *string {
 		if e == nil {
 			return nil
 		}
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-// TransferImageActionBaseTypeInput is an input type that accepts values of the TransferImageActionBaseType enum
-// A concrete instance of `TransferImageActionBaseTypeInput` can be one of the following:
-//
-//	TransferImageActionBaseTypeConvert
-//	TransferImageActionBaseTypeTransfer
-type TransferImageActionBaseTypeInput interface {
-	pulumi.Input
-
-	ToTransferImageActionBaseTypeOutput() TransferImageActionBaseTypeOutput
-	ToTransferImageActionBaseTypeOutputWithContext(context.Context) TransferImageActionBaseTypeOutput
-}
-
-var transferImageActionBaseTypePtrType = reflect.TypeOf((**TransferImageActionBaseType)(nil)).Elem()
-
-type TransferImageActionBaseTypePtrInput interface {
-	pulumi.Input
-
-	ToTransferImageActionBaseTypePtrOutput() TransferImageActionBaseTypePtrOutput
-	ToTransferImageActionBaseTypePtrOutputWithContext(context.Context) TransferImageActionBaseTypePtrOutput
-}
-
-type transferImageActionBaseTypePtr string
-
-func TransferImageActionBaseTypePtr(v string) TransferImageActionBaseTypePtrInput {
-	return (*transferImageActionBaseTypePtr)(&v)
-}
-
-func (*transferImageActionBaseTypePtr) ElementType() reflect.Type {
-	return transferImageActionBaseTypePtrType
-}
-
-func (in *transferImageActionBaseTypePtr) ToTransferImageActionBaseTypePtrOutput() TransferImageActionBaseTypePtrOutput {
-	return pulumi.ToOutput(in).(TransferImageActionBaseTypePtrOutput)
-}
-
-func (in *transferImageActionBaseTypePtr) ToTransferImageActionBaseTypePtrOutputWithContext(ctx context.Context) TransferImageActionBaseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TransferImageActionBaseTypePtrOutput)
 }
 
 // The slug identifier for the region where the resource will initially be  available.
@@ -1509,90 +1343,125 @@ func (in *transferPropertiesRegionPtr) ToTransferPropertiesRegionPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(TransferPropertiesRegionPtrOutput)
 }
 
-// The current status of the action. This can be "in-progress", "completed", or "errored".
-type TransferStatus string
+// The action to be taken on the image. Can be either `convert` or `transfer`.
+type Type string
 
 const (
-	TransferStatusInProgress = TransferStatus("in-progress")
-	TransferStatusCompleted  = TransferStatus("completed")
-	TransferStatusErrored    = TransferStatus("errored")
+	TypeConvert  = Type("convert")
+	TypeTransfer = Type("transfer")
 )
 
-type TransferStatusOutput struct{ *pulumi.OutputState }
-
-func (TransferStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransferStatus)(nil)).Elem()
+func (Type) ElementType() reflect.Type {
+	return reflect.TypeOf((*Type)(nil)).Elem()
 }
 
-func (o TransferStatusOutput) ToTransferStatusOutput() TransferStatusOutput {
+func (e Type) ToTypeOutput() TypeOutput {
+	return pulumi.ToOutput(e).(TypeOutput)
+}
+
+func (e Type) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TypeOutput)
+}
+
+func (e Type) ToTypePtrOutput() TypePtrOutput {
+	return e.ToTypePtrOutputWithContext(context.Background())
+}
+
+func (e Type) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return Type(e).ToTypeOutputWithContext(ctx).ToTypePtrOutputWithContext(ctx)
+}
+
+func (e Type) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Type) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Type) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Type) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TypeOutput struct{ *pulumi.OutputState }
+
+func (TypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Type)(nil)).Elem()
+}
+
+func (o TypeOutput) ToTypeOutput() TypeOutput {
 	return o
 }
 
-func (o TransferStatusOutput) ToTransferStatusOutputWithContext(ctx context.Context) TransferStatusOutput {
+func (o TypeOutput) ToTypeOutputWithContext(ctx context.Context) TypeOutput {
 	return o
 }
 
-func (o TransferStatusOutput) ToTransferStatusPtrOutput() TransferStatusPtrOutput {
-	return o.ToTransferStatusPtrOutputWithContext(context.Background())
+func (o TypeOutput) ToTypePtrOutput() TypePtrOutput {
+	return o.ToTypePtrOutputWithContext(context.Background())
 }
 
-func (o TransferStatusOutput) ToTransferStatusPtrOutputWithContext(ctx context.Context) TransferStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferStatus) *TransferStatus {
+func (o TypeOutput) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Type) *Type {
 		return &v
-	}).(TransferStatusPtrOutput)
+	}).(TypePtrOutput)
 }
 
-func (o TransferStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o TypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TransferStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransferStatus) string {
+func (o TypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Type) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TransferStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TransferStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransferStatus) *string {
+func (o TypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Type) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TransferStatusPtrOutput struct{ *pulumi.OutputState }
+type TypePtrOutput struct{ *pulumi.OutputState }
 
-func (TransferStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransferStatus)(nil)).Elem()
+func (TypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Type)(nil)).Elem()
 }
 
-func (o TransferStatusPtrOutput) ToTransferStatusPtrOutput() TransferStatusPtrOutput {
+func (o TypePtrOutput) ToTypePtrOutput() TypePtrOutput {
 	return o
 }
 
-func (o TransferStatusPtrOutput) ToTransferStatusPtrOutputWithContext(ctx context.Context) TransferStatusPtrOutput {
+func (o TypePtrOutput) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
 	return o
 }
 
-func (o TransferStatusPtrOutput) Elem() TransferStatusOutput {
-	return o.ApplyT(func(v *TransferStatus) TransferStatus {
+func (o TypePtrOutput) Elem() TypeOutput {
+	return o.ApplyT(func(v *Type) Type {
 		if v != nil {
 			return *v
 		}
-		var ret TransferStatus
+		var ret Type
 		return ret
-	}).(TransferStatusOutput)
+	}).(TypeOutput)
 }
 
-func (o TransferStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TransferStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransferStatus) *string {
+func (o TypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Type) *string {
 		if e == nil {
 			return nil
 		}
@@ -1601,23 +1470,60 @@ func (o TransferStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
+// TypeInput is an input type that accepts values of the Type enum
+// A concrete instance of `TypeInput` can be one of the following:
+//
+//	TypeConvert
+//	TypeTransfer
+type TypeInput interface {
+	pulumi.Input
+
+	ToTypeOutput() TypeOutput
+	ToTypeOutputWithContext(context.Context) TypeOutput
+}
+
+var typePtrType = reflect.TypeOf((**Type)(nil)).Elem()
+
+type TypePtrInput interface {
+	pulumi.Input
+
+	ToTypePtrOutput() TypePtrOutput
+	ToTypePtrOutputWithContext(context.Context) TypePtrOutput
+}
+
+type typePtr string
+
+func TypePtr(v string) TypePtrInput {
+	return (*typePtr)(&v)
+}
+
+func (*typePtr) ElementType() reflect.Type {
+	return typePtrType
+}
+
+func (in *typePtr) ToTypePtrOutput() TypePtrOutput {
+	return pulumi.ToOutput(in).(TypePtrOutput)
+}
+
+func (in *typePtr) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TypePtrOutput)
+}
+
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ConvertTypeInput)(nil)).Elem(), ConvertType("convert"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ConvertTypePtrInput)(nil)).Elem(), ConvertType("convert"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImagesCustomImageUpdateDistributionInput)(nil)).Elem(), ImagesCustomImageUpdateDistribution("Arch Linux"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImagesCustomImageUpdateDistributionPtrInput)(nil)).Elem(), ImagesCustomImageUpdateDistribution("Arch Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageActionBaseTypeInput)(nil)).Elem(), ImageActionBaseType("convert"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageActionBaseTypePtrInput)(nil)).Elem(), ImageActionBaseType("convert"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageUpdateDistributionInput)(nil)).Elem(), ImageUpdateDistribution("Arch Linux"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageUpdateDistributionPtrInput)(nil)).Elem(), ImageUpdateDistribution("Arch Linux"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagesCustomPropertiesRegionInput)(nil)).Elem(), ImagesCustomPropertiesRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagesCustomPropertiesRegionPtrInput)(nil)).Elem(), ImagesCustomPropertiesRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TransferImageActionBaseTypeInput)(nil)).Elem(), TransferImageActionBaseType("convert"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TransferImageActionBaseTypePtrInput)(nil)).Elem(), TransferImageActionBaseType("convert"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransferPropertiesRegionInput)(nil)).Elem(), TransferPropertiesRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransferPropertiesRegionPtrInput)(nil)).Elem(), TransferPropertiesRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeInput)(nil)).Elem(), Type("convert"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypePtrInput)(nil)).Elem(), Type("convert"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
-	pulumi.RegisterOutputType(ConvertStatusOutput{})
-	pulumi.RegisterOutputType(ConvertStatusPtrOutput{})
-	pulumi.RegisterOutputType(ConvertTypeOutput{})
-	pulumi.RegisterOutputType(ConvertTypePtrOutput{})
+	pulumi.RegisterOutputType(ImageActionBaseTypeOutput{})
+	pulumi.RegisterOutputType(ImageActionBaseTypePtrOutput{})
 	pulumi.RegisterOutputType(ImageDistributionOutput{})
 	pulumi.RegisterOutputType(ImageDistributionPtrOutput{})
 	pulumi.RegisterOutputType(ImageRegionsItemOutput{})
@@ -1627,14 +1533,14 @@ func init() {
 	pulumi.RegisterOutputType(ImageStatusPtrOutput{})
 	pulumi.RegisterOutputType(ImageTypeOutput{})
 	pulumi.RegisterOutputType(ImageTypePtrOutput{})
-	pulumi.RegisterOutputType(ImagesCustomImageUpdateDistributionOutput{})
-	pulumi.RegisterOutputType(ImagesCustomImageUpdateDistributionPtrOutput{})
+	pulumi.RegisterOutputType(ImageUpdateDistributionOutput{})
+	pulumi.RegisterOutputType(ImageUpdateDistributionPtrOutput{})
 	pulumi.RegisterOutputType(ImagesCustomPropertiesRegionOutput{})
 	pulumi.RegisterOutputType(ImagesCustomPropertiesRegionPtrOutput{})
-	pulumi.RegisterOutputType(TransferImageActionBaseTypeOutput{})
-	pulumi.RegisterOutputType(TransferImageActionBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(StatusOutput{})
+	pulumi.RegisterOutputType(StatusPtrOutput{})
 	pulumi.RegisterOutputType(TransferPropertiesRegionOutput{})
 	pulumi.RegisterOutputType(TransferPropertiesRegionPtrOutput{})
-	pulumi.RegisterOutputType(TransferStatusOutput{})
-	pulumi.RegisterOutputType(TransferStatusPtrOutput{})
+	pulumi.RegisterOutputType(TypeOutput{})
+	pulumi.RegisterOutputType(TypePtrOutput{})
 }

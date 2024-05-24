@@ -19,11 +19,11 @@ type Attach struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId pulumi.IntPtrOutput `pulumi:"dropletId"`
 	// The slug identifier for the region where the resource will initially be  available.
-	Region AttachVolumeActionCreateBaseRegionPtrOutput `pulumi:"region"`
+	Region VolumeActionCreateBaseRegionPtrOutput `pulumi:"region"`
 	// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The volume action to initiate.
-	Type AttachVolumeActionCreateBaseTypePtrOutput `pulumi:"type"`
+	Type VolumeActionCreateBaseTypePtrOutput `pulumi:"type"`
 }
 
 // NewAttach registers a new resource with the given unique name, arguments, and options.
@@ -75,11 +75,11 @@ type attachArgs struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId int `pulumi:"dropletId"`
 	// The slug identifier for the region where the resource will initially be  available.
-	Region *AttachVolumeActionCreateBaseRegion `pulumi:"region"`
+	Region *VolumeActionCreateBaseRegion `pulumi:"region"`
 	// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
 	Tags []string `pulumi:"tags"`
 	// The volume action to initiate.
-	Type AttachVolumeActionCreateBaseType `pulumi:"type"`
+	Type VolumeActionCreateBaseType `pulumi:"type"`
 	// The ID of the block storage volume.
 	VolumeId *string `pulumi:"volumeId"`
 }
@@ -89,11 +89,11 @@ type AttachArgs struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId pulumi.IntInput
 	// The slug identifier for the region where the resource will initially be  available.
-	Region AttachVolumeActionCreateBaseRegionPtrInput
+	Region VolumeActionCreateBaseRegionPtrInput
 	// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
 	Tags pulumi.StringArrayInput
 	// The volume action to initiate.
-	Type AttachVolumeActionCreateBaseTypeInput
+	Type VolumeActionCreateBaseTypeInput
 	// The ID of the block storage volume.
 	VolumeId pulumi.StringPtrInput
 }
@@ -145,8 +145,8 @@ func (o AttachOutput) DropletId() pulumi.IntPtrOutput {
 }
 
 // The slug identifier for the region where the resource will initially be  available.
-func (o AttachOutput) Region() AttachVolumeActionCreateBaseRegionPtrOutput {
-	return o.ApplyT(func(v *Attach) AttachVolumeActionCreateBaseRegionPtrOutput { return v.Region }).(AttachVolumeActionCreateBaseRegionPtrOutput)
+func (o AttachOutput) Region() VolumeActionCreateBaseRegionPtrOutput {
+	return o.ApplyT(func(v *Attach) VolumeActionCreateBaseRegionPtrOutput { return v.Region }).(VolumeActionCreateBaseRegionPtrOutput)
 }
 
 // A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
@@ -155,8 +155,8 @@ func (o AttachOutput) Tags() pulumi.StringArrayOutput {
 }
 
 // The volume action to initiate.
-func (o AttachOutput) Type() AttachVolumeActionCreateBaseTypePtrOutput {
-	return o.ApplyT(func(v *Attach) AttachVolumeActionCreateBaseTypePtrOutput { return v.Type }).(AttachVolumeActionCreateBaseTypePtrOutput)
+func (o AttachOutput) Type() VolumeActionCreateBaseTypePtrOutput {
+	return o.ApplyT(func(v *Attach) VolumeActionCreateBaseTypePtrOutput { return v.Type }).(VolumeActionCreateBaseTypePtrOutput)
 }
 
 func init() {

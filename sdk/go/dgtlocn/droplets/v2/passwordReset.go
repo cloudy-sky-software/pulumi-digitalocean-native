@@ -18,7 +18,7 @@ type PasswordReset struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type PasswordResetTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewPasswordReset registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type passwordResetArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type PasswordResetType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PasswordReset resource.
@@ -75,7 +75,7 @@ type PasswordResetArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type PasswordResetTypeInput
+	Type TypeInput
 }
 
 func (PasswordResetArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o PasswordResetOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o PasswordResetOutput) Type() PasswordResetTypeOutput {
-	return o.ApplyT(func(v *PasswordReset) PasswordResetTypeOutput { return v.Type }).(PasswordResetTypeOutput)
+func (o PasswordResetOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *PasswordReset) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

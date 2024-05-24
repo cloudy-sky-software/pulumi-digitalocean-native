@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CdnEndpointTtl',
+    'Ttl',
 ]
 
 
@@ -18,3 +19,14 @@ class CdnEndpointTtl(int, Enum):
     CDN_ENDPOINT_TTL_D_FLOAT64_3600_ = 3600
     CDN_ENDPOINT_TTL_D_FLOAT64_86400_ = 86400
     CDN_ENDPOINT_TTL_D_FLOAT64_604800_ = 604800
+
+
+class Ttl(int, Enum):
+    """
+    The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
+    """
+    TTL_D_FLOAT64_60_ = 60
+    TTL_D_FLOAT64_600_ = 600
+    TTL_D_FLOAT64_3600_ = 3600
+    TTL_D_FLOAT64_86400_ = 86400
+    TTL_D_FLOAT64_604800_ = 604800

@@ -70,6 +70,436 @@ namespace Pulumi.DigitalOceanNative.AppsV2
     }
 
     [EnumType]
+    public readonly struct AppAlertSpecOperator : IEquatable<AppAlertSpecOperator>
+    {
+        private readonly string _value;
+
+        private AppAlertSpecOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppAlertSpecOperator UnspecifiedOperator { get; } = new AppAlertSpecOperator("UNSPECIFIED_OPERATOR");
+        public static AppAlertSpecOperator GreaterThan { get; } = new AppAlertSpecOperator("GREATER_THAN");
+        public static AppAlertSpecOperator LessThan { get; } = new AppAlertSpecOperator("LESS_THAN");
+
+        public static bool operator ==(AppAlertSpecOperator left, AppAlertSpecOperator right) => left.Equals(right);
+        public static bool operator !=(AppAlertSpecOperator left, AppAlertSpecOperator right) => !left.Equals(right);
+
+        public static explicit operator string(AppAlertSpecOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppAlertSpecOperator other && Equals(other);
+        public bool Equals(AppAlertSpecOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AppAlertSpecRule : IEquatable<AppAlertSpecRule>
+    {
+        private readonly string _value;
+
+        private AppAlertSpecRule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppAlertSpecRule UnspecifiedRule { get; } = new AppAlertSpecRule("UNSPECIFIED_RULE");
+        public static AppAlertSpecRule CpuUtilization { get; } = new AppAlertSpecRule("CPU_UTILIZATION");
+        public static AppAlertSpecRule MemUtilization { get; } = new AppAlertSpecRule("MEM_UTILIZATION");
+        public static AppAlertSpecRule RestartCount { get; } = new AppAlertSpecRule("RESTART_COUNT");
+        public static AppAlertSpecRule DeploymentFailed { get; } = new AppAlertSpecRule("DEPLOYMENT_FAILED");
+        public static AppAlertSpecRule DeploymentLive { get; } = new AppAlertSpecRule("DEPLOYMENT_LIVE");
+        public static AppAlertSpecRule DomainFailed { get; } = new AppAlertSpecRule("DOMAIN_FAILED");
+        public static AppAlertSpecRule DomainLive { get; } = new AppAlertSpecRule("DOMAIN_LIVE");
+        public static AppAlertSpecRule FunctionsActivationCount { get; } = new AppAlertSpecRule("FUNCTIONS_ACTIVATION_COUNT");
+        public static AppAlertSpecRule FunctionsAverageDurationMs { get; } = new AppAlertSpecRule("FUNCTIONS_AVERAGE_DURATION_MS");
+        public static AppAlertSpecRule FunctionsErrorRatePerMinute { get; } = new AppAlertSpecRule("FUNCTIONS_ERROR_RATE_PER_MINUTE");
+        public static AppAlertSpecRule FunctionsAverageWaitTimeMs { get; } = new AppAlertSpecRule("FUNCTIONS_AVERAGE_WAIT_TIME_MS");
+        public static AppAlertSpecRule FunctionsErrorCount { get; } = new AppAlertSpecRule("FUNCTIONS_ERROR_COUNT");
+        public static AppAlertSpecRule FunctionsGbRatePerSecond { get; } = new AppAlertSpecRule("FUNCTIONS_GB_RATE_PER_SECOND");
+
+        public static bool operator ==(AppAlertSpecRule left, AppAlertSpecRule right) => left.Equals(right);
+        public static bool operator !=(AppAlertSpecRule left, AppAlertSpecRule right) => !left.Equals(right);
+
+        public static explicit operator string(AppAlertSpecRule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppAlertSpecRule other && Equals(other);
+        public bool Equals(AppAlertSpecRule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AppAlertSpecWindow : IEquatable<AppAlertSpecWindow>
+    {
+        private readonly string _value;
+
+        private AppAlertSpecWindow(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppAlertSpecWindow UnspecifiedWindow { get; } = new AppAlertSpecWindow("UNSPECIFIED_WINDOW");
+        public static AppAlertSpecWindow FiveMinutes { get; } = new AppAlertSpecWindow("FIVE_MINUTES");
+        public static AppAlertSpecWindow TenMinutes { get; } = new AppAlertSpecWindow("TEN_MINUTES");
+        public static AppAlertSpecWindow ThirtyMinutes { get; } = new AppAlertSpecWindow("THIRTY_MINUTES");
+        public static AppAlertSpecWindow OneHour { get; } = new AppAlertSpecWindow("ONE_HOUR");
+
+        public static bool operator ==(AppAlertSpecWindow left, AppAlertSpecWindow right) => left.Equals(right);
+        public static bool operator !=(AppAlertSpecWindow left, AppAlertSpecWindow right) => !left.Equals(right);
+
+        public static explicit operator string(AppAlertSpecWindow value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppAlertSpecWindow other && Equals(other);
+        public bool Equals(AppAlertSpecWindow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The instance size to use for this component. Default: `basic-xxs`
+    /// </summary>
+    [EnumType]
+    public readonly struct AppComponentInstanceBaseInstanceSizeSlug : IEquatable<AppComponentInstanceBaseInstanceSizeSlug>
+    {
+        private readonly string _value;
+
+        private AppComponentInstanceBaseInstanceSizeSlug(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppComponentInstanceBaseInstanceSizeSlug BasicXxs { get; } = new AppComponentInstanceBaseInstanceSizeSlug("basic-xxs");
+        public static AppComponentInstanceBaseInstanceSizeSlug BasicXs { get; } = new AppComponentInstanceBaseInstanceSizeSlug("basic-xs");
+        public static AppComponentInstanceBaseInstanceSizeSlug BasicS { get; } = new AppComponentInstanceBaseInstanceSizeSlug("basic-s");
+        public static AppComponentInstanceBaseInstanceSizeSlug BasicM { get; } = new AppComponentInstanceBaseInstanceSizeSlug("basic-m");
+        public static AppComponentInstanceBaseInstanceSizeSlug ProfessionalXs { get; } = new AppComponentInstanceBaseInstanceSizeSlug("professional-xs");
+        public static AppComponentInstanceBaseInstanceSizeSlug ProfessionalS { get; } = new AppComponentInstanceBaseInstanceSizeSlug("professional-s");
+        public static AppComponentInstanceBaseInstanceSizeSlug ProfessionalM { get; } = new AppComponentInstanceBaseInstanceSizeSlug("professional-m");
+        public static AppComponentInstanceBaseInstanceSizeSlug Professional1l { get; } = new AppComponentInstanceBaseInstanceSizeSlug("professional-1l");
+        public static AppComponentInstanceBaseInstanceSizeSlug ProfessionalL { get; } = new AppComponentInstanceBaseInstanceSizeSlug("professional-l");
+        public static AppComponentInstanceBaseInstanceSizeSlug ProfessionalXl { get; } = new AppComponentInstanceBaseInstanceSizeSlug("professional-xl");
+
+        public static bool operator ==(AppComponentInstanceBaseInstanceSizeSlug left, AppComponentInstanceBaseInstanceSizeSlug right) => left.Equals(right);
+        public static bool operator !=(AppComponentInstanceBaseInstanceSizeSlug left, AppComponentInstanceBaseInstanceSizeSlug right) => !left.Equals(right);
+
+        public static explicit operator string(AppComponentInstanceBaseInstanceSizeSlug value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppComponentInstanceBaseInstanceSizeSlug other && Equals(other);
+        public bool Equals(AppComponentInstanceBaseInstanceSizeSlug other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// - MYSQL: MySQL
+    /// - PG: PostgreSQL
+    /// - REDIS: Redis
+    /// </summary>
+    [EnumType]
+    public readonly struct AppDatabaseSpecEngine : IEquatable<AppDatabaseSpecEngine>
+    {
+        private readonly string _value;
+
+        private AppDatabaseSpecEngine(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppDatabaseSpecEngine Unset { get; } = new AppDatabaseSpecEngine("UNSET");
+        public static AppDatabaseSpecEngine Mysql { get; } = new AppDatabaseSpecEngine("MYSQL");
+        public static AppDatabaseSpecEngine Pg { get; } = new AppDatabaseSpecEngine("PG");
+        public static AppDatabaseSpecEngine Redis { get; } = new AppDatabaseSpecEngine("REDIS");
+
+        public static bool operator ==(AppDatabaseSpecEngine left, AppDatabaseSpecEngine right) => left.Equals(right);
+        public static bool operator !=(AppDatabaseSpecEngine left, AppDatabaseSpecEngine right) => !left.Equals(right);
+
+        public static explicit operator string(AppDatabaseSpecEngine value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppDatabaseSpecEngine other && Equals(other);
+        public bool Equals(AppDatabaseSpecEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppDomainSpecMinimumTlsVersion : IEquatable<AppDomainSpecMinimumTlsVersion>
+    {
+        private readonly string _value;
+
+        private AppDomainSpecMinimumTlsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppDomainSpecMinimumTlsVersion AppDomainSpecMinimumTlsVersion_12 { get; } = new AppDomainSpecMinimumTlsVersion("1.2");
+        public static AppDomainSpecMinimumTlsVersion AppDomainSpecMinimumTlsVersion_13 { get; } = new AppDomainSpecMinimumTlsVersion("1.3");
+
+        public static bool operator ==(AppDomainSpecMinimumTlsVersion left, AppDomainSpecMinimumTlsVersion right) => left.Equals(right);
+        public static bool operator !=(AppDomainSpecMinimumTlsVersion left, AppDomainSpecMinimumTlsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(AppDomainSpecMinimumTlsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppDomainSpecMinimumTlsVersion other && Equals(other);
+        public bool Equals(AppDomainSpecMinimumTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
+    /// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
+    /// - ALIAS: A non-primary domain
+    /// </summary>
+    [EnumType]
+    public readonly struct AppDomainSpecType : IEquatable<AppDomainSpecType>
+    {
+        private readonly string _value;
+
+        private AppDomainSpecType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppDomainSpecType Unspecified { get; } = new AppDomainSpecType("UNSPECIFIED");
+        public static AppDomainSpecType Default { get; } = new AppDomainSpecType("DEFAULT");
+        public static AppDomainSpecType Primary { get; } = new AppDomainSpecType("PRIMARY");
+        public static AppDomainSpecType Alias { get; } = new AppDomainSpecType("ALIAS");
+
+        public static bool operator ==(AppDomainSpecType left, AppDomainSpecType right) => left.Equals(right);
+        public static bool operator !=(AppDomainSpecType left, AppDomainSpecType right) => !left.Equals(right);
+
+        public static explicit operator string(AppDomainSpecType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppDomainSpecType other && Equals(other);
+        public bool Equals(AppDomainSpecType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
+    /// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
+    /// - POST_DEPLOY: Indicates a job that runs after an app deployment.
+    /// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppJobSpecPropertiesKind : IEquatable<AppJobSpecPropertiesKind>
+    {
+        private readonly string _value;
+
+        private AppJobSpecPropertiesKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppJobSpecPropertiesKind Unspecified { get; } = new AppJobSpecPropertiesKind("UNSPECIFIED");
+        public static AppJobSpecPropertiesKind PreDeploy { get; } = new AppJobSpecPropertiesKind("PRE_DEPLOY");
+        public static AppJobSpecPropertiesKind PostDeploy { get; } = new AppJobSpecPropertiesKind("POST_DEPLOY");
+        public static AppJobSpecPropertiesKind FailedDeploy { get; } = new AppJobSpecPropertiesKind("FAILED_DEPLOY");
+
+        public static bool operator ==(AppJobSpecPropertiesKind left, AppJobSpecPropertiesKind right) => left.Equals(right);
+        public static bool operator !=(AppJobSpecPropertiesKind left, AppJobSpecPropertiesKind right) => !left.Equals(right);
+
+        public static explicit operator string(AppJobSpecPropertiesKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppJobSpecPropertiesKind other && Equals(other);
+        public bool Equals(AppJobSpecPropertiesKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A code identifier that represents the failing condition.
+    /// 
+    /// Failing conditions:
+    ///   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
+    ///   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
+    ///   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
+    ///   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
+    ///   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
+    ///   - `region_conflict` - indicates that the deployment's region differs from the current app region.
+    ///   
+    /// Warning conditions:
+    ///   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
+    ///   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppRollbackValidationConditionCode : IEquatable<AppRollbackValidationConditionCode>
+    {
+        private readonly string _value;
+
+        private AppRollbackValidationConditionCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppRollbackValidationConditionCode IncompatiblePhase { get; } = new AppRollbackValidationConditionCode("incompatible_phase");
+        public static AppRollbackValidationConditionCode IncompatibleResult { get; } = new AppRollbackValidationConditionCode("incompatible_result");
+        public static AppRollbackValidationConditionCode ExceededRevisionLimit { get; } = new AppRollbackValidationConditionCode("exceeded_revision_limit");
+        public static AppRollbackValidationConditionCode AppPinned { get; } = new AppRollbackValidationConditionCode("app_pinned");
+        public static AppRollbackValidationConditionCode DatabaseConfigConflict { get; } = new AppRollbackValidationConditionCode("database_config_conflict");
+        public static AppRollbackValidationConditionCode RegionConflict { get; } = new AppRollbackValidationConditionCode("region_conflict");
+        public static AppRollbackValidationConditionCode StaticSiteRequiresRebuild { get; } = new AppRollbackValidationConditionCode("static_site_requires_rebuild");
+        public static AppRollbackValidationConditionCode ImageSourceMissingDigest { get; } = new AppRollbackValidationConditionCode("image_source_missing_digest");
+
+        public static bool operator ==(AppRollbackValidationConditionCode left, AppRollbackValidationConditionCode right) => left.Equals(right);
+        public static bool operator !=(AppRollbackValidationConditionCode left, AppRollbackValidationConditionCode right) => !left.Equals(right);
+
+        public static explicit operator string(AppRollbackValidationConditionCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppRollbackValidationConditionCode other && Equals(other);
+        public bool Equals(AppRollbackValidationConditionCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The slug form of the geographical origin of the app. Default: `nearest available`
+    /// </summary>
+    [EnumType]
+    public readonly struct AppSpecRegion : IEquatable<AppSpecRegion>
+    {
+        private readonly string _value;
+
+        private AppSpecRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppSpecRegion Ams { get; } = new AppSpecRegion("ams");
+        public static AppSpecRegion Nyc { get; } = new AppSpecRegion("nyc");
+        public static AppSpecRegion Fra { get; } = new AppSpecRegion("fra");
+        public static AppSpecRegion Sfo { get; } = new AppSpecRegion("sfo");
+        public static AppSpecRegion Sgp { get; } = new AppSpecRegion("sgp");
+        public static AppSpecRegion Blr { get; } = new AppSpecRegion("blr");
+        public static AppSpecRegion Tor { get; } = new AppSpecRegion("tor");
+        public static AppSpecRegion Lon { get; } = new AppSpecRegion("lon");
+        public static AppSpecRegion Syd { get; } = new AppSpecRegion("syd");
+
+        public static bool operator ==(AppSpecRegion left, AppSpecRegion right) => left.Equals(right);
+        public static bool operator !=(AppSpecRegion left, AppSpecRegion right) => !left.Equals(right);
+
+        public static explicit operator string(AppSpecRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppSpecRegion other && Equals(other);
+        public bool Equals(AppSpecRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// - RUN_TIME: Made available only at run-time
+    /// - BUILD_TIME: Made available only at build-time
+    /// - RUN_AND_BUILD_TIME: Made available at both build and run-time
+    /// </summary>
+    [EnumType]
+    public readonly struct AppVariableDefinitionScope : IEquatable<AppVariableDefinitionScope>
+    {
+        private readonly string _value;
+
+        private AppVariableDefinitionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppVariableDefinitionScope Unset { get; } = new AppVariableDefinitionScope("UNSET");
+        public static AppVariableDefinitionScope RunTime { get; } = new AppVariableDefinitionScope("RUN_TIME");
+        public static AppVariableDefinitionScope BuildTime { get; } = new AppVariableDefinitionScope("BUILD_TIME");
+        public static AppVariableDefinitionScope RunAndBuildTime { get; } = new AppVariableDefinitionScope("RUN_AND_BUILD_TIME");
+
+        public static bool operator ==(AppVariableDefinitionScope left, AppVariableDefinitionScope right) => left.Equals(right);
+        public static bool operator !=(AppVariableDefinitionScope left, AppVariableDefinitionScope right) => !left.Equals(right);
+
+        public static explicit operator string(AppVariableDefinitionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppVariableDefinitionScope other && Equals(other);
+        public bool Equals(AppVariableDefinitionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// - GENERAL: A plain-text environment variable
+    /// - SECRET: A secret encrypted environment variable
+    /// </summary>
+    [EnumType]
+    public readonly struct AppVariableDefinitionType : IEquatable<AppVariableDefinitionType>
+    {
+        private readonly string _value;
+
+        private AppVariableDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppVariableDefinitionType General { get; } = new AppVariableDefinitionType("GENERAL");
+        public static AppVariableDefinitionType Secret { get; } = new AppVariableDefinitionType("SECRET");
+
+        public static bool operator ==(AppVariableDefinitionType left, AppVariableDefinitionType right) => left.Equals(right);
+        public static bool operator !=(AppVariableDefinitionType left, AppVariableDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(AppVariableDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppVariableDefinitionType other && Equals(other);
+        public bool Equals(AppVariableDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AppsDeploymentPhase : IEquatable<AppsDeploymentPhase>
     {
         private readonly string _value;
@@ -166,6 +596,38 @@ namespace Pulumi.DigitalOceanNative.AppsV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// - DOCKER_HUB: The DockerHub container registry type.
+    /// - DOCR: The DigitalOcean container registry type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppsImageSourceSpecRegistryType : IEquatable<AppsImageSourceSpecRegistryType>
+    {
+        private readonly string _value;
+
+        private AppsImageSourceSpecRegistryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppsImageSourceSpecRegistryType DockerHub { get; } = new AppsImageSourceSpecRegistryType("DOCKER_HUB");
+        public static AppsImageSourceSpecRegistryType Docr { get; } = new AppsImageSourceSpecRegistryType("DOCR");
+
+        public static bool operator ==(AppsImageSourceSpecRegistryType left, AppsImageSourceSpecRegistryType right) => left.Equals(right);
+        public static bool operator !=(AppsImageSourceSpecRegistryType left, AppsImageSourceSpecRegistryType right) => !left.Equals(right);
+
+        public static explicit operator string(AppsImageSourceSpecRegistryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppsImageSourceSpecRegistryType other && Equals(other);
+        public bool Equals(AppsImageSourceSpecRegistryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AppsInstanceSizeCpuType : IEquatable<AppsInstanceSizeCpuType>
     {
@@ -188,468 +650,6 @@ namespace Pulumi.DigitalOceanNative.AppsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AppsInstanceSizeCpuType other && Equals(other);
         public bool Equals(AppsInstanceSizeCpuType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppAlertSpecOperator : IEquatable<AppsValidateAppSpecAppAlertSpecOperator>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppAlertSpecOperator(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppAlertSpecOperator UnspecifiedOperator { get; } = new AppsValidateAppSpecAppAlertSpecOperator("UNSPECIFIED_OPERATOR");
-        public static AppsValidateAppSpecAppAlertSpecOperator GreaterThan { get; } = new AppsValidateAppSpecAppAlertSpecOperator("GREATER_THAN");
-        public static AppsValidateAppSpecAppAlertSpecOperator LessThan { get; } = new AppsValidateAppSpecAppAlertSpecOperator("LESS_THAN");
-
-        public static bool operator ==(AppsValidateAppSpecAppAlertSpecOperator left, AppsValidateAppSpecAppAlertSpecOperator right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppAlertSpecOperator left, AppsValidateAppSpecAppAlertSpecOperator right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppAlertSpecOperator value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppAlertSpecOperator other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppAlertSpecOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppAlertSpecRule : IEquatable<AppsValidateAppSpecAppAlertSpecRule>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppAlertSpecRule(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppAlertSpecRule UnspecifiedRule { get; } = new AppsValidateAppSpecAppAlertSpecRule("UNSPECIFIED_RULE");
-        public static AppsValidateAppSpecAppAlertSpecRule CpuUtilization { get; } = new AppsValidateAppSpecAppAlertSpecRule("CPU_UTILIZATION");
-        public static AppsValidateAppSpecAppAlertSpecRule MemUtilization { get; } = new AppsValidateAppSpecAppAlertSpecRule("MEM_UTILIZATION");
-        public static AppsValidateAppSpecAppAlertSpecRule RestartCount { get; } = new AppsValidateAppSpecAppAlertSpecRule("RESTART_COUNT");
-        public static AppsValidateAppSpecAppAlertSpecRule DeploymentFailed { get; } = new AppsValidateAppSpecAppAlertSpecRule("DEPLOYMENT_FAILED");
-        public static AppsValidateAppSpecAppAlertSpecRule DeploymentLive { get; } = new AppsValidateAppSpecAppAlertSpecRule("DEPLOYMENT_LIVE");
-        public static AppsValidateAppSpecAppAlertSpecRule DomainFailed { get; } = new AppsValidateAppSpecAppAlertSpecRule("DOMAIN_FAILED");
-        public static AppsValidateAppSpecAppAlertSpecRule DomainLive { get; } = new AppsValidateAppSpecAppAlertSpecRule("DOMAIN_LIVE");
-        public static AppsValidateAppSpecAppAlertSpecRule FunctionsActivationCount { get; } = new AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_ACTIVATION_COUNT");
-        public static AppsValidateAppSpecAppAlertSpecRule FunctionsAverageDurationMs { get; } = new AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_AVERAGE_DURATION_MS");
-        public static AppsValidateAppSpecAppAlertSpecRule FunctionsErrorRatePerMinute { get; } = new AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_ERROR_RATE_PER_MINUTE");
-        public static AppsValidateAppSpecAppAlertSpecRule FunctionsAverageWaitTimeMs { get; } = new AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_AVERAGE_WAIT_TIME_MS");
-        public static AppsValidateAppSpecAppAlertSpecRule FunctionsErrorCount { get; } = new AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_ERROR_COUNT");
-        public static AppsValidateAppSpecAppAlertSpecRule FunctionsGbRatePerSecond { get; } = new AppsValidateAppSpecAppAlertSpecRule("FUNCTIONS_GB_RATE_PER_SECOND");
-
-        public static bool operator ==(AppsValidateAppSpecAppAlertSpecRule left, AppsValidateAppSpecAppAlertSpecRule right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppAlertSpecRule left, AppsValidateAppSpecAppAlertSpecRule right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppAlertSpecRule value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppAlertSpecRule other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppAlertSpecRule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppAlertSpecWindow : IEquatable<AppsValidateAppSpecAppAlertSpecWindow>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppAlertSpecWindow(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppAlertSpecWindow UnspecifiedWindow { get; } = new AppsValidateAppSpecAppAlertSpecWindow("UNSPECIFIED_WINDOW");
-        public static AppsValidateAppSpecAppAlertSpecWindow FiveMinutes { get; } = new AppsValidateAppSpecAppAlertSpecWindow("FIVE_MINUTES");
-        public static AppsValidateAppSpecAppAlertSpecWindow TenMinutes { get; } = new AppsValidateAppSpecAppAlertSpecWindow("TEN_MINUTES");
-        public static AppsValidateAppSpecAppAlertSpecWindow ThirtyMinutes { get; } = new AppsValidateAppSpecAppAlertSpecWindow("THIRTY_MINUTES");
-        public static AppsValidateAppSpecAppAlertSpecWindow OneHour { get; } = new AppsValidateAppSpecAppAlertSpecWindow("ONE_HOUR");
-
-        public static bool operator ==(AppsValidateAppSpecAppAlertSpecWindow left, AppsValidateAppSpecAppAlertSpecWindow right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppAlertSpecWindow left, AppsValidateAppSpecAppAlertSpecWindow right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppAlertSpecWindow value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppAlertSpecWindow other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppAlertSpecWindow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The instance size to use for this component. Default: `basic-xxs`
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug : IEquatable<AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug BasicXxs { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug BasicXs { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xs");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug BasicS { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-s");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug BasicM { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-m");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug ProfessionalXs { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-xs");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug ProfessionalS { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-s");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug ProfessionalM { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-m");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug Professional1l { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-1l");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug ProfessionalL { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-l");
-        public static AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug ProfessionalXl { get; } = new AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("professional-xl");
-
-        public static bool operator ==(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug left, AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug left, AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// - MYSQL: MySQL
-    /// - PG: PostgreSQL
-    /// - REDIS: Redis
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppDatabaseSpecEngine : IEquatable<AppsValidateAppSpecAppDatabaseSpecEngine>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppDatabaseSpecEngine(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppDatabaseSpecEngine Unset { get; } = new AppsValidateAppSpecAppDatabaseSpecEngine("UNSET");
-        public static AppsValidateAppSpecAppDatabaseSpecEngine Mysql { get; } = new AppsValidateAppSpecAppDatabaseSpecEngine("MYSQL");
-        public static AppsValidateAppSpecAppDatabaseSpecEngine Pg { get; } = new AppsValidateAppSpecAppDatabaseSpecEngine("PG");
-        public static AppsValidateAppSpecAppDatabaseSpecEngine Redis { get; } = new AppsValidateAppSpecAppDatabaseSpecEngine("REDIS");
-
-        public static bool operator ==(AppsValidateAppSpecAppDatabaseSpecEngine left, AppsValidateAppSpecAppDatabaseSpecEngine right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppDatabaseSpecEngine left, AppsValidateAppSpecAppDatabaseSpecEngine right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppDatabaseSpecEngine value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppDatabaseSpecEngine other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppDatabaseSpecEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppDomainSpecMinimumTlsVersion : IEquatable<AppsValidateAppSpecAppDomainSpecMinimumTlsVersion>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppDomainSpecMinimumTlsVersion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppDomainSpecMinimumTlsVersion AppsValidateAppSpecAppDomainSpecMinimumTlsVersion_12 { get; } = new AppsValidateAppSpecAppDomainSpecMinimumTlsVersion("1.2");
-        public static AppsValidateAppSpecAppDomainSpecMinimumTlsVersion AppsValidateAppSpecAppDomainSpecMinimumTlsVersion_13 { get; } = new AppsValidateAppSpecAppDomainSpecMinimumTlsVersion("1.3");
-
-        public static bool operator ==(AppsValidateAppSpecAppDomainSpecMinimumTlsVersion left, AppsValidateAppSpecAppDomainSpecMinimumTlsVersion right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppDomainSpecMinimumTlsVersion left, AppsValidateAppSpecAppDomainSpecMinimumTlsVersion right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppDomainSpecMinimumTlsVersion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppDomainSpecMinimumTlsVersion other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppDomainSpecMinimumTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
-    /// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
-    /// - ALIAS: A non-primary domain
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppDomainSpecType : IEquatable<AppsValidateAppSpecAppDomainSpecType>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppDomainSpecType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppDomainSpecType Unspecified { get; } = new AppsValidateAppSpecAppDomainSpecType("UNSPECIFIED");
-        public static AppsValidateAppSpecAppDomainSpecType Default { get; } = new AppsValidateAppSpecAppDomainSpecType("DEFAULT");
-        public static AppsValidateAppSpecAppDomainSpecType Primary { get; } = new AppsValidateAppSpecAppDomainSpecType("PRIMARY");
-        public static AppsValidateAppSpecAppDomainSpecType Alias { get; } = new AppsValidateAppSpecAppDomainSpecType("ALIAS");
-
-        public static bool operator ==(AppsValidateAppSpecAppDomainSpecType left, AppsValidateAppSpecAppDomainSpecType right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppDomainSpecType left, AppsValidateAppSpecAppDomainSpecType right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppDomainSpecType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppDomainSpecType other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppDomainSpecType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
-    /// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
-    /// - POST_DEPLOY: Indicates a job that runs after an app deployment.
-    /// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppJobSpecPropertiesKind : IEquatable<AppsValidateAppSpecAppJobSpecPropertiesKind>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppJobSpecPropertiesKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppJobSpecPropertiesKind Unspecified { get; } = new AppsValidateAppSpecAppJobSpecPropertiesKind("UNSPECIFIED");
-        public static AppsValidateAppSpecAppJobSpecPropertiesKind PreDeploy { get; } = new AppsValidateAppSpecAppJobSpecPropertiesKind("PRE_DEPLOY");
-        public static AppsValidateAppSpecAppJobSpecPropertiesKind PostDeploy { get; } = new AppsValidateAppSpecAppJobSpecPropertiesKind("POST_DEPLOY");
-        public static AppsValidateAppSpecAppJobSpecPropertiesKind FailedDeploy { get; } = new AppsValidateAppSpecAppJobSpecPropertiesKind("FAILED_DEPLOY");
-
-        public static bool operator ==(AppsValidateAppSpecAppJobSpecPropertiesKind left, AppsValidateAppSpecAppJobSpecPropertiesKind right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppJobSpecPropertiesKind left, AppsValidateAppSpecAppJobSpecPropertiesKind right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppJobSpecPropertiesKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppJobSpecPropertiesKind other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppJobSpecPropertiesKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The slug form of the geographical origin of the app. Default: `nearest available`
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppSpecRegion : IEquatable<AppsValidateAppSpecAppSpecRegion>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppSpecRegion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppSpecRegion Ams { get; } = new AppsValidateAppSpecAppSpecRegion("ams");
-        public static AppsValidateAppSpecAppSpecRegion Nyc { get; } = new AppsValidateAppSpecAppSpecRegion("nyc");
-        public static AppsValidateAppSpecAppSpecRegion Fra { get; } = new AppsValidateAppSpecAppSpecRegion("fra");
-        public static AppsValidateAppSpecAppSpecRegion Sfo { get; } = new AppsValidateAppSpecAppSpecRegion("sfo");
-        public static AppsValidateAppSpecAppSpecRegion Sgp { get; } = new AppsValidateAppSpecAppSpecRegion("sgp");
-        public static AppsValidateAppSpecAppSpecRegion Blr { get; } = new AppsValidateAppSpecAppSpecRegion("blr");
-        public static AppsValidateAppSpecAppSpecRegion Tor { get; } = new AppsValidateAppSpecAppSpecRegion("tor");
-        public static AppsValidateAppSpecAppSpecRegion Lon { get; } = new AppsValidateAppSpecAppSpecRegion("lon");
-        public static AppsValidateAppSpecAppSpecRegion Syd { get; } = new AppsValidateAppSpecAppSpecRegion("syd");
-
-        public static bool operator ==(AppsValidateAppSpecAppSpecRegion left, AppsValidateAppSpecAppSpecRegion right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppSpecRegion left, AppsValidateAppSpecAppSpecRegion right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppSpecRegion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppSpecRegion other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppSpecRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// - RUN_TIME: Made available only at run-time
-    /// - BUILD_TIME: Made available only at build-time
-    /// - RUN_AND_BUILD_TIME: Made available at both build and run-time
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppVariableDefinitionScope : IEquatable<AppsValidateAppSpecAppVariableDefinitionScope>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppVariableDefinitionScope(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppVariableDefinitionScope Unset { get; } = new AppsValidateAppSpecAppVariableDefinitionScope("UNSET");
-        public static AppsValidateAppSpecAppVariableDefinitionScope RunTime { get; } = new AppsValidateAppSpecAppVariableDefinitionScope("RUN_TIME");
-        public static AppsValidateAppSpecAppVariableDefinitionScope BuildTime { get; } = new AppsValidateAppSpecAppVariableDefinitionScope("BUILD_TIME");
-        public static AppsValidateAppSpecAppVariableDefinitionScope RunAndBuildTime { get; } = new AppsValidateAppSpecAppVariableDefinitionScope("RUN_AND_BUILD_TIME");
-
-        public static bool operator ==(AppsValidateAppSpecAppVariableDefinitionScope left, AppsValidateAppSpecAppVariableDefinitionScope right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppVariableDefinitionScope left, AppsValidateAppSpecAppVariableDefinitionScope right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppVariableDefinitionScope value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppVariableDefinitionScope other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppVariableDefinitionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// - GENERAL: A plain-text environment variable
-    /// - SECRET: A secret encrypted environment variable
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppVariableDefinitionType : IEquatable<AppsValidateAppSpecAppVariableDefinitionType>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppVariableDefinitionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppVariableDefinitionType General { get; } = new AppsValidateAppSpecAppVariableDefinitionType("GENERAL");
-        public static AppsValidateAppSpecAppVariableDefinitionType Secret { get; } = new AppsValidateAppSpecAppVariableDefinitionType("SECRET");
-
-        public static bool operator ==(AppsValidateAppSpecAppVariableDefinitionType left, AppsValidateAppSpecAppVariableDefinitionType right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppVariableDefinitionType left, AppsValidateAppSpecAppVariableDefinitionType right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppVariableDefinitionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppVariableDefinitionType other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppVariableDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// - DOCKER_HUB: The DockerHub container registry type.
-    /// - DOCR: The DigitalOcean container registry type.
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateAppSpecAppsImageSourceSpecRegistryType : IEquatable<AppsValidateAppSpecAppsImageSourceSpecRegistryType>
-    {
-        private readonly string _value;
-
-        private AppsValidateAppSpecAppsImageSourceSpecRegistryType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateAppSpecAppsImageSourceSpecRegistryType DockerHub { get; } = new AppsValidateAppSpecAppsImageSourceSpecRegistryType("DOCKER_HUB");
-        public static AppsValidateAppSpecAppsImageSourceSpecRegistryType Docr { get; } = new AppsValidateAppSpecAppsImageSourceSpecRegistryType("DOCR");
-
-        public static bool operator ==(AppsValidateAppSpecAppsImageSourceSpecRegistryType left, AppsValidateAppSpecAppsImageSourceSpecRegistryType right) => left.Equals(right);
-        public static bool operator !=(AppsValidateAppSpecAppsImageSourceSpecRegistryType left, AppsValidateAppSpecAppsImageSourceSpecRegistryType right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateAppSpecAppsImageSourceSpecRegistryType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateAppSpecAppsImageSourceSpecRegistryType other && Equals(other);
-        public bool Equals(AppsValidateAppSpecAppsImageSourceSpecRegistryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// A code identifier that represents the failing condition.
-    /// 
-    /// Failing conditions:
-    ///   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
-    ///   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
-    ///   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
-    ///   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
-    ///   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
-    ///   - `region_conflict` - indicates that the deployment's region differs from the current app region.
-    ///   
-    /// Warning conditions:
-    ///   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
-    ///   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-    /// </summary>
-    [EnumType]
-    public readonly struct AppsValidateRollbackAppRollbackValidationConditionCode : IEquatable<AppsValidateRollbackAppRollbackValidationConditionCode>
-    {
-        private readonly string _value;
-
-        private AppsValidateRollbackAppRollbackValidationConditionCode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppsValidateRollbackAppRollbackValidationConditionCode IncompatiblePhase { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("incompatible_phase");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode IncompatibleResult { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("incompatible_result");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode ExceededRevisionLimit { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("exceeded_revision_limit");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode AppPinned { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("app_pinned");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode DatabaseConfigConflict { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("database_config_conflict");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode RegionConflict { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("region_conflict");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode StaticSiteRequiresRebuild { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("static_site_requires_rebuild");
-        public static AppsValidateRollbackAppRollbackValidationConditionCode ImageSourceMissingDigest { get; } = new AppsValidateRollbackAppRollbackValidationConditionCode("image_source_missing_digest");
-
-        public static bool operator ==(AppsValidateRollbackAppRollbackValidationConditionCode left, AppsValidateRollbackAppRollbackValidationConditionCode right) => left.Equals(right);
-        public static bool operator !=(AppsValidateRollbackAppRollbackValidationConditionCode left, AppsValidateRollbackAppRollbackValidationConditionCode right) => !left.Equals(right);
-
-        public static explicit operator string(AppsValidateRollbackAppRollbackValidationConditionCode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppsValidateRollbackAppRollbackValidationConditionCode other && Equals(other);
-        public bool Equals(AppsValidateRollbackAppRollbackValidationConditionCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

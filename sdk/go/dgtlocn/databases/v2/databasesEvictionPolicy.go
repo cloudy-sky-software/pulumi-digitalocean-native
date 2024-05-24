@@ -23,7 +23,7 @@ type DatabasesEvictionPolicy struct {
 	// - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
 	// - `volatile_random`: Evict keys with expiration only in a random order.
 	// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-	EvictionPolicy DatabasesEvictionPolicyEvictionPolicyOutput `pulumi:"evictionPolicy"`
+	EvictionPolicy EvictionPolicyOutput `pulumi:"evictionPolicy"`
 }
 
 // NewDatabasesEvictionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ type databasesEvictionPolicyArgs struct {
 	// - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
 	// - `volatile_random`: Evict keys with expiration only in a random order.
 	// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-	EvictionPolicy DatabasesEvictionPolicyEvictionPolicy `pulumi:"evictionPolicy"`
+	EvictionPolicy EvictionPolicy `pulumi:"evictionPolicy"`
 }
 
 // The set of arguments for constructing a DatabasesEvictionPolicy resource.
@@ -94,7 +94,7 @@ type DatabasesEvictionPolicyArgs struct {
 	// - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
 	// - `volatile_random`: Evict keys with expiration only in a random order.
 	// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-	EvictionPolicy DatabasesEvictionPolicyEvictionPolicyInput
+	EvictionPolicy EvictionPolicyInput
 }
 
 func (DatabasesEvictionPolicyArgs) ElementType() reflect.Type {
@@ -142,8 +142,8 @@ func (o DatabasesEvictionPolicyOutput) ToDatabasesEvictionPolicyOutputWithContex
 // - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
 // - `volatile_random`: Evict keys with expiration only in a random order.
 // - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-func (o DatabasesEvictionPolicyOutput) EvictionPolicy() DatabasesEvictionPolicyEvictionPolicyOutput {
-	return o.ApplyT(func(v *DatabasesEvictionPolicy) DatabasesEvictionPolicyEvictionPolicyOutput { return v.EvictionPolicy }).(DatabasesEvictionPolicyEvictionPolicyOutput)
+func (o DatabasesEvictionPolicyOutput) EvictionPolicy() EvictionPolicyOutput {
+	return o.ApplyT(func(v *DatabasesEvictionPolicy) EvictionPolicyOutput { return v.EvictionPolicy }).(EvictionPolicyOutput)
 }
 
 func init() {

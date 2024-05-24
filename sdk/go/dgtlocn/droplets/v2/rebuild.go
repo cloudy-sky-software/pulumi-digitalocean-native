@@ -19,7 +19,7 @@ type Rebuild struct {
 	// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
 	Image pulumi.AnyOutput `pulumi:"image"`
 	// The type of action to initiate for the Droplet.
-	Type RebuildDropletActionTypePtrOutput `pulumi:"type"`
+	Type DropletActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewRebuild registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type rebuildArgs struct {
 	// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
 	Image interface{} `pulumi:"image"`
 	// The type of action to initiate for the Droplet.
-	Type RebuildDropletActionType `pulumi:"type"`
+	Type DropletActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Rebuild resource.
@@ -80,7 +80,7 @@ type RebuildArgs struct {
 	// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
 	Image pulumi.Input
 	// The type of action to initiate for the Droplet.
-	Type RebuildDropletActionTypeInput
+	Type DropletActionTypeInput
 }
 
 func (RebuildArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o RebuildOutput) Image() pulumi.AnyOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o RebuildOutput) Type() RebuildDropletActionTypePtrOutput {
-	return o.ApplyT(func(v *Rebuild) RebuildDropletActionTypePtrOutput { return v.Type }).(RebuildDropletActionTypePtrOutput)
+func (o RebuildOutput) Type() DropletActionTypePtrOutput {
+	return o.ApplyT(func(v *Rebuild) DropletActionTypePtrOutput { return v.Type }).(DropletActionTypePtrOutput)
 }
 
 func init() {

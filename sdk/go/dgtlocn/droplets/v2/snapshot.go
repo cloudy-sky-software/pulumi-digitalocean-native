@@ -19,7 +19,7 @@ type Snapshot struct {
 	// The name to give the new snapshot of the Droplet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The type of action to initiate for the Droplet.
-	Type SnapshotDropletActionTypePtrOutput `pulumi:"type"`
+	Type DropletActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type snapshotArgs struct {
 	// The name to give the new snapshot of the Droplet.
 	Name *string `pulumi:"name"`
 	// The type of action to initiate for the Droplet.
-	Type SnapshotDropletActionType `pulumi:"type"`
+	Type DropletActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
@@ -80,7 +80,7 @@ type SnapshotArgs struct {
 	// The name to give the new snapshot of the Droplet.
 	Name pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type SnapshotDropletActionTypeInput
+	Type DropletActionTypeInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o SnapshotOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o SnapshotOutput) Type() SnapshotDropletActionTypePtrOutput {
-	return o.ApplyT(func(v *Snapshot) SnapshotDropletActionTypePtrOutput { return v.Type }).(SnapshotDropletActionTypePtrOutput)
+func (o SnapshotOutput) Type() DropletActionTypePtrOutput {
+	return o.ApplyT(func(v *Snapshot) DropletActionTypePtrOutput { return v.Type }).(DropletActionTypePtrOutput)
 }
 
 func init() {

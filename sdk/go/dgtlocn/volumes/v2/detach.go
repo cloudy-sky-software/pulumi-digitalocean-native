@@ -19,9 +19,9 @@ type Detach struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId pulumi.IntPtrOutput `pulumi:"dropletId"`
 	// The slug identifier for the region where the resource will initially be  available.
-	Region DetachVolumeActionCreateBaseRegionPtrOutput `pulumi:"region"`
+	Region VolumeActionCreateBaseRegionPtrOutput `pulumi:"region"`
 	// The volume action to initiate.
-	Type DetachVolumeActionCreateBaseTypePtrOutput `pulumi:"type"`
+	Type VolumeActionCreateBaseTypePtrOutput `pulumi:"type"`
 }
 
 // NewDetach registers a new resource with the given unique name, arguments, and options.
@@ -73,9 +73,9 @@ type detachArgs struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId int `pulumi:"dropletId"`
 	// The slug identifier for the region where the resource will initially be  available.
-	Region *DetachVolumeActionCreateBaseRegion `pulumi:"region"`
+	Region *VolumeActionCreateBaseRegion `pulumi:"region"`
 	// The volume action to initiate.
-	Type DetachVolumeActionCreateBaseType `pulumi:"type"`
+	Type VolumeActionCreateBaseType `pulumi:"type"`
 	// The ID of the block storage volume.
 	VolumeId *string `pulumi:"volumeId"`
 }
@@ -85,9 +85,9 @@ type DetachArgs struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId pulumi.IntInput
 	// The slug identifier for the region where the resource will initially be  available.
-	Region DetachVolumeActionCreateBaseRegionPtrInput
+	Region VolumeActionCreateBaseRegionPtrInput
 	// The volume action to initiate.
-	Type DetachVolumeActionCreateBaseTypeInput
+	Type VolumeActionCreateBaseTypeInput
 	// The ID of the block storage volume.
 	VolumeId pulumi.StringPtrInput
 }
@@ -139,13 +139,13 @@ func (o DetachOutput) DropletId() pulumi.IntPtrOutput {
 }
 
 // The slug identifier for the region where the resource will initially be  available.
-func (o DetachOutput) Region() DetachVolumeActionCreateBaseRegionPtrOutput {
-	return o.ApplyT(func(v *Detach) DetachVolumeActionCreateBaseRegionPtrOutput { return v.Region }).(DetachVolumeActionCreateBaseRegionPtrOutput)
+func (o DetachOutput) Region() VolumeActionCreateBaseRegionPtrOutput {
+	return o.ApplyT(func(v *Detach) VolumeActionCreateBaseRegionPtrOutput { return v.Region }).(VolumeActionCreateBaseRegionPtrOutput)
 }
 
 // The volume action to initiate.
-func (o DetachOutput) Type() DetachVolumeActionCreateBaseTypePtrOutput {
-	return o.ApplyT(func(v *Detach) DetachVolumeActionCreateBaseTypePtrOutput { return v.Type }).(DetachVolumeActionCreateBaseTypePtrOutput)
+func (o DetachOutput) Type() VolumeActionCreateBaseTypePtrOutput {
+	return o.ApplyT(func(v *Detach) VolumeActionCreateBaseTypePtrOutput { return v.Type }).(VolumeActionCreateBaseTypePtrOutput)
 }
 
 func init() {

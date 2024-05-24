@@ -46,7 +46,7 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
         /// The current status of the action. This can be "in-progress", "completed", or "errored".
         /// </summary>
         [Output("status")]
-        public Output<Pulumi.DigitalOceanNative.ImagesV2.TransferStatus?> Status { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.ImagesV2.Status?> Status { get; private set; } = null!;
 
         /// <summary>
         /// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
@@ -116,7 +116,7 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
         /// The action to be taken on the image. Can be either `convert` or `transfer`.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.ImagesV2.TransferImageActionBaseType> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.ImagesV2.ImageActionBaseType> Type { get; set; } = null!;
 
         public TransferArgs()
         {

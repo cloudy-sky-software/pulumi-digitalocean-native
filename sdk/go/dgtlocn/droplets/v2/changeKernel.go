@@ -19,7 +19,7 @@ type ChangeKernel struct {
 	// A unique number used to identify and reference a specific kernel.
 	Kernel pulumi.IntPtrOutput `pulumi:"kernel"`
 	// The type of action to initiate for the Droplet.
-	Type ChangeKernelDropletActionTypePtrOutput `pulumi:"type"`
+	Type DropletActionTypePtrOutput `pulumi:"type"`
 }
 
 // NewChangeKernel registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type changeKernelArgs struct {
 	// A unique number used to identify and reference a specific kernel.
 	Kernel *int `pulumi:"kernel"`
 	// The type of action to initiate for the Droplet.
-	Type ChangeKernelDropletActionType `pulumi:"type"`
+	Type DropletActionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ChangeKernel resource.
@@ -80,7 +80,7 @@ type ChangeKernelArgs struct {
 	// A unique number used to identify and reference a specific kernel.
 	Kernel pulumi.IntPtrInput
 	// The type of action to initiate for the Droplet.
-	Type ChangeKernelDropletActionTypeInput
+	Type DropletActionTypeInput
 }
 
 func (ChangeKernelArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o ChangeKernelOutput) Kernel() pulumi.IntPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o ChangeKernelOutput) Type() ChangeKernelDropletActionTypePtrOutput {
-	return o.ApplyT(func(v *ChangeKernel) ChangeKernelDropletActionTypePtrOutput { return v.Type }).(ChangeKernelDropletActionTypePtrOutput)
+func (o ChangeKernelOutput) Type() DropletActionTypePtrOutput {
+	return o.ApplyT(func(v *ChangeKernel) DropletActionTypePtrOutput { return v.Type }).(DropletActionTypePtrOutput)
 }
 
 func init() {

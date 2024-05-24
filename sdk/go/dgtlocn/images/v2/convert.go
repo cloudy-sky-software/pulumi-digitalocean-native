@@ -26,7 +26,7 @@ type Convert struct {
 	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
 	StartedAt pulumi.StringPtrOutput `pulumi:"startedAt"`
 	// The current status of the action. This can be "in-progress", "completed", or "errored".
-	Status ConvertStatusPtrOutput `pulumi:"status"`
+	Status StatusPtrOutput `pulumi:"status"`
 	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type convertArgs struct {
 	// A unique number that can be used to identify and reference a specific image.
 	ImageId *string `pulumi:"imageId"`
 	// The action to be taken on the image. Can be either `convert` or `transfer`.
-	Type ConvertType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Convert resource.
@@ -85,7 +85,7 @@ type ConvertArgs struct {
 	// A unique number that can be used to identify and reference a specific image.
 	ImageId pulumi.StringPtrInput
 	// The action to be taken on the image. Can be either `convert` or `transfer`.
-	Type ConvertTypeInput
+	Type TypeInput
 }
 
 func (ConvertArgs) ElementType() reflect.Type {
@@ -154,8 +154,8 @@ func (o ConvertOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o ConvertOutput) Status() ConvertStatusPtrOutput {
-	return o.ApplyT(func(v *Convert) ConvertStatusPtrOutput { return v.Status }).(ConvertStatusPtrOutput)
+func (o ConvertOutput) Status() StatusPtrOutput {
+	return o.ApplyT(func(v *Convert) StatusPtrOutput { return v.Status }).(StatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.

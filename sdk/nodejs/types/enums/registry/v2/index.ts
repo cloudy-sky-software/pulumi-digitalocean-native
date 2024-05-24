@@ -18,7 +18,7 @@ export const GarbageCollectionStatus = {
  */
 export type GarbageCollectionStatus = (typeof GarbageCollectionStatus)[keyof typeof GarbageCollectionStatus];
 
-export const RegistryRegion = {
+export const Region = {
     Nyc3: "nyc3",
     Sfo3: "sfo3",
     Ams3: "ams3",
@@ -29,9 +29,16 @@ export const RegistryRegion = {
 /**
  * Slug of the region where registry data is stored. When not provided, a region will be selected.
  */
-export type RegistryRegion = (typeof RegistryRegion)[keyof typeof RegistryRegion];
+export type Region = (typeof Region)[keyof typeof Region];
 
-export const RegistrySubscriptionTierSlug = {
+export const SubscriptionTierExtendedEligibilityReasonsItem = {
+    OverRepositoryLimit: "OverRepositoryLimit",
+    OverStorageLimit: "OverStorageLimit",
+} as const;
+
+export type SubscriptionTierExtendedEligibilityReasonsItem = (typeof SubscriptionTierExtendedEligibilityReasonsItem)[keyof typeof SubscriptionTierExtendedEligibilityReasonsItem];
+
+export const SubscriptionTierSlug = {
     Starter: "starter",
     Basic: "basic",
     Professional: "professional",
@@ -40,9 +47,9 @@ export const RegistrySubscriptionTierSlug = {
 /**
  * The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
  */
-export type RegistrySubscriptionTierSlug = (typeof RegistrySubscriptionTierSlug)[keyof typeof RegistrySubscriptionTierSlug];
+export type SubscriptionTierSlug = (typeof SubscriptionTierSlug)[keyof typeof SubscriptionTierSlug];
 
-export const RegistryUpdateSubscriptionTierSlug = {
+export const TierSlug = {
     Starter: "starter",
     Basic: "basic",
     Professional: "professional",
@@ -51,11 +58,4 @@ export const RegistryUpdateSubscriptionTierSlug = {
 /**
  * The slug of the subscription tier to sign up for.
  */
-export type RegistryUpdateSubscriptionTierSlug = (typeof RegistryUpdateSubscriptionTierSlug)[keyof typeof RegistryUpdateSubscriptionTierSlug];
-
-export const SubscriptionTierExtendedEligibilityReasonsItem = {
-    OverRepositoryLimit: "OverRepositoryLimit",
-    OverStorageLimit: "OverStorageLimit",
-} as const;
-
-export type SubscriptionTierExtendedEligibilityReasonsItem = (typeof SubscriptionTierExtendedEligibilityReasonsItem)[keyof typeof SubscriptionTierExtendedEligibilityReasonsItem];
+export type TierSlug = (typeof TierSlug)[keyof typeof TierSlug];

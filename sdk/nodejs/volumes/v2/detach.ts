@@ -42,11 +42,11 @@ export class Detach extends pulumi.CustomResource {
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.volumes.v2.DetachVolumeActionCreateBaseRegion | undefined>;
+    public readonly region!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseRegion | undefined>;
     /**
      * The volume action to initiate.
      */
-    public readonly type!: pulumi.Output<enums.volumes.v2.DetachVolumeActionCreateBaseType | undefined>;
+    public readonly type!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseType | undefined>;
 
     /**
      * Create a Detach resource with the given unique name, arguments, and options.
@@ -92,11 +92,11 @@ export interface DetachArgs {
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    region?: pulumi.Input<enums.volumes.v2.DetachVolumeActionCreateBaseRegion>;
+    region?: pulumi.Input<enums.volumes.v2.VolumeActionCreateBaseRegion>;
     /**
      * The volume action to initiate.
      */
-    type: pulumi.Input<enums.volumes.v2.DetachVolumeActionCreateBaseType>;
+    type: pulumi.Input<enums.volumes.v2.VolumeActionCreateBaseType>;
     /**
      * The ID of the block storage volume.
      */

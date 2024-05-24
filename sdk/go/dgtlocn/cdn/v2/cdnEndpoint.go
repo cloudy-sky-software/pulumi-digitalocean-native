@@ -25,7 +25,7 @@ type CdnEndpoint struct {
 	// The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
-	Ttl CdnEndpointTtlPtrOutput `pulumi:"ttl"`
+	Ttl TtlPtrOutput `pulumi:"ttl"`
 }
 
 // NewCdnEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -39,7 +39,7 @@ func NewCdnEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Origin'")
 	}
 	if args.Ttl == nil {
-		args.Ttl = CdnEndpointTtl(3600)
+		args.Ttl = Ttl(3600)
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CdnEndpoint
@@ -81,7 +81,7 @@ type cdnEndpointArgs struct {
 	// The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
 	Origin string `pulumi:"origin"`
 	// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
-	Ttl *CdnEndpointTtl `pulumi:"ttl"`
+	Ttl *Ttl `pulumi:"ttl"`
 }
 
 // The set of arguments for constructing a CdnEndpoint resource.
@@ -93,7 +93,7 @@ type CdnEndpointArgs struct {
 	// The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
 	Origin pulumi.StringInput
 	// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
-	Ttl CdnEndpointTtlPtrInput
+	Ttl TtlPtrInput
 }
 
 func (CdnEndpointArgs) ElementType() reflect.Type {
@@ -158,8 +158,8 @@ func (o CdnEndpointOutput) Origin() pulumi.StringOutput {
 }
 
 // The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
-func (o CdnEndpointOutput) Ttl() CdnEndpointTtlPtrOutput {
-	return o.ApplyT(func(v *CdnEndpoint) CdnEndpointTtlPtrOutput { return v.Ttl }).(CdnEndpointTtlPtrOutput)
+func (o CdnEndpointOutput) Ttl() TtlPtrOutput {
+	return o.ApplyT(func(v *CdnEndpoint) TtlPtrOutput { return v.Ttl }).(TtlPtrOutput)
 }
 
 func init() {

@@ -18,7 +18,7 @@ type EnableIpv6 struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type EnableIpv6TypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewEnableIpv6 registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type enableIpv6Args struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type EnableIpv6Type `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a EnableIpv6 resource.
@@ -75,7 +75,7 @@ type EnableIpv6Args struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type EnableIpv6TypeInput
+	Type TypeInput
 }
 
 func (EnableIpv6Args) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o EnableIpv6Output) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o EnableIpv6Output) Type() EnableIpv6TypeOutput {
-	return o.ApplyT(func(v *EnableIpv6) EnableIpv6TypeOutput { return v.Type }).(EnableIpv6TypeOutput)
+func (o EnableIpv6Output) Type() TypeOutput {
+	return o.ApplyT(func(v *EnableIpv6) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

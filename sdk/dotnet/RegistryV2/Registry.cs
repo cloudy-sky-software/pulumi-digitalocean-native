@@ -22,7 +22,7 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
         /// Slug of the region where registry data is stored. When not provided, a region will be selected.
         /// </summary>
         [Output("region")]
-        public Output<Pulumi.DigitalOceanNative.RegistryV2.RegistryRegion?> Region { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.RegistryV2.Region?> Region { get; private set; } = null!;
 
         [Output("registry")]
         public Output<Outputs.Registry?> RegistryValue { get; private set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
         /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
         /// </summary>
         [Output("subscriptionTierSlug")]
-        public Output<Pulumi.DigitalOceanNative.RegistryV2.RegistrySubscriptionTierSlug> SubscriptionTierSlug { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.RegistryV2.SubscriptionTierSlug> SubscriptionTierSlug { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,13 +89,13 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
         /// Slug of the region where registry data is stored. When not provided, a region will be selected.
         /// </summary>
         [Input("region")]
-        public Input<Pulumi.DigitalOceanNative.RegistryV2.RegistryRegion>? Region { get; set; }
+        public Input<Pulumi.DigitalOceanNative.RegistryV2.Region>? Region { get; set; }
 
         /// <summary>
         /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
         /// </summary>
         [Input("subscriptionTierSlug", required: true)]
-        public Input<Pulumi.DigitalOceanNative.RegistryV2.RegistrySubscriptionTierSlug> SubscriptionTierSlug { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.RegistryV2.SubscriptionTierSlug> SubscriptionTierSlug { get; set; } = null!;
 
         public RegistryArgs()
         {

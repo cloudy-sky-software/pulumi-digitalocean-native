@@ -5,13 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'ChangeKernelDropletActionType',
-    'DisableBackupsActionStatus',
-    'DisableBackupsType',
+    'ActionStatus',
+    'DropletActionType',
     'DropletSnapshotPropertiesType',
     'DropletStatus',
-    'EnableBackupsType',
-    'EnableIpv6Type',
     'FirewallPropertiesStatus',
     'FirewallRuleBaseProtocol',
     'ImageDistribution',
@@ -20,42 +17,11 @@ __all__ = [
     'ImageType',
     'NetworkV4Type',
     'NetworkV6Type',
-    'PasswordResetType',
-    'PowerCycleType',
-    'PowerOffType',
-    'PowerOnType',
-    'RebootType',
-    'RebuildDropletActionType',
-    'RenameDropletActionType',
-    'ResizeDropletActionType',
-    'RestoreDropletActionType',
-    'ShutdownType',
-    'SnapshotDropletActionType',
+    'Type',
 ]
 
 
-class ChangeKernelDropletActionType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class DisableBackupsActionStatus(str, Enum):
+class ActionStatus(str, Enum):
     """
     The current status of the action. This can be "in-progress", "completed", or "errored".
     """
@@ -64,7 +30,7 @@ class DisableBackupsActionStatus(str, Enum):
     ERRORED = "errored"
 
 
-class DisableBackupsType(str, Enum):
+class DropletActionType(str, Enum):
     """
     The type of action to initiate for the Droplet.
     """
@@ -101,48 +67,6 @@ class DropletStatus(str, Enum):
     ACTIVE = "active"
     OFF = "off"
     ARCHIVE = "archive"
-
-
-class EnableBackupsType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class EnableIpv6Type(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
 
 
 class FirewallPropertiesStatus(str, Enum):
@@ -242,217 +166,7 @@ class NetworkV6Type(str, Enum):
     PUBLIC = "public"
 
 
-class PasswordResetType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class PowerCycleType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class PowerOffType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class PowerOnType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class RebootType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class RebuildDropletActionType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class RenameDropletActionType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class ResizeDropletActionType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class RestoreDropletActionType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class ShutdownType(str, Enum):
-    """
-    The type of action to initiate for the Droplet.
-    """
-    ENABLE_BACKUPS = "enable_backups"
-    DISABLE_BACKUPS = "disable_backups"
-    REBOOT = "reboot"
-    POWER_CYCLE = "power_cycle"
-    SHUTDOWN = "shutdown"
-    POWER_OFF = "power_off"
-    POWER_ON = "power_on"
-    RESTORE = "restore"
-    PASSWORD_RESET = "password_reset"
-    RESIZE = "resize"
-    REBUILD = "rebuild"
-    RENAME = "rename"
-    CHANGE_KERNEL = "change_kernel"
-    ENABLE_IPV6 = "enable_ipv6"
-    SNAPSHOT = "snapshot"
-
-
-class SnapshotDropletActionType(str, Enum):
+class Type(str, Enum):
     """
     The type of action to initiate for the Droplet.
     """

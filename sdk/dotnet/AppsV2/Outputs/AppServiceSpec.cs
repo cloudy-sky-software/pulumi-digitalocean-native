@@ -47,7 +47,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// <summary>
         /// The instance size to use for this component. Default: `basic-xxs`
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug? InstanceSizeSlug;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug? InstanceSizeSlug;
         /// <summary>
         /// The ports on which this service will listen for internal traffic.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
 
             int? instanceCount,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug? instanceSizeSlug,
+            Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug? instanceSizeSlug,
 
             ImmutableArray<int> internalPorts,
 

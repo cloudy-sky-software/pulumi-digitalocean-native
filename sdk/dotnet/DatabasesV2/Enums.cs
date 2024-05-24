@@ -403,30 +403,30 @@ namespace Pulumi.DigitalOceanNative.DatabasesV2
     /// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
     /// </summary>
     [EnumType]
-    public readonly struct DatabasesEvictionPolicyEvictionPolicy : IEquatable<DatabasesEvictionPolicyEvictionPolicy>
+    public readonly struct EvictionPolicy : IEquatable<EvictionPolicy>
     {
         private readonly string _value;
 
-        private DatabasesEvictionPolicyEvictionPolicy(string value)
+        private EvictionPolicy(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DatabasesEvictionPolicyEvictionPolicy Noeviction { get; } = new DatabasesEvictionPolicyEvictionPolicy("noeviction");
-        public static DatabasesEvictionPolicyEvictionPolicy AllkeysLru { get; } = new DatabasesEvictionPolicyEvictionPolicy("allkeys_lru");
-        public static DatabasesEvictionPolicyEvictionPolicy AllkeysRandom { get; } = new DatabasesEvictionPolicyEvictionPolicy("allkeys_random");
-        public static DatabasesEvictionPolicyEvictionPolicy VolatileLru { get; } = new DatabasesEvictionPolicyEvictionPolicy("volatile_lru");
-        public static DatabasesEvictionPolicyEvictionPolicy VolatileRandom { get; } = new DatabasesEvictionPolicyEvictionPolicy("volatile_random");
-        public static DatabasesEvictionPolicyEvictionPolicy VolatileTtl { get; } = new DatabasesEvictionPolicyEvictionPolicy("volatile_ttl");
+        public static EvictionPolicy Noeviction { get; } = new EvictionPolicy("noeviction");
+        public static EvictionPolicy AllkeysLru { get; } = new EvictionPolicy("allkeys_lru");
+        public static EvictionPolicy AllkeysRandom { get; } = new EvictionPolicy("allkeys_random");
+        public static EvictionPolicy VolatileLru { get; } = new EvictionPolicy("volatile_lru");
+        public static EvictionPolicy VolatileRandom { get; } = new EvictionPolicy("volatile_random");
+        public static EvictionPolicy VolatileTtl { get; } = new EvictionPolicy("volatile_ttl");
 
-        public static bool operator ==(DatabasesEvictionPolicyEvictionPolicy left, DatabasesEvictionPolicyEvictionPolicy right) => left.Equals(right);
-        public static bool operator !=(DatabasesEvictionPolicyEvictionPolicy left, DatabasesEvictionPolicyEvictionPolicy right) => !left.Equals(right);
+        public static bool operator ==(EvictionPolicy left, EvictionPolicy right) => left.Equals(right);
+        public static bool operator !=(EvictionPolicy left, EvictionPolicy right) => !left.Equals(right);
 
-        public static explicit operator string(DatabasesEvictionPolicyEvictionPolicy value) => value._value;
+        public static explicit operator string(EvictionPolicy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabasesEvictionPolicyEvictionPolicy other && Equals(other);
-        public bool Equals(DatabasesEvictionPolicyEvictionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EvictionPolicy other && Equals(other);
+        public bool Equals(EvictionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

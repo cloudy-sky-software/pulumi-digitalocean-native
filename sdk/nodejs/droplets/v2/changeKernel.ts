@@ -42,7 +42,7 @@ export class ChangeKernel extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.ChangeKernelDropletActionType | undefined>;
+    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a ChangeKernel resource with the given unique name, arguments, and options.
@@ -87,5 +87,5 @@ export interface ChangeKernelArgs {
     /**
      * The type of action to initiate for the Droplet.
      */
-    type: pulumi.Input<enums.droplets.v2.ChangeKernelDropletActionType>;
+    type: pulumi.Input<enums.droplets.v2.DropletActionType>;
 }

@@ -38,7 +38,7 @@ export class Unassign extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the floating IP.
      */
-    public readonly type!: pulumi.Output<enums.floating_ips.v2.UnassignFloatingIPsActionType | undefined>;
+    public readonly type!: pulumi.Output<enums.floating_ips.v2.FloatingIPsActionType | undefined>;
 
     /**
      * Create a Unassign resource with the given unique name, arguments, and options.
@@ -77,5 +77,5 @@ export interface UnassignArgs {
     /**
      * The type of action to initiate for the floating IP.
      */
-    type: pulumi.Input<enums.floating_ips.v2.UnassignFloatingIPsActionType>;
+    type: pulumi.Input<enums.floating_ips.v2.FloatingIPsActionType>;
 }

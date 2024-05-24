@@ -16,12 +16,12 @@ __all__ = ['UnassignArgs', 'Unassign']
 @pulumi.input_type
 class UnassignArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input['UnassignReservedIpActionTypeType'],
+                 type: pulumi.Input['ReservedIpActionTypeType'],
                  droplet_id: Optional[pulumi.Input[int]] = None,
                  reserved_ip: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Unassign resource.
-        :param pulumi.Input['UnassignReservedIpActionTypeType'] type: The type of action to initiate for the reserved IP.
+        :param pulumi.Input['ReservedIpActionTypeType'] type: The type of action to initiate for the reserved IP.
         :param pulumi.Input[int] droplet_id: The ID of the Droplet that the reserved IP will be unassigned from.
         :param pulumi.Input[str] reserved_ip: A reserved IP address.
         """
@@ -33,14 +33,14 @@ class UnassignArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['UnassignReservedIpActionTypeType']:
+    def type(self) -> pulumi.Input['ReservedIpActionTypeType']:
         """
         The type of action to initiate for the reserved IP.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['UnassignReservedIpActionTypeType']):
+    def type(self, value: pulumi.Input['ReservedIpActionTypeType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -75,7 +75,7 @@ class Unassign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
                  reserved_ip: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['UnassignReservedIpActionTypeType']] = None,
+                 type: Optional[pulumi.Input['ReservedIpActionTypeType']] = None,
                  __props__=None):
         """
         Create a Unassign resource with the given unique name, props, and options.
@@ -83,7 +83,7 @@ class Unassign(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] droplet_id: The ID of the Droplet that the reserved IP will be unassigned from.
         :param pulumi.Input[str] reserved_ip: A reserved IP address.
-        :param pulumi.Input['UnassignReservedIpActionTypeType'] type: The type of action to initiate for the reserved IP.
+        :param pulumi.Input['ReservedIpActionTypeType'] type: The type of action to initiate for the reserved IP.
         """
         ...
     @overload
@@ -110,7 +110,7 @@ class Unassign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
                  reserved_ip: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['UnassignReservedIpActionTypeType']] = None,
+                 type: Optional[pulumi.Input['ReservedIpActionTypeType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,7 +168,7 @@ class Unassign(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['UnassignReservedIpActionTypeType']]:
+    def type(self) -> pulumi.Output[Optional['ReservedIpActionTypeType']]:
         """
         The type of action to initiate for the reserved IP.
         """

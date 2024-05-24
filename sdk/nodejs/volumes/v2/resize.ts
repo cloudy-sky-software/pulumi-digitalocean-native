@@ -38,7 +38,7 @@ export class Resize extends pulumi.CustomResource {
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.volumes.v2.ResizeVolumeActionCreateBaseRegion | undefined>;
+    public readonly region!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseRegion | undefined>;
     /**
      * The new size of the block storage volume in GiB (1024^3).
      */
@@ -46,7 +46,7 @@ export class Resize extends pulumi.CustomResource {
     /**
      * The volume action to initiate.
      */
-    public readonly type!: pulumi.Output<enums.volumes.v2.ResizeVolumeActionCreateBaseType | undefined>;
+    public readonly type!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseType | undefined>;
 
     /**
      * Create a Resize resource with the given unique name, arguments, and options.
@@ -88,7 +88,7 @@ export interface ResizeArgs {
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    region?: pulumi.Input<enums.volumes.v2.ResizeVolumeActionCreateBaseRegion>;
+    region?: pulumi.Input<enums.volumes.v2.VolumeActionCreateBaseRegion>;
     /**
      * The new size of the block storage volume in GiB (1024^3).
      */
@@ -96,7 +96,7 @@ export interface ResizeArgs {
     /**
      * The volume action to initiate.
      */
-    type: pulumi.Input<enums.volumes.v2.ResizeVolumeActionCreateBaseType>;
+    type: pulumi.Input<enums.volumes.v2.VolumeActionCreateBaseType>;
     /**
      * The ID of the block storage volume.
      */

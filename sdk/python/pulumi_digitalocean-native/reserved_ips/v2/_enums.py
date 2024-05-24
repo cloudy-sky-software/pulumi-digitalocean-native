@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ActionStatus',
-    'AssignReservedIpActionTypeType',
     'DropletStatus',
     'ImageDistribution',
     'ImageRegionsItem',
@@ -14,7 +13,7 @@ __all__ = [
     'ImageType',
     'NetworkV4Type',
     'NetworkV6Type',
-    'UnassignReservedIpActionTypeType',
+    'ReservedIpActionTypeType',
 ]
 
 
@@ -25,14 +24,6 @@ class ActionStatus(str, Enum):
     IN_PROGRESS = "in-progress"
     COMPLETED = "completed"
     ERRORED = "errored"
-
-
-class AssignReservedIpActionTypeType(str, Enum):
-    """
-    The type of action to initiate for the reserved IP.
-    """
-    ASSIGN = "assign"
-    UNASSIGN = "unassign"
 
 
 class DropletStatus(str, Enum):
@@ -124,7 +115,7 @@ class NetworkV6Type(str, Enum):
     PUBLIC = "public"
 
 
-class UnassignReservedIpActionTypeType(str, Enum):
+class ReservedIpActionTypeType(str, Enum):
     """
     The type of action to initiate for the reserved IP.
     """

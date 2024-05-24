@@ -27,7 +27,7 @@ type Action struct {
 	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
 	StartedAt *string `pulumi:"startedAt"`
 	// The current status of the action. This can be "in-progress", "completed", or "errored".
-	Status *DisableBackupsActionStatus `pulumi:"status"`
+	Status *ActionStatus `pulumi:"status"`
 	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
 	Type *string `pulumi:"type"`
 }
@@ -39,7 +39,7 @@ func (val *Action) Defaults() *Action {
 	}
 	tmp := *val
 	if tmp.Status == nil {
-		status_ := DisableBackupsActionStatus("in-progress")
+		status_ := ActionStatus("in-progress")
 		tmp.Status = &status_
 	}
 	return &tmp
@@ -93,8 +93,8 @@ func (o ActionOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o ActionOutput) Status() DisableBackupsActionStatusPtrOutput {
-	return o.ApplyT(func(v Action) *DisableBackupsActionStatus { return v.Status }).(DisableBackupsActionStatusPtrOutput)
+func (o ActionOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v Action) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
@@ -195,13 +195,13 @@ func (o ActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o ActionPtrOutput) Status() DisableBackupsActionStatusPtrOutput {
-	return o.ApplyT(func(v *Action) *DisableBackupsActionStatus {
+func (o ActionPtrOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v *Action) *ActionStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(DisableBackupsActionStatusPtrOutput)
+	}).(ActionStatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.

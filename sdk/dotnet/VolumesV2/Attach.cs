@@ -25,7 +25,7 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         /// The slug identifier for the region where the resource will initially be  available.
         /// </summary>
         [Output("region")]
-        public Output<Pulumi.DigitalOceanNative.VolumesV2.AttachVolumeActionCreateBaseRegion?> Region { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseRegion?> Region { get; private set; } = null!;
 
         /// <summary>
         /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
@@ -37,7 +37,7 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         /// The volume action to initiate.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.VolumesV2.AttachVolumeActionCreateBaseType?> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         /// The slug identifier for the region where the resource will initially be  available.
         /// </summary>
         [Input("region")]
-        public Input<Pulumi.DigitalOceanNative.VolumesV2.AttachVolumeActionCreateBaseRegion>? Region { get; set; }
+        public Input<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseRegion>? Region { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
@@ -113,7 +113,7 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         /// The volume action to initiate.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.VolumesV2.AttachVolumeActionCreateBaseType> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.VolumesV2.VolumeActionCreateBaseType> Type { get; set; } = null!;
 
         /// <summary>
         /// The ID of the block storage volume.

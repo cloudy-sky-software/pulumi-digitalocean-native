@@ -77,7 +77,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// The instance size to use for this component. Default: `basic-xxs`
         /// </summary>
         [Input("instanceSizeSlug")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>? InstanceSizeSlug { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug>? InstanceSizeSlug { get; set; }
 
         [Input("internalPorts")]
         private InputList<int>? _internalPorts;
@@ -127,7 +127,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         public AppServiceSpecArgs()
         {
             InstanceCount = 1;
-            InstanceSizeSlug = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug.BasicXxs;
+            InstanceSizeSlug = Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug.BasicXxs;
         }
         public static new AppServiceSpecArgs Empty => new AppServiceSpecArgs();
     }

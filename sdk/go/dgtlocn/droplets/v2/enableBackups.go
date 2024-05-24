@@ -18,7 +18,7 @@ type EnableBackups struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type EnableBackupsTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewEnableBackups registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type enableBackupsArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type EnableBackupsType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a EnableBackups resource.
@@ -75,7 +75,7 @@ type EnableBackupsArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type EnableBackupsTypeInput
+	Type TypeInput
 }
 
 func (EnableBackupsArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o EnableBackupsOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o EnableBackupsOutput) Type() EnableBackupsTypeOutput {
-	return o.ApplyT(func(v *EnableBackups) EnableBackupsTypeOutput { return v.Type }).(EnableBackupsTypeOutput)
+func (o EnableBackupsOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *EnableBackups) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

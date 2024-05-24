@@ -531,6 +531,42 @@ const (
 	CheckUpdatableRegionsItemSeAsia = CheckUpdatableRegionsItem("se_asia")
 )
 
+func (CheckUpdatableRegionsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*CheckUpdatableRegionsItem)(nil)).Elem()
+}
+
+func (e CheckUpdatableRegionsItem) ToCheckUpdatableRegionsItemOutput() CheckUpdatableRegionsItemOutput {
+	return pulumi.ToOutput(e).(CheckUpdatableRegionsItemOutput)
+}
+
+func (e CheckUpdatableRegionsItem) ToCheckUpdatableRegionsItemOutputWithContext(ctx context.Context) CheckUpdatableRegionsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CheckUpdatableRegionsItemOutput)
+}
+
+func (e CheckUpdatableRegionsItem) ToCheckUpdatableRegionsItemPtrOutput() CheckUpdatableRegionsItemPtrOutput {
+	return e.ToCheckUpdatableRegionsItemPtrOutputWithContext(context.Background())
+}
+
+func (e CheckUpdatableRegionsItem) ToCheckUpdatableRegionsItemPtrOutputWithContext(ctx context.Context) CheckUpdatableRegionsItemPtrOutput {
+	return CheckUpdatableRegionsItem(e).ToCheckUpdatableRegionsItemOutputWithContext(ctx).ToCheckUpdatableRegionsItemPtrOutputWithContext(ctx)
+}
+
+func (e CheckUpdatableRegionsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CheckUpdatableRegionsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CheckUpdatableRegionsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CheckUpdatableRegionsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type CheckUpdatableRegionsItemOutput struct{ *pulumi.OutputState }
 
 func (CheckUpdatableRegionsItemOutput) ElementType() reflect.Type {
@@ -614,6 +650,72 @@ func (o CheckUpdatableRegionsItemPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
+// CheckUpdatableRegionsItemInput is an input type that accepts values of the CheckUpdatableRegionsItem enum
+// A concrete instance of `CheckUpdatableRegionsItemInput` can be one of the following:
+//
+//	CheckUpdatableRegionsItemUsEast
+//	CheckUpdatableRegionsItemUsWest
+//	CheckUpdatableRegionsItemEuWest
+//	CheckUpdatableRegionsItemSeAsia
+type CheckUpdatableRegionsItemInput interface {
+	pulumi.Input
+
+	ToCheckUpdatableRegionsItemOutput() CheckUpdatableRegionsItemOutput
+	ToCheckUpdatableRegionsItemOutputWithContext(context.Context) CheckUpdatableRegionsItemOutput
+}
+
+var checkUpdatableRegionsItemPtrType = reflect.TypeOf((**CheckUpdatableRegionsItem)(nil)).Elem()
+
+type CheckUpdatableRegionsItemPtrInput interface {
+	pulumi.Input
+
+	ToCheckUpdatableRegionsItemPtrOutput() CheckUpdatableRegionsItemPtrOutput
+	ToCheckUpdatableRegionsItemPtrOutputWithContext(context.Context) CheckUpdatableRegionsItemPtrOutput
+}
+
+type checkUpdatableRegionsItemPtr string
+
+func CheckUpdatableRegionsItemPtr(v string) CheckUpdatableRegionsItemPtrInput {
+	return (*checkUpdatableRegionsItemPtr)(&v)
+}
+
+func (*checkUpdatableRegionsItemPtr) ElementType() reflect.Type {
+	return checkUpdatableRegionsItemPtrType
+}
+
+func (in *checkUpdatableRegionsItemPtr) ToCheckUpdatableRegionsItemPtrOutput() CheckUpdatableRegionsItemPtrOutput {
+	return pulumi.ToOutput(in).(CheckUpdatableRegionsItemPtrOutput)
+}
+
+func (in *checkUpdatableRegionsItemPtr) ToCheckUpdatableRegionsItemPtrOutputWithContext(ctx context.Context) CheckUpdatableRegionsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CheckUpdatableRegionsItemPtrOutput)
+}
+
+// CheckUpdatableRegionsItemArrayInput is an input type that accepts CheckUpdatableRegionsItemArray and CheckUpdatableRegionsItemArrayOutput values.
+// You can construct a concrete instance of `CheckUpdatableRegionsItemArrayInput` via:
+//
+//	CheckUpdatableRegionsItemArray{ CheckUpdatableRegionsItemArgs{...} }
+type CheckUpdatableRegionsItemArrayInput interface {
+	pulumi.Input
+
+	ToCheckUpdatableRegionsItemArrayOutput() CheckUpdatableRegionsItemArrayOutput
+	ToCheckUpdatableRegionsItemArrayOutputWithContext(context.Context) CheckUpdatableRegionsItemArrayOutput
+}
+
+type CheckUpdatableRegionsItemArray []CheckUpdatableRegionsItem
+
+func (CheckUpdatableRegionsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CheckUpdatableRegionsItem)(nil)).Elem()
+}
+
+func (i CheckUpdatableRegionsItemArray) ToCheckUpdatableRegionsItemArrayOutput() CheckUpdatableRegionsItemArrayOutput {
+	return i.ToCheckUpdatableRegionsItemArrayOutputWithContext(context.Background())
+}
+
+func (i CheckUpdatableRegionsItemArray) ToCheckUpdatableRegionsItemArrayOutputWithContext(ctx context.Context) CheckUpdatableRegionsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CheckUpdatableRegionsItemArrayOutput)
+}
+
 type CheckUpdatableRegionsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (CheckUpdatableRegionsItemArrayOutput) ElementType() reflect.Type {
@@ -642,6 +744,42 @@ const (
 	CheckUpdatableTypeHttp  = CheckUpdatableType("http")
 	CheckUpdatableTypeHttps = CheckUpdatableType("https")
 )
+
+func (CheckUpdatableType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CheckUpdatableType)(nil)).Elem()
+}
+
+func (e CheckUpdatableType) ToCheckUpdatableTypeOutput() CheckUpdatableTypeOutput {
+	return pulumi.ToOutput(e).(CheckUpdatableTypeOutput)
+}
+
+func (e CheckUpdatableType) ToCheckUpdatableTypeOutputWithContext(ctx context.Context) CheckUpdatableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CheckUpdatableTypeOutput)
+}
+
+func (e CheckUpdatableType) ToCheckUpdatableTypePtrOutput() CheckUpdatableTypePtrOutput {
+	return e.ToCheckUpdatableTypePtrOutputWithContext(context.Background())
+}
+
+func (e CheckUpdatableType) ToCheckUpdatableTypePtrOutputWithContext(ctx context.Context) CheckUpdatableTypePtrOutput {
+	return CheckUpdatableType(e).ToCheckUpdatableTypeOutputWithContext(ctx).ToCheckUpdatableTypePtrOutputWithContext(ctx)
+}
+
+func (e CheckUpdatableType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CheckUpdatableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CheckUpdatableType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CheckUpdatableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type CheckUpdatableTypeOutput struct{ *pulumi.OutputState }
 
@@ -724,6 +862,46 @@ func (o CheckUpdatableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// CheckUpdatableTypeInput is an input type that accepts values of the CheckUpdatableType enum
+// A concrete instance of `CheckUpdatableTypeInput` can be one of the following:
+//
+//	CheckUpdatableTypePing
+//	CheckUpdatableTypeHttp
+//	CheckUpdatableTypeHttps
+type CheckUpdatableTypeInput interface {
+	pulumi.Input
+
+	ToCheckUpdatableTypeOutput() CheckUpdatableTypeOutput
+	ToCheckUpdatableTypeOutputWithContext(context.Context) CheckUpdatableTypeOutput
+}
+
+var checkUpdatableTypePtrType = reflect.TypeOf((**CheckUpdatableType)(nil)).Elem()
+
+type CheckUpdatableTypePtrInput interface {
+	pulumi.Input
+
+	ToCheckUpdatableTypePtrOutput() CheckUpdatableTypePtrOutput
+	ToCheckUpdatableTypePtrOutputWithContext(context.Context) CheckUpdatableTypePtrOutput
+}
+
+type checkUpdatableTypePtr string
+
+func CheckUpdatableTypePtr(v string) CheckUpdatableTypePtrInput {
+	return (*checkUpdatableTypePtr)(&v)
+}
+
+func (*checkUpdatableTypePtr) ElementType() reflect.Type {
+	return checkUpdatableTypePtrType
+}
+
+func (in *checkUpdatableTypePtr) ToCheckUpdatableTypePtrOutput() CheckUpdatableTypePtrOutput {
+	return pulumi.ToOutput(in).(CheckUpdatableTypePtrOutput)
+}
+
+func (in *checkUpdatableTypePtr) ToCheckUpdatableTypePtrOutputWithContext(ctx context.Context) CheckUpdatableTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CheckUpdatableTypePtrOutput)
 }
 
 type RegionStateStatus string
@@ -817,388 +995,6 @@ func (o RegionStateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-type UptimeCheckCheckUpdatableRegionsItem string
-
-const (
-	UptimeCheckCheckUpdatableRegionsItemUsEast = UptimeCheckCheckUpdatableRegionsItem("us_east")
-	UptimeCheckCheckUpdatableRegionsItemUsWest = UptimeCheckCheckUpdatableRegionsItem("us_west")
-	UptimeCheckCheckUpdatableRegionsItemEuWest = UptimeCheckCheckUpdatableRegionsItem("eu_west")
-	UptimeCheckCheckUpdatableRegionsItemSeAsia = UptimeCheckCheckUpdatableRegionsItem("se_asia")
-)
-
-func (UptimeCheckCheckUpdatableRegionsItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*UptimeCheckCheckUpdatableRegionsItem)(nil)).Elem()
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToUptimeCheckCheckUpdatableRegionsItemOutput() UptimeCheckCheckUpdatableRegionsItemOutput {
-	return pulumi.ToOutput(e).(UptimeCheckCheckUpdatableRegionsItemOutput)
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToUptimeCheckCheckUpdatableRegionsItemOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(UptimeCheckCheckUpdatableRegionsItemOutput)
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToUptimeCheckCheckUpdatableRegionsItemPtrOutput() UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return e.ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(context.Background())
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return UptimeCheckCheckUpdatableRegionsItem(e).ToUptimeCheckCheckUpdatableRegionsItemOutputWithContext(ctx).ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(ctx)
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e UptimeCheckCheckUpdatableRegionsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type UptimeCheckCheckUpdatableRegionsItemOutput struct{ *pulumi.OutputState }
-
-func (UptimeCheckCheckUpdatableRegionsItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UptimeCheckCheckUpdatableRegionsItem)(nil)).Elem()
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToUptimeCheckCheckUpdatableRegionsItemOutput() UptimeCheckCheckUpdatableRegionsItemOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToUptimeCheckCheckUpdatableRegionsItemOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToUptimeCheckCheckUpdatableRegionsItemPtrOutput() UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return o.ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UptimeCheckCheckUpdatableRegionsItem) *UptimeCheckCheckUpdatableRegionsItem {
-		return &v
-	}).(UptimeCheckCheckUpdatableRegionsItemPtrOutput)
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UptimeCheckCheckUpdatableRegionsItem) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UptimeCheckCheckUpdatableRegionsItem) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type UptimeCheckCheckUpdatableRegionsItemPtrOutput struct{ *pulumi.OutputState }
-
-func (UptimeCheckCheckUpdatableRegionsItemPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UptimeCheckCheckUpdatableRegionsItem)(nil)).Elem()
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemPtrOutput) ToUptimeCheckCheckUpdatableRegionsItemPtrOutput() UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemPtrOutput) ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemPtrOutput) Elem() UptimeCheckCheckUpdatableRegionsItemOutput {
-	return o.ApplyT(func(v *UptimeCheckCheckUpdatableRegionsItem) UptimeCheckCheckUpdatableRegionsItem {
-		if v != nil {
-			return *v
-		}
-		var ret UptimeCheckCheckUpdatableRegionsItem
-		return ret
-	}).(UptimeCheckCheckUpdatableRegionsItemOutput)
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UptimeCheckCheckUpdatableRegionsItem) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// UptimeCheckCheckUpdatableRegionsItemInput is an input type that accepts values of the UptimeCheckCheckUpdatableRegionsItem enum
-// A concrete instance of `UptimeCheckCheckUpdatableRegionsItemInput` can be one of the following:
-//
-//	UptimeCheckCheckUpdatableRegionsItemUsEast
-//	UptimeCheckCheckUpdatableRegionsItemUsWest
-//	UptimeCheckCheckUpdatableRegionsItemEuWest
-//	UptimeCheckCheckUpdatableRegionsItemSeAsia
-type UptimeCheckCheckUpdatableRegionsItemInput interface {
-	pulumi.Input
-
-	ToUptimeCheckCheckUpdatableRegionsItemOutput() UptimeCheckCheckUpdatableRegionsItemOutput
-	ToUptimeCheckCheckUpdatableRegionsItemOutputWithContext(context.Context) UptimeCheckCheckUpdatableRegionsItemOutput
-}
-
-var uptimeCheckCheckUpdatableRegionsItemPtrType = reflect.TypeOf((**UptimeCheckCheckUpdatableRegionsItem)(nil)).Elem()
-
-type UptimeCheckCheckUpdatableRegionsItemPtrInput interface {
-	pulumi.Input
-
-	ToUptimeCheckCheckUpdatableRegionsItemPtrOutput() UptimeCheckCheckUpdatableRegionsItemPtrOutput
-	ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(context.Context) UptimeCheckCheckUpdatableRegionsItemPtrOutput
-}
-
-type uptimeCheckCheckUpdatableRegionsItemPtr string
-
-func UptimeCheckCheckUpdatableRegionsItemPtr(v string) UptimeCheckCheckUpdatableRegionsItemPtrInput {
-	return (*uptimeCheckCheckUpdatableRegionsItemPtr)(&v)
-}
-
-func (*uptimeCheckCheckUpdatableRegionsItemPtr) ElementType() reflect.Type {
-	return uptimeCheckCheckUpdatableRegionsItemPtrType
-}
-
-func (in *uptimeCheckCheckUpdatableRegionsItemPtr) ToUptimeCheckCheckUpdatableRegionsItemPtrOutput() UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return pulumi.ToOutput(in).(UptimeCheckCheckUpdatableRegionsItemPtrOutput)
-}
-
-func (in *uptimeCheckCheckUpdatableRegionsItemPtr) ToUptimeCheckCheckUpdatableRegionsItemPtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(UptimeCheckCheckUpdatableRegionsItemPtrOutput)
-}
-
-// UptimeCheckCheckUpdatableRegionsItemArrayInput is an input type that accepts UptimeCheckCheckUpdatableRegionsItemArray and UptimeCheckCheckUpdatableRegionsItemArrayOutput values.
-// You can construct a concrete instance of `UptimeCheckCheckUpdatableRegionsItemArrayInput` via:
-//
-//	UptimeCheckCheckUpdatableRegionsItemArray{ UptimeCheckCheckUpdatableRegionsItemArgs{...} }
-type UptimeCheckCheckUpdatableRegionsItemArrayInput interface {
-	pulumi.Input
-
-	ToUptimeCheckCheckUpdatableRegionsItemArrayOutput() UptimeCheckCheckUpdatableRegionsItemArrayOutput
-	ToUptimeCheckCheckUpdatableRegionsItemArrayOutputWithContext(context.Context) UptimeCheckCheckUpdatableRegionsItemArrayOutput
-}
-
-type UptimeCheckCheckUpdatableRegionsItemArray []UptimeCheckCheckUpdatableRegionsItem
-
-func (UptimeCheckCheckUpdatableRegionsItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UptimeCheckCheckUpdatableRegionsItem)(nil)).Elem()
-}
-
-func (i UptimeCheckCheckUpdatableRegionsItemArray) ToUptimeCheckCheckUpdatableRegionsItemArrayOutput() UptimeCheckCheckUpdatableRegionsItemArrayOutput {
-	return i.ToUptimeCheckCheckUpdatableRegionsItemArrayOutputWithContext(context.Background())
-}
-
-func (i UptimeCheckCheckUpdatableRegionsItemArray) ToUptimeCheckCheckUpdatableRegionsItemArrayOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UptimeCheckCheckUpdatableRegionsItemArrayOutput)
-}
-
-type UptimeCheckCheckUpdatableRegionsItemArrayOutput struct{ *pulumi.OutputState }
-
-func (UptimeCheckCheckUpdatableRegionsItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UptimeCheckCheckUpdatableRegionsItem)(nil)).Elem()
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemArrayOutput) ToUptimeCheckCheckUpdatableRegionsItemArrayOutput() UptimeCheckCheckUpdatableRegionsItemArrayOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemArrayOutput) ToUptimeCheckCheckUpdatableRegionsItemArrayOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableRegionsItemArrayOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableRegionsItemArrayOutput) Index(i pulumi.IntInput) UptimeCheckCheckUpdatableRegionsItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UptimeCheckCheckUpdatableRegionsItem {
-		return vs[0].([]UptimeCheckCheckUpdatableRegionsItem)[vs[1].(int)]
-	}).(UptimeCheckCheckUpdatableRegionsItemOutput)
-}
-
-// The type of health check to perform.
-type UptimeCheckCheckUpdatableType string
-
-const (
-	UptimeCheckCheckUpdatableTypePing  = UptimeCheckCheckUpdatableType("ping")
-	UptimeCheckCheckUpdatableTypeHttp  = UptimeCheckCheckUpdatableType("http")
-	UptimeCheckCheckUpdatableTypeHttps = UptimeCheckCheckUpdatableType("https")
-)
-
-func (UptimeCheckCheckUpdatableType) ElementType() reflect.Type {
-	return reflect.TypeOf((*UptimeCheckCheckUpdatableType)(nil)).Elem()
-}
-
-func (e UptimeCheckCheckUpdatableType) ToUptimeCheckCheckUpdatableTypeOutput() UptimeCheckCheckUpdatableTypeOutput {
-	return pulumi.ToOutput(e).(UptimeCheckCheckUpdatableTypeOutput)
-}
-
-func (e UptimeCheckCheckUpdatableType) ToUptimeCheckCheckUpdatableTypeOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(UptimeCheckCheckUpdatableTypeOutput)
-}
-
-func (e UptimeCheckCheckUpdatableType) ToUptimeCheckCheckUpdatableTypePtrOutput() UptimeCheckCheckUpdatableTypePtrOutput {
-	return e.ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(context.Background())
-}
-
-func (e UptimeCheckCheckUpdatableType) ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableTypePtrOutput {
-	return UptimeCheckCheckUpdatableType(e).ToUptimeCheckCheckUpdatableTypeOutputWithContext(ctx).ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(ctx)
-}
-
-func (e UptimeCheckCheckUpdatableType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e UptimeCheckCheckUpdatableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e UptimeCheckCheckUpdatableType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e UptimeCheckCheckUpdatableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type UptimeCheckCheckUpdatableTypeOutput struct{ *pulumi.OutputState }
-
-func (UptimeCheckCheckUpdatableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UptimeCheckCheckUpdatableType)(nil)).Elem()
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToUptimeCheckCheckUpdatableTypeOutput() UptimeCheckCheckUpdatableTypeOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToUptimeCheckCheckUpdatableTypeOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableTypeOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToUptimeCheckCheckUpdatableTypePtrOutput() UptimeCheckCheckUpdatableTypePtrOutput {
-	return o.ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UptimeCheckCheckUpdatableType) *UptimeCheckCheckUpdatableType {
-		return &v
-	}).(UptimeCheckCheckUpdatableTypePtrOutput)
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UptimeCheckCheckUpdatableType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e UptimeCheckCheckUpdatableType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type UptimeCheckCheckUpdatableTypePtrOutput struct{ *pulumi.OutputState }
-
-func (UptimeCheckCheckUpdatableTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UptimeCheckCheckUpdatableType)(nil)).Elem()
-}
-
-func (o UptimeCheckCheckUpdatableTypePtrOutput) ToUptimeCheckCheckUpdatableTypePtrOutput() UptimeCheckCheckUpdatableTypePtrOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableTypePtrOutput) ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableTypePtrOutput {
-	return o
-}
-
-func (o UptimeCheckCheckUpdatableTypePtrOutput) Elem() UptimeCheckCheckUpdatableTypeOutput {
-	return o.ApplyT(func(v *UptimeCheckCheckUpdatableType) UptimeCheckCheckUpdatableType {
-		if v != nil {
-			return *v
-		}
-		var ret UptimeCheckCheckUpdatableType
-		return ret
-	}).(UptimeCheckCheckUpdatableTypeOutput)
-}
-
-func (o UptimeCheckCheckUpdatableTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o UptimeCheckCheckUpdatableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UptimeCheckCheckUpdatableType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// UptimeCheckCheckUpdatableTypeInput is an input type that accepts values of the UptimeCheckCheckUpdatableType enum
-// A concrete instance of `UptimeCheckCheckUpdatableTypeInput` can be one of the following:
-//
-//	UptimeCheckCheckUpdatableTypePing
-//	UptimeCheckCheckUpdatableTypeHttp
-//	UptimeCheckCheckUpdatableTypeHttps
-type UptimeCheckCheckUpdatableTypeInput interface {
-	pulumi.Input
-
-	ToUptimeCheckCheckUpdatableTypeOutput() UptimeCheckCheckUpdatableTypeOutput
-	ToUptimeCheckCheckUpdatableTypeOutputWithContext(context.Context) UptimeCheckCheckUpdatableTypeOutput
-}
-
-var uptimeCheckCheckUpdatableTypePtrType = reflect.TypeOf((**UptimeCheckCheckUpdatableType)(nil)).Elem()
-
-type UptimeCheckCheckUpdatableTypePtrInput interface {
-	pulumi.Input
-
-	ToUptimeCheckCheckUpdatableTypePtrOutput() UptimeCheckCheckUpdatableTypePtrOutput
-	ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(context.Context) UptimeCheckCheckUpdatableTypePtrOutput
-}
-
-type uptimeCheckCheckUpdatableTypePtr string
-
-func UptimeCheckCheckUpdatableTypePtr(v string) UptimeCheckCheckUpdatableTypePtrInput {
-	return (*uptimeCheckCheckUpdatableTypePtr)(&v)
-}
-
-func (*uptimeCheckCheckUpdatableTypePtr) ElementType() reflect.Type {
-	return uptimeCheckCheckUpdatableTypePtrType
-}
-
-func (in *uptimeCheckCheckUpdatableTypePtr) ToUptimeCheckCheckUpdatableTypePtrOutput() UptimeCheckCheckUpdatableTypePtrOutput {
-	return pulumi.ToOutput(in).(UptimeCheckCheckUpdatableTypePtrOutput)
-}
-
-func (in *uptimeCheckCheckUpdatableTypePtr) ToUptimeCheckCheckUpdatableTypePtrOutputWithContext(ctx context.Context) UptimeCheckCheckUpdatableTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(UptimeCheckCheckUpdatableTypePtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertUpdatableComparisonInput)(nil)).Elem(), AlertUpdatableComparison("greater_than"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertUpdatableComparisonPtrInput)(nil)).Elem(), AlertUpdatableComparison("greater_than"))
@@ -1206,11 +1002,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertUpdatablePeriodPtrInput)(nil)).Elem(), AlertUpdatablePeriod("2m"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertUpdatableTypeInput)(nil)).Elem(), AlertUpdatableType("latency"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertUpdatableTypePtrInput)(nil)).Elem(), AlertUpdatableType("latency"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UptimeCheckCheckUpdatableRegionsItemInput)(nil)).Elem(), UptimeCheckCheckUpdatableRegionsItem("us_east"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UptimeCheckCheckUpdatableRegionsItemPtrInput)(nil)).Elem(), UptimeCheckCheckUpdatableRegionsItem("us_east"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UptimeCheckCheckUpdatableRegionsItemArrayInput)(nil)).Elem(), UptimeCheckCheckUpdatableRegionsItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UptimeCheckCheckUpdatableTypeInput)(nil)).Elem(), UptimeCheckCheckUpdatableType("ping"))
-	pulumi.RegisterInputType(reflect.TypeOf((*UptimeCheckCheckUpdatableTypePtrInput)(nil)).Elem(), UptimeCheckCheckUpdatableType("ping"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckUpdatableRegionsItemInput)(nil)).Elem(), CheckUpdatableRegionsItem("us_east"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckUpdatableRegionsItemPtrInput)(nil)).Elem(), CheckUpdatableRegionsItem("us_east"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckUpdatableRegionsItemArrayInput)(nil)).Elem(), CheckUpdatableRegionsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckUpdatableTypeInput)(nil)).Elem(), CheckUpdatableType("ping"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckUpdatableTypePtrInput)(nil)).Elem(), CheckUpdatableType("ping"))
 	pulumi.RegisterOutputType(AlertUpdatableComparisonOutput{})
 	pulumi.RegisterOutputType(AlertUpdatableComparisonPtrOutput{})
 	pulumi.RegisterOutputType(AlertUpdatablePeriodOutput{})
@@ -1224,9 +1020,4 @@ func init() {
 	pulumi.RegisterOutputType(CheckUpdatableTypePtrOutput{})
 	pulumi.RegisterOutputType(RegionStateStatusOutput{})
 	pulumi.RegisterOutputType(RegionStateStatusPtrOutput{})
-	pulumi.RegisterOutputType(UptimeCheckCheckUpdatableRegionsItemOutput{})
-	pulumi.RegisterOutputType(UptimeCheckCheckUpdatableRegionsItemPtrOutput{})
-	pulumi.RegisterOutputType(UptimeCheckCheckUpdatableRegionsItemArrayOutput{})
-	pulumi.RegisterOutputType(UptimeCheckCheckUpdatableTypeOutput{})
-	pulumi.RegisterOutputType(UptimeCheckCheckUpdatableTypePtrOutput{})
 }

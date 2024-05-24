@@ -42,7 +42,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.SnapshotDropletActionType | undefined>;
+    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -87,5 +87,5 @@ export interface SnapshotArgs {
     /**
      * The type of action to initiate for the Droplet.
      */
-    type: pulumi.Input<enums.droplets.v2.SnapshotDropletActionType>;
+    type: pulumi.Input<enums.droplets.v2.DropletActionType>;
 }

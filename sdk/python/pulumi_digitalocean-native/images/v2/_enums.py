@@ -6,17 +6,16 @@ from enum import Enum
 
 __all__ = [
     'ActionStatus',
-    'ConvertStatus',
-    'ConvertType',
+    'ImageActionBaseType',
     'ImageDistribution',
     'ImageRegionsItem',
     'ImageStatus',
     'ImageType',
-    'ImagesCustomImageUpdateDistribution',
+    'ImageUpdateDistribution',
     'ImagesCustomPropertiesRegion',
-    'TransferImageActionBaseType',
+    'Status',
     'TransferPropertiesRegion',
-    'TransferStatus',
+    'Type',
 ]
 
 
@@ -29,16 +28,7 @@ class ActionStatus(str, Enum):
     ERRORED = "errored"
 
 
-class ConvertStatus(str, Enum):
-    """
-    The current status of the action. This can be "in-progress", "completed", or "errored".
-    """
-    IN_PROGRESS = "in-progress"
-    COMPLETED = "completed"
-    ERRORED = "errored"
-
-
-class ConvertType(str, Enum):
+class ImageActionBaseType(str, Enum):
     """
     The action to be taken on the image. Can be either `convert` or `transfer`.
     """
@@ -108,7 +98,7 @@ class ImageType(str, Enum):
     ADMIN = "admin"
 
 
-class ImagesCustomImageUpdateDistribution(str, Enum):
+class ImageUpdateDistribution(str, Enum):
     """
     The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
     """
@@ -147,12 +137,13 @@ class ImagesCustomPropertiesRegion(str, Enum):
     TOR1 = "tor1"
 
 
-class TransferImageActionBaseType(str, Enum):
+class Status(str, Enum):
     """
-    The action to be taken on the image. Can be either `convert` or `transfer`.
+    The current status of the action. This can be "in-progress", "completed", or "errored".
     """
-    CONVERT = "convert"
-    TRANSFER = "transfer"
+    IN_PROGRESS = "in-progress"
+    COMPLETED = "completed"
+    ERRORED = "errored"
 
 
 class TransferPropertiesRegion(str, Enum):
@@ -175,10 +166,9 @@ class TransferPropertiesRegion(str, Enum):
     TOR1 = "tor1"
 
 
-class TransferStatus(str, Enum):
+class Type(str, Enum):
     """
-    The current status of the action. This can be "in-progress", "completed", or "errored".
+    The action to be taken on the image. Can be either `convert` or `transfer`.
     """
-    IN_PROGRESS = "in-progress"
-    COMPLETED = "completed"
-    ERRORED = "errored"
+    CONVERT = "convert"
+    TRANSFER = "transfer"

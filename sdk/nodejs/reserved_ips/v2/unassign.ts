@@ -42,7 +42,7 @@ export class Unassign extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the reserved IP.
      */
-    public readonly type!: pulumi.Output<enums.reserved_ips.v2.UnassignReservedIpActionTypeType | undefined>;
+    public readonly type!: pulumi.Output<enums.reserved_ips.v2.ReservedIpActionTypeType | undefined>;
 
     /**
      * Create a Unassign resource with the given unique name, arguments, and options.
@@ -87,5 +87,5 @@ export interface UnassignArgs {
     /**
      * The type of action to initiate for the reserved IP.
      */
-    type: pulumi.Input<enums.reserved_ips.v2.UnassignReservedIpActionTypeType>;
+    type: pulumi.Input<enums.reserved_ips.v2.ReservedIpActionTypeType>;
 }

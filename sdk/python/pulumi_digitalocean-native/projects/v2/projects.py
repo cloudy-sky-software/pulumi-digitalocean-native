@@ -18,7 +18,7 @@ class ProjectsArgs:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input['ProjectsProjectBaseEnvironment']] = None,
+                 environment: Optional[pulumi.Input['ProjectBaseEnvironment']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[int]] = None,
                  owner_uuid: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class ProjectsArgs:
         The set of arguments for constructing a Projects resource.
         :param pulumi.Input[str] created_at: A time value given in ISO8601 combined date and time format that represents when the project was created.
         :param pulumi.Input[str] description: The description of the project. The maximum length is 255 characters.
-        :param pulumi.Input['ProjectsProjectBaseEnvironment'] environment: The environment of the project's resources.
+        :param pulumi.Input['ProjectBaseEnvironment'] environment: The environment of the project's resources.
         :param pulumi.Input[str] name: The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
         :param pulumi.Input[int] owner_id: The integer id of the project owner.
         :param pulumi.Input[str] owner_uuid: The unique universal identifier of the project owner.
@@ -92,14 +92,14 @@ class ProjectsArgs:
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input['ProjectsProjectBaseEnvironment']]:
+    def environment(self) -> Optional[pulumi.Input['ProjectBaseEnvironment']]:
         """
         The environment of the project's resources.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input['ProjectsProjectBaseEnvironment']]):
+    def environment(self, value: Optional[pulumi.Input['ProjectBaseEnvironment']]):
         pulumi.set(self, "environment", value)
 
     @property
@@ -184,7 +184,7 @@ class Projects(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input['ProjectsProjectBaseEnvironment']] = None,
+                 environment: Optional[pulumi.Input['ProjectBaseEnvironment']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[int]] = None,
                  owner_uuid: Optional[pulumi.Input[str]] = None,
@@ -197,7 +197,7 @@ class Projects(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: A time value given in ISO8601 combined date and time format that represents when the project was created.
         :param pulumi.Input[str] description: The description of the project. The maximum length is 255 characters.
-        :param pulumi.Input['ProjectsProjectBaseEnvironment'] environment: The environment of the project's resources.
+        :param pulumi.Input['ProjectBaseEnvironment'] environment: The environment of the project's resources.
         :param pulumi.Input[str] name: The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
         :param pulumi.Input[int] owner_id: The integer id of the project owner.
         :param pulumi.Input[str] owner_uuid: The unique universal identifier of the project owner.
@@ -243,7 +243,7 @@ class Projects(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input['ProjectsProjectBaseEnvironment']] = None,
+                 environment: Optional[pulumi.Input['ProjectBaseEnvironment']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[int]] = None,
                  owner_uuid: Optional[pulumi.Input[str]] = None,
@@ -318,7 +318,7 @@ class Projects(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def environment(self) -> pulumi.Output[Optional['ProjectsProjectBaseEnvironment']]:
+    def environment(self) -> pulumi.Output[Optional['ProjectBaseEnvironment']]:
         """
         The environment of the project's resources.
         """

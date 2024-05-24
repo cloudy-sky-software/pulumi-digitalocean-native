@@ -17,12 +17,12 @@ __all__ = ['AssignArgs', 'Assign']
 class AssignArgs:
     def __init__(__self__, *,
                  droplet_id: pulumi.Input[int],
-                 type: pulumi.Input['AssignFloatingIPsActionType'],
+                 type: pulumi.Input['FloatingIPsActionType'],
                  floating_ip: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Assign resource.
         :param pulumi.Input[int] droplet_id: The ID of the Droplet that the floating IP will be assigned to.
-        :param pulumi.Input['AssignFloatingIPsActionType'] type: The type of action to initiate for the floating IP.
+        :param pulumi.Input['FloatingIPsActionType'] type: The type of action to initiate for the floating IP.
         :param pulumi.Input[str] floating_ip: A floating IP address.
         """
         pulumi.set(__self__, "droplet_id", droplet_id)
@@ -44,14 +44,14 @@ class AssignArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['AssignFloatingIPsActionType']:
+    def type(self) -> pulumi.Input['FloatingIPsActionType']:
         """
         The type of action to initiate for the floating IP.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['AssignFloatingIPsActionType']):
+    def type(self, value: pulumi.Input['FloatingIPsActionType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -74,7 +74,7 @@ class Assign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
                  floating_ip: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['AssignFloatingIPsActionType']] = None,
+                 type: Optional[pulumi.Input['FloatingIPsActionType']] = None,
                  __props__=None):
         """
         Create a Assign resource with the given unique name, props, and options.
@@ -82,7 +82,7 @@ class Assign(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] droplet_id: The ID of the Droplet that the floating IP will be assigned to.
         :param pulumi.Input[str] floating_ip: A floating IP address.
-        :param pulumi.Input['AssignFloatingIPsActionType'] type: The type of action to initiate for the floating IP.
+        :param pulumi.Input['FloatingIPsActionType'] type: The type of action to initiate for the floating IP.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Assign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  droplet_id: Optional[pulumi.Input[int]] = None,
                  floating_ip: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['AssignFloatingIPsActionType']] = None,
+                 type: Optional[pulumi.Input['FloatingIPsActionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,7 +169,7 @@ class Assign(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['AssignFloatingIPsActionType']]:
+    def type(self) -> pulumi.Output[Optional['FloatingIPsActionType']]:
         """
         The type of action to initiate for the floating IP.
         """

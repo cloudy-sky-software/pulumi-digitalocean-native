@@ -18,7 +18,7 @@ type PowerOff struct {
 
 	Action ActionPtrOutput `pulumi:"action"`
 	// The type of action to initiate for the Droplet.
-	Type PowerOffTypeOutput `pulumi:"type"`
+	Type TypeOutput `pulumi:"type"`
 }
 
 // NewPowerOff registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type powerOffArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
 	// The type of action to initiate for the Droplet.
-	Type PowerOffType `pulumi:"type"`
+	Type Type `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PowerOff resource.
@@ -75,7 +75,7 @@ type PowerOffArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringPtrInput
 	// The type of action to initiate for the Droplet.
-	Type PowerOffTypeInput
+	Type TypeInput
 }
 
 func (PowerOffArgs) ElementType() reflect.Type {
@@ -120,8 +120,8 @@ func (o PowerOffOutput) Action() ActionPtrOutput {
 }
 
 // The type of action to initiate for the Droplet.
-func (o PowerOffOutput) Type() PowerOffTypeOutput {
-	return o.ApplyT(func(v *PowerOff) PowerOffTypeOutput { return v.Type }).(PowerOffTypeOutput)
+func (o PowerOffOutput) Type() TypeOutput {
+	return o.ApplyT(func(v *PowerOff) TypeOutput { return v.Type }).(TypeOutput)
 }
 
 func init() {

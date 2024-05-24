@@ -41,12 +41,12 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Slug of the region where registry data is stored. When not provided, a region will be selected.
      */
-    public readonly region!: pulumi.Output<enums.registry.v2.RegistryRegion | undefined>;
+    public readonly region!: pulumi.Output<enums.registry.v2.Region | undefined>;
     public /*out*/ readonly registry!: pulumi.Output<outputs.registry.v2.Registry | undefined>;
     /**
      * The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
      */
-    public readonly subscriptionTierSlug!: pulumi.Output<enums.registry.v2.RegistrySubscriptionTierSlug>;
+    public readonly subscriptionTierSlug!: pulumi.Output<enums.registry.v2.SubscriptionTierSlug>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -88,9 +88,9 @@ export interface RegistryArgs {
     /**
      * Slug of the region where registry data is stored. When not provided, a region will be selected.
      */
-    region?: pulumi.Input<enums.registry.v2.RegistryRegion>;
+    region?: pulumi.Input<enums.registry.v2.Region>;
     /**
      * The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
      */
-    subscriptionTierSlug: pulumi.Input<enums.registry.v2.RegistrySubscriptionTierSlug>;
+    subscriptionTierSlug: pulumi.Input<enums.registry.v2.SubscriptionTierSlug>;
 }

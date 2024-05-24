@@ -40,14 +40,14 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// <summary>
         /// The instance size to use for this component. Default: `basic-xxs`
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug? InstanceSizeSlug;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug? InstanceSizeSlug;
         /// <summary>
         /// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
         /// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
         /// - POST_DEPLOY: Indicates a job that runs after an app deployment.
         /// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppJobSpecPropertiesKind? Kind;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppJobSpecPropertiesKind? Kind;
         public readonly Outputs.AppLogDestinationDefinition? LogDestinations;
         /// <summary>
         /// The name. Must be unique across all components within the same app.
@@ -82,9 +82,9 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
 
             int? instanceCount,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug? instanceSizeSlug,
+            Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug? instanceSizeSlug,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppJobSpecPropertiesKind? kind,
+            Pulumi.DigitalOceanNative.AppsV2.AppJobSpecPropertiesKind? kind,
 
             Outputs.AppLogDestinationDefinition? logDestinations,
 

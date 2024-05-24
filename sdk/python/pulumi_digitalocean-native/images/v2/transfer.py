@@ -17,12 +17,12 @@ __all__ = ['TransferArgs', 'Transfer']
 class TransferArgs:
     def __init__(__self__, *,
                  region: pulumi.Input['TransferPropertiesRegion'],
-                 type: pulumi.Input['TransferImageActionBaseType'],
+                 type: pulumi.Input['ImageActionBaseType'],
                  image_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Transfer resource.
         :param pulumi.Input['TransferPropertiesRegion'] region: The slug identifier for the region where the resource will initially be  available.
-        :param pulumi.Input['TransferImageActionBaseType'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
+        :param pulumi.Input['ImageActionBaseType'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
         :param pulumi.Input[str] image_id: A unique number that can be used to identify and reference a specific image.
         """
         pulumi.set(__self__, "region", region)
@@ -44,14 +44,14 @@ class TransferArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['TransferImageActionBaseType']:
+    def type(self) -> pulumi.Input['ImageActionBaseType']:
         """
         The action to be taken on the image. Can be either `convert` or `transfer`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['TransferImageActionBaseType']):
+    def type(self, value: pulumi.Input['ImageActionBaseType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -74,7 +74,7 @@ class Transfer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input['TransferPropertiesRegion']] = None,
-                 type: Optional[pulumi.Input['TransferImageActionBaseType']] = None,
+                 type: Optional[pulumi.Input['ImageActionBaseType']] = None,
                  __props__=None):
         """
         Create a Transfer resource with the given unique name, props, and options.
@@ -82,7 +82,7 @@ class Transfer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] image_id: A unique number that can be used to identify and reference a specific image.
         :param pulumi.Input['TransferPropertiesRegion'] region: The slug identifier for the region where the resource will initially be  available.
-        :param pulumi.Input['TransferImageActionBaseType'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
+        :param pulumi.Input['ImageActionBaseType'] type: The action to be taken on the image. Can be either `convert` or `transfer`.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Transfer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input['TransferPropertiesRegion']] = None,
-                 type: Optional[pulumi.Input['TransferImageActionBaseType']] = None,
+                 type: Optional[pulumi.Input['ImageActionBaseType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,7 +208,7 @@ class Transfer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['TransferStatus']]:
+    def status(self) -> pulumi.Output[Optional['Status']]:
         """
         The current status of the action. This can be "in-progress", "completed", or "errored".
         """

@@ -43,7 +43,7 @@ namespace Pulumi.DigitalOceanNative.CdnV2
         /// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         /// </summary>
         [Output("ttl")]
-        public Output<Pulumi.DigitalOceanNative.CdnV2.CdnEndpointTtl?> Ttl { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.CdnV2.Ttl?> Ttl { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,11 +113,11 @@ namespace Pulumi.DigitalOceanNative.CdnV2
         /// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         /// </summary>
         [Input("ttl")]
-        public Input<Pulumi.DigitalOceanNative.CdnV2.CdnEndpointTtl>? Ttl { get; set; }
+        public Input<Pulumi.DigitalOceanNative.CdnV2.Ttl>? Ttl { get; set; }
 
         public CdnEndpointArgs()
         {
-            Ttl = Pulumi.DigitalOceanNative.CdnV2.CdnEndpointTtl.CdnEndpointTtl_d_float64_3600_;
+            Ttl = Pulumi.DigitalOceanNative.CdnV2.Ttl.Ttl_d_float64_3600_;
         }
         public static new CdnEndpointArgs Empty => new CdnEndpointArgs();
     }

@@ -42,7 +42,7 @@ export class Rename extends pulumi.CustomResource {
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.RenameDropletActionType | undefined>;
+    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a Rename resource with the given unique name, arguments, and options.
@@ -87,5 +87,5 @@ export interface RenameArgs {
     /**
      * The type of action to initiate for the Droplet.
      */
-    type: pulumi.Input<enums.droplets.v2.RenameDropletActionType>;
+    type: pulumi.Input<enums.droplets.v2.DropletActionType>;
 }

@@ -7,23 +7,23 @@ from enum import Enum
 __all__ = [
     'AppAlertPhase',
     'AppAlertProgressStepStatus',
+    'AppAlertSpecOperator',
+    'AppAlertSpecRule',
+    'AppAlertSpecWindow',
+    'AppComponentInstanceBaseInstanceSizeSlug',
+    'AppDatabaseSpecEngine',
+    'AppDomainSpecMinimumTlsVersion',
+    'AppDomainSpecType',
+    'AppJobSpecPropertiesKind',
+    'AppRollbackValidationConditionCode',
+    'AppSpecRegion',
+    'AppVariableDefinitionScope',
+    'AppVariableDefinitionType',
     'AppsDeploymentPhase',
     'AppsDeploymentProgressStepStatus',
     'AppsDomainPhase',
+    'AppsImageSourceSpecRegistryType',
     'AppsInstanceSizeCpuType',
-    'AppsValidateAppSpecAppAlertSpecOperator',
-    'AppsValidateAppSpecAppAlertSpecRule',
-    'AppsValidateAppSpecAppAlertSpecWindow',
-    'AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug',
-    'AppsValidateAppSpecAppDatabaseSpecEngine',
-    'AppsValidateAppSpecAppDomainSpecMinimumTlsVersion',
-    'AppsValidateAppSpecAppDomainSpecType',
-    'AppsValidateAppSpecAppJobSpecPropertiesKind',
-    'AppsValidateAppSpecAppSpecRegion',
-    'AppsValidateAppSpecAppVariableDefinitionScope',
-    'AppsValidateAppSpecAppVariableDefinitionType',
-    'AppsValidateAppSpecAppsImageSourceSpecRegistryType',
-    'AppsValidateRollbackAppRollbackValidationConditionCode',
 ]
 
 
@@ -41,6 +41,160 @@ class AppAlertProgressStepStatus(str, Enum):
     RUNNING = "RUNNING"
     ERROR = "ERROR"
     SUCCESS = "SUCCESS"
+
+
+class AppAlertSpecOperator(str, Enum):
+    UNSPECIFIED_OPERATOR = "UNSPECIFIED_OPERATOR"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+
+
+class AppAlertSpecRule(str, Enum):
+    UNSPECIFIED_RULE = "UNSPECIFIED_RULE"
+    CPU_UTILIZATION = "CPU_UTILIZATION"
+    MEM_UTILIZATION = "MEM_UTILIZATION"
+    RESTART_COUNT = "RESTART_COUNT"
+    DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED"
+    DEPLOYMENT_LIVE = "DEPLOYMENT_LIVE"
+    DOMAIN_FAILED = "DOMAIN_FAILED"
+    DOMAIN_LIVE = "DOMAIN_LIVE"
+    FUNCTIONS_ACTIVATION_COUNT = "FUNCTIONS_ACTIVATION_COUNT"
+    FUNCTIONS_AVERAGE_DURATION_MS = "FUNCTIONS_AVERAGE_DURATION_MS"
+    FUNCTIONS_ERROR_RATE_PER_MINUTE = "FUNCTIONS_ERROR_RATE_PER_MINUTE"
+    FUNCTIONS_AVERAGE_WAIT_TIME_MS = "FUNCTIONS_AVERAGE_WAIT_TIME_MS"
+    FUNCTIONS_ERROR_COUNT = "FUNCTIONS_ERROR_COUNT"
+    FUNCTIONS_GB_RATE_PER_SECOND = "FUNCTIONS_GB_RATE_PER_SECOND"
+
+
+class AppAlertSpecWindow(str, Enum):
+    UNSPECIFIED_WINDOW = "UNSPECIFIED_WINDOW"
+    FIVE_MINUTES = "FIVE_MINUTES"
+    TEN_MINUTES = "TEN_MINUTES"
+    THIRTY_MINUTES = "THIRTY_MINUTES"
+    ONE_HOUR = "ONE_HOUR"
+
+
+class AppComponentInstanceBaseInstanceSizeSlug(str, Enum):
+    """
+    The instance size to use for this component. Default: `basic-xxs`
+    """
+    BASIC_XXS = "basic-xxs"
+    BASIC_XS = "basic-xs"
+    BASIC_S = "basic-s"
+    BASIC_M = "basic-m"
+    PROFESSIONAL_XS = "professional-xs"
+    PROFESSIONAL_S = "professional-s"
+    PROFESSIONAL_M = "professional-m"
+    PROFESSIONAL1L = "professional-1l"
+    PROFESSIONAL_L = "professional-l"
+    PROFESSIONAL_XL = "professional-xl"
+
+
+class AppDatabaseSpecEngine(str, Enum):
+    """
+    - MYSQL: MySQL
+    - PG: PostgreSQL
+    - REDIS: Redis
+    """
+    UNSET = "UNSET"
+    MYSQL = "MYSQL"
+    PG = "PG"
+    REDIS = "REDIS"
+
+
+class AppDomainSpecMinimumTlsVersion(str, Enum):
+    """
+    The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
+    """
+    APP_DOMAIN_SPEC_MINIMUM_TLS_VERSION_12 = "1.2"
+    APP_DOMAIN_SPEC_MINIMUM_TLS_VERSION_13 = "1.3"
+
+
+class AppDomainSpecType(str, Enum):
+    """
+    - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
+    - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
+    - ALIAS: A non-primary domain
+    """
+    UNSPECIFIED = "UNSPECIFIED"
+    DEFAULT = "DEFAULT"
+    PRIMARY = "PRIMARY"
+    ALIAS = "ALIAS"
+
+
+class AppJobSpecPropertiesKind(str, Enum):
+    """
+    - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
+    - PRE_DEPLOY: Indicates a job that runs before an app deployment.
+    - POST_DEPLOY: Indicates a job that runs after an app deployment.
+    - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
+    """
+    UNSPECIFIED = "UNSPECIFIED"
+    PRE_DEPLOY = "PRE_DEPLOY"
+    POST_DEPLOY = "POST_DEPLOY"
+    FAILED_DEPLOY = "FAILED_DEPLOY"
+
+
+class AppRollbackValidationConditionCode(str, Enum):
+    """
+    A code identifier that represents the failing condition.
+
+    Failing conditions:
+      - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
+      - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
+      - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
+      - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
+      - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
+      - `region_conflict` - indicates that the deployment's region differs from the current app region.
+      
+    Warning conditions:
+      - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
+      - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
+    """
+    INCOMPATIBLE_PHASE = "incompatible_phase"
+    INCOMPATIBLE_RESULT = "incompatible_result"
+    EXCEEDED_REVISION_LIMIT = "exceeded_revision_limit"
+    APP_PINNED = "app_pinned"
+    DATABASE_CONFIG_CONFLICT = "database_config_conflict"
+    REGION_CONFLICT = "region_conflict"
+    STATIC_SITE_REQUIRES_REBUILD = "static_site_requires_rebuild"
+    IMAGE_SOURCE_MISSING_DIGEST = "image_source_missing_digest"
+
+
+class AppSpecRegion(str, Enum):
+    """
+    The slug form of the geographical origin of the app. Default: `nearest available`
+    """
+    AMS = "ams"
+    NYC = "nyc"
+    FRA = "fra"
+    SFO = "sfo"
+    SGP = "sgp"
+    BLR = "blr"
+    TOR = "tor"
+    LON = "lon"
+    SYD = "syd"
+
+
+class AppVariableDefinitionScope(str, Enum):
+    """
+    - RUN_TIME: Made available only at run-time
+    - BUILD_TIME: Made available only at build-time
+    - RUN_AND_BUILD_TIME: Made available at both build and run-time
+    """
+    UNSET = "UNSET"
+    RUN_TIME = "RUN_TIME"
+    BUILD_TIME = "BUILD_TIME"
+    RUN_AND_BUILD_TIME = "RUN_AND_BUILD_TIME"
+
+
+class AppVariableDefinitionType(str, Enum):
+    """
+    - GENERAL: A plain-text environment variable
+    - SECRET: A secret encrypted environment variable
+    """
+    GENERAL = "GENERAL"
+    SECRET = "SECRET"
 
 
 class AppsDeploymentPhase(str, Enum):
@@ -71,141 +225,7 @@ class AppsDomainPhase(str, Enum):
     ERROR = "ERROR"
 
 
-class AppsInstanceSizeCpuType(str, Enum):
-    UNSPECIFIED = "UNSPECIFIED"
-    SHARED = "SHARED"
-    DEDICATED = "DEDICATED"
-
-
-class AppsValidateAppSpecAppAlertSpecOperator(str, Enum):
-    UNSPECIFIED_OPERATOR = "UNSPECIFIED_OPERATOR"
-    GREATER_THAN = "GREATER_THAN"
-    LESS_THAN = "LESS_THAN"
-
-
-class AppsValidateAppSpecAppAlertSpecRule(str, Enum):
-    UNSPECIFIED_RULE = "UNSPECIFIED_RULE"
-    CPU_UTILIZATION = "CPU_UTILIZATION"
-    MEM_UTILIZATION = "MEM_UTILIZATION"
-    RESTART_COUNT = "RESTART_COUNT"
-    DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED"
-    DEPLOYMENT_LIVE = "DEPLOYMENT_LIVE"
-    DOMAIN_FAILED = "DOMAIN_FAILED"
-    DOMAIN_LIVE = "DOMAIN_LIVE"
-    FUNCTIONS_ACTIVATION_COUNT = "FUNCTIONS_ACTIVATION_COUNT"
-    FUNCTIONS_AVERAGE_DURATION_MS = "FUNCTIONS_AVERAGE_DURATION_MS"
-    FUNCTIONS_ERROR_RATE_PER_MINUTE = "FUNCTIONS_ERROR_RATE_PER_MINUTE"
-    FUNCTIONS_AVERAGE_WAIT_TIME_MS = "FUNCTIONS_AVERAGE_WAIT_TIME_MS"
-    FUNCTIONS_ERROR_COUNT = "FUNCTIONS_ERROR_COUNT"
-    FUNCTIONS_GB_RATE_PER_SECOND = "FUNCTIONS_GB_RATE_PER_SECOND"
-
-
-class AppsValidateAppSpecAppAlertSpecWindow(str, Enum):
-    UNSPECIFIED_WINDOW = "UNSPECIFIED_WINDOW"
-    FIVE_MINUTES = "FIVE_MINUTES"
-    TEN_MINUTES = "TEN_MINUTES"
-    THIRTY_MINUTES = "THIRTY_MINUTES"
-    ONE_HOUR = "ONE_HOUR"
-
-
-class AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug(str, Enum):
-    """
-    The instance size to use for this component. Default: `basic-xxs`
-    """
-    BASIC_XXS = "basic-xxs"
-    BASIC_XS = "basic-xs"
-    BASIC_S = "basic-s"
-    BASIC_M = "basic-m"
-    PROFESSIONAL_XS = "professional-xs"
-    PROFESSIONAL_S = "professional-s"
-    PROFESSIONAL_M = "professional-m"
-    PROFESSIONAL1L = "professional-1l"
-    PROFESSIONAL_L = "professional-l"
-    PROFESSIONAL_XL = "professional-xl"
-
-
-class AppsValidateAppSpecAppDatabaseSpecEngine(str, Enum):
-    """
-    - MYSQL: MySQL
-    - PG: PostgreSQL
-    - REDIS: Redis
-    """
-    UNSET = "UNSET"
-    MYSQL = "MYSQL"
-    PG = "PG"
-    REDIS = "REDIS"
-
-
-class AppsValidateAppSpecAppDomainSpecMinimumTlsVersion(str, Enum):
-    """
-    The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-    """
-    APPS_VALIDATE_APP_SPEC_APP_DOMAIN_SPEC_MINIMUM_TLS_VERSION_12 = "1.2"
-    APPS_VALIDATE_APP_SPEC_APP_DOMAIN_SPEC_MINIMUM_TLS_VERSION_13 = "1.3"
-
-
-class AppsValidateAppSpecAppDomainSpecType(str, Enum):
-    """
-    - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
-    - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
-    - ALIAS: A non-primary domain
-    """
-    UNSPECIFIED = "UNSPECIFIED"
-    DEFAULT = "DEFAULT"
-    PRIMARY = "PRIMARY"
-    ALIAS = "ALIAS"
-
-
-class AppsValidateAppSpecAppJobSpecPropertiesKind(str, Enum):
-    """
-    - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
-    - PRE_DEPLOY: Indicates a job that runs before an app deployment.
-    - POST_DEPLOY: Indicates a job that runs after an app deployment.
-    - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
-    """
-    UNSPECIFIED = "UNSPECIFIED"
-    PRE_DEPLOY = "PRE_DEPLOY"
-    POST_DEPLOY = "POST_DEPLOY"
-    FAILED_DEPLOY = "FAILED_DEPLOY"
-
-
-class AppsValidateAppSpecAppSpecRegion(str, Enum):
-    """
-    The slug form of the geographical origin of the app. Default: `nearest available`
-    """
-    AMS = "ams"
-    NYC = "nyc"
-    FRA = "fra"
-    SFO = "sfo"
-    SGP = "sgp"
-    BLR = "blr"
-    TOR = "tor"
-    LON = "lon"
-    SYD = "syd"
-
-
-class AppsValidateAppSpecAppVariableDefinitionScope(str, Enum):
-    """
-    - RUN_TIME: Made available only at run-time
-    - BUILD_TIME: Made available only at build-time
-    - RUN_AND_BUILD_TIME: Made available at both build and run-time
-    """
-    UNSET = "UNSET"
-    RUN_TIME = "RUN_TIME"
-    BUILD_TIME = "BUILD_TIME"
-    RUN_AND_BUILD_TIME = "RUN_AND_BUILD_TIME"
-
-
-class AppsValidateAppSpecAppVariableDefinitionType(str, Enum):
-    """
-    - GENERAL: A plain-text environment variable
-    - SECRET: A secret encrypted environment variable
-    """
-    GENERAL = "GENERAL"
-    SECRET = "SECRET"
-
-
-class AppsValidateAppSpecAppsImageSourceSpecRegistryType(str, Enum):
+class AppsImageSourceSpecRegistryType(str, Enum):
     """
     - DOCKER_HUB: The DockerHub container registry type.
     - DOCR: The DigitalOcean container registry type.
@@ -214,27 +234,7 @@ class AppsValidateAppSpecAppsImageSourceSpecRegistryType(str, Enum):
     DOCR = "DOCR"
 
 
-class AppsValidateRollbackAppRollbackValidationConditionCode(str, Enum):
-    """
-    A code identifier that represents the failing condition.
-
-    Failing conditions:
-      - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
-      - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
-      - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
-      - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
-      - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
-      - `region_conflict` - indicates that the deployment's region differs from the current app region.
-      
-    Warning conditions:
-      - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
-      - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-    """
-    INCOMPATIBLE_PHASE = "incompatible_phase"
-    INCOMPATIBLE_RESULT = "incompatible_result"
-    EXCEEDED_REVISION_LIMIT = "exceeded_revision_limit"
-    APP_PINNED = "app_pinned"
-    DATABASE_CONFIG_CONFLICT = "database_config_conflict"
-    REGION_CONFLICT = "region_conflict"
-    STATIC_SITE_REQUIRES_REBUILD = "static_site_requires_rebuild"
-    IMAGE_SOURCE_MISSING_DIGEST = "image_source_missing_digest"
+class AppsInstanceSizeCpuType(str, Enum):
+    UNSPECIFIED = "UNSPECIFIED"
+    SHARED = "SHARED"
+    DEDICATED = "DEDICATED"

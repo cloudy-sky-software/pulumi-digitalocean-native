@@ -11,126 +11,126 @@ import (
 )
 
 // The type of the resource.
-type TagsAssignResourcesResourcesItemPropertiesResourceType string
+type ResourcesItemPropertiesResourceType string
 
 const (
-	TagsAssignResourcesResourcesItemPropertiesResourceTypeDroplet        = TagsAssignResourcesResourcesItemPropertiesResourceType("droplet")
-	TagsAssignResourcesResourcesItemPropertiesResourceTypeImage          = TagsAssignResourcesResourcesItemPropertiesResourceType("image")
-	TagsAssignResourcesResourcesItemPropertiesResourceTypeVolume         = TagsAssignResourcesResourcesItemPropertiesResourceType("volume")
-	TagsAssignResourcesResourcesItemPropertiesResourceTypeVolumeSnapshot = TagsAssignResourcesResourcesItemPropertiesResourceType("volume_snapshot")
+	ResourcesItemPropertiesResourceTypeDroplet        = ResourcesItemPropertiesResourceType("droplet")
+	ResourcesItemPropertiesResourceTypeImage          = ResourcesItemPropertiesResourceType("image")
+	ResourcesItemPropertiesResourceTypeVolume         = ResourcesItemPropertiesResourceType("volume")
+	ResourcesItemPropertiesResourceTypeVolumeSnapshot = ResourcesItemPropertiesResourceType("volume_snapshot")
 )
 
-func (TagsAssignResourcesResourcesItemPropertiesResourceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsAssignResourcesResourcesItemPropertiesResourceType)(nil)).Elem()
+func (ResourcesItemPropertiesResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcesItemPropertiesResourceType)(nil)).Elem()
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput {
-	return pulumi.ToOutput(e).(TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput)
+func (e ResourcesItemPropertiesResourceType) ToResourcesItemPropertiesResourceTypeOutput() ResourcesItemPropertiesResourceTypeOutput {
+	return pulumi.ToOutput(e).(ResourcesItemPropertiesResourceTypeOutput)
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutputWithContext(ctx context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput)
+func (e ResourcesItemPropertiesResourceType) ToResourcesItemPropertiesResourceTypeOutputWithContext(ctx context.Context) ResourcesItemPropertiesResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourcesItemPropertiesResourceTypeOutput)
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return e.ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(context.Background())
+func (e ResourcesItemPropertiesResourceType) ToResourcesItemPropertiesResourceTypePtrOutput() ResourcesItemPropertiesResourceTypePtrOutput {
+	return e.ToResourcesItemPropertiesResourceTypePtrOutputWithContext(context.Background())
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return TagsAssignResourcesResourcesItemPropertiesResourceType(e).ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutputWithContext(ctx).ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx)
+func (e ResourcesItemPropertiesResourceType) ToResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) ResourcesItemPropertiesResourceTypePtrOutput {
+	return ResourcesItemPropertiesResourceType(e).ToResourcesItemPropertiesResourceTypeOutputWithContext(ctx).ToResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx)
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToStringOutput() pulumi.StringOutput {
+func (e ResourcesItemPropertiesResourceType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ResourcesItemPropertiesResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ResourcesItemPropertiesResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TagsAssignResourcesResourcesItemPropertiesResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ResourcesItemPropertiesResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput struct{ *pulumi.OutputState }
+type ResourcesItemPropertiesResourceTypeOutput struct{ *pulumi.OutputState }
 
-func (TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsAssignResourcesResourcesItemPropertiesResourceType)(nil)).Elem()
+func (ResourcesItemPropertiesResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcesItemPropertiesResourceType)(nil)).Elem()
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToResourcesItemPropertiesResourceTypeOutput() ResourcesItemPropertiesResourceTypeOutput {
 	return o
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutputWithContext(ctx context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToResourcesItemPropertiesResourceTypeOutputWithContext(ctx context.Context) ResourcesItemPropertiesResourceTypeOutput {
 	return o
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return o.ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(context.Background())
+func (o ResourcesItemPropertiesResourceTypeOutput) ToResourcesItemPropertiesResourceTypePtrOutput() ResourcesItemPropertiesResourceTypePtrOutput {
+	return o.ToResourcesItemPropertiesResourceTypePtrOutputWithContext(context.Background())
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagsAssignResourcesResourcesItemPropertiesResourceType) *TagsAssignResourcesResourcesItemPropertiesResourceType {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) ResourcesItemPropertiesResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcesItemPropertiesResourceType) *ResourcesItemPropertiesResourceType {
 		return &v
-	}).(TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput)
+	}).(ResourcesItemPropertiesResourceTypePtrOutput)
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TagsAssignResourcesResourcesItemPropertiesResourceType) string {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourcesItemPropertiesResourceType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TagsAssignResourcesResourcesItemPropertiesResourceType) *string {
+func (o ResourcesItemPropertiesResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourcesItemPropertiesResourceType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput struct{ *pulumi.OutputState }
+type ResourcesItemPropertiesResourceTypePtrOutput struct{ *pulumi.OutputState }
 
-func (TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsAssignResourcesResourcesItemPropertiesResourceType)(nil)).Elem()
+func (ResourcesItemPropertiesResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcesItemPropertiesResourceType)(nil)).Elem()
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
+func (o ResourcesItemPropertiesResourceTypePtrOutput) ToResourcesItemPropertiesResourceTypePtrOutput() ResourcesItemPropertiesResourceTypePtrOutput {
 	return o
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
+func (o ResourcesItemPropertiesResourceTypePtrOutput) ToResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) ResourcesItemPropertiesResourceTypePtrOutput {
 	return o
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) Elem() TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput {
-	return o.ApplyT(func(v *TagsAssignResourcesResourcesItemPropertiesResourceType) TagsAssignResourcesResourcesItemPropertiesResourceType {
+func (o ResourcesItemPropertiesResourceTypePtrOutput) Elem() ResourcesItemPropertiesResourceTypeOutput {
+	return o.ApplyT(func(v *ResourcesItemPropertiesResourceType) ResourcesItemPropertiesResourceType {
 		if v != nil {
 			return *v
 		}
-		var ret TagsAssignResourcesResourcesItemPropertiesResourceType
+		var ret ResourcesItemPropertiesResourceType
 		return ret
-	}).(TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput)
+	}).(ResourcesItemPropertiesResourceTypeOutput)
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ResourcesItemPropertiesResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TagsAssignResourcesResourcesItemPropertiesResourceType) *string {
+func (o ResourcesItemPropertiesResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourcesItemPropertiesResourceType) *string {
 		if e == nil {
 			return nil
 		}
@@ -139,50 +139,50 @@ func (o TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// TagsAssignResourcesResourcesItemPropertiesResourceTypeInput is an input type that accepts values of the TagsAssignResourcesResourcesItemPropertiesResourceType enum
-// A concrete instance of `TagsAssignResourcesResourcesItemPropertiesResourceTypeInput` can be one of the following:
+// ResourcesItemPropertiesResourceTypeInput is an input type that accepts values of the ResourcesItemPropertiesResourceType enum
+// A concrete instance of `ResourcesItemPropertiesResourceTypeInput` can be one of the following:
 //
-//	TagsAssignResourcesResourcesItemPropertiesResourceTypeDroplet
-//	TagsAssignResourcesResourcesItemPropertiesResourceTypeImage
-//	TagsAssignResourcesResourcesItemPropertiesResourceTypeVolume
-//	TagsAssignResourcesResourcesItemPropertiesResourceTypeVolumeSnapshot
-type TagsAssignResourcesResourcesItemPropertiesResourceTypeInput interface {
+//	ResourcesItemPropertiesResourceTypeDroplet
+//	ResourcesItemPropertiesResourceTypeImage
+//	ResourcesItemPropertiesResourceTypeVolume
+//	ResourcesItemPropertiesResourceTypeVolumeSnapshot
+type ResourcesItemPropertiesResourceTypeInput interface {
 	pulumi.Input
 
-	ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput
-	ToTagsAssignResourcesResourcesItemPropertiesResourceTypeOutputWithContext(context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput
+	ToResourcesItemPropertiesResourceTypeOutput() ResourcesItemPropertiesResourceTypeOutput
+	ToResourcesItemPropertiesResourceTypeOutputWithContext(context.Context) ResourcesItemPropertiesResourceTypeOutput
 }
 
-var tagsAssignResourcesResourcesItemPropertiesResourceTypePtrType = reflect.TypeOf((**TagsAssignResourcesResourcesItemPropertiesResourceType)(nil)).Elem()
+var resourcesItemPropertiesResourceTypePtrType = reflect.TypeOf((**ResourcesItemPropertiesResourceType)(nil)).Elem()
 
-type TagsAssignResourcesResourcesItemPropertiesResourceTypePtrInput interface {
+type ResourcesItemPropertiesResourceTypePtrInput interface {
 	pulumi.Input
 
-	ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput
-	ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput
+	ToResourcesItemPropertiesResourceTypePtrOutput() ResourcesItemPropertiesResourceTypePtrOutput
+	ToResourcesItemPropertiesResourceTypePtrOutputWithContext(context.Context) ResourcesItemPropertiesResourceTypePtrOutput
 }
 
-type tagsAssignResourcesResourcesItemPropertiesResourceTypePtr string
+type resourcesItemPropertiesResourceTypePtr string
 
-func TagsAssignResourcesResourcesItemPropertiesResourceTypePtr(v string) TagsAssignResourcesResourcesItemPropertiesResourceTypePtrInput {
-	return (*tagsAssignResourcesResourcesItemPropertiesResourceTypePtr)(&v)
+func ResourcesItemPropertiesResourceTypePtr(v string) ResourcesItemPropertiesResourceTypePtrInput {
+	return (*resourcesItemPropertiesResourceTypePtr)(&v)
 }
 
-func (*tagsAssignResourcesResourcesItemPropertiesResourceTypePtr) ElementType() reflect.Type {
-	return tagsAssignResourcesResourcesItemPropertiesResourceTypePtrType
+func (*resourcesItemPropertiesResourceTypePtr) ElementType() reflect.Type {
+	return resourcesItemPropertiesResourceTypePtrType
 }
 
-func (in *tagsAssignResourcesResourcesItemPropertiesResourceTypePtr) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput() TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return pulumi.ToOutput(in).(TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput)
+func (in *resourcesItemPropertiesResourceTypePtr) ToResourcesItemPropertiesResourceTypePtrOutput() ResourcesItemPropertiesResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourcesItemPropertiesResourceTypePtrOutput)
 }
 
-func (in *tagsAssignResourcesResourcesItemPropertiesResourceTypePtr) ToTagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput)
+func (in *resourcesItemPropertiesResourceTypePtr) ToResourcesItemPropertiesResourceTypePtrOutputWithContext(ctx context.Context) ResourcesItemPropertiesResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourcesItemPropertiesResourceTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsAssignResourcesResourcesItemPropertiesResourceTypeInput)(nil)).Elem(), TagsAssignResourcesResourcesItemPropertiesResourceType("droplet"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsAssignResourcesResourcesItemPropertiesResourceTypePtrInput)(nil)).Elem(), TagsAssignResourcesResourcesItemPropertiesResourceType("droplet"))
-	pulumi.RegisterOutputType(TagsAssignResourcesResourcesItemPropertiesResourceTypeOutput{})
-	pulumi.RegisterOutputType(TagsAssignResourcesResourcesItemPropertiesResourceTypePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcesItemPropertiesResourceTypeInput)(nil)).Elem(), ResourcesItemPropertiesResourceType("droplet"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcesItemPropertiesResourceTypePtrInput)(nil)).Elem(), ResourcesItemPropertiesResourceType("droplet"))
+	pulumi.RegisterOutputType(ResourcesItemPropertiesResourceTypeOutput{})
+	pulumi.RegisterOutputType(ResourcesItemPropertiesResourceTypePtrOutput{})
 }

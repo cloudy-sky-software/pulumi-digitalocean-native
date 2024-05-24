@@ -18,14 +18,14 @@ __all__ = ['MonitoringAlertPolicyArgs', 'MonitoringAlertPolicy']
 class MonitoringAlertPolicyArgs:
     def __init__(__self__, *,
                  alerts: pulumi.Input['AlertsArgs'],
-                 compare: pulumi.Input['MonitoringAlertPolicyCompare'],
+                 compare: pulumi.Input['Compare'],
                  description: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
                  entities: pulumi.Input[Sequence[pulumi.Input[str]]],
                  tags: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input['MonitoringAlertPolicyType'],
+                 type: pulumi.Input['Type'],
                  value: pulumi.Input[float],
-                 window: pulumi.Input['MonitoringAlertPolicyWindow']):
+                 window: pulumi.Input['Window']):
         """
         The set of arguments for constructing a MonitoringAlertPolicy resource.
         """
@@ -50,11 +50,11 @@ class MonitoringAlertPolicyArgs:
 
     @property
     @pulumi.getter
-    def compare(self) -> pulumi.Input['MonitoringAlertPolicyCompare']:
+    def compare(self) -> pulumi.Input['Compare']:
         return pulumi.get(self, "compare")
 
     @compare.setter
-    def compare(self, value: pulumi.Input['MonitoringAlertPolicyCompare']):
+    def compare(self, value: pulumi.Input['Compare']):
         pulumi.set(self, "compare", value)
 
     @property
@@ -95,11 +95,11 @@ class MonitoringAlertPolicyArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['MonitoringAlertPolicyType']:
+    def type(self) -> pulumi.Input['Type']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['MonitoringAlertPolicyType']):
+    def type(self, value: pulumi.Input['Type']):
         pulumi.set(self, "type", value)
 
     @property
@@ -113,11 +113,11 @@ class MonitoringAlertPolicyArgs:
 
     @property
     @pulumi.getter
-    def window(self) -> pulumi.Input['MonitoringAlertPolicyWindow']:
+    def window(self) -> pulumi.Input['Window']:
         return pulumi.get(self, "window")
 
     @window.setter
-    def window(self, value: pulumi.Input['MonitoringAlertPolicyWindow']):
+    def window(self, value: pulumi.Input['Window']):
         pulumi.set(self, "window", value)
 
 
@@ -127,14 +127,14 @@ class MonitoringAlertPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alerts: Optional[pulumi.Input[pulumi.InputType['AlertsArgs']]] = None,
-                 compare: Optional[pulumi.Input['MonitoringAlertPolicyCompare']] = None,
+                 compare: Optional[pulumi.Input['Compare']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input['MonitoringAlertPolicyType']] = None,
+                 type: Optional[pulumi.Input['Type']] = None,
                  value: Optional[pulumi.Input[float]] = None,
-                 window: Optional[pulumi.Input['MonitoringAlertPolicyWindow']] = None,
+                 window: Optional[pulumi.Input['Window']] = None,
                  __props__=None):
         """
         Create a MonitoringAlertPolicy resource with the given unique name, props, and options.
@@ -165,14 +165,14 @@ class MonitoringAlertPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alerts: Optional[pulumi.Input[pulumi.InputType['AlertsArgs']]] = None,
-                 compare: Optional[pulumi.Input['MonitoringAlertPolicyCompare']] = None,
+                 compare: Optional[pulumi.Input['Compare']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input['MonitoringAlertPolicyType']] = None,
+                 type: Optional[pulumi.Input['Type']] = None,
                  value: Optional[pulumi.Input[float]] = None,
-                 window: Optional[pulumi.Input['MonitoringAlertPolicyWindow']] = None,
+                 window: Optional[pulumi.Input['Window']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -251,7 +251,7 @@ class MonitoringAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def compare(self) -> pulumi.Output['MonitoringAlertPolicyCompare']:
+    def compare(self) -> pulumi.Output['Compare']:
         return pulumi.get(self, "compare")
 
     @property
@@ -281,7 +281,7 @@ class MonitoringAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output['MonitoringAlertPolicyType']:
+    def type(self) -> pulumi.Output['Type']:
         return pulumi.get(self, "type")
 
     @property
@@ -291,6 +291,6 @@ class MonitoringAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def window(self) -> pulumi.Output['MonitoringAlertPolicyWindow']:
+    def window(self) -> pulumi.Output['Window']:
         return pulumi.get(self, "window")
 

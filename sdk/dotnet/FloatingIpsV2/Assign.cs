@@ -25,7 +25,7 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
         /// The type of action to initiate for the floating IP.
         /// </summary>
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.FloatingIpsV2.AssignFloatingIPsActionType?> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.FloatingIpsV2.FloatingIPsActionType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
         /// The type of action to initiate for the floating IP.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.FloatingIpsV2.AssignFloatingIPsActionType> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.FloatingIpsV2.FloatingIPsActionType> Type { get; set; } = null!;
 
         public AssignArgs()
         {

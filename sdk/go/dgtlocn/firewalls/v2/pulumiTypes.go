@@ -446,7 +446,7 @@ type FirewallRulesInboundRulesItem struct {
 	// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
 	Ports string `pulumi:"ports"`
 	// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-	Protocol FirewallsRulesFirewallRuleBaseProtocol `pulumi:"protocol"`
+	Protocol FirewallRuleBaseProtocol `pulumi:"protocol"`
 }
 
 // FirewallRulesInboundRulesItemInput is an input type that accepts FirewallRulesInboundRulesItemArgs and FirewallRulesInboundRulesItemOutput values.
@@ -464,7 +464,7 @@ type FirewallRulesInboundRulesItemArgs struct {
 	// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
 	Ports pulumi.StringInput `pulumi:"ports"`
 	// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-	Protocol FirewallsRulesFirewallRuleBaseProtocolInput `pulumi:"protocol"`
+	Protocol FirewallRuleBaseProtocolInput `pulumi:"protocol"`
 }
 
 func (FirewallRulesInboundRulesItemArgs) ElementType() reflect.Type {
@@ -524,8 +524,8 @@ func (o FirewallRulesInboundRulesItemOutput) Ports() pulumi.StringOutput {
 }
 
 // The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-func (o FirewallRulesInboundRulesItemOutput) Protocol() FirewallsRulesFirewallRuleBaseProtocolOutput {
-	return o.ApplyT(func(v FirewallRulesInboundRulesItem) FirewallsRulesFirewallRuleBaseProtocol { return v.Protocol }).(FirewallsRulesFirewallRuleBaseProtocolOutput)
+func (o FirewallRulesInboundRulesItemOutput) Protocol() FirewallRuleBaseProtocolOutput {
+	return o.ApplyT(func(v FirewallRulesInboundRulesItem) FirewallRuleBaseProtocol { return v.Protocol }).(FirewallRuleBaseProtocolOutput)
 }
 
 type FirewallRulesInboundRulesItemArrayOutput struct{ *pulumi.OutputState }
@@ -552,7 +552,7 @@ type FirewallRulesOutboundRulesItem struct {
 	// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
 	Ports string `pulumi:"ports"`
 	// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-	Protocol FirewallsRulesFirewallRuleBaseProtocol `pulumi:"protocol"`
+	Protocol FirewallRuleBaseProtocol `pulumi:"protocol"`
 }
 
 // FirewallRulesOutboundRulesItemInput is an input type that accepts FirewallRulesOutboundRulesItemArgs and FirewallRulesOutboundRulesItemOutput values.
@@ -570,7 +570,7 @@ type FirewallRulesOutboundRulesItemArgs struct {
 	// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
 	Ports pulumi.StringInput `pulumi:"ports"`
 	// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-	Protocol FirewallsRulesFirewallRuleBaseProtocolInput `pulumi:"protocol"`
+	Protocol FirewallRuleBaseProtocolInput `pulumi:"protocol"`
 }
 
 func (FirewallRulesOutboundRulesItemArgs) ElementType() reflect.Type {
@@ -630,8 +630,8 @@ func (o FirewallRulesOutboundRulesItemOutput) Ports() pulumi.StringOutput {
 }
 
 // The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
-func (o FirewallRulesOutboundRulesItemOutput) Protocol() FirewallsRulesFirewallRuleBaseProtocolOutput {
-	return o.ApplyT(func(v FirewallRulesOutboundRulesItem) FirewallsRulesFirewallRuleBaseProtocol { return v.Protocol }).(FirewallsRulesFirewallRuleBaseProtocolOutput)
+func (o FirewallRulesOutboundRulesItemOutput) Protocol() FirewallRuleBaseProtocolOutput {
+	return o.ApplyT(func(v FirewallRulesOutboundRulesItem) FirewallRuleBaseProtocol { return v.Protocol }).(FirewallRuleBaseProtocolOutput)
 }
 
 type FirewallRulesOutboundRulesItemArrayOutput struct{ *pulumi.OutputState }
