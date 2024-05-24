@@ -21818,9 +21818,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            oneOf:
-                                - $ref: '#/components/schemas/droplet_single_create'
-                                - $ref: '#/components/schemas/droplet_multi_create'
+                            $ref: '#/components/schemas/droplet_multi_create'
                         examples:
                             Multiple Droplet Create Request:
                                 $ref: '#/components/examples/droplet_multi_create_request'
