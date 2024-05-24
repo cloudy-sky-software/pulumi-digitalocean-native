@@ -5347,7 +5347,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
                 },
                 "status": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:EnableIpv6ActionStatus",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DisableBackupsActionStatus",
                     "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
                     "default": "in-progress"
                 },
@@ -5524,6 +5524,24 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:droplets/v2:DisableBackupsActionStatus": {
+            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "InProgress",
+                    "value": "in-progress"
+                },
+                {
+                    "name": "Completed",
+                    "value": "completed"
+                },
+                {
+                    "name": "Errored",
+                    "value": "errored"
+                }
+            ]
         },
         "digitalocean-native:droplets/v2:DisableBackupsType": {
             "description": "The type of action to initiate for the Droplet.",
@@ -5884,24 +5902,6 @@
                 {
                     "name": "Snapshot",
                     "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:EnableIpv6ActionStatus": {
-            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "InProgress",
-                    "value": "in-progress"
-                },
-                {
-                    "name": "Completed",
-                    "value": "completed"
-                },
-                {
-                    "name": "Errored",
-                    "value": "errored"
                 }
             ]
         },
@@ -16876,7 +16876,14 @@
                 "sshKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "integer"
+                            }
+                        ]
                     },
                     "description": "An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation."
                 },
@@ -16958,7 +16965,14 @@
                 "sshKeys": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "integer"
+                            }
+                        ]
                     },
                     "description": "An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation."
                 },
