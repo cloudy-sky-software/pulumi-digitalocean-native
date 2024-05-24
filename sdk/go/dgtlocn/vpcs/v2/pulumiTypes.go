@@ -13,26 +13,26 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type GetVpcsProperties struct {
+type GetVpcProperties struct {
 	Vpc *Vpc `pulumi:"vpc"`
 }
 
-type GetVpcsPropertiesOutput struct{ *pulumi.OutputState }
+type GetVpcPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetVpcsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcsProperties)(nil)).Elem()
+func (GetVpcPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcProperties)(nil)).Elem()
 }
 
-func (o GetVpcsPropertiesOutput) ToGetVpcsPropertiesOutput() GetVpcsPropertiesOutput {
+func (o GetVpcPropertiesOutput) ToGetVpcPropertiesOutput() GetVpcPropertiesOutput {
 	return o
 }
 
-func (o GetVpcsPropertiesOutput) ToGetVpcsPropertiesOutputWithContext(ctx context.Context) GetVpcsPropertiesOutput {
+func (o GetVpcPropertiesOutput) ToGetVpcPropertiesOutputWithContext(ctx context.Context) GetVpcPropertiesOutput {
 	return o
 }
 
-func (o GetVpcsPropertiesOutput) Vpc() VpcPtrOutput {
-	return o.ApplyT(func(v GetVpcsProperties) *Vpc { return v.Vpc }).(VpcPtrOutput)
+func (o GetVpcPropertiesOutput) Vpc() VpcPtrOutput {
+	return o.ApplyT(func(v GetVpcProperties) *Vpc { return v.Vpc }).(VpcPtrOutput)
 }
 
 type ListVpcsItems struct {
@@ -531,7 +531,7 @@ func (o VpcMemberArrayOutput) Index(i pulumi.IntInput) VpcMemberOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetVpcsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetVpcPropertiesOutput{})
 	pulumi.RegisterOutputType(ListVpcsItemsOutput{})
 	pulumi.RegisterOutputType(ListVpcsMembersItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})

@@ -20,7 +20,7 @@ __all__ = [
     'ClusterlintResultsDiagnosticsItemProperties',
     'ClusterlintResultsDiagnosticsItemPropertiesObjectProperties',
     'Credentials',
-    'GetKubernetesAvailableUpgradesProperties',
+    'GetKubernetesAvailableUpgradeProperties',
     'GetKubernetesClusterProperties',
     'GetKubernetesNodePoolProperties',
     'KubernetesNodePool',
@@ -689,7 +689,7 @@ class Credentials(dict):
 
 
 @pulumi.output_type
-class GetKubernetesAvailableUpgradesProperties(dict):
+class GetKubernetesAvailableUpgradeProperties(dict):
     def __init__(__self__, *,
                  available_upgrade_versions: Optional[Sequence['outputs.KubernetesVersion']] = None):
         if available_upgrade_versions is not None:
@@ -1381,11 +1381,11 @@ class StatusProperties(dict):
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 state: Optional['StatusPropertiesState'] = None):
+                 state: Optional['KubernetesClusterStatusPropertiesState'] = None):
         """
         An object containing a `state` attribute whose value is set to a string indicating the current status of the cluster.
         :param str message: An optional message providing additional information about the current cluster state.
-        :param 'StatusPropertiesState' state: A string indicating the current status of the cluster.
+        :param 'KubernetesClusterStatusPropertiesState' state: A string indicating the current status of the cluster.
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -1402,7 +1402,7 @@ class StatusProperties(dict):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional['StatusPropertiesState']:
+    def state(self) -> Optional['KubernetesClusterStatusPropertiesState']:
         """
         A string indicating the current status of the cluster.
         """

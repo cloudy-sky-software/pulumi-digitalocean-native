@@ -108,127 +108,127 @@ func (o GarbageCollectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 }
 
 // Slug of the region where registry data is stored. When not provided, a region will be selected.
-type Region string
+type RegistryRegion string
 
 const (
-	RegionNyc3 = Region("nyc3")
-	RegionSfo3 = Region("sfo3")
-	RegionAms3 = Region("ams3")
-	RegionSgp1 = Region("sgp1")
-	RegionFra1 = Region("fra1")
+	RegistryRegionNyc3 = RegistryRegion("nyc3")
+	RegistryRegionSfo3 = RegistryRegion("sfo3")
+	RegistryRegionAms3 = RegistryRegion("ams3")
+	RegistryRegionSgp1 = RegistryRegion("sgp1")
+	RegistryRegionFra1 = RegistryRegion("fra1")
 )
 
-func (Region) ElementType() reflect.Type {
-	return reflect.TypeOf((*Region)(nil)).Elem()
+func (RegistryRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRegion)(nil)).Elem()
 }
 
-func (e Region) ToRegionOutput() RegionOutput {
-	return pulumi.ToOutput(e).(RegionOutput)
+func (e RegistryRegion) ToRegistryRegionOutput() RegistryRegionOutput {
+	return pulumi.ToOutput(e).(RegistryRegionOutput)
 }
 
-func (e Region) ToRegionOutputWithContext(ctx context.Context) RegionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RegionOutput)
+func (e RegistryRegion) ToRegistryRegionOutputWithContext(ctx context.Context) RegistryRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryRegionOutput)
 }
 
-func (e Region) ToRegionPtrOutput() RegionPtrOutput {
-	return e.ToRegionPtrOutputWithContext(context.Background())
+func (e RegistryRegion) ToRegistryRegionPtrOutput() RegistryRegionPtrOutput {
+	return e.ToRegistryRegionPtrOutputWithContext(context.Background())
 }
 
-func (e Region) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
-	return Region(e).ToRegionOutputWithContext(ctx).ToRegionPtrOutputWithContext(ctx)
+func (e RegistryRegion) ToRegistryRegionPtrOutputWithContext(ctx context.Context) RegistryRegionPtrOutput {
+	return RegistryRegion(e).ToRegistryRegionOutputWithContext(ctx).ToRegistryRegionPtrOutputWithContext(ctx)
 }
 
-func (e Region) ToStringOutput() pulumi.StringOutput {
+func (e RegistryRegion) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e Region) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e RegistryRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e Region) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e RegistryRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e Region) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e RegistryRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RegionOutput struct{ *pulumi.OutputState }
+type RegistryRegionOutput struct{ *pulumi.OutputState }
 
-func (RegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Region)(nil)).Elem()
+func (RegistryRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRegion)(nil)).Elem()
 }
 
-func (o RegionOutput) ToRegionOutput() RegionOutput {
+func (o RegistryRegionOutput) ToRegistryRegionOutput() RegistryRegionOutput {
 	return o
 }
 
-func (o RegionOutput) ToRegionOutputWithContext(ctx context.Context) RegionOutput {
+func (o RegistryRegionOutput) ToRegistryRegionOutputWithContext(ctx context.Context) RegistryRegionOutput {
 	return o
 }
 
-func (o RegionOutput) ToRegionPtrOutput() RegionPtrOutput {
-	return o.ToRegionPtrOutputWithContext(context.Background())
+func (o RegistryRegionOutput) ToRegistryRegionPtrOutput() RegistryRegionPtrOutput {
+	return o.ToRegistryRegionPtrOutputWithContext(context.Background())
 }
 
-func (o RegionOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Region) *Region {
+func (o RegistryRegionOutput) ToRegistryRegionPtrOutputWithContext(ctx context.Context) RegistryRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRegion) *RegistryRegion {
 		return &v
-	}).(RegionPtrOutput)
+	}).(RegistryRegionPtrOutput)
 }
 
-func (o RegionOutput) ToStringOutput() pulumi.StringOutput {
+func (o RegistryRegionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o RegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Region) string {
+func (o RegistryRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryRegion) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o RegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RegistryRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Region) *string {
+func (o RegistryRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryRegion) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type RegionPtrOutput struct{ *pulumi.OutputState }
+type RegistryRegionPtrOutput struct{ *pulumi.OutputState }
 
-func (RegionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Region)(nil)).Elem()
+func (RegistryRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRegion)(nil)).Elem()
 }
 
-func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
+func (o RegistryRegionPtrOutput) ToRegistryRegionPtrOutput() RegistryRegionPtrOutput {
 	return o
 }
 
-func (o RegionPtrOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
+func (o RegistryRegionPtrOutput) ToRegistryRegionPtrOutputWithContext(ctx context.Context) RegistryRegionPtrOutput {
 	return o
 }
 
-func (o RegionPtrOutput) Elem() RegionOutput {
-	return o.ApplyT(func(v *Region) Region {
+func (o RegistryRegionPtrOutput) Elem() RegistryRegionOutput {
+	return o.ApplyT(func(v *RegistryRegion) RegistryRegion {
 		if v != nil {
 			return *v
 		}
-		var ret Region
+		var ret RegistryRegion
 		return ret
-	}).(RegionOutput)
+	}).(RegistryRegionOutput)
 }
 
-func (o RegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RegistryRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Region) *string {
+func (o RegistryRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryRegion) *string {
 		if e == nil {
 			return nil
 		}
@@ -237,46 +237,382 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// RegionInput is an input type that accepts values of the Region enum
-// A concrete instance of `RegionInput` can be one of the following:
+// RegistryRegionInput is an input type that accepts values of the RegistryRegion enum
+// A concrete instance of `RegistryRegionInput` can be one of the following:
 //
-//	RegionNyc3
-//	RegionSfo3
-//	RegionAms3
-//	RegionSgp1
-//	RegionFra1
-type RegionInput interface {
+//	RegistryRegionNyc3
+//	RegistryRegionSfo3
+//	RegistryRegionAms3
+//	RegistryRegionSgp1
+//	RegistryRegionFra1
+type RegistryRegionInput interface {
 	pulumi.Input
 
-	ToRegionOutput() RegionOutput
-	ToRegionOutputWithContext(context.Context) RegionOutput
+	ToRegistryRegionOutput() RegistryRegionOutput
+	ToRegistryRegionOutputWithContext(context.Context) RegistryRegionOutput
 }
 
-var regionPtrType = reflect.TypeOf((**Region)(nil)).Elem()
+var registryRegionPtrType = reflect.TypeOf((**RegistryRegion)(nil)).Elem()
 
-type RegionPtrInput interface {
+type RegistryRegionPtrInput interface {
 	pulumi.Input
 
-	ToRegionPtrOutput() RegionPtrOutput
-	ToRegionPtrOutputWithContext(context.Context) RegionPtrOutput
+	ToRegistryRegionPtrOutput() RegistryRegionPtrOutput
+	ToRegistryRegionPtrOutputWithContext(context.Context) RegistryRegionPtrOutput
 }
 
-type regionPtr string
+type registryRegionPtr string
 
-func RegionPtr(v string) RegionPtrInput {
-	return (*regionPtr)(&v)
+func RegistryRegionPtr(v string) RegistryRegionPtrInput {
+	return (*registryRegionPtr)(&v)
 }
 
-func (*regionPtr) ElementType() reflect.Type {
-	return regionPtrType
+func (*registryRegionPtr) ElementType() reflect.Type {
+	return registryRegionPtrType
 }
 
-func (in *regionPtr) ToRegionPtrOutput() RegionPtrOutput {
-	return pulumi.ToOutput(in).(RegionPtrOutput)
+func (in *registryRegionPtr) ToRegistryRegionPtrOutput() RegistryRegionPtrOutput {
+	return pulumi.ToOutput(in).(RegistryRegionPtrOutput)
 }
 
-func (in *regionPtr) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RegionPtrOutput)
+func (in *registryRegionPtr) ToRegistryRegionPtrOutputWithContext(ctx context.Context) RegistryRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryRegionPtrOutput)
+}
+
+// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
+type RegistrySubscriptionTierSlug string
+
+const (
+	RegistrySubscriptionTierSlugStarter      = RegistrySubscriptionTierSlug("starter")
+	RegistrySubscriptionTierSlugBasic        = RegistrySubscriptionTierSlug("basic")
+	RegistrySubscriptionTierSlugProfessional = RegistrySubscriptionTierSlug("professional")
+)
+
+func (RegistrySubscriptionTierSlug) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrySubscriptionTierSlug)(nil)).Elem()
+}
+
+func (e RegistrySubscriptionTierSlug) ToRegistrySubscriptionTierSlugOutput() RegistrySubscriptionTierSlugOutput {
+	return pulumi.ToOutput(e).(RegistrySubscriptionTierSlugOutput)
+}
+
+func (e RegistrySubscriptionTierSlug) ToRegistrySubscriptionTierSlugOutputWithContext(ctx context.Context) RegistrySubscriptionTierSlugOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistrySubscriptionTierSlugOutput)
+}
+
+func (e RegistrySubscriptionTierSlug) ToRegistrySubscriptionTierSlugPtrOutput() RegistrySubscriptionTierSlugPtrOutput {
+	return e.ToRegistrySubscriptionTierSlugPtrOutputWithContext(context.Background())
+}
+
+func (e RegistrySubscriptionTierSlug) ToRegistrySubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistrySubscriptionTierSlugPtrOutput {
+	return RegistrySubscriptionTierSlug(e).ToRegistrySubscriptionTierSlugOutputWithContext(ctx).ToRegistrySubscriptionTierSlugPtrOutputWithContext(ctx)
+}
+
+func (e RegistrySubscriptionTierSlug) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistrySubscriptionTierSlug) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistrySubscriptionTierSlug) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistrySubscriptionTierSlug) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistrySubscriptionTierSlugOutput struct{ *pulumi.OutputState }
+
+func (RegistrySubscriptionTierSlugOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrySubscriptionTierSlug)(nil)).Elem()
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToRegistrySubscriptionTierSlugOutput() RegistrySubscriptionTierSlugOutput {
+	return o
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToRegistrySubscriptionTierSlugOutputWithContext(ctx context.Context) RegistrySubscriptionTierSlugOutput {
+	return o
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToRegistrySubscriptionTierSlugPtrOutput() RegistrySubscriptionTierSlugPtrOutput {
+	return o.ToRegistrySubscriptionTierSlugPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToRegistrySubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistrySubscriptionTierSlugPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrySubscriptionTierSlug) *RegistrySubscriptionTierSlug {
+		return &v
+	}).(RegistrySubscriptionTierSlugPtrOutput)
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistrySubscriptionTierSlug) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrySubscriptionTierSlugOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistrySubscriptionTierSlug) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistrySubscriptionTierSlugPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistrySubscriptionTierSlugPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrySubscriptionTierSlug)(nil)).Elem()
+}
+
+func (o RegistrySubscriptionTierSlugPtrOutput) ToRegistrySubscriptionTierSlugPtrOutput() RegistrySubscriptionTierSlugPtrOutput {
+	return o
+}
+
+func (o RegistrySubscriptionTierSlugPtrOutput) ToRegistrySubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistrySubscriptionTierSlugPtrOutput {
+	return o
+}
+
+func (o RegistrySubscriptionTierSlugPtrOutput) Elem() RegistrySubscriptionTierSlugOutput {
+	return o.ApplyT(func(v *RegistrySubscriptionTierSlug) RegistrySubscriptionTierSlug {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrySubscriptionTierSlug
+		return ret
+	}).(RegistrySubscriptionTierSlugOutput)
+}
+
+func (o RegistrySubscriptionTierSlugPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrySubscriptionTierSlugPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistrySubscriptionTierSlug) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistrySubscriptionTierSlugInput is an input type that accepts values of the RegistrySubscriptionTierSlug enum
+// A concrete instance of `RegistrySubscriptionTierSlugInput` can be one of the following:
+//
+//	RegistrySubscriptionTierSlugStarter
+//	RegistrySubscriptionTierSlugBasic
+//	RegistrySubscriptionTierSlugProfessional
+type RegistrySubscriptionTierSlugInput interface {
+	pulumi.Input
+
+	ToRegistrySubscriptionTierSlugOutput() RegistrySubscriptionTierSlugOutput
+	ToRegistrySubscriptionTierSlugOutputWithContext(context.Context) RegistrySubscriptionTierSlugOutput
+}
+
+var registrySubscriptionTierSlugPtrType = reflect.TypeOf((**RegistrySubscriptionTierSlug)(nil)).Elem()
+
+type RegistrySubscriptionTierSlugPtrInput interface {
+	pulumi.Input
+
+	ToRegistrySubscriptionTierSlugPtrOutput() RegistrySubscriptionTierSlugPtrOutput
+	ToRegistrySubscriptionTierSlugPtrOutputWithContext(context.Context) RegistrySubscriptionTierSlugPtrOutput
+}
+
+type registrySubscriptionTierSlugPtr string
+
+func RegistrySubscriptionTierSlugPtr(v string) RegistrySubscriptionTierSlugPtrInput {
+	return (*registrySubscriptionTierSlugPtr)(&v)
+}
+
+func (*registrySubscriptionTierSlugPtr) ElementType() reflect.Type {
+	return registrySubscriptionTierSlugPtrType
+}
+
+func (in *registrySubscriptionTierSlugPtr) ToRegistrySubscriptionTierSlugPtrOutput() RegistrySubscriptionTierSlugPtrOutput {
+	return pulumi.ToOutput(in).(RegistrySubscriptionTierSlugPtrOutput)
+}
+
+func (in *registrySubscriptionTierSlugPtr) ToRegistrySubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistrySubscriptionTierSlugPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistrySubscriptionTierSlugPtrOutput)
+}
+
+// The slug of the subscription tier to sign up for.
+type RegistryUpdateSubscriptionTierSlug string
+
+const (
+	RegistryUpdateSubscriptionTierSlugStarter      = RegistryUpdateSubscriptionTierSlug("starter")
+	RegistryUpdateSubscriptionTierSlugBasic        = RegistryUpdateSubscriptionTierSlug("basic")
+	RegistryUpdateSubscriptionTierSlugProfessional = RegistryUpdateSubscriptionTierSlug("professional")
+)
+
+func (RegistryUpdateSubscriptionTierSlug) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryUpdateSubscriptionTierSlug)(nil)).Elem()
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToRegistryUpdateSubscriptionTierSlugOutput() RegistryUpdateSubscriptionTierSlugOutput {
+	return pulumi.ToOutput(e).(RegistryUpdateSubscriptionTierSlugOutput)
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToRegistryUpdateSubscriptionTierSlugOutputWithContext(ctx context.Context) RegistryUpdateSubscriptionTierSlugOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryUpdateSubscriptionTierSlugOutput)
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToRegistryUpdateSubscriptionTierSlugPtrOutput() RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return e.ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return RegistryUpdateSubscriptionTierSlug(e).ToRegistryUpdateSubscriptionTierSlugOutputWithContext(ctx).ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(ctx)
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryUpdateSubscriptionTierSlug) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryUpdateSubscriptionTierSlugOutput struct{ *pulumi.OutputState }
+
+func (RegistryUpdateSubscriptionTierSlugOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryUpdateSubscriptionTierSlug)(nil)).Elem()
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToRegistryUpdateSubscriptionTierSlugOutput() RegistryUpdateSubscriptionTierSlugOutput {
+	return o
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToRegistryUpdateSubscriptionTierSlugOutputWithContext(ctx context.Context) RegistryUpdateSubscriptionTierSlugOutput {
+	return o
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToRegistryUpdateSubscriptionTierSlugPtrOutput() RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return o.ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryUpdateSubscriptionTierSlug) *RegistryUpdateSubscriptionTierSlug {
+		return &v
+	}).(RegistryUpdateSubscriptionTierSlugPtrOutput)
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryUpdateSubscriptionTierSlug) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryUpdateSubscriptionTierSlugOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryUpdateSubscriptionTierSlug) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryUpdateSubscriptionTierSlugPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryUpdateSubscriptionTierSlugPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryUpdateSubscriptionTierSlug)(nil)).Elem()
+}
+
+func (o RegistryUpdateSubscriptionTierSlugPtrOutput) ToRegistryUpdateSubscriptionTierSlugPtrOutput() RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return o
+}
+
+func (o RegistryUpdateSubscriptionTierSlugPtrOutput) ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return o
+}
+
+func (o RegistryUpdateSubscriptionTierSlugPtrOutput) Elem() RegistryUpdateSubscriptionTierSlugOutput {
+	return o.ApplyT(func(v *RegistryUpdateSubscriptionTierSlug) RegistryUpdateSubscriptionTierSlug {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryUpdateSubscriptionTierSlug
+		return ret
+	}).(RegistryUpdateSubscriptionTierSlugOutput)
+}
+
+func (o RegistryUpdateSubscriptionTierSlugPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryUpdateSubscriptionTierSlugPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryUpdateSubscriptionTierSlug) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryUpdateSubscriptionTierSlugInput is an input type that accepts values of the RegistryUpdateSubscriptionTierSlug enum
+// A concrete instance of `RegistryUpdateSubscriptionTierSlugInput` can be one of the following:
+//
+//	RegistryUpdateSubscriptionTierSlugStarter
+//	RegistryUpdateSubscriptionTierSlugBasic
+//	RegistryUpdateSubscriptionTierSlugProfessional
+type RegistryUpdateSubscriptionTierSlugInput interface {
+	pulumi.Input
+
+	ToRegistryUpdateSubscriptionTierSlugOutput() RegistryUpdateSubscriptionTierSlugOutput
+	ToRegistryUpdateSubscriptionTierSlugOutputWithContext(context.Context) RegistryUpdateSubscriptionTierSlugOutput
+}
+
+var registryUpdateSubscriptionTierSlugPtrType = reflect.TypeOf((**RegistryUpdateSubscriptionTierSlug)(nil)).Elem()
+
+type RegistryUpdateSubscriptionTierSlugPtrInput interface {
+	pulumi.Input
+
+	ToRegistryUpdateSubscriptionTierSlugPtrOutput() RegistryUpdateSubscriptionTierSlugPtrOutput
+	ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(context.Context) RegistryUpdateSubscriptionTierSlugPtrOutput
+}
+
+type registryUpdateSubscriptionTierSlugPtr string
+
+func RegistryUpdateSubscriptionTierSlugPtr(v string) RegistryUpdateSubscriptionTierSlugPtrInput {
+	return (*registryUpdateSubscriptionTierSlugPtr)(&v)
+}
+
+func (*registryUpdateSubscriptionTierSlugPtr) ElementType() reflect.Type {
+	return registryUpdateSubscriptionTierSlugPtrType
+}
+
+func (in *registryUpdateSubscriptionTierSlugPtr) ToRegistryUpdateSubscriptionTierSlugPtrOutput() RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return pulumi.ToOutput(in).(RegistryUpdateSubscriptionTierSlugPtrOutput)
+}
+
+func (in *registryUpdateSubscriptionTierSlugPtr) ToRegistryUpdateSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) RegistryUpdateSubscriptionTierSlugPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryUpdateSubscriptionTierSlugPtrOutput)
 }
 
 type SubscriptionTierExtendedEligibilityReasonsItem string
@@ -389,358 +725,22 @@ func (o SubscriptionTierExtendedEligibilityReasonsItemArrayOutput) Index(i pulum
 	}).(SubscriptionTierExtendedEligibilityReasonsItemOutput)
 }
 
-// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-type SubscriptionTierSlug string
-
-const (
-	SubscriptionTierSlugStarter      = SubscriptionTierSlug("starter")
-	SubscriptionTierSlugBasic        = SubscriptionTierSlug("basic")
-	SubscriptionTierSlugProfessional = SubscriptionTierSlug("professional")
-)
-
-func (SubscriptionTierSlug) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionTierSlug)(nil)).Elem()
-}
-
-func (e SubscriptionTierSlug) ToSubscriptionTierSlugOutput() SubscriptionTierSlugOutput {
-	return pulumi.ToOutput(e).(SubscriptionTierSlugOutput)
-}
-
-func (e SubscriptionTierSlug) ToSubscriptionTierSlugOutputWithContext(ctx context.Context) SubscriptionTierSlugOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SubscriptionTierSlugOutput)
-}
-
-func (e SubscriptionTierSlug) ToSubscriptionTierSlugPtrOutput() SubscriptionTierSlugPtrOutput {
-	return e.ToSubscriptionTierSlugPtrOutputWithContext(context.Background())
-}
-
-func (e SubscriptionTierSlug) ToSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) SubscriptionTierSlugPtrOutput {
-	return SubscriptionTierSlug(e).ToSubscriptionTierSlugOutputWithContext(ctx).ToSubscriptionTierSlugPtrOutputWithContext(ctx)
-}
-
-func (e SubscriptionTierSlug) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SubscriptionTierSlug) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SubscriptionTierSlug) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SubscriptionTierSlug) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SubscriptionTierSlugOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionTierSlugOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionTierSlug)(nil)).Elem()
-}
-
-func (o SubscriptionTierSlugOutput) ToSubscriptionTierSlugOutput() SubscriptionTierSlugOutput {
-	return o
-}
-
-func (o SubscriptionTierSlugOutput) ToSubscriptionTierSlugOutputWithContext(ctx context.Context) SubscriptionTierSlugOutput {
-	return o
-}
-
-func (o SubscriptionTierSlugOutput) ToSubscriptionTierSlugPtrOutput() SubscriptionTierSlugPtrOutput {
-	return o.ToSubscriptionTierSlugPtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionTierSlugOutput) ToSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) SubscriptionTierSlugPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionTierSlug) *SubscriptionTierSlug {
-		return &v
-	}).(SubscriptionTierSlugPtrOutput)
-}
-
-func (o SubscriptionTierSlugOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SubscriptionTierSlugOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriptionTierSlug) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SubscriptionTierSlugOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionTierSlugOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriptionTierSlug) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SubscriptionTierSlugPtrOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionTierSlugPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionTierSlug)(nil)).Elem()
-}
-
-func (o SubscriptionTierSlugPtrOutput) ToSubscriptionTierSlugPtrOutput() SubscriptionTierSlugPtrOutput {
-	return o
-}
-
-func (o SubscriptionTierSlugPtrOutput) ToSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) SubscriptionTierSlugPtrOutput {
-	return o
-}
-
-func (o SubscriptionTierSlugPtrOutput) Elem() SubscriptionTierSlugOutput {
-	return o.ApplyT(func(v *SubscriptionTierSlug) SubscriptionTierSlug {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionTierSlug
-		return ret
-	}).(SubscriptionTierSlugOutput)
-}
-
-func (o SubscriptionTierSlugPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionTierSlugPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubscriptionTierSlug) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SubscriptionTierSlugInput is an input type that accepts values of the SubscriptionTierSlug enum
-// A concrete instance of `SubscriptionTierSlugInput` can be one of the following:
-//
-//	SubscriptionTierSlugStarter
-//	SubscriptionTierSlugBasic
-//	SubscriptionTierSlugProfessional
-type SubscriptionTierSlugInput interface {
-	pulumi.Input
-
-	ToSubscriptionTierSlugOutput() SubscriptionTierSlugOutput
-	ToSubscriptionTierSlugOutputWithContext(context.Context) SubscriptionTierSlugOutput
-}
-
-var subscriptionTierSlugPtrType = reflect.TypeOf((**SubscriptionTierSlug)(nil)).Elem()
-
-type SubscriptionTierSlugPtrInput interface {
-	pulumi.Input
-
-	ToSubscriptionTierSlugPtrOutput() SubscriptionTierSlugPtrOutput
-	ToSubscriptionTierSlugPtrOutputWithContext(context.Context) SubscriptionTierSlugPtrOutput
-}
-
-type subscriptionTierSlugPtr string
-
-func SubscriptionTierSlugPtr(v string) SubscriptionTierSlugPtrInput {
-	return (*subscriptionTierSlugPtr)(&v)
-}
-
-func (*subscriptionTierSlugPtr) ElementType() reflect.Type {
-	return subscriptionTierSlugPtrType
-}
-
-func (in *subscriptionTierSlugPtr) ToSubscriptionTierSlugPtrOutput() SubscriptionTierSlugPtrOutput {
-	return pulumi.ToOutput(in).(SubscriptionTierSlugPtrOutput)
-}
-
-func (in *subscriptionTierSlugPtr) ToSubscriptionTierSlugPtrOutputWithContext(ctx context.Context) SubscriptionTierSlugPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionTierSlugPtrOutput)
-}
-
-// The slug of the subscription tier to sign up for.
-type TierSlug string
-
-const (
-	TierSlugStarter      = TierSlug("starter")
-	TierSlugBasic        = TierSlug("basic")
-	TierSlugProfessional = TierSlug("professional")
-)
-
-func (TierSlug) ElementType() reflect.Type {
-	return reflect.TypeOf((*TierSlug)(nil)).Elem()
-}
-
-func (e TierSlug) ToTierSlugOutput() TierSlugOutput {
-	return pulumi.ToOutput(e).(TierSlugOutput)
-}
-
-func (e TierSlug) ToTierSlugOutputWithContext(ctx context.Context) TierSlugOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TierSlugOutput)
-}
-
-func (e TierSlug) ToTierSlugPtrOutput() TierSlugPtrOutput {
-	return e.ToTierSlugPtrOutputWithContext(context.Background())
-}
-
-func (e TierSlug) ToTierSlugPtrOutputWithContext(ctx context.Context) TierSlugPtrOutput {
-	return TierSlug(e).ToTierSlugOutputWithContext(ctx).ToTierSlugPtrOutputWithContext(ctx)
-}
-
-func (e TierSlug) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TierSlug) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TierSlug) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TierSlug) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type TierSlugOutput struct{ *pulumi.OutputState }
-
-func (TierSlugOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TierSlug)(nil)).Elem()
-}
-
-func (o TierSlugOutput) ToTierSlugOutput() TierSlugOutput {
-	return o
-}
-
-func (o TierSlugOutput) ToTierSlugOutputWithContext(ctx context.Context) TierSlugOutput {
-	return o
-}
-
-func (o TierSlugOutput) ToTierSlugPtrOutput() TierSlugPtrOutput {
-	return o.ToTierSlugPtrOutputWithContext(context.Background())
-}
-
-func (o TierSlugOutput) ToTierSlugPtrOutputWithContext(ctx context.Context) TierSlugPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TierSlug) *TierSlug {
-		return &v
-	}).(TierSlugPtrOutput)
-}
-
-func (o TierSlugOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TierSlugOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TierSlug) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TierSlugOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TierSlugOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TierSlug) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TierSlugPtrOutput struct{ *pulumi.OutputState }
-
-func (TierSlugPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TierSlug)(nil)).Elem()
-}
-
-func (o TierSlugPtrOutput) ToTierSlugPtrOutput() TierSlugPtrOutput {
-	return o
-}
-
-func (o TierSlugPtrOutput) ToTierSlugPtrOutputWithContext(ctx context.Context) TierSlugPtrOutput {
-	return o
-}
-
-func (o TierSlugPtrOutput) Elem() TierSlugOutput {
-	return o.ApplyT(func(v *TierSlug) TierSlug {
-		if v != nil {
-			return *v
-		}
-		var ret TierSlug
-		return ret
-	}).(TierSlugOutput)
-}
-
-func (o TierSlugPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TierSlugPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TierSlug) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TierSlugInput is an input type that accepts values of the TierSlug enum
-// A concrete instance of `TierSlugInput` can be one of the following:
-//
-//	TierSlugStarter
-//	TierSlugBasic
-//	TierSlugProfessional
-type TierSlugInput interface {
-	pulumi.Input
-
-	ToTierSlugOutput() TierSlugOutput
-	ToTierSlugOutputWithContext(context.Context) TierSlugOutput
-}
-
-var tierSlugPtrType = reflect.TypeOf((**TierSlug)(nil)).Elem()
-
-type TierSlugPtrInput interface {
-	pulumi.Input
-
-	ToTierSlugPtrOutput() TierSlugPtrOutput
-	ToTierSlugPtrOutputWithContext(context.Context) TierSlugPtrOutput
-}
-
-type tierSlugPtr string
-
-func TierSlugPtr(v string) TierSlugPtrInput {
-	return (*tierSlugPtr)(&v)
-}
-
-func (*tierSlugPtr) ElementType() reflect.Type {
-	return tierSlugPtrType
-}
-
-func (in *tierSlugPtr) ToTierSlugPtrOutput() TierSlugPtrOutput {
-	return pulumi.ToOutput(in).(TierSlugPtrOutput)
-}
-
-func (in *tierSlugPtr) ToTierSlugPtrOutputWithContext(ctx context.Context) TierSlugPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TierSlugPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*RegionInput)(nil)).Elem(), Region("nyc3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RegionPtrInput)(nil)).Elem(), Region("nyc3"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTierSlugInput)(nil)).Elem(), SubscriptionTierSlug("starter"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTierSlugPtrInput)(nil)).Elem(), SubscriptionTierSlug("starter"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierSlugInput)(nil)).Elem(), TierSlug("starter"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TierSlugPtrInput)(nil)).Elem(), TierSlug("starter"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRegionInput)(nil)).Elem(), RegistryRegion("nyc3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRegionPtrInput)(nil)).Elem(), RegistryRegion("nyc3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrySubscriptionTierSlugInput)(nil)).Elem(), RegistrySubscriptionTierSlug("starter"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistrySubscriptionTierSlugPtrInput)(nil)).Elem(), RegistrySubscriptionTierSlug("starter"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryUpdateSubscriptionTierSlugInput)(nil)).Elem(), RegistryUpdateSubscriptionTierSlug("starter"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryUpdateSubscriptionTierSlugPtrInput)(nil)).Elem(), RegistryUpdateSubscriptionTierSlug("starter"))
 	pulumi.RegisterOutputType(GarbageCollectionStatusOutput{})
 	pulumi.RegisterOutputType(GarbageCollectionStatusPtrOutput{})
-	pulumi.RegisterOutputType(RegionOutput{})
-	pulumi.RegisterOutputType(RegionPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRegionOutput{})
+	pulumi.RegisterOutputType(RegistryRegionPtrOutput{})
+	pulumi.RegisterOutputType(RegistrySubscriptionTierSlugOutput{})
+	pulumi.RegisterOutputType(RegistrySubscriptionTierSlugPtrOutput{})
+	pulumi.RegisterOutputType(RegistryUpdateSubscriptionTierSlugOutput{})
+	pulumi.RegisterOutputType(RegistryUpdateSubscriptionTierSlugPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionTierExtendedEligibilityReasonsItemOutput{})
 	pulumi.RegisterOutputType(SubscriptionTierExtendedEligibilityReasonsItemPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionTierExtendedEligibilityReasonsItemArrayOutput{})
-	pulumi.RegisterOutputType(SubscriptionTierSlugOutput{})
-	pulumi.RegisterOutputType(SubscriptionTierSlugPtrOutput{})
-	pulumi.RegisterOutputType(TierSlugOutput{})
-	pulumi.RegisterOutputType(TierSlugPtrOutput{})
 }

@@ -6,7 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_projects import *
+from .get_project import *
 from .get_projects_default import *
 from .list_projects import *
 from .list_projects_resources import *

@@ -20,9 +20,9 @@ __all__ = [
     'DropletNextBackupWindowProperties',
     'FloatingIp',
     'FloatingIpRegion',
+    'GetFloatingIPProperties',
     'GetFloatingIPsActionProperties',
     'GetFloatingIPsActionPropertiesAction',
-    'GetFloatingIPsProperties',
     'Image',
     'Kernel',
     'LinksProperties',
@@ -710,6 +710,19 @@ class FloatingIpRegion(dict):
 
 
 @pulumi.output_type
+class GetFloatingIPProperties(dict):
+    def __init__(__self__, *,
+                 floating_ip: Optional['outputs.FloatingIp'] = None):
+        if floating_ip is not None:
+            pulumi.set(__self__, "floating_ip", floating_ip)
+
+    @property
+    @pulumi.getter(name="floatingIp")
+    def floating_ip(self) -> Optional['outputs.FloatingIp']:
+        return pulumi.get(self, "floating_ip")
+
+
+@pulumi.output_type
 class GetFloatingIPsActionProperties(dict):
     def __init__(__self__, *,
                  action: Optional['outputs.GetFloatingIPsActionPropertiesAction'] = None):
@@ -841,19 +854,6 @@ class GetFloatingIPsActionPropertiesAction(dict):
         This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetFloatingIPsProperties(dict):
-    def __init__(__self__, *,
-                 floating_ip: Optional['outputs.FloatingIp'] = None):
-        if floating_ip is not None:
-            pulumi.set(__self__, "floating_ip", floating_ip)
-
-    @property
-    @pulumi.getter(name="floatingIp")
-    def floating_ip(self) -> Optional['outputs.FloatingIp']:
-        return pulumi.get(self, "floating_ip")
 
 
 @pulumi.output_type

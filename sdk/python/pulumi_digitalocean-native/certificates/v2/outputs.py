@@ -13,7 +13,7 @@ from ._enums import *
 
 __all__ = [
     'Certificate',
-    'GetCertificatesProperties',
+    'GetCertificateProperties',
     'ListCertificatesItems',
     'MetaMeta',
     'PageLinks',
@@ -147,7 +147,7 @@ class Certificate(dict):
 
 
 @pulumi.output_type
-class GetCertificatesProperties(dict):
+class GetCertificateProperties(dict):
     def __init__(__self__, *,
                  certificate: Optional['outputs.Certificate'] = None):
         if certificate is not None:

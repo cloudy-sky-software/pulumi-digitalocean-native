@@ -13,6 +13,28 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetProjectProperties struct {
+	Project *Project `pulumi:"project"`
+}
+
+type GetProjectPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetProjectPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectProperties)(nil)).Elem()
+}
+
+func (o GetProjectPropertiesOutput) ToGetProjectPropertiesOutput() GetProjectPropertiesOutput {
+	return o
+}
+
+func (o GetProjectPropertiesOutput) ToGetProjectPropertiesOutputWithContext(ctx context.Context) GetProjectPropertiesOutput {
+	return o
+}
+
+func (o GetProjectPropertiesOutput) Project() ProjectPtrOutput {
+	return o.ApplyT(func(v GetProjectProperties) *Project { return v.Project }).(ProjectPtrOutput)
+}
+
 type GetProjectsDefaultProperties struct {
 	Project *Project `pulumi:"project"`
 }
@@ -33,28 +55,6 @@ func (o GetProjectsDefaultPropertiesOutput) ToGetProjectsDefaultPropertiesOutput
 
 func (o GetProjectsDefaultPropertiesOutput) Project() ProjectPtrOutput {
 	return o.ApplyT(func(v GetProjectsDefaultProperties) *Project { return v.Project }).(ProjectPtrOutput)
-}
-
-type GetProjectsProperties struct {
-	Project *Project `pulumi:"project"`
-}
-
-type GetProjectsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetProjectsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetProjectsProperties)(nil)).Elem()
-}
-
-func (o GetProjectsPropertiesOutput) ToGetProjectsPropertiesOutput() GetProjectsPropertiesOutput {
-	return o
-}
-
-func (o GetProjectsPropertiesOutput) ToGetProjectsPropertiesOutputWithContext(ctx context.Context) GetProjectsPropertiesOutput {
-	return o
-}
-
-func (o GetProjectsPropertiesOutput) Project() ProjectPtrOutput {
-	return o.ApplyT(func(v GetProjectsProperties) *Project { return v.Project }).(ProjectPtrOutput)
 }
 
 type ListProjectsItems struct {
@@ -728,8 +728,8 @@ func (o ResourceLinksPropertiesPtrOutput) Self() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(GetProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(GetProjectsDefaultPropertiesOutput{})
-	pulumi.RegisterOutputType(GetProjectsPropertiesOutput{})
 	pulumi.RegisterOutputType(ListProjectsItemsOutput{})
 	pulumi.RegisterOutputType(ListProjectsResourcesDefaultItemsOutput{})
 	pulumi.RegisterOutputType(ListProjectsResourcesItemsOutput{})

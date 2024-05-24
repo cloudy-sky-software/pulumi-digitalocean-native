@@ -16,14 +16,14 @@ __all__ = ['RegistryArgs', 'Registry']
 @pulumi.input_type
 class RegistryArgs:
     def __init__(__self__, *,
-                 subscription_tier_slug: pulumi.Input['SubscriptionTierSlug'],
+                 subscription_tier_slug: pulumi.Input['RegistrySubscriptionTierSlug'],
                  name: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input['Region']] = None):
+                 region: Optional[pulumi.Input['RegistryRegion']] = None):
         """
         The set of arguments for constructing a Registry resource.
-        :param pulumi.Input['SubscriptionTierSlug'] subscription_tier_slug: The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
+        :param pulumi.Input['RegistrySubscriptionTierSlug'] subscription_tier_slug: The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
         :param pulumi.Input[str] name: A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
-        :param pulumi.Input['Region'] region: Slug of the region where registry data is stored. When not provided, a region will be selected.
+        :param pulumi.Input['RegistryRegion'] region: Slug of the region where registry data is stored. When not provided, a region will be selected.
         """
         pulumi.set(__self__, "subscription_tier_slug", subscription_tier_slug)
         if name is not None:
@@ -33,14 +33,14 @@ class RegistryArgs:
 
     @property
     @pulumi.getter(name="subscriptionTierSlug")
-    def subscription_tier_slug(self) -> pulumi.Input['SubscriptionTierSlug']:
+    def subscription_tier_slug(self) -> pulumi.Input['RegistrySubscriptionTierSlug']:
         """
         The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
         """
         return pulumi.get(self, "subscription_tier_slug")
 
     @subscription_tier_slug.setter
-    def subscription_tier_slug(self, value: pulumi.Input['SubscriptionTierSlug']):
+    def subscription_tier_slug(self, value: pulumi.Input['RegistrySubscriptionTierSlug']):
         pulumi.set(self, "subscription_tier_slug", value)
 
     @property
@@ -57,14 +57,14 @@ class RegistryArgs:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input['Region']]:
+    def region(self) -> Optional[pulumi.Input['RegistryRegion']]:
         """
         Slug of the region where registry data is stored. When not provided, a region will be selected.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input['Region']]):
+    def region(self, value: Optional[pulumi.Input['RegistryRegion']]):
         pulumi.set(self, "region", value)
 
 
@@ -74,16 +74,16 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input['Region']] = None,
-                 subscription_tier_slug: Optional[pulumi.Input['SubscriptionTierSlug']] = None,
+                 region: Optional[pulumi.Input['RegistryRegion']] = None,
+                 subscription_tier_slug: Optional[pulumi.Input['RegistrySubscriptionTierSlug']] = None,
                  __props__=None):
         """
         Create a Registry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
-        :param pulumi.Input['Region'] region: Slug of the region where registry data is stored. When not provided, a region will be selected.
-        :param pulumi.Input['SubscriptionTierSlug'] subscription_tier_slug: The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
+        :param pulumi.Input['RegistryRegion'] region: Slug of the region where registry data is stored. When not provided, a region will be selected.
+        :param pulumi.Input['RegistrySubscriptionTierSlug'] subscription_tier_slug: The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
         """
         ...
     @overload
@@ -109,8 +109,8 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input['Region']] = None,
-                 subscription_tier_slug: Optional[pulumi.Input['SubscriptionTierSlug']] = None,
+                 region: Optional[pulumi.Input['RegistryRegion']] = None,
+                 subscription_tier_slug: Optional[pulumi.Input['RegistrySubscriptionTierSlug']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -164,7 +164,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[Optional['Region']]:
+    def region(self) -> pulumi.Output[Optional['RegistryRegion']]:
         """
         Slug of the region where registry data is stored. When not provided, a region will be selected.
         """
@@ -177,7 +177,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionTierSlug")
-    def subscription_tier_slug(self) -> pulumi.Output['SubscriptionTierSlug']:
+    def subscription_tier_slug(self) -> pulumi.Output['RegistrySubscriptionTierSlug']:
         """
         The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
         """

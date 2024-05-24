@@ -236,83 +236,83 @@ func (o GarbageCollectionArrayOutput) Index(i pulumi.IntInput) GarbageCollection
 	}).(GarbageCollectionOutput)
 }
 
-type GetRegistryOptionsProperties struct {
-	Options *GetRegistryOptionsPropertiesOptionsProperties `pulumi:"options"`
+type GetRegistryOptionProperties struct {
+	Options *GetRegistryOptionPropertiesOptionsProperties `pulumi:"options"`
 }
 
-type GetRegistryOptionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetRegistryOptionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetRegistryOptionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRegistryOptionsProperties)(nil)).Elem()
+func (GetRegistryOptionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryOptionProperties)(nil)).Elem()
 }
 
-func (o GetRegistryOptionsPropertiesOutput) ToGetRegistryOptionsPropertiesOutput() GetRegistryOptionsPropertiesOutput {
+func (o GetRegistryOptionPropertiesOutput) ToGetRegistryOptionPropertiesOutput() GetRegistryOptionPropertiesOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOutput) ToGetRegistryOptionsPropertiesOutputWithContext(ctx context.Context) GetRegistryOptionsPropertiesOutput {
+func (o GetRegistryOptionPropertiesOutput) ToGetRegistryOptionPropertiesOutputWithContext(ctx context.Context) GetRegistryOptionPropertiesOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOutput) Options() GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsProperties) *GetRegistryOptionsPropertiesOptionsProperties { return v.Options }).(GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput)
+func (o GetRegistryOptionPropertiesOutput) Options() GetRegistryOptionPropertiesOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionProperties) *GetRegistryOptionPropertiesOptionsProperties { return v.Options }).(GetRegistryOptionPropertiesOptionsPropertiesPtrOutput)
 }
 
-type GetRegistryOptionsPropertiesOptionsProperties struct {
-	AvailableRegions  []string                                                             `pulumi:"availableRegions"`
-	SubscriptionTiers []GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem `pulumi:"subscriptionTiers"`
+type GetRegistryOptionPropertiesOptionsProperties struct {
+	AvailableRegions  []string                                                            `pulumi:"availableRegions"`
+	SubscriptionTiers []GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem `pulumi:"subscriptionTiers"`
 }
 
-type GetRegistryOptionsPropertiesOptionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetRegistryOptionPropertiesOptionsPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetRegistryOptionsPropertiesOptionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRegistryOptionsPropertiesOptionsProperties)(nil)).Elem()
+func (GetRegistryOptionPropertiesOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryOptionPropertiesOptionsProperties)(nil)).Elem()
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesOutput() GetRegistryOptionsPropertiesOptionsPropertiesOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesOutput) ToGetRegistryOptionPropertiesOptionsPropertiesOutput() GetRegistryOptionPropertiesOptionsPropertiesOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesOutputWithContext(ctx context.Context) GetRegistryOptionsPropertiesOptionsPropertiesOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesOutput) ToGetRegistryOptionPropertiesOptionsPropertiesOutputWithContext(ctx context.Context) GetRegistryOptionPropertiesOptionsPropertiesOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesOutput) AvailableRegions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsProperties) []string { return v.AvailableRegions }).(pulumi.StringArrayOutput)
+func (o GetRegistryOptionPropertiesOptionsPropertiesOutput) AvailableRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsProperties) []string { return v.AvailableRegions }).(pulumi.StringArrayOutput)
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesOutput) SubscriptionTiers() GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsProperties) []GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem {
+func (o GetRegistryOptionPropertiesOptionsPropertiesOutput) SubscriptionTiers() GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsProperties) []GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem {
 		return v.SubscriptionTiers
-	}).(GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput)
+	}).(GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput)
 }
 
-type GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+type GetRegistryOptionPropertiesOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetRegistryOptionsPropertiesOptionsProperties)(nil)).Elem()
+func (GetRegistryOptionPropertiesOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRegistryOptionPropertiesOptionsProperties)(nil)).Elem()
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesPtrOutput() GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesPtrOutput) ToGetRegistryOptionPropertiesOptionsPropertiesPtrOutput() GetRegistryOptionPropertiesOptionsPropertiesPtrOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesPtrOutputWithContext(ctx context.Context) GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesPtrOutput) ToGetRegistryOptionPropertiesOptionsPropertiesPtrOutputWithContext(ctx context.Context) GetRegistryOptionPropertiesOptionsPropertiesPtrOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) Elem() GetRegistryOptionsPropertiesOptionsPropertiesOutput {
-	return o.ApplyT(func(v *GetRegistryOptionsPropertiesOptionsProperties) GetRegistryOptionsPropertiesOptionsProperties {
+func (o GetRegistryOptionPropertiesOptionsPropertiesPtrOutput) Elem() GetRegistryOptionPropertiesOptionsPropertiesOutput {
+	return o.ApplyT(func(v *GetRegistryOptionPropertiesOptionsProperties) GetRegistryOptionPropertiesOptionsProperties {
 		if v != nil {
 			return *v
 		}
-		var ret GetRegistryOptionsPropertiesOptionsProperties
+		var ret GetRegistryOptionPropertiesOptionsProperties
 		return ret
-	}).(GetRegistryOptionsPropertiesOptionsPropertiesOutput)
+	}).(GetRegistryOptionPropertiesOptionsPropertiesOutput)
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) AvailableRegions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetRegistryOptionsPropertiesOptionsProperties) []string {
+func (o GetRegistryOptionPropertiesOptionsPropertiesPtrOutput) AvailableRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetRegistryOptionPropertiesOptionsProperties) []string {
 		if v == nil {
 			return nil
 		}
@@ -320,16 +320,16 @@ func (o GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) AvailableRegions
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput) SubscriptionTiers() GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
-	return o.ApplyT(func(v *GetRegistryOptionsPropertiesOptionsProperties) []GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem {
+func (o GetRegistryOptionPropertiesOptionsPropertiesPtrOutput) SubscriptionTiers() GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
+	return o.ApplyT(func(v *GetRegistryOptionPropertiesOptionsProperties) []GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem {
 		if v == nil {
 			return nil
 		}
 		return v.SubscriptionTiers
-	}).(GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput)
+	}).(GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput)
 }
 
-type GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem struct {
+type GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem struct {
 	// A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used.
 	AllowStorageOverage *bool `pulumi:"allowStorageOverage"`
 	// If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier.
@@ -352,102 +352,102 @@ type GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem struct {
 	StorageOveragePriceInCents *int `pulumi:"storageOveragePriceInCents"`
 }
 
-type GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput struct{ *pulumi.OutputState }
+type GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput struct{ *pulumi.OutputState }
 
-func (GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem)(nil)).Elem()
+func (GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem)(nil)).Elem()
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput() GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) ToGetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput() GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutputWithContext(ctx context.Context) GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) ToGetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutputWithContext(ctx context.Context) GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput {
 	return o
 }
 
 // A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) AllowStorageOverage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *bool {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) AllowStorageOverage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *bool {
 		return v.AllowStorageOverage
 	}).(pulumi.BoolPtrOutput)
 }
 
 // If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) EligibilityReasons() SubscriptionTierExtendedEligibilityReasonsItemArrayOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) []SubscriptionTierExtendedEligibilityReasonsItem {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) EligibilityReasons() SubscriptionTierExtendedEligibilityReasonsItemArrayOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) []SubscriptionTierExtendedEligibilityReasonsItem {
 		return v.EligibilityReasons
 	}).(SubscriptionTierExtendedEligibilityReasonsItemArrayOutput)
 }
 
 // A boolean indicating whether your account it eligible to use a certain subscription tier.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) Eligible() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *bool { return v.Eligible }).(pulumi.BoolPtrOutput)
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) Eligible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *bool { return v.Eligible }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of outbound data transfer included in the subscription tier in bytes.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) IncludedBandwidthBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) IncludedBandwidthBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
 		return v.IncludedBandwidthBytes
 	}).(pulumi.IntPtrOutput)
 }
 
 // The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) IncludedRepositories() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) IncludedRepositories() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
 		return v.IncludedRepositories
 	}).(pulumi.IntPtrOutput)
 }
 
 // The amount of storage included in the subscription tier in bytes.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) IncludedStorageBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) IncludedStorageBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
 		return v.IncludedStorageBytes
 	}).(pulumi.IntPtrOutput)
 }
 
 // The monthly cost of the subscription tier in cents.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) MonthlyPriceInCents() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) MonthlyPriceInCents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
 		return v.MonthlyPriceInCents
 	}).(pulumi.IntPtrOutput)
 }
 
 // The name of the subscription tier.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The slug identifier of the subscription tier.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) Slug() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *string { return v.Slug }).(pulumi.StringPtrOutput)
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) Slug() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *string { return v.Slug }).(pulumi.StringPtrOutput)
 }
 
 // The price paid in cents per GiB for additional storage beyond what is included in the subscription plan.
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput) StorageOveragePriceInCents() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput) StorageOveragePriceInCents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem) *int {
 		return v.StorageOveragePriceInCents
 	}).(pulumi.IntPtrOutput)
 }
 
-type GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput struct{ *pulumi.OutputState }
+type GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput struct{ *pulumi.OutputState }
 
-func (GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem)(nil)).Elem()
+func (GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem)(nil)).Elem()
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput() GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) ToGetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput() GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) ToGetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutputWithContext(ctx context.Context) GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) ToGetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutputWithContext(ctx context.Context) GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput {
 	return o
 }
 
-func (o GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) Index(i pulumi.IntInput) GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem {
-		return vs[0].([]GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem)[vs[1].(int)]
-	}).(GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput)
+func (o GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput) Index(i pulumi.IntInput) GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem {
+		return vs[0].([]GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem)[vs[1].(int)]
+	}).(GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput)
 }
 
 type GetRegistryProperties struct {
@@ -1884,11 +1884,11 @@ func init() {
 	pulumi.RegisterOutputType(DockerCredentialsAuthsPropertiesRegistryDigitaloceanComPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GarbageCollectionOutput{})
 	pulumi.RegisterOutputType(GarbageCollectionArrayOutput{})
-	pulumi.RegisterOutputType(GetRegistryOptionsPropertiesOutput{})
-	pulumi.RegisterOutputType(GetRegistryOptionsPropertiesOptionsPropertiesOutput{})
-	pulumi.RegisterOutputType(GetRegistryOptionsPropertiesOptionsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemOutput{})
-	pulumi.RegisterOutputType(GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryOptionPropertiesOutput{})
+	pulumi.RegisterOutputType(GetRegistryOptionPropertiesOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetRegistryOptionPropertiesOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemOutput{})
+	pulumi.RegisterOutputType(GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItemArrayOutput{})
 	pulumi.RegisterOutputType(GetRegistryPropertiesOutput{})
 	pulumi.RegisterOutputType(GetRegistrySubscriptionPropertiesOutput{})
 	pulumi.RegisterOutputType(ListRegistryGarbageCollectionsPropertiesOutput{})

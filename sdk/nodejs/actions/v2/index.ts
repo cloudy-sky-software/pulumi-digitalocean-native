@@ -4,10 +4,10 @@
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetActionsArgs, GetActionsResult, GetActionsOutputArgs } from "./getActions";
-export const getActions: typeof import("./getActions").getActions = null as any;
-export const getActionsOutput: typeof import("./getActions").getActionsOutput = null as any;
-utilities.lazyLoad(exports, ["getActions","getActionsOutput"], () => require("./getActions"));
+export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
+export const getAction: typeof import("./getAction").getAction = null as any;
+export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
+utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
 export { ListActionsArgs, ListActionsResult } from "./listActions";
 export const listActions: typeof import("./listActions").listActions = null as any;

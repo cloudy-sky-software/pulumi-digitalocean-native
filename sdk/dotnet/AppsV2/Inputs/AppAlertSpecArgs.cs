@@ -19,10 +19,10 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         public Input<bool>? Disabled { get; set; }
 
         [Input("operator")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecOperator>? Operator { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecOperator>? Operator { get; set; }
 
         [Input("rule")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecRule>? Rule { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecRule>? Rule { get; set; }
 
         /// <summary>
         /// Threshold value for alert
@@ -31,13 +31,13 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         public Input<double>? Value { get; set; }
 
         [Input("window")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecWindow>? Window { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecWindow>? Window { get; set; }
 
         public AppAlertSpecArgs()
         {
-            Operator = Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecOperator.UnspecifiedOperator;
-            Rule = Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecRule.UnspecifiedRule;
-            Window = Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecWindow.UnspecifiedWindow;
+            Operator = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecOperator.UnspecifiedOperator;
+            Rule = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecRule.UnspecifiedRule;
+            Window = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecWindow.UnspecifiedWindow;
         }
         public static new AppAlertSpecArgs Empty => new AppAlertSpecArgs();
     }

@@ -158,12 +158,12 @@ func (o ForwardingRuleArrayOutput) Index(i pulumi.IntInput) ForwardingRuleOutput
 	}).(ForwardingRuleOutput)
 }
 
-type GetLoadBalancersProperties struct {
+type GetLoadBalancerProperties struct {
 	LoadBalancer *LoadBalancer `pulumi:"loadBalancer"`
 }
 
-// Defaults sets the appropriate defaults for GetLoadBalancersProperties
-func (val *GetLoadBalancersProperties) Defaults() *GetLoadBalancersProperties {
+// Defaults sets the appropriate defaults for GetLoadBalancerProperties
+func (val *GetLoadBalancerProperties) Defaults() *GetLoadBalancerProperties {
 	if val == nil {
 		return nil
 	}
@@ -173,22 +173,22 @@ func (val *GetLoadBalancersProperties) Defaults() *GetLoadBalancersProperties {
 	return &tmp
 }
 
-type GetLoadBalancersPropertiesOutput struct{ *pulumi.OutputState }
+type GetLoadBalancerPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetLoadBalancersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancersProperties)(nil)).Elem()
+func (GetLoadBalancerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerProperties)(nil)).Elem()
 }
 
-func (o GetLoadBalancersPropertiesOutput) ToGetLoadBalancersPropertiesOutput() GetLoadBalancersPropertiesOutput {
+func (o GetLoadBalancerPropertiesOutput) ToGetLoadBalancerPropertiesOutput() GetLoadBalancerPropertiesOutput {
 	return o
 }
 
-func (o GetLoadBalancersPropertiesOutput) ToGetLoadBalancersPropertiesOutputWithContext(ctx context.Context) GetLoadBalancersPropertiesOutput {
+func (o GetLoadBalancerPropertiesOutput) ToGetLoadBalancerPropertiesOutputWithContext(ctx context.Context) GetLoadBalancerPropertiesOutput {
 	return o
 }
 
-func (o GetLoadBalancersPropertiesOutput) LoadBalancer() LoadBalancerPtrOutput {
-	return o.ApplyT(func(v GetLoadBalancersProperties) *LoadBalancer { return v.LoadBalancer }).(LoadBalancerPtrOutput)
+func (o GetLoadBalancerPropertiesOutput) LoadBalancer() LoadBalancerPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerProperties) *LoadBalancer { return v.LoadBalancer }).(LoadBalancerPtrOutput)
 }
 
 // An object specifying health check settings for the load balancer.
@@ -1261,7 +1261,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleArrayInput)(nil)).Elem(), ForwardingRuleArray{})
 	pulumi.RegisterOutputType(ForwardingRuleOutput{})
 	pulumi.RegisterOutputType(ForwardingRuleArrayOutput{})
-	pulumi.RegisterOutputType(GetLoadBalancersPropertiesOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerPropertiesOutput{})
 	pulumi.RegisterOutputType(HealthCheckOutput{})
 	pulumi.RegisterOutputType(HealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(LbFirewallOutput{})

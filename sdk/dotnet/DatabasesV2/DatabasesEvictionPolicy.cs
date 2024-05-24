@@ -23,7 +23,7 @@ namespace Pulumi.DigitalOceanNative.DatabasesV2
         /// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
         /// </summary>
         [Output("evictionPolicy")]
-        public Output<Pulumi.DigitalOceanNative.DatabasesV2.EvictionPolicy> EvictionPolicy { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.DatabasesV2.DatabasesEvictionPolicyEvictionPolicy> EvictionPolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.DigitalOceanNative.DatabasesV2
         /// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
         /// </summary>
         [Input("evictionPolicy", required: true)]
-        public Input<Pulumi.DigitalOceanNative.DatabasesV2.EvictionPolicy> EvictionPolicy { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.DatabasesV2.DatabasesEvictionPolicyEvictionPolicy> EvictionPolicy { get; set; } = null!;
 
         public DatabasesEvictionPolicyArgs()
         {

@@ -16,9 +16,9 @@ __all__ = [
     'DockerCredentialsAuthsProperties',
     'DockerCredentialsAuthsPropertiesRegistryDigitaloceanComProperties',
     'GarbageCollection',
-    'GetRegistryOptionsProperties',
-    'GetRegistryOptionsPropertiesOptionsProperties',
-    'GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem',
+    'GetRegistryOptionProperties',
+    'GetRegistryOptionPropertiesOptionsProperties',
+    'GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem',
     'GetRegistryProperties',
     'GetRegistrySubscriptionProperties',
     'ListRegistryGarbageCollectionsProperties',
@@ -177,23 +177,23 @@ class GarbageCollection(dict):
 
 
 @pulumi.output_type
-class GetRegistryOptionsProperties(dict):
+class GetRegistryOptionProperties(dict):
     def __init__(__self__, *,
-                 options: Optional['outputs.GetRegistryOptionsPropertiesOptionsProperties'] = None):
+                 options: Optional['outputs.GetRegistryOptionPropertiesOptionsProperties'] = None):
         if options is not None:
             pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.GetRegistryOptionsPropertiesOptionsProperties']:
+    def options(self) -> Optional['outputs.GetRegistryOptionPropertiesOptionsProperties']:
         return pulumi.get(self, "options")
 
 
 @pulumi.output_type
-class GetRegistryOptionsPropertiesOptionsProperties(dict):
+class GetRegistryOptionPropertiesOptionsProperties(dict):
     def __init__(__self__, *,
                  available_regions: Optional[Sequence[str]] = None,
-                 subscription_tiers: Optional[Sequence['outputs.GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem']] = None):
+                 subscription_tiers: Optional[Sequence['outputs.GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem']] = None):
         if available_regions is not None:
             pulumi.set(__self__, "available_regions", available_regions)
         if subscription_tiers is not None:
@@ -206,12 +206,12 @@ class GetRegistryOptionsPropertiesOptionsProperties(dict):
 
     @property
     @pulumi.getter(name="subscriptionTiers")
-    def subscription_tiers(self) -> Optional[Sequence['outputs.GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem']]:
+    def subscription_tiers(self) -> Optional[Sequence['outputs.GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem']]:
         return pulumi.get(self, "subscription_tiers")
 
 
 @pulumi.output_type
-class GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem(dict):
+class GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem(dict):
     def __init__(__self__, *,
                  allow_storage_overage: Optional[bool] = None,
                  eligibility_reasons: Optional[Sequence['SubscriptionTierExtendedEligibilityReasonsItem']] = None,

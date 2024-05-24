@@ -17,7 +17,7 @@ __all__ = [
     'FirewallPropertiesTags',
     'FirewallRulesInboundRulesItem',
     'FirewallRulesOutboundRulesItem',
-    'GetFirewallsProperties',
+    'GetFirewallProperties',
     'ListFirewallsItems',
     'MetaMeta',
     'PageLinks',
@@ -209,10 +209,10 @@ class FirewallPropertiesTags(dict):
 class FirewallRulesInboundRulesItem(dict):
     def __init__(__self__, *,
                  ports: str,
-                 protocol: 'FirewallRuleBaseProtocol'):
+                 protocol: 'FirewallsRulesFirewallRuleBaseProtocol'):
         """
         :param str ports: The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
-        :param 'FirewallRuleBaseProtocol' protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+        :param 'FirewallsRulesFirewallRuleBaseProtocol' protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "protocol", protocol)
@@ -227,7 +227,7 @@ class FirewallRulesInboundRulesItem(dict):
 
     @property
     @pulumi.getter
-    def protocol(self) -> 'FirewallRuleBaseProtocol':
+    def protocol(self) -> 'FirewallsRulesFirewallRuleBaseProtocol':
         """
         The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
@@ -238,10 +238,10 @@ class FirewallRulesInboundRulesItem(dict):
 class FirewallRulesOutboundRulesItem(dict):
     def __init__(__self__, *,
                  ports: str,
-                 protocol: 'FirewallRuleBaseProtocol'):
+                 protocol: 'FirewallsRulesFirewallRuleBaseProtocol'):
         """
         :param str ports: The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
-        :param 'FirewallRuleBaseProtocol' protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+        :param 'FirewallsRulesFirewallRuleBaseProtocol' protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "protocol", protocol)
@@ -256,7 +256,7 @@ class FirewallRulesOutboundRulesItem(dict):
 
     @property
     @pulumi.getter
-    def protocol(self) -> 'FirewallRuleBaseProtocol':
+    def protocol(self) -> 'FirewallsRulesFirewallRuleBaseProtocol':
         """
         The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
@@ -264,7 +264,7 @@ class FirewallRulesOutboundRulesItem(dict):
 
 
 @pulumi.output_type
-class GetFirewallsProperties(dict):
+class GetFirewallProperties(dict):
     def __init__(__self__, *,
                  firewall: Optional['outputs.Firewall'] = None):
         if firewall is not None:

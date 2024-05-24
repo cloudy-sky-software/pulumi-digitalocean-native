@@ -51,13 +51,6 @@ export const AlertPolicyWindow = {
 
 export type AlertPolicyWindow = (typeof AlertPolicyWindow)[keyof typeof AlertPolicyWindow];
 
-export const Compare = {
-    GreaterThan: "GreaterThan",
-    LessThan: "LessThan",
-} as const;
-
-export type Compare = (typeof Compare)[keyof typeof Compare];
-
 export const MetricsDataResultType = {
     Matrix: "matrix",
 } as const;
@@ -71,7 +64,14 @@ export const MetricsStatus = {
 
 export type MetricsStatus = (typeof MetricsStatus)[keyof typeof MetricsStatus];
 
-export const Type = {
+export const MonitoringAlertPolicyCompare = {
+    GreaterThan: "GreaterThan",
+    LessThan: "LessThan",
+} as const;
+
+export type MonitoringAlertPolicyCompare = (typeof MonitoringAlertPolicyCompare)[keyof typeof MonitoringAlertPolicyCompare];
+
+export const MonitoringAlertPolicyType = {
     V1insightsdropletload1: "v1/insights/droplet/load_1",
     V1insightsdropletload5: "v1/insights/droplet/load_5",
     V1insightsdropletload15: "v1/insights/droplet/load_15",
@@ -102,13 +102,13 @@ export const Type = {
     V1dbaasalertscpuAlerts: "v1/dbaas/alerts/cpu_alerts",
 } as const;
 
-export type Type = (typeof Type)[keyof typeof Type];
+export type MonitoringAlertPolicyType = (typeof MonitoringAlertPolicyType)[keyof typeof MonitoringAlertPolicyType];
 
-export const Window = {
-    Window_5m: "5m",
-    Window_10m: "10m",
-    Window_30m: "30m",
-    Window_1h: "1h",
+export const MonitoringAlertPolicyWindow = {
+    MonitoringAlertPolicyWindow_5m: "5m",
+    MonitoringAlertPolicyWindow_10m: "10m",
+    MonitoringAlertPolicyWindow_30m: "30m",
+    MonitoringAlertPolicyWindow_1h: "1h",
 } as const;
 
-export type Window = (typeof Window)[keyof typeof Window];
+export type MonitoringAlertPolicyWindow = (typeof MonitoringAlertPolicyWindow)[keyof typeof MonitoringAlertPolicyWindow];

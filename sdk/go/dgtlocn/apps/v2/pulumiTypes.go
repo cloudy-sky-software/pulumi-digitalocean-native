@@ -823,12 +823,12 @@ func (o AppAlertSlackWebhookArrayOutput) Index(i pulumi.IntInput) AppAlertSlackW
 
 type AppAlertSpec struct {
 	// Is the alert disabled?
-	Disabled *bool                 `pulumi:"disabled"`
-	Operator *AppAlertSpecOperator `pulumi:"operator"`
-	Rule     *AppAlertSpecRule     `pulumi:"rule"`
+	Disabled *bool                                    `pulumi:"disabled"`
+	Operator *AppsValidateAppSpecAppAlertSpecOperator `pulumi:"operator"`
+	Rule     *AppsValidateAppSpecAppAlertSpecRule     `pulumi:"rule"`
 	// Threshold value for alert
-	Value  *float64            `pulumi:"value"`
-	Window *AppAlertSpecWindow `pulumi:"window"`
+	Value  *float64                               `pulumi:"value"`
+	Window *AppsValidateAppSpecAppAlertSpecWindow `pulumi:"window"`
 }
 
 // Defaults sets the appropriate defaults for AppAlertSpec
@@ -838,15 +838,15 @@ func (val *AppAlertSpec) Defaults() *AppAlertSpec {
 	}
 	tmp := *val
 	if tmp.Operator == nil {
-		operator_ := AppAlertSpecOperator("UNSPECIFIED_OPERATOR")
+		operator_ := AppsValidateAppSpecAppAlertSpecOperator("UNSPECIFIED_OPERATOR")
 		tmp.Operator = &operator_
 	}
 	if tmp.Rule == nil {
-		rule_ := AppAlertSpecRule("UNSPECIFIED_RULE")
+		rule_ := AppsValidateAppSpecAppAlertSpecRule("UNSPECIFIED_RULE")
 		tmp.Rule = &rule_
 	}
 	if tmp.Window == nil {
-		window_ := AppAlertSpecWindow("UNSPECIFIED_WINDOW")
+		window_ := AppsValidateAppSpecAppAlertSpecWindow("UNSPECIFIED_WINDOW")
 		tmp.Window = &window_
 	}
 	return &tmp
@@ -865,12 +865,12 @@ type AppAlertSpecInput interface {
 
 type AppAlertSpecArgs struct {
 	// Is the alert disabled?
-	Disabled pulumi.BoolPtrInput          `pulumi:"disabled"`
-	Operator AppAlertSpecOperatorPtrInput `pulumi:"operator"`
-	Rule     AppAlertSpecRulePtrInput     `pulumi:"rule"`
+	Disabled pulumi.BoolPtrInput                             `pulumi:"disabled"`
+	Operator AppsValidateAppSpecAppAlertSpecOperatorPtrInput `pulumi:"operator"`
+	Rule     AppsValidateAppSpecAppAlertSpecRulePtrInput     `pulumi:"rule"`
 	// Threshold value for alert
-	Value  pulumi.Float64PtrInput     `pulumi:"value"`
-	Window AppAlertSpecWindowPtrInput `pulumi:"window"`
+	Value  pulumi.Float64PtrInput                        `pulumi:"value"`
+	Window AppsValidateAppSpecAppAlertSpecWindowPtrInput `pulumi:"window"`
 }
 
 // Defaults sets the appropriate defaults for AppAlertSpecArgs
@@ -880,13 +880,13 @@ func (val *AppAlertSpecArgs) Defaults() *AppAlertSpecArgs {
 	}
 	tmp := *val
 	if tmp.Operator == nil {
-		tmp.Operator = AppAlertSpecOperator("UNSPECIFIED_OPERATOR")
+		tmp.Operator = AppsValidateAppSpecAppAlertSpecOperator("UNSPECIFIED_OPERATOR")
 	}
 	if tmp.Rule == nil {
-		tmp.Rule = AppAlertSpecRule("UNSPECIFIED_RULE")
+		tmp.Rule = AppsValidateAppSpecAppAlertSpecRule("UNSPECIFIED_RULE")
 	}
 	if tmp.Window == nil {
-		tmp.Window = AppAlertSpecWindow("UNSPECIFIED_WINDOW")
+		tmp.Window = AppsValidateAppSpecAppAlertSpecWindow("UNSPECIFIED_WINDOW")
 	}
 	return &tmp
 }
@@ -946,12 +946,12 @@ func (o AppAlertSpecOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAlertSpec) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o AppAlertSpecOutput) Operator() AppAlertSpecOperatorPtrOutput {
-	return o.ApplyT(func(v AppAlertSpec) *AppAlertSpecOperator { return v.Operator }).(AppAlertSpecOperatorPtrOutput)
+func (o AppAlertSpecOutput) Operator() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
+	return o.ApplyT(func(v AppAlertSpec) *AppsValidateAppSpecAppAlertSpecOperator { return v.Operator }).(AppsValidateAppSpecAppAlertSpecOperatorPtrOutput)
 }
 
-func (o AppAlertSpecOutput) Rule() AppAlertSpecRulePtrOutput {
-	return o.ApplyT(func(v AppAlertSpec) *AppAlertSpecRule { return v.Rule }).(AppAlertSpecRulePtrOutput)
+func (o AppAlertSpecOutput) Rule() AppsValidateAppSpecAppAlertSpecRulePtrOutput {
+	return o.ApplyT(func(v AppAlertSpec) *AppsValidateAppSpecAppAlertSpecRule { return v.Rule }).(AppsValidateAppSpecAppAlertSpecRulePtrOutput)
 }
 
 // Threshold value for alert
@@ -959,8 +959,8 @@ func (o AppAlertSpecOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppAlertSpec) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
-func (o AppAlertSpecOutput) Window() AppAlertSpecWindowPtrOutput {
-	return o.ApplyT(func(v AppAlertSpec) *AppAlertSpecWindow { return v.Window }).(AppAlertSpecWindowPtrOutput)
+func (o AppAlertSpecOutput) Window() AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
+	return o.ApplyT(func(v AppAlertSpec) *AppsValidateAppSpecAppAlertSpecWindow { return v.Window }).(AppsValidateAppSpecAppAlertSpecWindowPtrOutput)
 }
 
 type AppAlertSpecPtrOutput struct{ *pulumi.OutputState }
@@ -997,22 +997,22 @@ func (o AppAlertSpecPtrOutput) Disabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o AppAlertSpecPtrOutput) Operator() AppAlertSpecOperatorPtrOutput {
-	return o.ApplyT(func(v *AppAlertSpec) *AppAlertSpecOperator {
+func (o AppAlertSpecPtrOutput) Operator() AppsValidateAppSpecAppAlertSpecOperatorPtrOutput {
+	return o.ApplyT(func(v *AppAlertSpec) *AppsValidateAppSpecAppAlertSpecOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Operator
-	}).(AppAlertSpecOperatorPtrOutput)
+	}).(AppsValidateAppSpecAppAlertSpecOperatorPtrOutput)
 }
 
-func (o AppAlertSpecPtrOutput) Rule() AppAlertSpecRulePtrOutput {
-	return o.ApplyT(func(v *AppAlertSpec) *AppAlertSpecRule {
+func (o AppAlertSpecPtrOutput) Rule() AppsValidateAppSpecAppAlertSpecRulePtrOutput {
+	return o.ApplyT(func(v *AppAlertSpec) *AppsValidateAppSpecAppAlertSpecRule {
 		if v == nil {
 			return nil
 		}
 		return v.Rule
-	}).(AppAlertSpecRulePtrOutput)
+	}).(AppsValidateAppSpecAppAlertSpecRulePtrOutput)
 }
 
 // Threshold value for alert
@@ -1025,13 +1025,13 @@ func (o AppAlertSpecPtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o AppAlertSpecPtrOutput) Window() AppAlertSpecWindowPtrOutput {
-	return o.ApplyT(func(v *AppAlertSpec) *AppAlertSpecWindow {
+func (o AppAlertSpecPtrOutput) Window() AppsValidateAppSpecAppAlertSpecWindowPtrOutput {
+	return o.ApplyT(func(v *AppAlertSpec) *AppsValidateAppSpecAppAlertSpecWindow {
 		if v == nil {
 			return nil
 		}
 		return v.Window
-	}).(AppAlertSpecWindowPtrOutput)
+	}).(AppsValidateAppSpecAppAlertSpecWindowPtrOutput)
 }
 
 type AppAlertSpecArrayOutput struct{ *pulumi.OutputState }
@@ -1064,7 +1064,7 @@ type AppDatabaseSpec struct {
 	// - MYSQL: MySQL
 	// - PG: PostgreSQL
 	// - REDIS: Redis
-	Engine *AppDatabaseSpecEngine `pulumi:"engine"`
+	Engine *AppsValidateAppSpecAppDatabaseSpecEngine `pulumi:"engine"`
 	// The name. Must be unique across all components within the same app.
 	Name string `pulumi:"name"`
 	// Whether this is a production or dev database.
@@ -1080,7 +1080,7 @@ func (val *AppDatabaseSpec) Defaults() *AppDatabaseSpec {
 	}
 	tmp := *val
 	if tmp.Engine == nil {
-		engine_ := AppDatabaseSpecEngine("UNSET")
+		engine_ := AppsValidateAppSpecAppDatabaseSpecEngine("UNSET")
 		tmp.Engine = &engine_
 	}
 	return &tmp
@@ -1107,7 +1107,7 @@ type AppDatabaseSpecArgs struct {
 	// - MYSQL: MySQL
 	// - PG: PostgreSQL
 	// - REDIS: Redis
-	Engine AppDatabaseSpecEnginePtrInput `pulumi:"engine"`
+	Engine AppsValidateAppSpecAppDatabaseSpecEnginePtrInput `pulumi:"engine"`
 	// The name. Must be unique across all components within the same app.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether this is a production or dev database.
@@ -1123,7 +1123,7 @@ func (val *AppDatabaseSpecArgs) Defaults() *AppDatabaseSpecArgs {
 	}
 	tmp := *val
 	if tmp.Engine == nil {
-		tmp.Engine = AppDatabaseSpecEngine("UNSET")
+		tmp.Engine = AppsValidateAppSpecAppDatabaseSpecEngine("UNSET")
 	}
 	return &tmp
 }
@@ -1196,8 +1196,8 @@ func (o AppDatabaseSpecOutput) DbUser() pulumi.StringPtrOutput {
 // - MYSQL: MySQL
 // - PG: PostgreSQL
 // - REDIS: Redis
-func (o AppDatabaseSpecOutput) Engine() AppDatabaseSpecEnginePtrOutput {
-	return o.ApplyT(func(v AppDatabaseSpec) *AppDatabaseSpecEngine { return v.Engine }).(AppDatabaseSpecEnginePtrOutput)
+func (o AppDatabaseSpecOutput) Engine() AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput {
+	return o.ApplyT(func(v AppDatabaseSpec) *AppsValidateAppSpecAppDatabaseSpecEngine { return v.Engine }).(AppsValidateAppSpecAppDatabaseSpecEnginePtrOutput)
 }
 
 // The name. Must be unique across all components within the same app.
@@ -1239,11 +1239,11 @@ type AppDomainSpec struct {
 	// The hostname for the domain
 	Domain string `pulumi:"domain"`
 	// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-	MinimumTlsVersion *AppDomainSpecMinimumTlsVersion `pulumi:"minimumTlsVersion"`
+	MinimumTlsVersion *AppsValidateAppSpecAppDomainSpecMinimumTlsVersion `pulumi:"minimumTlsVersion"`
 	// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
 	// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
 	// - ALIAS: A non-primary domain
-	Type *AppDomainSpecType `pulumi:"type"`
+	Type *AppsValidateAppSpecAppDomainSpecType `pulumi:"type"`
 	// Indicates whether the domain includes all sub-domains, in addition to the given domain
 	Wildcard *bool `pulumi:"wildcard"`
 	// Optional. If the domain uses DigitalOcean DNS and you would like App
@@ -1262,7 +1262,7 @@ func (val *AppDomainSpec) Defaults() *AppDomainSpec {
 	}
 	tmp := *val
 	if tmp.Type == nil {
-		type_ := AppDomainSpecType("UNSPECIFIED")
+		type_ := AppsValidateAppSpecAppDomainSpecType("UNSPECIFIED")
 		tmp.Type = &type_
 	}
 	return &tmp
@@ -1283,11 +1283,11 @@ type AppDomainSpecArgs struct {
 	// The hostname for the domain
 	Domain pulumi.StringInput `pulumi:"domain"`
 	// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-	MinimumTlsVersion AppDomainSpecMinimumTlsVersionPtrInput `pulumi:"minimumTlsVersion"`
+	MinimumTlsVersion AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrInput `pulumi:"minimumTlsVersion"`
 	// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
 	// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
 	// - ALIAS: A non-primary domain
-	Type AppDomainSpecTypePtrInput `pulumi:"type"`
+	Type AppsValidateAppSpecAppDomainSpecTypePtrInput `pulumi:"type"`
 	// Indicates whether the domain includes all sub-domains, in addition to the given domain
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 	// Optional. If the domain uses DigitalOcean DNS and you would like App
@@ -1306,7 +1306,7 @@ func (val *AppDomainSpecArgs) Defaults() *AppDomainSpecArgs {
 	}
 	tmp := *val
 	if tmp.Type == nil {
-		tmp.Type = AppDomainSpecType("UNSPECIFIED")
+		tmp.Type = AppsValidateAppSpecAppDomainSpecType("UNSPECIFIED")
 	}
 	return &tmp
 }
@@ -1367,15 +1367,15 @@ func (o AppDomainSpecOutput) Domain() pulumi.StringOutput {
 }
 
 // The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-func (o AppDomainSpecOutput) MinimumTlsVersion() AppDomainSpecMinimumTlsVersionPtrOutput {
-	return o.ApplyT(func(v AppDomainSpec) *AppDomainSpecMinimumTlsVersion { return v.MinimumTlsVersion }).(AppDomainSpecMinimumTlsVersionPtrOutput)
+func (o AppDomainSpecOutput) MinimumTlsVersion() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
+	return o.ApplyT(func(v AppDomainSpec) *AppsValidateAppSpecAppDomainSpecMinimumTlsVersion { return v.MinimumTlsVersion }).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput)
 }
 
 // - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
 // - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
 // - ALIAS: A non-primary domain
-func (o AppDomainSpecOutput) Type() AppDomainSpecTypePtrOutput {
-	return o.ApplyT(func(v AppDomainSpec) *AppDomainSpecType { return v.Type }).(AppDomainSpecTypePtrOutput)
+func (o AppDomainSpecOutput) Type() AppsValidateAppSpecAppDomainSpecTypePtrOutput {
+	return o.ApplyT(func(v AppDomainSpec) *AppsValidateAppSpecAppDomainSpecType { return v.Type }).(AppsValidateAppSpecAppDomainSpecTypePtrOutput)
 }
 
 // Indicates whether the domain includes all sub-domains, in addition to the given domain
@@ -1428,25 +1428,25 @@ func (o AppDomainSpecPtrOutput) Domain() pulumi.StringPtrOutput {
 }
 
 // The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
-func (o AppDomainSpecPtrOutput) MinimumTlsVersion() AppDomainSpecMinimumTlsVersionPtrOutput {
-	return o.ApplyT(func(v *AppDomainSpec) *AppDomainSpecMinimumTlsVersion {
+func (o AppDomainSpecPtrOutput) MinimumTlsVersion() AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput {
+	return o.ApplyT(func(v *AppDomainSpec) *AppsValidateAppSpecAppDomainSpecMinimumTlsVersion {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTlsVersion
-	}).(AppDomainSpecMinimumTlsVersionPtrOutput)
+	}).(AppsValidateAppSpecAppDomainSpecMinimumTlsVersionPtrOutput)
 }
 
 // - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
 // - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
 // - ALIAS: A non-primary domain
-func (o AppDomainSpecPtrOutput) Type() AppDomainSpecTypePtrOutput {
-	return o.ApplyT(func(v *AppDomainSpec) *AppDomainSpecType {
+func (o AppDomainSpecPtrOutput) Type() AppsValidateAppSpecAppDomainSpecTypePtrOutput {
+	return o.ApplyT(func(v *AppDomainSpec) *AppsValidateAppSpecAppDomainSpecType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(AppDomainSpecTypePtrOutput)
+	}).(AppsValidateAppSpecAppDomainSpecTypePtrOutput)
 }
 
 // Indicates whether the domain includes all sub-domains, in addition to the given domain
@@ -2652,13 +2652,13 @@ type AppJobSpec struct {
 	// The amount of instances that this component should be scaled to. Default: 1
 	InstanceCount *int `pulumi:"instanceCount"`
 	// The instance size to use for this component. Default: `basic-xxs`
-	InstanceSizeSlug *AppComponentInstanceBaseInstanceSizeSlug `pulumi:"instanceSizeSlug"`
+	InstanceSizeSlug *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug `pulumi:"instanceSizeSlug"`
 	// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
 	// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
 	// - POST_DEPLOY: Indicates a job that runs after an app deployment.
 	// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
-	Kind            *AppJobSpecPropertiesKind    `pulumi:"kind"`
-	LogDestinations *AppLogDestinationDefinition `pulumi:"logDestinations"`
+	Kind            *AppsValidateAppSpecAppJobSpecPropertiesKind `pulumi:"kind"`
+	LogDestinations *AppLogDestinationDefinition                 `pulumi:"logDestinations"`
 	// The name. Must be unique across all components within the same app.
 	Name *string `pulumi:"name"`
 	// An optional run command to override the component's default.
@@ -2680,11 +2680,11 @@ func (val *AppJobSpec) Defaults() *AppJobSpec {
 		tmp.InstanceCount = &instanceCount_
 	}
 	if tmp.InstanceSizeSlug == nil {
-		instanceSizeSlug_ := AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+		instanceSizeSlug_ := AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
 		tmp.InstanceSizeSlug = &instanceSizeSlug_
 	}
 	if tmp.Kind == nil {
-		kind_ := AppJobSpecPropertiesKind("UNSPECIFIED")
+		kind_ := AppsValidateAppSpecAppJobSpecPropertiesKind("UNSPECIFIED")
 		tmp.Kind = &kind_
 	}
 	return &tmp
@@ -2717,13 +2717,13 @@ type AppJobSpecArgs struct {
 	// The amount of instances that this component should be scaled to. Default: 1
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// The instance size to use for this component. Default: `basic-xxs`
-	InstanceSizeSlug AppComponentInstanceBaseInstanceSizeSlugPtrInput `pulumi:"instanceSizeSlug"`
+	InstanceSizeSlug AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrInput `pulumi:"instanceSizeSlug"`
 	// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
 	// - PRE_DEPLOY: Indicates a job that runs before an app deployment.
 	// - POST_DEPLOY: Indicates a job that runs after an app deployment.
 	// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
-	Kind            AppJobSpecPropertiesKindPtrInput    `pulumi:"kind"`
-	LogDestinations AppLogDestinationDefinitionPtrInput `pulumi:"logDestinations"`
+	Kind            AppsValidateAppSpecAppJobSpecPropertiesKindPtrInput `pulumi:"kind"`
+	LogDestinations AppLogDestinationDefinitionPtrInput                 `pulumi:"logDestinations"`
 	// The name. Must be unique across all components within the same app.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// An optional run command to override the component's default.
@@ -2743,10 +2743,10 @@ func (val *AppJobSpecArgs) Defaults() *AppJobSpecArgs {
 		tmp.InstanceCount = pulumi.IntPtr(1)
 	}
 	if tmp.InstanceSizeSlug == nil {
-		tmp.InstanceSizeSlug = AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+		tmp.InstanceSizeSlug = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
 	}
 	if tmp.Kind == nil {
-		tmp.Kind = AppJobSpecPropertiesKind("UNSPECIFIED")
+		tmp.Kind = AppsValidateAppSpecAppJobSpecPropertiesKind("UNSPECIFIED")
 	}
 	return &tmp
 }
@@ -2843,16 +2843,18 @@ func (o AppJobSpecOutput) InstanceCount() pulumi.IntPtrOutput {
 }
 
 // The instance size to use for this component. Default: `basic-xxs`
-func (o AppJobSpecOutput) InstanceSizeSlug() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o.ApplyT(func(v AppJobSpec) *AppComponentInstanceBaseInstanceSizeSlug { return v.InstanceSizeSlug }).(AppComponentInstanceBaseInstanceSizeSlugPtrOutput)
+func (o AppJobSpecOutput) InstanceSizeSlug() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o.ApplyT(func(v AppJobSpec) *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug {
+		return v.InstanceSizeSlug
+	}).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput)
 }
 
 // - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
 // - PRE_DEPLOY: Indicates a job that runs before an app deployment.
 // - POST_DEPLOY: Indicates a job that runs after an app deployment.
 // - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
-func (o AppJobSpecOutput) Kind() AppJobSpecPropertiesKindPtrOutput {
-	return o.ApplyT(func(v AppJobSpec) *AppJobSpecPropertiesKind { return v.Kind }).(AppJobSpecPropertiesKindPtrOutput)
+func (o AppJobSpecOutput) Kind() AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput {
+	return o.ApplyT(func(v AppJobSpec) *AppsValidateAppSpecAppJobSpecPropertiesKind { return v.Kind }).(AppsValidateAppSpecAppJobSpecPropertiesKindPtrOutput)
 }
 
 func (o AppJobSpecOutput) LogDestinations() AppLogDestinationDefinitionPtrOutput {
@@ -4190,8 +4192,8 @@ type AppRollbackValidationCondition struct {
 	// Warning conditions:
 	//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
 	//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-	Code       *AppRollbackValidationConditionCode `pulumi:"code"`
-	Components []string                            `pulumi:"components"`
+	Code       *AppsValidateRollbackAppRollbackValidationConditionCode `pulumi:"code"`
+	Components []string                                                `pulumi:"components"`
 	// A human-readable message describing the failing condition.
 	Message *string `pulumi:"message"`
 }
@@ -4223,8 +4225,10 @@ func (o AppRollbackValidationConditionOutput) ToAppRollbackValidationConditionOu
 // Warning conditions:
 //   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
 //   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-func (o AppRollbackValidationConditionOutput) Code() AppRollbackValidationConditionCodePtrOutput {
-	return o.ApplyT(func(v AppRollbackValidationCondition) *AppRollbackValidationConditionCode { return v.Code }).(AppRollbackValidationConditionCodePtrOutput)
+func (o AppRollbackValidationConditionOutput) Code() AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
+	return o.ApplyT(func(v AppRollbackValidationCondition) *AppsValidateRollbackAppRollbackValidationConditionCode {
+		return v.Code
+	}).(AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput)
 }
 
 func (o AppRollbackValidationConditionOutput) Components() pulumi.StringArrayOutput {
@@ -4383,7 +4387,7 @@ type AppServiceSpec struct {
 	// The amount of instances that this component should be scaled to. Default: 1
 	InstanceCount *int `pulumi:"instanceCount"`
 	// The instance size to use for this component. Default: `basic-xxs`
-	InstanceSizeSlug *AppComponentInstanceBaseInstanceSizeSlug `pulumi:"instanceSizeSlug"`
+	InstanceSizeSlug *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug `pulumi:"instanceSizeSlug"`
 	// The ports on which this service will listen for internal traffic.
 	InternalPorts   []int                        `pulumi:"internalPorts"`
 	LogDestinations *AppLogDestinationDefinition `pulumi:"logDestinations"`
@@ -4410,7 +4414,7 @@ func (val *AppServiceSpec) Defaults() *AppServiceSpec {
 		tmp.InstanceCount = &instanceCount_
 	}
 	if tmp.InstanceSizeSlug == nil {
-		instanceSizeSlug_ := AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+		instanceSizeSlug_ := AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
 		tmp.InstanceSizeSlug = &instanceSizeSlug_
 	}
 	return &tmp
@@ -4448,7 +4452,7 @@ type AppServiceSpecArgs struct {
 	// The amount of instances that this component should be scaled to. Default: 1
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// The instance size to use for this component. Default: `basic-xxs`
-	InstanceSizeSlug AppComponentInstanceBaseInstanceSizeSlugPtrInput `pulumi:"instanceSizeSlug"`
+	InstanceSizeSlug AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrInput `pulumi:"instanceSizeSlug"`
 	// The ports on which this service will listen for internal traffic.
 	InternalPorts   pulumi.IntArrayInput                `pulumi:"internalPorts"`
 	LogDestinations AppLogDestinationDefinitionPtrInput `pulumi:"logDestinations"`
@@ -4473,7 +4477,7 @@ func (val *AppServiceSpecArgs) Defaults() *AppServiceSpecArgs {
 		tmp.InstanceCount = pulumi.IntPtr(1)
 	}
 	if tmp.InstanceSizeSlug == nil {
-		tmp.InstanceSizeSlug = AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+		tmp.InstanceSizeSlug = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
 	}
 	return &tmp
 }
@@ -4584,8 +4588,10 @@ func (o AppServiceSpecOutput) InstanceCount() pulumi.IntPtrOutput {
 }
 
 // The instance size to use for this component. Default: `basic-xxs`
-func (o AppServiceSpecOutput) InstanceSizeSlug() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o.ApplyT(func(v AppServiceSpec) *AppComponentInstanceBaseInstanceSizeSlug { return v.InstanceSizeSlug }).(AppComponentInstanceBaseInstanceSizeSlugPtrOutput)
+func (o AppServiceSpecOutput) InstanceSizeSlug() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o.ApplyT(func(v AppServiceSpec) *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug {
+		return v.InstanceSizeSlug
+	}).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput)
 }
 
 // The ports on which this service will listen for internal traffic.
@@ -4904,7 +4910,7 @@ type AppSpec struct {
 	// The name of the app. Must be unique across all apps in the same account.
 	Name string `pulumi:"name"`
 	// The slug form of the geographical origin of the app. Default: `nearest available`
-	Region *AppSpecRegion `pulumi:"region"`
+	Region *AppsValidateAppSpecAppSpecRegion `pulumi:"region"`
 	// Workloads which expose publicly-accessible HTTP services.
 	Services []AppServiceSpec `pulumi:"services"`
 	// Content which can be rendered to static web assets.
@@ -4940,7 +4946,7 @@ type AppSpecArgs struct {
 	// The name of the app. Must be unique across all apps in the same account.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The slug form of the geographical origin of the app. Default: `nearest available`
-	Region AppSpecRegionPtrInput `pulumi:"region"`
+	Region AppsValidateAppSpecAppSpecRegionPtrInput `pulumi:"region"`
 	// Workloads which expose publicly-accessible HTTP services.
 	Services AppServiceSpecArrayInput `pulumi:"services"`
 	// Content which can be rendered to static web assets.
@@ -5008,8 +5014,8 @@ func (o AppSpecOutput) Name() pulumi.StringOutput {
 }
 
 // The slug form of the geographical origin of the app. Default: `nearest available`
-func (o AppSpecOutput) Region() AppSpecRegionPtrOutput {
-	return o.ApplyT(func(v AppSpec) *AppSpecRegion { return v.Region }).(AppSpecRegionPtrOutput)
+func (o AppSpecOutput) Region() AppsValidateAppSpecAppSpecRegionPtrOutput {
+	return o.ApplyT(func(v AppSpec) *AppsValidateAppSpecAppSpecRegion { return v.Region }).(AppsValidateAppSpecAppSpecRegionPtrOutput)
 }
 
 // Workloads which expose publicly-accessible HTTP services.
@@ -5113,13 +5119,13 @@ func (o AppSpecPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The slug form of the geographical origin of the app. Default: `nearest available`
-func (o AppSpecPtrOutput) Region() AppSpecRegionPtrOutput {
-	return o.ApplyT(func(v *AppSpec) *AppSpecRegion {
+func (o AppSpecPtrOutput) Region() AppsValidateAppSpecAppSpecRegionPtrOutput {
+	return o.ApplyT(func(v *AppSpec) *AppsValidateAppSpecAppSpecRegion {
 		if v == nil {
 			return nil
 		}
 		return v.Region
-	}).(AppSpecRegionPtrOutput)
+	}).(AppsValidateAppSpecAppSpecRegionPtrOutput)
 }
 
 // Workloads which expose publicly-accessible HTTP services.
@@ -5424,10 +5430,10 @@ type AppVariableDefinition struct {
 	// - RUN_TIME: Made available only at run-time
 	// - BUILD_TIME: Made available only at build-time
 	// - RUN_AND_BUILD_TIME: Made available at both build and run-time
-	Scope *AppVariableDefinitionScope `pulumi:"scope"`
+	Scope *AppsValidateAppSpecAppVariableDefinitionScope `pulumi:"scope"`
 	// - GENERAL: A plain-text environment variable
 	// - SECRET: A secret encrypted environment variable
-	Type *AppVariableDefinitionType `pulumi:"type"`
+	Type *AppsValidateAppSpecAppVariableDefinitionType `pulumi:"type"`
 	// The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
 	Value *string `pulumi:"value"`
 }
@@ -5439,11 +5445,11 @@ func (val *AppVariableDefinition) Defaults() *AppVariableDefinition {
 	}
 	tmp := *val
 	if tmp.Scope == nil {
-		scope_ := AppVariableDefinitionScope("RUN_AND_BUILD_TIME")
+		scope_ := AppsValidateAppSpecAppVariableDefinitionScope("RUN_AND_BUILD_TIME")
 		tmp.Scope = &scope_
 	}
 	if tmp.Type == nil {
-		type_ := AppVariableDefinitionType("GENERAL")
+		type_ := AppsValidateAppSpecAppVariableDefinitionType("GENERAL")
 		tmp.Type = &type_
 	}
 	return &tmp
@@ -5466,10 +5472,10 @@ type AppVariableDefinitionArgs struct {
 	// - RUN_TIME: Made available only at run-time
 	// - BUILD_TIME: Made available only at build-time
 	// - RUN_AND_BUILD_TIME: Made available at both build and run-time
-	Scope AppVariableDefinitionScopePtrInput `pulumi:"scope"`
+	Scope AppsValidateAppSpecAppVariableDefinitionScopePtrInput `pulumi:"scope"`
 	// - GENERAL: A plain-text environment variable
 	// - SECRET: A secret encrypted environment variable
-	Type AppVariableDefinitionTypePtrInput `pulumi:"type"`
+	Type AppsValidateAppSpecAppVariableDefinitionTypePtrInput `pulumi:"type"`
 	// The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -5481,10 +5487,10 @@ func (val *AppVariableDefinitionArgs) Defaults() *AppVariableDefinitionArgs {
 	}
 	tmp := *val
 	if tmp.Scope == nil {
-		tmp.Scope = AppVariableDefinitionScope("RUN_AND_BUILD_TIME")
+		tmp.Scope = AppsValidateAppSpecAppVariableDefinitionScope("RUN_AND_BUILD_TIME")
 	}
 	if tmp.Type == nil {
-		tmp.Type = AppVariableDefinitionType("GENERAL")
+		tmp.Type = AppsValidateAppSpecAppVariableDefinitionType("GENERAL")
 	}
 	return &tmp
 }
@@ -5547,14 +5553,14 @@ func (o AppVariableDefinitionOutput) Key() pulumi.StringOutput {
 // - RUN_TIME: Made available only at run-time
 // - BUILD_TIME: Made available only at build-time
 // - RUN_AND_BUILD_TIME: Made available at both build and run-time
-func (o AppVariableDefinitionOutput) Scope() AppVariableDefinitionScopePtrOutput {
-	return o.ApplyT(func(v AppVariableDefinition) *AppVariableDefinitionScope { return v.Scope }).(AppVariableDefinitionScopePtrOutput)
+func (o AppVariableDefinitionOutput) Scope() AppsValidateAppSpecAppVariableDefinitionScopePtrOutput {
+	return o.ApplyT(func(v AppVariableDefinition) *AppsValidateAppSpecAppVariableDefinitionScope { return v.Scope }).(AppsValidateAppSpecAppVariableDefinitionScopePtrOutput)
 }
 
 // - GENERAL: A plain-text environment variable
 // - SECRET: A secret encrypted environment variable
-func (o AppVariableDefinitionOutput) Type() AppVariableDefinitionTypePtrOutput {
-	return o.ApplyT(func(v AppVariableDefinition) *AppVariableDefinitionType { return v.Type }).(AppVariableDefinitionTypePtrOutput)
+func (o AppVariableDefinitionOutput) Type() AppsValidateAppSpecAppVariableDefinitionTypePtrOutput {
+	return o.ApplyT(func(v AppVariableDefinition) *AppsValidateAppSpecAppVariableDefinitionType { return v.Type }).(AppsValidateAppSpecAppVariableDefinitionTypePtrOutput)
 }
 
 // The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
@@ -5598,8 +5604,8 @@ type AppWorkerSpec struct {
 	// The amount of instances that this component should be scaled to. Default: 1
 	InstanceCount *int `pulumi:"instanceCount"`
 	// The instance size to use for this component. Default: `basic-xxs`
-	InstanceSizeSlug *AppComponentInstanceBaseInstanceSizeSlug `pulumi:"instanceSizeSlug"`
-	LogDestinations  *AppLogDestinationDefinition              `pulumi:"logDestinations"`
+	InstanceSizeSlug *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug `pulumi:"instanceSizeSlug"`
+	LogDestinations  *AppLogDestinationDefinition                                 `pulumi:"logDestinations"`
 	// The name. Must be unique across all components within the same app.
 	Name *string `pulumi:"name"`
 	// An optional run command to override the component's default.
@@ -5621,7 +5627,7 @@ func (val *AppWorkerSpec) Defaults() *AppWorkerSpec {
 		tmp.InstanceCount = &instanceCount_
 	}
 	if tmp.InstanceSizeSlug == nil {
-		instanceSizeSlug_ := AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+		instanceSizeSlug_ := AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
 		tmp.InstanceSizeSlug = &instanceSizeSlug_
 	}
 	return &tmp
@@ -5654,8 +5660,8 @@ type AppWorkerSpecArgs struct {
 	// The amount of instances that this component should be scaled to. Default: 1
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// The instance size to use for this component. Default: `basic-xxs`
-	InstanceSizeSlug AppComponentInstanceBaseInstanceSizeSlugPtrInput `pulumi:"instanceSizeSlug"`
-	LogDestinations  AppLogDestinationDefinitionPtrInput              `pulumi:"logDestinations"`
+	InstanceSizeSlug AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrInput `pulumi:"instanceSizeSlug"`
+	LogDestinations  AppLogDestinationDefinitionPtrInput                                 `pulumi:"logDestinations"`
 	// The name. Must be unique across all components within the same app.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// An optional run command to override the component's default.
@@ -5675,7 +5681,7 @@ func (val *AppWorkerSpecArgs) Defaults() *AppWorkerSpecArgs {
 		tmp.InstanceCount = pulumi.IntPtr(1)
 	}
 	if tmp.InstanceSizeSlug == nil {
-		tmp.InstanceSizeSlug = AppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
+		tmp.InstanceSizeSlug = AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug("basic-xxs")
 	}
 	return &tmp
 }
@@ -5772,8 +5778,10 @@ func (o AppWorkerSpecOutput) InstanceCount() pulumi.IntPtrOutput {
 }
 
 // The instance size to use for this component. Default: `basic-xxs`
-func (o AppWorkerSpecOutput) InstanceSizeSlug() AppComponentInstanceBaseInstanceSizeSlugPtrOutput {
-	return o.ApplyT(func(v AppWorkerSpec) *AppComponentInstanceBaseInstanceSizeSlug { return v.InstanceSizeSlug }).(AppComponentInstanceBaseInstanceSizeSlugPtrOutput)
+func (o AppWorkerSpecOutput) InstanceSizeSlug() AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput {
+	return o.ApplyT(func(v AppWorkerSpec) *AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug {
+		return v.InstanceSizeSlug
+	}).(AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlugPtrOutput)
 }
 
 func (o AppWorkerSpecOutput) LogDestinations() AppLogDestinationDefinitionPtrOutput {
@@ -7686,7 +7694,7 @@ type AppsImageSourceSpec struct {
 	Registry *string `pulumi:"registry"`
 	// - DOCKER_HUB: The DockerHub container registry type.
 	// - DOCR: The DigitalOcean container registry type.
-	RegistryType *AppsImageSourceSpecRegistryType `pulumi:"registryType"`
+	RegistryType *AppsValidateAppSpecAppsImageSourceSpecRegistryType `pulumi:"registryType"`
 	// The repository name.
 	Repository *string `pulumi:"repository"`
 	// The repository tag. Defaults to `latest` if not provided.
@@ -7722,7 +7730,7 @@ type AppsImageSourceSpecArgs struct {
 	Registry pulumi.StringPtrInput `pulumi:"registry"`
 	// - DOCKER_HUB: The DockerHub container registry type.
 	// - DOCR: The DigitalOcean container registry type.
-	RegistryType AppsImageSourceSpecRegistryTypePtrInput `pulumi:"registryType"`
+	RegistryType AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrInput `pulumi:"registryType"`
 	// The repository name.
 	Repository pulumi.StringPtrInput `pulumi:"repository"`
 	// The repository tag. Defaults to `latest` if not provided.
@@ -7824,8 +7832,8 @@ func (o AppsImageSourceSpecOutput) Registry() pulumi.StringPtrOutput {
 
 // - DOCKER_HUB: The DockerHub container registry type.
 // - DOCR: The DigitalOcean container registry type.
-func (o AppsImageSourceSpecOutput) RegistryType() AppsImageSourceSpecRegistryTypePtrOutput {
-	return o.ApplyT(func(v AppsImageSourceSpec) *AppsImageSourceSpecRegistryType { return v.RegistryType }).(AppsImageSourceSpecRegistryTypePtrOutput)
+func (o AppsImageSourceSpecOutput) RegistryType() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
+	return o.ApplyT(func(v AppsImageSourceSpec) *AppsValidateAppSpecAppsImageSourceSpecRegistryType { return v.RegistryType }).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput)
 }
 
 // The repository name.
@@ -7874,13 +7882,13 @@ func (o AppsImageSourceSpecPtrOutput) Registry() pulumi.StringPtrOutput {
 
 // - DOCKER_HUB: The DockerHub container registry type.
 // - DOCR: The DigitalOcean container registry type.
-func (o AppsImageSourceSpecPtrOutput) RegistryType() AppsImageSourceSpecRegistryTypePtrOutput {
-	return o.ApplyT(func(v *AppsImageSourceSpec) *AppsImageSourceSpecRegistryType {
+func (o AppsImageSourceSpecPtrOutput) RegistryType() AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput {
+	return o.ApplyT(func(v *AppsImageSourceSpec) *AppsValidateAppSpecAppsImageSourceSpecRegistryType {
 		if v == nil {
 			return nil
 		}
 		return v.RegistryType
-	}).(AppsImageSourceSpecRegistryTypePtrOutput)
+	}).(AppsValidateAppSpecAppsImageSourceSpecRegistryTypePtrOutput)
 }
 
 // The repository name.
@@ -8678,8 +8686,8 @@ type Error struct {
 	// Warning conditions:
 	//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
 	//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-	Code       *AppRollbackValidationConditionCode `pulumi:"code"`
-	Components []string                            `pulumi:"components"`
+	Code       *AppsValidateRollbackAppRollbackValidationConditionCode `pulumi:"code"`
+	Components []string                                                `pulumi:"components"`
 	// A human-readable message describing the failing condition.
 	Message *string `pulumi:"message"`
 }
@@ -8711,8 +8719,8 @@ func (o ErrorOutput) ToErrorOutputWithContext(ctx context.Context) ErrorOutput {
 // Warning conditions:
 //   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
 //   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-func (o ErrorOutput) Code() AppRollbackValidationConditionCodePtrOutput {
-	return o.ApplyT(func(v Error) *AppRollbackValidationConditionCode { return v.Code }).(AppRollbackValidationConditionCodePtrOutput)
+func (o ErrorOutput) Code() AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
+	return o.ApplyT(func(v Error) *AppsValidateRollbackAppRollbackValidationConditionCode { return v.Code }).(AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput)
 }
 
 func (o ErrorOutput) Components() pulumi.StringArrayOutput {
@@ -8761,13 +8769,13 @@ func (o ErrorPtrOutput) Elem() ErrorOutput {
 // Warning conditions:
 //   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
 //   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-func (o ErrorPtrOutput) Code() AppRollbackValidationConditionCodePtrOutput {
-	return o.ApplyT(func(v *Error) *AppRollbackValidationConditionCode {
+func (o ErrorPtrOutput) Code() AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput {
+	return o.ApplyT(func(v *Error) *AppsValidateRollbackAppRollbackValidationConditionCode {
 		if v == nil {
 			return nil
 		}
 		return v.Code
-	}).(AppRollbackValidationConditionCodePtrOutput)
+	}).(AppsValidateRollbackAppRollbackValidationConditionCodePtrOutput)
 }
 
 func (o ErrorPtrOutput) Components() pulumi.StringArrayOutput {

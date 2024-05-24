@@ -12,7 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetTagsProperties',
+    'GetTagProperties',
     'ListTagsItems',
     'MetaMeta',
     'PageLinks',
@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTagsProperties(dict):
+class GetTagProperties(dict):
     def __init__(__self__, *,
                  tag: Optional['outputs.Tags'] = None):
         """
@@ -216,10 +216,10 @@ class ResourcesItemProperties(dict):
 
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
-                 resource_type: Optional['ResourcesItemPropertiesResourceType'] = None):
+                 resource_type: Optional['TagsAssignResourcesResourcesItemPropertiesResourceType'] = None):
         """
         :param str resource_id: The identifier of a resource.
-        :param 'ResourcesItemPropertiesResourceType' resource_type: The type of the resource.
+        :param 'TagsAssignResourcesResourcesItemPropertiesResourceType' resource_type: The type of the resource.
         """
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
@@ -236,7 +236,7 @@ class ResourcesItemProperties(dict):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional['ResourcesItemPropertiesResourceType']:
+    def resource_type(self) -> Optional['TagsAssignResourcesResourcesItemPropertiesResourceType']:
         """
         The type of the resource.
         """

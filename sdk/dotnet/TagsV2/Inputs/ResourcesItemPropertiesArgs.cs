@@ -22,7 +22,7 @@ namespace Pulumi.DigitalOceanNative.TagsV2.Inputs
         /// The type of the resource.
         /// </summary>
         [Input("resourceType")]
-        public Input<Pulumi.DigitalOceanNative.TagsV2.ResourcesItemPropertiesResourceType>? ResourceType { get; set; }
+        public Input<Pulumi.DigitalOceanNative.TagsV2.TagsAssignResourcesResourcesItemPropertiesResourceType>? ResourceType { get; set; }
 
         public ResourcesItemPropertiesArgs()
         {

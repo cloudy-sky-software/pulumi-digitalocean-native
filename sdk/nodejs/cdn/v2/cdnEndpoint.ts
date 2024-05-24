@@ -54,7 +54,7 @@ export class CdnEndpoint extends pulumi.CustomResource {
     /**
      * The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
      */
-    public readonly ttl!: pulumi.Output<enums.cdn.v2.Ttl | undefined>;
+    public readonly ttl!: pulumi.Output<enums.cdn.v2.CdnEndpointTtl | undefined>;
 
     /**
      * Create a CdnEndpoint resource with the given unique name, arguments, and options.
@@ -108,5 +108,5 @@ export interface CdnEndpointArgs {
     /**
      * The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
      */
-    ttl?: pulumi.Input<enums.cdn.v2.Ttl>;
+    ttl?: pulumi.Input<enums.cdn.v2.CdnEndpointTtl>;
 }

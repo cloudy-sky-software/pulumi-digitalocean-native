@@ -373,26 +373,26 @@ func (o DomainRecordArrayOutput) Index(i pulumi.IntInput) DomainRecordOutput {
 	}).(DomainRecordOutput)
 }
 
-type GetDomainsProperties struct {
+type GetDomainProperties struct {
 	Domain *Domain `pulumi:"domain"`
 }
 
-type GetDomainsPropertiesOutput struct{ *pulumi.OutputState }
+type GetDomainPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetDomainsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainsProperties)(nil)).Elem()
+func (GetDomainPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainProperties)(nil)).Elem()
 }
 
-func (o GetDomainsPropertiesOutput) ToGetDomainsPropertiesOutput() GetDomainsPropertiesOutput {
+func (o GetDomainPropertiesOutput) ToGetDomainPropertiesOutput() GetDomainPropertiesOutput {
 	return o
 }
 
-func (o GetDomainsPropertiesOutput) ToGetDomainsPropertiesOutputWithContext(ctx context.Context) GetDomainsPropertiesOutput {
+func (o GetDomainPropertiesOutput) ToGetDomainPropertiesOutputWithContext(ctx context.Context) GetDomainPropertiesOutput {
 	return o
 }
 
-func (o GetDomainsPropertiesOutput) Domain() DomainPtrOutput {
-	return o.ApplyT(func(v GetDomainsProperties) *Domain { return v.Domain }).(DomainPtrOutput)
+func (o GetDomainPropertiesOutput) Domain() DomainPtrOutput {
+	return o.ApplyT(func(v GetDomainProperties) *Domain { return v.Domain }).(DomainPtrOutput)
 }
 
 type GetDomainsRecordProperties struct {
@@ -666,7 +666,7 @@ func init() {
 	pulumi.RegisterOutputType(DomainRecordOutput{})
 	pulumi.RegisterOutputType(DomainRecordPtrOutput{})
 	pulumi.RegisterOutputType(DomainRecordArrayOutput{})
-	pulumi.RegisterOutputType(GetDomainsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetDomainPropertiesOutput{})
 	pulumi.RegisterOutputType(GetDomainsRecordPropertiesOutput{})
 	pulumi.RegisterOutputType(ListDomainsItemsOutput{})
 	pulumi.RegisterOutputType(ListDomainsRecordsItemsOutput{})

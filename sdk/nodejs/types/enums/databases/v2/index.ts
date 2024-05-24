@@ -2,6 +2,90 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CreategresDefaultToastCompression = {
+    Lz4: "lz4",
+    Pglz: "pglz",
+} as const;
+
+/**
+ * Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+ */
+export type CreategresDefaultToastCompression = (typeof CreategresDefaultToastCompression)[keyof typeof CreategresDefaultToastCompression];
+
+export const CreategresLogErrorVerbosity = {
+    Terse: "TERSE",
+    Default: "DEFAULT",
+    Verbose: "VERBOSE",
+} as const;
+
+/**
+ * Controls the amount of detail written in the server log for each message that is logged.
+ */
+export type CreategresLogErrorVerbosity = (typeof CreategresLogErrorVerbosity)[keyof typeof CreategresLogErrorVerbosity];
+
+export const CreategresLogLinePrefix = {
+    Pidpuserudbdappaclienth: "pid=%p,user=%u,db=%d,app=%a,client=%h",
+    Mpquserudbdappa: "%m [%p] %q[user=%u,db=%d,app=%a]",
+    Tpl1Userudbdappaclienth: "%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h",
+} as const;
+
+/**
+ * Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+ */
+export type CreategresLogLinePrefix = (typeof CreategresLogLinePrefix)[keyof typeof CreategresLogLinePrefix];
+
+export const CreategresPgStatStatementsTrack = {
+    All: "all",
+    Top: "top",
+    None: "none",
+} as const;
+
+/**
+ * Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+ */
+export type CreategresPgStatStatementsTrack = (typeof CreategresPgStatStatementsTrack)[keyof typeof CreategresPgStatStatementsTrack];
+
+export const CreategresSynchronousReplication = {
+    Off: "off",
+    Quorum: "quorum",
+} as const;
+
+/**
+ * Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+ */
+export type CreategresSynchronousReplication = (typeof CreategresSynchronousReplication)[keyof typeof CreategresSynchronousReplication];
+
+export const CreategresTrackCommitTimestamp = {
+    Off: "off",
+    On: "on",
+} as const;
+
+/**
+ * Record commit time of transactions.
+ */
+export type CreategresTrackCommitTimestamp = (typeof CreategresTrackCommitTimestamp)[keyof typeof CreategresTrackCommitTimestamp];
+
+export const CreategresTrackFunctions = {
+    All: "all",
+    Pl: "pl",
+    None: "none",
+} as const;
+
+/**
+ * Enables tracking of function call counts and time used.
+ */
+export type CreategresTrackFunctions = (typeof CreategresTrackFunctions)[keyof typeof CreategresTrackFunctions];
+
+export const CreategresTrackIoTiming = {
+    Off: "off",
+    On: "on",
+} as const;
+
+/**
+ * Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+ */
+export type CreategresTrackIoTiming = (typeof CreategresTrackIoTiming)[keyof typeof CreategresTrackIoTiming];
+
 export const DatabaseClusterEngine = {
     Pg: "pg",
     Mysql: "mysql",
@@ -51,7 +135,7 @@ export const DatabaseUserRole = {
  */
 export type DatabaseUserRole = (typeof DatabaseUserRole)[keyof typeof DatabaseUserRole];
 
-export const EvictionPolicy = {
+export const DatabasesEvictionPolicyEvictionPolicy = {
     Noeviction: "noeviction",
     AllkeysLru: "allkeys_lru",
     AllkeysRandom: "allkeys_random",
@@ -70,7 +154,7 @@ export const EvictionPolicy = {
  * - `volatile_random`: Evict keys with expiration only in a random order.
  * - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
  */
-export type EvictionPolicy = (typeof EvictionPolicy)[keyof typeof EvictionPolicy];
+export type DatabasesEvictionPolicyEvictionPolicy = (typeof DatabasesEvictionPolicyEvictionPolicy)[keyof typeof DatabasesEvictionPolicyEvictionPolicy];
 
 export const FirewallRuleType = {
     Droplet: "droplet",
@@ -162,90 +246,6 @@ export const PgbouncerIgnoreStartupParametersItem = {
  * Enum of parameters to ignore when given in startup packet.
  */
 export type PgbouncerIgnoreStartupParametersItem = (typeof PgbouncerIgnoreStartupParametersItem)[keyof typeof PgbouncerIgnoreStartupParametersItem];
-
-export const PostgresDefaultToastCompression = {
-    Lz4: "lz4",
-    Pglz: "pglz",
-} as const;
-
-/**
- * Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
- */
-export type PostgresDefaultToastCompression = (typeof PostgresDefaultToastCompression)[keyof typeof PostgresDefaultToastCompression];
-
-export const PostgresLogErrorVerbosity = {
-    Terse: "TERSE",
-    Default: "DEFAULT",
-    Verbose: "VERBOSE",
-} as const;
-
-/**
- * Controls the amount of detail written in the server log for each message that is logged.
- */
-export type PostgresLogErrorVerbosity = (typeof PostgresLogErrorVerbosity)[keyof typeof PostgresLogErrorVerbosity];
-
-export const PostgresLogLinePrefix = {
-    Pidpuserudbdappaclienth: "pid=%p,user=%u,db=%d,app=%a,client=%h",
-    Mpquserudbdappa: "%m [%p] %q[user=%u,db=%d,app=%a]",
-    Tpl1Userudbdappaclienth: "%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h",
-} as const;
-
-/**
- * Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
- */
-export type PostgresLogLinePrefix = (typeof PostgresLogLinePrefix)[keyof typeof PostgresLogLinePrefix];
-
-export const PostgresPgStatStatementsTrack = {
-    All: "all",
-    Top: "top",
-    None: "none",
-} as const;
-
-/**
- * Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
- */
-export type PostgresPgStatStatementsTrack = (typeof PostgresPgStatStatementsTrack)[keyof typeof PostgresPgStatStatementsTrack];
-
-export const PostgresSynchronousReplication = {
-    Off: "off",
-    Quorum: "quorum",
-} as const;
-
-/**
- * Synchronous replication type. Note that the service plan also needs to support synchronous replication.
- */
-export type PostgresSynchronousReplication = (typeof PostgresSynchronousReplication)[keyof typeof PostgresSynchronousReplication];
-
-export const PostgresTrackCommitTimestamp = {
-    Off: "off",
-    On: "on",
-} as const;
-
-/**
- * Record commit time of transactions.
- */
-export type PostgresTrackCommitTimestamp = (typeof PostgresTrackCommitTimestamp)[keyof typeof PostgresTrackCommitTimestamp];
-
-export const PostgresTrackFunctions = {
-    All: "all",
-    Pl: "pl",
-    None: "none",
-} as const;
-
-/**
- * Enables tracking of function call counts and time used.
- */
-export type PostgresTrackFunctions = (typeof PostgresTrackFunctions)[keyof typeof PostgresTrackFunctions];
-
-export const PostgresTrackIoTiming = {
-    Off: "off",
-    On: "on",
-} as const;
-
-/**
- * Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
- */
-export type PostgresTrackIoTiming = (typeof PostgresTrackIoTiming)[keyof typeof PostgresTrackIoTiming];
 
 export const RedisRedisAclChannelsDefault = {
     Allchannels: "allchannels",

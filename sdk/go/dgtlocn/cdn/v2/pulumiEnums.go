@@ -21,6 +21,42 @@ const (
 	CdnEndpointTtl_d_float64_604800_ = CdnEndpointTtl(604800)
 )
 
+func (CdnEndpointTtl) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnEndpointTtl)(nil)).Elem()
+}
+
+func (e CdnEndpointTtl) ToCdnEndpointTtlOutput() CdnEndpointTtlOutput {
+	return pulumi.ToOutput(e).(CdnEndpointTtlOutput)
+}
+
+func (e CdnEndpointTtl) ToCdnEndpointTtlOutputWithContext(ctx context.Context) CdnEndpointTtlOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CdnEndpointTtlOutput)
+}
+
+func (e CdnEndpointTtl) ToCdnEndpointTtlPtrOutput() CdnEndpointTtlPtrOutput {
+	return e.ToCdnEndpointTtlPtrOutputWithContext(context.Background())
+}
+
+func (e CdnEndpointTtl) ToCdnEndpointTtlPtrOutputWithContext(ctx context.Context) CdnEndpointTtlPtrOutput {
+	return CdnEndpointTtl(e).ToCdnEndpointTtlOutputWithContext(ctx).ToCdnEndpointTtlPtrOutputWithContext(ctx)
+}
+
+func (e CdnEndpointTtl) ToIntOutput() pulumi.IntOutput {
+	return pulumi.ToOutput(pulumi.Int(e)).(pulumi.IntOutput)
+}
+
+func (e CdnEndpointTtl) ToIntOutputWithContext(ctx context.Context) pulumi.IntOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.Int(e)).(pulumi.IntOutput)
+}
+
+func (e CdnEndpointTtl) ToIntPtrOutput() pulumi.IntPtrOutput {
+	return pulumi.Int(e).ToIntPtrOutputWithContext(context.Background())
+}
+
+func (e CdnEndpointTtl) ToIntPtrOutputWithContext(ctx context.Context) pulumi.IntPtrOutput {
+	return pulumi.Int(e).ToIntOutputWithContext(ctx).ToIntPtrOutputWithContext(ctx)
+}
+
 type CdnEndpointTtlOutput struct{ *pulumi.OutputState }
 
 func (CdnEndpointTtlOutput) ElementType() reflect.Type {
@@ -104,183 +140,51 @@ func (o CdnEndpointTtlPtrOutput) ToIntPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
-type Ttl int
-
-const (
-	Ttl_d_float64_60_     = Ttl(60)
-	Ttl_d_float64_600_    = Ttl(600)
-	Ttl_d_float64_3600_   = Ttl(3600)
-	Ttl_d_float64_86400_  = Ttl(86400)
-	Ttl_d_float64_604800_ = Ttl(604800)
-)
-
-func (Ttl) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ttl)(nil)).Elem()
-}
-
-func (e Ttl) ToTtlOutput() TtlOutput {
-	return pulumi.ToOutput(e).(TtlOutput)
-}
-
-func (e Ttl) ToTtlOutputWithContext(ctx context.Context) TtlOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TtlOutput)
-}
-
-func (e Ttl) ToTtlPtrOutput() TtlPtrOutput {
-	return e.ToTtlPtrOutputWithContext(context.Background())
-}
-
-func (e Ttl) ToTtlPtrOutputWithContext(ctx context.Context) TtlPtrOutput {
-	return Ttl(e).ToTtlOutputWithContext(ctx).ToTtlPtrOutputWithContext(ctx)
-}
-
-func (e Ttl) ToIntOutput() pulumi.IntOutput {
-	return pulumi.ToOutput(pulumi.Int(e)).(pulumi.IntOutput)
-}
-
-func (e Ttl) ToIntOutputWithContext(ctx context.Context) pulumi.IntOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.Int(e)).(pulumi.IntOutput)
-}
-
-func (e Ttl) ToIntPtrOutput() pulumi.IntPtrOutput {
-	return pulumi.Int(e).ToIntPtrOutputWithContext(context.Background())
-}
-
-func (e Ttl) ToIntPtrOutputWithContext(ctx context.Context) pulumi.IntPtrOutput {
-	return pulumi.Int(e).ToIntOutputWithContext(ctx).ToIntPtrOutputWithContext(ctx)
-}
-
-type TtlOutput struct{ *pulumi.OutputState }
-
-func (TtlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ttl)(nil)).Elem()
-}
-
-func (o TtlOutput) ToTtlOutput() TtlOutput {
-	return o
-}
-
-func (o TtlOutput) ToTtlOutputWithContext(ctx context.Context) TtlOutput {
-	return o
-}
-
-func (o TtlOutput) ToTtlPtrOutput() TtlPtrOutput {
-	return o.ToTtlPtrOutputWithContext(context.Background())
-}
-
-func (o TtlOutput) ToTtlPtrOutputWithContext(ctx context.Context) TtlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ttl) *Ttl {
-		return &v
-	}).(TtlPtrOutput)
-}
-
-func (o TtlOutput) ToIntOutput() pulumi.IntOutput {
-	return o.ToIntOutputWithContext(context.Background())
-}
-
-func (o TtlOutput) ToIntOutputWithContext(ctx context.Context) pulumi.IntOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ttl) int {
-		return int(e)
-	}).(pulumi.IntOutput)
-}
-
-func (o TtlOutput) ToIntPtrOutput() pulumi.IntPtrOutput {
-	return o.ToIntPtrOutputWithContext(context.Background())
-}
-
-func (o TtlOutput) ToIntPtrOutputWithContext(ctx context.Context) pulumi.IntPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ttl) *int {
-		v := int(e)
-		return &v
-	}).(pulumi.IntPtrOutput)
-}
-
-type TtlPtrOutput struct{ *pulumi.OutputState }
-
-func (TtlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ttl)(nil)).Elem()
-}
-
-func (o TtlPtrOutput) ToTtlPtrOutput() TtlPtrOutput {
-	return o
-}
-
-func (o TtlPtrOutput) ToTtlPtrOutputWithContext(ctx context.Context) TtlPtrOutput {
-	return o
-}
-
-func (o TtlPtrOutput) Elem() TtlOutput {
-	return o.ApplyT(func(v *Ttl) Ttl {
-		if v != nil {
-			return *v
-		}
-		var ret Ttl
-		return ret
-	}).(TtlOutput)
-}
-
-func (o TtlPtrOutput) ToIntPtrOutput() pulumi.IntPtrOutput {
-	return o.ToIntPtrOutputWithContext(context.Background())
-}
-
-func (o TtlPtrOutput) ToIntPtrOutputWithContext(ctx context.Context) pulumi.IntPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ttl) *int {
-		if e == nil {
-			return nil
-		}
-		v := int(*e)
-		return &v
-	}).(pulumi.IntPtrOutput)
-}
-
-// TtlInput is an input type that accepts values of the Ttl enum
-// A concrete instance of `TtlInput` can be one of the following:
+// CdnEndpointTtlInput is an input type that accepts values of the CdnEndpointTtl enum
+// A concrete instance of `CdnEndpointTtlInput` can be one of the following:
 //
-//	Ttl_d_float64_60_
-//	Ttl_d_float64_600_
-//	Ttl_d_float64_3600_
-//	Ttl_d_float64_86400_
-//	Ttl_d_float64_604800_
-type TtlInput interface {
+//	CdnEndpointTtl_d_float64_60_
+//	CdnEndpointTtl_d_float64_600_
+//	CdnEndpointTtl_d_float64_3600_
+//	CdnEndpointTtl_d_float64_86400_
+//	CdnEndpointTtl_d_float64_604800_
+type CdnEndpointTtlInput interface {
 	pulumi.Input
 
-	ToTtlOutput() TtlOutput
-	ToTtlOutputWithContext(context.Context) TtlOutput
+	ToCdnEndpointTtlOutput() CdnEndpointTtlOutput
+	ToCdnEndpointTtlOutputWithContext(context.Context) CdnEndpointTtlOutput
 }
 
-var ttlPtrType = reflect.TypeOf((**Ttl)(nil)).Elem()
+var cdnEndpointTtlPtrType = reflect.TypeOf((**CdnEndpointTtl)(nil)).Elem()
 
-type TtlPtrInput interface {
+type CdnEndpointTtlPtrInput interface {
 	pulumi.Input
 
-	ToTtlPtrOutput() TtlPtrOutput
-	ToTtlPtrOutputWithContext(context.Context) TtlPtrOutput
+	ToCdnEndpointTtlPtrOutput() CdnEndpointTtlPtrOutput
+	ToCdnEndpointTtlPtrOutputWithContext(context.Context) CdnEndpointTtlPtrOutput
 }
 
-type ttlPtr int
+type cdnEndpointTtlPtr int
 
-func TtlPtr(v int) TtlPtrInput {
-	return (*ttlPtr)(&v)
+func CdnEndpointTtlPtr(v int) CdnEndpointTtlPtrInput {
+	return (*cdnEndpointTtlPtr)(&v)
 }
 
-func (*ttlPtr) ElementType() reflect.Type {
-	return ttlPtrType
+func (*cdnEndpointTtlPtr) ElementType() reflect.Type {
+	return cdnEndpointTtlPtrType
 }
 
-func (in *ttlPtr) ToTtlPtrOutput() TtlPtrOutput {
-	return pulumi.ToOutput(in).(TtlPtrOutput)
+func (in *cdnEndpointTtlPtr) ToCdnEndpointTtlPtrOutput() CdnEndpointTtlPtrOutput {
+	return pulumi.ToOutput(in).(CdnEndpointTtlPtrOutput)
 }
 
-func (in *ttlPtr) ToTtlPtrOutputWithContext(ctx context.Context) TtlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TtlPtrOutput)
+func (in *cdnEndpointTtlPtr) ToCdnEndpointTtlPtrOutputWithContext(ctx context.Context) CdnEndpointTtlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CdnEndpointTtlPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TtlInput)(nil)).Elem(), Ttl(60))
-	pulumi.RegisterInputType(reflect.TypeOf((*TtlPtrInput)(nil)).Elem(), Ttl(60))
+	pulumi.RegisterInputType(reflect.TypeOf((*CdnEndpointTtlInput)(nil)).Elem(), CdnEndpointTtl(60))
+	pulumi.RegisterInputType(reflect.TypeOf((*CdnEndpointTtlPtrInput)(nil)).Elem(), CdnEndpointTtl(60))
 	pulumi.RegisterOutputType(CdnEndpointTtlOutput{})
 	pulumi.RegisterOutputType(CdnEndpointTtlPtrOutput{})
-	pulumi.RegisterOutputType(TtlOutput{})
-	pulumi.RegisterOutputType(TtlPtrOutput{})
 }

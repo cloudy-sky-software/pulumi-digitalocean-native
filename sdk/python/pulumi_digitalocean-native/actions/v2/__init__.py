@@ -6,6 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_actions import *
+from .get_action import *
 from .list_actions import *
 from . import outputs

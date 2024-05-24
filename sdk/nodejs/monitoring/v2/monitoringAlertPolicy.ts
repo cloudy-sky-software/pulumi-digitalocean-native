@@ -35,15 +35,15 @@ export class MonitoringAlertPolicy extends pulumi.CustomResource {
     }
 
     public readonly alerts!: pulumi.Output<outputs.monitoring.v2.Alerts>;
-    public readonly compare!: pulumi.Output<enums.monitoring.v2.Compare>;
+    public readonly compare!: pulumi.Output<enums.monitoring.v2.MonitoringAlertPolicyCompare>;
     public readonly description!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean>;
     public readonly entities!: pulumi.Output<string[]>;
     public /*out*/ readonly policy!: pulumi.Output<outputs.monitoring.v2.AlertPolicy | undefined>;
     public readonly tags!: pulumi.Output<string[]>;
-    public readonly type!: pulumi.Output<enums.monitoring.v2.Type>;
+    public readonly type!: pulumi.Output<enums.monitoring.v2.MonitoringAlertPolicyType>;
     public readonly value!: pulumi.Output<number>;
-    public readonly window!: pulumi.Output<enums.monitoring.v2.Window>;
+    public readonly window!: pulumi.Output<enums.monitoring.v2.MonitoringAlertPolicyWindow>;
 
     /**
      * Create a MonitoringAlertPolicy resource with the given unique name, arguments, and options.
@@ -115,12 +115,12 @@ export class MonitoringAlertPolicy extends pulumi.CustomResource {
  */
 export interface MonitoringAlertPolicyArgs {
     alerts: pulumi.Input<inputs.monitoring.v2.AlertsArgs>;
-    compare: pulumi.Input<enums.monitoring.v2.Compare>;
+    compare: pulumi.Input<enums.monitoring.v2.MonitoringAlertPolicyCompare>;
     description: pulumi.Input<string>;
     enabled: pulumi.Input<boolean>;
     entities: pulumi.Input<pulumi.Input<string>[]>;
     tags: pulumi.Input<pulumi.Input<string>[]>;
-    type: pulumi.Input<enums.monitoring.v2.Type>;
+    type: pulumi.Input<enums.monitoring.v2.MonitoringAlertPolicyType>;
     value: pulumi.Input<number>;
-    window: pulumi.Input<enums.monitoring.v2.Window>;
+    window: pulumi.Input<enums.monitoring.v2.MonitoringAlertPolicyWindow>;
 }

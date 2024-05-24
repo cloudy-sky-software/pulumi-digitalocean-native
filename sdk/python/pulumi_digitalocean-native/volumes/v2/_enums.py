@@ -6,9 +6,13 @@ from enum import Enum
 
 __all__ = [
     'ActionStatus',
+    'AttachVolumeActionCreateBaseRegion',
+    'AttachVolumeActionCreateBaseType',
+    'DetachVolumeActionCreateBaseRegion',
+    'DetachVolumeActionCreateBaseType',
+    'ResizeVolumeActionCreateBaseRegion',
+    'ResizeVolumeActionCreateBaseType',
     'SnapshotsPropertiesResourceType',
-    'VolumeActionPostBaseRegion',
-    'VolumeActionPostBaseType',
 ]
 
 
@@ -21,15 +25,7 @@ class ActionStatus(str, Enum):
     ERRORED = "errored"
 
 
-class SnapshotsPropertiesResourceType(str, Enum):
-    """
-    The type of resource that the snapshot originated from.
-    """
-    DROPLET = "droplet"
-    VOLUME = "volume"
-
-
-class VolumeActionPostBaseRegion(str, Enum):
+class AttachVolumeActionCreateBaseRegion(str, Enum):
     """
     The slug identifier for the region where the resource will initially be  available.
     """
@@ -49,10 +45,76 @@ class VolumeActionPostBaseRegion(str, Enum):
     TOR1 = "tor1"
 
 
-class VolumeActionPostBaseType(str, Enum):
+class AttachVolumeActionCreateBaseType(str, Enum):
     """
     The volume action to initiate.
     """
     ATTACH = "attach"
     DETACH = "detach"
     RESIZE = "resize"
+
+
+class DetachVolumeActionCreateBaseRegion(str, Enum):
+    """
+    The slug identifier for the region where the resource will initially be  available.
+    """
+    AMS1 = "ams1"
+    AMS2 = "ams2"
+    AMS3 = "ams3"
+    BLR1 = "blr1"
+    FRA1 = "fra1"
+    LON1 = "lon1"
+    NYC1 = "nyc1"
+    NYC2 = "nyc2"
+    NYC3 = "nyc3"
+    SFO1 = "sfo1"
+    SFO2 = "sfo2"
+    SFO3 = "sfo3"
+    SGP1 = "sgp1"
+    TOR1 = "tor1"
+
+
+class DetachVolumeActionCreateBaseType(str, Enum):
+    """
+    The volume action to initiate.
+    """
+    ATTACH = "attach"
+    DETACH = "detach"
+    RESIZE = "resize"
+
+
+class ResizeVolumeActionCreateBaseRegion(str, Enum):
+    """
+    The slug identifier for the region where the resource will initially be  available.
+    """
+    AMS1 = "ams1"
+    AMS2 = "ams2"
+    AMS3 = "ams3"
+    BLR1 = "blr1"
+    FRA1 = "fra1"
+    LON1 = "lon1"
+    NYC1 = "nyc1"
+    NYC2 = "nyc2"
+    NYC3 = "nyc3"
+    SFO1 = "sfo1"
+    SFO2 = "sfo2"
+    SFO3 = "sfo3"
+    SGP1 = "sgp1"
+    TOR1 = "tor1"
+
+
+class ResizeVolumeActionCreateBaseType(str, Enum):
+    """
+    The volume action to initiate.
+    """
+    ATTACH = "attach"
+    DETACH = "detach"
+    RESIZE = "resize"
+
+
+class SnapshotsPropertiesResourceType(str, Enum):
+    """
+    The type of resource that the snapshot originated from.
+    """
+    DROPLET = "droplet"
+    VOLUME = "volume"

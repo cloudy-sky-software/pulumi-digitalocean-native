@@ -6,7 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_tags import *
+from .get_tag import *
 from .list_tags import *
 from .tags import *
 from .tags_assign_resources import *

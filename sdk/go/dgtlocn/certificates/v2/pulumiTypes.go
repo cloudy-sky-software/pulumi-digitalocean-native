@@ -210,26 +210,26 @@ func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	}).(CertificateOutput)
 }
 
-type GetCertificatesProperties struct {
+type GetCertificateProperties struct {
 	Certificate *Certificate `pulumi:"certificate"`
 }
 
-type GetCertificatesPropertiesOutput struct{ *pulumi.OutputState }
+type GetCertificatePropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetCertificatesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCertificatesProperties)(nil)).Elem()
+func (GetCertificatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateProperties)(nil)).Elem()
 }
 
-func (o GetCertificatesPropertiesOutput) ToGetCertificatesPropertiesOutput() GetCertificatesPropertiesOutput {
+func (o GetCertificatePropertiesOutput) ToGetCertificatePropertiesOutput() GetCertificatePropertiesOutput {
 	return o
 }
 
-func (o GetCertificatesPropertiesOutput) ToGetCertificatesPropertiesOutputWithContext(ctx context.Context) GetCertificatesPropertiesOutput {
+func (o GetCertificatePropertiesOutput) ToGetCertificatePropertiesOutputWithContext(ctx context.Context) GetCertificatePropertiesOutput {
 	return o
 }
 
-func (o GetCertificatesPropertiesOutput) Certificate() CertificatePtrOutput {
-	return o.ApplyT(func(v GetCertificatesProperties) *Certificate { return v.Certificate }).(CertificatePtrOutput)
+func (o GetCertificatePropertiesOutput) Certificate() CertificatePtrOutput {
+	return o.ApplyT(func(v GetCertificateProperties) *Certificate { return v.Certificate }).(CertificatePtrOutput)
 }
 
 type ListCertificatesItems struct {
@@ -444,7 +444,7 @@ func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 	pulumi.RegisterOutputType(CertificatePtrOutput{})
 	pulumi.RegisterOutputType(CertificateArrayOutput{})
-	pulumi.RegisterOutputType(GetCertificatesPropertiesOutput{})
+	pulumi.RegisterOutputType(GetCertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(ListCertificatesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})

@@ -13,26 +13,26 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type GetSnapshotsProperties struct {
+type GetSnapshotProperties struct {
 	Snapshot *Snapshots `pulumi:"snapshot"`
 }
 
-type GetSnapshotsPropertiesOutput struct{ *pulumi.OutputState }
+type GetSnapshotPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetSnapshotsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSnapshotsProperties)(nil)).Elem()
+func (GetSnapshotPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotProperties)(nil)).Elem()
 }
 
-func (o GetSnapshotsPropertiesOutput) ToGetSnapshotsPropertiesOutput() GetSnapshotsPropertiesOutput {
+func (o GetSnapshotPropertiesOutput) ToGetSnapshotPropertiesOutput() GetSnapshotPropertiesOutput {
 	return o
 }
 
-func (o GetSnapshotsPropertiesOutput) ToGetSnapshotsPropertiesOutputWithContext(ctx context.Context) GetSnapshotsPropertiesOutput {
+func (o GetSnapshotPropertiesOutput) ToGetSnapshotPropertiesOutputWithContext(ctx context.Context) GetSnapshotPropertiesOutput {
 	return o
 }
 
-func (o GetSnapshotsPropertiesOutput) Snapshot() SnapshotsPtrOutput {
-	return o.ApplyT(func(v GetSnapshotsProperties) *Snapshots { return v.Snapshot }).(SnapshotsPtrOutput)
+func (o GetSnapshotPropertiesOutput) Snapshot() SnapshotsPtrOutput {
+	return o.ApplyT(func(v GetSnapshotProperties) *Snapshots { return v.Snapshot }).(SnapshotsPtrOutput)
 }
 
 type ListSnapshotsItems struct {
@@ -441,7 +441,7 @@ func (o SnapshotsArrayOutput) Index(i pulumi.IntInput) SnapshotsOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetSnapshotsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPropertiesOutput{})
 	pulumi.RegisterOutputType(ListSnapshotsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})

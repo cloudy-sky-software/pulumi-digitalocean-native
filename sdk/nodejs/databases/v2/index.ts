@@ -75,10 +75,10 @@ export type DatabasesUser = import("./databasesUser").DatabasesUser;
 export const DatabasesUser: typeof import("./databasesUser").DatabasesUser = null as any;
 utilities.lazyLoad(exports, ["DatabasesUser"], () => require("./databasesUser"));
 
-export { GetDatabasesArgs, GetDatabasesResult, GetDatabasesOutputArgs } from "./getDatabases";
-export const getDatabases: typeof import("./getDatabases").getDatabases = null as any;
-export const getDatabasesOutput: typeof import("./getDatabases").getDatabasesOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabases","getDatabasesOutput"], () => require("./getDatabases"));
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetDatabasesCaArgs, GetDatabasesCaResult, GetDatabasesCaOutputArgs } from "./getDatabasesCa";
 export const getDatabasesCa: typeof import("./getDatabasesCa").getDatabasesCa = null as any;
@@ -105,10 +105,10 @@ export const getDatabasesEvictionPolicy: typeof import("./getDatabasesEvictionPo
 export const getDatabasesEvictionPolicyOutput: typeof import("./getDatabasesEvictionPolicy").getDatabasesEvictionPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesEvictionPolicy","getDatabasesEvictionPolicyOutput"], () => require("./getDatabasesEvictionPolicy"));
 
-export { GetDatabasesMigrationStatusArgs, GetDatabasesMigrationStatusResult, GetDatabasesMigrationStatusOutputArgs } from "./getDatabasesMigrationStatus";
-export const getDatabasesMigrationStatus: typeof import("./getDatabasesMigrationStatus").getDatabasesMigrationStatus = null as any;
-export const getDatabasesMigrationStatusOutput: typeof import("./getDatabasesMigrationStatus").getDatabasesMigrationStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabasesMigrationStatus","getDatabasesMigrationStatusOutput"], () => require("./getDatabasesMigrationStatus"));
+export { GetDatabasesMigrationStatuArgs, GetDatabasesMigrationStatuResult, GetDatabasesMigrationStatuOutputArgs } from "./getDatabasesMigrationStatu";
+export const getDatabasesMigrationStatu: typeof import("./getDatabasesMigrationStatu").getDatabasesMigrationStatu = null as any;
+export const getDatabasesMigrationStatuOutput: typeof import("./getDatabasesMigrationStatu").getDatabasesMigrationStatuOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabasesMigrationStatu","getDatabasesMigrationStatuOutput"], () => require("./getDatabasesMigrationStatu"));
 
 export { GetDatabasesReplicaArgs, GetDatabasesReplicaResult, GetDatabasesReplicaOutputArgs } from "./getDatabasesReplica";
 export const getDatabasesReplica: typeof import("./getDatabasesReplica").getDatabasesReplica = null as any;

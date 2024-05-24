@@ -64,7 +64,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// The instance size to use for this component. Default: `basic-xxs`
         /// </summary>
         [Input("instanceSizeSlug")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug>? InstanceSizeSlug { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug>? InstanceSizeSlug { get; set; }
 
         /// <summary>
         /// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
@@ -73,7 +73,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
         /// </summary>
         [Input("kind")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppJobSpecPropertiesKind>? Kind { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppJobSpecPropertiesKind>? Kind { get; set; }
 
         [Input("logDestinations")]
         public Input<Inputs.AppLogDestinationDefinitionArgs>? LogDestinations { get; set; }
@@ -99,8 +99,8 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         public AppJobSpecArgs()
         {
             InstanceCount = 1;
-            InstanceSizeSlug = Pulumi.DigitalOceanNative.AppsV2.AppComponentInstanceBaseInstanceSizeSlug.BasicXxs;
-            Kind = Pulumi.DigitalOceanNative.AppsV2.AppJobSpecPropertiesKind.Unspecified;
+            InstanceSizeSlug = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug.BasicXxs;
+            Kind = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppJobSpecPropertiesKind.Unspecified;
         }
         public static new AppJobSpecArgs Empty => new AppJobSpecArgs();
     }

@@ -11,7 +11,7 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVpcsProperties',
+    'GetVpcProperties',
     'ListVpcsItems',
     'ListVpcsMembersItems',
     'MetaMeta',
@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcsProperties(dict):
+class GetVpcProperties(dict):
     def __init__(__self__, *,
                  vpc: Optional['outputs.Vpc'] = None):
         if vpc is not None:

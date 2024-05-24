@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ResourcesItemPropertiesResourceType = {
+export const TagsAssignResourcesResourcesItemPropertiesResourceType = {
     Droplet: "droplet",
     Image: "image",
     Volume: "volume",
@@ -12,4 +12,4 @@ export const ResourcesItemPropertiesResourceType = {
 /**
  * The type of the resource.
  */
-export type ResourcesItemPropertiesResourceType = (typeof ResourcesItemPropertiesResourceType)[keyof typeof ResourcesItemPropertiesResourceType];
+export type TagsAssignResourcesResourcesItemPropertiesResourceType = (typeof TagsAssignResourcesResourcesItemPropertiesResourceType)[keyof typeof TagsAssignResourcesResourcesItemPropertiesResourceType];

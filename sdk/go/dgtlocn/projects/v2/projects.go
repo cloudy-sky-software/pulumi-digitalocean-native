@@ -19,7 +19,7 @@ type Projects struct {
 	// The description of the project. The maximum length is 255 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The environment of the project's resources.
-	Environment ProjectBaseEnvironmentPtrOutput `pulumi:"environment"`
+	Environment ProjectsProjectBaseEnvironmentPtrOutput `pulumi:"environment"`
 	// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The integer id of the project owner.
@@ -92,7 +92,7 @@ type projectsArgs struct {
 	// The description of the project. The maximum length is 255 characters.
 	Description *string `pulumi:"description"`
 	// The environment of the project's resources.
-	Environment *ProjectBaseEnvironment `pulumi:"environment"`
+	Environment *ProjectsProjectBaseEnvironment `pulumi:"environment"`
 	// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
 	Name *string `pulumi:"name"`
 	// The integer id of the project owner.
@@ -126,7 +126,7 @@ type ProjectsArgs struct {
 	// The description of the project. The maximum length is 255 characters.
 	Description pulumi.StringPtrInput
 	// The environment of the project's resources.
-	Environment ProjectBaseEnvironmentPtrInput
+	Environment ProjectsProjectBaseEnvironmentPtrInput
 	// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
 	Name pulumi.StringPtrInput
 	// The integer id of the project owner.
@@ -201,8 +201,8 @@ func (o ProjectsOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The environment of the project's resources.
-func (o ProjectsOutput) Environment() ProjectBaseEnvironmentPtrOutput {
-	return o.ApplyT(func(v *Projects) ProjectBaseEnvironmentPtrOutput { return v.Environment }).(ProjectBaseEnvironmentPtrOutput)
+func (o ProjectsOutput) Environment() ProjectsProjectBaseEnvironmentPtrOutput {
+	return o.ApplyT(func(v *Projects) ProjectsProjectBaseEnvironmentPtrOutput { return v.Environment }).(ProjectsProjectBaseEnvironmentPtrOutput)
 }
 
 // The human-readable name for the project. The maximum length is 175 characters and the name must be unique.

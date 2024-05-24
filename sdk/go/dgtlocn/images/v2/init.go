@@ -21,12 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:images/v2:ImageActionsConvert":
-		r = &ImageActionsConvert{}
-	case "digitalocean-native:images/v2:ImageActionsTransfer":
-		r = &ImageActionsTransfer{}
+	case "digitalocean-native:images/v2:Convert":
+		r = &Convert{}
 	case "digitalocean-native:images/v2:ImagesCustom":
 		r = &ImagesCustom{}
+	case "digitalocean-native:images/v2:Transfer":
+		r = &Transfer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

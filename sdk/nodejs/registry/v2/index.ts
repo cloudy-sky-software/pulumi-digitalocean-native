@@ -10,15 +10,15 @@ export const getRegistry: typeof import("./getRegistry").getRegistry = null as a
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
 
-export { GetRegistryDockerCredentialsArgs, GetRegistryDockerCredentialsResult } from "./getRegistryDockerCredentials";
-export const getRegistryDockerCredentials: typeof import("./getRegistryDockerCredentials").getRegistryDockerCredentials = null as any;
-export const getRegistryDockerCredentialsOutput: typeof import("./getRegistryDockerCredentials").getRegistryDockerCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistryDockerCredentials","getRegistryDockerCredentialsOutput"], () => require("./getRegistryDockerCredentials"));
+export { GetRegistryDockerCredentialArgs, GetRegistryDockerCredentialResult } from "./getRegistryDockerCredential";
+export const getRegistryDockerCredential: typeof import("./getRegistryDockerCredential").getRegistryDockerCredential = null as any;
+export const getRegistryDockerCredentialOutput: typeof import("./getRegistryDockerCredential").getRegistryDockerCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryDockerCredential","getRegistryDockerCredentialOutput"], () => require("./getRegistryDockerCredential"));
 
-export { GetRegistryOptionsArgs, GetRegistryOptionsResult } from "./getRegistryOptions";
-export const getRegistryOptions: typeof import("./getRegistryOptions").getRegistryOptions = null as any;
-export const getRegistryOptionsOutput: typeof import("./getRegistryOptions").getRegistryOptionsOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistryOptions","getRegistryOptionsOutput"], () => require("./getRegistryOptions"));
+export { GetRegistryOptionArgs, GetRegistryOptionResult } from "./getRegistryOption";
+export const getRegistryOption: typeof import("./getRegistryOption").getRegistryOption = null as any;
+export const getRegistryOptionOutput: typeof import("./getRegistryOption").getRegistryOptionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryOption","getRegistryOptionOutput"], () => require("./getRegistryOption"));
 
 export { GetRegistrySubscriptionArgs, GetRegistrySubscriptionResult } from "./getRegistrySubscription";
 export const getRegistrySubscription: typeof import("./getRegistrySubscription").getRegistrySubscription = null as any;

@@ -13,17 +13,7 @@ export const ActionStatus = {
  */
 export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
-export const SnapshotsPropertiesResourceType = {
-    Droplet: "droplet",
-    Volume: "volume",
-} as const;
-
-/**
- * The type of resource that the snapshot originated from.
- */
-export type SnapshotsPropertiesResourceType = (typeof SnapshotsPropertiesResourceType)[keyof typeof SnapshotsPropertiesResourceType];
-
-export const VolumeActionPostBaseRegion = {
+export const AttachVolumeActionCreateBaseRegion = {
     Ams1: "ams1",
     Ams2: "ams2",
     Ams3: "ams3",
@@ -43,9 +33,9 @@ export const VolumeActionPostBaseRegion = {
 /**
  * The slug identifier for the region where the resource will initially be  available.
  */
-export type VolumeActionPostBaseRegion = (typeof VolumeActionPostBaseRegion)[keyof typeof VolumeActionPostBaseRegion];
+export type AttachVolumeActionCreateBaseRegion = (typeof AttachVolumeActionCreateBaseRegion)[keyof typeof AttachVolumeActionCreateBaseRegion];
 
-export const VolumeActionPostBaseType = {
+export const AttachVolumeActionCreateBaseType = {
     Attach: "attach",
     Detach: "detach",
     Resize: "resize",
@@ -54,4 +44,80 @@ export const VolumeActionPostBaseType = {
 /**
  * The volume action to initiate.
  */
-export type VolumeActionPostBaseType = (typeof VolumeActionPostBaseType)[keyof typeof VolumeActionPostBaseType];
+export type AttachVolumeActionCreateBaseType = (typeof AttachVolumeActionCreateBaseType)[keyof typeof AttachVolumeActionCreateBaseType];
+
+export const DetachVolumeActionCreateBaseRegion = {
+    Ams1: "ams1",
+    Ams2: "ams2",
+    Ams3: "ams3",
+    Blr1: "blr1",
+    Fra1: "fra1",
+    Lon1: "lon1",
+    Nyc1: "nyc1",
+    Nyc2: "nyc2",
+    Nyc3: "nyc3",
+    Sfo1: "sfo1",
+    Sfo2: "sfo2",
+    Sfo3: "sfo3",
+    Sgp1: "sgp1",
+    Tor1: "tor1",
+} as const;
+
+/**
+ * The slug identifier for the region where the resource will initially be  available.
+ */
+export type DetachVolumeActionCreateBaseRegion = (typeof DetachVolumeActionCreateBaseRegion)[keyof typeof DetachVolumeActionCreateBaseRegion];
+
+export const DetachVolumeActionCreateBaseType = {
+    Attach: "attach",
+    Detach: "detach",
+    Resize: "resize",
+} as const;
+
+/**
+ * The volume action to initiate.
+ */
+export type DetachVolumeActionCreateBaseType = (typeof DetachVolumeActionCreateBaseType)[keyof typeof DetachVolumeActionCreateBaseType];
+
+export const ResizeVolumeActionCreateBaseRegion = {
+    Ams1: "ams1",
+    Ams2: "ams2",
+    Ams3: "ams3",
+    Blr1: "blr1",
+    Fra1: "fra1",
+    Lon1: "lon1",
+    Nyc1: "nyc1",
+    Nyc2: "nyc2",
+    Nyc3: "nyc3",
+    Sfo1: "sfo1",
+    Sfo2: "sfo2",
+    Sfo3: "sfo3",
+    Sgp1: "sgp1",
+    Tor1: "tor1",
+} as const;
+
+/**
+ * The slug identifier for the region where the resource will initially be  available.
+ */
+export type ResizeVolumeActionCreateBaseRegion = (typeof ResizeVolumeActionCreateBaseRegion)[keyof typeof ResizeVolumeActionCreateBaseRegion];
+
+export const ResizeVolumeActionCreateBaseType = {
+    Attach: "attach",
+    Detach: "detach",
+    Resize: "resize",
+} as const;
+
+/**
+ * The volume action to initiate.
+ */
+export type ResizeVolumeActionCreateBaseType = (typeof ResizeVolumeActionCreateBaseType)[keyof typeof ResizeVolumeActionCreateBaseType];
+
+export const SnapshotsPropertiesResourceType = {
+    Droplet: "droplet",
+    Volume: "volume",
+} as const;
+
+/**
+ * The type of resource that the snapshot originated from.
+ */
+export type SnapshotsPropertiesResourceType = (typeof SnapshotsPropertiesResourceType)[keyof typeof SnapshotsPropertiesResourceType];

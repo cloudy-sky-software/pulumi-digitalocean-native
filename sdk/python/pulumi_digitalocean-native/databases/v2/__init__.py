@@ -20,13 +20,13 @@ from .databases_region import *
 from .databases_replica import *
 from .databases_sql_mode import *
 from .databases_user import *
-from .get_databases import *
+from .get_database import *
 from .get_databases_ca import *
 from .get_databases_cluster import *
 from .get_databases_config import *
 from .get_databases_connection_pool import *
 from .get_databases_eviction_policy import *
-from .get_databases_migration_status import *
+from .get_databases_migration_statu import *
 from .get_databases_replica import *
 from .get_databases_sql_mode import *
 from .get_databases_user import *

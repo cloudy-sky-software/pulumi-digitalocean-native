@@ -14,7 +14,7 @@ from ._enums import *
 __all__ = [
     'Action',
     'ActionRegionSlug',
-    'GetImagesProperties',
+    'GetImageProperties',
     'Image',
     'ListImageActionsItems',
     'ListImagesItems',
@@ -141,7 +141,7 @@ class ActionRegionSlug(dict):
 
 
 @pulumi.output_type
-class GetImagesProperties(dict):
+class GetImageProperties(dict):
     def __init__(__self__, *,
                  image: 'outputs.Image'):
         pulumi.set(__self__, "image", image)

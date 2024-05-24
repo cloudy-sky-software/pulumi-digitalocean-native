@@ -16,24 +16,24 @@ __all__ = ['RegistryUpdateSubscriptionArgs', 'RegistryUpdateSubscription']
 @pulumi.input_type
 class RegistryUpdateSubscriptionArgs:
     def __init__(__self__, *,
-                 tier_slug: Optional[pulumi.Input['TierSlug']] = None):
+                 tier_slug: Optional[pulumi.Input['RegistryUpdateSubscriptionTierSlug']] = None):
         """
         The set of arguments for constructing a RegistryUpdateSubscription resource.
-        :param pulumi.Input['TierSlug'] tier_slug: The slug of the subscription tier to sign up for.
+        :param pulumi.Input['RegistryUpdateSubscriptionTierSlug'] tier_slug: The slug of the subscription tier to sign up for.
         """
         if tier_slug is not None:
             pulumi.set(__self__, "tier_slug", tier_slug)
 
     @property
     @pulumi.getter(name="tierSlug")
-    def tier_slug(self) -> Optional[pulumi.Input['TierSlug']]:
+    def tier_slug(self) -> Optional[pulumi.Input['RegistryUpdateSubscriptionTierSlug']]:
         """
         The slug of the subscription tier to sign up for.
         """
         return pulumi.get(self, "tier_slug")
 
     @tier_slug.setter
-    def tier_slug(self, value: Optional[pulumi.Input['TierSlug']]):
+    def tier_slug(self, value: Optional[pulumi.Input['RegistryUpdateSubscriptionTierSlug']]):
         pulumi.set(self, "tier_slug", value)
 
 
@@ -42,13 +42,13 @@ class RegistryUpdateSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tier_slug: Optional[pulumi.Input['TierSlug']] = None,
+                 tier_slug: Optional[pulumi.Input['RegistryUpdateSubscriptionTierSlug']] = None,
                  __props__=None):
         """
         Create a RegistryUpdateSubscription resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['TierSlug'] tier_slug: The slug of the subscription tier to sign up for.
+        :param pulumi.Input['RegistryUpdateSubscriptionTierSlug'] tier_slug: The slug of the subscription tier to sign up for.
         """
         ...
     @overload
@@ -73,7 +73,7 @@ class RegistryUpdateSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tier_slug: Optional[pulumi.Input['TierSlug']] = None,
+                 tier_slug: Optional[pulumi.Input['RegistryUpdateSubscriptionTierSlug']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -118,7 +118,7 @@ class RegistryUpdateSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tierSlug")
-    def tier_slug(self) -> pulumi.Output[Optional['TierSlug']]:
+    def tier_slug(self) -> pulumi.Output[Optional['RegistryUpdateSubscriptionTierSlug']]:
         """
         The slug of the subscription tier to sign up for.
         """

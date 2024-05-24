@@ -24,14 +24,14 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
         /// - RUN_AND_BUILD_TIME: Made available at both build and run-time
         /// </summary>
         [Input("scope")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppVariableDefinitionScope>? Scope { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppVariableDefinitionScope>? Scope { get; set; }
 
         /// <summary>
         /// - GENERAL: A plain-text environment variable
         /// - SECRET: A secret encrypted environment variable
         /// </summary>
         [Input("type")]
-        public Input<Pulumi.DigitalOceanNative.AppsV2.AppVariableDefinitionType>? Type { get; set; }
+        public Input<Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppVariableDefinitionType>? Type { get; set; }
 
         /// <summary>
         /// The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
@@ -41,8 +41,8 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Inputs
 
         public AppVariableDefinitionArgs()
         {
-            Scope = Pulumi.DigitalOceanNative.AppsV2.AppVariableDefinitionScope.RunAndBuildTime;
-            Type = Pulumi.DigitalOceanNative.AppsV2.AppVariableDefinitionType.General;
+            Scope = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppVariableDefinitionScope.RunAndBuildTime;
+            Type = Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppVariableDefinitionType.General;
         }
         public static new AppVariableDefinitionArgs Empty => new AppVariableDefinitionArgs();
     }

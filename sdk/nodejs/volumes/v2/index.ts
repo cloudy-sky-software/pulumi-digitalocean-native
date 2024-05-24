@@ -5,20 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetVolumeActionsArgs, GetVolumeActionsResult, GetVolumeActionsOutputArgs } from "./getVolumeActions";
-export const getVolumeActions: typeof import("./getVolumeActions").getVolumeActions = null as any;
-export const getVolumeActionsOutput: typeof import("./getVolumeActions").getVolumeActionsOutput = null as any;
-utilities.lazyLoad(exports, ["getVolumeActions","getVolumeActionsOutput"], () => require("./getVolumeActions"));
+export { AttachArgs } from "./attach";
+export type Attach = import("./attach").Attach;
+export const Attach: typeof import("./attach").Attach = null as any;
+utilities.lazyLoad(exports, ["Attach"], () => require("./attach"));
+
+export { DetachArgs } from "./detach";
+export type Detach = import("./detach").Detach;
+export const Detach: typeof import("./detach").Detach = null as any;
+utilities.lazyLoad(exports, ["Detach"], () => require("./detach"));
+
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+
+export { GetVolumeActionArgs, GetVolumeActionResult, GetVolumeActionOutputArgs } from "./getVolumeAction";
+export const getVolumeAction: typeof import("./getVolumeAction").getVolumeAction = null as any;
+export const getVolumeActionOutput: typeof import("./getVolumeAction").getVolumeActionOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeAction","getVolumeActionOutput"], () => require("./getVolumeAction"));
 
 export { GetVolumeSnapshotsByIdArgs, GetVolumeSnapshotsByIdResult, GetVolumeSnapshotsByIdOutputArgs } from "./getVolumeSnapshotsById";
 export const getVolumeSnapshotsById: typeof import("./getVolumeSnapshotsById").getVolumeSnapshotsById = null as any;
 export const getVolumeSnapshotsByIdOutput: typeof import("./getVolumeSnapshotsById").getVolumeSnapshotsByIdOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeSnapshotsById","getVolumeSnapshotsByIdOutput"], () => require("./getVolumeSnapshotsById"));
-
-export { GetVolumesArgs, GetVolumesResult, GetVolumesOutputArgs } from "./getVolumes";
-export const getVolumes: typeof import("./getVolumes").getVolumes = null as any;
-export const getVolumesOutput: typeof import("./getVolumes").getVolumesOutput = null as any;
-utilities.lazyLoad(exports, ["getVolumes","getVolumesOutput"], () => require("./getVolumes"));
 
 export { ListVolumeActionsArgs, ListVolumeActionsResult, ListVolumeActionsOutputArgs } from "./listVolumeActions";
 export const listVolumeActions: typeof import("./listVolumeActions").listVolumeActions = null as any;
@@ -35,20 +45,10 @@ export const listVolumes: typeof import("./listVolumes").listVolumes = null as a
 export const listVolumesOutput: typeof import("./listVolumes").listVolumesOutput = null as any;
 utilities.lazyLoad(exports, ["listVolumes","listVolumesOutput"], () => require("./listVolumes"));
 
-export { VolumeActionsByIdAttachArgs } from "./volumeActionsByIdAttach";
-export type VolumeActionsByIdAttach = import("./volumeActionsByIdAttach").VolumeActionsByIdAttach;
-export const VolumeActionsByIdAttach: typeof import("./volumeActionsByIdAttach").VolumeActionsByIdAttach = null as any;
-utilities.lazyLoad(exports, ["VolumeActionsByIdAttach"], () => require("./volumeActionsByIdAttach"));
-
-export { VolumeActionsByIdDetachArgs } from "./volumeActionsByIdDetach";
-export type VolumeActionsByIdDetach = import("./volumeActionsByIdDetach").VolumeActionsByIdDetach;
-export const VolumeActionsByIdDetach: typeof import("./volumeActionsByIdDetach").VolumeActionsByIdDetach = null as any;
-utilities.lazyLoad(exports, ["VolumeActionsByIdDetach"], () => require("./volumeActionsByIdDetach"));
-
-export { VolumeActionsByIdResizeArgs } from "./volumeActionsByIdResize";
-export type VolumeActionsByIdResize = import("./volumeActionsByIdResize").VolumeActionsByIdResize;
-export const VolumeActionsByIdResize: typeof import("./volumeActionsByIdResize").VolumeActionsByIdResize = null as any;
-utilities.lazyLoad(exports, ["VolumeActionsByIdResize"], () => require("./volumeActionsByIdResize"));
+export { ResizeArgs } from "./resize";
+export type Resize = import("./resize").Resize;
+export const Resize: typeof import("./resize").Resize = null as any;
+utilities.lazyLoad(exports, ["Resize"], () => require("./resize"));
 
 export { VolumeSnapshotsArgs } from "./volumeSnapshots";
 export type VolumeSnapshots = import("./volumeSnapshots").VolumeSnapshots;
@@ -68,12 +68,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:volumes/v2:VolumeActionsByIdAttach":
-                return new VolumeActionsByIdAttach(name, <any>undefined, { urn })
-            case "digitalocean-native:volumes/v2:VolumeActionsByIdDetach":
-                return new VolumeActionsByIdDetach(name, <any>undefined, { urn })
-            case "digitalocean-native:volumes/v2:VolumeActionsByIdResize":
-                return new VolumeActionsByIdResize(name, <any>undefined, { urn })
+            case "digitalocean-native:volumes/v2:Attach":
+                return new Attach(name, <any>undefined, { urn })
+            case "digitalocean-native:volumes/v2:Detach":
+                return new Detach(name, <any>undefined, { urn })
+            case "digitalocean-native:volumes/v2:Resize":
+                return new Resize(name, <any>undefined, { urn })
             case "digitalocean-native:volumes/v2:VolumeSnapshots":
                 return new VolumeSnapshots(name, <any>undefined, { urn })
             case "digitalocean-native:volumes/v2:Volumes":

@@ -13,7 +13,7 @@ from . import outputs
 __all__ = [
     'Domain',
     'DomainRecord',
-    'GetDomainsProperties',
+    'GetDomainProperties',
     'GetDomainsRecordProperties',
     'ListDomainsItems',
     'ListDomainsRecordsItems',
@@ -223,7 +223,7 @@ class DomainRecord(dict):
 
 
 @pulumi.output_type
-class GetDomainsProperties(dict):
+class GetDomainProperties(dict):
     def __init__(__self__, *,
                  domain: Optional['outputs.Domain'] = None):
         if domain is not None:

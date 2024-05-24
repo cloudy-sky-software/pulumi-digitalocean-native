@@ -16,7 +16,7 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
         public Output<Outputs.Alerts> Alerts { get; private set; } = null!;
 
         [Output("compare")]
-        public Output<Pulumi.DigitalOceanNative.MonitoringV2.Compare> Compare { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.MonitoringV2.MonitoringAlertPolicyCompare> Compare { get; private set; } = null!;
 
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -34,13 +34,13 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.DigitalOceanNative.MonitoringV2.Type> Type { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.MonitoringV2.MonitoringAlertPolicyType> Type { get; private set; } = null!;
 
         [Output("value")]
         public Output<double> Value { get; private set; } = null!;
 
         [Output("window")]
-        public Output<Pulumi.DigitalOceanNative.MonitoringV2.Window> Window { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.MonitoringV2.MonitoringAlertPolicyWindow> Window { get; private set; } = null!;
 
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
         public Input<Inputs.AlertsArgs> Alerts { get; set; } = null!;
 
         [Input("compare", required: true)]
-        public Input<Pulumi.DigitalOceanNative.MonitoringV2.Compare> Compare { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.MonitoringV2.MonitoringAlertPolicyCompare> Compare { get; set; } = null!;
 
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
         }
 
         [Input("type", required: true)]
-        public Input<Pulumi.DigitalOceanNative.MonitoringV2.Type> Type { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.MonitoringV2.MonitoringAlertPolicyType> Type { get; set; } = null!;
 
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 
         [Input("window", required: true)]
-        public Input<Pulumi.DigitalOceanNative.MonitoringV2.Window> Window { get; set; } = null!;
+        public Input<Pulumi.DigitalOceanNative.MonitoringV2.MonitoringAlertPolicyWindow> Window { get; set; } = null!;
 
         public MonitoringAlertPolicyArgs()
         {

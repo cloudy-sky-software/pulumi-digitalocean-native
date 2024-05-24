@@ -1195,6 +1195,39 @@ func (o FloatingIpRegionPtrOutput) Slug() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFloatingIPProperties struct {
+	FloatingIp *FloatingIp `pulumi:"floatingIp"`
+}
+
+// Defaults sets the appropriate defaults for GetFloatingIPProperties
+func (val *GetFloatingIPProperties) Defaults() *GetFloatingIPProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FloatingIp = tmp.FloatingIp.Defaults()
+
+	return &tmp
+}
+
+type GetFloatingIPPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetFloatingIPPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFloatingIPProperties)(nil)).Elem()
+}
+
+func (o GetFloatingIPPropertiesOutput) ToGetFloatingIPPropertiesOutput() GetFloatingIPPropertiesOutput {
+	return o
+}
+
+func (o GetFloatingIPPropertiesOutput) ToGetFloatingIPPropertiesOutputWithContext(ctx context.Context) GetFloatingIPPropertiesOutput {
+	return o
+}
+
+func (o GetFloatingIPPropertiesOutput) FloatingIp() FloatingIpPtrOutput {
+	return o.ApplyT(func(v GetFloatingIPProperties) *FloatingIp { return v.FloatingIp }).(FloatingIpPtrOutput)
+}
+
 type GetFloatingIPsActionProperties struct {
 	Action *GetFloatingIPsActionPropertiesAction `pulumi:"action"`
 }
@@ -1444,39 +1477,6 @@ func (o GetFloatingIPsActionPropertiesActionPtrOutput) Type() pulumi.StringPtrOu
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type GetFloatingIPsProperties struct {
-	FloatingIp *FloatingIp `pulumi:"floatingIp"`
-}
-
-// Defaults sets the appropriate defaults for GetFloatingIPsProperties
-func (val *GetFloatingIPsProperties) Defaults() *GetFloatingIPsProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.FloatingIp = tmp.FloatingIp.Defaults()
-
-	return &tmp
-}
-
-type GetFloatingIPsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetFloatingIPsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFloatingIPsProperties)(nil)).Elem()
-}
-
-func (o GetFloatingIPsPropertiesOutput) ToGetFloatingIPsPropertiesOutput() GetFloatingIPsPropertiesOutput {
-	return o
-}
-
-func (o GetFloatingIPsPropertiesOutput) ToGetFloatingIPsPropertiesOutputWithContext(ctx context.Context) GetFloatingIPsPropertiesOutput {
-	return o
-}
-
-func (o GetFloatingIPsPropertiesOutput) FloatingIp() FloatingIpPtrOutput {
-	return o.ApplyT(func(v GetFloatingIPsProperties) *FloatingIp { return v.FloatingIp }).(FloatingIpPtrOutput)
 }
 
 type Image struct {
@@ -2689,10 +2689,10 @@ func init() {
 	pulumi.RegisterOutputType(FloatingIpArrayOutput{})
 	pulumi.RegisterOutputType(FloatingIpRegionOutput{})
 	pulumi.RegisterOutputType(FloatingIpRegionPtrOutput{})
+	pulumi.RegisterOutputType(GetFloatingIPPropertiesOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPsActionPropertiesOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPsActionPropertiesActionOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPsActionPropertiesActionPtrOutput{})
-	pulumi.RegisterOutputType(GetFloatingIPsPropertiesOutput{})
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImagePtrOutput{})
 	pulumi.RegisterOutputType(KernelOutput{})

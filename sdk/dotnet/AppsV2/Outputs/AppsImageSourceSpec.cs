@@ -21,7 +21,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// - DOCKER_HUB: The DockerHub container registry type.
         /// - DOCR: The DigitalOcean container registry type.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsImageSourceSpecRegistryType? RegistryType;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppsImageSourceSpecRegistryType? RegistryType;
         /// <summary>
         /// The repository name.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         private AppsImageSourceSpec(
             string? registry,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppsImageSourceSpecRegistryType? registryType,
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppsImageSourceSpecRegistryType? registryType,
 
             string? repository,
 

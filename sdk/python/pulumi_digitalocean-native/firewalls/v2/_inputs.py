@@ -69,10 +69,10 @@ class FirewallPropertiesTagsArgs:
 class FirewallRulesInboundRulesItemArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[str],
-                 protocol: pulumi.Input['FirewallRuleBaseProtocol']):
+                 protocol: pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol']):
         """
         :param pulumi.Input[str] ports: The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
-        :param pulumi.Input['FirewallRuleBaseProtocol'] protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+        :param pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol'] protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "protocol", protocol)
@@ -91,14 +91,14 @@ class FirewallRulesInboundRulesItemArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input['FirewallRuleBaseProtocol']:
+    def protocol(self) -> pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol']:
         """
         The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input['FirewallRuleBaseProtocol']):
+    def protocol(self, value: pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol']):
         pulumi.set(self, "protocol", value)
 
 
@@ -106,10 +106,10 @@ class FirewallRulesInboundRulesItemArgs:
 class FirewallRulesOutboundRulesItemArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[str],
-                 protocol: pulumi.Input['FirewallRuleBaseProtocol']):
+                 protocol: pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol']):
         """
         :param pulumi.Input[str] ports: The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
-        :param pulumi.Input['FirewallRuleBaseProtocol'] protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+        :param pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol'] protocol: The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "protocol", protocol)
@@ -128,14 +128,14 @@ class FirewallRulesOutboundRulesItemArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input['FirewallRuleBaseProtocol']:
+    def protocol(self) -> pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol']:
         """
         The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input['FirewallRuleBaseProtocol']):
+    def protocol(self, value: pulumi.Input['FirewallsRulesFirewallRuleBaseProtocol']):
         pulumi.set(self, "protocol", value)
 
 

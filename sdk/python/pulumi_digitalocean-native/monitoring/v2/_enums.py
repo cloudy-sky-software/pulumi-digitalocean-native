@@ -8,11 +8,11 @@ __all__ = [
     'AlertPolicyCompare',
     'AlertPolicyType',
     'AlertPolicyWindow',
-    'Compare',
     'MetricsDataResultType',
     'MetricsStatus',
-    'Type',
-    'Window',
+    'MonitoringAlertPolicyCompare',
+    'MonitoringAlertPolicyType',
+    'MonitoringAlertPolicyWindow',
 ]
 
 
@@ -59,11 +59,6 @@ class AlertPolicyWindow(str, Enum):
     ALERT_POLICY_WINDOW_1H = "1h"
 
 
-class Compare(str, Enum):
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN = "LessThan"
-
-
 class MetricsDataResultType(str, Enum):
     MATRIX = "matrix"
 
@@ -73,7 +68,12 @@ class MetricsStatus(str, Enum):
     ERROR = "error"
 
 
-class Type(str, Enum):
+class MonitoringAlertPolicyCompare(str, Enum):
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN = "LessThan"
+
+
+class MonitoringAlertPolicyType(str, Enum):
     V1INSIGHTSDROPLETLOAD1 = "v1/insights/droplet/load_1"
     V1INSIGHTSDROPLETLOAD5 = "v1/insights/droplet/load_5"
     V1INSIGHTSDROPLETLOAD15 = "v1/insights/droplet/load_15"
@@ -104,8 +104,8 @@ class Type(str, Enum):
     V1DBAASALERTSCPU_ALERTS = "v1/dbaas/alerts/cpu_alerts"
 
 
-class Window(str, Enum):
-    WINDOW_5M = "5m"
-    WINDOW_10M = "10m"
-    WINDOW_30M = "30m"
-    WINDOW_1H = "1h"
+class MonitoringAlertPolicyWindow(str, Enum):
+    MONITORING_ALERT_POLICY_WINDOW_5M = "5m"
+    MONITORING_ALERT_POLICY_WINDOW_10M = "10m"
+    MONITORING_ALERT_POLICY_WINDOW_30M = "30m"
+    MONITORING_ALERT_POLICY_WINDOW_1H = "1h"

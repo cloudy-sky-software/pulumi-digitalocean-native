@@ -6,15 +6,15 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_volume_actions import *
+from .attach import *
+from .detach import *
+from .get_volume import *
+from .get_volume_action import *
 from .get_volume_snapshots_by_id import *
-from .get_volumes import *
 from .list_volume_actions import *
 from .list_volume_snapshots import *
 from .list_volumes import *
-from .volume_actions_by_id_attach import *
-from .volume_actions_by_id_detach import *
-from .volume_actions_by_id_resize import *
+from .resize import *
 from .volume_snapshots import *
 from .volumes import *
 from . import outputs

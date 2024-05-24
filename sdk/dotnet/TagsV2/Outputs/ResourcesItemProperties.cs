@@ -20,13 +20,13 @@ namespace Pulumi.DigitalOceanNative.TagsV2.Outputs
         /// <summary>
         /// The type of the resource.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.TagsV2.ResourcesItemPropertiesResourceType? ResourceType;
+        public readonly Pulumi.DigitalOceanNative.TagsV2.TagsAssignResourcesResourcesItemPropertiesResourceType? ResourceType;
 
         [OutputConstructor]
         private ResourcesItemProperties(
             string? resourceId,
 
-            Pulumi.DigitalOceanNative.TagsV2.ResourcesItemPropertiesResourceType? resourceType)
+            Pulumi.DigitalOceanNative.TagsV2.TagsAssignResourcesResourcesItemPropertiesResourceType? resourceType)
         {
             ResourceId = resourceId;
             ResourceType = resourceType;

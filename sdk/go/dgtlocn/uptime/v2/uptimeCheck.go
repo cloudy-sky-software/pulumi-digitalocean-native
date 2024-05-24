@@ -20,11 +20,11 @@ type UptimeCheck struct {
 	// A human-friendly display name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array containing the selected regions to perform healthchecks from.
-	Regions CheckUpdatableRegionsItemArrayOutput `pulumi:"regions"`
+	Regions UptimeCheckCheckUpdatableRegionsItemArrayOutput `pulumi:"regions"`
 	// The endpoint to perform healthchecks on.
 	Target pulumi.StringOutput `pulumi:"target"`
 	// The type of health check to perform.
-	Type CheckUpdatableTypeOutput `pulumi:"type"`
+	Type UptimeCheckCheckUpdatableTypeOutput `pulumi:"type"`
 }
 
 // NewUptimeCheck registers a new resource with the given unique name, arguments, and options.
@@ -75,11 +75,11 @@ type uptimeCheckArgs struct {
 	// A human-friendly display name.
 	Name *string `pulumi:"name"`
 	// An array containing the selected regions to perform healthchecks from.
-	Regions []CheckUpdatableRegionsItem `pulumi:"regions"`
+	Regions []UptimeCheckCheckUpdatableRegionsItem `pulumi:"regions"`
 	// The endpoint to perform healthchecks on.
 	Target *string `pulumi:"target"`
 	// The type of health check to perform.
-	Type *CheckUpdatableType `pulumi:"type"`
+	Type *UptimeCheckCheckUpdatableType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a UptimeCheck resource.
@@ -89,11 +89,11 @@ type UptimeCheckArgs struct {
 	// A human-friendly display name.
 	Name pulumi.StringPtrInput
 	// An array containing the selected regions to perform healthchecks from.
-	Regions CheckUpdatableRegionsItemArrayInput
+	Regions UptimeCheckCheckUpdatableRegionsItemArrayInput
 	// The endpoint to perform healthchecks on.
 	Target pulumi.StringPtrInput
 	// The type of health check to perform.
-	Type CheckUpdatableTypePtrInput
+	Type UptimeCheckCheckUpdatableTypePtrInput
 }
 
 func (UptimeCheckArgs) ElementType() reflect.Type {
@@ -148,8 +148,8 @@ func (o UptimeCheckOutput) Name() pulumi.StringOutput {
 }
 
 // An array containing the selected regions to perform healthchecks from.
-func (o UptimeCheckOutput) Regions() CheckUpdatableRegionsItemArrayOutput {
-	return o.ApplyT(func(v *UptimeCheck) CheckUpdatableRegionsItemArrayOutput { return v.Regions }).(CheckUpdatableRegionsItemArrayOutput)
+func (o UptimeCheckOutput) Regions() UptimeCheckCheckUpdatableRegionsItemArrayOutput {
+	return o.ApplyT(func(v *UptimeCheck) UptimeCheckCheckUpdatableRegionsItemArrayOutput { return v.Regions }).(UptimeCheckCheckUpdatableRegionsItemArrayOutput)
 }
 
 // The endpoint to perform healthchecks on.
@@ -158,8 +158,8 @@ func (o UptimeCheckOutput) Target() pulumi.StringOutput {
 }
 
 // The type of health check to perform.
-func (o UptimeCheckOutput) Type() CheckUpdatableTypeOutput {
-	return o.ApplyT(func(v *UptimeCheck) CheckUpdatableTypeOutput { return v.Type }).(CheckUpdatableTypeOutput)
+func (o UptimeCheckOutput) Type() UptimeCheckCheckUpdatableTypeOutput {
+	return o.ApplyT(func(v *UptimeCheck) UptimeCheckCheckUpdatableTypeOutput { return v.Type }).(UptimeCheckCheckUpdatableTypeOutput)
 }
 
 func init() {

@@ -66,3 +66,23 @@ export const RegionStateStatus = {
 } as const;
 
 export type RegionStateStatus = (typeof RegionStateStatus)[keyof typeof RegionStateStatus];
+
+export const UptimeCheckCheckUpdatableRegionsItem = {
+    UsEast: "us_east",
+    UsWest: "us_west",
+    EuWest: "eu_west",
+    SeAsia: "se_asia",
+} as const;
+
+export type UptimeCheckCheckUpdatableRegionsItem = (typeof UptimeCheckCheckUpdatableRegionsItem)[keyof typeof UptimeCheckCheckUpdatableRegionsItem];
+
+export const UptimeCheckCheckUpdatableType = {
+    Ping: "ping",
+    Http: "http",
+    Https: "https",
+} as const;
+
+/**
+ * The type of health check to perform.
+ */
+export type UptimeCheckCheckUpdatableType = (typeof UptimeCheckCheckUpdatableType)[keyof typeof UptimeCheckCheckUpdatableType];

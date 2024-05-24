@@ -6,11 +6,11 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_image_actions import *
-from .get_images import *
-from .image_actions_convert import *
-from .image_actions_transfer import *
+from .convert import *
+from .get_image import *
+from .get_image_action import *
 from .images_custom import *
 from .list_image_actions import *
 from .list_images import *
+from .transfer import *
 from . import outputs

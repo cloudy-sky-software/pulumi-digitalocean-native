@@ -27,7 +27,7 @@ type Action struct {
 	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
 	StartedAt *string `pulumi:"startedAt"`
 	// The current status of the action. This can be "in-progress", "completed", or "errored".
-	Status *ActionStatus `pulumi:"status"`
+	Status *DisableBackupsActionStatus `pulumi:"status"`
 	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
 	Type *string `pulumi:"type"`
 }
@@ -39,7 +39,7 @@ func (val *Action) Defaults() *Action {
 	}
 	tmp := *val
 	if tmp.Status == nil {
-		status_ := ActionStatus("in-progress")
+		status_ := DisableBackupsActionStatus("in-progress")
 		tmp.Status = &status_
 	}
 	return &tmp
@@ -93,8 +93,8 @@ func (o ActionOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o ActionOutput) Status() ActionStatusPtrOutput {
-	return o.ApplyT(func(v Action) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
+func (o ActionOutput) Status() DisableBackupsActionStatusPtrOutput {
+	return o.ApplyT(func(v Action) *DisableBackupsActionStatus { return v.Status }).(DisableBackupsActionStatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
@@ -195,13 +195,13 @@ func (o ActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o ActionPtrOutput) Status() ActionStatusPtrOutput {
-	return o.ApplyT(func(v *Action) *ActionStatus {
+func (o ActionPtrOutput) Status() DisableBackupsActionStatusPtrOutput {
+	return o.ApplyT(func(v *Action) *DisableBackupsActionStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(ActionStatusPtrOutput)
+	}).(DisableBackupsActionStatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
@@ -1583,12 +1583,12 @@ func (o FirewallRulesOutboundRulesItemArrayOutput) Index(i pulumi.IntInput) Fire
 	}).(FirewallRulesOutboundRulesItemOutput)
 }
 
-type GetDropletActionsProperties struct {
+type GetDropletActionProperties struct {
 	Action *Action `pulumi:"action"`
 }
 
-// Defaults sets the appropriate defaults for GetDropletActionsProperties
-func (val *GetDropletActionsProperties) Defaults() *GetDropletActionsProperties {
+// Defaults sets the appropriate defaults for GetDropletActionProperties
+func (val *GetDropletActionProperties) Defaults() *GetDropletActionProperties {
 	if val == nil {
 		return nil
 	}
@@ -1598,30 +1598,30 @@ func (val *GetDropletActionsProperties) Defaults() *GetDropletActionsProperties 
 	return &tmp
 }
 
-type GetDropletActionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetDropletActionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetDropletActionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDropletActionsProperties)(nil)).Elem()
+func (GetDropletActionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDropletActionProperties)(nil)).Elem()
 }
 
-func (o GetDropletActionsPropertiesOutput) ToGetDropletActionsPropertiesOutput() GetDropletActionsPropertiesOutput {
+func (o GetDropletActionPropertiesOutput) ToGetDropletActionPropertiesOutput() GetDropletActionPropertiesOutput {
 	return o
 }
 
-func (o GetDropletActionsPropertiesOutput) ToGetDropletActionsPropertiesOutputWithContext(ctx context.Context) GetDropletActionsPropertiesOutput {
+func (o GetDropletActionPropertiesOutput) ToGetDropletActionPropertiesOutputWithContext(ctx context.Context) GetDropletActionPropertiesOutput {
 	return o
 }
 
-func (o GetDropletActionsPropertiesOutput) Action() ActionPtrOutput {
-	return o.ApplyT(func(v GetDropletActionsProperties) *Action { return v.Action }).(ActionPtrOutput)
+func (o GetDropletActionPropertiesOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v GetDropletActionProperties) *Action { return v.Action }).(ActionPtrOutput)
 }
 
-type GetDropletsProperties struct {
+type GetDropletProperties struct {
 	Droplet *Droplet `pulumi:"droplet"`
 }
 
-// Defaults sets the appropriate defaults for GetDropletsProperties
-func (val *GetDropletsProperties) Defaults() *GetDropletsProperties {
+// Defaults sets the appropriate defaults for GetDropletProperties
+func (val *GetDropletProperties) Defaults() *GetDropletProperties {
 	if val == nil {
 		return nil
 	}
@@ -1631,22 +1631,22 @@ func (val *GetDropletsProperties) Defaults() *GetDropletsProperties {
 	return &tmp
 }
 
-type GetDropletsPropertiesOutput struct{ *pulumi.OutputState }
+type GetDropletPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetDropletsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDropletsProperties)(nil)).Elem()
+func (GetDropletPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDropletProperties)(nil)).Elem()
 }
 
-func (o GetDropletsPropertiesOutput) ToGetDropletsPropertiesOutput() GetDropletsPropertiesOutput {
+func (o GetDropletPropertiesOutput) ToGetDropletPropertiesOutput() GetDropletPropertiesOutput {
 	return o
 }
 
-func (o GetDropletsPropertiesOutput) ToGetDropletsPropertiesOutputWithContext(ctx context.Context) GetDropletsPropertiesOutput {
+func (o GetDropletPropertiesOutput) ToGetDropletPropertiesOutputWithContext(ctx context.Context) GetDropletPropertiesOutput {
 	return o
 }
 
-func (o GetDropletsPropertiesOutput) Droplet() DropletPtrOutput {
-	return o.ApplyT(func(v GetDropletsProperties) *Droplet { return v.Droplet }).(DropletPtrOutput)
+func (o GetDropletPropertiesOutput) Droplet() DropletPtrOutput {
+	return o.ApplyT(func(v GetDropletProperties) *Droplet { return v.Droplet }).(DropletPtrOutput)
 }
 
 type Image struct {
@@ -3016,8 +3016,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRulesInboundRulesItemArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRulesOutboundRulesItemOutput{})
 	pulumi.RegisterOutputType(FirewallRulesOutboundRulesItemArrayOutput{})
-	pulumi.RegisterOutputType(GetDropletActionsPropertiesOutput{})
-	pulumi.RegisterOutputType(GetDropletsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetDropletActionPropertiesOutput{})
+	pulumi.RegisterOutputType(GetDropletPropertiesOutput{})
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImagePtrOutput{})
 	pulumi.RegisterOutputType(KernelOutput{})

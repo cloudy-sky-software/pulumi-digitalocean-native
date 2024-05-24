@@ -6,14 +6,15 @@ from enum import Enum
 
 __all__ = [
     'ActionStatus',
+    'AssignFloatingIPsActionType',
     'DropletStatus',
-    'FloatingIPsActionType',
     'ImageDistribution',
     'ImageRegionsItem',
     'ImageStatus',
     'ImageType',
     'NetworkV4Type',
     'NetworkV6Type',
+    'UnassignFloatingIPsActionType',
 ]
 
 
@@ -26,6 +27,14 @@ class ActionStatus(str, Enum):
     ERRORED = "errored"
 
 
+class AssignFloatingIPsActionType(str, Enum):
+    """
+    The type of action to initiate for the floating IP.
+    """
+    ASSIGN = "assign"
+    UNASSIGN = "unassign"
+
+
 class DropletStatus(str, Enum):
     """
     A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
@@ -34,14 +43,6 @@ class DropletStatus(str, Enum):
     ACTIVE = "active"
     OFF = "off"
     ARCHIVE = "archive"
-
-
-class FloatingIPsActionType(str, Enum):
-    """
-    The type of action to initiate for the floating IP.
-    """
-    ASSIGN = "assign"
-    UNASSIGN = "unassign"
 
 
 class ImageDistribution(str, Enum):
@@ -121,3 +122,11 @@ class NetworkV6Type(str, Enum):
     **Note**: IPv6 private  networking is not currently supported.
     """
     PUBLIC = "public"
+
+
+class UnassignFloatingIPsActionType(str, Enum):
+    """
+    The type of action to initiate for the floating IP.
+    """
+    ASSIGN = "assign"
+    UNASSIGN = "unassign"

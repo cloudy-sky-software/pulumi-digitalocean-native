@@ -875,28 +875,26 @@ func (o CredentialsOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Credentials) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
-type GetKubernetesAvailableUpgradesProperties struct {
+type GetKubernetesAvailableUpgradeProperties struct {
 	AvailableUpgradeVersions []KubernetesVersion `pulumi:"availableUpgradeVersions"`
 }
 
-type GetKubernetesAvailableUpgradesPropertiesOutput struct{ *pulumi.OutputState }
+type GetKubernetesAvailableUpgradePropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetKubernetesAvailableUpgradesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKubernetesAvailableUpgradesProperties)(nil)).Elem()
+func (GetKubernetesAvailableUpgradePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesAvailableUpgradeProperties)(nil)).Elem()
 }
 
-func (o GetKubernetesAvailableUpgradesPropertiesOutput) ToGetKubernetesAvailableUpgradesPropertiesOutput() GetKubernetesAvailableUpgradesPropertiesOutput {
+func (o GetKubernetesAvailableUpgradePropertiesOutput) ToGetKubernetesAvailableUpgradePropertiesOutput() GetKubernetesAvailableUpgradePropertiesOutput {
 	return o
 }
 
-func (o GetKubernetesAvailableUpgradesPropertiesOutput) ToGetKubernetesAvailableUpgradesPropertiesOutputWithContext(ctx context.Context) GetKubernetesAvailableUpgradesPropertiesOutput {
+func (o GetKubernetesAvailableUpgradePropertiesOutput) ToGetKubernetesAvailableUpgradePropertiesOutputWithContext(ctx context.Context) GetKubernetesAvailableUpgradePropertiesOutput {
 	return o
 }
 
-func (o GetKubernetesAvailableUpgradesPropertiesOutput) AvailableUpgradeVersions() KubernetesVersionArrayOutput {
-	return o.ApplyT(func(v GetKubernetesAvailableUpgradesProperties) []KubernetesVersion {
-		return v.AvailableUpgradeVersions
-	}).(KubernetesVersionArrayOutput)
+func (o GetKubernetesAvailableUpgradePropertiesOutput) AvailableUpgradeVersions() KubernetesVersionArrayOutput {
+	return o.ApplyT(func(v GetKubernetesAvailableUpgradeProperties) []KubernetesVersion { return v.AvailableUpgradeVersions }).(KubernetesVersionArrayOutput)
 }
 
 type GetKubernetesClusterProperties struct {
@@ -2350,7 +2348,7 @@ type StatusProperties struct {
 	// An optional message providing additional information about the current cluster state.
 	Message *string `pulumi:"message"`
 	// A string indicating the current status of the cluster.
-	State *StatusPropertiesState `pulumi:"state"`
+	State *KubernetesClusterStatusPropertiesState `pulumi:"state"`
 }
 
 // An object containing a `state` attribute whose value is set to a string indicating the current status of the cluster.
@@ -2374,8 +2372,8 @@ func (o StatusPropertiesOutput) Message() pulumi.StringPtrOutput {
 }
 
 // A string indicating the current status of the cluster.
-func (o StatusPropertiesOutput) State() StatusPropertiesStatePtrOutput {
-	return o.ApplyT(func(v StatusProperties) *StatusPropertiesState { return v.State }).(StatusPropertiesStatePtrOutput)
+func (o StatusPropertiesOutput) State() KubernetesClusterStatusPropertiesStatePtrOutput {
+	return o.ApplyT(func(v StatusProperties) *KubernetesClusterStatusPropertiesState { return v.State }).(KubernetesClusterStatusPropertiesStatePtrOutput)
 }
 
 type StatusPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2413,13 +2411,13 @@ func (o StatusPropertiesPtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 // A string indicating the current status of the cluster.
-func (o StatusPropertiesPtrOutput) State() StatusPropertiesStatePtrOutput {
-	return o.ApplyT(func(v *StatusProperties) *StatusPropertiesState {
+func (o StatusPropertiesPtrOutput) State() KubernetesClusterStatusPropertiesStatePtrOutput {
+	return o.ApplyT(func(v *StatusProperties) *KubernetesClusterStatusPropertiesState {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(StatusPropertiesStatePtrOutput)
+	}).(KubernetesClusterStatusPropertiesStatePtrOutput)
 }
 
 type User struct {
@@ -2544,7 +2542,7 @@ func init() {
 	pulumi.RegisterOutputType(ClusterlintResultsDiagnosticsItemPropertiesObjectPropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterlintResultsDiagnosticsItemPropertiesObjectPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CredentialsOutput{})
-	pulumi.RegisterOutputType(GetKubernetesAvailableUpgradesPropertiesOutput{})
+	pulumi.RegisterOutputType(GetKubernetesAvailableUpgradePropertiesOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterPropertiesOutput{})
 	pulumi.RegisterOutputType(GetKubernetesNodePoolPropertiesOutput{})
 	pulumi.RegisterOutputType(KubernetesNodePoolTypeOutput{})

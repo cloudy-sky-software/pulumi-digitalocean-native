@@ -8,6 +8,258 @@ using Pulumi;
 namespace Pulumi.DigitalOceanNative.DatabasesV2
 {
     /// <summary>
+    /// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresDefaultToastCompression : IEquatable<CreategresDefaultToastCompression>
+    {
+        private readonly string _value;
+
+        private CreategresDefaultToastCompression(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresDefaultToastCompression Lz4 { get; } = new CreategresDefaultToastCompression("lz4");
+        public static CreategresDefaultToastCompression Pglz { get; } = new CreategresDefaultToastCompression("pglz");
+
+        public static bool operator ==(CreategresDefaultToastCompression left, CreategresDefaultToastCompression right) => left.Equals(right);
+        public static bool operator !=(CreategresDefaultToastCompression left, CreategresDefaultToastCompression right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresDefaultToastCompression value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresDefaultToastCompression other && Equals(other);
+        public bool Equals(CreategresDefaultToastCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Controls the amount of detail written in the server log for each message that is logged.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresLogErrorVerbosity : IEquatable<CreategresLogErrorVerbosity>
+    {
+        private readonly string _value;
+
+        private CreategresLogErrorVerbosity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresLogErrorVerbosity Terse { get; } = new CreategresLogErrorVerbosity("TERSE");
+        public static CreategresLogErrorVerbosity Default { get; } = new CreategresLogErrorVerbosity("DEFAULT");
+        public static CreategresLogErrorVerbosity Verbose { get; } = new CreategresLogErrorVerbosity("VERBOSE");
+
+        public static bool operator ==(CreategresLogErrorVerbosity left, CreategresLogErrorVerbosity right) => left.Equals(right);
+        public static bool operator !=(CreategresLogErrorVerbosity left, CreategresLogErrorVerbosity right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresLogErrorVerbosity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresLogErrorVerbosity other && Equals(other);
+        public bool Equals(CreategresLogErrorVerbosity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresLogLinePrefix : IEquatable<CreategresLogLinePrefix>
+    {
+        private readonly string _value;
+
+        private CreategresLogLinePrefix(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresLogLinePrefix Pidpuserudbdappaclienth { get; } = new CreategresLogLinePrefix("pid=%p,user=%u,db=%d,app=%a,client=%h");
+        public static CreategresLogLinePrefix Mpquserudbdappa { get; } = new CreategresLogLinePrefix("%m [%p] %q[user=%u,db=%d,app=%a]");
+        public static CreategresLogLinePrefix Tpl1Userudbdappaclienth { get; } = new CreategresLogLinePrefix("%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h");
+
+        public static bool operator ==(CreategresLogLinePrefix left, CreategresLogLinePrefix right) => left.Equals(right);
+        public static bool operator !=(CreategresLogLinePrefix left, CreategresLogLinePrefix right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresLogLinePrefix value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresLogLinePrefix other && Equals(other);
+        public bool Equals(CreategresLogLinePrefix other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresPgStatStatementsTrack : IEquatable<CreategresPgStatStatementsTrack>
+    {
+        private readonly string _value;
+
+        private CreategresPgStatStatementsTrack(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresPgStatStatementsTrack All { get; } = new CreategresPgStatStatementsTrack("all");
+        public static CreategresPgStatStatementsTrack Top { get; } = new CreategresPgStatStatementsTrack("top");
+        public static CreategresPgStatStatementsTrack None { get; } = new CreategresPgStatStatementsTrack("none");
+
+        public static bool operator ==(CreategresPgStatStatementsTrack left, CreategresPgStatStatementsTrack right) => left.Equals(right);
+        public static bool operator !=(CreategresPgStatStatementsTrack left, CreategresPgStatStatementsTrack right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresPgStatStatementsTrack value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresPgStatStatementsTrack other && Equals(other);
+        public bool Equals(CreategresPgStatStatementsTrack other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresSynchronousReplication : IEquatable<CreategresSynchronousReplication>
+    {
+        private readonly string _value;
+
+        private CreategresSynchronousReplication(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresSynchronousReplication Off { get; } = new CreategresSynchronousReplication("off");
+        public static CreategresSynchronousReplication Quorum { get; } = new CreategresSynchronousReplication("quorum");
+
+        public static bool operator ==(CreategresSynchronousReplication left, CreategresSynchronousReplication right) => left.Equals(right);
+        public static bool operator !=(CreategresSynchronousReplication left, CreategresSynchronousReplication right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresSynchronousReplication value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresSynchronousReplication other && Equals(other);
+        public bool Equals(CreategresSynchronousReplication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Record commit time of transactions.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresTrackCommitTimestamp : IEquatable<CreategresTrackCommitTimestamp>
+    {
+        private readonly string _value;
+
+        private CreategresTrackCommitTimestamp(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresTrackCommitTimestamp Off { get; } = new CreategresTrackCommitTimestamp("off");
+        public static CreategresTrackCommitTimestamp On { get; } = new CreategresTrackCommitTimestamp("on");
+
+        public static bool operator ==(CreategresTrackCommitTimestamp left, CreategresTrackCommitTimestamp right) => left.Equals(right);
+        public static bool operator !=(CreategresTrackCommitTimestamp left, CreategresTrackCommitTimestamp right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresTrackCommitTimestamp value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresTrackCommitTimestamp other && Equals(other);
+        public bool Equals(CreategresTrackCommitTimestamp other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enables tracking of function call counts and time used.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresTrackFunctions : IEquatable<CreategresTrackFunctions>
+    {
+        private readonly string _value;
+
+        private CreategresTrackFunctions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresTrackFunctions All { get; } = new CreategresTrackFunctions("all");
+        public static CreategresTrackFunctions Pl { get; } = new CreategresTrackFunctions("pl");
+        public static CreategresTrackFunctions None { get; } = new CreategresTrackFunctions("none");
+
+        public static bool operator ==(CreategresTrackFunctions left, CreategresTrackFunctions right) => left.Equals(right);
+        public static bool operator !=(CreategresTrackFunctions left, CreategresTrackFunctions right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresTrackFunctions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresTrackFunctions other && Equals(other);
+        public bool Equals(CreategresTrackFunctions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreategresTrackIoTiming : IEquatable<CreategresTrackIoTiming>
+    {
+        private readonly string _value;
+
+        private CreategresTrackIoTiming(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreategresTrackIoTiming Off { get; } = new CreategresTrackIoTiming("off");
+        public static CreategresTrackIoTiming On { get; } = new CreategresTrackIoTiming("on");
+
+        public static bool operator ==(CreategresTrackIoTiming left, CreategresTrackIoTiming right) => left.Equals(right);
+        public static bool operator !=(CreategresTrackIoTiming left, CreategresTrackIoTiming right) => !left.Equals(right);
+
+        public static explicit operator string(CreategresTrackIoTiming value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreategresTrackIoTiming other && Equals(other);
+        public bool Equals(CreategresTrackIoTiming other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Redis, and "mongodb" for MongoDB.
     /// </summary>
     [EnumType]
@@ -151,30 +403,30 @@ namespace Pulumi.DigitalOceanNative.DatabasesV2
     /// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
     /// </summary>
     [EnumType]
-    public readonly struct EvictionPolicy : IEquatable<EvictionPolicy>
+    public readonly struct DatabasesEvictionPolicyEvictionPolicy : IEquatable<DatabasesEvictionPolicyEvictionPolicy>
     {
         private readonly string _value;
 
-        private EvictionPolicy(string value)
+        private DatabasesEvictionPolicyEvictionPolicy(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EvictionPolicy Noeviction { get; } = new EvictionPolicy("noeviction");
-        public static EvictionPolicy AllkeysLru { get; } = new EvictionPolicy("allkeys_lru");
-        public static EvictionPolicy AllkeysRandom { get; } = new EvictionPolicy("allkeys_random");
-        public static EvictionPolicy VolatileLru { get; } = new EvictionPolicy("volatile_lru");
-        public static EvictionPolicy VolatileRandom { get; } = new EvictionPolicy("volatile_random");
-        public static EvictionPolicy VolatileTtl { get; } = new EvictionPolicy("volatile_ttl");
+        public static DatabasesEvictionPolicyEvictionPolicy Noeviction { get; } = new DatabasesEvictionPolicyEvictionPolicy("noeviction");
+        public static DatabasesEvictionPolicyEvictionPolicy AllkeysLru { get; } = new DatabasesEvictionPolicyEvictionPolicy("allkeys_lru");
+        public static DatabasesEvictionPolicyEvictionPolicy AllkeysRandom { get; } = new DatabasesEvictionPolicyEvictionPolicy("allkeys_random");
+        public static DatabasesEvictionPolicyEvictionPolicy VolatileLru { get; } = new DatabasesEvictionPolicyEvictionPolicy("volatile_lru");
+        public static DatabasesEvictionPolicyEvictionPolicy VolatileRandom { get; } = new DatabasesEvictionPolicyEvictionPolicy("volatile_random");
+        public static DatabasesEvictionPolicyEvictionPolicy VolatileTtl { get; } = new DatabasesEvictionPolicyEvictionPolicy("volatile_ttl");
 
-        public static bool operator ==(EvictionPolicy left, EvictionPolicy right) => left.Equals(right);
-        public static bool operator !=(EvictionPolicy left, EvictionPolicy right) => !left.Equals(right);
+        public static bool operator ==(DatabasesEvictionPolicyEvictionPolicy left, DatabasesEvictionPolicyEvictionPolicy right) => left.Equals(right);
+        public static bool operator !=(DatabasesEvictionPolicyEvictionPolicy left, DatabasesEvictionPolicyEvictionPolicy right) => !left.Equals(right);
 
-        public static explicit operator string(EvictionPolicy value) => value._value;
+        public static explicit operator string(DatabasesEvictionPolicyEvictionPolicy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EvictionPolicy other && Equals(other);
-        public bool Equals(EvictionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DatabasesEvictionPolicyEvictionPolicy other && Equals(other);
+        public bool Equals(DatabasesEvictionPolicyEvictionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -413,258 +665,6 @@ namespace Pulumi.DigitalOceanNative.DatabasesV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PgbouncerIgnoreStartupParametersItem other && Equals(other);
         public bool Equals(PgbouncerIgnoreStartupParametersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresDefaultToastCompression : IEquatable<PostgresDefaultToastCompression>
-    {
-        private readonly string _value;
-
-        private PostgresDefaultToastCompression(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresDefaultToastCompression Lz4 { get; } = new PostgresDefaultToastCompression("lz4");
-        public static PostgresDefaultToastCompression Pglz { get; } = new PostgresDefaultToastCompression("pglz");
-
-        public static bool operator ==(PostgresDefaultToastCompression left, PostgresDefaultToastCompression right) => left.Equals(right);
-        public static bool operator !=(PostgresDefaultToastCompression left, PostgresDefaultToastCompression right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresDefaultToastCompression value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresDefaultToastCompression other && Equals(other);
-        public bool Equals(PostgresDefaultToastCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Controls the amount of detail written in the server log for each message that is logged.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresLogErrorVerbosity : IEquatable<PostgresLogErrorVerbosity>
-    {
-        private readonly string _value;
-
-        private PostgresLogErrorVerbosity(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresLogErrorVerbosity Terse { get; } = new PostgresLogErrorVerbosity("TERSE");
-        public static PostgresLogErrorVerbosity Default { get; } = new PostgresLogErrorVerbosity("DEFAULT");
-        public static PostgresLogErrorVerbosity Verbose { get; } = new PostgresLogErrorVerbosity("VERBOSE");
-
-        public static bool operator ==(PostgresLogErrorVerbosity left, PostgresLogErrorVerbosity right) => left.Equals(right);
-        public static bool operator !=(PostgresLogErrorVerbosity left, PostgresLogErrorVerbosity right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresLogErrorVerbosity value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresLogErrorVerbosity other && Equals(other);
-        public bool Equals(PostgresLogErrorVerbosity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresLogLinePrefix : IEquatable<PostgresLogLinePrefix>
-    {
-        private readonly string _value;
-
-        private PostgresLogLinePrefix(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresLogLinePrefix Pidpuserudbdappaclienth { get; } = new PostgresLogLinePrefix("pid=%p,user=%u,db=%d,app=%a,client=%h");
-        public static PostgresLogLinePrefix Mpquserudbdappa { get; } = new PostgresLogLinePrefix("%m [%p] %q[user=%u,db=%d,app=%a]");
-        public static PostgresLogLinePrefix Tpl1Userudbdappaclienth { get; } = new PostgresLogLinePrefix("%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h");
-
-        public static bool operator ==(PostgresLogLinePrefix left, PostgresLogLinePrefix right) => left.Equals(right);
-        public static bool operator !=(PostgresLogLinePrefix left, PostgresLogLinePrefix right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresLogLinePrefix value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresLogLinePrefix other && Equals(other);
-        public bool Equals(PostgresLogLinePrefix other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresPgStatStatementsTrack : IEquatable<PostgresPgStatStatementsTrack>
-    {
-        private readonly string _value;
-
-        private PostgresPgStatStatementsTrack(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresPgStatStatementsTrack All { get; } = new PostgresPgStatStatementsTrack("all");
-        public static PostgresPgStatStatementsTrack Top { get; } = new PostgresPgStatStatementsTrack("top");
-        public static PostgresPgStatStatementsTrack None { get; } = new PostgresPgStatStatementsTrack("none");
-
-        public static bool operator ==(PostgresPgStatStatementsTrack left, PostgresPgStatStatementsTrack right) => left.Equals(right);
-        public static bool operator !=(PostgresPgStatStatementsTrack left, PostgresPgStatStatementsTrack right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresPgStatStatementsTrack value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresPgStatStatementsTrack other && Equals(other);
-        public bool Equals(PostgresPgStatStatementsTrack other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresSynchronousReplication : IEquatable<PostgresSynchronousReplication>
-    {
-        private readonly string _value;
-
-        private PostgresSynchronousReplication(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresSynchronousReplication Off { get; } = new PostgresSynchronousReplication("off");
-        public static PostgresSynchronousReplication Quorum { get; } = new PostgresSynchronousReplication("quorum");
-
-        public static bool operator ==(PostgresSynchronousReplication left, PostgresSynchronousReplication right) => left.Equals(right);
-        public static bool operator !=(PostgresSynchronousReplication left, PostgresSynchronousReplication right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresSynchronousReplication value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresSynchronousReplication other && Equals(other);
-        public bool Equals(PostgresSynchronousReplication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Record commit time of transactions.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresTrackCommitTimestamp : IEquatable<PostgresTrackCommitTimestamp>
-    {
-        private readonly string _value;
-
-        private PostgresTrackCommitTimestamp(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresTrackCommitTimestamp Off { get; } = new PostgresTrackCommitTimestamp("off");
-        public static PostgresTrackCommitTimestamp On { get; } = new PostgresTrackCommitTimestamp("on");
-
-        public static bool operator ==(PostgresTrackCommitTimestamp left, PostgresTrackCommitTimestamp right) => left.Equals(right);
-        public static bool operator !=(PostgresTrackCommitTimestamp left, PostgresTrackCommitTimestamp right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresTrackCommitTimestamp value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresTrackCommitTimestamp other && Equals(other);
-        public bool Equals(PostgresTrackCommitTimestamp other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Enables tracking of function call counts and time used.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresTrackFunctions : IEquatable<PostgresTrackFunctions>
-    {
-        private readonly string _value;
-
-        private PostgresTrackFunctions(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresTrackFunctions All { get; } = new PostgresTrackFunctions("all");
-        public static PostgresTrackFunctions Pl { get; } = new PostgresTrackFunctions("pl");
-        public static PostgresTrackFunctions None { get; } = new PostgresTrackFunctions("none");
-
-        public static bool operator ==(PostgresTrackFunctions left, PostgresTrackFunctions right) => left.Equals(right);
-        public static bool operator !=(PostgresTrackFunctions left, PostgresTrackFunctions right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresTrackFunctions value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresTrackFunctions other && Equals(other);
-        public bool Equals(PostgresTrackFunctions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-    /// </summary>
-    [EnumType]
-    public readonly struct PostgresTrackIoTiming : IEquatable<PostgresTrackIoTiming>
-    {
-        private readonly string _value;
-
-        private PostgresTrackIoTiming(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PostgresTrackIoTiming Off { get; } = new PostgresTrackIoTiming("off");
-        public static PostgresTrackIoTiming On { get; } = new PostgresTrackIoTiming("on");
-
-        public static bool operator ==(PostgresTrackIoTiming left, PostgresTrackIoTiming right) => left.Equals(right);
-        public static bool operator !=(PostgresTrackIoTiming left, PostgresTrackIoTiming right) => !left.Equals(right);
-
-        public static explicit operator string(PostgresTrackIoTiming value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PostgresTrackIoTiming other && Equals(other);
-        public bool Equals(PostgresTrackIoTiming other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

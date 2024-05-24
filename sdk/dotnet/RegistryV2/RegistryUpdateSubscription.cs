@@ -19,7 +19,7 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
         /// The slug of the subscription tier to sign up for.
         /// </summary>
         [Output("tierSlug")]
-        public Output<Pulumi.DigitalOceanNative.RegistryV2.TierSlug?> TierSlug { get; private set; } = null!;
+        public Output<Pulumi.DigitalOceanNative.RegistryV2.RegistryUpdateSubscriptionTierSlug?> TierSlug { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
         /// The slug of the subscription tier to sign up for.
         /// </summary>
         [Input("tierSlug")]
-        public Input<Pulumi.DigitalOceanNative.RegistryV2.TierSlug>? TierSlug { get; set; }
+        public Input<Pulumi.DigitalOceanNative.RegistryV2.RegistryUpdateSubscriptionTierSlug>? TierSlug { get; set; }
 
         public RegistryUpdateSubscriptionArgs()
         {

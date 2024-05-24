@@ -11,6 +11,8 @@ __all__ = [
     'CheckUpdatableRegionsItem',
     'CheckUpdatableType',
     'RegionStateStatus',
+    'UptimeCheckCheckUpdatableRegionsItem',
+    'UptimeCheckCheckUpdatableType',
 ]
 
 
@@ -65,3 +67,19 @@ class RegionStateStatus(str, Enum):
     DOWN = "DOWN"
     UP = "UP"
     CHECKING = "CHECKING"
+
+
+class UptimeCheckCheckUpdatableRegionsItem(str, Enum):
+    US_EAST = "us_east"
+    US_WEST = "us_west"
+    EU_WEST = "eu_west"
+    SE_ASIA = "se_asia"
+
+
+class UptimeCheckCheckUpdatableType(str, Enum):
+    """
+    The type of health check to perform.
+    """
+    PING = "ping"
+    HTTP = "http"
+    HTTPS = "https"

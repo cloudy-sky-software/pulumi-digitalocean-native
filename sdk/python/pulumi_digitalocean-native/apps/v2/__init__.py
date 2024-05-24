@@ -13,10 +13,10 @@ from .apps_list_metrics_bandwidth_daily import *
 from .apps_rollback import *
 from .apps_validate_app_spec import *
 from .apps_validate_rollback import *
-from .get_apps import *
+from .get_app import *
 from .get_apps_deployment import *
 from .get_apps_instance_size import *
-from .get_apps_logs import *
+from .get_apps_log import *
 from .get_apps_logs_active_deployment import *
 from .get_apps_logs_active_deployment_aggregate import *
 from .get_apps_logs_aggregate import *

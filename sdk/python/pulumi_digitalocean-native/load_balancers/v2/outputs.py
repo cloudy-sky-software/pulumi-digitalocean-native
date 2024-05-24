@@ -13,7 +13,7 @@ from ._enums import *
 
 __all__ = [
     'ForwardingRule',
-    'GetLoadBalancersProperties',
+    'GetLoadBalancerProperties',
     'HealthCheck',
     'LbFirewall',
     'ListLoadBalancersItems',
@@ -131,7 +131,7 @@ class ForwardingRule(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancersProperties(dict):
+class GetLoadBalancerProperties(dict):
     def __init__(__self__, *,
                  load_balancer: Optional['outputs.LoadBalancer'] = None):
         if load_balancer is not None:

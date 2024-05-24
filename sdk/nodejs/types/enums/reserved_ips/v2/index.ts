@@ -13,6 +13,16 @@ export const ActionStatus = {
  */
 export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
+export const AssignReservedIpActionTypeType = {
+    Assign: "assign",
+    Unassign: "unassign",
+} as const;
+
+/**
+ * The type of action to initiate for the reserved IP.
+ */
+export type AssignReservedIpActionTypeType = (typeof AssignReservedIpActionTypeType)[keyof typeof AssignReservedIpActionTypeType];
+
 export const DropletStatus = {
     New: "new",
     Active: "active",
@@ -116,7 +126,7 @@ export const NetworkV6Type = {
  */
 export type NetworkV6Type = (typeof NetworkV6Type)[keyof typeof NetworkV6Type];
 
-export const ReservedIpActionTypeType = {
+export const UnassignReservedIpActionTypeType = {
     Assign: "assign",
     Unassign: "unassign",
 } as const;
@@ -124,4 +134,4 @@ export const ReservedIpActionTypeType = {
 /**
  * The type of action to initiate for the reserved IP.
  */
-export type ReservedIpActionTypeType = (typeof ReservedIpActionTypeType)[keyof typeof ReservedIpActionTypeType];
+export type UnassignReservedIpActionTypeType = (typeof UnassignReservedIpActionTypeType)[keyof typeof UnassignReservedIpActionTypeType];

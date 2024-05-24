@@ -18,10 +18,10 @@ type Registry struct {
 	// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Slug of the region where registry data is stored. When not provided, a region will be selected.
-	Region   RegionPtrOutput       `pulumi:"region"`
-	Registry RegistryTypePtrOutput `pulumi:"registry"`
+	Region   RegistryRegionPtrOutput `pulumi:"region"`
+	Registry RegistryTypePtrOutput   `pulumi:"registry"`
 	// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-	SubscriptionTierSlug SubscriptionTierSlugOutput `pulumi:"subscriptionTierSlug"`
+	SubscriptionTierSlug RegistrySubscriptionTierSlugOutput `pulumi:"subscriptionTierSlug"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -70,9 +70,9 @@ type registryArgs struct {
 	// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
 	Name *string `pulumi:"name"`
 	// Slug of the region where registry data is stored. When not provided, a region will be selected.
-	Region *Region `pulumi:"region"`
+	Region *RegistryRegion `pulumi:"region"`
 	// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-	SubscriptionTierSlug SubscriptionTierSlug `pulumi:"subscriptionTierSlug"`
+	SubscriptionTierSlug RegistrySubscriptionTierSlug `pulumi:"subscriptionTierSlug"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -80,9 +80,9 @@ type RegistryArgs struct {
 	// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
 	Name pulumi.StringPtrInput
 	// Slug of the region where registry data is stored. When not provided, a region will be selected.
-	Region RegionPtrInput
+	Region RegistryRegionPtrInput
 	// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-	SubscriptionTierSlug SubscriptionTierSlugInput
+	SubscriptionTierSlug RegistrySubscriptionTierSlugInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -128,8 +128,8 @@ func (o RegistryOutput) Name() pulumi.StringOutput {
 }
 
 // Slug of the region where registry data is stored. When not provided, a region will be selected.
-func (o RegistryOutput) Region() RegionPtrOutput {
-	return o.ApplyT(func(v *Registry) RegionPtrOutput { return v.Region }).(RegionPtrOutput)
+func (o RegistryOutput) Region() RegistryRegionPtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryRegionPtrOutput { return v.Region }).(RegistryRegionPtrOutput)
 }
 
 func (o RegistryOutput) Registry() RegistryTypePtrOutput {
@@ -137,8 +137,8 @@ func (o RegistryOutput) Registry() RegistryTypePtrOutput {
 }
 
 // The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-func (o RegistryOutput) SubscriptionTierSlug() SubscriptionTierSlugOutput {
-	return o.ApplyT(func(v *Registry) SubscriptionTierSlugOutput { return v.SubscriptionTierSlug }).(SubscriptionTierSlugOutput)
+func (o RegistryOutput) SubscriptionTierSlug() RegistrySubscriptionTierSlugOutput {
+	return o.ApplyT(func(v *Registry) RegistrySubscriptionTierSlugOutput { return v.SubscriptionTierSlug }).(RegistrySubscriptionTierSlugOutput)
 }
 
 func init() {

@@ -6,11 +6,11 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .assign import *
 from .floating_ips import *
-from .floating_ips_action_assign import *
-from .floating_ips_action_unassign import *
-from .get_floating_ips import *
+from .get_floating_ip import *
 from .get_floating_ips_action import *
 from .list_floating_ips import *
 from .list_floating_ips_action import *
+from .unassign import *
 from . import outputs

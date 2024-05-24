@@ -38,7 +38,7 @@ namespace Pulumi.DigitalOceanNative.DropletsV2.Outputs
         /// <summary>
         /// The current status of the action. This can be "in-progress", "completed", or "errored".
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.DropletsV2.ActionStatus? Status;
+        public readonly Pulumi.DigitalOceanNative.DropletsV2.DisableBackupsActionStatus? Status;
         /// <summary>
         /// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.DigitalOceanNative.DropletsV2.Outputs
 
             string? startedAt,
 
-            Pulumi.DigitalOceanNative.DropletsV2.ActionStatus? status,
+            Pulumi.DigitalOceanNative.DropletsV2.DisableBackupsActionStatus? status,
 
             string? type)
         {

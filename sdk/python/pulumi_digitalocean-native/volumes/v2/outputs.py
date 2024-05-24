@@ -13,9 +13,9 @@ from ._enums import *
 
 __all__ = [
     'ActionRegionSlug',
-    'GetVolumeActionsProperties',
+    'GetVolumeActionProperties',
+    'GetVolumeProperties',
     'GetVolumeSnapshotsByIdProperties',
-    'GetVolumesProperties',
     'ListVolumeActionsItems',
     'ListVolumeSnapshotsItems',
     'ListVolumesItems',
@@ -36,7 +36,7 @@ class ActionRegionSlug(dict):
 
 
 @pulumi.output_type
-class GetVolumeActionsProperties(dict):
+class GetVolumeActionProperties(dict):
     def __init__(__self__, *,
                  action: Optional['outputs.VolumeAction'] = None):
         if action is not None:
@@ -46,6 +46,19 @@ class GetVolumeActionsProperties(dict):
     @pulumi.getter
     def action(self) -> Optional['outputs.VolumeAction']:
         return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class GetVolumeProperties(dict):
+    def __init__(__self__, *,
+                 volume: Optional['outputs.VolumeFull'] = None):
+        if volume is not None:
+            pulumi.set(__self__, "volume", volume)
+
+    @property
+    @pulumi.getter
+    def volume(self) -> Optional['outputs.VolumeFull']:
+        return pulumi.get(self, "volume")
 
 
 @pulumi.output_type
@@ -59,19 +72,6 @@ class GetVolumeSnapshotsByIdProperties(dict):
     @pulumi.getter
     def snapshot(self) -> Optional['outputs.Snapshots']:
         return pulumi.get(self, "snapshot")
-
-
-@pulumi.output_type
-class GetVolumesProperties(dict):
-    def __init__(__self__, *,
-                 volume: Optional['outputs.VolumeFull'] = None):
-        if volume is not None:
-            pulumi.set(__self__, "volume", volume)
-
-    @property
-    @pulumi.getter
-    def volume(self) -> Optional['outputs.VolumeFull']:
-        return pulumi.get(self, "volume")
 
 
 @pulumi.output_type

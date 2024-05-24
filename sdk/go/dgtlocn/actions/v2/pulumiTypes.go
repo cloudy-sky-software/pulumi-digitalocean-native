@@ -275,12 +275,12 @@ func (o ActionRegionSlugPtrOutput) Elem() ActionRegionSlugOutput {
 	}).(ActionRegionSlugOutput)
 }
 
-type GetActionsProperties struct {
+type GetActionProperties struct {
 	Action *Action `pulumi:"action"`
 }
 
-// Defaults sets the appropriate defaults for GetActionsProperties
-func (val *GetActionsProperties) Defaults() *GetActionsProperties {
+// Defaults sets the appropriate defaults for GetActionProperties
+func (val *GetActionProperties) Defaults() *GetActionProperties {
 	if val == nil {
 		return nil
 	}
@@ -290,22 +290,22 @@ func (val *GetActionsProperties) Defaults() *GetActionsProperties {
 	return &tmp
 }
 
-type GetActionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetActionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetActionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetActionsProperties)(nil)).Elem()
+func (GetActionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionProperties)(nil)).Elem()
 }
 
-func (o GetActionsPropertiesOutput) ToGetActionsPropertiesOutput() GetActionsPropertiesOutput {
+func (o GetActionPropertiesOutput) ToGetActionPropertiesOutput() GetActionPropertiesOutput {
 	return o
 }
 
-func (o GetActionsPropertiesOutput) ToGetActionsPropertiesOutputWithContext(ctx context.Context) GetActionsPropertiesOutput {
+func (o GetActionPropertiesOutput) ToGetActionPropertiesOutputWithContext(ctx context.Context) GetActionPropertiesOutput {
 	return o
 }
 
-func (o GetActionsPropertiesOutput) Action() ActionPtrOutput {
-	return o.ApplyT(func(v GetActionsProperties) *Action { return v.Action }).(ActionPtrOutput)
+func (o GetActionPropertiesOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v GetActionProperties) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 type ListActionsItems struct {
@@ -648,7 +648,7 @@ func init() {
 	pulumi.RegisterOutputType(ActionArrayOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugPtrOutput{})
-	pulumi.RegisterOutputType(GetActionsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetActionPropertiesOutput{})
 	pulumi.RegisterOutputType(ListActionsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})

@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'FirewallPropertiesStatus',
     'FirewallRuleBaseProtocol',
+    'FirewallsRulesFirewallRuleBaseProtocol',
 ]
 
 
@@ -20,6 +21,15 @@ class FirewallPropertiesStatus(str, Enum):
 
 
 class FirewallRuleBaseProtocol(str, Enum):
+    """
+    The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+    """
+    TCP = "tcp"
+    UDP = "udp"
+    ICMP = "icmp"
+
+
+class FirewallsRulesFirewallRuleBaseProtocol(str, Enum):
     """
     The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
     """

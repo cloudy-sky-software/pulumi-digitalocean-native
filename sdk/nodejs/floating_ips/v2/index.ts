@@ -5,25 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AssignArgs } from "./assign";
+export type Assign = import("./assign").Assign;
+export const Assign: typeof import("./assign").Assign = null as any;
+utilities.lazyLoad(exports, ["Assign"], () => require("./assign"));
+
 export { FloatingIPsArgs } from "./floatingIPs";
 export type FloatingIPs = import("./floatingIPs").FloatingIPs;
 export const FloatingIPs: typeof import("./floatingIPs").FloatingIPs = null as any;
 utilities.lazyLoad(exports, ["FloatingIPs"], () => require("./floatingIPs"));
 
-export { FloatingIPsActionAssignArgs } from "./floatingIPsActionAssign";
-export type FloatingIPsActionAssign = import("./floatingIPsActionAssign").FloatingIPsActionAssign;
-export const FloatingIPsActionAssign: typeof import("./floatingIPsActionAssign").FloatingIPsActionAssign = null as any;
-utilities.lazyLoad(exports, ["FloatingIPsActionAssign"], () => require("./floatingIPsActionAssign"));
-
-export { FloatingIPsActionUnassignArgs } from "./floatingIPsActionUnassign";
-export type FloatingIPsActionUnassign = import("./floatingIPsActionUnassign").FloatingIPsActionUnassign;
-export const FloatingIPsActionUnassign: typeof import("./floatingIPsActionUnassign").FloatingIPsActionUnassign = null as any;
-utilities.lazyLoad(exports, ["FloatingIPsActionUnassign"], () => require("./floatingIPsActionUnassign"));
-
-export { GetFloatingIPsArgs, GetFloatingIPsResult, GetFloatingIPsOutputArgs } from "./getFloatingIPs";
-export const getFloatingIPs: typeof import("./getFloatingIPs").getFloatingIPs = null as any;
-export const getFloatingIPsOutput: typeof import("./getFloatingIPs").getFloatingIPsOutput = null as any;
-utilities.lazyLoad(exports, ["getFloatingIPs","getFloatingIPsOutput"], () => require("./getFloatingIPs"));
+export { GetFloatingIPArgs, GetFloatingIPResult, GetFloatingIPOutputArgs } from "./getFloatingIP";
+export const getFloatingIP: typeof import("./getFloatingIP").getFloatingIP = null as any;
+export const getFloatingIPOutput: typeof import("./getFloatingIP").getFloatingIPOutput = null as any;
+utilities.lazyLoad(exports, ["getFloatingIP","getFloatingIPOutput"], () => require("./getFloatingIP"));
 
 export { GetFloatingIPsActionArgs, GetFloatingIPsActionResult, GetFloatingIPsActionOutputArgs } from "./getFloatingIPsAction";
 export const getFloatingIPsAction: typeof import("./getFloatingIPsAction").getFloatingIPsAction = null as any;
@@ -40,6 +35,11 @@ export const listFloatingIPsAction: typeof import("./listFloatingIPsAction").lis
 export const listFloatingIPsActionOutput: typeof import("./listFloatingIPsAction").listFloatingIPsActionOutput = null as any;
 utilities.lazyLoad(exports, ["listFloatingIPsAction","listFloatingIPsActionOutput"], () => require("./listFloatingIPsAction"));
 
+export { UnassignArgs } from "./unassign";
+export type Unassign = import("./unassign").Unassign;
+export const Unassign: typeof import("./unassign").Unassign = null as any;
+utilities.lazyLoad(exports, ["Unassign"], () => require("./unassign"));
+
 
 // Export enums:
 export * from "../../types/enums/floating_ips/v2";
@@ -48,12 +48,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "digitalocean-native:floating_ips/v2:Assign":
+                return new Assign(name, <any>undefined, { urn })
             case "digitalocean-native:floating_ips/v2:FloatingIPs":
                 return new FloatingIPs(name, <any>undefined, { urn })
-            case "digitalocean-native:floating_ips/v2:FloatingIPsActionAssign":
-                return new FloatingIPsActionAssign(name, <any>undefined, { urn })
-            case "digitalocean-native:floating_ips/v2:FloatingIPsActionUnassign":
-                return new FloatingIPsActionUnassign(name, <any>undefined, { urn })
+            case "digitalocean-native:floating_ips/v2:Unassign":
+                return new Unassign(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

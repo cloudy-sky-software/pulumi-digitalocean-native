@@ -163,26 +163,26 @@ func (o ActionRegionSlugPtrOutput) Elem() ActionRegionSlugOutput {
 	}).(ActionRegionSlugOutput)
 }
 
-type GetImagesProperties struct {
+type GetImageProperties struct {
 	Image Image `pulumi:"image"`
 }
 
-type GetImagesPropertiesOutput struct{ *pulumi.OutputState }
+type GetImagePropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetImagesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImagesProperties)(nil)).Elem()
+func (GetImagePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageProperties)(nil)).Elem()
 }
 
-func (o GetImagesPropertiesOutput) ToGetImagesPropertiesOutput() GetImagesPropertiesOutput {
+func (o GetImagePropertiesOutput) ToGetImagePropertiesOutput() GetImagePropertiesOutput {
 	return o
 }
 
-func (o GetImagesPropertiesOutput) ToGetImagesPropertiesOutputWithContext(ctx context.Context) GetImagesPropertiesOutput {
+func (o GetImagePropertiesOutput) ToGetImagePropertiesOutputWithContext(ctx context.Context) GetImagePropertiesOutput {
 	return o
 }
 
-func (o GetImagesPropertiesOutput) Image() ImageOutput {
-	return o.ApplyT(func(v GetImagesProperties) Image { return v.Image }).(ImageOutput)
+func (o GetImagePropertiesOutput) Image() ImageOutput {
+	return o.ApplyT(func(v GetImageProperties) Image { return v.Image }).(ImageOutput)
 }
 
 type Image struct {
@@ -906,7 +906,7 @@ func init() {
 	pulumi.RegisterOutputType(ActionArrayOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugPtrOutput{})
-	pulumi.RegisterOutputType(GetImagesPropertiesOutput{})
+	pulumi.RegisterOutputType(GetImagePropertiesOutput{})
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImagePtrOutput{})
 	pulumi.RegisterOutputType(ImageArrayOutput{})

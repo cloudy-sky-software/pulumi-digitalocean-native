@@ -12,8 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'GetProjectProperties',
     'GetProjectsDefaultProperties',
-    'GetProjectsProperties',
     'ListProjectsItems',
     'ListProjectsResourcesDefaultItems',
     'ListProjectsResourcesItems',
@@ -26,7 +26,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProjectsDefaultProperties(dict):
+class GetProjectProperties(dict):
     def __init__(__self__, *,
                  project: Optional['outputs.Project'] = None):
         if project is not None:
@@ -39,7 +39,7 @@ class GetProjectsDefaultProperties(dict):
 
 
 @pulumi.output_type
-class GetProjectsProperties(dict):
+class GetProjectsDefaultProperties(dict):
     def __init__(__self__, *,
                  project: Optional['outputs.Project'] = None):
         if project is not None:

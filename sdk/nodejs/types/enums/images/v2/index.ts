@@ -13,7 +13,18 @@ export const ActionStatus = {
  */
 export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
-export const ImageActionBaseType = {
+export const ConvertStatus = {
+    InProgress: "in-progress",
+    Completed: "completed",
+    Errored: "errored",
+} as const;
+
+/**
+ * The current status of the action. This can be "in-progress", "completed", or "errored".
+ */
+export type ConvertStatus = (typeof ConvertStatus)[keyof typeof ConvertStatus];
+
+export const ConvertType = {
     Convert: "convert",
     Transfer: "transfer",
 } as const;
@@ -21,29 +32,7 @@ export const ImageActionBaseType = {
 /**
  * The action to be taken on the image. Can be either `convert` or `transfer`.
  */
-export type ImageActionBaseType = (typeof ImageActionBaseType)[keyof typeof ImageActionBaseType];
-
-export const ImageActionsTransferPropertiesRegion = {
-    Ams1: "ams1",
-    Ams2: "ams2",
-    Ams3: "ams3",
-    Blr1: "blr1",
-    Fra1: "fra1",
-    Lon1: "lon1",
-    Nyc1: "nyc1",
-    Nyc2: "nyc2",
-    Nyc3: "nyc3",
-    Sfo1: "sfo1",
-    Sfo2: "sfo2",
-    Sfo3: "sfo3",
-    Sgp1: "sgp1",
-    Tor1: "tor1",
-} as const;
-
-/**
- * The slug identifier for the region where the resource will initially be  available.
- */
-export type ImageActionsTransferPropertiesRegion = (typeof ImageActionsTransferPropertiesRegion)[keyof typeof ImageActionsTransferPropertiesRegion];
+export type ConvertType = (typeof ConvertType)[keyof typeof ConvertType];
 
 export const ImageDistribution = {
     ArchLinux: "Arch Linux",
@@ -115,7 +104,7 @@ export const ImageType = {
  */
 export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
-export const ImageUpdateDistribution = {
+export const ImagesCustomImageUpdateDistribution = {
     ArchLinux: "Arch Linux",
     CentOS: "CentOS",
     CoreOS: "CoreOS",
@@ -134,7 +123,7 @@ export const ImageUpdateDistribution = {
 /**
  * The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
  */
-export type ImageUpdateDistribution = (typeof ImageUpdateDistribution)[keyof typeof ImageUpdateDistribution];
+export type ImagesCustomImageUpdateDistribution = (typeof ImagesCustomImageUpdateDistribution)[keyof typeof ImagesCustomImageUpdateDistribution];
 
 export const ImagesCustomPropertiesRegion = {
     Ams1: "ams1",
@@ -158,7 +147,39 @@ export const ImagesCustomPropertiesRegion = {
  */
 export type ImagesCustomPropertiesRegion = (typeof ImagesCustomPropertiesRegion)[keyof typeof ImagesCustomPropertiesRegion];
 
-export const Status = {
+export const TransferImageActionBaseType = {
+    Convert: "convert",
+    Transfer: "transfer",
+} as const;
+
+/**
+ * The action to be taken on the image. Can be either `convert` or `transfer`.
+ */
+export type TransferImageActionBaseType = (typeof TransferImageActionBaseType)[keyof typeof TransferImageActionBaseType];
+
+export const TransferPropertiesRegion = {
+    Ams1: "ams1",
+    Ams2: "ams2",
+    Ams3: "ams3",
+    Blr1: "blr1",
+    Fra1: "fra1",
+    Lon1: "lon1",
+    Nyc1: "nyc1",
+    Nyc2: "nyc2",
+    Nyc3: "nyc3",
+    Sfo1: "sfo1",
+    Sfo2: "sfo2",
+    Sfo3: "sfo3",
+    Sgp1: "sgp1",
+    Tor1: "tor1",
+} as const;
+
+/**
+ * The slug identifier for the region where the resource will initially be  available.
+ */
+export type TransferPropertiesRegion = (typeof TransferPropertiesRegion)[keyof typeof TransferPropertiesRegion];
+
+export const TransferStatus = {
     InProgress: "in-progress",
     Completed: "completed",
     Errored: "errored",
@@ -167,14 +188,4 @@ export const Status = {
 /**
  * The current status of the action. This can be "in-progress", "completed", or "errored".
  */
-export type Status = (typeof Status)[keyof typeof Status];
-
-export const Type = {
-    Convert: "convert",
-    Transfer: "transfer",
-} as const;
-
-/**
- * The action to be taken on the image. Can be either `convert` or `transfer`.
- */
-export type Type = (typeof Type)[keyof typeof Type];
+export type TransferStatus = (typeof TransferStatus)[keyof typeof TransferStatus];

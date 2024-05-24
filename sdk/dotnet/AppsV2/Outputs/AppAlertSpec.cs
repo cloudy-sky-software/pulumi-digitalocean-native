@@ -17,25 +17,25 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// Is the alert disabled?
         /// </summary>
         public readonly bool? Disabled;
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecOperator? Operator;
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecRule? Rule;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecOperator? Operator;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecRule? Rule;
         /// <summary>
         /// Threshold value for alert
         /// </summary>
         public readonly double? Value;
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecWindow? Window;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecWindow? Window;
 
         [OutputConstructor]
         private AppAlertSpec(
             bool? disabled,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecOperator? @operator,
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecOperator? @operator,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecRule? rule,
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecRule? rule,
 
             double? value,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppAlertSpecWindow? window)
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppAlertSpecWindow? window)
         {
             Disabled = disabled;
             Operator = @operator;

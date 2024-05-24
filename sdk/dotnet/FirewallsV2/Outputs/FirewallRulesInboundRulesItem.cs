@@ -20,13 +20,13 @@ namespace Pulumi.DigitalOceanNative.FirewallsV2.Outputs
         /// <summary>
         /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.FirewallsV2.FirewallRuleBaseProtocol Protocol;
+        public readonly Pulumi.DigitalOceanNative.FirewallsV2.FirewallsRulesFirewallRuleBaseProtocol Protocol;
 
         [OutputConstructor]
         private FirewallRulesInboundRulesItem(
             string ports,
 
-            Pulumi.DigitalOceanNative.FirewallsV2.FirewallRuleBaseProtocol protocol)
+            Pulumi.DigitalOceanNative.FirewallsV2.FirewallsRulesFirewallRuleBaseProtocol protocol)
         {
             Ports = ports;
             Protocol = protocol;

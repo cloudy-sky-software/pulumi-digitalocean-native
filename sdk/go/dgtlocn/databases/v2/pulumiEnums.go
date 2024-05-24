@@ -10,6 +10,738 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+type CreategresDefaultToastCompression string
+
+const (
+	CreategresDefaultToastCompressionLz4  = CreategresDefaultToastCompression("lz4")
+	CreategresDefaultToastCompressionPglz = CreategresDefaultToastCompression("pglz")
+)
+
+type CreategresDefaultToastCompressionOutput struct{ *pulumi.OutputState }
+
+func (CreategresDefaultToastCompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresDefaultToastCompression)(nil)).Elem()
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToCreategresDefaultToastCompressionOutput() CreategresDefaultToastCompressionOutput {
+	return o
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToCreategresDefaultToastCompressionOutputWithContext(ctx context.Context) CreategresDefaultToastCompressionOutput {
+	return o
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToCreategresDefaultToastCompressionPtrOutput() CreategresDefaultToastCompressionPtrOutput {
+	return o.ToCreategresDefaultToastCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToCreategresDefaultToastCompressionPtrOutputWithContext(ctx context.Context) CreategresDefaultToastCompressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresDefaultToastCompression) *CreategresDefaultToastCompression {
+		return &v
+	}).(CreategresDefaultToastCompressionPtrOutput)
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresDefaultToastCompression) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresDefaultToastCompressionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresDefaultToastCompression) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresDefaultToastCompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresDefaultToastCompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresDefaultToastCompression)(nil)).Elem()
+}
+
+func (o CreategresDefaultToastCompressionPtrOutput) ToCreategresDefaultToastCompressionPtrOutput() CreategresDefaultToastCompressionPtrOutput {
+	return o
+}
+
+func (o CreategresDefaultToastCompressionPtrOutput) ToCreategresDefaultToastCompressionPtrOutputWithContext(ctx context.Context) CreategresDefaultToastCompressionPtrOutput {
+	return o
+}
+
+func (o CreategresDefaultToastCompressionPtrOutput) Elem() CreategresDefaultToastCompressionOutput {
+	return o.ApplyT(func(v *CreategresDefaultToastCompression) CreategresDefaultToastCompression {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresDefaultToastCompression
+		return ret
+	}).(CreategresDefaultToastCompressionOutput)
+}
+
+func (o CreategresDefaultToastCompressionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresDefaultToastCompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresDefaultToastCompression) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls the amount of detail written in the server log for each message that is logged.
+type CreategresLogErrorVerbosity string
+
+const (
+	CreategresLogErrorVerbosityTerse   = CreategresLogErrorVerbosity("TERSE")
+	CreategresLogErrorVerbosityDefault = CreategresLogErrorVerbosity("DEFAULT")
+	CreategresLogErrorVerbosityVerbose = CreategresLogErrorVerbosity("VERBOSE")
+)
+
+type CreategresLogErrorVerbosityOutput struct{ *pulumi.OutputState }
+
+func (CreategresLogErrorVerbosityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresLogErrorVerbosity)(nil)).Elem()
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToCreategresLogErrorVerbosityOutput() CreategresLogErrorVerbosityOutput {
+	return o
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToCreategresLogErrorVerbosityOutputWithContext(ctx context.Context) CreategresLogErrorVerbosityOutput {
+	return o
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToCreategresLogErrorVerbosityPtrOutput() CreategresLogErrorVerbosityPtrOutput {
+	return o.ToCreategresLogErrorVerbosityPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToCreategresLogErrorVerbosityPtrOutputWithContext(ctx context.Context) CreategresLogErrorVerbosityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresLogErrorVerbosity) *CreategresLogErrorVerbosity {
+		return &v
+	}).(CreategresLogErrorVerbosityPtrOutput)
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresLogErrorVerbosity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresLogErrorVerbosityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresLogErrorVerbosity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresLogErrorVerbosityPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresLogErrorVerbosityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresLogErrorVerbosity)(nil)).Elem()
+}
+
+func (o CreategresLogErrorVerbosityPtrOutput) ToCreategresLogErrorVerbosityPtrOutput() CreategresLogErrorVerbosityPtrOutput {
+	return o
+}
+
+func (o CreategresLogErrorVerbosityPtrOutput) ToCreategresLogErrorVerbosityPtrOutputWithContext(ctx context.Context) CreategresLogErrorVerbosityPtrOutput {
+	return o
+}
+
+func (o CreategresLogErrorVerbosityPtrOutput) Elem() CreategresLogErrorVerbosityOutput {
+	return o.ApplyT(func(v *CreategresLogErrorVerbosity) CreategresLogErrorVerbosity {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresLogErrorVerbosity
+		return ret
+	}).(CreategresLogErrorVerbosityOutput)
+}
+
+func (o CreategresLogErrorVerbosityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresLogErrorVerbosityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresLogErrorVerbosity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+type CreategresLogLinePrefix string
+
+const (
+	CreategresLogLinePrefixPidpuserudbdappaclienth = CreategresLogLinePrefix("pid=%p,user=%u,db=%d,app=%a,client=%h")
+	CreategresLogLinePrefixMpquserudbdappa         = CreategresLogLinePrefix("%m [%p] %q[user=%u,db=%d,app=%a]")
+	CreategresLogLinePrefixTpl1Userudbdappaclienth = CreategresLogLinePrefix("%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h")
+)
+
+type CreategresLogLinePrefixOutput struct{ *pulumi.OutputState }
+
+func (CreategresLogLinePrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresLogLinePrefix)(nil)).Elem()
+}
+
+func (o CreategresLogLinePrefixOutput) ToCreategresLogLinePrefixOutput() CreategresLogLinePrefixOutput {
+	return o
+}
+
+func (o CreategresLogLinePrefixOutput) ToCreategresLogLinePrefixOutputWithContext(ctx context.Context) CreategresLogLinePrefixOutput {
+	return o
+}
+
+func (o CreategresLogLinePrefixOutput) ToCreategresLogLinePrefixPtrOutput() CreategresLogLinePrefixPtrOutput {
+	return o.ToCreategresLogLinePrefixPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresLogLinePrefixOutput) ToCreategresLogLinePrefixPtrOutputWithContext(ctx context.Context) CreategresLogLinePrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresLogLinePrefix) *CreategresLogLinePrefix {
+		return &v
+	}).(CreategresLogLinePrefixPtrOutput)
+}
+
+func (o CreategresLogLinePrefixOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresLogLinePrefixOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresLogLinePrefix) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresLogLinePrefixOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresLogLinePrefixOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresLogLinePrefix) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresLogLinePrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresLogLinePrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresLogLinePrefix)(nil)).Elem()
+}
+
+func (o CreategresLogLinePrefixPtrOutput) ToCreategresLogLinePrefixPtrOutput() CreategresLogLinePrefixPtrOutput {
+	return o
+}
+
+func (o CreategresLogLinePrefixPtrOutput) ToCreategresLogLinePrefixPtrOutputWithContext(ctx context.Context) CreategresLogLinePrefixPtrOutput {
+	return o
+}
+
+func (o CreategresLogLinePrefixPtrOutput) Elem() CreategresLogLinePrefixOutput {
+	return o.ApplyT(func(v *CreategresLogLinePrefix) CreategresLogLinePrefix {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresLogLinePrefix
+		return ret
+	}).(CreategresLogLinePrefixOutput)
+}
+
+func (o CreategresLogLinePrefixPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresLogLinePrefixPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresLogLinePrefix) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+type CreategresPgStatStatementsTrack string
+
+const (
+	CreategresPgStatStatementsTrackAll  = CreategresPgStatStatementsTrack("all")
+	CreategresPgStatStatementsTrackTop  = CreategresPgStatStatementsTrack("top")
+	CreategresPgStatStatementsTrackNone = CreategresPgStatStatementsTrack("none")
+)
+
+type CreategresPgStatStatementsTrackOutput struct{ *pulumi.OutputState }
+
+func (CreategresPgStatStatementsTrackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresPgStatStatementsTrack)(nil)).Elem()
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToCreategresPgStatStatementsTrackOutput() CreategresPgStatStatementsTrackOutput {
+	return o
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToCreategresPgStatStatementsTrackOutputWithContext(ctx context.Context) CreategresPgStatStatementsTrackOutput {
+	return o
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToCreategresPgStatStatementsTrackPtrOutput() CreategresPgStatStatementsTrackPtrOutput {
+	return o.ToCreategresPgStatStatementsTrackPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToCreategresPgStatStatementsTrackPtrOutputWithContext(ctx context.Context) CreategresPgStatStatementsTrackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresPgStatStatementsTrack) *CreategresPgStatStatementsTrack {
+		return &v
+	}).(CreategresPgStatStatementsTrackPtrOutput)
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresPgStatStatementsTrack) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresPgStatStatementsTrackOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresPgStatStatementsTrack) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresPgStatStatementsTrackPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresPgStatStatementsTrackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresPgStatStatementsTrack)(nil)).Elem()
+}
+
+func (o CreategresPgStatStatementsTrackPtrOutput) ToCreategresPgStatStatementsTrackPtrOutput() CreategresPgStatStatementsTrackPtrOutput {
+	return o
+}
+
+func (o CreategresPgStatStatementsTrackPtrOutput) ToCreategresPgStatStatementsTrackPtrOutputWithContext(ctx context.Context) CreategresPgStatStatementsTrackPtrOutput {
+	return o
+}
+
+func (o CreategresPgStatStatementsTrackPtrOutput) Elem() CreategresPgStatStatementsTrackOutput {
+	return o.ApplyT(func(v *CreategresPgStatStatementsTrack) CreategresPgStatStatementsTrack {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresPgStatStatementsTrack
+		return ret
+	}).(CreategresPgStatStatementsTrackOutput)
+}
+
+func (o CreategresPgStatStatementsTrackPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresPgStatStatementsTrackPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresPgStatStatementsTrack) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+type CreategresSynchronousReplication string
+
+const (
+	CreategresSynchronousReplicationOff    = CreategresSynchronousReplication("off")
+	CreategresSynchronousReplicationQuorum = CreategresSynchronousReplication("quorum")
+)
+
+type CreategresSynchronousReplicationOutput struct{ *pulumi.OutputState }
+
+func (CreategresSynchronousReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresSynchronousReplication)(nil)).Elem()
+}
+
+func (o CreategresSynchronousReplicationOutput) ToCreategresSynchronousReplicationOutput() CreategresSynchronousReplicationOutput {
+	return o
+}
+
+func (o CreategresSynchronousReplicationOutput) ToCreategresSynchronousReplicationOutputWithContext(ctx context.Context) CreategresSynchronousReplicationOutput {
+	return o
+}
+
+func (o CreategresSynchronousReplicationOutput) ToCreategresSynchronousReplicationPtrOutput() CreategresSynchronousReplicationPtrOutput {
+	return o.ToCreategresSynchronousReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresSynchronousReplicationOutput) ToCreategresSynchronousReplicationPtrOutputWithContext(ctx context.Context) CreategresSynchronousReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresSynchronousReplication) *CreategresSynchronousReplication {
+		return &v
+	}).(CreategresSynchronousReplicationPtrOutput)
+}
+
+func (o CreategresSynchronousReplicationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresSynchronousReplicationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresSynchronousReplication) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresSynchronousReplicationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresSynchronousReplicationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresSynchronousReplication) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresSynchronousReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresSynchronousReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresSynchronousReplication)(nil)).Elem()
+}
+
+func (o CreategresSynchronousReplicationPtrOutput) ToCreategresSynchronousReplicationPtrOutput() CreategresSynchronousReplicationPtrOutput {
+	return o
+}
+
+func (o CreategresSynchronousReplicationPtrOutput) ToCreategresSynchronousReplicationPtrOutputWithContext(ctx context.Context) CreategresSynchronousReplicationPtrOutput {
+	return o
+}
+
+func (o CreategresSynchronousReplicationPtrOutput) Elem() CreategresSynchronousReplicationOutput {
+	return o.ApplyT(func(v *CreategresSynchronousReplication) CreategresSynchronousReplication {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresSynchronousReplication
+		return ret
+	}).(CreategresSynchronousReplicationOutput)
+}
+
+func (o CreategresSynchronousReplicationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresSynchronousReplicationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresSynchronousReplication) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Record commit time of transactions.
+type CreategresTrackCommitTimestamp string
+
+const (
+	CreategresTrackCommitTimestampOff = CreategresTrackCommitTimestamp("off")
+	CreategresTrackCommitTimestampOn  = CreategresTrackCommitTimestamp("on")
+)
+
+type CreategresTrackCommitTimestampOutput struct{ *pulumi.OutputState }
+
+func (CreategresTrackCommitTimestampOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresTrackCommitTimestamp)(nil)).Elem()
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToCreategresTrackCommitTimestampOutput() CreategresTrackCommitTimestampOutput {
+	return o
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToCreategresTrackCommitTimestampOutputWithContext(ctx context.Context) CreategresTrackCommitTimestampOutput {
+	return o
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToCreategresTrackCommitTimestampPtrOutput() CreategresTrackCommitTimestampPtrOutput {
+	return o.ToCreategresTrackCommitTimestampPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToCreategresTrackCommitTimestampPtrOutputWithContext(ctx context.Context) CreategresTrackCommitTimestampPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresTrackCommitTimestamp) *CreategresTrackCommitTimestamp {
+		return &v
+	}).(CreategresTrackCommitTimestampPtrOutput)
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresTrackCommitTimestamp) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackCommitTimestampOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresTrackCommitTimestamp) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresTrackCommitTimestampPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresTrackCommitTimestampPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresTrackCommitTimestamp)(nil)).Elem()
+}
+
+func (o CreategresTrackCommitTimestampPtrOutput) ToCreategresTrackCommitTimestampPtrOutput() CreategresTrackCommitTimestampPtrOutput {
+	return o
+}
+
+func (o CreategresTrackCommitTimestampPtrOutput) ToCreategresTrackCommitTimestampPtrOutputWithContext(ctx context.Context) CreategresTrackCommitTimestampPtrOutput {
+	return o
+}
+
+func (o CreategresTrackCommitTimestampPtrOutput) Elem() CreategresTrackCommitTimestampOutput {
+	return o.ApplyT(func(v *CreategresTrackCommitTimestamp) CreategresTrackCommitTimestamp {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresTrackCommitTimestamp
+		return ret
+	}).(CreategresTrackCommitTimestampOutput)
+}
+
+func (o CreategresTrackCommitTimestampPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackCommitTimestampPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresTrackCommitTimestamp) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables tracking of function call counts and time used.
+type CreategresTrackFunctions string
+
+const (
+	CreategresTrackFunctionsAll  = CreategresTrackFunctions("all")
+	CreategresTrackFunctionsPl   = CreategresTrackFunctions("pl")
+	CreategresTrackFunctionsNone = CreategresTrackFunctions("none")
+)
+
+type CreategresTrackFunctionsOutput struct{ *pulumi.OutputState }
+
+func (CreategresTrackFunctionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresTrackFunctions)(nil)).Elem()
+}
+
+func (o CreategresTrackFunctionsOutput) ToCreategresTrackFunctionsOutput() CreategresTrackFunctionsOutput {
+	return o
+}
+
+func (o CreategresTrackFunctionsOutput) ToCreategresTrackFunctionsOutputWithContext(ctx context.Context) CreategresTrackFunctionsOutput {
+	return o
+}
+
+func (o CreategresTrackFunctionsOutput) ToCreategresTrackFunctionsPtrOutput() CreategresTrackFunctionsPtrOutput {
+	return o.ToCreategresTrackFunctionsPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackFunctionsOutput) ToCreategresTrackFunctionsPtrOutputWithContext(ctx context.Context) CreategresTrackFunctionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresTrackFunctions) *CreategresTrackFunctions {
+		return &v
+	}).(CreategresTrackFunctionsPtrOutput)
+}
+
+func (o CreategresTrackFunctionsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackFunctionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresTrackFunctions) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresTrackFunctionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackFunctionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresTrackFunctions) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresTrackFunctionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresTrackFunctionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresTrackFunctions)(nil)).Elem()
+}
+
+func (o CreategresTrackFunctionsPtrOutput) ToCreategresTrackFunctionsPtrOutput() CreategresTrackFunctionsPtrOutput {
+	return o
+}
+
+func (o CreategresTrackFunctionsPtrOutput) ToCreategresTrackFunctionsPtrOutputWithContext(ctx context.Context) CreategresTrackFunctionsPtrOutput {
+	return o
+}
+
+func (o CreategresTrackFunctionsPtrOutput) Elem() CreategresTrackFunctionsOutput {
+	return o.ApplyT(func(v *CreategresTrackFunctions) CreategresTrackFunctions {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresTrackFunctions
+		return ret
+	}).(CreategresTrackFunctionsOutput)
+}
+
+func (o CreategresTrackFunctionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackFunctionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresTrackFunctions) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+type CreategresTrackIoTiming string
+
+const (
+	CreategresTrackIoTimingOff = CreategresTrackIoTiming("off")
+	CreategresTrackIoTimingOn  = CreategresTrackIoTiming("on")
+)
+
+type CreategresTrackIoTimingOutput struct{ *pulumi.OutputState }
+
+func (CreategresTrackIoTimingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreategresTrackIoTiming)(nil)).Elem()
+}
+
+func (o CreategresTrackIoTimingOutput) ToCreategresTrackIoTimingOutput() CreategresTrackIoTimingOutput {
+	return o
+}
+
+func (o CreategresTrackIoTimingOutput) ToCreategresTrackIoTimingOutputWithContext(ctx context.Context) CreategresTrackIoTimingOutput {
+	return o
+}
+
+func (o CreategresTrackIoTimingOutput) ToCreategresTrackIoTimingPtrOutput() CreategresTrackIoTimingPtrOutput {
+	return o.ToCreategresTrackIoTimingPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackIoTimingOutput) ToCreategresTrackIoTimingPtrOutputWithContext(ctx context.Context) CreategresTrackIoTimingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreategresTrackIoTiming) *CreategresTrackIoTiming {
+		return &v
+	}).(CreategresTrackIoTimingPtrOutput)
+}
+
+func (o CreategresTrackIoTimingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackIoTimingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresTrackIoTiming) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreategresTrackIoTimingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackIoTimingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreategresTrackIoTiming) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreategresTrackIoTimingPtrOutput struct{ *pulumi.OutputState }
+
+func (CreategresTrackIoTimingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreategresTrackIoTiming)(nil)).Elem()
+}
+
+func (o CreategresTrackIoTimingPtrOutput) ToCreategresTrackIoTimingPtrOutput() CreategresTrackIoTimingPtrOutput {
+	return o
+}
+
+func (o CreategresTrackIoTimingPtrOutput) ToCreategresTrackIoTimingPtrOutputWithContext(ctx context.Context) CreategresTrackIoTimingPtrOutput {
+	return o
+}
+
+func (o CreategresTrackIoTimingPtrOutput) Elem() CreategresTrackIoTimingOutput {
+	return o.ApplyT(func(v *CreategresTrackIoTiming) CreategresTrackIoTiming {
+		if v != nil {
+			return *v
+		}
+		var ret CreategresTrackIoTiming
+		return ret
+	}).(CreategresTrackIoTimingOutput)
+}
+
+func (o CreategresTrackIoTimingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreategresTrackIoTimingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreategresTrackIoTiming) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Redis, and "mongodb" for MongoDB.
 type DatabaseClusterEngine string
 
@@ -699,128 +1431,128 @@ func (in *databaseUserRolePtr) ToDatabaseUserRolePtrOutputWithContext(ctx contex
 // - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
 // - `volatile_random`: Evict keys with expiration only in a random order.
 // - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-type EvictionPolicy string
+type DatabasesEvictionPolicyEvictionPolicy string
 
 const (
-	EvictionPolicyNoeviction     = EvictionPolicy("noeviction")
-	EvictionPolicyAllkeysLru     = EvictionPolicy("allkeys_lru")
-	EvictionPolicyAllkeysRandom  = EvictionPolicy("allkeys_random")
-	EvictionPolicyVolatileLru    = EvictionPolicy("volatile_lru")
-	EvictionPolicyVolatileRandom = EvictionPolicy("volatile_random")
-	EvictionPolicyVolatileTtl    = EvictionPolicy("volatile_ttl")
+	DatabasesEvictionPolicyEvictionPolicyNoeviction     = DatabasesEvictionPolicyEvictionPolicy("noeviction")
+	DatabasesEvictionPolicyEvictionPolicyAllkeysLru     = DatabasesEvictionPolicyEvictionPolicy("allkeys_lru")
+	DatabasesEvictionPolicyEvictionPolicyAllkeysRandom  = DatabasesEvictionPolicyEvictionPolicy("allkeys_random")
+	DatabasesEvictionPolicyEvictionPolicyVolatileLru    = DatabasesEvictionPolicyEvictionPolicy("volatile_lru")
+	DatabasesEvictionPolicyEvictionPolicyVolatileRandom = DatabasesEvictionPolicyEvictionPolicy("volatile_random")
+	DatabasesEvictionPolicyEvictionPolicyVolatileTtl    = DatabasesEvictionPolicyEvictionPolicy("volatile_ttl")
 )
 
-func (EvictionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvictionPolicy)(nil)).Elem()
+func (DatabasesEvictionPolicyEvictionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
 }
 
-func (e EvictionPolicy) ToEvictionPolicyOutput() EvictionPolicyOutput {
-	return pulumi.ToOutput(e).(EvictionPolicyOutput)
+func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyOutput() DatabasesEvictionPolicyEvictionPolicyOutput {
+	return pulumi.ToOutput(e).(DatabasesEvictionPolicyEvictionPolicyOutput)
 }
 
-func (e EvictionPolicy) ToEvictionPolicyOutputWithContext(ctx context.Context) EvictionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EvictionPolicyOutput)
+func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DatabasesEvictionPolicyEvictionPolicyOutput)
 }
 
-func (e EvictionPolicy) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
-	return e.ToEvictionPolicyPtrOutputWithContext(context.Background())
+func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+	return e.ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(context.Background())
 }
 
-func (e EvictionPolicy) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
-	return EvictionPolicy(e).ToEvictionPolicyOutputWithContext(ctx).ToEvictionPolicyPtrOutputWithContext(ctx)
+func (e DatabasesEvictionPolicyEvictionPolicy) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+	return DatabasesEvictionPolicyEvictionPolicy(e).ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(ctx).ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx)
 }
 
-func (e EvictionPolicy) ToStringOutput() pulumi.StringOutput {
+func (e DatabasesEvictionPolicyEvictionPolicy) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e EvictionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DatabasesEvictionPolicyEvictionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e EvictionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DatabasesEvictionPolicyEvictionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e EvictionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DatabasesEvictionPolicyEvictionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type EvictionPolicyOutput struct{ *pulumi.OutputState }
+type DatabasesEvictionPolicyEvictionPolicyOutput struct{ *pulumi.OutputState }
 
-func (EvictionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvictionPolicy)(nil)).Elem()
+func (DatabasesEvictionPolicyEvictionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
 }
 
-func (o EvictionPolicyOutput) ToEvictionPolicyOutput() EvictionPolicyOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyOutput() DatabasesEvictionPolicyEvictionPolicyOutput {
 	return o
 }
 
-func (o EvictionPolicyOutput) ToEvictionPolicyOutputWithContext(ctx context.Context) EvictionPolicyOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyOutput {
 	return o
 }
 
-func (o EvictionPolicyOutput) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
-	return o.ToEvictionPolicyPtrOutputWithContext(context.Background())
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+	return o.ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o EvictionPolicyOutput) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvictionPolicy) *EvictionPolicy {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabasesEvictionPolicyEvictionPolicy) *DatabasesEvictionPolicyEvictionPolicy {
 		return &v
-	}).(EvictionPolicyPtrOutput)
+	}).(DatabasesEvictionPolicyEvictionPolicyPtrOutput)
 }
 
-func (o EvictionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o EvictionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvictionPolicy) string {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabasesEvictionPolicyEvictionPolicy) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o EvictionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o EvictionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvictionPolicy) *string {
+func (o DatabasesEvictionPolicyEvictionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabasesEvictionPolicyEvictionPolicy) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type EvictionPolicyPtrOutput struct{ *pulumi.OutputState }
+type DatabasesEvictionPolicyEvictionPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (EvictionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvictionPolicy)(nil)).Elem()
+func (DatabasesEvictionPolicyEvictionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
 }
 
-func (o EvictionPolicyPtrOutput) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
 	return o
 }
 
-func (o EvictionPolicyPtrOutput) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
 	return o
 }
 
-func (o EvictionPolicyPtrOutput) Elem() EvictionPolicyOutput {
-	return o.ApplyT(func(v *EvictionPolicy) EvictionPolicy {
+func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) Elem() DatabasesEvictionPolicyEvictionPolicyOutput {
+	return o.ApplyT(func(v *DatabasesEvictionPolicyEvictionPolicy) DatabasesEvictionPolicyEvictionPolicy {
 		if v != nil {
 			return *v
 		}
-		var ret EvictionPolicy
+		var ret DatabasesEvictionPolicyEvictionPolicy
 		return ret
-	}).(EvictionPolicyOutput)
+	}).(DatabasesEvictionPolicyEvictionPolicyOutput)
 }
 
-func (o EvictionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o EvictionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvictionPolicy) *string {
+func (o DatabasesEvictionPolicyEvictionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatabasesEvictionPolicyEvictionPolicy) *string {
 		if e == nil {
 			return nil
 		}
@@ -829,47 +1561,47 @@ func (o EvictionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EvictionPolicyInput is an input type that accepts values of the EvictionPolicy enum
-// A concrete instance of `EvictionPolicyInput` can be one of the following:
+// DatabasesEvictionPolicyEvictionPolicyInput is an input type that accepts values of the DatabasesEvictionPolicyEvictionPolicy enum
+// A concrete instance of `DatabasesEvictionPolicyEvictionPolicyInput` can be one of the following:
 //
-//	EvictionPolicyNoeviction
-//	EvictionPolicyAllkeysLru
-//	EvictionPolicyAllkeysRandom
-//	EvictionPolicyVolatileLru
-//	EvictionPolicyVolatileRandom
-//	EvictionPolicyVolatileTtl
-type EvictionPolicyInput interface {
+//	DatabasesEvictionPolicyEvictionPolicyNoeviction
+//	DatabasesEvictionPolicyEvictionPolicyAllkeysLru
+//	DatabasesEvictionPolicyEvictionPolicyAllkeysRandom
+//	DatabasesEvictionPolicyEvictionPolicyVolatileLru
+//	DatabasesEvictionPolicyEvictionPolicyVolatileRandom
+//	DatabasesEvictionPolicyEvictionPolicyVolatileTtl
+type DatabasesEvictionPolicyEvictionPolicyInput interface {
 	pulumi.Input
 
-	ToEvictionPolicyOutput() EvictionPolicyOutput
-	ToEvictionPolicyOutputWithContext(context.Context) EvictionPolicyOutput
+	ToDatabasesEvictionPolicyEvictionPolicyOutput() DatabasesEvictionPolicyEvictionPolicyOutput
+	ToDatabasesEvictionPolicyEvictionPolicyOutputWithContext(context.Context) DatabasesEvictionPolicyEvictionPolicyOutput
 }
 
-var evictionPolicyPtrType = reflect.TypeOf((**EvictionPolicy)(nil)).Elem()
+var databasesEvictionPolicyEvictionPolicyPtrType = reflect.TypeOf((**DatabasesEvictionPolicyEvictionPolicy)(nil)).Elem()
 
-type EvictionPolicyPtrInput interface {
+type DatabasesEvictionPolicyEvictionPolicyPtrInput interface {
 	pulumi.Input
 
-	ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput
-	ToEvictionPolicyPtrOutputWithContext(context.Context) EvictionPolicyPtrOutput
+	ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput
+	ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput
 }
 
-type evictionPolicyPtr string
+type databasesEvictionPolicyEvictionPolicyPtr string
 
-func EvictionPolicyPtr(v string) EvictionPolicyPtrInput {
-	return (*evictionPolicyPtr)(&v)
+func DatabasesEvictionPolicyEvictionPolicyPtr(v string) DatabasesEvictionPolicyEvictionPolicyPtrInput {
+	return (*databasesEvictionPolicyEvictionPolicyPtr)(&v)
 }
 
-func (*evictionPolicyPtr) ElementType() reflect.Type {
-	return evictionPolicyPtrType
+func (*databasesEvictionPolicyEvictionPolicyPtr) ElementType() reflect.Type {
+	return databasesEvictionPolicyEvictionPolicyPtrType
 }
 
-func (in *evictionPolicyPtr) ToEvictionPolicyPtrOutput() EvictionPolicyPtrOutput {
-	return pulumi.ToOutput(in).(EvictionPolicyPtrOutput)
+func (in *databasesEvictionPolicyEvictionPolicyPtr) ToDatabasesEvictionPolicyEvictionPolicyPtrOutput() DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(DatabasesEvictionPolicyEvictionPolicyPtrOutput)
 }
 
-func (in *evictionPolicyPtr) ToEvictionPolicyPtrOutputWithContext(ctx context.Context) EvictionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EvictionPolicyPtrOutput)
+func (in *databasesEvictionPolicyEvictionPolicyPtr) ToDatabasesEvictionPolicyEvictionPolicyPtrOutputWithContext(ctx context.Context) DatabasesEvictionPolicyEvictionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DatabasesEvictionPolicyEvictionPolicyPtrOutput)
 }
 
 // The type of resource that the firewall rule allows to access the database cluster.
@@ -1703,738 +2435,6 @@ func (o PgbouncerIgnoreStartupParametersItemArrayOutput) Index(i pulumi.IntInput
 	}).(PgbouncerIgnoreStartupParametersItemOutput)
 }
 
-// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-type PostgresDefaultToastCompression string
-
-const (
-	PostgresDefaultToastCompressionLz4  = PostgresDefaultToastCompression("lz4")
-	PostgresDefaultToastCompressionPglz = PostgresDefaultToastCompression("pglz")
-)
-
-type PostgresDefaultToastCompressionOutput struct{ *pulumi.OutputState }
-
-func (PostgresDefaultToastCompressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresDefaultToastCompression)(nil)).Elem()
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToPostgresDefaultToastCompressionOutput() PostgresDefaultToastCompressionOutput {
-	return o
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToPostgresDefaultToastCompressionOutputWithContext(ctx context.Context) PostgresDefaultToastCompressionOutput {
-	return o
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToPostgresDefaultToastCompressionPtrOutput() PostgresDefaultToastCompressionPtrOutput {
-	return o.ToPostgresDefaultToastCompressionPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToPostgresDefaultToastCompressionPtrOutputWithContext(ctx context.Context) PostgresDefaultToastCompressionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresDefaultToastCompression) *PostgresDefaultToastCompression {
-		return &v
-	}).(PostgresDefaultToastCompressionPtrOutput)
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresDefaultToastCompression) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresDefaultToastCompressionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresDefaultToastCompression) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresDefaultToastCompressionPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresDefaultToastCompressionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresDefaultToastCompression)(nil)).Elem()
-}
-
-func (o PostgresDefaultToastCompressionPtrOutput) ToPostgresDefaultToastCompressionPtrOutput() PostgresDefaultToastCompressionPtrOutput {
-	return o
-}
-
-func (o PostgresDefaultToastCompressionPtrOutput) ToPostgresDefaultToastCompressionPtrOutputWithContext(ctx context.Context) PostgresDefaultToastCompressionPtrOutput {
-	return o
-}
-
-func (o PostgresDefaultToastCompressionPtrOutput) Elem() PostgresDefaultToastCompressionOutput {
-	return o.ApplyT(func(v *PostgresDefaultToastCompression) PostgresDefaultToastCompression {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresDefaultToastCompression
-		return ret
-	}).(PostgresDefaultToastCompressionOutput)
-}
-
-func (o PostgresDefaultToastCompressionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresDefaultToastCompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresDefaultToastCompression) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Controls the amount of detail written in the server log for each message that is logged.
-type PostgresLogErrorVerbosity string
-
-const (
-	PostgresLogErrorVerbosityTerse   = PostgresLogErrorVerbosity("TERSE")
-	PostgresLogErrorVerbosityDefault = PostgresLogErrorVerbosity("DEFAULT")
-	PostgresLogErrorVerbosityVerbose = PostgresLogErrorVerbosity("VERBOSE")
-)
-
-type PostgresLogErrorVerbosityOutput struct{ *pulumi.OutputState }
-
-func (PostgresLogErrorVerbosityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresLogErrorVerbosity)(nil)).Elem()
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToPostgresLogErrorVerbosityOutput() PostgresLogErrorVerbosityOutput {
-	return o
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToPostgresLogErrorVerbosityOutputWithContext(ctx context.Context) PostgresLogErrorVerbosityOutput {
-	return o
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToPostgresLogErrorVerbosityPtrOutput() PostgresLogErrorVerbosityPtrOutput {
-	return o.ToPostgresLogErrorVerbosityPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToPostgresLogErrorVerbosityPtrOutputWithContext(ctx context.Context) PostgresLogErrorVerbosityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresLogErrorVerbosity) *PostgresLogErrorVerbosity {
-		return &v
-	}).(PostgresLogErrorVerbosityPtrOutput)
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresLogErrorVerbosity) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresLogErrorVerbosityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresLogErrorVerbosity) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresLogErrorVerbosityPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresLogErrorVerbosityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresLogErrorVerbosity)(nil)).Elem()
-}
-
-func (o PostgresLogErrorVerbosityPtrOutput) ToPostgresLogErrorVerbosityPtrOutput() PostgresLogErrorVerbosityPtrOutput {
-	return o
-}
-
-func (o PostgresLogErrorVerbosityPtrOutput) ToPostgresLogErrorVerbosityPtrOutputWithContext(ctx context.Context) PostgresLogErrorVerbosityPtrOutput {
-	return o
-}
-
-func (o PostgresLogErrorVerbosityPtrOutput) Elem() PostgresLogErrorVerbosityOutput {
-	return o.ApplyT(func(v *PostgresLogErrorVerbosity) PostgresLogErrorVerbosity {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresLogErrorVerbosity
-		return ret
-	}).(PostgresLogErrorVerbosityOutput)
-}
-
-func (o PostgresLogErrorVerbosityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresLogErrorVerbosityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresLogErrorVerbosity) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-type PostgresLogLinePrefix string
-
-const (
-	PostgresLogLinePrefixPidpuserudbdappaclienth = PostgresLogLinePrefix("pid=%p,user=%u,db=%d,app=%a,client=%h")
-	PostgresLogLinePrefixMpquserudbdappa         = PostgresLogLinePrefix("%m [%p] %q[user=%u,db=%d,app=%a]")
-	PostgresLogLinePrefixTpl1Userudbdappaclienth = PostgresLogLinePrefix("%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h")
-)
-
-type PostgresLogLinePrefixOutput struct{ *pulumi.OutputState }
-
-func (PostgresLogLinePrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresLogLinePrefix)(nil)).Elem()
-}
-
-func (o PostgresLogLinePrefixOutput) ToPostgresLogLinePrefixOutput() PostgresLogLinePrefixOutput {
-	return o
-}
-
-func (o PostgresLogLinePrefixOutput) ToPostgresLogLinePrefixOutputWithContext(ctx context.Context) PostgresLogLinePrefixOutput {
-	return o
-}
-
-func (o PostgresLogLinePrefixOutput) ToPostgresLogLinePrefixPtrOutput() PostgresLogLinePrefixPtrOutput {
-	return o.ToPostgresLogLinePrefixPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresLogLinePrefixOutput) ToPostgresLogLinePrefixPtrOutputWithContext(ctx context.Context) PostgresLogLinePrefixPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresLogLinePrefix) *PostgresLogLinePrefix {
-		return &v
-	}).(PostgresLogLinePrefixPtrOutput)
-}
-
-func (o PostgresLogLinePrefixOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresLogLinePrefixOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresLogLinePrefix) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresLogLinePrefixOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresLogLinePrefixOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresLogLinePrefix) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresLogLinePrefixPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresLogLinePrefixPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresLogLinePrefix)(nil)).Elem()
-}
-
-func (o PostgresLogLinePrefixPtrOutput) ToPostgresLogLinePrefixPtrOutput() PostgresLogLinePrefixPtrOutput {
-	return o
-}
-
-func (o PostgresLogLinePrefixPtrOutput) ToPostgresLogLinePrefixPtrOutputWithContext(ctx context.Context) PostgresLogLinePrefixPtrOutput {
-	return o
-}
-
-func (o PostgresLogLinePrefixPtrOutput) Elem() PostgresLogLinePrefixOutput {
-	return o.ApplyT(func(v *PostgresLogLinePrefix) PostgresLogLinePrefix {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresLogLinePrefix
-		return ret
-	}).(PostgresLogLinePrefixOutput)
-}
-
-func (o PostgresLogLinePrefixPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresLogLinePrefixPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresLogLinePrefix) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-type PostgresPgStatStatementsTrack string
-
-const (
-	PostgresPgStatStatementsTrackAll  = PostgresPgStatStatementsTrack("all")
-	PostgresPgStatStatementsTrackTop  = PostgresPgStatStatementsTrack("top")
-	PostgresPgStatStatementsTrackNone = PostgresPgStatStatementsTrack("none")
-)
-
-type PostgresPgStatStatementsTrackOutput struct{ *pulumi.OutputState }
-
-func (PostgresPgStatStatementsTrackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresPgStatStatementsTrack)(nil)).Elem()
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToPostgresPgStatStatementsTrackOutput() PostgresPgStatStatementsTrackOutput {
-	return o
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToPostgresPgStatStatementsTrackOutputWithContext(ctx context.Context) PostgresPgStatStatementsTrackOutput {
-	return o
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToPostgresPgStatStatementsTrackPtrOutput() PostgresPgStatStatementsTrackPtrOutput {
-	return o.ToPostgresPgStatStatementsTrackPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToPostgresPgStatStatementsTrackPtrOutputWithContext(ctx context.Context) PostgresPgStatStatementsTrackPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresPgStatStatementsTrack) *PostgresPgStatStatementsTrack {
-		return &v
-	}).(PostgresPgStatStatementsTrackPtrOutput)
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresPgStatStatementsTrack) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresPgStatStatementsTrackOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresPgStatStatementsTrack) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresPgStatStatementsTrackPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresPgStatStatementsTrackPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresPgStatStatementsTrack)(nil)).Elem()
-}
-
-func (o PostgresPgStatStatementsTrackPtrOutput) ToPostgresPgStatStatementsTrackPtrOutput() PostgresPgStatStatementsTrackPtrOutput {
-	return o
-}
-
-func (o PostgresPgStatStatementsTrackPtrOutput) ToPostgresPgStatStatementsTrackPtrOutputWithContext(ctx context.Context) PostgresPgStatStatementsTrackPtrOutput {
-	return o
-}
-
-func (o PostgresPgStatStatementsTrackPtrOutput) Elem() PostgresPgStatStatementsTrackOutput {
-	return o.ApplyT(func(v *PostgresPgStatStatementsTrack) PostgresPgStatStatementsTrack {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresPgStatStatementsTrack
-		return ret
-	}).(PostgresPgStatStatementsTrackOutput)
-}
-
-func (o PostgresPgStatStatementsTrackPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresPgStatStatementsTrackPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresPgStatStatementsTrack) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-type PostgresSynchronousReplication string
-
-const (
-	PostgresSynchronousReplicationOff    = PostgresSynchronousReplication("off")
-	PostgresSynchronousReplicationQuorum = PostgresSynchronousReplication("quorum")
-)
-
-type PostgresSynchronousReplicationOutput struct{ *pulumi.OutputState }
-
-func (PostgresSynchronousReplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresSynchronousReplication)(nil)).Elem()
-}
-
-func (o PostgresSynchronousReplicationOutput) ToPostgresSynchronousReplicationOutput() PostgresSynchronousReplicationOutput {
-	return o
-}
-
-func (o PostgresSynchronousReplicationOutput) ToPostgresSynchronousReplicationOutputWithContext(ctx context.Context) PostgresSynchronousReplicationOutput {
-	return o
-}
-
-func (o PostgresSynchronousReplicationOutput) ToPostgresSynchronousReplicationPtrOutput() PostgresSynchronousReplicationPtrOutput {
-	return o.ToPostgresSynchronousReplicationPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresSynchronousReplicationOutput) ToPostgresSynchronousReplicationPtrOutputWithContext(ctx context.Context) PostgresSynchronousReplicationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresSynchronousReplication) *PostgresSynchronousReplication {
-		return &v
-	}).(PostgresSynchronousReplicationPtrOutput)
-}
-
-func (o PostgresSynchronousReplicationOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresSynchronousReplicationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresSynchronousReplication) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresSynchronousReplicationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresSynchronousReplicationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresSynchronousReplication) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresSynchronousReplicationPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresSynchronousReplicationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresSynchronousReplication)(nil)).Elem()
-}
-
-func (o PostgresSynchronousReplicationPtrOutput) ToPostgresSynchronousReplicationPtrOutput() PostgresSynchronousReplicationPtrOutput {
-	return o
-}
-
-func (o PostgresSynchronousReplicationPtrOutput) ToPostgresSynchronousReplicationPtrOutputWithContext(ctx context.Context) PostgresSynchronousReplicationPtrOutput {
-	return o
-}
-
-func (o PostgresSynchronousReplicationPtrOutput) Elem() PostgresSynchronousReplicationOutput {
-	return o.ApplyT(func(v *PostgresSynchronousReplication) PostgresSynchronousReplication {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresSynchronousReplication
-		return ret
-	}).(PostgresSynchronousReplicationOutput)
-}
-
-func (o PostgresSynchronousReplicationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresSynchronousReplicationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresSynchronousReplication) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Record commit time of transactions.
-type PostgresTrackCommitTimestamp string
-
-const (
-	PostgresTrackCommitTimestampOff = PostgresTrackCommitTimestamp("off")
-	PostgresTrackCommitTimestampOn  = PostgresTrackCommitTimestamp("on")
-)
-
-type PostgresTrackCommitTimestampOutput struct{ *pulumi.OutputState }
-
-func (PostgresTrackCommitTimestampOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresTrackCommitTimestamp)(nil)).Elem()
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToPostgresTrackCommitTimestampOutput() PostgresTrackCommitTimestampOutput {
-	return o
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToPostgresTrackCommitTimestampOutputWithContext(ctx context.Context) PostgresTrackCommitTimestampOutput {
-	return o
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToPostgresTrackCommitTimestampPtrOutput() PostgresTrackCommitTimestampPtrOutput {
-	return o.ToPostgresTrackCommitTimestampPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToPostgresTrackCommitTimestampPtrOutputWithContext(ctx context.Context) PostgresTrackCommitTimestampPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresTrackCommitTimestamp) *PostgresTrackCommitTimestamp {
-		return &v
-	}).(PostgresTrackCommitTimestampPtrOutput)
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresTrackCommitTimestamp) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackCommitTimestampOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresTrackCommitTimestamp) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresTrackCommitTimestampPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresTrackCommitTimestampPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresTrackCommitTimestamp)(nil)).Elem()
-}
-
-func (o PostgresTrackCommitTimestampPtrOutput) ToPostgresTrackCommitTimestampPtrOutput() PostgresTrackCommitTimestampPtrOutput {
-	return o
-}
-
-func (o PostgresTrackCommitTimestampPtrOutput) ToPostgresTrackCommitTimestampPtrOutputWithContext(ctx context.Context) PostgresTrackCommitTimestampPtrOutput {
-	return o
-}
-
-func (o PostgresTrackCommitTimestampPtrOutput) Elem() PostgresTrackCommitTimestampOutput {
-	return o.ApplyT(func(v *PostgresTrackCommitTimestamp) PostgresTrackCommitTimestamp {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresTrackCommitTimestamp
-		return ret
-	}).(PostgresTrackCommitTimestampOutput)
-}
-
-func (o PostgresTrackCommitTimestampPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackCommitTimestampPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresTrackCommitTimestamp) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Enables tracking of function call counts and time used.
-type PostgresTrackFunctions string
-
-const (
-	PostgresTrackFunctionsAll  = PostgresTrackFunctions("all")
-	PostgresTrackFunctionsPl   = PostgresTrackFunctions("pl")
-	PostgresTrackFunctionsNone = PostgresTrackFunctions("none")
-)
-
-type PostgresTrackFunctionsOutput struct{ *pulumi.OutputState }
-
-func (PostgresTrackFunctionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresTrackFunctions)(nil)).Elem()
-}
-
-func (o PostgresTrackFunctionsOutput) ToPostgresTrackFunctionsOutput() PostgresTrackFunctionsOutput {
-	return o
-}
-
-func (o PostgresTrackFunctionsOutput) ToPostgresTrackFunctionsOutputWithContext(ctx context.Context) PostgresTrackFunctionsOutput {
-	return o
-}
-
-func (o PostgresTrackFunctionsOutput) ToPostgresTrackFunctionsPtrOutput() PostgresTrackFunctionsPtrOutput {
-	return o.ToPostgresTrackFunctionsPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackFunctionsOutput) ToPostgresTrackFunctionsPtrOutputWithContext(ctx context.Context) PostgresTrackFunctionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresTrackFunctions) *PostgresTrackFunctions {
-		return &v
-	}).(PostgresTrackFunctionsPtrOutput)
-}
-
-func (o PostgresTrackFunctionsOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackFunctionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresTrackFunctions) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresTrackFunctionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackFunctionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresTrackFunctions) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresTrackFunctionsPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresTrackFunctionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresTrackFunctions)(nil)).Elem()
-}
-
-func (o PostgresTrackFunctionsPtrOutput) ToPostgresTrackFunctionsPtrOutput() PostgresTrackFunctionsPtrOutput {
-	return o
-}
-
-func (o PostgresTrackFunctionsPtrOutput) ToPostgresTrackFunctionsPtrOutputWithContext(ctx context.Context) PostgresTrackFunctionsPtrOutput {
-	return o
-}
-
-func (o PostgresTrackFunctionsPtrOutput) Elem() PostgresTrackFunctionsOutput {
-	return o.ApplyT(func(v *PostgresTrackFunctions) PostgresTrackFunctions {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresTrackFunctions
-		return ret
-	}).(PostgresTrackFunctionsOutput)
-}
-
-func (o PostgresTrackFunctionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackFunctionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresTrackFunctions) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-type PostgresTrackIoTiming string
-
-const (
-	PostgresTrackIoTimingOff = PostgresTrackIoTiming("off")
-	PostgresTrackIoTimingOn  = PostgresTrackIoTiming("on")
-)
-
-type PostgresTrackIoTimingOutput struct{ *pulumi.OutputState }
-
-func (PostgresTrackIoTimingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresTrackIoTiming)(nil)).Elem()
-}
-
-func (o PostgresTrackIoTimingOutput) ToPostgresTrackIoTimingOutput() PostgresTrackIoTimingOutput {
-	return o
-}
-
-func (o PostgresTrackIoTimingOutput) ToPostgresTrackIoTimingOutputWithContext(ctx context.Context) PostgresTrackIoTimingOutput {
-	return o
-}
-
-func (o PostgresTrackIoTimingOutput) ToPostgresTrackIoTimingPtrOutput() PostgresTrackIoTimingPtrOutput {
-	return o.ToPostgresTrackIoTimingPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackIoTimingOutput) ToPostgresTrackIoTimingPtrOutputWithContext(ctx context.Context) PostgresTrackIoTimingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresTrackIoTiming) *PostgresTrackIoTiming {
-		return &v
-	}).(PostgresTrackIoTimingPtrOutput)
-}
-
-func (o PostgresTrackIoTimingOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackIoTimingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresTrackIoTiming) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PostgresTrackIoTimingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackIoTimingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgresTrackIoTiming) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PostgresTrackIoTimingPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresTrackIoTimingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresTrackIoTiming)(nil)).Elem()
-}
-
-func (o PostgresTrackIoTimingPtrOutput) ToPostgresTrackIoTimingPtrOutput() PostgresTrackIoTimingPtrOutput {
-	return o
-}
-
-func (o PostgresTrackIoTimingPtrOutput) ToPostgresTrackIoTimingPtrOutputWithContext(ctx context.Context) PostgresTrackIoTimingPtrOutput {
-	return o
-}
-
-func (o PostgresTrackIoTimingPtrOutput) Elem() PostgresTrackIoTimingOutput {
-	return o.ApplyT(func(v *PostgresTrackIoTiming) PostgresTrackIoTiming {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresTrackIoTiming
-		return ret
-	}).(PostgresTrackIoTimingOutput)
-}
-
-func (o PostgresTrackIoTimingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresTrackIoTimingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgresTrackIoTiming) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
 // Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Redis configuration acl-pubsub-default.
 type RedisRedisAclChannelsDefault string
 
@@ -2728,12 +2728,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicaStatusPtrInput)(nil)).Elem(), DatabaseReplicaStatus("creating"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseUserRoleInput)(nil)).Elem(), DatabaseUserRole("primary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseUserRolePtrInput)(nil)).Elem(), DatabaseUserRole("primary"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyInput)(nil)).Elem(), EvictionPolicy("noeviction"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EvictionPolicyPtrInput)(nil)).Elem(), EvictionPolicy("noeviction"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicyInput)(nil)).Elem(), DatabasesEvictionPolicyEvictionPolicy("noeviction"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasesEvictionPolicyEvictionPolicyPtrInput)(nil)).Elem(), DatabasesEvictionPolicyEvictionPolicy("noeviction"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleTypeInput)(nil)).Elem(), FirewallRuleType("droplet"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleTypePtrInput)(nil)).Elem(), FirewallRuleType("droplet"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlSettingsAuthPluginInput)(nil)).Elem(), MysqlSettingsAuthPlugin("mysql_native_password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlSettingsAuthPluginPtrInput)(nil)).Elem(), MysqlSettingsAuthPlugin("mysql_native_password"))
+	pulumi.RegisterOutputType(CreategresDefaultToastCompressionOutput{})
+	pulumi.RegisterOutputType(CreategresDefaultToastCompressionPtrOutput{})
+	pulumi.RegisterOutputType(CreategresLogErrorVerbosityOutput{})
+	pulumi.RegisterOutputType(CreategresLogErrorVerbosityPtrOutput{})
+	pulumi.RegisterOutputType(CreategresLogLinePrefixOutput{})
+	pulumi.RegisterOutputType(CreategresLogLinePrefixPtrOutput{})
+	pulumi.RegisterOutputType(CreategresPgStatStatementsTrackOutput{})
+	pulumi.RegisterOutputType(CreategresPgStatStatementsTrackPtrOutput{})
+	pulumi.RegisterOutputType(CreategresSynchronousReplicationOutput{})
+	pulumi.RegisterOutputType(CreategresSynchronousReplicationPtrOutput{})
+	pulumi.RegisterOutputType(CreategresTrackCommitTimestampOutput{})
+	pulumi.RegisterOutputType(CreategresTrackCommitTimestampPtrOutput{})
+	pulumi.RegisterOutputType(CreategresTrackFunctionsOutput{})
+	pulumi.RegisterOutputType(CreategresTrackFunctionsPtrOutput{})
+	pulumi.RegisterOutputType(CreategresTrackIoTimingOutput{})
+	pulumi.RegisterOutputType(CreategresTrackIoTimingPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseClusterEngineOutput{})
 	pulumi.RegisterOutputType(DatabaseClusterEnginePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseClusterStatusOutput{})
@@ -2742,8 +2758,8 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseReplicaStatusPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseUserRoleOutput{})
 	pulumi.RegisterOutputType(DatabaseUserRolePtrOutput{})
-	pulumi.RegisterOutputType(EvictionPolicyOutput{})
-	pulumi.RegisterOutputType(EvictionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DatabasesEvictionPolicyEvictionPolicyOutput{})
+	pulumi.RegisterOutputType(DatabasesEvictionPolicyEvictionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(GetDatabasesEvictionPolicyPropertiesEvictionPolicyOutput{})
@@ -2759,22 +2775,6 @@ func init() {
 	pulumi.RegisterOutputType(PgbouncerIgnoreStartupParametersItemOutput{})
 	pulumi.RegisterOutputType(PgbouncerIgnoreStartupParametersItemPtrOutput{})
 	pulumi.RegisterOutputType(PgbouncerIgnoreStartupParametersItemArrayOutput{})
-	pulumi.RegisterOutputType(PostgresDefaultToastCompressionOutput{})
-	pulumi.RegisterOutputType(PostgresDefaultToastCompressionPtrOutput{})
-	pulumi.RegisterOutputType(PostgresLogErrorVerbosityOutput{})
-	pulumi.RegisterOutputType(PostgresLogErrorVerbosityPtrOutput{})
-	pulumi.RegisterOutputType(PostgresLogLinePrefixOutput{})
-	pulumi.RegisterOutputType(PostgresLogLinePrefixPtrOutput{})
-	pulumi.RegisterOutputType(PostgresPgStatStatementsTrackOutput{})
-	pulumi.RegisterOutputType(PostgresPgStatStatementsTrackPtrOutput{})
-	pulumi.RegisterOutputType(PostgresSynchronousReplicationOutput{})
-	pulumi.RegisterOutputType(PostgresSynchronousReplicationPtrOutput{})
-	pulumi.RegisterOutputType(PostgresTrackCommitTimestampOutput{})
-	pulumi.RegisterOutputType(PostgresTrackCommitTimestampPtrOutput{})
-	pulumi.RegisterOutputType(PostgresTrackFunctionsOutput{})
-	pulumi.RegisterOutputType(PostgresTrackFunctionsPtrOutput{})
-	pulumi.RegisterOutputType(PostgresTrackIoTimingOutput{})
-	pulumi.RegisterOutputType(PostgresTrackIoTimingPtrOutput{})
 	pulumi.RegisterOutputType(RedisRedisAclChannelsDefaultOutput{})
 	pulumi.RegisterOutputType(RedisRedisAclChannelsDefaultPtrOutput{})
 	pulumi.RegisterOutputType(RedisRedisMaxmemoryPolicyOutput{})

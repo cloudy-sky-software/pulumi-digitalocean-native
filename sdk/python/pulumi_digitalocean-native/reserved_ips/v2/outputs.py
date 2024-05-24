@@ -18,9 +18,9 @@ __all__ = [
     'Droplet',
     'DropletNetworksProperties',
     'DropletNextBackupWindowProperties',
-    'GetReservedIPsActionsProperties',
-    'GetReservedIPsActionsPropertiesAction',
-    'GetReservedIPsProperties',
+    'GetReservedIPProperties',
+    'GetReservedIPsActionProperties',
+    'GetReservedIPsActionPropertiesAction',
     'Image',
     'Kernel',
     'LinksProperties',
@@ -568,20 +568,33 @@ class DropletNextBackupWindowProperties(dict):
 
 
 @pulumi.output_type
-class GetReservedIPsActionsProperties(dict):
+class GetReservedIPProperties(dict):
     def __init__(__self__, *,
-                 action: Optional['outputs.GetReservedIPsActionsPropertiesAction'] = None):
+                 reserved_ip: Optional['outputs.ReservedIp'] = None):
+        if reserved_ip is not None:
+            pulumi.set(__self__, "reserved_ip", reserved_ip)
+
+    @property
+    @pulumi.getter(name="reservedIp")
+    def reserved_ip(self) -> Optional['outputs.ReservedIp']:
+        return pulumi.get(self, "reserved_ip")
+
+
+@pulumi.output_type
+class GetReservedIPsActionProperties(dict):
+    def __init__(__self__, *,
+                 action: Optional['outputs.GetReservedIPsActionPropertiesAction'] = None):
         if action is not None:
             pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
-    def action(self) -> Optional['outputs.GetReservedIPsActionsPropertiesAction']:
+    def action(self) -> Optional['outputs.GetReservedIPsActionPropertiesAction']:
         return pulumi.get(self, "action")
 
 
 @pulumi.output_type
-class GetReservedIPsActionsPropertiesAction(dict):
+class GetReservedIPsActionPropertiesAction(dict):
     def __init__(__self__, *,
                  completed_at: Optional[str] = None,
                  id: Optional[int] = None,
@@ -699,19 +712,6 @@ class GetReservedIPsActionsPropertiesAction(dict):
         This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetReservedIPsProperties(dict):
-    def __init__(__self__, *,
-                 reserved_ip: Optional['outputs.ReservedIp'] = None):
-        if reserved_ip is not None:
-            pulumi.set(__self__, "reserved_ip", reserved_ip)
-
-    @property
-    @pulumi.getter(name="reservedIp")
-    def reserved_ip(self) -> Optional['outputs.ReservedIp']:
-        return pulumi.get(self, "reserved_ip")
 
 
 @pulumi.output_type

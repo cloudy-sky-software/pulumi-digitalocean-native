@@ -44,7 +44,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// <summary>
         /// The slug form of the geographical origin of the app. Default: `nearest available`
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppSpecRegion? Region;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppSpecRegion? Region;
         /// <summary>
         /// Workloads which expose publicly-accessible HTTP services.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
 
             string name,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppSpecRegion? region,
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppSpecRegion? region,
 
             ImmutableArray<Outputs.AppServiceSpec> services,
 

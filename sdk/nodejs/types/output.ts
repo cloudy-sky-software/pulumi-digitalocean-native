@@ -86,7 +86,7 @@ export namespace account {
             };
         }
 
-        export interface GetSshKeysProperties {
+        export interface GetSshKeyProperties {
             sshKey?: outputs.account.v2.SshKeys;
         }
 
@@ -183,13 +183,13 @@ export namespace actions {
         export interface ActionRegionSlug {
         }
 
-        export interface GetActionsProperties {
+        export interface GetActionProperties {
             action?: outputs.actions.v2.Action;
         }
         /**
-         * getActionsPropertiesProvideDefaults sets the appropriate defaults for GetActionsProperties
+         * getActionPropertiesProvideDefaults sets the appropriate defaults for GetActionProperties
          */
-        export function getActionsPropertiesProvideDefaults(val: GetActionsProperties): GetActionsProperties {
+        export function getActionPropertiesProvideDefaults(val: GetActionProperties): GetActionProperties {
             return {
                 ...val,
                 action: (val.action ? outputs.actions.v2.actionProvideDefaults(val.action) : undefined),
@@ -343,13 +343,13 @@ export namespace apps {
              * Is the alert disabled?
              */
             disabled?: boolean;
-            operator?: enums.apps.v2.AppAlertSpecOperator;
-            rule?: enums.apps.v2.AppAlertSpecRule;
+            operator?: enums.apps.v2.AppsValidateAppSpecAppAlertSpecOperator;
+            rule?: enums.apps.v2.AppsValidateAppSpecAppAlertSpecRule;
             /**
              * Threshold value for alert
              */
             value?: number;
-            window?: enums.apps.v2.AppAlertSpecWindow;
+            window?: enums.apps.v2.AppsValidateAppSpecAppAlertSpecWindow;
         }
         /**
          * appAlertSpecProvideDefaults sets the appropriate defaults for AppAlertSpec
@@ -381,7 +381,7 @@ export namespace apps {
              * - PG: PostgreSQL
              * - REDIS: Redis
              */
-            engine?: enums.apps.v2.AppDatabaseSpecEngine;
+            engine?: enums.apps.v2.AppsValidateAppSpecAppDatabaseSpecEngine;
             /**
              * The name. Must be unique across all components within the same app.
              */
@@ -413,13 +413,13 @@ export namespace apps {
             /**
              * The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
              */
-            minimumTlsVersion?: enums.apps.v2.AppDomainSpecMinimumTlsVersion;
+            minimumTlsVersion?: enums.apps.v2.AppsValidateAppSpecAppDomainSpecMinimumTlsVersion;
             /**
              * - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
              * - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
              * - ALIAS: A non-primary domain
              */
-            type?: enums.apps.v2.AppDomainSpecType;
+            type?: enums.apps.v2.AppsValidateAppSpecAppDomainSpecType;
             /**
              * Indicates whether the domain includes all sub-domains, in addition to the given domain
              */
@@ -592,14 +592,14 @@ export namespace apps {
             /**
              * The instance size to use for this component. Default: `basic-xxs`
              */
-            instanceSizeSlug?: enums.apps.v2.AppComponentInstanceBaseInstanceSizeSlug;
+            instanceSizeSlug?: enums.apps.v2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug;
             /**
              * - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
              * - PRE_DEPLOY: Indicates a job that runs before an app deployment.
              * - POST_DEPLOY: Indicates a job that runs after an app deployment.
              * - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
              */
-            kind?: enums.apps.v2.AppJobSpecPropertiesKind;
+            kind?: enums.apps.v2.AppsValidateAppSpecAppJobSpecPropertiesKind;
             logDestinations?: outputs.apps.v2.AppLogDestinationDefinition;
             /**
              * The name. Must be unique across all components within the same app.
@@ -794,7 +794,7 @@ export namespace apps {
              *   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
              *   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
              */
-            code?: enums.apps.v2.AppRollbackValidationConditionCode;
+            code?: enums.apps.v2.AppsValidateRollbackAppRollbackValidationConditionCode;
             components?: string[];
             /**
              * A human-readable message describing the failing condition.
@@ -848,7 +848,7 @@ export namespace apps {
             /**
              * The instance size to use for this component. Default: `basic-xxs`
              */
-            instanceSizeSlug?: enums.apps.v2.AppComponentInstanceBaseInstanceSizeSlug;
+            instanceSizeSlug?: enums.apps.v2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug;
             /**
              * The ports on which this service will listen for internal traffic.
              */
@@ -946,7 +946,7 @@ export namespace apps {
             /**
              * The slug form of the geographical origin of the app. Default: `nearest available`
              */
-            region?: enums.apps.v2.AppSpecRegion;
+            region?: enums.apps.v2.AppsValidateAppSpecAppSpecRegion;
             /**
              * Workloads which expose publicly-accessible HTTP services.
              */
@@ -1039,12 +1039,12 @@ export namespace apps {
              * - BUILD_TIME: Made available only at build-time
              * - RUN_AND_BUILD_TIME: Made available at both build and run-time
              */
-            scope?: enums.apps.v2.AppVariableDefinitionScope;
+            scope?: enums.apps.v2.AppsValidateAppSpecAppVariableDefinitionScope;
             /**
              * - GENERAL: A plain-text environment variable
              * - SECRET: A secret encrypted environment variable
              */
-            type?: enums.apps.v2.AppVariableDefinitionType;
+            type?: enums.apps.v2.AppsValidateAppSpecAppVariableDefinitionType;
             /**
              * The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
              */
@@ -1089,7 +1089,7 @@ export namespace apps {
             /**
              * The instance size to use for this component. Default: `basic-xxs`
              */
-            instanceSizeSlug?: enums.apps.v2.AppComponentInstanceBaseInstanceSizeSlug;
+            instanceSizeSlug?: enums.apps.v2.AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug;
             logDestinations?: outputs.apps.v2.AppLogDestinationDefinition;
             /**
              * The name. Must be unique across all components within the same app.
@@ -1364,7 +1364,7 @@ export namespace apps {
              * - DOCKER_HUB: The DockerHub container registry type.
              * - DOCR: The DigitalOcean container registry type.
              */
-            registryType?: enums.apps.v2.AppsImageSourceSpecRegistryType;
+            registryType?: enums.apps.v2.AppsValidateAppSpecAppsImageSourceSpecRegistryType;
             /**
              * The repository name.
              */
@@ -1482,7 +1482,7 @@ export namespace apps {
              *   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
              *   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
              */
-            code?: enums.apps.v2.AppRollbackValidationConditionCode;
+            code?: enums.apps.v2.AppsValidateRollbackAppRollbackValidationConditionCode;
             components?: string[];
             /**
              * A human-readable message describing the failing condition.
@@ -1630,7 +1630,7 @@ export namespace certificates {
             type?: enums.certificates.v2.CertificateType;
         }
 
-        export interface GetCertificatesProperties {
+        export interface GetCertificateProperties {
             certificate?: outputs.certificates.v2.Certificate;
         }
 
@@ -1926,6 +1926,231 @@ export namespace databases {
             pools?: outputs.databases.v2.ConnectionPool[];
         }
 
+        export interface Creategres {
+            /**
+             * Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
+             */
+            autovacuumAnalyzeScaleFactor?: number;
+            /**
+             * Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+             */
+            autovacuumAnalyzeThreshold?: number;
+            /**
+             * Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+             */
+            autovacuumFreezeMaxAge?: number;
+            /**
+             * Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+             */
+            autovacuumMaxWorkers?: number;
+            /**
+             * Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
+             */
+            autovacuumNaptime?: number;
+            /**
+             * Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
+             */
+            autovacuumVacuumCostDelay?: number;
+            /**
+             * Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+             */
+            autovacuumVacuumCostLimit?: number;
+            /**
+             * Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
+             */
+            autovacuumVacuumScaleFactor?: number;
+            /**
+             * Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+             */
+            autovacuumVacuumThreshold?: number;
+            /**
+             * The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
+             */
+            backupHour?: number;
+            /**
+             * The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
+             */
+            backupMinute?: number;
+            /**
+             * Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
+             */
+            bgwriterDelay?: number;
+            /**
+             * The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
+             */
+            bgwriterFlushAfter?: number;
+            /**
+             * The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
+             */
+            bgwriterLruMaxpages?: number;
+            /**
+             * The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
+             */
+            bgwriterLruMultiplier?: number;
+            /**
+             * The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+             */
+            deadlockTimeout?: number;
+            /**
+             * Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+             */
+            defaultToastCompression?: enums.databases.v2.CreategresDefaultToastCompression;
+            /**
+             * Time out sessions with open transactions after this number of milliseconds
+             */
+            idleInTransactionSessionTimeout?: number;
+            /**
+             * Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
+             */
+            jit?: boolean;
+            /**
+             * Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+             */
+            logAutovacuumMinDuration?: number;
+            /**
+             * Controls the amount of detail written in the server log for each message that is logged.
+             */
+            logErrorVerbosity?: enums.databases.v2.CreategresLogErrorVerbosity;
+            /**
+             * Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+             */
+            logLinePrefix?: enums.databases.v2.CreategresLogLinePrefix;
+            /**
+             * Log statements that take more than this number of milliseconds to run. If -1, disables.
+             */
+            logMinDurationStatement?: number;
+            /**
+             * PostgreSQL maximum number of files that can be open per process.
+             */
+            maxFilesPerProcess?: number;
+            /**
+             * PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
+             */
+            maxLocksPerTransaction?: number;
+            /**
+             * PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
+             */
+            maxLogicalReplicationWorkers?: number;
+            /**
+             * Sets the maximum number of workers that the system can support for parallel queries.
+             */
+            maxParallelWorkers?: number;
+            /**
+             * Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
+             */
+            maxParallelWorkersPerGather?: number;
+            /**
+             * PostgreSQL maximum predicate locks per transaction.
+             */
+            maxPredLocksPerTransaction?: number;
+            /**
+             * PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
+             */
+            maxPreparedTransactions?: number;
+            /**
+             * PostgreSQL maximum replication slots.
+             */
+            maxReplicationSlots?: number;
+            /**
+             * Maximum depth of the stack in bytes.
+             */
+            maxStackDepth?: number;
+            /**
+             * Max standby archive delay in milliseconds.
+             */
+            maxStandbyArchiveDelay?: number;
+            /**
+             * Max standby streaming delay in milliseconds.
+             */
+            maxStandbyStreamingDelay?: number;
+            /**
+             * PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
+             */
+            maxWalSenders?: number;
+            /**
+             * Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
+             */
+            maxWorkerProcesses?: number;
+            /**
+             * Sets the time interval to run pg_partman's scheduled tasks.
+             */
+            pgPartmanBgwInterval?: number;
+            /**
+             * Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
+             */
+            pgPartmanBgwRole?: string;
+            /**
+             * Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+             */
+            pgStatStatementsTrack?: enums.databases.v2.CreategresPgStatStatementsTrack;
+            /**
+             * PGBouncer connection pooling settings
+             */
+            pgbouncer?: outputs.databases.v2.Pgbouncer;
+            /**
+             * Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
+             */
+            sharedBuffersPercentage?: number;
+            /**
+             * Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
+             */
+            statMonitorEnable?: boolean;
+            /**
+             * Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+             */
+            synchronousReplication?: enums.databases.v2.CreategresSynchronousReplication;
+            /**
+             * PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
+             */
+            tempFileLimit?: number;
+            /**
+             * TimescaleDB extension configuration values
+             */
+            timescaledb?: outputs.databases.v2.Timescaledb;
+            /**
+             * PostgreSQL service timezone
+             */
+            timezone?: string;
+            /**
+             * Specifies the number of bytes reserved to track the currently executing command for each active session.
+             */
+            trackActivityQuerySize?: number;
+            /**
+             * Record commit time of transactions.
+             */
+            trackCommitTimestamp?: enums.databases.v2.CreategresTrackCommitTimestamp;
+            /**
+             * Enables tracking of function call counts and time used.
+             */
+            trackFunctions?: enums.databases.v2.CreategresTrackFunctions;
+            /**
+             * Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+             */
+            trackIoTiming?: enums.databases.v2.CreategresTrackIoTiming;
+            type?: string;
+            /**
+             * Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
+             */
+            walSenderTimeout?: number;
+            /**
+             * WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
+             */
+            walWriterDelay?: number;
+            /**
+             * The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
+             */
+            workMem?: number;
+        }
+        /**
+         * creategresProvideDefaults sets the appropriate defaults for Creategres
+         */
+        export function creategresProvideDefaults(val: Creategres): Creategres {
+            return {
+                ...val,
+                type: (val.type) ?? "postgres",
+            };
+        }
+
         export interface Database {
             /**
              * The name of the database.
@@ -2098,7 +2323,7 @@ export namespace databases {
         }
 
         export interface DatabaseConfig {
-            config?: outputs.databases.v2.Mysql | outputs.databases.v2.Postgres | outputs.databases.v2.Redis;
+            config?: outputs.databases.v2.Mysql | outputs.databases.v2.Creategres | outputs.databases.v2.Redis;
         }
 
         export interface DatabaseLayoutOption {
@@ -2263,6 +2488,10 @@ export namespace databases {
             value: string;
         }
 
+        export interface GetDatabaseProperties {
+            db: outputs.databases.v2.Database;
+        }
+
         export interface GetDatabasesCaProperties {
             ca: outputs.databases.v2.Ca;
         }
@@ -2287,10 +2516,6 @@ export namespace databases {
              * - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
              */
             evictionPolicy: enums.databases.v2.GetDatabasesEvictionPolicyPropertiesEvictionPolicy;
-        }
-
-        export interface GetDatabasesProperties {
-            db: outputs.databases.v2.Database;
         }
 
         export interface GetDatabasesReplicaProperties {
@@ -2605,231 +2830,6 @@ export namespace databases {
             serverResetQueryAlways?: boolean;
         }
 
-        export interface Postgres {
-            /**
-             * Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
-             */
-            autovacuumAnalyzeScaleFactor?: number;
-            /**
-             * Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
-             */
-            autovacuumAnalyzeThreshold?: number;
-            /**
-             * Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
-             */
-            autovacuumFreezeMaxAge?: number;
-            /**
-             * Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
-             */
-            autovacuumMaxWorkers?: number;
-            /**
-             * Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
-             */
-            autovacuumNaptime?: number;
-            /**
-             * Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
-             */
-            autovacuumVacuumCostDelay?: number;
-            /**
-             * Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
-             */
-            autovacuumVacuumCostLimit?: number;
-            /**
-             * Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
-             */
-            autovacuumVacuumScaleFactor?: number;
-            /**
-             * Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
-             */
-            autovacuumVacuumThreshold?: number;
-            /**
-             * The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
-             */
-            backupHour?: number;
-            /**
-             * The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
-             */
-            backupMinute?: number;
-            /**
-             * Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
-             */
-            bgwriterDelay?: number;
-            /**
-             * The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
-             */
-            bgwriterFlushAfter?: number;
-            /**
-             * The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
-             */
-            bgwriterLruMaxpages?: number;
-            /**
-             * The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
-             */
-            bgwriterLruMultiplier?: number;
-            /**
-             * The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
-             */
-            deadlockTimeout?: number;
-            /**
-             * Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-             */
-            defaultToastCompression?: enums.databases.v2.PostgresDefaultToastCompression;
-            /**
-             * Time out sessions with open transactions after this number of milliseconds
-             */
-            idleInTransactionSessionTimeout?: number;
-            /**
-             * Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
-             */
-            jit?: boolean;
-            /**
-             * Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
-             */
-            logAutovacuumMinDuration?: number;
-            /**
-             * Controls the amount of detail written in the server log for each message that is logged.
-             */
-            logErrorVerbosity?: enums.databases.v2.PostgresLogErrorVerbosity;
-            /**
-             * Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-             */
-            logLinePrefix?: enums.databases.v2.PostgresLogLinePrefix;
-            /**
-             * Log statements that take more than this number of milliseconds to run. If -1, disables.
-             */
-            logMinDurationStatement?: number;
-            /**
-             * PostgreSQL maximum number of files that can be open per process.
-             */
-            maxFilesPerProcess?: number;
-            /**
-             * PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
-             */
-            maxLocksPerTransaction?: number;
-            /**
-             * PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
-             */
-            maxLogicalReplicationWorkers?: number;
-            /**
-             * Sets the maximum number of workers that the system can support for parallel queries.
-             */
-            maxParallelWorkers?: number;
-            /**
-             * Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
-             */
-            maxParallelWorkersPerGather?: number;
-            /**
-             * PostgreSQL maximum predicate locks per transaction.
-             */
-            maxPredLocksPerTransaction?: number;
-            /**
-             * PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
-             */
-            maxPreparedTransactions?: number;
-            /**
-             * PostgreSQL maximum replication slots.
-             */
-            maxReplicationSlots?: number;
-            /**
-             * Maximum depth of the stack in bytes.
-             */
-            maxStackDepth?: number;
-            /**
-             * Max standby archive delay in milliseconds.
-             */
-            maxStandbyArchiveDelay?: number;
-            /**
-             * Max standby streaming delay in milliseconds.
-             */
-            maxStandbyStreamingDelay?: number;
-            /**
-             * PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
-             */
-            maxWalSenders?: number;
-            /**
-             * Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
-             */
-            maxWorkerProcesses?: number;
-            /**
-             * Sets the time interval to run pg_partman's scheduled tasks.
-             */
-            pgPartmanBgwInterval?: number;
-            /**
-             * Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
-             */
-            pgPartmanBgwRole?: string;
-            /**
-             * Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-             */
-            pgStatStatementsTrack?: enums.databases.v2.PostgresPgStatStatementsTrack;
-            /**
-             * PGBouncer connection pooling settings
-             */
-            pgbouncer?: outputs.databases.v2.Pgbouncer;
-            /**
-             * Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
-             */
-            sharedBuffersPercentage?: number;
-            /**
-             * Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
-             */
-            statMonitorEnable?: boolean;
-            /**
-             * Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-             */
-            synchronousReplication?: enums.databases.v2.PostgresSynchronousReplication;
-            /**
-             * PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
-             */
-            tempFileLimit?: number;
-            /**
-             * TimescaleDB extension configuration values
-             */
-            timescaledb?: outputs.databases.v2.Timescaledb;
-            /**
-             * PostgreSQL service timezone
-             */
-            timezone?: string;
-            /**
-             * Specifies the number of bytes reserved to track the currently executing command for each active session.
-             */
-            trackActivityQuerySize?: number;
-            /**
-             * Record commit time of transactions.
-             */
-            trackCommitTimestamp?: enums.databases.v2.PostgresTrackCommitTimestamp;
-            /**
-             * Enables tracking of function call counts and time used.
-             */
-            trackFunctions?: enums.databases.v2.PostgresTrackFunctions;
-            /**
-             * Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-             */
-            trackIoTiming?: enums.databases.v2.PostgresTrackIoTiming;
-            type?: string;
-            /**
-             * Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
-             */
-            walSenderTimeout?: number;
-            /**
-             * WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
-             */
-            walWriterDelay?: number;
-            /**
-             * The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
-             */
-            workMem?: number;
-        }
-        /**
-         * postgresProvideDefaults sets the appropriate defaults for Postgres
-         */
-        export function postgresProvideDefaults(val: Postgres): Postgres {
-            return {
-                ...val,
-                type: (val.type) ?? "postgres",
-            };
-        }
-
         export interface PrivateConnection {
             /**
              * The name of the default database.
@@ -3037,7 +3037,7 @@ export namespace domains {
             weight?: number;
         }
 
-        export interface GetDomainsProperties {
+        export interface GetDomainProperties {
             domain?: outputs.domains.v2.Domain;
         }
 
@@ -3109,7 +3109,7 @@ export namespace droplets {
             /**
              * The current status of the action. This can be "in-progress", "completed", or "errored".
              */
-            status?: enums.droplets.v2.ActionStatus;
+            status?: enums.droplets.v2.DisableBackupsActionStatus;
             /**
              * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
              */
@@ -3403,26 +3403,26 @@ export namespace droplets {
             protocol: enums.droplets.v2.FirewallRuleBaseProtocol;
         }
 
-        export interface GetDropletActionsProperties {
+        export interface GetDropletActionProperties {
             action?: outputs.droplets.v2.Action;
         }
         /**
-         * getDropletActionsPropertiesProvideDefaults sets the appropriate defaults for GetDropletActionsProperties
+         * getDropletActionPropertiesProvideDefaults sets the appropriate defaults for GetDropletActionProperties
          */
-        export function getDropletActionsPropertiesProvideDefaults(val: GetDropletActionsProperties): GetDropletActionsProperties {
+        export function getDropletActionPropertiesProvideDefaults(val: GetDropletActionProperties): GetDropletActionProperties {
             return {
                 ...val,
                 action: (val.action ? outputs.droplets.v2.actionProvideDefaults(val.action) : undefined),
             };
         }
 
-        export interface GetDropletsProperties {
+        export interface GetDropletProperties {
             droplet?: outputs.droplets.v2.Droplet;
         }
         /**
-         * getDropletsPropertiesProvideDefaults sets the appropriate defaults for GetDropletsProperties
+         * getDropletPropertiesProvideDefaults sets the appropriate defaults for GetDropletProperties
          */
-        export function getDropletsPropertiesProvideDefaults(val: GetDropletsProperties): GetDropletsProperties {
+        export function getDropletPropertiesProvideDefaults(val: GetDropletProperties): GetDropletProperties {
             return {
                 ...val,
                 droplet: (val.droplet ? outputs.droplets.v2.dropletProvideDefaults(val.droplet) : undefined),
@@ -3749,7 +3749,7 @@ export namespace firewalls {
             /**
              * The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
              */
-            protocol: enums.firewalls.v2.FirewallRuleBaseProtocol;
+            protocol: enums.firewalls.v2.FirewallsRulesFirewallRuleBaseProtocol;
         }
 
         export interface FirewallRulesOutboundRulesItem {
@@ -3760,10 +3760,10 @@ export namespace firewalls {
             /**
              * The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
              */
-            protocol: enums.firewalls.v2.FirewallRuleBaseProtocol;
+            protocol: enums.firewalls.v2.FirewallsRulesFirewallRuleBaseProtocol;
         }
 
-        export interface GetFirewallsProperties {
+        export interface GetFirewallProperties {
             firewall?: outputs.firewalls.v2.Firewall;
         }
 
@@ -4032,6 +4032,19 @@ export namespace floating_ips {
             slug: string;
         }
 
+        export interface GetFloatingIPProperties {
+            floatingIp?: outputs.floating_ips.v2.FloatingIp;
+        }
+        /**
+         * getFloatingIPPropertiesProvideDefaults sets the appropriate defaults for GetFloatingIPProperties
+         */
+        export function getFloatingIPPropertiesProvideDefaults(val: GetFloatingIPProperties): GetFloatingIPProperties {
+            return {
+                ...val,
+                floatingIp: (val.floatingIp ? outputs.floating_ips.v2.floatingIpProvideDefaults(val.floatingIp) : undefined),
+            };
+        }
+
         export interface GetFloatingIPsActionProperties {
             action?: outputs.floating_ips.v2.GetFloatingIPsActionPropertiesAction;
         }
@@ -4088,19 +4101,6 @@ export namespace floating_ips {
             return {
                 ...val,
                 status: (val.status) ?? "in-progress",
-            };
-        }
-
-        export interface GetFloatingIPsProperties {
-            floatingIp?: outputs.floating_ips.v2.FloatingIp;
-        }
-        /**
-         * getFloatingIPsPropertiesProvideDefaults sets the appropriate defaults for GetFloatingIPsProperties
-         */
-        export function getFloatingIPsPropertiesProvideDefaults(val: GetFloatingIPsProperties): GetFloatingIPsProperties {
-            return {
-                ...val,
-                floatingIp: (val.floatingIp ? outputs.floating_ips.v2.floatingIpProvideDefaults(val.floatingIp) : undefined),
             };
         }
 
@@ -4516,7 +4516,7 @@ export namespace images {
         export interface ActionRegionSlug {
         }
 
-        export interface GetImagesProperties {
+        export interface GetImageProperties {
             image: outputs.images.v2.Image;
         }
 
@@ -4870,7 +4870,7 @@ export namespace kubernetes {
             token?: string;
         }
 
-        export interface GetKubernetesAvailableUpgradesProperties {
+        export interface GetKubernetesAvailableUpgradeProperties {
             availableUpgradeVersions?: outputs.kubernetes.v2.KubernetesVersion[];
         }
 
@@ -5094,7 +5094,7 @@ export namespace kubernetes {
             /**
              * A string indicating the current status of the cluster.
              */
-            state?: enums.kubernetes.v2.StatusPropertiesState;
+            state?: enums.kubernetes.v2.KubernetesClusterStatusPropertiesState;
         }
 
         export interface User {
@@ -5147,13 +5147,13 @@ export namespace load_balancers {
             tlsPassthrough?: boolean;
         }
 
-        export interface GetLoadBalancersProperties {
+        export interface GetLoadBalancerProperties {
             loadBalancer?: outputs.load_balancers.v2.LoadBalancer;
         }
         /**
-         * getLoadBalancersPropertiesProvideDefaults sets the appropriate defaults for GetLoadBalancersProperties
+         * getLoadBalancerPropertiesProvideDefaults sets the appropriate defaults for GetLoadBalancerProperties
          */
-        export function getLoadBalancersPropertiesProvideDefaults(val: GetLoadBalancersProperties): GetLoadBalancersProperties {
+        export function getLoadBalancerPropertiesProvideDefaults(val: GetLoadBalancerProperties): GetLoadBalancerProperties {
             return {
                 ...val,
                 loadBalancer: (val.loadBalancer ? outputs.load_balancers.v2.loadBalancerProvideDefaults(val.loadBalancer) : undefined),
@@ -5494,11 +5494,11 @@ export namespace oneclicks {
 
 export namespace projects {
     export namespace v2 {
-        export interface GetProjectsDefaultProperties {
+        export interface GetProjectProperties {
             project?: outputs.projects.v2.Project;
         }
 
-        export interface GetProjectsProperties {
+        export interface GetProjectsDefaultProperties {
             project?: outputs.projects.v2.Project;
         }
 
@@ -5727,16 +5727,16 @@ export namespace registry {
             uuid?: string;
         }
 
-        export interface GetRegistryOptionsProperties {
-            options?: outputs.registry.v2.GetRegistryOptionsPropertiesOptionsProperties;
+        export interface GetRegistryOptionProperties {
+            options?: outputs.registry.v2.GetRegistryOptionPropertiesOptionsProperties;
         }
 
-        export interface GetRegistryOptionsPropertiesOptionsProperties {
+        export interface GetRegistryOptionPropertiesOptionsProperties {
             availableRegions?: string[];
-            subscriptionTiers?: outputs.registry.v2.GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem[];
+            subscriptionTiers?: outputs.registry.v2.GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem[];
         }
 
-        export interface GetRegistryOptionsPropertiesOptionsPropertiesSubscriptionTiersItem {
+        export interface GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem {
             /**
              * A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used.
              */
@@ -6227,20 +6227,33 @@ export namespace reserved_ips {
             start?: string;
         }
 
-        export interface GetReservedIPsActionsProperties {
-            action?: outputs.reserved_ips.v2.GetReservedIPsActionsPropertiesAction;
+        export interface GetReservedIPProperties {
+            reservedIp?: outputs.reserved_ips.v2.ReservedIp;
         }
         /**
-         * getReservedIPsActionsPropertiesProvideDefaults sets the appropriate defaults for GetReservedIPsActionsProperties
+         * getReservedIPPropertiesProvideDefaults sets the appropriate defaults for GetReservedIPProperties
          */
-        export function getReservedIPsActionsPropertiesProvideDefaults(val: GetReservedIPsActionsProperties): GetReservedIPsActionsProperties {
+        export function getReservedIPPropertiesProvideDefaults(val: GetReservedIPProperties): GetReservedIPProperties {
             return {
                 ...val,
-                action: (val.action ? outputs.reserved_ips.v2.getReservedIPsActionsPropertiesActionProvideDefaults(val.action) : undefined),
+                reservedIp: (val.reservedIp ? outputs.reserved_ips.v2.reservedIpProvideDefaults(val.reservedIp) : undefined),
             };
         }
 
-        export interface GetReservedIPsActionsPropertiesAction {
+        export interface GetReservedIPsActionProperties {
+            action?: outputs.reserved_ips.v2.GetReservedIPsActionPropertiesAction;
+        }
+        /**
+         * getReservedIPsActionPropertiesProvideDefaults sets the appropriate defaults for GetReservedIPsActionProperties
+         */
+        export function getReservedIPsActionPropertiesProvideDefaults(val: GetReservedIPsActionProperties): GetReservedIPsActionProperties {
+            return {
+                ...val,
+                action: (val.action ? outputs.reserved_ips.v2.getReservedIPsActionPropertiesActionProvideDefaults(val.action) : undefined),
+            };
+        }
+
+        export interface GetReservedIPsActionPropertiesAction {
             /**
              * A time value given in ISO8601 combined date and time format that represents when the action was completed.
              */
@@ -6277,25 +6290,12 @@ export namespace reserved_ips {
             type?: string;
         }
         /**
-         * getReservedIPsActionsPropertiesActionProvideDefaults sets the appropriate defaults for GetReservedIPsActionsPropertiesAction
+         * getReservedIPsActionPropertiesActionProvideDefaults sets the appropriate defaults for GetReservedIPsActionPropertiesAction
          */
-        export function getReservedIPsActionsPropertiesActionProvideDefaults(val: GetReservedIPsActionsPropertiesAction): GetReservedIPsActionsPropertiesAction {
+        export function getReservedIPsActionPropertiesActionProvideDefaults(val: GetReservedIPsActionPropertiesAction): GetReservedIPsActionPropertiesAction {
             return {
                 ...val,
                 status: (val.status) ?? "in-progress",
-            };
-        }
-
-        export interface GetReservedIPsProperties {
-            reservedIp?: outputs.reserved_ips.v2.ReservedIp;
-        }
-        /**
-         * getReservedIPsPropertiesProvideDefaults sets the appropriate defaults for GetReservedIPsProperties
-         */
-        export function getReservedIPsPropertiesProvideDefaults(val: GetReservedIPsProperties): GetReservedIPsProperties {
-            return {
-                ...val,
-                reservedIp: (val.reservedIp ? outputs.reserved_ips.v2.reservedIpProvideDefaults(val.reservedIp) : undefined),
             };
         }
 
@@ -6674,7 +6674,7 @@ export namespace sizes {
 
 export namespace snapshots {
     export namespace v2 {
-        export interface GetSnapshotsProperties {
+        export interface GetSnapshotProperties {
             snapshot?: outputs.snapshots.v2.Snapshots;
         }
 
@@ -6742,7 +6742,7 @@ export namespace snapshots {
 
 export namespace tags {
     export namespace v2 {
-        export interface GetTagsProperties {
+        export interface GetTagProperties {
             /**
              * A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
              * Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
@@ -6796,7 +6796,7 @@ export namespace tags {
             /**
              * The type of the resource.
              */
-            resourceType?: enums.tags.v2.ResourcesItemPropertiesResourceType;
+            resourceType?: enums.tags.v2.TagsAssignResourcesResourcesItemPropertiesResourceType;
         }
 
         /**
@@ -7020,25 +7020,25 @@ export namespace volumes {
         export interface ActionRegionSlug {
         }
 
-        export interface GetVolumeActionsProperties {
+        export interface GetVolumeActionProperties {
             action?: outputs.volumes.v2.VolumeAction;
         }
         /**
-         * getVolumeActionsPropertiesProvideDefaults sets the appropriate defaults for GetVolumeActionsProperties
+         * getVolumeActionPropertiesProvideDefaults sets the appropriate defaults for GetVolumeActionProperties
          */
-        export function getVolumeActionsPropertiesProvideDefaults(val: GetVolumeActionsProperties): GetVolumeActionsProperties {
+        export function getVolumeActionPropertiesProvideDefaults(val: GetVolumeActionProperties): GetVolumeActionProperties {
             return {
                 ...val,
                 action: (val.action ? outputs.volumes.v2.volumeActionProvideDefaults(val.action) : undefined),
             };
         }
 
-        export interface GetVolumeSnapshotsByIdProperties {
-            snapshot?: outputs.volumes.v2.Snapshots;
+        export interface GetVolumeProperties {
+            volume?: outputs.volumes.v2.VolumeFull;
         }
 
-        export interface GetVolumesProperties {
-            volume?: outputs.volumes.v2.VolumeFull;
+        export interface GetVolumeSnapshotsByIdProperties {
+            snapshot?: outputs.volumes.v2.Snapshots;
         }
 
         export interface ListVolumeActionsItems {
@@ -7248,7 +7248,7 @@ export namespace volumes {
 
 export namespace vpcs {
     export namespace v2 {
-        export interface GetVpcsProperties {
+        export interface GetVpcProperties {
             vpc?: outputs.vpcs.v2.Vpc;
         }
 

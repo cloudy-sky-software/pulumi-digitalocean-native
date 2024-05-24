@@ -21,12 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "digitalocean-native:reserved_ips/v2:Assign":
+		r = &Assign{}
 	case "digitalocean-native:reserved_ips/v2:ReservedIPs":
 		r = &ReservedIPs{}
-	case "digitalocean-native:reserved_ips/v2:ReservedIPsActionsAssign":
-		r = &ReservedIPsActionsAssign{}
-	case "digitalocean-native:reserved_ips/v2:ReservedIPsActionsUnassign":
-		r = &ReservedIPsActionsUnassign{}
+	case "digitalocean-native:reserved_ips/v2:Unassign":
+		r = &Unassign{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

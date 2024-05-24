@@ -20,13 +20,13 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         /// <summary>
         /// The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecMinimumTlsVersion? MinimumTlsVersion;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecMinimumTlsVersion? MinimumTlsVersion;
         /// <summary>
         /// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
         /// - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
         /// - ALIAS: A non-primary domain
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecType? Type;
+        public readonly Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecType? Type;
         /// <summary>
         /// Indicates whether the domain includes all sub-domains, in addition to the given domain
         /// </summary>
@@ -45,9 +45,9 @@ namespace Pulumi.DigitalOceanNative.AppsV2.Outputs
         private AppDomainSpec(
             string domain,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecMinimumTlsVersion? minimumTlsVersion,
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecMinimumTlsVersion? minimumTlsVersion,
 
-            Pulumi.DigitalOceanNative.AppsV2.AppDomainSpecType? type,
+            Pulumi.DigitalOceanNative.AppsV2.AppsValidateAppSpecAppDomainSpecType? type,
 
             bool? wildcard,
 

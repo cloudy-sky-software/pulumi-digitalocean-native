@@ -8,30 +8,74 @@ using Pulumi;
 namespace Pulumi.DigitalOceanNative.DropletsV2
 {
     /// <summary>
-    /// The current status of the action. This can be "in-progress", "completed", or "errored".
+    /// The type of action to initiate for the Droplet.
     /// </summary>
     [EnumType]
-    public readonly struct ActionStatus : IEquatable<ActionStatus>
+    public readonly struct ChangeKernelDropletActionType : IEquatable<ChangeKernelDropletActionType>
     {
         private readonly string _value;
 
-        private ActionStatus(string value)
+        private ChangeKernelDropletActionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ActionStatus InProgress { get; } = new ActionStatus("in-progress");
-        public static ActionStatus Completed { get; } = new ActionStatus("completed");
-        public static ActionStatus Errored { get; } = new ActionStatus("errored");
+        public static ChangeKernelDropletActionType EnableBackups { get; } = new ChangeKernelDropletActionType("enable_backups");
+        public static ChangeKernelDropletActionType DisableBackups { get; } = new ChangeKernelDropletActionType("disable_backups");
+        public static ChangeKernelDropletActionType Reboot { get; } = new ChangeKernelDropletActionType("reboot");
+        public static ChangeKernelDropletActionType PowerCycle { get; } = new ChangeKernelDropletActionType("power_cycle");
+        public static ChangeKernelDropletActionType Shutdown { get; } = new ChangeKernelDropletActionType("shutdown");
+        public static ChangeKernelDropletActionType PowerOff { get; } = new ChangeKernelDropletActionType("power_off");
+        public static ChangeKernelDropletActionType PowerOn { get; } = new ChangeKernelDropletActionType("power_on");
+        public static ChangeKernelDropletActionType Restore { get; } = new ChangeKernelDropletActionType("restore");
+        public static ChangeKernelDropletActionType PasswordReset { get; } = new ChangeKernelDropletActionType("password_reset");
+        public static ChangeKernelDropletActionType Resize { get; } = new ChangeKernelDropletActionType("resize");
+        public static ChangeKernelDropletActionType Rebuild { get; } = new ChangeKernelDropletActionType("rebuild");
+        public static ChangeKernelDropletActionType Rename { get; } = new ChangeKernelDropletActionType("rename");
+        public static ChangeKernelDropletActionType ChangeKernel { get; } = new ChangeKernelDropletActionType("change_kernel");
+        public static ChangeKernelDropletActionType EnableIpv6 { get; } = new ChangeKernelDropletActionType("enable_ipv6");
+        public static ChangeKernelDropletActionType Snapshot { get; } = new ChangeKernelDropletActionType("snapshot");
 
-        public static bool operator ==(ActionStatus left, ActionStatus right) => left.Equals(right);
-        public static bool operator !=(ActionStatus left, ActionStatus right) => !left.Equals(right);
+        public static bool operator ==(ChangeKernelDropletActionType left, ChangeKernelDropletActionType right) => left.Equals(right);
+        public static bool operator !=(ChangeKernelDropletActionType left, ChangeKernelDropletActionType right) => !left.Equals(right);
 
-        public static explicit operator string(ActionStatus value) => value._value;
+        public static explicit operator string(ChangeKernelDropletActionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionStatus other && Equals(other);
-        public bool Equals(ActionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ChangeKernelDropletActionType other && Equals(other);
+        public bool Equals(ChangeKernelDropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the action. This can be "in-progress", "completed", or "errored".
+    /// </summary>
+    [EnumType]
+    public readonly struct DisableBackupsActionStatus : IEquatable<DisableBackupsActionStatus>
+    {
+        private readonly string _value;
+
+        private DisableBackupsActionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DisableBackupsActionStatus InProgress { get; } = new DisableBackupsActionStatus("in-progress");
+        public static DisableBackupsActionStatus Completed { get; } = new DisableBackupsActionStatus("completed");
+        public static DisableBackupsActionStatus Errored { get; } = new DisableBackupsActionStatus("errored");
+
+        public static bool operator ==(DisableBackupsActionStatus left, DisableBackupsActionStatus right) => left.Equals(right);
+        public static bool operator !=(DisableBackupsActionStatus left, DisableBackupsActionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DisableBackupsActionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DisableBackupsActionStatus other && Equals(other);
+        public bool Equals(DisableBackupsActionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -43,39 +87,39 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
     /// The type of action to initiate for the Droplet.
     /// </summary>
     [EnumType]
-    public readonly struct DropletActionType : IEquatable<DropletActionType>
+    public readonly struct DisableBackupsType : IEquatable<DisableBackupsType>
     {
         private readonly string _value;
 
-        private DropletActionType(string value)
+        private DisableBackupsType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DropletActionType EnableBackups { get; } = new DropletActionType("enable_backups");
-        public static DropletActionType DisableBackups { get; } = new DropletActionType("disable_backups");
-        public static DropletActionType Reboot { get; } = new DropletActionType("reboot");
-        public static DropletActionType PowerCycle { get; } = new DropletActionType("power_cycle");
-        public static DropletActionType Shutdown { get; } = new DropletActionType("shutdown");
-        public static DropletActionType PowerOff { get; } = new DropletActionType("power_off");
-        public static DropletActionType PowerOn { get; } = new DropletActionType("power_on");
-        public static DropletActionType Restore { get; } = new DropletActionType("restore");
-        public static DropletActionType PasswordReset { get; } = new DropletActionType("password_reset");
-        public static DropletActionType Resize { get; } = new DropletActionType("resize");
-        public static DropletActionType Rebuild { get; } = new DropletActionType("rebuild");
-        public static DropletActionType Rename { get; } = new DropletActionType("rename");
-        public static DropletActionType ChangeKernel { get; } = new DropletActionType("change_kernel");
-        public static DropletActionType EnableIpv6 { get; } = new DropletActionType("enable_ipv6");
-        public static DropletActionType Snapshot { get; } = new DropletActionType("snapshot");
+        public static DisableBackupsType EnableBackups { get; } = new DisableBackupsType("enable_backups");
+        public static DisableBackupsType DisableBackups { get; } = new DisableBackupsType("disable_backups");
+        public static DisableBackupsType Reboot { get; } = new DisableBackupsType("reboot");
+        public static DisableBackupsType PowerCycle { get; } = new DisableBackupsType("power_cycle");
+        public static DisableBackupsType Shutdown { get; } = new DisableBackupsType("shutdown");
+        public static DisableBackupsType PowerOff { get; } = new DisableBackupsType("power_off");
+        public static DisableBackupsType PowerOn { get; } = new DisableBackupsType("power_on");
+        public static DisableBackupsType Restore { get; } = new DisableBackupsType("restore");
+        public static DisableBackupsType PasswordReset { get; } = new DisableBackupsType("password_reset");
+        public static DisableBackupsType Resize { get; } = new DisableBackupsType("resize");
+        public static DisableBackupsType Rebuild { get; } = new DisableBackupsType("rebuild");
+        public static DisableBackupsType Rename { get; } = new DisableBackupsType("rename");
+        public static DisableBackupsType ChangeKernel { get; } = new DisableBackupsType("change_kernel");
+        public static DisableBackupsType EnableIpv6 { get; } = new DisableBackupsType("enable_ipv6");
+        public static DisableBackupsType Snapshot { get; } = new DisableBackupsType("snapshot");
 
-        public static bool operator ==(DropletActionType left, DropletActionType right) => left.Equals(right);
-        public static bool operator !=(DropletActionType left, DropletActionType right) => !left.Equals(right);
+        public static bool operator ==(DisableBackupsType left, DisableBackupsType right) => left.Equals(right);
+        public static bool operator !=(DisableBackupsType left, DisableBackupsType right) => !left.Equals(right);
 
-        public static explicit operator string(DropletActionType value) => value._value;
+        public static explicit operator string(DisableBackupsType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DropletActionType other && Equals(other);
-        public bool Equals(DropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DisableBackupsType other && Equals(other);
+        public bool Equals(DisableBackupsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -140,6 +184,94 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DropletStatus other && Equals(other);
         public bool Equals(DropletStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnableBackupsType : IEquatable<EnableBackupsType>
+    {
+        private readonly string _value;
+
+        private EnableBackupsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnableBackupsType EnableBackups { get; } = new EnableBackupsType("enable_backups");
+        public static EnableBackupsType DisableBackups { get; } = new EnableBackupsType("disable_backups");
+        public static EnableBackupsType Reboot { get; } = new EnableBackupsType("reboot");
+        public static EnableBackupsType PowerCycle { get; } = new EnableBackupsType("power_cycle");
+        public static EnableBackupsType Shutdown { get; } = new EnableBackupsType("shutdown");
+        public static EnableBackupsType PowerOff { get; } = new EnableBackupsType("power_off");
+        public static EnableBackupsType PowerOn { get; } = new EnableBackupsType("power_on");
+        public static EnableBackupsType Restore { get; } = new EnableBackupsType("restore");
+        public static EnableBackupsType PasswordReset { get; } = new EnableBackupsType("password_reset");
+        public static EnableBackupsType Resize { get; } = new EnableBackupsType("resize");
+        public static EnableBackupsType Rebuild { get; } = new EnableBackupsType("rebuild");
+        public static EnableBackupsType Rename { get; } = new EnableBackupsType("rename");
+        public static EnableBackupsType ChangeKernel { get; } = new EnableBackupsType("change_kernel");
+        public static EnableBackupsType EnableIpv6 { get; } = new EnableBackupsType("enable_ipv6");
+        public static EnableBackupsType Snapshot { get; } = new EnableBackupsType("snapshot");
+
+        public static bool operator ==(EnableBackupsType left, EnableBackupsType right) => left.Equals(right);
+        public static bool operator !=(EnableBackupsType left, EnableBackupsType right) => !left.Equals(right);
+
+        public static explicit operator string(EnableBackupsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnableBackupsType other && Equals(other);
+        public bool Equals(EnableBackupsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnableIpv6Type : IEquatable<EnableIpv6Type>
+    {
+        private readonly string _value;
+
+        private EnableIpv6Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnableIpv6Type EnableBackups { get; } = new EnableIpv6Type("enable_backups");
+        public static EnableIpv6Type DisableBackups { get; } = new EnableIpv6Type("disable_backups");
+        public static EnableIpv6Type Reboot { get; } = new EnableIpv6Type("reboot");
+        public static EnableIpv6Type PowerCycle { get; } = new EnableIpv6Type("power_cycle");
+        public static EnableIpv6Type Shutdown { get; } = new EnableIpv6Type("shutdown");
+        public static EnableIpv6Type PowerOff { get; } = new EnableIpv6Type("power_off");
+        public static EnableIpv6Type PowerOn { get; } = new EnableIpv6Type("power_on");
+        public static EnableIpv6Type Restore { get; } = new EnableIpv6Type("restore");
+        public static EnableIpv6Type PasswordReset { get; } = new EnableIpv6Type("password_reset");
+        public static EnableIpv6Type Resize { get; } = new EnableIpv6Type("resize");
+        public static EnableIpv6Type Rebuild { get; } = new EnableIpv6Type("rebuild");
+        public static EnableIpv6Type Rename { get; } = new EnableIpv6Type("rename");
+        public static EnableIpv6Type ChangeKernel { get; } = new EnableIpv6Type("change_kernel");
+        public static EnableIpv6Type EnableIpv6 { get; } = new EnableIpv6Type("enable_ipv6");
+        public static EnableIpv6Type Snapshot { get; } = new EnableIpv6Type("snapshot");
+
+        public static bool operator ==(EnableIpv6Type left, EnableIpv6Type right) => left.Equals(right);
+        public static bool operator !=(EnableIpv6Type left, EnableIpv6Type right) => !left.Equals(right);
+
+        public static explicit operator string(EnableIpv6Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnableIpv6Type other && Equals(other);
+        public bool Equals(EnableIpv6Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -432,39 +564,479 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
     /// The type of action to initiate for the Droplet.
     /// </summary>
     [EnumType]
-    public readonly struct Type : IEquatable<Type>
+    public readonly struct PasswordResetType : IEquatable<PasswordResetType>
     {
         private readonly string _value;
 
-        private Type(string value)
+        private PasswordResetType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Type EnableBackups { get; } = new Type("enable_backups");
-        public static Type DisableBackups { get; } = new Type("disable_backups");
-        public static Type Reboot { get; } = new Type("reboot");
-        public static Type PowerCycle { get; } = new Type("power_cycle");
-        public static Type Shutdown { get; } = new Type("shutdown");
-        public static Type PowerOff { get; } = new Type("power_off");
-        public static Type PowerOn { get; } = new Type("power_on");
-        public static Type Restore { get; } = new Type("restore");
-        public static Type PasswordReset { get; } = new Type("password_reset");
-        public static Type Resize { get; } = new Type("resize");
-        public static Type Rebuild { get; } = new Type("rebuild");
-        public static Type Rename { get; } = new Type("rename");
-        public static Type ChangeKernel { get; } = new Type("change_kernel");
-        public static Type EnableIpv6 { get; } = new Type("enable_ipv6");
-        public static Type Snapshot { get; } = new Type("snapshot");
+        public static PasswordResetType EnableBackups { get; } = new PasswordResetType("enable_backups");
+        public static PasswordResetType DisableBackups { get; } = new PasswordResetType("disable_backups");
+        public static PasswordResetType Reboot { get; } = new PasswordResetType("reboot");
+        public static PasswordResetType PowerCycle { get; } = new PasswordResetType("power_cycle");
+        public static PasswordResetType Shutdown { get; } = new PasswordResetType("shutdown");
+        public static PasswordResetType PowerOff { get; } = new PasswordResetType("power_off");
+        public static PasswordResetType PowerOn { get; } = new PasswordResetType("power_on");
+        public static PasswordResetType Restore { get; } = new PasswordResetType("restore");
+        public static PasswordResetType PasswordReset { get; } = new PasswordResetType("password_reset");
+        public static PasswordResetType Resize { get; } = new PasswordResetType("resize");
+        public static PasswordResetType Rebuild { get; } = new PasswordResetType("rebuild");
+        public static PasswordResetType Rename { get; } = new PasswordResetType("rename");
+        public static PasswordResetType ChangeKernel { get; } = new PasswordResetType("change_kernel");
+        public static PasswordResetType EnableIpv6 { get; } = new PasswordResetType("enable_ipv6");
+        public static PasswordResetType Snapshot { get; } = new PasswordResetType("snapshot");
 
-        public static bool operator ==(Type left, Type right) => left.Equals(right);
-        public static bool operator !=(Type left, Type right) => !left.Equals(right);
+        public static bool operator ==(PasswordResetType left, PasswordResetType right) => left.Equals(right);
+        public static bool operator !=(PasswordResetType left, PasswordResetType right) => !left.Equals(right);
 
-        public static explicit operator string(Type value) => value._value;
+        public static explicit operator string(PasswordResetType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Type other && Equals(other);
-        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PasswordResetType other && Equals(other);
+        public bool Equals(PasswordResetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct PowerCycleType : IEquatable<PowerCycleType>
+    {
+        private readonly string _value;
+
+        private PowerCycleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PowerCycleType EnableBackups { get; } = new PowerCycleType("enable_backups");
+        public static PowerCycleType DisableBackups { get; } = new PowerCycleType("disable_backups");
+        public static PowerCycleType Reboot { get; } = new PowerCycleType("reboot");
+        public static PowerCycleType PowerCycle { get; } = new PowerCycleType("power_cycle");
+        public static PowerCycleType Shutdown { get; } = new PowerCycleType("shutdown");
+        public static PowerCycleType PowerOff { get; } = new PowerCycleType("power_off");
+        public static PowerCycleType PowerOn { get; } = new PowerCycleType("power_on");
+        public static PowerCycleType Restore { get; } = new PowerCycleType("restore");
+        public static PowerCycleType PasswordReset { get; } = new PowerCycleType("password_reset");
+        public static PowerCycleType Resize { get; } = new PowerCycleType("resize");
+        public static PowerCycleType Rebuild { get; } = new PowerCycleType("rebuild");
+        public static PowerCycleType Rename { get; } = new PowerCycleType("rename");
+        public static PowerCycleType ChangeKernel { get; } = new PowerCycleType("change_kernel");
+        public static PowerCycleType EnableIpv6 { get; } = new PowerCycleType("enable_ipv6");
+        public static PowerCycleType Snapshot { get; } = new PowerCycleType("snapshot");
+
+        public static bool operator ==(PowerCycleType left, PowerCycleType right) => left.Equals(right);
+        public static bool operator !=(PowerCycleType left, PowerCycleType right) => !left.Equals(right);
+
+        public static explicit operator string(PowerCycleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PowerCycleType other && Equals(other);
+        public bool Equals(PowerCycleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct PowerOffType : IEquatable<PowerOffType>
+    {
+        private readonly string _value;
+
+        private PowerOffType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PowerOffType EnableBackups { get; } = new PowerOffType("enable_backups");
+        public static PowerOffType DisableBackups { get; } = new PowerOffType("disable_backups");
+        public static PowerOffType Reboot { get; } = new PowerOffType("reboot");
+        public static PowerOffType PowerCycle { get; } = new PowerOffType("power_cycle");
+        public static PowerOffType Shutdown { get; } = new PowerOffType("shutdown");
+        public static PowerOffType PowerOff { get; } = new PowerOffType("power_off");
+        public static PowerOffType PowerOn { get; } = new PowerOffType("power_on");
+        public static PowerOffType Restore { get; } = new PowerOffType("restore");
+        public static PowerOffType PasswordReset { get; } = new PowerOffType("password_reset");
+        public static PowerOffType Resize { get; } = new PowerOffType("resize");
+        public static PowerOffType Rebuild { get; } = new PowerOffType("rebuild");
+        public static PowerOffType Rename { get; } = new PowerOffType("rename");
+        public static PowerOffType ChangeKernel { get; } = new PowerOffType("change_kernel");
+        public static PowerOffType EnableIpv6 { get; } = new PowerOffType("enable_ipv6");
+        public static PowerOffType Snapshot { get; } = new PowerOffType("snapshot");
+
+        public static bool operator ==(PowerOffType left, PowerOffType right) => left.Equals(right);
+        public static bool operator !=(PowerOffType left, PowerOffType right) => !left.Equals(right);
+
+        public static explicit operator string(PowerOffType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PowerOffType other && Equals(other);
+        public bool Equals(PowerOffType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct PowerOnType : IEquatable<PowerOnType>
+    {
+        private readonly string _value;
+
+        private PowerOnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PowerOnType EnableBackups { get; } = new PowerOnType("enable_backups");
+        public static PowerOnType DisableBackups { get; } = new PowerOnType("disable_backups");
+        public static PowerOnType Reboot { get; } = new PowerOnType("reboot");
+        public static PowerOnType PowerCycle { get; } = new PowerOnType("power_cycle");
+        public static PowerOnType Shutdown { get; } = new PowerOnType("shutdown");
+        public static PowerOnType PowerOff { get; } = new PowerOnType("power_off");
+        public static PowerOnType PowerOn { get; } = new PowerOnType("power_on");
+        public static PowerOnType Restore { get; } = new PowerOnType("restore");
+        public static PowerOnType PasswordReset { get; } = new PowerOnType("password_reset");
+        public static PowerOnType Resize { get; } = new PowerOnType("resize");
+        public static PowerOnType Rebuild { get; } = new PowerOnType("rebuild");
+        public static PowerOnType Rename { get; } = new PowerOnType("rename");
+        public static PowerOnType ChangeKernel { get; } = new PowerOnType("change_kernel");
+        public static PowerOnType EnableIpv6 { get; } = new PowerOnType("enable_ipv6");
+        public static PowerOnType Snapshot { get; } = new PowerOnType("snapshot");
+
+        public static bool operator ==(PowerOnType left, PowerOnType right) => left.Equals(right);
+        public static bool operator !=(PowerOnType left, PowerOnType right) => !left.Equals(right);
+
+        public static explicit operator string(PowerOnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PowerOnType other && Equals(other);
+        public bool Equals(PowerOnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct RebootType : IEquatable<RebootType>
+    {
+        private readonly string _value;
+
+        private RebootType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RebootType EnableBackups { get; } = new RebootType("enable_backups");
+        public static RebootType DisableBackups { get; } = new RebootType("disable_backups");
+        public static RebootType Reboot { get; } = new RebootType("reboot");
+        public static RebootType PowerCycle { get; } = new RebootType("power_cycle");
+        public static RebootType Shutdown { get; } = new RebootType("shutdown");
+        public static RebootType PowerOff { get; } = new RebootType("power_off");
+        public static RebootType PowerOn { get; } = new RebootType("power_on");
+        public static RebootType Restore { get; } = new RebootType("restore");
+        public static RebootType PasswordReset { get; } = new RebootType("password_reset");
+        public static RebootType Resize { get; } = new RebootType("resize");
+        public static RebootType Rebuild { get; } = new RebootType("rebuild");
+        public static RebootType Rename { get; } = new RebootType("rename");
+        public static RebootType ChangeKernel { get; } = new RebootType("change_kernel");
+        public static RebootType EnableIpv6 { get; } = new RebootType("enable_ipv6");
+        public static RebootType Snapshot { get; } = new RebootType("snapshot");
+
+        public static bool operator ==(RebootType left, RebootType right) => left.Equals(right);
+        public static bool operator !=(RebootType left, RebootType right) => !left.Equals(right);
+
+        public static explicit operator string(RebootType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RebootType other && Equals(other);
+        public bool Equals(RebootType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct RebuildDropletActionType : IEquatable<RebuildDropletActionType>
+    {
+        private readonly string _value;
+
+        private RebuildDropletActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RebuildDropletActionType EnableBackups { get; } = new RebuildDropletActionType("enable_backups");
+        public static RebuildDropletActionType DisableBackups { get; } = new RebuildDropletActionType("disable_backups");
+        public static RebuildDropletActionType Reboot { get; } = new RebuildDropletActionType("reboot");
+        public static RebuildDropletActionType PowerCycle { get; } = new RebuildDropletActionType("power_cycle");
+        public static RebuildDropletActionType Shutdown { get; } = new RebuildDropletActionType("shutdown");
+        public static RebuildDropletActionType PowerOff { get; } = new RebuildDropletActionType("power_off");
+        public static RebuildDropletActionType PowerOn { get; } = new RebuildDropletActionType("power_on");
+        public static RebuildDropletActionType Restore { get; } = new RebuildDropletActionType("restore");
+        public static RebuildDropletActionType PasswordReset { get; } = new RebuildDropletActionType("password_reset");
+        public static RebuildDropletActionType Resize { get; } = new RebuildDropletActionType("resize");
+        public static RebuildDropletActionType Rebuild { get; } = new RebuildDropletActionType("rebuild");
+        public static RebuildDropletActionType Rename { get; } = new RebuildDropletActionType("rename");
+        public static RebuildDropletActionType ChangeKernel { get; } = new RebuildDropletActionType("change_kernel");
+        public static RebuildDropletActionType EnableIpv6 { get; } = new RebuildDropletActionType("enable_ipv6");
+        public static RebuildDropletActionType Snapshot { get; } = new RebuildDropletActionType("snapshot");
+
+        public static bool operator ==(RebuildDropletActionType left, RebuildDropletActionType right) => left.Equals(right);
+        public static bool operator !=(RebuildDropletActionType left, RebuildDropletActionType right) => !left.Equals(right);
+
+        public static explicit operator string(RebuildDropletActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RebuildDropletActionType other && Equals(other);
+        public bool Equals(RebuildDropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct RenameDropletActionType : IEquatable<RenameDropletActionType>
+    {
+        private readonly string _value;
+
+        private RenameDropletActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RenameDropletActionType EnableBackups { get; } = new RenameDropletActionType("enable_backups");
+        public static RenameDropletActionType DisableBackups { get; } = new RenameDropletActionType("disable_backups");
+        public static RenameDropletActionType Reboot { get; } = new RenameDropletActionType("reboot");
+        public static RenameDropletActionType PowerCycle { get; } = new RenameDropletActionType("power_cycle");
+        public static RenameDropletActionType Shutdown { get; } = new RenameDropletActionType("shutdown");
+        public static RenameDropletActionType PowerOff { get; } = new RenameDropletActionType("power_off");
+        public static RenameDropletActionType PowerOn { get; } = new RenameDropletActionType("power_on");
+        public static RenameDropletActionType Restore { get; } = new RenameDropletActionType("restore");
+        public static RenameDropletActionType PasswordReset { get; } = new RenameDropletActionType("password_reset");
+        public static RenameDropletActionType Resize { get; } = new RenameDropletActionType("resize");
+        public static RenameDropletActionType Rebuild { get; } = new RenameDropletActionType("rebuild");
+        public static RenameDropletActionType Rename { get; } = new RenameDropletActionType("rename");
+        public static RenameDropletActionType ChangeKernel { get; } = new RenameDropletActionType("change_kernel");
+        public static RenameDropletActionType EnableIpv6 { get; } = new RenameDropletActionType("enable_ipv6");
+        public static RenameDropletActionType Snapshot { get; } = new RenameDropletActionType("snapshot");
+
+        public static bool operator ==(RenameDropletActionType left, RenameDropletActionType right) => left.Equals(right);
+        public static bool operator !=(RenameDropletActionType left, RenameDropletActionType right) => !left.Equals(right);
+
+        public static explicit operator string(RenameDropletActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RenameDropletActionType other && Equals(other);
+        public bool Equals(RenameDropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResizeDropletActionType : IEquatable<ResizeDropletActionType>
+    {
+        private readonly string _value;
+
+        private ResizeDropletActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResizeDropletActionType EnableBackups { get; } = new ResizeDropletActionType("enable_backups");
+        public static ResizeDropletActionType DisableBackups { get; } = new ResizeDropletActionType("disable_backups");
+        public static ResizeDropletActionType Reboot { get; } = new ResizeDropletActionType("reboot");
+        public static ResizeDropletActionType PowerCycle { get; } = new ResizeDropletActionType("power_cycle");
+        public static ResizeDropletActionType Shutdown { get; } = new ResizeDropletActionType("shutdown");
+        public static ResizeDropletActionType PowerOff { get; } = new ResizeDropletActionType("power_off");
+        public static ResizeDropletActionType PowerOn { get; } = new ResizeDropletActionType("power_on");
+        public static ResizeDropletActionType Restore { get; } = new ResizeDropletActionType("restore");
+        public static ResizeDropletActionType PasswordReset { get; } = new ResizeDropletActionType("password_reset");
+        public static ResizeDropletActionType Resize { get; } = new ResizeDropletActionType("resize");
+        public static ResizeDropletActionType Rebuild { get; } = new ResizeDropletActionType("rebuild");
+        public static ResizeDropletActionType Rename { get; } = new ResizeDropletActionType("rename");
+        public static ResizeDropletActionType ChangeKernel { get; } = new ResizeDropletActionType("change_kernel");
+        public static ResizeDropletActionType EnableIpv6 { get; } = new ResizeDropletActionType("enable_ipv6");
+        public static ResizeDropletActionType Snapshot { get; } = new ResizeDropletActionType("snapshot");
+
+        public static bool operator ==(ResizeDropletActionType left, ResizeDropletActionType right) => left.Equals(right);
+        public static bool operator !=(ResizeDropletActionType left, ResizeDropletActionType right) => !left.Equals(right);
+
+        public static explicit operator string(ResizeDropletActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResizeDropletActionType other && Equals(other);
+        public bool Equals(ResizeDropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct RestoreDropletActionType : IEquatable<RestoreDropletActionType>
+    {
+        private readonly string _value;
+
+        private RestoreDropletActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RestoreDropletActionType EnableBackups { get; } = new RestoreDropletActionType("enable_backups");
+        public static RestoreDropletActionType DisableBackups { get; } = new RestoreDropletActionType("disable_backups");
+        public static RestoreDropletActionType Reboot { get; } = new RestoreDropletActionType("reboot");
+        public static RestoreDropletActionType PowerCycle { get; } = new RestoreDropletActionType("power_cycle");
+        public static RestoreDropletActionType Shutdown { get; } = new RestoreDropletActionType("shutdown");
+        public static RestoreDropletActionType PowerOff { get; } = new RestoreDropletActionType("power_off");
+        public static RestoreDropletActionType PowerOn { get; } = new RestoreDropletActionType("power_on");
+        public static RestoreDropletActionType Restore { get; } = new RestoreDropletActionType("restore");
+        public static RestoreDropletActionType PasswordReset { get; } = new RestoreDropletActionType("password_reset");
+        public static RestoreDropletActionType Resize { get; } = new RestoreDropletActionType("resize");
+        public static RestoreDropletActionType Rebuild { get; } = new RestoreDropletActionType("rebuild");
+        public static RestoreDropletActionType Rename { get; } = new RestoreDropletActionType("rename");
+        public static RestoreDropletActionType ChangeKernel { get; } = new RestoreDropletActionType("change_kernel");
+        public static RestoreDropletActionType EnableIpv6 { get; } = new RestoreDropletActionType("enable_ipv6");
+        public static RestoreDropletActionType Snapshot { get; } = new RestoreDropletActionType("snapshot");
+
+        public static bool operator ==(RestoreDropletActionType left, RestoreDropletActionType right) => left.Equals(right);
+        public static bool operator !=(RestoreDropletActionType left, RestoreDropletActionType right) => !left.Equals(right);
+
+        public static explicit operator string(RestoreDropletActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RestoreDropletActionType other && Equals(other);
+        public bool Equals(RestoreDropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct ShutdownType : IEquatable<ShutdownType>
+    {
+        private readonly string _value;
+
+        private ShutdownType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ShutdownType EnableBackups { get; } = new ShutdownType("enable_backups");
+        public static ShutdownType DisableBackups { get; } = new ShutdownType("disable_backups");
+        public static ShutdownType Reboot { get; } = new ShutdownType("reboot");
+        public static ShutdownType PowerCycle { get; } = new ShutdownType("power_cycle");
+        public static ShutdownType Shutdown { get; } = new ShutdownType("shutdown");
+        public static ShutdownType PowerOff { get; } = new ShutdownType("power_off");
+        public static ShutdownType PowerOn { get; } = new ShutdownType("power_on");
+        public static ShutdownType Restore { get; } = new ShutdownType("restore");
+        public static ShutdownType PasswordReset { get; } = new ShutdownType("password_reset");
+        public static ShutdownType Resize { get; } = new ShutdownType("resize");
+        public static ShutdownType Rebuild { get; } = new ShutdownType("rebuild");
+        public static ShutdownType Rename { get; } = new ShutdownType("rename");
+        public static ShutdownType ChangeKernel { get; } = new ShutdownType("change_kernel");
+        public static ShutdownType EnableIpv6 { get; } = new ShutdownType("enable_ipv6");
+        public static ShutdownType Snapshot { get; } = new ShutdownType("snapshot");
+
+        public static bool operator ==(ShutdownType left, ShutdownType right) => left.Equals(right);
+        public static bool operator !=(ShutdownType left, ShutdownType right) => !left.Equals(right);
+
+        public static explicit operator string(ShutdownType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ShutdownType other && Equals(other);
+        public bool Equals(ShutdownType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action to initiate for the Droplet.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotDropletActionType : IEquatable<SnapshotDropletActionType>
+    {
+        private readonly string _value;
+
+        private SnapshotDropletActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotDropletActionType EnableBackups { get; } = new SnapshotDropletActionType("enable_backups");
+        public static SnapshotDropletActionType DisableBackups { get; } = new SnapshotDropletActionType("disable_backups");
+        public static SnapshotDropletActionType Reboot { get; } = new SnapshotDropletActionType("reboot");
+        public static SnapshotDropletActionType PowerCycle { get; } = new SnapshotDropletActionType("power_cycle");
+        public static SnapshotDropletActionType Shutdown { get; } = new SnapshotDropletActionType("shutdown");
+        public static SnapshotDropletActionType PowerOff { get; } = new SnapshotDropletActionType("power_off");
+        public static SnapshotDropletActionType PowerOn { get; } = new SnapshotDropletActionType("power_on");
+        public static SnapshotDropletActionType Restore { get; } = new SnapshotDropletActionType("restore");
+        public static SnapshotDropletActionType PasswordReset { get; } = new SnapshotDropletActionType("password_reset");
+        public static SnapshotDropletActionType Resize { get; } = new SnapshotDropletActionType("resize");
+        public static SnapshotDropletActionType Rebuild { get; } = new SnapshotDropletActionType("rebuild");
+        public static SnapshotDropletActionType Rename { get; } = new SnapshotDropletActionType("rename");
+        public static SnapshotDropletActionType ChangeKernel { get; } = new SnapshotDropletActionType("change_kernel");
+        public static SnapshotDropletActionType EnableIpv6 { get; } = new SnapshotDropletActionType("enable_ipv6");
+        public static SnapshotDropletActionType Snapshot { get; } = new SnapshotDropletActionType("snapshot");
+
+        public static bool operator ==(SnapshotDropletActionType left, SnapshotDropletActionType right) => left.Equals(right);
+        public static bool operator !=(SnapshotDropletActionType left, SnapshotDropletActionType right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotDropletActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotDropletActionType other && Equals(other);
+        public bool Equals(SnapshotDropletActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

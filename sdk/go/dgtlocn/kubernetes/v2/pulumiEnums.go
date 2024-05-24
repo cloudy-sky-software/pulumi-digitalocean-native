@@ -106,6 +106,102 @@ func (o ClusterStatusPropertiesStatePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string indicating the current status of the cluster.
+type KubernetesClusterStatusPropertiesState string
+
+const (
+	KubernetesClusterStatusPropertiesStateRunning      = KubernetesClusterStatusPropertiesState("running")
+	KubernetesClusterStatusPropertiesStateProvisioning = KubernetesClusterStatusPropertiesState("provisioning")
+	KubernetesClusterStatusPropertiesStateDegraded     = KubernetesClusterStatusPropertiesState("degraded")
+	KubernetesClusterStatusPropertiesStateError        = KubernetesClusterStatusPropertiesState("error")
+	KubernetesClusterStatusPropertiesStateDeleted      = KubernetesClusterStatusPropertiesState("deleted")
+	KubernetesClusterStatusPropertiesStateUpgrading    = KubernetesClusterStatusPropertiesState("upgrading")
+	KubernetesClusterStatusPropertiesStateDeleting     = KubernetesClusterStatusPropertiesState("deleting")
+)
+
+type KubernetesClusterStatusPropertiesStateOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterStatusPropertiesStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterStatusPropertiesState)(nil)).Elem()
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToKubernetesClusterStatusPropertiesStateOutput() KubernetesClusterStatusPropertiesStateOutput {
+	return o
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToKubernetesClusterStatusPropertiesStateOutputWithContext(ctx context.Context) KubernetesClusterStatusPropertiesStateOutput {
+	return o
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToKubernetesClusterStatusPropertiesStatePtrOutput() KubernetesClusterStatusPropertiesStatePtrOutput {
+	return o.ToKubernetesClusterStatusPropertiesStatePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToKubernetesClusterStatusPropertiesStatePtrOutputWithContext(ctx context.Context) KubernetesClusterStatusPropertiesStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterStatusPropertiesState) *KubernetesClusterStatusPropertiesState {
+		return &v
+	}).(KubernetesClusterStatusPropertiesStatePtrOutput)
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KubernetesClusterStatusPropertiesState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterStatusPropertiesStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KubernetesClusterStatusPropertiesState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterStatusPropertiesStatePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterStatusPropertiesStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterStatusPropertiesState)(nil)).Elem()
+}
+
+func (o KubernetesClusterStatusPropertiesStatePtrOutput) ToKubernetesClusterStatusPropertiesStatePtrOutput() KubernetesClusterStatusPropertiesStatePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterStatusPropertiesStatePtrOutput) ToKubernetesClusterStatusPropertiesStatePtrOutputWithContext(ctx context.Context) KubernetesClusterStatusPropertiesStatePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterStatusPropertiesStatePtrOutput) Elem() KubernetesClusterStatusPropertiesStateOutput {
+	return o.ApplyT(func(v *KubernetesClusterStatusPropertiesState) KubernetesClusterStatusPropertiesState {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterStatusPropertiesState
+		return ret
+	}).(KubernetesClusterStatusPropertiesStateOutput)
+}
+
+func (o KubernetesClusterStatusPropertiesStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterStatusPropertiesStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KubernetesClusterStatusPropertiesState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // How the node reacts to pods that it won't tolerate. Available effect values are `NoSchedule`, `PreferNoSchedule`, and `NoExecute`.
 type KubernetesNodePoolTaintEffect string
 
@@ -622,102 +718,6 @@ func (in *nodeStatusPropertiesStatePtr) ToNodeStatusPropertiesStatePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(NodeStatusPropertiesStatePtrOutput)
 }
 
-// A string indicating the current status of the cluster.
-type StatusPropertiesState string
-
-const (
-	StatusPropertiesStateRunning      = StatusPropertiesState("running")
-	StatusPropertiesStateProvisioning = StatusPropertiesState("provisioning")
-	StatusPropertiesStateDegraded     = StatusPropertiesState("degraded")
-	StatusPropertiesStateError        = StatusPropertiesState("error")
-	StatusPropertiesStateDeleted      = StatusPropertiesState("deleted")
-	StatusPropertiesStateUpgrading    = StatusPropertiesState("upgrading")
-	StatusPropertiesStateDeleting     = StatusPropertiesState("deleting")
-)
-
-type StatusPropertiesStateOutput struct{ *pulumi.OutputState }
-
-func (StatusPropertiesStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StatusPropertiesState)(nil)).Elem()
-}
-
-func (o StatusPropertiesStateOutput) ToStatusPropertiesStateOutput() StatusPropertiesStateOutput {
-	return o
-}
-
-func (o StatusPropertiesStateOutput) ToStatusPropertiesStateOutputWithContext(ctx context.Context) StatusPropertiesStateOutput {
-	return o
-}
-
-func (o StatusPropertiesStateOutput) ToStatusPropertiesStatePtrOutput() StatusPropertiesStatePtrOutput {
-	return o.ToStatusPropertiesStatePtrOutputWithContext(context.Background())
-}
-
-func (o StatusPropertiesStateOutput) ToStatusPropertiesStatePtrOutputWithContext(ctx context.Context) StatusPropertiesStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StatusPropertiesState) *StatusPropertiesState {
-		return &v
-	}).(StatusPropertiesStatePtrOutput)
-}
-
-func (o StatusPropertiesStateOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StatusPropertiesStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StatusPropertiesState) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StatusPropertiesStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StatusPropertiesStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StatusPropertiesState) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StatusPropertiesStatePtrOutput struct{ *pulumi.OutputState }
-
-func (StatusPropertiesStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StatusPropertiesState)(nil)).Elem()
-}
-
-func (o StatusPropertiesStatePtrOutput) ToStatusPropertiesStatePtrOutput() StatusPropertiesStatePtrOutput {
-	return o
-}
-
-func (o StatusPropertiesStatePtrOutput) ToStatusPropertiesStatePtrOutputWithContext(ctx context.Context) StatusPropertiesStatePtrOutput {
-	return o
-}
-
-func (o StatusPropertiesStatePtrOutput) Elem() StatusPropertiesStateOutput {
-	return o.ApplyT(func(v *StatusPropertiesState) StatusPropertiesState {
-		if v != nil {
-			return *v
-		}
-		var ret StatusPropertiesState
-		return ret
-	}).(StatusPropertiesStateOutput)
-}
-
-func (o StatusPropertiesStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StatusPropertiesStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StatusPropertiesState) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesNodePoolTaintEffectInput)(nil)).Elem(), KubernetesNodePoolTaintEffect("NoSchedule"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesNodePoolTaintEffectPtrInput)(nil)).Elem(), KubernetesNodePoolTaintEffect("NoSchedule"))
@@ -727,12 +727,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeStatusPropertiesStatePtrInput)(nil)).Elem(), NodeStatusPropertiesState("provisioning"))
 	pulumi.RegisterOutputType(ClusterStatusPropertiesStateOutput{})
 	pulumi.RegisterOutputType(ClusterStatusPropertiesStatePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterStatusPropertiesStateOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterStatusPropertiesStatePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesNodePoolTaintEffectOutput{})
 	pulumi.RegisterOutputType(KubernetesNodePoolTaintEffectPtrOutput{})
 	pulumi.RegisterOutputType(MaintenancePolicyDayOutput{})
 	pulumi.RegisterOutputType(MaintenancePolicyDayPtrOutput{})
 	pulumi.RegisterOutputType(NodeStatusPropertiesStateOutput{})
 	pulumi.RegisterOutputType(NodeStatusPropertiesStatePtrOutput{})
-	pulumi.RegisterOutputType(StatusPropertiesStateOutput{})
-	pulumi.RegisterOutputType(StatusPropertiesStatePtrOutput{})
 }

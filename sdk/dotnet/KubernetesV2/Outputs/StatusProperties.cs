@@ -23,13 +23,13 @@ namespace Pulumi.DigitalOceanNative.KubernetesV2.Outputs
         /// <summary>
         /// A string indicating the current status of the cluster.
         /// </summary>
-        public readonly Pulumi.DigitalOceanNative.KubernetesV2.StatusPropertiesState? State;
+        public readonly Pulumi.DigitalOceanNative.KubernetesV2.KubernetesClusterStatusPropertiesState? State;
 
         [OutputConstructor]
         private StatusProperties(
             string? message,
 
-            Pulumi.DigitalOceanNative.KubernetesV2.StatusPropertiesState? state)
+            Pulumi.DigitalOceanNative.KubernetesV2.KubernetesClusterStatusPropertiesState? state)
         {
             Message = message;
             State = state;

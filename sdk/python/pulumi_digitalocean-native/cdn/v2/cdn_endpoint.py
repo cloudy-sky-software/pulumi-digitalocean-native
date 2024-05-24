@@ -19,13 +19,13 @@ class CdnEndpointArgs:
                  origin: pulumi.Input[str],
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  custom_domain: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input['Ttl']] = None):
+                 ttl: Optional[pulumi.Input['CdnEndpointTtl']] = None):
         """
         The set of arguments for constructing a CdnEndpoint resource.
         :param pulumi.Input[str] origin: The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
         :param pulumi.Input[str] certificate_id: The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
         :param pulumi.Input[str] custom_domain: The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.
-        :param pulumi.Input['Ttl'] ttl: The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
+        :param pulumi.Input['CdnEndpointTtl'] ttl: The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         """
         pulumi.set(__self__, "origin", origin)
         if certificate_id is not None:
@@ -75,14 +75,14 @@ class CdnEndpointArgs:
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input['Ttl']]:
+    def ttl(self) -> Optional[pulumi.Input['CdnEndpointTtl']]:
         """
         The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input['Ttl']]):
+    def ttl(self, value: Optional[pulumi.Input['CdnEndpointTtl']]):
         pulumi.set(self, "ttl", value)
 
 
@@ -94,7 +94,7 @@ class CdnEndpoint(pulumi.CustomResource):
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  custom_domain: Optional[pulumi.Input[str]] = None,
                  origin: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input['Ttl']] = None,
+                 ttl: Optional[pulumi.Input['CdnEndpointTtl']] = None,
                  __props__=None):
         """
         Create a CdnEndpoint resource with the given unique name, props, and options.
@@ -103,7 +103,7 @@ class CdnEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
         :param pulumi.Input[str] custom_domain: The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.
         :param pulumi.Input[str] origin: The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
-        :param pulumi.Input['Ttl'] ttl: The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
+        :param pulumi.Input['CdnEndpointTtl'] ttl: The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class CdnEndpoint(pulumi.CustomResource):
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  custom_domain: Optional[pulumi.Input[str]] = None,
                  origin: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input['Ttl']] = None,
+                 ttl: Optional[pulumi.Input['CdnEndpointTtl']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,7 +220,7 @@ class CdnEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[Optional['Ttl']]:
+    def ttl(self) -> pulumi.Output[Optional['CdnEndpointTtl']]:
         """
         The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         """

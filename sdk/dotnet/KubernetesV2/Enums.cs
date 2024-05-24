@@ -44,6 +44,42 @@ namespace Pulumi.DigitalOceanNative.KubernetesV2
     }
 
     /// <summary>
+    /// A string indicating the current status of the cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct KubernetesClusterStatusPropertiesState : IEquatable<KubernetesClusterStatusPropertiesState>
+    {
+        private readonly string _value;
+
+        private KubernetesClusterStatusPropertiesState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KubernetesClusterStatusPropertiesState Running { get; } = new KubernetesClusterStatusPropertiesState("running");
+        public static KubernetesClusterStatusPropertiesState Provisioning { get; } = new KubernetesClusterStatusPropertiesState("provisioning");
+        public static KubernetesClusterStatusPropertiesState Degraded { get; } = new KubernetesClusterStatusPropertiesState("degraded");
+        public static KubernetesClusterStatusPropertiesState Error { get; } = new KubernetesClusterStatusPropertiesState("error");
+        public static KubernetesClusterStatusPropertiesState Deleted { get; } = new KubernetesClusterStatusPropertiesState("deleted");
+        public static KubernetesClusterStatusPropertiesState Upgrading { get; } = new KubernetesClusterStatusPropertiesState("upgrading");
+        public static KubernetesClusterStatusPropertiesState Deleting { get; } = new KubernetesClusterStatusPropertiesState("deleting");
+
+        public static bool operator ==(KubernetesClusterStatusPropertiesState left, KubernetesClusterStatusPropertiesState right) => left.Equals(right);
+        public static bool operator !=(KubernetesClusterStatusPropertiesState left, KubernetesClusterStatusPropertiesState right) => !left.Equals(right);
+
+        public static explicit operator string(KubernetesClusterStatusPropertiesState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KubernetesClusterStatusPropertiesState other && Equals(other);
+        public bool Equals(KubernetesClusterStatusPropertiesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// How the node reacts to pods that it won't tolerate. Available effect values are `NoSchedule`, `PreferNoSchedule`, and `NoExecute`.
     /// </summary>
     [EnumType]
@@ -138,42 +174,6 @@ namespace Pulumi.DigitalOceanNative.KubernetesV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NodeStatusPropertiesState other && Equals(other);
         public bool Equals(NodeStatusPropertiesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// A string indicating the current status of the cluster.
-    /// </summary>
-    [EnumType]
-    public readonly struct StatusPropertiesState : IEquatable<StatusPropertiesState>
-    {
-        private readonly string _value;
-
-        private StatusPropertiesState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StatusPropertiesState Running { get; } = new StatusPropertiesState("running");
-        public static StatusPropertiesState Provisioning { get; } = new StatusPropertiesState("provisioning");
-        public static StatusPropertiesState Degraded { get; } = new StatusPropertiesState("degraded");
-        public static StatusPropertiesState Error { get; } = new StatusPropertiesState("error");
-        public static StatusPropertiesState Deleted { get; } = new StatusPropertiesState("deleted");
-        public static StatusPropertiesState Upgrading { get; } = new StatusPropertiesState("upgrading");
-        public static StatusPropertiesState Deleting { get; } = new StatusPropertiesState("deleting");
-
-        public static bool operator ==(StatusPropertiesState left, StatusPropertiesState right) => left.Equals(right);
-        public static bool operator !=(StatusPropertiesState left, StatusPropertiesState right) => !left.Equals(right);
-
-        public static explicit operator string(StatusPropertiesState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StatusPropertiesState other && Equals(other);
-        public bool Equals(StatusPropertiesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

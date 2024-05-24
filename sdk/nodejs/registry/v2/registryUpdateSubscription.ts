@@ -38,7 +38,7 @@ export class RegistryUpdateSubscription extends pulumi.CustomResource {
     /**
      * The slug of the subscription tier to sign up for.
      */
-    public readonly tierSlug!: pulumi.Output<enums.registry.v2.TierSlug | undefined>;
+    public readonly tierSlug!: pulumi.Output<enums.registry.v2.RegistryUpdateSubscriptionTierSlug | undefined>;
 
     /**
      * Create a RegistryUpdateSubscription resource with the given unique name, arguments, and options.
@@ -69,5 +69,5 @@ export interface RegistryUpdateSubscriptionArgs {
     /**
      * The slug of the subscription tier to sign up for.
      */
-    tierSlug?: pulumi.Input<enums.registry.v2.TierSlug>;
+    tierSlug?: pulumi.Input<enums.registry.v2.RegistryUpdateSubscriptionTierSlug>;
 }

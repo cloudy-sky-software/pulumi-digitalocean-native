@@ -54,12 +54,12 @@ func (o ActionRegionSlugPtrOutput) Elem() ActionRegionSlugOutput {
 	}).(ActionRegionSlugOutput)
 }
 
-type GetVolumeActionsProperties struct {
+type GetVolumeActionProperties struct {
 	Action *VolumeAction `pulumi:"action"`
 }
 
-// Defaults sets the appropriate defaults for GetVolumeActionsProperties
-func (val *GetVolumeActionsProperties) Defaults() *GetVolumeActionsProperties {
+// Defaults sets the appropriate defaults for GetVolumeActionProperties
+func (val *GetVolumeActionProperties) Defaults() *GetVolumeActionProperties {
 	if val == nil {
 		return nil
 	}
@@ -69,22 +69,44 @@ func (val *GetVolumeActionsProperties) Defaults() *GetVolumeActionsProperties {
 	return &tmp
 }
 
-type GetVolumeActionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetVolumeActionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetVolumeActionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVolumeActionsProperties)(nil)).Elem()
+func (GetVolumeActionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeActionProperties)(nil)).Elem()
 }
 
-func (o GetVolumeActionsPropertiesOutput) ToGetVolumeActionsPropertiesOutput() GetVolumeActionsPropertiesOutput {
+func (o GetVolumeActionPropertiesOutput) ToGetVolumeActionPropertiesOutput() GetVolumeActionPropertiesOutput {
 	return o
 }
 
-func (o GetVolumeActionsPropertiesOutput) ToGetVolumeActionsPropertiesOutputWithContext(ctx context.Context) GetVolumeActionsPropertiesOutput {
+func (o GetVolumeActionPropertiesOutput) ToGetVolumeActionPropertiesOutputWithContext(ctx context.Context) GetVolumeActionPropertiesOutput {
 	return o
 }
 
-func (o GetVolumeActionsPropertiesOutput) Action() VolumeActionPtrOutput {
-	return o.ApplyT(func(v GetVolumeActionsProperties) *VolumeAction { return v.Action }).(VolumeActionPtrOutput)
+func (o GetVolumeActionPropertiesOutput) Action() VolumeActionPtrOutput {
+	return o.ApplyT(func(v GetVolumeActionProperties) *VolumeAction { return v.Action }).(VolumeActionPtrOutput)
+}
+
+type GetVolumeProperties struct {
+	Volume *VolumeFull `pulumi:"volume"`
+}
+
+type GetVolumePropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetVolumePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeProperties)(nil)).Elem()
+}
+
+func (o GetVolumePropertiesOutput) ToGetVolumePropertiesOutput() GetVolumePropertiesOutput {
+	return o
+}
+
+func (o GetVolumePropertiesOutput) ToGetVolumePropertiesOutputWithContext(ctx context.Context) GetVolumePropertiesOutput {
+	return o
+}
+
+func (o GetVolumePropertiesOutput) Volume() VolumeFullPtrOutput {
+	return o.ApplyT(func(v GetVolumeProperties) *VolumeFull { return v.Volume }).(VolumeFullPtrOutput)
 }
 
 type GetVolumeSnapshotsByIdProperties struct {
@@ -107,28 +129,6 @@ func (o GetVolumeSnapshotsByIdPropertiesOutput) ToGetVolumeSnapshotsByIdProperti
 
 func (o GetVolumeSnapshotsByIdPropertiesOutput) Snapshot() SnapshotsPtrOutput {
 	return o.ApplyT(func(v GetVolumeSnapshotsByIdProperties) *Snapshots { return v.Snapshot }).(SnapshotsPtrOutput)
-}
-
-type GetVolumesProperties struct {
-	Volume *VolumeFull `pulumi:"volume"`
-}
-
-type GetVolumesPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetVolumesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVolumesProperties)(nil)).Elem()
-}
-
-func (o GetVolumesPropertiesOutput) ToGetVolumesPropertiesOutput() GetVolumesPropertiesOutput {
-	return o
-}
-
-func (o GetVolumesPropertiesOutput) ToGetVolumesPropertiesOutputWithContext(ctx context.Context) GetVolumesPropertiesOutput {
-	return o
-}
-
-func (o GetVolumesPropertiesOutput) Volume() VolumeFullPtrOutput {
-	return o.ApplyT(func(v GetVolumesProperties) *VolumeFull { return v.Volume }).(VolumeFullPtrOutput)
 }
 
 type ListVolumeActionsItems struct {
@@ -1306,9 +1306,9 @@ func (o VolumeFullPropertiesRegionPtrOutput) Slug() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ActionRegionSlugOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugPtrOutput{})
-	pulumi.RegisterOutputType(GetVolumeActionsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetVolumeActionPropertiesOutput{})
+	pulumi.RegisterOutputType(GetVolumePropertiesOutput{})
 	pulumi.RegisterOutputType(GetVolumeSnapshotsByIdPropertiesOutput{})
-	pulumi.RegisterOutputType(GetVolumesPropertiesOutput{})
 	pulumi.RegisterOutputType(ListVolumeActionsItemsOutput{})
 	pulumi.RegisterOutputType(ListVolumeSnapshotsItemsOutput{})
 	pulumi.RegisterOutputType(ListVolumesItemsOutput{})
