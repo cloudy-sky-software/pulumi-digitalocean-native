@@ -7,21 +7,72 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type Droplets struct {
 	pulumi.CustomResourceState
+
+	// A boolean indicating whether automated backups should be enabled for the Droplet.
+	Backups pulumi.BoolPtrOutput `pulumi:"backups"`
+	// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+	Image pulumi.AnyOutput `pulumi:"image"`
+	// A boolean indicating whether to enable IPv6 on the Droplet.
+	Ipv6 pulumi.BoolPtrOutput `pulumi:"ipv6"`
+	// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
+	// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+	Names pulumi.StringArrayOutput `pulumi:"names"`
+	// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+	PrivateNetworking pulumi.BoolPtrOutput `pulumi:"privateNetworking"`
+	// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+	Region pulumi.StringPtrOutput `pulumi:"region"`
+	// The slug identifier for the size that you wish to select for this Droplet.
+	Size pulumi.StringPtrOutput `pulumi:"size"`
+	// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+	SshKeys pulumi.ArrayOutput `pulumi:"sshKeys"`
+	// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
+	// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+	Volumes pulumi.StringArrayOutput `pulumi:"volumes"`
+	// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+	VpcUuid pulumi.StringPtrOutput `pulumi:"vpcUuid"`
+	// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+	WithDropletAgent pulumi.BoolPtrOutput `pulumi:"withDropletAgent"`
 }
 
 // NewDroplets registers a new resource with the given unique name, arguments, and options.
 func NewDroplets(ctx *pulumi.Context,
 	name string, args *DropletsArgs, opts ...pulumi.ResourceOption) (*Droplets, error) {
 	if args == nil {
-		args = &DropletsArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Image == nil {
+		return nil, errors.New("invalid value for required argument 'Image'")
+	}
+	if args.Names == nil {
+		return nil, errors.New("invalid value for required argument 'Names'")
+	}
+	if args.Size == nil {
+		return nil, errors.New("invalid value for required argument 'Size'")
+	}
+	if args.Backups == nil {
+		args.Backups = pulumi.BoolPtr(false)
+	}
+	if args.Ipv6 == nil {
+		args.Ipv6 = pulumi.BoolPtr(false)
+	}
+	if args.Monitoring == nil {
+		args.Monitoring = pulumi.BoolPtr(false)
+	}
+	if args.PrivateNetworking == nil {
+		args.PrivateNetworking = pulumi.BoolPtr(false)
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Droplets
 	err := ctx.RegisterResource("digitalocean-native:droplets/v2:Droplets", name, args, &resource, opts...)
@@ -55,10 +106,66 @@ func (DropletsState) ElementType() reflect.Type {
 }
 
 type dropletsArgs struct {
+	// A boolean indicating whether automated backups should be enabled for the Droplet.
+	Backups *bool `pulumi:"backups"`
+	// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+	Image interface{} `pulumi:"image"`
+	// A boolean indicating whether to enable IPv6 on the Droplet.
+	Ipv6 *bool `pulumi:"ipv6"`
+	// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+	Monitoring *bool `pulumi:"monitoring"`
+	// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+	Names []string `pulumi:"names"`
+	// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+	PrivateNetworking *bool `pulumi:"privateNetworking"`
+	// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+	Region *string `pulumi:"region"`
+	// The slug identifier for the size that you wish to select for this Droplet.
+	Size string `pulumi:"size"`
+	// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+	SshKeys []interface{} `pulumi:"sshKeys"`
+	// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+	Tags []string `pulumi:"tags"`
+	// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+	UserData *string `pulumi:"userData"`
+	// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+	Volumes []string `pulumi:"volumes"`
+	// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+	VpcUuid *string `pulumi:"vpcUuid"`
+	// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+	WithDropletAgent *bool `pulumi:"withDropletAgent"`
 }
 
 // The set of arguments for constructing a Droplets resource.
 type DropletsArgs struct {
+	// A boolean indicating whether automated backups should be enabled for the Droplet.
+	Backups pulumi.BoolPtrInput
+	// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+	Image pulumi.Input
+	// A boolean indicating whether to enable IPv6 on the Droplet.
+	Ipv6 pulumi.BoolPtrInput
+	// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+	Monitoring pulumi.BoolPtrInput
+	// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+	Names pulumi.StringArrayInput
+	// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+	PrivateNetworking pulumi.BoolPtrInput
+	// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+	Region pulumi.StringPtrInput
+	// The slug identifier for the size that you wish to select for this Droplet.
+	Size pulumi.StringInput
+	// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+	SshKeys pulumi.ArrayInput
+	// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+	Tags pulumi.StringArrayInput
+	// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+	UserData pulumi.StringPtrInput
+	// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+	Volumes pulumi.StringArrayInput
+	// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+	VpcUuid pulumi.StringPtrInput
+	// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+	WithDropletAgent pulumi.BoolPtrInput
 }
 
 func (DropletsArgs) ElementType() reflect.Type {
@@ -96,6 +203,76 @@ func (o DropletsOutput) ToDropletsOutput() DropletsOutput {
 
 func (o DropletsOutput) ToDropletsOutputWithContext(ctx context.Context) DropletsOutput {
 	return o
+}
+
+// A boolean indicating whether automated backups should be enabled for the Droplet.
+func (o DropletsOutput) Backups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.Backups }).(pulumi.BoolPtrOutput)
+}
+
+// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+func (o DropletsOutput) Image() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.AnyOutput { return v.Image }).(pulumi.AnyOutput)
+}
+
+// A boolean indicating whether to enable IPv6 on the Droplet.
+func (o DropletsOutput) Ipv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.Ipv6 }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+func (o DropletsOutput) Monitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.Monitoring }).(pulumi.BoolPtrOutput)
+}
+
+// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+func (o DropletsOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringArrayOutput { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+func (o DropletsOutput) PrivateNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.PrivateNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+func (o DropletsOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The slug identifier for the size that you wish to select for this Droplet.
+func (o DropletsOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+func (o DropletsOutput) SshKeys() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.ArrayOutput { return v.SshKeys }).(pulumi.ArrayOutput)
+}
+
+// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+func (o DropletsOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+func (o DropletsOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+func (o DropletsOutput) Volumes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringArrayOutput { return v.Volumes }).(pulumi.StringArrayOutput)
+}
+
+// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+func (o DropletsOutput) VpcUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.VpcUuid }).(pulumi.StringPtrOutput)
+}
+
+// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+func (o DropletsOutput) WithDropletAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.WithDropletAgent }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

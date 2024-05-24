@@ -31,6 +31,62 @@ export class Droplets extends pulumi.CustomResource {
         return obj['__pulumiType'] === Droplets.__pulumiType;
     }
 
+    /**
+     * A boolean indicating whether automated backups should be enabled for the Droplet.
+     */
+    public readonly backups!: pulumi.Output<boolean | undefined>;
+    /**
+     * The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+     */
+    public readonly image!: pulumi.Output<string | number | undefined>;
+    /**
+     * A boolean indicating whether to enable IPv6 on the Droplet.
+     */
+    public readonly ipv6!: pulumi.Output<boolean | undefined>;
+    /**
+     * A boolean indicating whether to install the DigitalOcean agent for monitoring.
+     */
+    public readonly monitoring!: pulumi.Output<boolean | undefined>;
+    /**
+     * An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+     */
+    public readonly names!: pulumi.Output<string[] | undefined>;
+    /**
+     * This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+     */
+    public readonly privateNetworking!: pulumi.Output<boolean | undefined>;
+    /**
+     * The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+     */
+    public readonly region!: pulumi.Output<string | undefined>;
+    /**
+     * The slug identifier for the size that you wish to select for this Droplet.
+     */
+    public readonly size!: pulumi.Output<string | undefined>;
+    /**
+     * An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+     */
+    public readonly sshKeys!: pulumi.Output<(string | number)[] | undefined>;
+    /**
+     * A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+     */
+    public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
+     * A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
+    /**
+     * An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+     */
+    public readonly volumes!: pulumi.Output<string[] | undefined>;
+    /**
+     * A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+     */
+    public readonly vpcUuid!: pulumi.Output<string | undefined>;
+    /**
+     * A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+     */
+    public readonly withDropletAgent!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Droplets resource with the given unique name, arguments, and options.
@@ -39,11 +95,48 @@ export class Droplets extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DropletsArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DropletsArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.image === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'image'");
+            }
+            if ((!args || args.names === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'names'");
+            }
+            if ((!args || args.size === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'size'");
+            }
+            resourceInputs["backups"] = (args ? args.backups : undefined) ?? false;
+            resourceInputs["image"] = args ? args.image : undefined;
+            resourceInputs["ipv6"] = (args ? args.ipv6 : undefined) ?? false;
+            resourceInputs["monitoring"] = (args ? args.monitoring : undefined) ?? false;
+            resourceInputs["names"] = args ? args.names : undefined;
+            resourceInputs["privateNetworking"] = (args ? args.privateNetworking : undefined) ?? false;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["sshKeys"] = args ? args.sshKeys : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["vpcUuid"] = args ? args.vpcUuid : undefined;
+            resourceInputs["withDropletAgent"] = args ? args.withDropletAgent : undefined;
         } else {
+            resourceInputs["backups"] = undefined /*out*/;
+            resourceInputs["image"] = undefined /*out*/;
+            resourceInputs["ipv6"] = undefined /*out*/;
+            resourceInputs["monitoring"] = undefined /*out*/;
+            resourceInputs["names"] = undefined /*out*/;
+            resourceInputs["privateNetworking"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["sshKeys"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["userData"] = undefined /*out*/;
+            resourceInputs["volumes"] = undefined /*out*/;
+            resourceInputs["vpcUuid"] = undefined /*out*/;
+            resourceInputs["withDropletAgent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Droplets.__pulumiType, name, resourceInputs, opts);
@@ -54,4 +147,60 @@ export class Droplets extends pulumi.CustomResource {
  * The set of arguments for constructing a Droplets resource.
  */
 export interface DropletsArgs {
+    /**
+     * A boolean indicating whether automated backups should be enabled for the Droplet.
+     */
+    backups?: pulumi.Input<boolean>;
+    /**
+     * The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+     */
+    image: pulumi.Input<string | number>;
+    /**
+     * A boolean indicating whether to enable IPv6 on the Droplet.
+     */
+    ipv6?: pulumi.Input<boolean>;
+    /**
+     * A boolean indicating whether to install the DigitalOcean agent for monitoring.
+     */
+    monitoring?: pulumi.Input<boolean>;
+    /**
+     * An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+     */
+    names: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+     */
+    privateNetworking?: pulumi.Input<boolean>;
+    /**
+     * The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * The slug identifier for the size that you wish to select for this Droplet.
+     */
+    size: pulumi.Input<string>;
+    /**
+     * An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+     */
+    sshKeys?: pulumi.Input<pulumi.Input<string | number>[]>;
+    /**
+     * A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+     */
+    userData?: pulumi.Input<string>;
+    /**
+     * An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+     */
+    volumes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+     */
+    vpcUuid?: pulumi.Input<string>;
+    /**
+     * A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+     */
+    withDropletAgent?: pulumi.Input<boolean>;
 }

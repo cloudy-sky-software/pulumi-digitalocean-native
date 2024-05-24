@@ -13,13 +13,98 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
     public partial class Droplets : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A boolean indicating whether automated backups should be enabled for the Droplet.
+        /// </summary>
+        [Output("backups")]
+        public Output<bool?> Backups { get; private set; } = null!;
+
+        /// <summary>
+        /// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+        /// </summary>
+        [Output("image")]
+        public Output<Union<string, int>?> Image { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean indicating whether to enable IPv6 on the Droplet.
+        /// </summary>
+        [Output("ipv6")]
+        public Output<bool?> Ipv6 { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        /// </summary>
+        [Output("monitoring")]
+        public Output<bool?> Monitoring { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        /// </summary>
+        [Output("names")]
+        public Output<ImmutableArray<string>> Names { get; private set; } = null!;
+
+        /// <summary>
+        /// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+        /// </summary>
+        [Output("privateNetworking")]
+        public Output<bool?> PrivateNetworking { get; private set; } = null!;
+
+        /// <summary>
+        /// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+        /// </summary>
+        [Output("region")]
+        public Output<string?> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// The slug identifier for the size that you wish to select for this Droplet.
+        /// </summary>
+        [Output("size")]
+        public Output<string?> Size { get; private set; } = null!;
+
+        /// <summary>
+        /// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+        /// </summary>
+        [Output("sshKeys")]
+        public Output<ImmutableArray<Union<string, int>>> SshKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+        /// </summary>
+        [Output("userData")]
+        public Output<string?> UserData { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+        /// </summary>
+        [Output("volumes")]
+        public Output<ImmutableArray<string>> Volumes { get; private set; } = null!;
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+        /// </summary>
+        [Output("vpcUuid")]
+        public Output<string?> VpcUuid { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+        /// </summary>
+        [Output("withDropletAgent")]
+        public Output<bool?> WithDropletAgent { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Droplets resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Droplets(string name, DropletsArgs? args = null, CustomResourceOptions? options = null)
+        public Droplets(string name, DropletsArgs args, CustomResourceOptions? options = null)
             : base("digitalocean-native:droplets/v2:Droplets", name, args ?? new DropletsArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -57,8 +142,120 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
 
     public sealed class DropletsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A boolean indicating whether automated backups should be enabled for the Droplet.
+        /// </summary>
+        [Input("backups")]
+        public Input<bool>? Backups { get; set; }
+
+        /// <summary>
+        /// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+        /// </summary>
+        [Input("image", required: true)]
+        public InputUnion<string, int> Image { get; set; } = null!;
+
+        /// <summary>
+        /// A boolean indicating whether to enable IPv6 on the Droplet.
+        /// </summary>
+        [Input("ipv6")]
+        public Input<bool>? Ipv6 { get; set; }
+
+        /// <summary>
+        /// A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        /// </summary>
+        [Input("monitoring")]
+        public Input<bool>? Monitoring { get; set; }
+
+        [Input("names", required: true)]
+        private InputList<string>? _names;
+
+        /// <summary>
+        /// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        /// </summary>
+        public InputList<string> Names
+        {
+            get => _names ?? (_names = new InputList<string>());
+            set => _names = value;
+        }
+
+        /// <summary>
+        /// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+        /// </summary>
+        [Input("privateNetworking")]
+        public Input<bool>? PrivateNetworking { get; set; }
+
+        /// <summary>
+        /// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// The slug identifier for the size that you wish to select for this Droplet.
+        /// </summary>
+        [Input("size", required: true)]
+        public Input<string> Size { get; set; } = null!;
+
+        [Input("sshKeys")]
+        private InputList<Union<string, int>>? _sshKeys;
+
+        /// <summary>
+        /// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+        /// </summary>
+        public InputList<Union<string, int>> SshKeys
+        {
+            get => _sshKeys ?? (_sshKeys = new InputList<Union<string, int>>());
+            set => _sshKeys = value;
+        }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
+
+        [Input("volumes")]
+        private InputList<string>? _volumes;
+
+        /// <summary>
+        /// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+        /// </summary>
+        public InputList<string> Volumes
+        {
+            get => _volumes ?? (_volumes = new InputList<string>());
+            set => _volumes = value;
+        }
+
+        /// <summary>
+        /// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+        /// </summary>
+        [Input("vpcUuid")]
+        public Input<string>? VpcUuid { get; set; }
+
+        /// <summary>
+        /// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+        /// </summary>
+        [Input("withDropletAgent")]
+        public Input<bool>? WithDropletAgent { get; set; }
+
         public DropletsArgs()
         {
+            Backups = false;
+            Ipv6 = false;
+            Monitoring = false;
+            PrivateNetworking = false;
         }
         public static new DropletsArgs Empty => new DropletsArgs();
     }

@@ -20,24 +20,9 @@ import (
 )
 
 const testCreateJSONPayload = `{
-    "autoDeploy": "yes",
-    "branch": "master",
-    "envVars": [{ "key": "PORT", "value": "8080" }],
-    "name": "An Express.js web service",
-    "ownerId": "usr-somefakeownerid",
-    "repo": "https://github.com/render-examples/express-hello-world",
-    "serviceDetails": {
-        "env": "node",
-        "envSpecificDetails": {
-            "buildCommand": "yarn",
-            "startCommand": "node app.js"
-        },
-        "numInstances": 1,
-        "plan": "starter",
-        "pullRequestPreviewsEnabled": "no",
-        "region": "oregon"
-    },
-    "type": "web_service"
+    "image":"ubuntu-20-04-x64",
+	"names":["my-droplet"],
+	"size":"s-1vcpu-1gb"
 }
 `
 
@@ -86,11 +71,11 @@ func TestDiff(t *testing.T) {
 	p := makeTestProvider(ctx, t)
 
 	outputs := make(map[string]interface{})
-	outputs["name"] = "Test"
+	outputs["size"] = "s-1vcpu-1gb"
 	oldsStruct, _ := plugin.MarshalProperties(state.GetResourceState(outputs, resource.NewPropertyMapFromMap(outputs)), state.DefaultMarshalOpts)
 
 	news := make(map[string]interface{})
-	news["name"] = "Test2"
+	news["size"] = "s-1vcpu-2gb"
 	newsStruct, _ := plugin.MarshalProperties(resource.NewPropertyMapFromMap(news), state.DefaultMarshalOpts)
 
 	resp, err := p.Diff(ctx, &pulumirpc.DiffRequest{Id: "", Urn: "urn:pulumi:some-stack::some-project::digitalocean-native:droplets/v2:Droplets::someResourceName", Olds: oldsStruct, News: newsStruct})
@@ -98,7 +83,7 @@ func TestDiff(t *testing.T) {
 	assert.Equal(t, pulumirpc.DiffResponse_DIFF_SOME, resp.Changes)
 	assert.NotEmpty(t, resp.Diffs)
 	assert.Len(t, resp.Diffs, 1)
-	assert.Empty(t, resp.Replaces)
+	assert.NotEmpty(t, resp.Replaces)
 }
 
 func TestCreate(t *testing.T) {
