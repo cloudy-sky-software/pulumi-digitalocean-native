@@ -672,11 +672,11 @@
                     "description": "Is the alert disabled?"
                 },
                 "operator": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppAlertSpecOperator",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppAlertSpecOperator",
                     "default": "UNSPECIFIED_OPERATOR"
                 },
                 "rule": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppAlertSpecRule",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppAlertSpecRule",
                     "default": "UNSPECIFIED_RULE"
                 },
                 "value": {
@@ -684,11 +684,160 @@
                     "description": "Threshold value for alert"
                 },
                 "window": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppAlertSpecWindow",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppAlertSpecWindow",
                     "default": "UNSPECIFIED_WINDOW"
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:apps/v2:AppAlertSpecOperator": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "UnspecifiedOperator",
+                    "value": "UNSPECIFIED_OPERATOR"
+                },
+                {
+                    "name": "GreaterThan",
+                    "value": "GREATER_THAN"
+                },
+                {
+                    "name": "LessThan",
+                    "value": "LESS_THAN"
+                }
+            ]
+        },
+        "digitalocean-native:apps/v2:AppAlertSpecRule": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "UnspecifiedRule",
+                    "value": "UNSPECIFIED_RULE"
+                },
+                {
+                    "name": "CpuUtilization",
+                    "value": "CPU_UTILIZATION"
+                },
+                {
+                    "name": "MemUtilization",
+                    "value": "MEM_UTILIZATION"
+                },
+                {
+                    "name": "RestartCount",
+                    "value": "RESTART_COUNT"
+                },
+                {
+                    "name": "DeploymentFailed",
+                    "value": "DEPLOYMENT_FAILED"
+                },
+                {
+                    "name": "DeploymentLive",
+                    "value": "DEPLOYMENT_LIVE"
+                },
+                {
+                    "name": "DomainFailed",
+                    "value": "DOMAIN_FAILED"
+                },
+                {
+                    "name": "DomainLive",
+                    "value": "DOMAIN_LIVE"
+                },
+                {
+                    "name": "FunctionsActivationCount",
+                    "value": "FUNCTIONS_ACTIVATION_COUNT"
+                },
+                {
+                    "name": "FunctionsAverageDurationMs",
+                    "value": "FUNCTIONS_AVERAGE_DURATION_MS"
+                },
+                {
+                    "name": "FunctionsErrorRatePerMinute",
+                    "value": "FUNCTIONS_ERROR_RATE_PER_MINUTE"
+                },
+                {
+                    "name": "FunctionsAverageWaitTimeMs",
+                    "value": "FUNCTIONS_AVERAGE_WAIT_TIME_MS"
+                },
+                {
+                    "name": "FunctionsErrorCount",
+                    "value": "FUNCTIONS_ERROR_COUNT"
+                },
+                {
+                    "name": "FunctionsGbRatePerSecond",
+                    "value": "FUNCTIONS_GB_RATE_PER_SECOND"
+                }
+            ]
+        },
+        "digitalocean-native:apps/v2:AppAlertSpecWindow": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "UnspecifiedWindow",
+                    "value": "UNSPECIFIED_WINDOW"
+                },
+                {
+                    "name": "FiveMinutes",
+                    "value": "FIVE_MINUTES"
+                },
+                {
+                    "name": "TenMinutes",
+                    "value": "TEN_MINUTES"
+                },
+                {
+                    "name": "ThirtyMinutes",
+                    "value": "THIRTY_MINUTES"
+                },
+                {
+                    "name": "OneHour",
+                    "value": "ONE_HOUR"
+                }
+            ]
+        },
+        "digitalocean-native:apps/v2:AppComponentInstanceBaseInstanceSizeSlug": {
+            "description": "The instance size to use for this component. Default: `basic-xxs`",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "BasicXxs",
+                    "value": "basic-xxs"
+                },
+                {
+                    "name": "BasicXs",
+                    "value": "basic-xs"
+                },
+                {
+                    "name": "BasicS",
+                    "value": "basic-s"
+                },
+                {
+                    "name": "BasicM",
+                    "value": "basic-m"
+                },
+                {
+                    "name": "ProfessionalXs",
+                    "value": "professional-xs"
+                },
+                {
+                    "name": "ProfessionalS",
+                    "value": "professional-s"
+                },
+                {
+                    "name": "ProfessionalM",
+                    "value": "professional-m"
+                },
+                {
+                    "name": "Professional1l",
+                    "value": "professional-1l"
+                },
+                {
+                    "name": "ProfessionalL",
+                    "value": "professional-l"
+                },
+                {
+                    "name": "ProfessionalXl",
+                    "value": "professional-xl"
+                }
+            ]
         },
         "digitalocean-native:apps/v2:AppDatabaseSpec": {
             "properties": {
@@ -705,7 +854,7 @@
                     "description": "The name of the MySQL or PostgreSQL user to configure."
                 },
                 "engine": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppDatabaseSpecEngine",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppDatabaseSpecEngine",
                     "description": "- MYSQL: MySQL\n- PG: PostgreSQL\n- REDIS: Redis",
                     "default": "UNSET"
                 },
@@ -727,6 +876,28 @@
                 "name"
             ]
         },
+        "digitalocean-native:apps/v2:AppDatabaseSpecEngine": {
+            "description": "- MYSQL: MySQL\n- PG: PostgreSQL\n- REDIS: Redis",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Unset",
+                    "value": "UNSET"
+                },
+                {
+                    "name": "Mysql",
+                    "value": "MYSQL"
+                },
+                {
+                    "name": "Pg",
+                    "value": "PG"
+                },
+                {
+                    "name": "Redis",
+                    "value": "REDIS"
+                }
+            ]
+        },
         "digitalocean-native:apps/v2:AppDomainSpec": {
             "properties": {
                 "domain": {
@@ -734,11 +905,11 @@
                     "description": "The hostname for the domain"
                 },
                 "minimumTlsVersion": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppDomainSpecMinimumTlsVersion",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppDomainSpecMinimumTlsVersion",
                     "description": "The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `\"1.2\"` or `\"1.3\"`."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppDomainSpecType",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppDomainSpecType",
                     "description": "- DEFAULT: The default `.ondigitalocean.app` domain assigned to this app\n- PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.\n- ALIAS: A non-primary domain",
                     "default": "UNSPECIFIED"
                 },
@@ -754,6 +925,42 @@
             "type": "object",
             "required": [
                 "domain"
+            ]
+        },
+        "digitalocean-native:apps/v2:AppDomainSpecMinimumTlsVersion": {
+            "description": "The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `\"1.2\"` or `\"1.3\"`.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "12",
+                    "value": "1.2"
+                },
+                {
+                    "name": "13",
+                    "value": "1.3"
+                }
+            ]
+        },
+        "digitalocean-native:apps/v2:AppDomainSpecType": {
+            "description": "- DEFAULT: The default `.ondigitalocean.app` domain assigned to this app\n- PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.\n- ALIAS: A non-primary domain",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Unspecified",
+                    "value": "UNSPECIFIED"
+                },
+                {
+                    "name": "Default",
+                    "value": "DEFAULT"
+                },
+                {
+                    "name": "Primary",
+                    "value": "PRIMARY"
+                },
+                {
+                    "name": "Alias",
+                    "value": "ALIAS"
+                }
             ]
         },
         "digitalocean-native:apps/v2:AppDomainValidation": {
@@ -963,12 +1170,12 @@
                     "default": 1
                 },
                 "instanceSizeSlug": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppComponentInstanceBaseInstanceSizeSlug",
                     "description": "The instance size to use for this component. Default: `basic-xxs`",
                     "default": "basic-xxs"
                 },
                 "kind": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppJobSpecPropertiesKind",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppJobSpecPropertiesKind",
                     "description": "- UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.\n- PRE_DEPLOY: Indicates a job that runs before an app deployment.\n- POST_DEPLOY: Indicates a job that runs after an app deployment.\n- FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.",
                     "default": "UNSPECIFIED"
                 },
@@ -989,6 +1196,28 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:apps/v2:AppJobSpecPropertiesKind": {
+            "description": "- UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.\n- PRE_DEPLOY: Indicates a job that runs before an app deployment.\n- POST_DEPLOY: Indicates a job that runs after an app deployment.\n- FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Unspecified",
+                    "value": "UNSPECIFIED"
+                },
+                {
+                    "name": "PreDeploy",
+                    "value": "PRE_DEPLOY"
+                },
+                {
+                    "name": "PostDeploy",
+                    "value": "POST_DEPLOY"
+                },
+                {
+                    "name": "FailedDeploy",
+                    "value": "FAILED_DEPLOY"
+                }
+            ]
         },
         "digitalocean-native:apps/v2:AppLogDestinationDatadogSpec": {
             "description": "DataDog configuration.",
@@ -1229,7 +1458,7 @@
         "digitalocean-native:apps/v2:AppRollbackValidationCondition": {
             "properties": {
                 "code": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateRollbackAppRollbackValidationConditionCode",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppRollbackValidationConditionCode",
                     "description": "A code identifier that represents the failing condition.\n\nFailing conditions:\n  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.\n  - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.\n  - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.\n  - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.\n  - `database_config_conflict` - indicates that the deployment's database config is different than the current config.\n  - `region_conflict` - indicates that the deployment's region differs from the current app region.\n  \nWarning conditions:\n  - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.\n  - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.\n"
                 },
                 "components": {
@@ -1244,6 +1473,44 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:apps/v2:AppRollbackValidationConditionCode": {
+            "description": "A code identifier that represents the failing condition.\n\nFailing conditions:\n  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.\n  - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.\n  - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.\n  - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.\n  - `database_config_conflict` - indicates that the deployment's database config is different than the current config.\n  - `region_conflict` - indicates that the deployment's region differs from the current app region.\n  \nWarning conditions:\n  - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.\n  - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.\n",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "IncompatiblePhase",
+                    "value": "incompatible_phase"
+                },
+                {
+                    "name": "IncompatibleResult",
+                    "value": "incompatible_result"
+                },
+                {
+                    "name": "ExceededRevisionLimit",
+                    "value": "exceeded_revision_limit"
+                },
+                {
+                    "name": "AppPinned",
+                    "value": "app_pinned"
+                },
+                {
+                    "name": "DatabaseConfigConflict",
+                    "value": "database_config_conflict"
+                },
+                {
+                    "name": "RegionConflict",
+                    "value": "region_conflict"
+                },
+                {
+                    "name": "StaticSiteRequiresRebuild",
+                    "value": "static_site_requires_rebuild"
+                },
+                {
+                    "name": "ImageSourceMissingDigest",
+                    "value": "image_source_missing_digest"
+                }
+            ]
         },
         "digitalocean-native:apps/v2:AppRouteSpec": {
             "properties": {
@@ -1307,7 +1574,7 @@
                     "default": 1
                 },
                 "instanceSizeSlug": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppComponentInstanceBaseInstanceSizeSlug",
                     "description": "The instance size to use for this component. Default: `basic-xxs`",
                     "default": "basic-xxs"
                 },
@@ -1416,7 +1683,7 @@
                     "description": "The name of the app. Must be unique across all apps in the same account."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppSpecRegion",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppSpecRegion",
                     "description": "The slug form of the geographical origin of the app. Default: `nearest available`"
                 },
                 "services": {
@@ -1444,6 +1711,48 @@
             "type": "object",
             "required": [
                 "name"
+            ]
+        },
+        "digitalocean-native:apps/v2:AppSpecRegion": {
+            "description": "The slug form of the geographical origin of the app. Default: `nearest available`",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ams",
+                    "value": "ams"
+                },
+                {
+                    "name": "Nyc",
+                    "value": "nyc"
+                },
+                {
+                    "name": "Fra",
+                    "value": "fra"
+                },
+                {
+                    "name": "Sfo",
+                    "value": "sfo"
+                },
+                {
+                    "name": "Sgp",
+                    "value": "sgp"
+                },
+                {
+                    "name": "Blr",
+                    "value": "blr"
+                },
+                {
+                    "name": "Tor",
+                    "value": "tor"
+                },
+                {
+                    "name": "Lon",
+                    "value": "lon"
+                },
+                {
+                    "name": "Syd",
+                    "value": "syd"
+                }
             ]
         },
         "digitalocean-native:apps/v2:AppStaticSiteSpec": {
@@ -1532,12 +1841,12 @@
                     "description": "The variable name"
                 },
                 "scope": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppVariableDefinitionScope",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppVariableDefinitionScope",
                     "description": "- RUN_TIME: Made available only at run-time\n- BUILD_TIME: Made available only at build-time\n- RUN_AND_BUILD_TIME: Made available at both build and run-time",
                     "default": "RUN_AND_BUILD_TIME"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppVariableDefinitionType",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppVariableDefinitionType",
                     "description": "- GENERAL: A plain-text environment variable\n- SECRET: A secret encrypted environment variable",
                     "default": "GENERAL"
                 },
@@ -1549,6 +1858,42 @@
             "type": "object",
             "required": [
                 "key"
+            ]
+        },
+        "digitalocean-native:apps/v2:AppVariableDefinitionScope": {
+            "description": "- RUN_TIME: Made available only at run-time\n- BUILD_TIME: Made available only at build-time\n- RUN_AND_BUILD_TIME: Made available at both build and run-time",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Unset",
+                    "value": "UNSET"
+                },
+                {
+                    "name": "RunTime",
+                    "value": "RUN_TIME"
+                },
+                {
+                    "name": "BuildTime",
+                    "value": "BUILD_TIME"
+                },
+                {
+                    "name": "RunAndBuildTime",
+                    "value": "RUN_AND_BUILD_TIME"
+                }
+            ]
+        },
+        "digitalocean-native:apps/v2:AppVariableDefinitionType": {
+            "description": "- GENERAL: A plain-text environment variable\n- SECRET: A secret encrypted environment variable",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "General",
+                    "value": "GENERAL"
+                },
+                {
+                    "name": "Secret",
+                    "value": "SECRET"
+                }
             ]
         },
         "digitalocean-native:apps/v2:AppWorkerSpec": {
@@ -1590,7 +1935,7 @@
                     "default": 1
                 },
                 "instanceSizeSlug": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppComponentInstanceBaseInstanceSizeSlug",
                     "description": "The instance size to use for this component. Default: `basic-xxs`",
                     "default": "basic-xxs"
                 },
@@ -2107,7 +2452,7 @@
                     "description": "The registry name. Must be left empty for the `DOCR` registry type."
                 },
                 "registryType": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateAppSpecAppsImageSourceSpecRegistryType",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppsImageSourceSpecRegistryType",
                     "description": "- DOCKER_HUB: The DockerHub container registry type.\n- DOCR: The DigitalOcean container registry type."
                 },
                 "repository": {
@@ -2121,6 +2466,20 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:apps/v2:AppsImageSourceSpecRegistryType": {
+            "description": "- DOCKER_HUB: The DockerHub container registry type.\n- DOCR: The DigitalOcean container registry type.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "DockerHub",
+                    "value": "DOCKER_HUB"
+                },
+                {
+                    "name": "Docr",
+                    "value": "DOCR"
+                }
+            ]
         },
         "digitalocean-native:apps/v2:AppsInstanceSize": {
             "properties": {
@@ -2317,369 +2676,10 @@
             },
             "type": "object"
         },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppAlertSpecOperator": {
-            "type": "string",
-            "enum": [
-                {
-                    "name": "UnspecifiedOperator",
-                    "value": "UNSPECIFIED_OPERATOR"
-                },
-                {
-                    "name": "GreaterThan",
-                    "value": "GREATER_THAN"
-                },
-                {
-                    "name": "LessThan",
-                    "value": "LESS_THAN"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppAlertSpecRule": {
-            "type": "string",
-            "enum": [
-                {
-                    "name": "UnspecifiedRule",
-                    "value": "UNSPECIFIED_RULE"
-                },
-                {
-                    "name": "CpuUtilization",
-                    "value": "CPU_UTILIZATION"
-                },
-                {
-                    "name": "MemUtilization",
-                    "value": "MEM_UTILIZATION"
-                },
-                {
-                    "name": "RestartCount",
-                    "value": "RESTART_COUNT"
-                },
-                {
-                    "name": "DeploymentFailed",
-                    "value": "DEPLOYMENT_FAILED"
-                },
-                {
-                    "name": "DeploymentLive",
-                    "value": "DEPLOYMENT_LIVE"
-                },
-                {
-                    "name": "DomainFailed",
-                    "value": "DOMAIN_FAILED"
-                },
-                {
-                    "name": "DomainLive",
-                    "value": "DOMAIN_LIVE"
-                },
-                {
-                    "name": "FunctionsActivationCount",
-                    "value": "FUNCTIONS_ACTIVATION_COUNT"
-                },
-                {
-                    "name": "FunctionsAverageDurationMs",
-                    "value": "FUNCTIONS_AVERAGE_DURATION_MS"
-                },
-                {
-                    "name": "FunctionsErrorRatePerMinute",
-                    "value": "FUNCTIONS_ERROR_RATE_PER_MINUTE"
-                },
-                {
-                    "name": "FunctionsAverageWaitTimeMs",
-                    "value": "FUNCTIONS_AVERAGE_WAIT_TIME_MS"
-                },
-                {
-                    "name": "FunctionsErrorCount",
-                    "value": "FUNCTIONS_ERROR_COUNT"
-                },
-                {
-                    "name": "FunctionsGbRatePerSecond",
-                    "value": "FUNCTIONS_GB_RATE_PER_SECOND"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppAlertSpecWindow": {
-            "type": "string",
-            "enum": [
-                {
-                    "name": "UnspecifiedWindow",
-                    "value": "UNSPECIFIED_WINDOW"
-                },
-                {
-                    "name": "FiveMinutes",
-                    "value": "FIVE_MINUTES"
-                },
-                {
-                    "name": "TenMinutes",
-                    "value": "TEN_MINUTES"
-                },
-                {
-                    "name": "ThirtyMinutes",
-                    "value": "THIRTY_MINUTES"
-                },
-                {
-                    "name": "OneHour",
-                    "value": "ONE_HOUR"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppComponentInstanceBaseInstanceSizeSlug": {
-            "description": "The instance size to use for this component. Default: `basic-xxs`",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "BasicXxs",
-                    "value": "basic-xxs"
-                },
-                {
-                    "name": "BasicXs",
-                    "value": "basic-xs"
-                },
-                {
-                    "name": "BasicS",
-                    "value": "basic-s"
-                },
-                {
-                    "name": "BasicM",
-                    "value": "basic-m"
-                },
-                {
-                    "name": "ProfessionalXs",
-                    "value": "professional-xs"
-                },
-                {
-                    "name": "ProfessionalS",
-                    "value": "professional-s"
-                },
-                {
-                    "name": "ProfessionalM",
-                    "value": "professional-m"
-                },
-                {
-                    "name": "Professional1l",
-                    "value": "professional-1l"
-                },
-                {
-                    "name": "ProfessionalL",
-                    "value": "professional-l"
-                },
-                {
-                    "name": "ProfessionalXl",
-                    "value": "professional-xl"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppDatabaseSpecEngine": {
-            "description": "- MYSQL: MySQL\n- PG: PostgreSQL\n- REDIS: Redis",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Unset",
-                    "value": "UNSET"
-                },
-                {
-                    "name": "Mysql",
-                    "value": "MYSQL"
-                },
-                {
-                    "name": "Pg",
-                    "value": "PG"
-                },
-                {
-                    "name": "Redis",
-                    "value": "REDIS"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppDomainSpecMinimumTlsVersion": {
-            "description": "The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `\"1.2\"` or `\"1.3\"`.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "12",
-                    "value": "1.2"
-                },
-                {
-                    "name": "13",
-                    "value": "1.3"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppDomainSpecType": {
-            "description": "- DEFAULT: The default `.ondigitalocean.app` domain assigned to this app\n- PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.\n- ALIAS: A non-primary domain",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Unspecified",
-                    "value": "UNSPECIFIED"
-                },
-                {
-                    "name": "Default",
-                    "value": "DEFAULT"
-                },
-                {
-                    "name": "Primary",
-                    "value": "PRIMARY"
-                },
-                {
-                    "name": "Alias",
-                    "value": "ALIAS"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppJobSpecPropertiesKind": {
-            "description": "- UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.\n- PRE_DEPLOY: Indicates a job that runs before an app deployment.\n- POST_DEPLOY: Indicates a job that runs after an app deployment.\n- FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Unspecified",
-                    "value": "UNSPECIFIED"
-                },
-                {
-                    "name": "PreDeploy",
-                    "value": "PRE_DEPLOY"
-                },
-                {
-                    "name": "PostDeploy",
-                    "value": "POST_DEPLOY"
-                },
-                {
-                    "name": "FailedDeploy",
-                    "value": "FAILED_DEPLOY"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppSpecRegion": {
-            "description": "The slug form of the geographical origin of the app. Default: `nearest available`",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Ams",
-                    "value": "ams"
-                },
-                {
-                    "name": "Nyc",
-                    "value": "nyc"
-                },
-                {
-                    "name": "Fra",
-                    "value": "fra"
-                },
-                {
-                    "name": "Sfo",
-                    "value": "sfo"
-                },
-                {
-                    "name": "Sgp",
-                    "value": "sgp"
-                },
-                {
-                    "name": "Blr",
-                    "value": "blr"
-                },
-                {
-                    "name": "Tor",
-                    "value": "tor"
-                },
-                {
-                    "name": "Lon",
-                    "value": "lon"
-                },
-                {
-                    "name": "Syd",
-                    "value": "syd"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppVariableDefinitionScope": {
-            "description": "- RUN_TIME: Made available only at run-time\n- BUILD_TIME: Made available only at build-time\n- RUN_AND_BUILD_TIME: Made available at both build and run-time",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Unset",
-                    "value": "UNSET"
-                },
-                {
-                    "name": "RunTime",
-                    "value": "RUN_TIME"
-                },
-                {
-                    "name": "BuildTime",
-                    "value": "BUILD_TIME"
-                },
-                {
-                    "name": "RunAndBuildTime",
-                    "value": "RUN_AND_BUILD_TIME"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppVariableDefinitionType": {
-            "description": "- GENERAL: A plain-text environment variable\n- SECRET: A secret encrypted environment variable",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "General",
-                    "value": "GENERAL"
-                },
-                {
-                    "name": "Secret",
-                    "value": "SECRET"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateAppSpecAppsImageSourceSpecRegistryType": {
-            "description": "- DOCKER_HUB: The DockerHub container registry type.\n- DOCR: The DigitalOcean container registry type.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "DockerHub",
-                    "value": "DOCKER_HUB"
-                },
-                {
-                    "name": "Docr",
-                    "value": "DOCR"
-                }
-            ]
-        },
-        "digitalocean-native:apps/v2:AppsValidateRollbackAppRollbackValidationConditionCode": {
-            "description": "A code identifier that represents the failing condition.\n\nFailing conditions:\n  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.\n  - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.\n  - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.\n  - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.\n  - `database_config_conflict` - indicates that the deployment's database config is different than the current config.\n  - `region_conflict` - indicates that the deployment's region differs from the current app region.\n  \nWarning conditions:\n  - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.\n  - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.\n",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "IncompatiblePhase",
-                    "value": "incompatible_phase"
-                },
-                {
-                    "name": "IncompatibleResult",
-                    "value": "incompatible_result"
-                },
-                {
-                    "name": "ExceededRevisionLimit",
-                    "value": "exceeded_revision_limit"
-                },
-                {
-                    "name": "AppPinned",
-                    "value": "app_pinned"
-                },
-                {
-                    "name": "DatabaseConfigConflict",
-                    "value": "database_config_conflict"
-                },
-                {
-                    "name": "RegionConflict",
-                    "value": "region_conflict"
-                },
-                {
-                    "name": "StaticSiteRequiresRebuild",
-                    "value": "static_site_requires_rebuild"
-                },
-                {
-                    "name": "ImageSourceMissingDigest",
-                    "value": "image_source_missing_digest"
-                }
-            ]
-        },
         "digitalocean-native:apps/v2:Error": {
             "properties": {
                 "code": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateRollbackAppRollbackValidationConditionCode",
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppRollbackValidationConditionCode",
                     "description": "A code identifier that represents the failing condition.\n\nFailing conditions:\n  - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.\n  - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.\n  - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.\n  - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.\n  - `database_config_conflict` - indicates that the deployment's database config is different than the current config.\n  - `region_conflict` - indicates that the deployment's region differs from the current app region.\n  \nWarning conditions:\n  - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.\n  - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.\n"
                 },
                 "components": {
@@ -2858,6 +2858,32 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:cdn/v2:Ttl": {
+            "description": "The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.",
+            "type": "integer",
+            "enum": [
+                {
+                    "name": "%!d(float64=60)",
+                    "value": 60
+                },
+                {
+                    "name": "%!d(float64=600)",
+                    "value": 600
+                },
+                {
+                    "name": "%!d(float64=3600)",
+                    "value": 3600
+                },
+                {
+                    "name": "%!d(float64=86400)",
+                    "value": 86400
+                },
+                {
+                    "name": "%!d(float64=604800)",
+                    "value": 604800
+                }
+            ]
         },
         "digitalocean-native:certificates/v2:Certificate": {
             "properties": {
@@ -4244,7 +4270,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:databases/v2:DatabasesEvictionPolicyEvictionPolicy": {
+        "digitalocean-native:databases/v2:EvictionPolicy": {
             "description": "A string specifying the desired eviction policy for the Redis cluster.\n\n- `noeviction`: Don't evict any data, returns error when memory limit is reached.\n- `allkeys_lru:` Evict any key, least recently used (LRU) first.\n- `allkeys_random`: Evict keys in a random order.\n- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.\n- `volatile_random`: Evict keys with expiration only in a random order.\n- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.",
             "type": "string",
             "enum": [
@@ -5347,7 +5373,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
                 },
                 "status": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:DisableBackupsActionStatus",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:ActionStatus",
                     "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
                     "default": "in-progress"
                 },
@@ -5360,6 +5386,24 @@
         },
         "digitalocean-native:droplets/v2:ActionRegionSlug": {
             "type": "object"
+        },
+        "digitalocean-native:droplets/v2:ActionStatus": {
+            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "InProgress",
+                    "value": "in-progress"
+                },
+                {
+                    "name": "Completed",
+                    "value": "completed"
+                },
+                {
+                    "name": "Errored",
+                    "value": "errored"
+                }
+            ]
         },
         "digitalocean-native:droplets/v2:AssociatedResource": {
             "description": "An objects containing information about a resource associated with a Droplet.",
@@ -5437,72 +5481,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:ChangeKernelDropletActionType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
         "digitalocean-native:droplets/v2:DestroyedAssociatedResource": {
             "description": "An object containing information about a resource scheduled for deletion.",
             "properties": {
@@ -5524,90 +5502,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:droplets/v2:DisableBackupsActionStatus": {
-            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "InProgress",
-                    "value": "in-progress"
-                },
-                {
-                    "name": "Completed",
-                    "value": "completed"
-                },
-                {
-                    "name": "Errored",
-                    "value": "errored"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:DisableBackupsType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
         },
         "digitalocean-native:droplets/v2:Droplet": {
             "properties": {
@@ -5731,6 +5625,72 @@
                 "volumeIds"
             ]
         },
+        "digitalocean-native:droplets/v2:DropletActionType": {
+            "description": "The type of action to initiate for the Droplet.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "EnableBackups",
+                    "value": "enable_backups"
+                },
+                {
+                    "name": "DisableBackups",
+                    "value": "disable_backups"
+                },
+                {
+                    "name": "Reboot",
+                    "value": "reboot"
+                },
+                {
+                    "name": "PowerCycle",
+                    "value": "power_cycle"
+                },
+                {
+                    "name": "Shutdown",
+                    "value": "shutdown"
+                },
+                {
+                    "name": "PowerOff",
+                    "value": "power_off"
+                },
+                {
+                    "name": "PowerOn",
+                    "value": "power_on"
+                },
+                {
+                    "name": "Restore",
+                    "value": "restore"
+                },
+                {
+                    "name": "PasswordReset",
+                    "value": "password_reset"
+                },
+                {
+                    "name": "Resize",
+                    "value": "resize"
+                },
+                {
+                    "name": "Rebuild",
+                    "value": "rebuild"
+                },
+                {
+                    "name": "Rename",
+                    "value": "rename"
+                },
+                {
+                    "name": "ChangeKernel",
+                    "value": "change_kernel"
+                },
+                {
+                    "name": "EnableIpv6",
+                    "value": "enable_ipv6"
+                },
+                {
+                    "name": "Snapshot",
+                    "value": "snapshot"
+                }
+            ]
+        },
         "digitalocean-native:droplets/v2:DropletNetworksProperties": {
             "description": "The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.",
             "properties": {
@@ -5836,138 +5796,6 @@
                 {
                     "name": "Archive",
                     "value": "archive"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:EnableBackupsType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:EnableIpv6Type": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
                 }
             ]
         },
@@ -6677,402 +6505,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:droplets/v2:PasswordResetType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:PowerCycleType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:PowerOffType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:PowerOnType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:RebootType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:RebuildDropletActionType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
         "digitalocean-native:droplets/v2:Region": {
             "properties": {
                 "available": {
@@ -7109,270 +6541,6 @@
                 "name",
                 "sizes",
                 "slug"
-            ]
-        },
-        "digitalocean-native:droplets/v2:RenameDropletActionType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:ResizeDropletActionType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:RestoreDropletActionType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
-            ]
-        },
-        "digitalocean-native:droplets/v2:ShutdownType": {
-            "description": "The type of action to initiate for the Droplet.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "EnableBackups",
-                    "value": "enable_backups"
-                },
-                {
-                    "name": "DisableBackups",
-                    "value": "disable_backups"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
-                },
-                {
-                    "name": "PowerCycle",
-                    "value": "power_cycle"
-                },
-                {
-                    "name": "Shutdown",
-                    "value": "shutdown"
-                },
-                {
-                    "name": "PowerOff",
-                    "value": "power_off"
-                },
-                {
-                    "name": "PowerOn",
-                    "value": "power_on"
-                },
-                {
-                    "name": "Restore",
-                    "value": "restore"
-                },
-                {
-                    "name": "PasswordReset",
-                    "value": "password_reset"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                },
-                {
-                    "name": "Rebuild",
-                    "value": "rebuild"
-                },
-                {
-                    "name": "Rename",
-                    "value": "rename"
-                },
-                {
-                    "name": "ChangeKernel",
-                    "value": "change_kernel"
-                },
-                {
-                    "name": "EnableIpv6",
-                    "value": "enable_ipv6"
-                },
-                {
-                    "name": "Snapshot",
-                    "value": "snapshot"
-                }
             ]
         },
         "digitalocean-native:droplets/v2:Size": {
@@ -7436,7 +6604,7 @@
                 "vcpus"
             ]
         },
-        "digitalocean-native:droplets/v2:SnapshotDropletActionType": {
+        "digitalocean-native:droplets/v2:Type": {
             "description": "The type of action to initiate for the Droplet.",
             "type": "string",
             "enum": [
@@ -7612,7 +6780,7 @@
                     "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \"8000-9000\"), or \"0\" when all ports are open for a protocol. For ICMP rules this parameter will always return \"0\"."
                 },
                 "protocol": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallsRulesFirewallRuleBaseProtocol",
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRuleBaseProtocol",
                     "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`."
                 }
             },
@@ -7629,7 +6797,7 @@
                     "description": "The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. \"8000-9000\"), or \"0\" when all ports are open for a protocol. For ICMP rules this parameter will always return \"0\"."
                 },
                 "protocol": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallsRulesFirewallRuleBaseProtocol",
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallRuleBaseProtocol",
                     "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`."
                 }
             },
@@ -7637,24 +6805,6 @@
             "required": [
                 "ports",
                 "protocol"
-            ]
-        },
-        "digitalocean-native:firewalls/v2:FirewallsRulesFirewallRuleBaseProtocol": {
-            "description": "The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Tcp",
-                    "value": "tcp"
-                },
-                {
-                    "name": "Udp",
-                    "value": "udp"
-                },
-                {
-                    "name": "Icmp",
-                    "value": "icmp"
-                }
             ]
         },
         "digitalocean-native:firewalls/v2:GetFirewallProperties": {
@@ -7807,20 +6957,6 @@
                 {
                     "name": "Errored",
                     "value": "errored"
-                }
-            ]
-        },
-        "digitalocean-native:floating_ips/v2:AssignFloatingIPsActionType": {
-            "description": "The type of action to initiate for the floating IP.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Assign",
-                    "value": "assign"
-                },
-                {
-                    "name": "Unassign",
-                    "value": "unassign"
                 }
             ]
         },
@@ -7997,6 +7133,20 @@
                 {
                     "name": "Archive",
                     "value": "archive"
+                }
+            ]
+        },
+        "digitalocean-native:floating_ips/v2:FloatingIPsActionType": {
+            "description": "The type of action to initiate for the floating IP.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Assign",
+                    "value": "assign"
+                },
+                {
+                    "name": "Unassign",
+                    "value": "unassign"
                 }
             ]
         },
@@ -8645,20 +7795,6 @@
                 "vcpus"
             ]
         },
-        "digitalocean-native:floating_ips/v2:UnassignFloatingIPsActionType": {
-            "description": "The type of action to initiate for the floating IP.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Assign",
-                    "value": "assign"
-                },
-                {
-                    "name": "Unassign",
-                    "value": "unassign"
-                }
-            ]
-        },
         "digitalocean-native:functions/v2:GetFunctionsNamespaceProperties": {
             "properties": {
                 "namespace": {
@@ -8874,38 +8010,6 @@
                 }
             ]
         },
-        "digitalocean-native:images/v2:ConvertStatus": {
-            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "InProgress",
-                    "value": "in-progress"
-                },
-                {
-                    "name": "Completed",
-                    "value": "completed"
-                },
-                {
-                    "name": "Errored",
-                    "value": "errored"
-                }
-            ]
-        },
-        "digitalocean-native:images/v2:ConvertType": {
-            "description": "The action to be taken on the image. Can be either `convert` or `transfer`.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Convert",
-                    "value": "convert"
-                },
-                {
-                    "name": "Transfer",
-                    "value": "transfer"
-                }
-            ]
-        },
         "digitalocean-native:images/v2:GetImageProperties": {
             "properties": {
                 "image": {
@@ -8983,6 +8087,20 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:images/v2:ImageActionBaseType": {
+            "description": "The action to be taken on the image. Can be either `convert` or `transfer`.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Convert",
+                    "value": "convert"
+                },
+                {
+                    "name": "Transfer",
+                    "value": "transfer"
+                }
+            ]
         },
         "digitalocean-native:images/v2:ImageDistribution": {
             "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.",
@@ -9156,7 +8274,7 @@
                 }
             ]
         },
-        "digitalocean-native:images/v2:ImagesCustomImageUpdateDistribution": {
+        "digitalocean-native:images/v2:ImageUpdateDistribution": {
             "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.",
             "type": "string",
             "enum": [
@@ -9402,17 +8520,21 @@
         "digitalocean-native:images/v2:RegionSlug": {
             "type": "object"
         },
-        "digitalocean-native:images/v2:TransferImageActionBaseType": {
-            "description": "The action to be taken on the image. Can be either `convert` or `transfer`.",
+        "digitalocean-native:images/v2:Status": {
+            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
             "type": "string",
             "enum": [
                 {
-                    "name": "Convert",
-                    "value": "convert"
+                    "name": "InProgress",
+                    "value": "in-progress"
                 },
                 {
-                    "name": "Transfer",
-                    "value": "transfer"
+                    "name": "Completed",
+                    "value": "completed"
+                },
+                {
+                    "name": "Errored",
+                    "value": "errored"
                 }
             ]
         },
@@ -9478,21 +8600,17 @@
                 }
             ]
         },
-        "digitalocean-native:images/v2:TransferStatus": {
-            "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+        "digitalocean-native:images/v2:Type": {
+            "description": "The action to be taken on the image. Can be either `convert` or `transfer`.",
             "type": "string",
             "enum": [
                 {
-                    "name": "InProgress",
-                    "value": "in-progress"
+                    "name": "Convert",
+                    "value": "convert"
                 },
                 {
-                    "name": "Completed",
-                    "value": "completed"
-                },
-                {
-                    "name": "Errored",
-                    "value": "errored"
+                    "name": "Transfer",
+                    "value": "transfer"
                 }
             ]
         },
@@ -9798,40 +8916,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:kubernetes/v2:KubernetesClusterStatusPropertiesState": {
-            "description": "A string indicating the current status of the cluster.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Running",
-                    "value": "running"
-                },
-                {
-                    "name": "Provisioning",
-                    "value": "provisioning"
-                },
-                {
-                    "name": "Degraded",
-                    "value": "degraded"
-                },
-                {
-                    "name": "Error",
-                    "value": "error"
-                },
-                {
-                    "name": "Deleted",
-                    "value": "deleted"
-                },
-                {
-                    "name": "Upgrading",
-                    "value": "upgrading"
-                },
-                {
-                    "name": "Deleting",
-                    "value": "deleting"
-                }
-            ]
         },
         "digitalocean-native:kubernetes/v2:KubernetesNodePool": {
             "properties": {
@@ -10203,11 +9287,45 @@
                     "description": "An optional message providing additional information about the current cluster state."
                 },
                 "state": {
-                    "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesClusterStatusPropertiesState",
+                    "$ref": "#/types/digitalocean-native:kubernetes/v2:StatusPropertiesState",
                     "description": "A string indicating the current status of the cluster."
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:kubernetes/v2:StatusPropertiesState": {
+            "description": "A string indicating the current status of the cluster.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Running",
+                    "value": "running"
+                },
+                {
+                    "name": "Provisioning",
+                    "value": "provisioning"
+                },
+                {
+                    "name": "Degraded",
+                    "value": "degraded"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "Deleted",
+                    "value": "deleted"
+                },
+                {
+                    "name": "Upgrading",
+                    "value": "upgrading"
+                },
+                {
+                    "name": "Deleting",
+                    "value": "deleting"
+                }
+            ]
         },
         "digitalocean-native:kubernetes/v2:User": {
             "properties": {
@@ -10918,6 +10036,19 @@
                 "slack"
             ]
         },
+        "digitalocean-native:monitoring/v2:Compare": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "GreaterThan",
+                    "value": "GreaterThan"
+                },
+                {
+                    "name": "LessThan",
+                    "value": "LessThan"
+                }
+            ]
+        },
         "digitalocean-native:monitoring/v2:GetMonitoringAlertPolicyProperties": {
             "properties": {
                 "policy": {
@@ -11046,20 +10177,49 @@
                 }
             ]
         },
-        "digitalocean-native:monitoring/v2:MonitoringAlertPolicyCompare": {
-            "type": "string",
-            "enum": [
-                {
-                    "name": "GreaterThan",
-                    "value": "GreaterThan"
-                },
-                {
-                    "name": "LessThan",
-                    "value": "LessThan"
+        "digitalocean-native:monitoring/v2:PageLinks": {
+            "properties": {
+                "pages": {
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:PageLinksPagesProperties"
                 }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:monitoring/v2:PageLinksPagesProperties": {
+            "properties": {
+                "first": {
+                    "type": "string"
+                },
+                "last": {
+                    "type": "string"
+                },
+                "next": {
+                    "type": "string"
+                },
+                "prev": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:monitoring/v2:SlackDetails": {
+            "properties": {
+                "channel": {
+                    "type": "string",
+                    "description": "Slack channel to notify of an alert trigger."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Slack Webhook URL."
+                }
+            },
+            "type": "object",
+            "required": [
+                "channel",
+                "url"
             ]
         },
-        "digitalocean-native:monitoring/v2:MonitoringAlertPolicyType": {
+        "digitalocean-native:monitoring/v2:Type": {
             "type": "string",
             "enum": [
                 {
@@ -11176,7 +10336,7 @@
                 }
             ]
         },
-        "digitalocean-native:monitoring/v2:MonitoringAlertPolicyWindow": {
+        "digitalocean-native:monitoring/v2:Window": {
             "type": "string",
             "enum": [
                 {
@@ -11195,48 +10355,6 @@
                     "name": "1h",
                     "value": "1h"
                 }
-            ]
-        },
-        "digitalocean-native:monitoring/v2:PageLinks": {
-            "properties": {
-                "pages": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:PageLinksPagesProperties"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:monitoring/v2:PageLinksPagesProperties": {
-            "properties": {
-                "first": {
-                    "type": "string"
-                },
-                "last": {
-                    "type": "string"
-                },
-                "next": {
-                    "type": "string"
-                },
-                "prev": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:monitoring/v2:SlackDetails": {
-            "properties": {
-                "channel": {
-                    "type": "string",
-                    "description": "Slack channel to notify of an alert trigger."
-                },
-                "url": {
-                    "type": "string",
-                    "description": "Slack Webhook URL."
-                }
-            },
-            "type": "object",
-            "required": [
-                "channel",
-                "url"
             ]
         },
         "digitalocean-native:projects/v2:GetProjectProperties": {
@@ -11410,24 +10528,6 @@
             "type": "object"
         },
         "digitalocean-native:projects/v2:ProjectBaseEnvironment": {
-            "description": "The environment of the project's resources.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Development",
-                    "value": "Development"
-                },
-                {
-                    "name": "Staging",
-                    "value": "Staging"
-                },
-                {
-                    "name": "Production",
-                    "value": "Production"
-                }
-            ]
-        },
-        "digitalocean-native:projects/v2:ProjectsProjectBaseEnvironment": {
             "description": "The environment of the project's resources.",
             "type": "string",
             "enum": [
@@ -11930,6 +11030,32 @@
             },
             "type": "object"
         },
+        "digitalocean-native:registry/v2:Region": {
+            "description": "Slug of the region where registry data is stored. When not provided, a region will be selected.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Nyc3",
+                    "value": "nyc3"
+                },
+                {
+                    "name": "Sfo3",
+                    "value": "sfo3"
+                },
+                {
+                    "name": "Ams3",
+                    "value": "ams3"
+                },
+                {
+                    "name": "Sgp1",
+                    "value": "sgp1"
+                },
+                {
+                    "name": "Fra1",
+                    "value": "fra1"
+                }
+            ]
+        },
         "digitalocean-native:registry/v2:Registry": {
             "properties": {
                 "createdAt": {
@@ -11958,32 +11084,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:registry/v2:RegistryRegion": {
-            "description": "Slug of the region where registry data is stored. When not provided, a region will be selected.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Nyc3",
-                    "value": "nyc3"
-                },
-                {
-                    "name": "Sfo3",
-                    "value": "sfo3"
-                },
-                {
-                    "name": "Ams3",
-                    "value": "ams3"
-                },
-                {
-                    "name": "Sgp1",
-                    "value": "sgp1"
-                },
-                {
-                    "name": "Fra1",
-                    "value": "fra1"
-                }
-            ]
-        },
         "digitalocean-native:registry/v2:RegistrySubscription": {
             "properties": {
                 "createdAt": {
@@ -11999,42 +11099,6 @@
                 }
             },
             "type": "object"
-        },
-        "digitalocean-native:registry/v2:RegistrySubscriptionTierSlug": {
-            "description": "The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Starter",
-                    "value": "starter"
-                },
-                {
-                    "name": "Basic",
-                    "value": "basic"
-                },
-                {
-                    "name": "Professional",
-                    "value": "professional"
-                }
-            ]
-        },
-        "digitalocean-native:registry/v2:RegistryUpdateSubscriptionTierSlug": {
-            "description": "The slug of the subscription tier to sign up for.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Starter",
-                    "value": "starter"
-                },
-                {
-                    "name": "Basic",
-                    "value": "basic"
-                },
-                {
-                    "name": "Professional",
-                    "value": "professional"
-                }
-            ]
         },
         "digitalocean-native:registry/v2:Repository": {
             "properties": {
@@ -12235,6 +11299,42 @@
                 }
             ]
         },
+        "digitalocean-native:registry/v2:SubscriptionTierSlug": {
+            "description": "The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Starter",
+                    "value": "starter"
+                },
+                {
+                    "name": "Basic",
+                    "value": "basic"
+                },
+                {
+                    "name": "Professional",
+                    "value": "professional"
+                }
+            ]
+        },
+        "digitalocean-native:registry/v2:TierSlug": {
+            "description": "The slug of the subscription tier to sign up for.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Starter",
+                    "value": "starter"
+                },
+                {
+                    "name": "Basic",
+                    "value": "basic"
+                },
+                {
+                    "name": "Professional",
+                    "value": "professional"
+                }
+            ]
+        },
         "digitalocean-native:reports/v2:NeighborIds": {
             "properties": {
                 "neighborIds": {
@@ -12335,20 +11435,6 @@
                 {
                     "name": "Errored",
                     "value": "errored"
-                }
-            ]
-        },
-        "digitalocean-native:reserved_ips/v2:AssignReservedIpActionTypeType": {
-            "description": "The type of action to initiate for the reserved IP.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Assign",
-                    "value": "assign"
-                },
-                {
-                    "name": "Unassign",
-                    "value": "unassign"
                 }
             ]
         },
@@ -13074,6 +12160,20 @@
             },
             "type": "object"
         },
+        "digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType": {
+            "description": "The type of action to initiate for the reserved IP.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Assign",
+                    "value": "assign"
+                },
+                {
+                    "name": "Unassign",
+                    "value": "unassign"
+                }
+            ]
+        },
         "digitalocean-native:reserved_ips/v2:ReservedIpRegion": {
             "properties": {
                 "available": {
@@ -13171,20 +12271,6 @@
                 "slug",
                 "transfer",
                 "vcpus"
-            ]
-        },
-        "digitalocean-native:reserved_ips/v2:UnassignReservedIpActionTypeType": {
-            "description": "The type of action to initiate for the reserved IP.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Assign",
-                    "value": "assign"
-                },
-                {
-                    "name": "Unassign",
-                    "value": "unassign"
-                }
             ]
         },
         "digitalocean-native:sizes/v2:ListSizesItems": {
@@ -13531,27 +12617,13 @@
                     "description": "The identifier of a resource."
                 },
                 "resourceType": {
-                    "$ref": "#/types/digitalocean-native:tags/v2:TagsAssignResourcesResourcesItemPropertiesResourceType",
+                    "$ref": "#/types/digitalocean-native:tags/v2:ResourcesItemPropertiesResourceType",
                     "description": "The type of the resource."
                 }
             },
             "type": "object"
         },
-        "digitalocean-native:tags/v2:Tags": {
-            "description": "A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.\nTags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores.\nThere is a limit of 255 characters per tag.\n\n**Note:** Tag names are case stable, which means the capitalization you use when you first create a tag is canonical.\n\nWhen working with tags in the API, you must use the tag's canonical capitalization. For example, if you create a tag named \"PROD\", the URL to add that tag to a resource would be `https://api.digitalocean.com/v2/tags/PROD/resources` (not `/v2/tags/prod/resources`).\n\nTagged resources in the control panel will always display the canonical capitalization. For example, if you create a tag named \"PROD\", you can tag resources in the control panel by entering \"prod\". The tag will still display with its canonical capitalization, \"PROD\".\n"
-                },
-                "resources": {
-                    "$ref": "#/types/digitalocean-native:tags/v2:TagsResources",
-                    "description": "An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:tags/v2:TagsAssignResourcesResourcesItemPropertiesResourceType": {
+        "digitalocean-native:tags/v2:ResourcesItemPropertiesResourceType": {
             "description": "The type of the resource.",
             "type": "string",
             "enum": [
@@ -13572,6 +12644,20 @@
                     "value": "volume_snapshot"
                 }
             ]
+        },
+        "digitalocean-native:tags/v2:Tags": {
+            "description": "A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.\nTags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores.\nThere is a limit of 255 characters per tag.\n\n**Note:** Tag names are case stable, which means the capitalization you use when you first create a tag is canonical.\n\nWhen working with tags in the API, you must use the tag's canonical capitalization. For example, if you create a tag named \"PROD\", the URL to add that tag to a resource would be `https://api.digitalocean.com/v2/tags/PROD/resources` (not `/v2/tags/prod/resources`).\n\nTagged resources in the control panel will always display the canonical capitalization. For example, if you create a tag named \"PROD\", you can tag resources in the control panel by entering \"prod\". The tag will still display with its canonical capitalization, \"PROD\".\n"
+                },
+                "resources": {
+                    "$ref": "#/types/digitalocean-native:tags/v2:TagsResources",
+                    "description": "An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag."
+                }
+            },
+            "type": "object"
         },
         "digitalocean-native:tags/v2:TagsResources": {
             "description": "An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag.",
@@ -13983,45 +13069,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:uptime/v2:UptimeCheckCheckUpdatableRegionsItem": {
-            "type": "string",
-            "enum": [
-                {
-                    "name": "UsEast",
-                    "value": "us_east"
-                },
-                {
-                    "name": "UsWest",
-                    "value": "us_west"
-                },
-                {
-                    "name": "EuWest",
-                    "value": "eu_west"
-                },
-                {
-                    "name": "SeAsia",
-                    "value": "se_asia"
-                }
-            ]
-        },
-        "digitalocean-native:uptime/v2:UptimeCheckCheckUpdatableType": {
-            "description": "The type of health check to perform.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Ping",
-                    "value": "ping"
-                },
-                {
-                    "name": "Http",
-                    "value": "http"
-                },
-                {
-                    "name": "Https",
-                    "value": "https"
-                }
-            ]
-        },
         "digitalocean-native:volumes/v2:ActionRegionSlug": {
             "type": "object"
         },
@@ -14040,166 +13087,6 @@
                 {
                     "name": "Errored",
                     "value": "errored"
-                }
-            ]
-        },
-        "digitalocean-native:volumes/v2:AttachVolumeActionCreateBaseRegion": {
-            "description": "The slug identifier for the region where the resource will initially be  available.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Ams1",
-                    "value": "ams1"
-                },
-                {
-                    "name": "Ams2",
-                    "value": "ams2"
-                },
-                {
-                    "name": "Ams3",
-                    "value": "ams3"
-                },
-                {
-                    "name": "Blr1",
-                    "value": "blr1"
-                },
-                {
-                    "name": "Fra1",
-                    "value": "fra1"
-                },
-                {
-                    "name": "Lon1",
-                    "value": "lon1"
-                },
-                {
-                    "name": "Nyc1",
-                    "value": "nyc1"
-                },
-                {
-                    "name": "Nyc2",
-                    "value": "nyc2"
-                },
-                {
-                    "name": "Nyc3",
-                    "value": "nyc3"
-                },
-                {
-                    "name": "Sfo1",
-                    "value": "sfo1"
-                },
-                {
-                    "name": "Sfo2",
-                    "value": "sfo2"
-                },
-                {
-                    "name": "Sfo3",
-                    "value": "sfo3"
-                },
-                {
-                    "name": "Sgp1",
-                    "value": "sgp1"
-                },
-                {
-                    "name": "Tor1",
-                    "value": "tor1"
-                }
-            ]
-        },
-        "digitalocean-native:volumes/v2:AttachVolumeActionCreateBaseType": {
-            "description": "The volume action to initiate.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Attach",
-                    "value": "attach"
-                },
-                {
-                    "name": "Detach",
-                    "value": "detach"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                }
-            ]
-        },
-        "digitalocean-native:volumes/v2:DetachVolumeActionCreateBaseRegion": {
-            "description": "The slug identifier for the region where the resource will initially be  available.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Ams1",
-                    "value": "ams1"
-                },
-                {
-                    "name": "Ams2",
-                    "value": "ams2"
-                },
-                {
-                    "name": "Ams3",
-                    "value": "ams3"
-                },
-                {
-                    "name": "Blr1",
-                    "value": "blr1"
-                },
-                {
-                    "name": "Fra1",
-                    "value": "fra1"
-                },
-                {
-                    "name": "Lon1",
-                    "value": "lon1"
-                },
-                {
-                    "name": "Nyc1",
-                    "value": "nyc1"
-                },
-                {
-                    "name": "Nyc2",
-                    "value": "nyc2"
-                },
-                {
-                    "name": "Nyc3",
-                    "value": "nyc3"
-                },
-                {
-                    "name": "Sfo1",
-                    "value": "sfo1"
-                },
-                {
-                    "name": "Sfo2",
-                    "value": "sfo2"
-                },
-                {
-                    "name": "Sfo3",
-                    "value": "sfo3"
-                },
-                {
-                    "name": "Sgp1",
-                    "value": "sgp1"
-                },
-                {
-                    "name": "Tor1",
-                    "value": "tor1"
-                }
-            ]
-        },
-        "digitalocean-native:volumes/v2:DetachVolumeActionCreateBaseType": {
-            "description": "The volume action to initiate.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Attach",
-                    "value": "attach"
-                },
-                {
-                    "name": "Detach",
-                    "value": "detach"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
                 }
             ]
         },
@@ -14376,86 +13263,6 @@
                 "slug"
             ]
         },
-        "digitalocean-native:volumes/v2:ResizeVolumeActionCreateBaseRegion": {
-            "description": "The slug identifier for the region where the resource will initially be  available.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Ams1",
-                    "value": "ams1"
-                },
-                {
-                    "name": "Ams2",
-                    "value": "ams2"
-                },
-                {
-                    "name": "Ams3",
-                    "value": "ams3"
-                },
-                {
-                    "name": "Blr1",
-                    "value": "blr1"
-                },
-                {
-                    "name": "Fra1",
-                    "value": "fra1"
-                },
-                {
-                    "name": "Lon1",
-                    "value": "lon1"
-                },
-                {
-                    "name": "Nyc1",
-                    "value": "nyc1"
-                },
-                {
-                    "name": "Nyc2",
-                    "value": "nyc2"
-                },
-                {
-                    "name": "Nyc3",
-                    "value": "nyc3"
-                },
-                {
-                    "name": "Sfo1",
-                    "value": "sfo1"
-                },
-                {
-                    "name": "Sfo2",
-                    "value": "sfo2"
-                },
-                {
-                    "name": "Sfo3",
-                    "value": "sfo3"
-                },
-                {
-                    "name": "Sgp1",
-                    "value": "sgp1"
-                },
-                {
-                    "name": "Tor1",
-                    "value": "tor1"
-                }
-            ]
-        },
-        "digitalocean-native:volumes/v2:ResizeVolumeActionCreateBaseType": {
-            "description": "The volume action to initiate.",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Attach",
-                    "value": "attach"
-                },
-                {
-                    "name": "Detach",
-                    "value": "detach"
-                },
-                {
-                    "name": "Resize",
-                    "value": "resize"
-                }
-            ]
-        },
         "digitalocean-native:volumes/v2:Snapshots": {
             "properties": {
                 "createdAt": {
@@ -14562,6 +13369,86 @@
                 }
             },
             "type": "object"
+        },
+        "digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion": {
+            "description": "The slug identifier for the region where the resource will initially be  available.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ams1",
+                    "value": "ams1"
+                },
+                {
+                    "name": "Ams2",
+                    "value": "ams2"
+                },
+                {
+                    "name": "Ams3",
+                    "value": "ams3"
+                },
+                {
+                    "name": "Blr1",
+                    "value": "blr1"
+                },
+                {
+                    "name": "Fra1",
+                    "value": "fra1"
+                },
+                {
+                    "name": "Lon1",
+                    "value": "lon1"
+                },
+                {
+                    "name": "Nyc1",
+                    "value": "nyc1"
+                },
+                {
+                    "name": "Nyc2",
+                    "value": "nyc2"
+                },
+                {
+                    "name": "Nyc3",
+                    "value": "nyc3"
+                },
+                {
+                    "name": "Sfo1",
+                    "value": "sfo1"
+                },
+                {
+                    "name": "Sfo2",
+                    "value": "sfo2"
+                },
+                {
+                    "name": "Sfo3",
+                    "value": "sfo3"
+                },
+                {
+                    "name": "Sgp1",
+                    "value": "sgp1"
+                },
+                {
+                    "name": "Tor1",
+                    "value": "tor1"
+                }
+            ]
+        },
+        "digitalocean-native:volumes/v2:VolumeActionCreateBaseType": {
+            "description": "The volume action to initiate.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Attach",
+                    "value": "attach"
+                },
+                {
+                    "name": "Detach",
+                    "value": "detach"
+                },
+                {
+                    "name": "Resize",
+                    "value": "resize"
+                }
+            ]
         },
         "digitalocean-native:volumes/v2:VolumeFull": {
             "properties": {
@@ -15181,7 +14068,7 @@
                     "description": "The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space."
                 },
                 "ttl": {
-                    "$ref": "#/types/digitalocean-native:cdn/v2:CdnEndpointTtl",
+                    "$ref": "#/types/digitalocean-native:cdn/v2:Ttl",
                     "description": "The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.",
                     "default": 3600
                 }
@@ -15204,7 +14091,7 @@
                     "description": "The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space."
                 },
                 "ttl": {
-                    "$ref": "#/types/digitalocean-native:cdn/v2:CdnEndpointTtl",
+                    "$ref": "#/types/digitalocean-native:cdn/v2:Ttl",
                     "description": "The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.",
                     "default": 3600
                 }
@@ -15563,7 +14450,7 @@
         "digitalocean-native:databases/v2:DatabasesEvictionPolicy": {
             "properties": {
                 "evictionPolicy": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabasesEvictionPolicyEvictionPolicy",
+                    "$ref": "#/types/digitalocean-native:databases/v2:EvictionPolicy",
                     "description": "A string specifying the desired eviction policy for the Redis cluster.\n\n- `noeviction`: Don't evict any data, returns error when memory limit is reached.\n- `allkeys_lru:` Evict any key, least recently used (LRU) first.\n- `allkeys_random`: Evict keys in a random order.\n- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.\n- `volatile_random`: Evict keys with expiration only in a random order.\n- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first."
                 }
             },
@@ -15577,7 +14464,7 @@
                     "description": "A unique identifier for a database cluster."
                 },
                 "evictionPolicy": {
-                    "$ref": "#/types/digitalocean-native:databases/v2:DatabasesEvictionPolicyEvictionPolicy",
+                    "$ref": "#/types/digitalocean-native:databases/v2:EvictionPolicy",
                     "description": "A string specifying the desired eviction policy for the Redis cluster.\n\n- `noeviction`: Don't evict any data, returns error when memory limit is reached.\n- `allkeys_lru:` Evict any key, least recently used (LRU) first.\n- `allkeys_random`: Evict keys in a random order.\n- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.\n- `volatile_random`: Evict keys with expiration only in a random order.\n- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first."
                 }
             },
@@ -16773,7 +15660,7 @@
                     "description": "A unique number used to identify and reference a specific kernel."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ChangeKernelDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -16788,7 +15675,7 @@
                     "description": "A unique number used to identify and reference a specific kernel."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ChangeKernelDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -16803,7 +15690,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:DisableBackupsType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -16817,7 +15704,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:DisableBackupsType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17016,7 +15903,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:EnableBackupsType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17030,7 +15917,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:EnableBackupsType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17045,7 +15932,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:EnableIpv6Type",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17059,7 +15946,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:EnableIpv6Type",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17074,7 +15961,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PasswordResetType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17088,7 +15975,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PasswordResetType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17103,7 +15990,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PowerCycleType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17117,7 +16004,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PowerCycleType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17132,7 +16019,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PowerOffType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17146,7 +16033,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PowerOffType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17161,7 +16048,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PowerOnType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17175,7 +16062,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:PowerOnType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17190,7 +16077,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RebootType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17204,7 +16091,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RebootType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17229,7 +16116,7 @@
                     "description": "The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RebuildDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17251,7 +16138,7 @@
                     "description": "The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RebuildDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17269,7 +16156,7 @@
                     "description": "The new name for the Droplet."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RenameDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17284,7 +16171,7 @@
                     "description": "The new name for the Droplet."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RenameDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17306,7 +16193,7 @@
                     "description": "The slug identifier for the size to which you wish to resize the Droplet."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ResizeDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17325,7 +16212,7 @@
                     "description": "The slug identifier for the size to which you wish to resize the Droplet."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ResizeDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17343,7 +16230,7 @@
                     "description": "The ID of a backup of the current Droplet instance to restore from."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RestoreDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17358,7 +16245,7 @@
                     "description": "The ID of a backup of the current Droplet instance to restore from."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:RestoreDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17373,7 +16260,7 @@
                     "$ref": "#/types/digitalocean-native:droplets/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ShutdownType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17387,7 +16274,7 @@
                     "description": "A unique identifier for a Droplet instance."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:ShutdownType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:Type",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17405,7 +16292,7 @@
                     "description": "The name to give the new snapshot of the Droplet."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:SnapshotDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17420,7 +16307,7 @@
                     "description": "The name to give the new snapshot of the Droplet."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:droplets/v2:SnapshotDropletActionType",
+                    "$ref": "#/types/digitalocean-native:droplets/v2:DropletActionType",
                     "description": "The type of action to initiate for the Droplet."
                 }
             },
@@ -17619,7 +16506,7 @@
                     "description": "The ID of the Droplet that the floating IP will be assigned to."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:AssignFloatingIPsActionType",
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
                     "description": "The type of action to initiate for the floating IP."
                 }
             },
@@ -17634,7 +16521,7 @@
                     "description": "A floating IP address."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:AssignFloatingIPsActionType",
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
                     "description": "The type of action to initiate for the floating IP."
                 }
             },
@@ -17660,7 +16547,7 @@
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:Action"
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:UnassignFloatingIPsActionType",
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
                     "description": "The type of action to initiate for the floating IP."
                 }
             },
@@ -17671,7 +16558,7 @@
                     "description": "A floating IP address."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:UnassignFloatingIPsActionType",
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIPsActionType",
                     "description": "The type of action to initiate for the floating IP."
                 }
             },
@@ -17805,7 +16692,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
                 },
                 "status": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ConvertStatus",
+                    "$ref": "#/types/digitalocean-native:images/v2:Status",
                     "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
                     "default": "in-progress"
                 },
@@ -17824,7 +16711,7 @@
                     "description": "A unique number that can be used to identify and reference a specific image."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ConvertType",
+                    "$ref": "#/types/digitalocean-native:images/v2:Type",
                     "description": "The action to be taken on the image. Can be either `convert` or `transfer`."
                 }
             },
@@ -17839,7 +16726,7 @@
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImagesCustomImageUpdateDistribution",
+                    "$ref": "#/types/digitalocean-native:images/v2:ImageUpdateDistribution",
                     "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place."
                 },
                 "image": {
@@ -17877,7 +16764,7 @@
                     "description": "An optional free-form text field to describe an image."
                 },
                 "distribution": {
-                    "$ref": "#/types/digitalocean-native:images/v2:ImagesCustomImageUpdateDistribution",
+                    "$ref": "#/types/digitalocean-native:images/v2:ImageUpdateDistribution",
                     "description": "The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place."
                 },
                 "name": {
@@ -17926,7 +16813,7 @@
                     "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
                 },
                 "status": {
-                    "$ref": "#/types/digitalocean-native:images/v2:TransferStatus",
+                    "$ref": "#/types/digitalocean-native:images/v2:Status",
                     "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
                     "default": "in-progress"
                 },
@@ -17946,7 +16833,7 @@
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:images/v2:TransferImageActionBaseType",
+                    "$ref": "#/types/digitalocean-native:images/v2:ImageActionBaseType",
                     "description": "The action to be taken on the image. Can be either `convert` or `transfer`."
                 }
             },
@@ -18440,7 +17327,7 @@
                     "$ref": "#/types/digitalocean-native:monitoring/v2:Alerts"
                 },
                 "compare": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MonitoringAlertPolicyCompare"
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:Compare"
                 },
                 "description": {
                     "type": "string"
@@ -18464,13 +17351,13 @@
                     }
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MonitoringAlertPolicyType"
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:Type"
                 },
                 "value": {
                     "type": "number"
                 },
                 "window": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MonitoringAlertPolicyWindow"
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:Window"
                 }
             },
             "type": "object",
@@ -18490,7 +17377,7 @@
                     "$ref": "#/types/digitalocean-native:monitoring/v2:Alerts"
                 },
                 "compare": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MonitoringAlertPolicyCompare"
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:Compare"
                 },
                 "description": {
                     "type": "string"
@@ -18511,13 +17398,13 @@
                     }
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MonitoringAlertPolicyType"
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:Type"
                 },
                 "value": {
                     "type": "number"
                 },
                 "window": {
-                    "$ref": "#/types/digitalocean-native:monitoring/v2:MonitoringAlertPolicyWindow"
+                    "$ref": "#/types/digitalocean-native:monitoring/v2:Window"
                 }
             },
             "requiredInputs": [
@@ -18543,7 +17430,7 @@
                     "description": "The description of the project. The maximum length is 255 characters."
                 },
                 "environment": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:ProjectsProjectBaseEnvironment",
+                    "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
                     "description": "The environment of the project's resources."
                 },
                 "name": {
@@ -18585,7 +17472,7 @@
                     "description": "The description of the project. The maximum length is 255 characters."
                 },
                 "environment": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:ProjectsProjectBaseEnvironment",
+                    "$ref": "#/types/digitalocean-native:projects/v2:ProjectBaseEnvironment",
                     "description": "The environment of the project's resources."
                 },
                 "name": {
@@ -18747,7 +17634,7 @@
                     "description": "A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:RegistryRegion",
+                    "$ref": "#/types/digitalocean-native:registry/v2:Region",
                     "description": "Slug of the region where registry data is stored. When not provided, a region will be selected."
                 },
                 "registry": {
@@ -18759,7 +17646,7 @@
                     }
                 },
                 "subscriptionTierSlug": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:RegistrySubscriptionTierSlug",
+                    "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierSlug",
                     "description": "The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint."
                 }
             },
@@ -18774,11 +17661,11 @@
                     "description": "A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:RegistryRegion",
+                    "$ref": "#/types/digitalocean-native:registry/v2:Region",
                     "description": "Slug of the region where registry data is stored. When not provided, a region will be selected."
                 },
                 "subscriptionTierSlug": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:RegistrySubscriptionTierSlug",
+                    "$ref": "#/types/digitalocean-native:registry/v2:SubscriptionTierSlug",
                     "description": "The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint."
                 }
             },
@@ -18792,14 +17679,14 @@
                     "$ref": "#/types/digitalocean-native:registry/v2:Subscription"
                 },
                 "tierSlug": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:RegistryUpdateSubscriptionTierSlug",
+                    "$ref": "#/types/digitalocean-native:registry/v2:TierSlug",
                     "description": "The slug of the subscription tier to sign up for."
                 }
             },
             "type": "object",
             "inputProperties": {
                 "tierSlug": {
-                    "$ref": "#/types/digitalocean-native:registry/v2:RegistryUpdateSubscriptionTierSlug",
+                    "$ref": "#/types/digitalocean-native:registry/v2:TierSlug",
                     "description": "The slug of the subscription tier to sign up for."
                 }
             }
@@ -18832,7 +17719,7 @@
                     "description": "The ID of the Droplet that the reserved IP will be assigned to."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:AssignReservedIpActionTypeType",
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType",
                     "description": "The type of action to initiate for the reserved IP."
                 }
             },
@@ -18847,7 +17734,7 @@
                     "description": "A reserved IP address."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:AssignReservedIpActionTypeType",
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType",
                     "description": "The type of action to initiate for the reserved IP."
                 }
             },
@@ -18877,7 +17764,7 @@
                     "description": "The ID of the Droplet that the reserved IP will be unassigned from."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:UnassignReservedIpActionTypeType",
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType",
                     "description": "The type of action to initiate for the reserved IP."
                 }
             },
@@ -18895,7 +17782,7 @@
                     "description": "A reserved IP address."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:UnassignReservedIpActionTypeType",
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIpActionTypeType",
                     "description": "The type of action to initiate for the reserved IP."
                 }
             },
@@ -19042,7 +17929,7 @@
                 "regions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:UptimeCheckCheckUpdatableRegionsItem"
+                        "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableRegionsItem"
                     },
                     "description": "An array containing the selected regions to perform healthchecks from."
                 },
@@ -19051,7 +17938,7 @@
                     "description": "The endpoint to perform healthchecks on."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:UptimeCheckCheckUpdatableType",
+                    "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableType",
                     "description": "The type of health check to perform."
                 }
             },
@@ -19076,7 +17963,7 @@
                 "regions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:UptimeCheckCheckUpdatableRegionsItem"
+                        "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableRegionsItem"
                     },
                     "description": "An array containing the selected regions to perform healthchecks from."
                 },
@@ -19085,7 +17972,7 @@
                     "description": "The endpoint to perform healthchecks on."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:uptime/v2:UptimeCheckCheckUpdatableType",
+                    "$ref": "#/types/digitalocean-native:uptime/v2:CheckUpdatableType",
                     "description": "The type of health check to perform."
                 }
             }
@@ -19100,7 +17987,7 @@
                     "description": "The unique identifier for the Droplet the volume will be attached or detached from."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:AttachVolumeActionCreateBaseRegion",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "tags": {
@@ -19111,7 +17998,7 @@
                     "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:AttachVolumeActionCreateBaseType",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseType",
                     "description": "The volume action to initiate."
                 }
             },
@@ -19122,7 +18009,7 @@
                     "description": "The unique identifier for the Droplet the volume will be attached or detached from."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:AttachVolumeActionCreateBaseRegion",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "tags": {
@@ -19133,7 +18020,7 @@
                     "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:AttachVolumeActionCreateBaseType",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseType",
                     "description": "The volume action to initiate."
                 },
                 "volumeId": {
@@ -19156,11 +18043,11 @@
                     "description": "The unique identifier for the Droplet the volume will be attached or detached from."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:DetachVolumeActionCreateBaseRegion",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:DetachVolumeActionCreateBaseType",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseType",
                     "description": "The volume action to initiate."
                 }
             },
@@ -19171,11 +18058,11 @@
                     "description": "The unique identifier for the Droplet the volume will be attached or detached from."
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:DetachVolumeActionCreateBaseRegion",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:DetachVolumeActionCreateBaseType",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseType",
                     "description": "The volume action to initiate."
                 },
                 "volumeId": {
@@ -19194,7 +18081,7 @@
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeAction"
                 },
                 "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:ResizeVolumeActionCreateBaseRegion",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "sizeGigabytes": {
@@ -19202,14 +18089,14 @@
                     "description": "The new size of the block storage volume in GiB (1024^3)."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:ResizeVolumeActionCreateBaseType",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseType",
                     "description": "The volume action to initiate."
                 }
             },
             "type": "object",
             "inputProperties": {
                 "region": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:ResizeVolumeActionCreateBaseRegion",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseRegion",
                     "description": "The slug identifier for the region where the resource will initially be  available."
                 },
                 "sizeGigabytes": {
@@ -19217,7 +18104,7 @@
                     "description": "The new size of the block storage volume in GiB (1024^3)."
                 },
                 "type": {
-                    "$ref": "#/types/digitalocean-native:volumes/v2:ResizeVolumeActionCreateBaseType",
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeActionCreateBaseType",
                     "description": "The volume action to initiate."
                 },
                 "volumeId": {
