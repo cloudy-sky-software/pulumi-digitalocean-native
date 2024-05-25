@@ -25,8 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ChangeKernel{}
 	case "digitalocean-native:droplets/v2:DisableBackups":
 		r = &DisableBackups{}
-	case "digitalocean-native:droplets/v2:Droplets":
-		r = &Droplets{}
+	case "digitalocean-native:droplets/v2:Droplet":
+		r = &Droplet{}
 	case "digitalocean-native:droplets/v2:EnableBackups":
 		r = &EnableBackups{}
 	case "digitalocean-native:droplets/v2:EnableIpv6":

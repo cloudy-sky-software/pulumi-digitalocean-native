@@ -21716,36 +21716,6 @@ paths:
                 - bearer_auth:
                     - write
     /v2/droplets:
-        delete:
-            tags:
-                - Droplets
-            summary: Deleting Droplets by Tag
-            description: |
-                To delete **all** Droplets assigned to a specific tag, include the `tag_name`
-                query parameter set to the name of the tag in your DELETE request. For
-                example,  `/v2/droplets?tag_name=$TAG_NAME`.
-
-                A successful request will receive a 204 status code with no body in response.
-                This indicates that the request was processed successfully.
-            operationId: droplets_destroy_byTag
-            parameters:
-                - $ref: '#/components/parameters/droplet_delete_tag_name'
-            responses:
-                "204":
-                    $ref: '#/components/responses/no_content_with_content_type'
-                "401":
-                    $ref: '#/components/responses/unauthorized'
-                "404":
-                    $ref: '#/components/responses/not_found'
-                "429":
-                    $ref: '#/components/responses/too_many_requests'
-                "500":
-                    $ref: '#/components/responses/server_error'
-                default:
-                    $ref: '#/components/responses/unexpected_error'
-            security:
-                - bearer_auth:
-                    - write
         get:
             tags:
                 - Droplets
@@ -21813,12 +21783,12 @@ paths:
                 operation, just that the request has been accepted for processing. The array
                 of `actions` returned as part of the response's `links` object can be used to
                 check the status of each individual Droplet create event.
-            operationId: droplets_create
+            operationId: droplet_create
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/droplet_multi_create'
+                            $ref: '#/components/schemas/droplet_single_create'
                         examples:
                             Multiple Droplet Create Request:
                                 $ref: '#/components/examples/droplet_multi_create_request'
@@ -21848,7 +21818,7 @@ paths:
 
                 A successful request will receive a 204 status code with no body in response.
                 This indicates that the request was processed successfully.
-            operationId: droplets_destroy
+            operationId: droplet_delete
             parameters:
                 - $ref: '#/components/parameters/droplet_id'
             responses:

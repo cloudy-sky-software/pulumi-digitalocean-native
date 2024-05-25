@@ -9,13 +9,13 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
-__all__ = ['DropletsArgs', 'Droplets']
+__all__ = ['DropletArgs', 'Droplet']
 
 @pulumi.input_type
-class DropletsArgs:
+class DropletArgs:
     def __init__(__self__, *,
                  image: pulumi.Input[Union[str, int]],
-                 names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
                  size: pulumi.Input[str],
                  backups: Optional[pulumi.Input[bool]] = None,
                  ipv6: Optional[pulumi.Input[bool]] = None,
@@ -29,9 +29,9 @@ class DropletsArgs:
                  vpc_uuid: Optional[pulumi.Input[str]] = None,
                  with_droplet_agent: Optional[pulumi.Input[bool]] = None):
         """
-        The set of arguments for constructing a Droplets resource.
+        The set of arguments for constructing a Droplet resource.
         :param pulumi.Input[Union[str, int]] image: The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] names: An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        :param pulumi.Input[str] name: The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
         :param pulumi.Input[str] size: The slug identifier for the size that you wish to select for this Droplet.
         :param pulumi.Input[bool] backups: A boolean indicating whether automated backups should be enabled for the Droplet.
         :param pulumi.Input[bool] ipv6: A boolean indicating whether to enable IPv6 on the Droplet.
@@ -46,7 +46,7 @@ class DropletsArgs:
         :param pulumi.Input[bool] with_droplet_agent: A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
         """
         pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "size", size)
         if backups is None:
             backups = False
@@ -93,15 +93,15 @@ class DropletsArgs:
 
     @property
     @pulumi.getter
-    def names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def name(self) -> pulumi.Input[str]:
         """
-        An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
         """
-        return pulumi.get(self, "names")
+        return pulumi.get(self, "name")
 
-    @names.setter
-    def names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "names", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -248,7 +248,7 @@ class DropletsArgs:
         pulumi.set(self, "with_droplet_agent", value)
 
 
-class Droplets(pulumi.CustomResource):
+class Droplet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +257,7 @@ class Droplets(pulumi.CustomResource):
                  image: Optional[pulumi.Input[Union[str, int]]] = None,
                  ipv6: Optional[pulumi.Input[bool]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
-                 names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  private_networking: Optional[pulumi.Input[bool]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
@@ -269,14 +269,14 @@ class Droplets(pulumi.CustomResource):
                  with_droplet_agent: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Droplets resource with the given unique name, props, and options.
+        Create a Droplet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] backups: A boolean indicating whether automated backups should be enabled for the Droplet.
         :param pulumi.Input[Union[str, int]] image: The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
         :param pulumi.Input[bool] ipv6: A boolean indicating whether to enable IPv6 on the Droplet.
         :param pulumi.Input[bool] monitoring: A boolean indicating whether to install the DigitalOcean agent for monitoring.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] names: An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        :param pulumi.Input[str] name: The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
         :param pulumi.Input[bool] private_networking: This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
         :param pulumi.Input[str] region: The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
         :param pulumi.Input[str] size: The slug identifier for the size that you wish to select for this Droplet.
@@ -291,17 +291,17 @@ class Droplets(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DropletsArgs,
+                 args: DropletArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Droplets resource with the given unique name, props, and options.
+        Create a Droplet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param DropletsArgs args: The arguments to use to populate this resource's properties.
+        :param DropletArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DropletsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DropletArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -314,7 +314,7 @@ class Droplets(pulumi.CustomResource):
                  image: Optional[pulumi.Input[Union[str, int]]] = None,
                  ipv6: Optional[pulumi.Input[bool]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
-                 names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  private_networking: Optional[pulumi.Input[bool]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
@@ -331,7 +331,7 @@ class Droplets(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DropletsArgs.__new__(DropletsArgs)
+            __props__ = DropletArgs.__new__(DropletArgs)
 
             if backups is None:
                 backups = False
@@ -345,9 +345,9 @@ class Droplets(pulumi.CustomResource):
             if monitoring is None:
                 monitoring = False
             __props__.__dict__["monitoring"] = monitoring
-            if names is None and not opts.urn:
-                raise TypeError("Missing required property 'names'")
-            __props__.__dict__["names"] = names
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
+            __props__.__dict__["name"] = name
             if private_networking is None:
                 private_networking = False
             __props__.__dict__["private_networking"] = private_networking
@@ -361,8 +361,8 @@ class Droplets(pulumi.CustomResource):
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["vpc_uuid"] = vpc_uuid
             __props__.__dict__["with_droplet_agent"] = with_droplet_agent
-        super(Droplets, __self__).__init__(
-            'digitalocean-native:droplets/v2:Droplets',
+        super(Droplet, __self__).__init__(
+            'digitalocean-native:droplets/v2:Droplet',
             resource_name,
             __props__,
             opts)
@@ -370,9 +370,9 @@ class Droplets(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'Droplets':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'Droplet':
         """
-        Get an existing Droplets resource's state with the given name, id, and optional extra
+        Get an existing Droplet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -381,13 +381,13 @@ class Droplets(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DropletsArgs.__new__(DropletsArgs)
+        __props__ = DropletArgs.__new__(DropletArgs)
 
         __props__.__dict__["backups"] = None
         __props__.__dict__["image"] = None
         __props__.__dict__["ipv6"] = None
         __props__.__dict__["monitoring"] = None
-        __props__.__dict__["names"] = None
+        __props__.__dict__["name"] = None
         __props__.__dict__["private_networking"] = None
         __props__.__dict__["region"] = None
         __props__.__dict__["size"] = None
@@ -397,7 +397,7 @@ class Droplets(pulumi.CustomResource):
         __props__.__dict__["volumes"] = None
         __props__.__dict__["vpc_uuid"] = None
         __props__.__dict__["with_droplet_agent"] = None
-        return Droplets(resource_name, opts=opts, __props__=__props__)
+        return Droplet(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -433,11 +433,11 @@ class Droplets(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
-        An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
         """
-        return pulumi.get(self, "names")
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="privateNetworking")

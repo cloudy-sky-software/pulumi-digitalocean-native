@@ -117,7 +117,7 @@
         "droplets/index.ts",
         "droplets/v2/changeKernel.ts",
         "droplets/v2/disableBackups.ts",
-        "droplets/v2/droplets.ts",
+        "droplets/v2/droplet.ts",
         "droplets/v2/enableBackups.ts",
         "droplets/v2/enableIpv6.ts",
         "droplets/v2/getDroplet.ts",

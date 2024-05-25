@@ -15,10 +15,10 @@ export type DisableBackups = import("./disableBackups").DisableBackups;
 export const DisableBackups: typeof import("./disableBackups").DisableBackups = null as any;
 utilities.lazyLoad(exports, ["DisableBackups"], () => require("./disableBackups"));
 
-export { DropletsArgs } from "./droplets";
-export type Droplets = import("./droplets").Droplets;
-export const Droplets: typeof import("./droplets").Droplets = null as any;
-utilities.lazyLoad(exports, ["Droplets"], () => require("./droplets"));
+export { DropletArgs } from "./droplet";
+export type Droplet = import("./droplet").Droplet;
+export const Droplet: typeof import("./droplet").Droplet = null as any;
+utilities.lazyLoad(exports, ["Droplet"], () => require("./droplet"));
 
 export { EnableBackupsArgs } from "./enableBackups";
 export type EnableBackups = import("./enableBackups").EnableBackups;
@@ -152,8 +152,8 @@ const _module = {
                 return new ChangeKernel(name, <any>undefined, { urn })
             case "digitalocean-native:droplets/v2:DisableBackups":
                 return new DisableBackups(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:Droplets":
-                return new Droplets(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Droplet":
+                return new Droplet(name, <any>undefined, { urn })
             case "digitalocean-native:droplets/v2:EnableBackups":
                 return new EnableBackups(name, <any>undefined, { urn })
             case "digitalocean-native:droplets/v2:EnableIpv6":

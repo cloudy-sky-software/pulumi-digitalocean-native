@@ -8,7 +8,7 @@ import typing
 from ._enums import *
 from .change_kernel import *
 from .disable_backups import *
-from .droplets import *
+from .droplet import *
 from .enable_backups import *
 from .enable_ipv6 import *
 from .get_droplet import *

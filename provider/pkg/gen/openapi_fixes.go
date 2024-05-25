@@ -145,20 +145,30 @@ func fixPageLinksType(openAPIDoc *openapi3.T) {
 // one or many droplets. But the oneOf definition
 // does not have a discriminator. Instead, we'll
 // just change the definition to let the user
-// create multiple droplets. They can still
-// create a single droplet by passing a
-// single value in the `names` property,
-// which is the only difference between
-// a single and a multiple create request.
+// create a single droplet. It doesn't make
+// sense in IaC to create multiple resources
+// from a single definition.
 func fixCreateDropletsRequest(openAPIDoc *openapi3.T) {
 	pathItem := openAPIDoc.Paths.Find("/v2/droplets")
 	contract.Assertf(pathItem != nil, "Expected to find request path /v2/droplets")
 
-	multipleCreate := openAPIDoc.Components.Schemas["droplet_multi_create"]
+	singleCreate := openAPIDoc.Components.Schemas["droplet_single_create"]
 
+	pathItem.Post.OperationID = "droplet_create"
 	reqSchema := pathItem.Post.RequestBody.Value.Content.Get("application/json")
-	reqSchema.Schema = openapi3.NewSchemaRef("#/components/schemas/droplet_multi_create", multipleCreate.Value)
+	reqSchema.Schema = openapi3.NewSchemaRef("#/components/schemas/droplet_single_create", singleCreate.Value)
 	reqSchema.Schema.Value.OneOf = nil
+}
+
+func fixDeleteDropletOperations(openAPIDoc *openapi3.T) {
+	pathItem := openAPIDoc.Paths.Find("/v2/droplets")
+	contract.Assertf(pathItem != nil, "Expected to find request path /v2/droplets")
+
+	pathItem.Delete = nil
+
+	pathItem = openAPIDoc.Paths.Find("/v2/droplets/{droplet_id}")
+	contract.Assertf(pathItem != nil, "Expected to find request path /v2/droplets/{droplet_id}")
+	pathItem.Delete.OperationID = "droplet_delete"
 }
 
 func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
@@ -183,4 +193,5 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixPageLinksType(openAPIDoc)
 	fixCreateUptimeCheckRequest(openAPIDoc)
 	fixCreateDropletsRequest(openAPIDoc)
+	fixDeleteDropletOperations(openAPIDoc)
 }

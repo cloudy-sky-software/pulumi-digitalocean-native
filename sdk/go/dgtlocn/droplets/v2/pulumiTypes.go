@@ -632,7 +632,7 @@ func (o DestroyedAssociatedResourceArrayOutput) Index(i pulumi.IntInput) Destroy
 	}).(DestroyedAssociatedResourceOutput)
 }
 
-type Droplet struct {
+type DropletType struct {
 	// An array of backup IDs of any backups that have been taken of the Droplet instance.  Droplet backups are enabled at the time of the instance creation.
 	BackupIds []int `pulumi:"backupIds"`
 	// A time value given in ISO8601 combined date and time format that represents when the Droplet was created.
@@ -679,8 +679,8 @@ type Droplet struct {
 	VpcUuid *string `pulumi:"vpcUuid"`
 }
 
-// Defaults sets the appropriate defaults for Droplet
-func (val *Droplet) Defaults() *Droplet {
+// Defaults sets the appropriate defaults for DropletType
+func (val *DropletType) Defaults() *DropletType {
 	if val == nil {
 		return nil
 	}
@@ -690,47 +690,47 @@ func (val *Droplet) Defaults() *Droplet {
 	return &tmp
 }
 
-type DropletOutput struct{ *pulumi.OutputState }
+type DropletTypeOutput struct{ *pulumi.OutputState }
 
-func (DropletOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Droplet)(nil)).Elem()
+func (DropletTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DropletType)(nil)).Elem()
 }
 
-func (o DropletOutput) ToDropletOutput() DropletOutput {
+func (o DropletTypeOutput) ToDropletTypeOutput() DropletTypeOutput {
 	return o
 }
 
-func (o DropletOutput) ToDropletOutputWithContext(ctx context.Context) DropletOutput {
+func (o DropletTypeOutput) ToDropletTypeOutputWithContext(ctx context.Context) DropletTypeOutput {
 	return o
 }
 
 // An array of backup IDs of any backups that have been taken of the Droplet instance.  Droplet backups are enabled at the time of the instance creation.
-func (o DropletOutput) BackupIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v Droplet) []int { return v.BackupIds }).(pulumi.IntArrayOutput)
+func (o DropletTypeOutput) BackupIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DropletType) []int { return v.BackupIds }).(pulumi.IntArrayOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the Droplet was created.
-func (o DropletOutput) CreatedAt() pulumi.StringOutput {
-	return o.ApplyT(func(v Droplet) string { return v.CreatedAt }).(pulumi.StringOutput)
+func (o DropletTypeOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v DropletType) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // The size of the Droplet's disk in gigabytes.
-func (o DropletOutput) Disk() pulumi.IntOutput {
-	return o.ApplyT(func(v Droplet) int { return v.Disk }).(pulumi.IntOutput)
+func (o DropletTypeOutput) Disk() pulumi.IntOutput {
+	return o.ApplyT(func(v DropletType) int { return v.Disk }).(pulumi.IntOutput)
 }
 
 // An array of features enabled on this Droplet.
-func (o DropletOutput) Features() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Droplet) []string { return v.Features }).(pulumi.StringArrayOutput)
+func (o DropletTypeOutput) Features() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DropletType) []string { return v.Features }).(pulumi.StringArrayOutput)
 }
 
 // A unique identifier for each Droplet instance. This is automatically generated upon Droplet creation.
-func (o DropletOutput) Id() pulumi.IntOutput {
-	return o.ApplyT(func(v Droplet) int { return v.Id }).(pulumi.IntOutput)
+func (o DropletTypeOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v DropletType) int { return v.Id }).(pulumi.IntOutput)
 }
 
-func (o DropletOutput) Image() ImageOutput {
-	return o.ApplyT(func(v Droplet) Image { return v.Image }).(ImageOutput)
+func (o DropletTypeOutput) Image() ImageOutput {
+	return o.ApplyT(func(v DropletType) Image { return v.Image }).(ImageOutput)
 }
 
 // **Note**: All Droplets created after March 2017 use internal kernels by default.
@@ -739,105 +739,105 @@ func (o DropletOutput) Image() ImageOutput {
 // The current [kernel](https://www.digitalocean.com/docs/droplets/how-to/kernel/)
 // for Droplets with externally managed kernels. This will initially be set to
 // the kernel of the base image when the Droplet is created.
-func (o DropletOutput) Kernel() KernelPtrOutput {
-	return o.ApplyT(func(v Droplet) *Kernel { return v.Kernel }).(KernelPtrOutput)
+func (o DropletTypeOutput) Kernel() KernelPtrOutput {
+	return o.ApplyT(func(v DropletType) *Kernel { return v.Kernel }).(KernelPtrOutput)
 }
 
 // A boolean value indicating whether the Droplet has been locked, preventing actions by users.
-func (o DropletOutput) Locked() pulumi.BoolOutput {
-	return o.ApplyT(func(v Droplet) bool { return v.Locked }).(pulumi.BoolOutput)
+func (o DropletTypeOutput) Locked() pulumi.BoolOutput {
+	return o.ApplyT(func(v DropletType) bool { return v.Locked }).(pulumi.BoolOutput)
 }
 
 // Memory of the Droplet in megabytes.
-func (o DropletOutput) Memory() pulumi.IntOutput {
-	return o.ApplyT(func(v Droplet) int { return v.Memory }).(pulumi.IntOutput)
+func (o DropletTypeOutput) Memory() pulumi.IntOutput {
+	return o.ApplyT(func(v DropletType) int { return v.Memory }).(pulumi.IntOutput)
 }
 
 // The human-readable name set for the Droplet instance.
-func (o DropletOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Droplet) string { return v.Name }).(pulumi.StringOutput)
+func (o DropletTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DropletType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.
-func (o DropletOutput) Networks() DropletNetworksPropertiesOutput {
-	return o.ApplyT(func(v Droplet) DropletNetworksProperties { return v.Networks }).(DropletNetworksPropertiesOutput)
+func (o DropletTypeOutput) Networks() DropletNetworksPropertiesOutput {
+	return o.ApplyT(func(v DropletType) DropletNetworksProperties { return v.Networks }).(DropletNetworksPropertiesOutput)
 }
 
 // The details of the Droplet's backups feature, if backups are configured for the Droplet. This object contains keys for the start and end times of the window during which the backup will start.
-func (o DropletOutput) NextBackupWindow() DropletNextBackupWindowPropertiesOutput {
-	return o.ApplyT(func(v Droplet) DropletNextBackupWindowProperties { return v.NextBackupWindow }).(DropletNextBackupWindowPropertiesOutput)
+func (o DropletTypeOutput) NextBackupWindow() DropletNextBackupWindowPropertiesOutput {
+	return o.ApplyT(func(v DropletType) DropletNextBackupWindowProperties { return v.NextBackupWindow }).(DropletNextBackupWindowPropertiesOutput)
 }
 
-func (o DropletOutput) Region() RegionOutput {
-	return o.ApplyT(func(v Droplet) Region { return v.Region }).(RegionOutput)
+func (o DropletTypeOutput) Region() RegionOutput {
+	return o.ApplyT(func(v DropletType) Region { return v.Region }).(RegionOutput)
 }
 
-func (o DropletOutput) Size() SizeOutput {
-	return o.ApplyT(func(v Droplet) Size { return v.Size }).(SizeOutput)
+func (o DropletTypeOutput) Size() SizeOutput {
+	return o.ApplyT(func(v DropletType) Size { return v.Size }).(SizeOutput)
 }
 
 // The unique slug identifier for the size of this Droplet.
-func (o DropletOutput) SizeSlug() pulumi.StringOutput {
-	return o.ApplyT(func(v Droplet) string { return v.SizeSlug }).(pulumi.StringOutput)
+func (o DropletTypeOutput) SizeSlug() pulumi.StringOutput {
+	return o.ApplyT(func(v DropletType) string { return v.SizeSlug }).(pulumi.StringOutput)
 }
 
 // An array of snapshot IDs of any snapshots created from the Droplet instance.
-func (o DropletOutput) SnapshotIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v Droplet) []int { return v.SnapshotIds }).(pulumi.IntArrayOutput)
+func (o DropletTypeOutput) SnapshotIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DropletType) []int { return v.SnapshotIds }).(pulumi.IntArrayOutput)
 }
 
 // A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
-func (o DropletOutput) Status() DropletStatusOutput {
-	return o.ApplyT(func(v Droplet) DropletStatus { return v.Status }).(DropletStatusOutput)
+func (o DropletTypeOutput) Status() DropletStatusOutput {
+	return o.ApplyT(func(v DropletType) DropletStatus { return v.Status }).(DropletStatusOutput)
 }
 
 // An array of Tags the Droplet has been tagged with.
-func (o DropletOutput) Tags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Droplet) []string { return v.Tags }).(pulumi.StringArrayOutput)
+func (o DropletTypeOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DropletType) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // The number of virtual CPUs.
-func (o DropletOutput) Vcpus() pulumi.IntOutput {
-	return o.ApplyT(func(v Droplet) int { return v.Vcpus }).(pulumi.IntOutput)
+func (o DropletTypeOutput) Vcpus() pulumi.IntOutput {
+	return o.ApplyT(func(v DropletType) int { return v.Vcpus }).(pulumi.IntOutput)
 }
 
 // A flat array including the unique identifier for each Block Storage volume attached to the Droplet.
-func (o DropletOutput) VolumeIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Droplet) []string { return v.VolumeIds }).(pulumi.StringArrayOutput)
+func (o DropletTypeOutput) VolumeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DropletType) []string { return v.VolumeIds }).(pulumi.StringArrayOutput)
 }
 
 // A string specifying the UUID of the VPC to which the Droplet is assigned.
-func (o DropletOutput) VpcUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Droplet) *string { return v.VpcUuid }).(pulumi.StringPtrOutput)
+func (o DropletTypeOutput) VpcUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DropletType) *string { return v.VpcUuid }).(pulumi.StringPtrOutput)
 }
 
-type DropletPtrOutput struct{ *pulumi.OutputState }
+type DropletTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DropletPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Droplet)(nil)).Elem()
+func (DropletTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DropletType)(nil)).Elem()
 }
 
-func (o DropletPtrOutput) ToDropletPtrOutput() DropletPtrOutput {
+func (o DropletTypePtrOutput) ToDropletTypePtrOutput() DropletTypePtrOutput {
 	return o
 }
 
-func (o DropletPtrOutput) ToDropletPtrOutputWithContext(ctx context.Context) DropletPtrOutput {
+func (o DropletTypePtrOutput) ToDropletTypePtrOutputWithContext(ctx context.Context) DropletTypePtrOutput {
 	return o
 }
 
-func (o DropletPtrOutput) Elem() DropletOutput {
-	return o.ApplyT(func(v *Droplet) Droplet {
+func (o DropletTypePtrOutput) Elem() DropletTypeOutput {
+	return o.ApplyT(func(v *DropletType) DropletType {
 		if v != nil {
 			return *v
 		}
-		var ret Droplet
+		var ret DropletType
 		return ret
-	}).(DropletOutput)
+	}).(DropletTypeOutput)
 }
 
 // An array of backup IDs of any backups that have been taken of the Droplet instance.  Droplet backups are enabled at the time of the instance creation.
-func (o DropletPtrOutput) BackupIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *Droplet) []int {
+func (o DropletTypePtrOutput) BackupIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DropletType) []int {
 		if v == nil {
 			return nil
 		}
@@ -846,8 +846,8 @@ func (o DropletPtrOutput) BackupIds() pulumi.IntArrayOutput {
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the Droplet was created.
-func (o DropletPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplet) *string {
+func (o DropletTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DropletType) *string {
 		if v == nil {
 			return nil
 		}
@@ -856,8 +856,8 @@ func (o DropletPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 }
 
 // The size of the Droplet's disk in gigabytes.
-func (o DropletPtrOutput) Disk() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Droplet) *int {
+func (o DropletTypePtrOutput) Disk() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DropletType) *int {
 		if v == nil {
 			return nil
 		}
@@ -866,8 +866,8 @@ func (o DropletPtrOutput) Disk() pulumi.IntPtrOutput {
 }
 
 // An array of features enabled on this Droplet.
-func (o DropletPtrOutput) Features() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Droplet) []string {
+func (o DropletTypePtrOutput) Features() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DropletType) []string {
 		if v == nil {
 			return nil
 		}
@@ -876,8 +876,8 @@ func (o DropletPtrOutput) Features() pulumi.StringArrayOutput {
 }
 
 // A unique identifier for each Droplet instance. This is automatically generated upon Droplet creation.
-func (o DropletPtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Droplet) *int {
+func (o DropletTypePtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DropletType) *int {
 		if v == nil {
 			return nil
 		}
@@ -885,8 +885,8 @@ func (o DropletPtrOutput) Id() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DropletPtrOutput) Image() ImagePtrOutput {
-	return o.ApplyT(func(v *Droplet) *Image {
+func (o DropletTypePtrOutput) Image() ImagePtrOutput {
+	return o.ApplyT(func(v *DropletType) *Image {
 		if v == nil {
 			return nil
 		}
@@ -900,8 +900,8 @@ func (o DropletPtrOutput) Image() ImagePtrOutput {
 // The current [kernel](https://www.digitalocean.com/docs/droplets/how-to/kernel/)
 // for Droplets with externally managed kernels. This will initially be set to
 // the kernel of the base image when the Droplet is created.
-func (o DropletPtrOutput) Kernel() KernelPtrOutput {
-	return o.ApplyT(func(v *Droplet) *Kernel {
+func (o DropletTypePtrOutput) Kernel() KernelPtrOutput {
+	return o.ApplyT(func(v *DropletType) *Kernel {
 		if v == nil {
 			return nil
 		}
@@ -910,8 +910,8 @@ func (o DropletPtrOutput) Kernel() KernelPtrOutput {
 }
 
 // A boolean value indicating whether the Droplet has been locked, preventing actions by users.
-func (o DropletPtrOutput) Locked() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Droplet) *bool {
+func (o DropletTypePtrOutput) Locked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DropletType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -920,8 +920,8 @@ func (o DropletPtrOutput) Locked() pulumi.BoolPtrOutput {
 }
 
 // Memory of the Droplet in megabytes.
-func (o DropletPtrOutput) Memory() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Droplet) *int {
+func (o DropletTypePtrOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DropletType) *int {
 		if v == nil {
 			return nil
 		}
@@ -930,8 +930,8 @@ func (o DropletPtrOutput) Memory() pulumi.IntPtrOutput {
 }
 
 // The human-readable name set for the Droplet instance.
-func (o DropletPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplet) *string {
+func (o DropletTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DropletType) *string {
 		if v == nil {
 			return nil
 		}
@@ -940,8 +940,8 @@ func (o DropletPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.
-func (o DropletPtrOutput) Networks() DropletNetworksPropertiesPtrOutput {
-	return o.ApplyT(func(v *Droplet) *DropletNetworksProperties {
+func (o DropletTypePtrOutput) Networks() DropletNetworksPropertiesPtrOutput {
+	return o.ApplyT(func(v *DropletType) *DropletNetworksProperties {
 		if v == nil {
 			return nil
 		}
@@ -950,8 +950,8 @@ func (o DropletPtrOutput) Networks() DropletNetworksPropertiesPtrOutput {
 }
 
 // The details of the Droplet's backups feature, if backups are configured for the Droplet. This object contains keys for the start and end times of the window during which the backup will start.
-func (o DropletPtrOutput) NextBackupWindow() DropletNextBackupWindowPropertiesPtrOutput {
-	return o.ApplyT(func(v *Droplet) *DropletNextBackupWindowProperties {
+func (o DropletTypePtrOutput) NextBackupWindow() DropletNextBackupWindowPropertiesPtrOutput {
+	return o.ApplyT(func(v *DropletType) *DropletNextBackupWindowProperties {
 		if v == nil {
 			return nil
 		}
@@ -959,8 +959,8 @@ func (o DropletPtrOutput) NextBackupWindow() DropletNextBackupWindowPropertiesPt
 	}).(DropletNextBackupWindowPropertiesPtrOutput)
 }
 
-func (o DropletPtrOutput) Region() RegionPtrOutput {
-	return o.ApplyT(func(v *Droplet) *Region {
+func (o DropletTypePtrOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v *DropletType) *Region {
 		if v == nil {
 			return nil
 		}
@@ -968,8 +968,8 @@ func (o DropletPtrOutput) Region() RegionPtrOutput {
 	}).(RegionPtrOutput)
 }
 
-func (o DropletPtrOutput) Size() SizePtrOutput {
-	return o.ApplyT(func(v *Droplet) *Size {
+func (o DropletTypePtrOutput) Size() SizePtrOutput {
+	return o.ApplyT(func(v *DropletType) *Size {
 		if v == nil {
 			return nil
 		}
@@ -978,8 +978,8 @@ func (o DropletPtrOutput) Size() SizePtrOutput {
 }
 
 // The unique slug identifier for the size of this Droplet.
-func (o DropletPtrOutput) SizeSlug() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplet) *string {
+func (o DropletTypePtrOutput) SizeSlug() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DropletType) *string {
 		if v == nil {
 			return nil
 		}
@@ -988,8 +988,8 @@ func (o DropletPtrOutput) SizeSlug() pulumi.StringPtrOutput {
 }
 
 // An array of snapshot IDs of any snapshots created from the Droplet instance.
-func (o DropletPtrOutput) SnapshotIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *Droplet) []int {
+func (o DropletTypePtrOutput) SnapshotIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DropletType) []int {
 		if v == nil {
 			return nil
 		}
@@ -998,8 +998,8 @@ func (o DropletPtrOutput) SnapshotIds() pulumi.IntArrayOutput {
 }
 
 // A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
-func (o DropletPtrOutput) Status() DropletStatusPtrOutput {
-	return o.ApplyT(func(v *Droplet) *DropletStatus {
+func (o DropletTypePtrOutput) Status() DropletStatusPtrOutput {
+	return o.ApplyT(func(v *DropletType) *DropletStatus {
 		if v == nil {
 			return nil
 		}
@@ -1008,8 +1008,8 @@ func (o DropletPtrOutput) Status() DropletStatusPtrOutput {
 }
 
 // An array of Tags the Droplet has been tagged with.
-func (o DropletPtrOutput) Tags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Droplet) []string {
+func (o DropletTypePtrOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DropletType) []string {
 		if v == nil {
 			return nil
 		}
@@ -1018,8 +1018,8 @@ func (o DropletPtrOutput) Tags() pulumi.StringArrayOutput {
 }
 
 // The number of virtual CPUs.
-func (o DropletPtrOutput) Vcpus() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Droplet) *int {
+func (o DropletTypePtrOutput) Vcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DropletType) *int {
 		if v == nil {
 			return nil
 		}
@@ -1028,8 +1028,8 @@ func (o DropletPtrOutput) Vcpus() pulumi.IntPtrOutput {
 }
 
 // A flat array including the unique identifier for each Block Storage volume attached to the Droplet.
-func (o DropletPtrOutput) VolumeIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Droplet) []string {
+func (o DropletTypePtrOutput) VolumeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DropletType) []string {
 		if v == nil {
 			return nil
 		}
@@ -1038,8 +1038,8 @@ func (o DropletPtrOutput) VolumeIds() pulumi.StringArrayOutput {
 }
 
 // A string specifying the UUID of the VPC to which the Droplet is assigned.
-func (o DropletPtrOutput) VpcUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplet) *string {
+func (o DropletTypePtrOutput) VpcUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DropletType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1047,24 +1047,24 @@ func (o DropletPtrOutput) VpcUuid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DropletArrayOutput struct{ *pulumi.OutputState }
+type DropletTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (DropletArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Droplet)(nil)).Elem()
+func (DropletTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DropletType)(nil)).Elem()
 }
 
-func (o DropletArrayOutput) ToDropletArrayOutput() DropletArrayOutput {
+func (o DropletTypeArrayOutput) ToDropletTypeArrayOutput() DropletTypeArrayOutput {
 	return o
 }
 
-func (o DropletArrayOutput) ToDropletArrayOutputWithContext(ctx context.Context) DropletArrayOutput {
+func (o DropletTypeArrayOutput) ToDropletTypeArrayOutputWithContext(ctx context.Context) DropletTypeArrayOutput {
 	return o
 }
 
-func (o DropletArrayOutput) Index(i pulumi.IntInput) DropletOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Droplet {
-		return vs[0].([]Droplet)[vs[1].(int)]
-	}).(DropletOutput)
+func (o DropletTypeArrayOutput) Index(i pulumi.IntInput) DropletTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DropletType {
+		return vs[0].([]DropletType)[vs[1].(int)]
+	}).(DropletTypeOutput)
 }
 
 // The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is.
@@ -1617,7 +1617,7 @@ func (o GetDropletActionPropertiesOutput) Action() ActionPtrOutput {
 }
 
 type GetDropletProperties struct {
-	Droplet *Droplet `pulumi:"droplet"`
+	Droplet *DropletType `pulumi:"droplet"`
 }
 
 // Defaults sets the appropriate defaults for GetDropletProperties
@@ -1645,8 +1645,8 @@ func (o GetDropletPropertiesOutput) ToGetDropletPropertiesOutputWithContext(ctx 
 	return o
 }
 
-func (o GetDropletPropertiesOutput) Droplet() DropletPtrOutput {
-	return o.ApplyT(func(v GetDropletProperties) *Droplet { return v.Droplet }).(DropletPtrOutput)
+func (o GetDropletPropertiesOutput) Droplet() DropletTypePtrOutput {
+	return o.ApplyT(func(v GetDropletProperties) *DropletType { return v.Droplet }).(DropletTypePtrOutput)
 }
 
 type Image struct {
@@ -2201,9 +2201,9 @@ func (o ListDropletsFirewallsItemsOutput) Meta() MetaMetaOutput {
 }
 
 type ListDropletsItems struct {
-	Droplets []Droplet  `pulumi:"droplets"`
-	Links    *PageLinks `pulumi:"links"`
-	Meta     MetaMeta   `pulumi:"meta"`
+	Droplets []DropletType `pulumi:"droplets"`
+	Links    *PageLinks    `pulumi:"links"`
+	Meta     MetaMeta      `pulumi:"meta"`
 }
 
 type ListDropletsItemsOutput struct{ *pulumi.OutputState }
@@ -2220,8 +2220,8 @@ func (o ListDropletsItemsOutput) ToListDropletsItemsOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListDropletsItemsOutput) Droplets() DropletArrayOutput {
-	return o.ApplyT(func(v ListDropletsItems) []Droplet { return v.Droplets }).(DropletArrayOutput)
+func (o ListDropletsItemsOutput) Droplets() DropletTypeArrayOutput {
+	return o.ApplyT(func(v ListDropletsItems) []DropletType { return v.Droplets }).(DropletTypeArrayOutput)
 }
 
 func (o ListDropletsItemsOutput) Links() PageLinksPtrOutput {
@@ -2265,7 +2265,7 @@ func (o ListDropletsKernelsItemsOutput) Meta() MetaMetaOutput {
 }
 
 type ListDropletsNeighborsItems struct {
-	Droplets []Droplet `pulumi:"droplets"`
+	Droplets []DropletType `pulumi:"droplets"`
 }
 
 type ListDropletsNeighborsItemsOutput struct{ *pulumi.OutputState }
@@ -2282,8 +2282,8 @@ func (o ListDropletsNeighborsItemsOutput) ToListDropletsNeighborsItemsOutputWith
 	return o
 }
 
-func (o ListDropletsNeighborsItemsOutput) Droplets() DropletArrayOutput {
-	return o.ApplyT(func(v ListDropletsNeighborsItems) []Droplet { return v.Droplets }).(DropletArrayOutput)
+func (o ListDropletsNeighborsItemsOutput) Droplets() DropletTypeArrayOutput {
+	return o.ApplyT(func(v ListDropletsNeighborsItems) []DropletType { return v.Droplets }).(DropletTypeArrayOutput)
 }
 
 type ListDropletsSnapshotsItems struct {
@@ -2997,9 +2997,9 @@ func init() {
 	pulumi.RegisterOutputType(DestroyedAssociatedResourceOutput{})
 	pulumi.RegisterOutputType(DestroyedAssociatedResourcePtrOutput{})
 	pulumi.RegisterOutputType(DestroyedAssociatedResourceArrayOutput{})
-	pulumi.RegisterOutputType(DropletOutput{})
-	pulumi.RegisterOutputType(DropletPtrOutput{})
-	pulumi.RegisterOutputType(DropletArrayOutput{})
+	pulumi.RegisterOutputType(DropletTypeOutput{})
+	pulumi.RegisterOutputType(DropletTypePtrOutput{})
+	pulumi.RegisterOutputType(DropletTypeArrayOutput{})
 	pulumi.RegisterOutputType(DropletNetworksPropertiesOutput{})
 	pulumi.RegisterOutputType(DropletNetworksPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DropletNextBackupWindowPropertiesOutput{})

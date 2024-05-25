@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type Droplets struct {
+type Droplet struct {
 	pulumi.CustomResourceState
 
 	// A boolean indicating whether automated backups should be enabled for the Droplet.
@@ -23,8 +23,8 @@ type Droplets struct {
 	Ipv6 pulumi.BoolPtrOutput `pulumi:"ipv6"`
 	// A boolean indicating whether to install the DigitalOcean agent for monitoring.
 	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
-	// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
-	Names pulumi.StringArrayOutput `pulumi:"names"`
+	// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
 	PrivateNetworking pulumi.BoolPtrOutput `pulumi:"privateNetworking"`
 	// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
@@ -45,9 +45,9 @@ type Droplets struct {
 	WithDropletAgent pulumi.BoolPtrOutput `pulumi:"withDropletAgent"`
 }
 
-// NewDroplets registers a new resource with the given unique name, arguments, and options.
-func NewDroplets(ctx *pulumi.Context,
-	name string, args *DropletsArgs, opts ...pulumi.ResourceOption) (*Droplets, error) {
+// NewDroplet registers a new resource with the given unique name, arguments, and options.
+func NewDroplet(ctx *pulumi.Context,
+	name string, args *DropletArgs, opts ...pulumi.ResourceOption) (*Droplet, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -55,8 +55,8 @@ func NewDroplets(ctx *pulumi.Context,
 	if args.Image == nil {
 		return nil, errors.New("invalid value for required argument 'Image'")
 	}
-	if args.Names == nil {
-		return nil, errors.New("invalid value for required argument 'Names'")
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.Size == nil {
 		return nil, errors.New("invalid value for required argument 'Size'")
@@ -74,38 +74,38 @@ func NewDroplets(ctx *pulumi.Context,
 		args.PrivateNetworking = pulumi.BoolPtr(false)
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource Droplets
-	err := ctx.RegisterResource("digitalocean-native:droplets/v2:Droplets", name, args, &resource, opts...)
+	var resource Droplet
+	err := ctx.RegisterResource("digitalocean-native:droplets/v2:Droplet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetDroplets gets an existing Droplets resource's state with the given name, ID, and optional
+// GetDroplet gets an existing Droplet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetDroplets(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *DropletsState, opts ...pulumi.ResourceOption) (*Droplets, error) {
-	var resource Droplets
-	err := ctx.ReadResource("digitalocean-native:droplets/v2:Droplets", name, id, state, &resource, opts...)
+func GetDroplet(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DropletState, opts ...pulumi.ResourceOption) (*Droplet, error) {
+	var resource Droplet
+	err := ctx.ReadResource("digitalocean-native:droplets/v2:Droplet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering Droplets resources.
-type dropletsState struct {
+// Input properties used for looking up and filtering Droplet resources.
+type dropletState struct {
 }
 
-type DropletsState struct {
+type DropletState struct {
 }
 
-func (DropletsState) ElementType() reflect.Type {
-	return reflect.TypeOf((*dropletsState)(nil)).Elem()
+func (DropletState) ElementType() reflect.Type {
+	return reflect.TypeOf((*dropletState)(nil)).Elem()
 }
 
-type dropletsArgs struct {
+type dropletArgs struct {
 	// A boolean indicating whether automated backups should be enabled for the Droplet.
 	Backups *bool `pulumi:"backups"`
 	// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
@@ -114,8 +114,8 @@ type dropletsArgs struct {
 	Ipv6 *bool `pulumi:"ipv6"`
 	// A boolean indicating whether to install the DigitalOcean agent for monitoring.
 	Monitoring *bool `pulumi:"monitoring"`
-	// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
-	Names []string `pulumi:"names"`
+	// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
+	Name string `pulumi:"name"`
 	// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
 	PrivateNetworking *bool `pulumi:"privateNetworking"`
 	// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
@@ -136,8 +136,8 @@ type dropletsArgs struct {
 	WithDropletAgent *bool `pulumi:"withDropletAgent"`
 }
 
-// The set of arguments for constructing a Droplets resource.
-type DropletsArgs struct {
+// The set of arguments for constructing a Droplet resource.
+type DropletArgs struct {
 	// A boolean indicating whether automated backups should be enabled for the Droplet.
 	Backups pulumi.BoolPtrInput
 	// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
@@ -146,8 +146,8 @@ type DropletsArgs struct {
 	Ipv6 pulumi.BoolPtrInput
 	// A boolean indicating whether to install the DigitalOcean agent for monitoring.
 	Monitoring pulumi.BoolPtrInput
-	// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
-	Names pulumi.StringArrayInput
+	// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
+	Name pulumi.StringInput
 	// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
 	PrivateNetworking pulumi.BoolPtrInput
 	// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
@@ -168,114 +168,114 @@ type DropletsArgs struct {
 	WithDropletAgent pulumi.BoolPtrInput
 }
 
-func (DropletsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*dropletsArgs)(nil)).Elem()
+func (DropletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*dropletArgs)(nil)).Elem()
 }
 
-type DropletsInput interface {
+type DropletInput interface {
 	pulumi.Input
 
-	ToDropletsOutput() DropletsOutput
-	ToDropletsOutputWithContext(ctx context.Context) DropletsOutput
+	ToDropletOutput() DropletOutput
+	ToDropletOutputWithContext(ctx context.Context) DropletOutput
 }
 
-func (*Droplets) ElementType() reflect.Type {
-	return reflect.TypeOf((**Droplets)(nil)).Elem()
+func (*Droplet) ElementType() reflect.Type {
+	return reflect.TypeOf((**Droplet)(nil)).Elem()
 }
 
-func (i *Droplets) ToDropletsOutput() DropletsOutput {
-	return i.ToDropletsOutputWithContext(context.Background())
+func (i *Droplet) ToDropletOutput() DropletOutput {
+	return i.ToDropletOutputWithContext(context.Background())
 }
 
-func (i *Droplets) ToDropletsOutputWithContext(ctx context.Context) DropletsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DropletsOutput)
+func (i *Droplet) ToDropletOutputWithContext(ctx context.Context) DropletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DropletOutput)
 }
 
-type DropletsOutput struct{ *pulumi.OutputState }
+type DropletOutput struct{ *pulumi.OutputState }
 
-func (DropletsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Droplets)(nil)).Elem()
+func (DropletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Droplet)(nil)).Elem()
 }
 
-func (o DropletsOutput) ToDropletsOutput() DropletsOutput {
+func (o DropletOutput) ToDropletOutput() DropletOutput {
 	return o
 }
 
-func (o DropletsOutput) ToDropletsOutputWithContext(ctx context.Context) DropletsOutput {
+func (o DropletOutput) ToDropletOutputWithContext(ctx context.Context) DropletOutput {
 	return o
 }
 
 // A boolean indicating whether automated backups should be enabled for the Droplet.
-func (o DropletsOutput) Backups() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.Backups }).(pulumi.BoolPtrOutput)
+func (o DropletOutput) Backups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.BoolPtrOutput { return v.Backups }).(pulumi.BoolPtrOutput)
 }
 
 // The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
-func (o DropletsOutput) Image() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.AnyOutput { return v.Image }).(pulumi.AnyOutput)
+func (o DropletOutput) Image() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.AnyOutput { return v.Image }).(pulumi.AnyOutput)
 }
 
 // A boolean indicating whether to enable IPv6 on the Droplet.
-func (o DropletsOutput) Ipv6() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.Ipv6 }).(pulumi.BoolPtrOutput)
+func (o DropletOutput) Ipv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.BoolPtrOutput { return v.Ipv6 }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean indicating whether to install the DigitalOcean agent for monitoring.
-func (o DropletsOutput) Monitoring() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.Monitoring }).(pulumi.BoolPtrOutput)
+func (o DropletOutput) Monitoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.BoolPtrOutput { return v.Monitoring }).(pulumi.BoolPtrOutput)
 }
 
-// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
-func (o DropletsOutput) Names() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringArrayOutput { return v.Names }).(pulumi.StringArrayOutput)
+// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
+func (o DropletOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
-func (o DropletsOutput) PrivateNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.PrivateNetworking }).(pulumi.BoolPtrOutput)
+func (o DropletOutput) PrivateNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.BoolPtrOutput { return v.PrivateNetworking }).(pulumi.BoolPtrOutput)
 }
 
 // The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
-func (o DropletsOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+func (o DropletOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The slug identifier for the size that you wish to select for this Droplet.
-func (o DropletsOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.Size }).(pulumi.StringPtrOutput)
+func (o DropletOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringPtrOutput { return v.Size }).(pulumi.StringPtrOutput)
 }
 
 // An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
-func (o DropletsOutput) SshKeys() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.ArrayOutput { return v.SshKeys }).(pulumi.ArrayOutput)
+func (o DropletOutput) SshKeys() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.ArrayOutput { return v.SshKeys }).(pulumi.ArrayOutput)
 }
 
 // A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
-func (o DropletsOutput) Tags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+func (o DropletOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
-func (o DropletsOutput) UserData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
+func (o DropletOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 // An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
-func (o DropletsOutput) Volumes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringArrayOutput { return v.Volumes }).(pulumi.StringArrayOutput)
+func (o DropletOutput) Volumes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringArrayOutput { return v.Volumes }).(pulumi.StringArrayOutput)
 }
 
 // A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
-func (o DropletsOutput) VpcUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.StringPtrOutput { return v.VpcUuid }).(pulumi.StringPtrOutput)
+func (o DropletOutput) VpcUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.StringPtrOutput { return v.VpcUuid }).(pulumi.StringPtrOutput)
 }
 
 // A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
-func (o DropletsOutput) WithDropletAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Droplets) pulumi.BoolPtrOutput { return v.WithDropletAgent }).(pulumi.BoolPtrOutput)
+func (o DropletOutput) WithDropletAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Droplet) pulumi.BoolPtrOutput { return v.WithDropletAgent }).(pulumi.BoolPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DropletsInput)(nil)).Elem(), &Droplets{})
-	pulumi.RegisterOutputType(DropletsOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DropletInput)(nil)).Elem(), &Droplet{})
+	pulumi.RegisterOutputType(DropletOutput{})
 }

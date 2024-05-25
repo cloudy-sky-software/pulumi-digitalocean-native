@@ -9,8 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.DigitalOceanNative.DropletsV2
 {
-    [DigitalOceanNativeResourceType("digitalocean-native:droplets/v2:Droplets")]
-    public partial class Droplets : global::Pulumi.CustomResource
+    [DigitalOceanNativeResourceType("digitalocean-native:droplets/v2:Droplet")]
+    public partial class Droplet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A boolean indicating whether automated backups should be enabled for the Droplet.
@@ -37,10 +37,10 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
         public Output<bool?> Monitoring { get; private set; } = null!;
 
         /// <summary>
-        /// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        /// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
         /// </summary>
-        [Output("names")]
-        public Output<ImmutableArray<string>> Names { get; private set; } = null!;
+        [Output("name")]
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
@@ -98,19 +98,19 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
 
 
         /// <summary>
-        /// Create a Droplets resource with the given unique name, arguments, and options.
+        /// Create a Droplet resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Droplets(string name, DropletsArgs args, CustomResourceOptions? options = null)
-            : base("digitalocean-native:droplets/v2:Droplets", name, args ?? new DropletsArgs(), MakeResourceOptions(options, ""))
+        public Droplet(string name, DropletArgs args, CustomResourceOptions? options = null)
+            : base("digitalocean-native:droplets/v2:Droplet", name, args ?? new DropletArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Droplets(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("digitalocean-native:droplets/v2:Droplets", name, null, MakeResourceOptions(options, id))
+        private Droplet(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("digitalocean-native:droplets/v2:Droplet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -127,20 +127,20 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
             return merged;
         }
         /// <summary>
-        /// Get an existing Droplets resource's state with the given name, ID, and optional extra
+        /// Get an existing Droplet resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Droplets Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static Droplet Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Droplets(name, id, options);
+            return new Droplet(name, id, options);
         }
     }
 
-    public sealed class DropletsArgs : global::Pulumi.ResourceArgs
+    public sealed class DropletArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean indicating whether automated backups should be enabled for the Droplet.
@@ -166,17 +166,11 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
         [Input("monitoring")]
         public Input<bool>? Monitoring { get; set; }
 
-        [Input("names", required: true)]
-        private InputList<string>? _names;
-
         /// <summary>
-        /// An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        /// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
         /// </summary>
-        public InputList<string> Names
-        {
-            get => _names ?? (_names = new InputList<string>());
-            set => _names = value;
-        }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
@@ -250,13 +244,13 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
         [Input("withDropletAgent")]
         public Input<bool>? WithDropletAgent { get; set; }
 
-        public DropletsArgs()
+        public DropletArgs()
         {
             Backups = false;
             Ipv6 = false;
             Monitoring = false;
             PrivateNetworking = false;
         }
-        public static new DropletsArgs Empty => new DropletsArgs();
+        public static new DropletArgs Empty => new DropletArgs();
     }
 }

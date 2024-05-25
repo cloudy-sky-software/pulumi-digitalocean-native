@@ -4,31 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export class Droplets extends pulumi.CustomResource {
+export class Droplet extends pulumi.CustomResource {
     /**
-     * Get an existing Droplets resource's state with the given name, ID, and optional extra
+     * Get an existing Droplet resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Droplets {
-        return new Droplets(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Droplet {
+        return new Droplet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'digitalocean-native:droplets/v2:Droplets';
+    public static readonly __pulumiType = 'digitalocean-native:droplets/v2:Droplet';
 
     /**
-     * Returns true if the given object is an instance of Droplets.  This is designed to work even
+     * Returns true if the given object is an instance of Droplet.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Droplets {
+    public static isInstance(obj: any): obj is Droplet {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Droplets.__pulumiType;
+        return obj['__pulumiType'] === Droplet.__pulumiType;
     }
 
     /**
@@ -48,9 +48,9 @@ export class Droplets extends pulumi.CustomResource {
      */
     public readonly monitoring!: pulumi.Output<boolean | undefined>;
     /**
-     * An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+     * The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
      */
-    public readonly names!: pulumi.Output<string[] | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
      */
@@ -89,21 +89,21 @@ export class Droplets extends pulumi.CustomResource {
     public readonly withDropletAgent!: pulumi.Output<boolean | undefined>;
 
     /**
-     * Create a Droplets resource with the given unique name, arguments, and options.
+     * Create a Droplet resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DropletsArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DropletArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.image === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.names === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'names'");
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
             }
             if ((!args || args.size === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'size'");
@@ -112,7 +112,7 @@ export class Droplets extends pulumi.CustomResource {
             resourceInputs["image"] = args ? args.image : undefined;
             resourceInputs["ipv6"] = (args ? args.ipv6 : undefined) ?? false;
             resourceInputs["monitoring"] = (args ? args.monitoring : undefined) ?? false;
-            resourceInputs["names"] = args ? args.names : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateNetworking"] = (args ? args.privateNetworking : undefined) ?? false;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
@@ -127,7 +127,7 @@ export class Droplets extends pulumi.CustomResource {
             resourceInputs["image"] = undefined /*out*/;
             resourceInputs["ipv6"] = undefined /*out*/;
             resourceInputs["monitoring"] = undefined /*out*/;
-            resourceInputs["names"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateNetworking"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
@@ -139,14 +139,14 @@ export class Droplets extends pulumi.CustomResource {
             resourceInputs["withDropletAgent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Droplets.__pulumiType, name, resourceInputs, opts);
+        super(Droplet.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a Droplets resource.
+ * The set of arguments for constructing a Droplet resource.
  */
-export interface DropletsArgs {
+export interface DropletArgs {
     /**
      * A boolean indicating whether automated backups should be enabled for the Droplet.
      */
@@ -164,9 +164,9 @@ export interface DropletsArgs {
      */
     monitoring?: pulumi.Input<boolean>;
     /**
-     * An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+     * The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
      */
-    names: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
     /**
      * This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
      */

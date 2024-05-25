@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetDroplet(ctx *pulumi.Context, args *GetDropletArgs, opts ...pulumi.InvokeOption) (*GetDropletResult, error) {
+func LookupDroplet(ctx *pulumi.Context, args *LookupDropletArgs, opts ...pulumi.InvokeOption) (*LookupDropletResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetDropletResult
+	var rv LookupDropletResult
 	err := ctx.Invoke("digitalocean-native:droplets/v2:getDroplet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,17 +21,17 @@ func GetDroplet(ctx *pulumi.Context, args *GetDropletArgs, opts ...pulumi.Invoke
 	return rv.Defaults(), nil
 }
 
-type GetDropletArgs struct {
+type LookupDropletArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId string `pulumi:"dropletId"`
 }
 
-type GetDropletResult struct {
+type LookupDropletResult struct {
 	Items GetDropletProperties `pulumi:"items"`
 }
 
-// Defaults sets the appropriate defaults for GetDropletResult
-func (val *GetDropletResult) Defaults() *GetDropletResult {
+// Defaults sets the appropriate defaults for LookupDropletResult
+func (val *LookupDropletResult) Defaults() *LookupDropletResult {
 	if val == nil {
 		return nil
 	}
@@ -41,46 +41,46 @@ func (val *GetDropletResult) Defaults() *GetDropletResult {
 	return &tmp
 }
 
-func GetDropletOutput(ctx *pulumi.Context, args GetDropletOutputArgs, opts ...pulumi.InvokeOption) GetDropletResultOutput {
+func LookupDropletOutput(ctx *pulumi.Context, args LookupDropletOutputArgs, opts ...pulumi.InvokeOption) LookupDropletResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDropletResult, error) {
-			args := v.(GetDropletArgs)
-			r, err := GetDroplet(ctx, &args, opts...)
-			var s GetDropletResult
+		ApplyT(func(v interface{}) (LookupDropletResult, error) {
+			args := v.(LookupDropletArgs)
+			r, err := LookupDroplet(ctx, &args, opts...)
+			var s LookupDropletResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetDropletResultOutput)
+		}).(LookupDropletResultOutput)
 }
 
-type GetDropletOutputArgs struct {
+type LookupDropletOutputArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId pulumi.StringInput `pulumi:"dropletId"`
 }
 
-func (GetDropletOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDropletArgs)(nil)).Elem()
+func (LookupDropletOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDropletArgs)(nil)).Elem()
 }
 
-type GetDropletResultOutput struct{ *pulumi.OutputState }
+type LookupDropletResultOutput struct{ *pulumi.OutputState }
 
-func (GetDropletResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDropletResult)(nil)).Elem()
+func (LookupDropletResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDropletResult)(nil)).Elem()
 }
 
-func (o GetDropletResultOutput) ToGetDropletResultOutput() GetDropletResultOutput {
+func (o LookupDropletResultOutput) ToLookupDropletResultOutput() LookupDropletResultOutput {
 	return o
 }
 
-func (o GetDropletResultOutput) ToGetDropletResultOutputWithContext(ctx context.Context) GetDropletResultOutput {
+func (o LookupDropletResultOutput) ToLookupDropletResultOutputWithContext(ctx context.Context) LookupDropletResultOutput {
 	return o
 }
 
-func (o GetDropletResultOutput) Items() GetDropletPropertiesOutput {
-	return o.ApplyT(func(v GetDropletResult) GetDropletProperties { return v.Items }).(GetDropletPropertiesOutput)
+func (o LookupDropletResultOutput) Items() GetDropletPropertiesOutput {
+	return o.ApplyT(func(v LookupDropletResult) GetDropletProperties { return v.Items }).(GetDropletPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetDropletResultOutput{})
+	pulumi.RegisterOutputType(LookupDropletResultOutput{})
 }

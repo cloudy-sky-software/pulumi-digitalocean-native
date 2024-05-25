@@ -15712,7 +15712,7 @@
                 "type"
             ]
         },
-        "digitalocean-native:droplets/v2:Droplets": {
+        "digitalocean-native:droplets/v2:Droplet": {
             "properties": {
                 "backups": {
                     "type": "boolean",
@@ -15740,12 +15740,9 @@
                     "description": "A boolean indicating whether to install the DigitalOcean agent for monitoring.",
                     "default": false
                 },
-                "names": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration."
+                "name": {
+                    "type": "string",
+                    "description": "The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration."
                 },
                 "privateNetworking": {
                     "type": "boolean",
@@ -15829,12 +15826,9 @@
                     "description": "A boolean indicating whether to install the DigitalOcean agent for monitoring.",
                     "default": false
                 },
-                "names": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration."
+                "name": {
+                    "type": "string",
+                    "description": "The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration."
                 },
                 "privateNetworking": {
                     "type": "boolean",
@@ -15892,7 +15886,7 @@
             },
             "requiredInputs": [
                 "image",
-                "names",
+                "name",
                 "size"
             ]
         },

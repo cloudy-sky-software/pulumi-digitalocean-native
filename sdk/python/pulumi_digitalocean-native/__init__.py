@@ -192,7 +192,7 @@ _utilities.register(
   "classes": {
    "digitalocean-native:droplets/v2:ChangeKernel": "ChangeKernel",
    "digitalocean-native:droplets/v2:DisableBackups": "DisableBackups",
-   "digitalocean-native:droplets/v2:Droplets": "Droplets",
+   "digitalocean-native:droplets/v2:Droplet": "Droplet",
    "digitalocean-native:droplets/v2:EnableBackups": "EnableBackups",
    "digitalocean-native:droplets/v2:EnableIpv6": "EnableIpv6",
    "digitalocean-native:droplets/v2:PasswordReset": "PasswordReset",
