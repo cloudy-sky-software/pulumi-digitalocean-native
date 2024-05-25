@@ -3,11 +3,11 @@ module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 go 1.21
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20240524174933-a16d5fc87520
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240518065559-278984492733
+	github.com/cloudy-sky-software/pulschema v0.0.0-20240525072119-9c4d314ad83f
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240525152847-319ad07dc3b9
 	github.com/getkin/kin-openapi v0.124.0
-	github.com/pulumi/pulumi/pkg/v3 v3.116.1
-	github.com/pulumi/pulumi/sdk/v3 v3.116.1
+	github.com/pulumi/pulumi/pkg/v3 v3.117.0
+	github.com/pulumi/pulumi/sdk/v3 v3.117.0
 )
 
 require github.com/stretchr/testify v1.9.0
@@ -173,15 +173,15 @@ require (
 	go.opentelemetry.io/otel/trace v1.24.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	gocloud.dev v0.37.0 // indirect
-	gocloud.dev/secrets/hashivault v0.36.0 // indirect
-	golang.org/x/crypto v0.22.0 // indirect
+	gocloud.dev/secrets/hashivault v0.37.0 // indirect
+	golang.org/x/crypto v0.23.0 // indirect
 	golang.org/x/exp v0.0.0-20240213143201-ec583247a57a // indirect
 	golang.org/x/mod v0.15.0 // indirect
-	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/net v0.25.0 // indirect
 	golang.org/x/oauth2 v0.18.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect
-	golang.org/x/sys v0.19.0 // indirect
-	golang.org/x/term v0.19.0 // indirect
+	golang.org/x/sys v0.20.0 // indirect
+	golang.org/x/term v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
 	golang.org/x/tools v0.18.0 // indirect
@@ -196,5 +196,3 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
-
-replace github.com/cloudy-sky-software/pulschema => ../../pulschema
