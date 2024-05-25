@@ -26,7 +26,7 @@ class ListSshKeysResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListSshKeys':
+    def items(self) -> 'outputs.ListSshKeysItems':
         return pulumi.get(self, "items")
 
 

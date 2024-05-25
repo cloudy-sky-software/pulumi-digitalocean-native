@@ -915,12 +915,45 @@ func (o DropletNextBackupWindowPropertiesPtrOutput) Start() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-type GetReservedIPsActionsProperties struct {
-	Action *GetReservedIPsActionsPropertiesAction `pulumi:"action"`
+type GetReservedIPProperties struct {
+	ReservedIp *ReservedIp `pulumi:"reservedIp"`
 }
 
-// Defaults sets the appropriate defaults for GetReservedIPsActionsProperties
-func (val *GetReservedIPsActionsProperties) Defaults() *GetReservedIPsActionsProperties {
+// Defaults sets the appropriate defaults for GetReservedIPProperties
+func (val *GetReservedIPProperties) Defaults() *GetReservedIPProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ReservedIp = tmp.ReservedIp.Defaults()
+
+	return &tmp
+}
+
+type GetReservedIPPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetReservedIPPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReservedIPProperties)(nil)).Elem()
+}
+
+func (o GetReservedIPPropertiesOutput) ToGetReservedIPPropertiesOutput() GetReservedIPPropertiesOutput {
+	return o
+}
+
+func (o GetReservedIPPropertiesOutput) ToGetReservedIPPropertiesOutputWithContext(ctx context.Context) GetReservedIPPropertiesOutput {
+	return o
+}
+
+func (o GetReservedIPPropertiesOutput) ReservedIp() ReservedIpPtrOutput {
+	return o.ApplyT(func(v GetReservedIPProperties) *ReservedIp { return v.ReservedIp }).(ReservedIpPtrOutput)
+}
+
+type GetReservedIPsActionProperties struct {
+	Action *GetReservedIPsActionPropertiesAction `pulumi:"action"`
+}
+
+// Defaults sets the appropriate defaults for GetReservedIPsActionProperties
+func (val *GetReservedIPsActionProperties) Defaults() *GetReservedIPsActionProperties {
 	if val == nil {
 		return nil
 	}
@@ -930,25 +963,25 @@ func (val *GetReservedIPsActionsProperties) Defaults() *GetReservedIPsActionsPro
 	return &tmp
 }
 
-type GetReservedIPsActionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetReservedIPsActionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetReservedIPsActionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetReservedIPsActionsProperties)(nil)).Elem()
+func (GetReservedIPsActionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReservedIPsActionProperties)(nil)).Elem()
 }
 
-func (o GetReservedIPsActionsPropertiesOutput) ToGetReservedIPsActionsPropertiesOutput() GetReservedIPsActionsPropertiesOutput {
+func (o GetReservedIPsActionPropertiesOutput) ToGetReservedIPsActionPropertiesOutput() GetReservedIPsActionPropertiesOutput {
 	return o
 }
 
-func (o GetReservedIPsActionsPropertiesOutput) ToGetReservedIPsActionsPropertiesOutputWithContext(ctx context.Context) GetReservedIPsActionsPropertiesOutput {
+func (o GetReservedIPsActionPropertiesOutput) ToGetReservedIPsActionPropertiesOutputWithContext(ctx context.Context) GetReservedIPsActionPropertiesOutput {
 	return o
 }
 
-func (o GetReservedIPsActionsPropertiesOutput) Action() GetReservedIPsActionsPropertiesActionPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsProperties) *GetReservedIPsActionsPropertiesAction { return v.Action }).(GetReservedIPsActionsPropertiesActionPtrOutput)
+func (o GetReservedIPsActionPropertiesOutput) Action() GetReservedIPsActionPropertiesActionPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionProperties) *GetReservedIPsActionPropertiesAction { return v.Action }).(GetReservedIPsActionPropertiesActionPtrOutput)
 }
 
-type GetReservedIPsActionsPropertiesAction struct {
+type GetReservedIPsActionPropertiesAction struct {
 	// A time value given in ISO8601 combined date and time format that represents when the action was completed.
 	CompletedAt *string `pulumi:"completedAt"`
 	// A unique numeric ID that can be used to identify and reference an action.
@@ -969,8 +1002,8 @@ type GetReservedIPsActionsPropertiesAction struct {
 	Type *string `pulumi:"type"`
 }
 
-// Defaults sets the appropriate defaults for GetReservedIPsActionsPropertiesAction
-func (val *GetReservedIPsActionsPropertiesAction) Defaults() *GetReservedIPsActionsPropertiesAction {
+// Defaults sets the appropriate defaults for GetReservedIPsActionPropertiesAction
+func (val *GetReservedIPsActionPropertiesAction) Defaults() *GetReservedIPsActionPropertiesAction {
 	if val == nil {
 		return nil
 	}
@@ -982,95 +1015,95 @@ func (val *GetReservedIPsActionsPropertiesAction) Defaults() *GetReservedIPsActi
 	return &tmp
 }
 
-type GetReservedIPsActionsPropertiesActionOutput struct{ *pulumi.OutputState }
+type GetReservedIPsActionPropertiesActionOutput struct{ *pulumi.OutputState }
 
-func (GetReservedIPsActionsPropertiesActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetReservedIPsActionsPropertiesAction)(nil)).Elem()
+func (GetReservedIPsActionPropertiesActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReservedIPsActionPropertiesAction)(nil)).Elem()
 }
 
-func (o GetReservedIPsActionsPropertiesActionOutput) ToGetReservedIPsActionsPropertiesActionOutput() GetReservedIPsActionsPropertiesActionOutput {
+func (o GetReservedIPsActionPropertiesActionOutput) ToGetReservedIPsActionPropertiesActionOutput() GetReservedIPsActionPropertiesActionOutput {
 	return o
 }
 
-func (o GetReservedIPsActionsPropertiesActionOutput) ToGetReservedIPsActionsPropertiesActionOutputWithContext(ctx context.Context) GetReservedIPsActionsPropertiesActionOutput {
+func (o GetReservedIPsActionPropertiesActionOutput) ToGetReservedIPsActionPropertiesActionOutputWithContext(ctx context.Context) GetReservedIPsActionPropertiesActionOutput {
 	return o
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the action was completed.
-func (o GetReservedIPsActionsPropertiesActionOutput) CompletedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
 }
 
 // A unique numeric ID that can be used to identify and reference an action.
-func (o GetReservedIPsActionsPropertiesActionOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 // The UUID of the project to which the reserved IP currently belongs.
-func (o GetReservedIPsActionsPropertiesActionOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-func (o GetReservedIPsActionsPropertiesActionOutput) Region() RegionPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *Region { return v.Region }).(RegionPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *Region { return v.Region }).(RegionPtrOutput)
 }
 
-func (o GetReservedIPsActionsPropertiesActionOutput) RegionSlug() ActionRegionSlugPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *ActionRegionSlug { return v.RegionSlug }).(ActionRegionSlugPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *ActionRegionSlug { return v.RegionSlug }).(ActionRegionSlugPtrOutput)
 }
 
 // A unique identifier for the resource that the action is associated with.
-func (o GetReservedIPsActionsPropertiesActionOutput) ResourceId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *int { return v.ResourceId }).(pulumi.IntPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *int { return v.ResourceId }).(pulumi.IntPtrOutput)
 }
 
 // The type of resource that the action is associated with.
-func (o GetReservedIPsActionsPropertiesActionOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the action was initiated.
-func (o GetReservedIPsActionsPropertiesActionOutput) StartedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o GetReservedIPsActionsPropertiesActionOutput) Status() ActionStatusPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
-func (o GetReservedIPsActionsPropertiesActionOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsActionsPropertiesAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o GetReservedIPsActionPropertiesActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionPropertiesAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type GetReservedIPsActionsPropertiesActionPtrOutput struct{ *pulumi.OutputState }
+type GetReservedIPsActionPropertiesActionPtrOutput struct{ *pulumi.OutputState }
 
-func (GetReservedIPsActionsPropertiesActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetReservedIPsActionsPropertiesAction)(nil)).Elem()
+func (GetReservedIPsActionPropertiesActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReservedIPsActionPropertiesAction)(nil)).Elem()
 }
 
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) ToGetReservedIPsActionsPropertiesActionPtrOutput() GetReservedIPsActionsPropertiesActionPtrOutput {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) ToGetReservedIPsActionPropertiesActionPtrOutput() GetReservedIPsActionPropertiesActionPtrOutput {
 	return o
 }
 
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) ToGetReservedIPsActionsPropertiesActionPtrOutputWithContext(ctx context.Context) GetReservedIPsActionsPropertiesActionPtrOutput {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) ToGetReservedIPsActionPropertiesActionPtrOutputWithContext(ctx context.Context) GetReservedIPsActionPropertiesActionPtrOutput {
 	return o
 }
 
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) Elem() GetReservedIPsActionsPropertiesActionOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) GetReservedIPsActionsPropertiesAction {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) Elem() GetReservedIPsActionPropertiesActionOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) GetReservedIPsActionPropertiesAction {
 		if v != nil {
 			return *v
 		}
-		var ret GetReservedIPsActionsPropertiesAction
+		var ret GetReservedIPsActionPropertiesAction
 		return ret
-	}).(GetReservedIPsActionsPropertiesActionOutput)
+	}).(GetReservedIPsActionPropertiesActionOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the action was completed.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) CompletedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *string {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -1079,8 +1112,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) CompletedAt() pulumi.Str
 }
 
 // A unique numeric ID that can be used to identify and reference an action.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *int {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *int {
 		if v == nil {
 			return nil
 		}
@@ -1089,8 +1122,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) Id() pulumi.IntPtrOutput
 }
 
 // The UUID of the project to which the reserved IP currently belongs.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *string {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -1098,8 +1131,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) ProjectId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) Region() RegionPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *Region {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *Region {
 		if v == nil {
 			return nil
 		}
@@ -1107,8 +1140,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) Region() RegionPtrOutput
 	}).(RegionPtrOutput)
 }
 
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) RegionSlug() ActionRegionSlugPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *ActionRegionSlug {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *ActionRegionSlug {
 		if v == nil {
 			return nil
 		}
@@ -1117,8 +1150,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) RegionSlug() ActionRegio
 }
 
 // A unique identifier for the resource that the action is associated with.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) ResourceId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *int {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *int {
 		if v == nil {
 			return nil
 		}
@@ -1127,8 +1160,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) ResourceId() pulumi.IntP
 }
 
 // The type of resource that the action is associated with.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *string {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -1137,8 +1170,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) ResourceType() pulumi.St
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the action was initiated.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *string {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *string {
 		if v == nil {
 			return nil
 		}
@@ -1147,8 +1180,8 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) StartedAt() pulumi.Strin
 }
 
 // The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) Status() ActionStatusPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *ActionStatus {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *ActionStatus {
 		if v == nil {
 			return nil
 		}
@@ -1157,46 +1190,13 @@ func (o GetReservedIPsActionsPropertiesActionPtrOutput) Status() ActionStatusPtr
 }
 
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
-func (o GetReservedIPsActionsPropertiesActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetReservedIPsActionsPropertiesAction) *string {
+func (o GetReservedIPsActionPropertiesActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReservedIPsActionPropertiesAction) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type GetReservedIPsProperties struct {
-	ReservedIp *ReservedIp `pulumi:"reservedIp"`
-}
-
-// Defaults sets the appropriate defaults for GetReservedIPsProperties
-func (val *GetReservedIPsProperties) Defaults() *GetReservedIPsProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.ReservedIp = tmp.ReservedIp.Defaults()
-
-	return &tmp
-}
-
-type GetReservedIPsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetReservedIPsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetReservedIPsProperties)(nil)).Elem()
-}
-
-func (o GetReservedIPsPropertiesOutput) ToGetReservedIPsPropertiesOutput() GetReservedIPsPropertiesOutput {
-	return o
-}
-
-func (o GetReservedIPsPropertiesOutput) ToGetReservedIPsPropertiesOutputWithContext(ctx context.Context) GetReservedIPsPropertiesOutput {
-	return o
-}
-
-func (o GetReservedIPsPropertiesOutput) ReservedIp() ReservedIpPtrOutput {
-	return o.ApplyT(func(v GetReservedIPsProperties) *ReservedIp { return v.ReservedIp }).(ReservedIpPtrOutput)
 }
 
 type Image struct {
@@ -1661,68 +1661,68 @@ func (o LinksPropertiesPtrOutput) Droplets() ActionLinkArrayOutput {
 	}).(ActionLinkArrayOutput)
 }
 
-type ListReservedIPs struct {
-	Links       *PageLinks   `pulumi:"links"`
-	Meta        MetaMeta     `pulumi:"meta"`
-	ReservedIps []ReservedIp `pulumi:"reservedIps"`
-}
-
-type ListReservedIPsOutput struct{ *pulumi.OutputState }
-
-func (ListReservedIPsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListReservedIPs)(nil)).Elem()
-}
-
-func (o ListReservedIPsOutput) ToListReservedIPsOutput() ListReservedIPsOutput {
-	return o
-}
-
-func (o ListReservedIPsOutput) ToListReservedIPsOutputWithContext(ctx context.Context) ListReservedIPsOutput {
-	return o
-}
-
-func (o ListReservedIPsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListReservedIPs) *PageLinks { return v.Links }).(PageLinksPtrOutput)
-}
-
-func (o ListReservedIPsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListReservedIPs) MetaMeta { return v.Meta }).(MetaMetaOutput)
-}
-
-func (o ListReservedIPsOutput) ReservedIps() ReservedIpArrayOutput {
-	return o.ApplyT(func(v ListReservedIPs) []ReservedIp { return v.ReservedIps }).(ReservedIpArrayOutput)
-}
-
-type ListReservedIPsActions struct {
+type ListReservedIPsActionsItems struct {
 	Actions []Action   `pulumi:"actions"`
 	Links   *PageLinks `pulumi:"links"`
 	Meta    MetaMeta   `pulumi:"meta"`
 }
 
-type ListReservedIPsActionsOutput struct{ *pulumi.OutputState }
+type ListReservedIPsActionsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListReservedIPsActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListReservedIPsActions)(nil)).Elem()
+func (ListReservedIPsActionsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListReservedIPsActionsItems)(nil)).Elem()
 }
 
-func (o ListReservedIPsActionsOutput) ToListReservedIPsActionsOutput() ListReservedIPsActionsOutput {
+func (o ListReservedIPsActionsItemsOutput) ToListReservedIPsActionsItemsOutput() ListReservedIPsActionsItemsOutput {
 	return o
 }
 
-func (o ListReservedIPsActionsOutput) ToListReservedIPsActionsOutputWithContext(ctx context.Context) ListReservedIPsActionsOutput {
+func (o ListReservedIPsActionsItemsOutput) ToListReservedIPsActionsItemsOutputWithContext(ctx context.Context) ListReservedIPsActionsItemsOutput {
 	return o
 }
 
-func (o ListReservedIPsActionsOutput) Actions() ActionArrayOutput {
-	return o.ApplyT(func(v ListReservedIPsActions) []Action { return v.Actions }).(ActionArrayOutput)
+func (o ListReservedIPsActionsItemsOutput) Actions() ActionArrayOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsItems) []Action { return v.Actions }).(ActionArrayOutput)
 }
 
-func (o ListReservedIPsActionsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListReservedIPsActions) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListReservedIPsActionsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListReservedIPsActionsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListReservedIPsActions) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListReservedIPsActionsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListReservedIPsActionsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+type ListReservedIPsItems struct {
+	Links       *PageLinks   `pulumi:"links"`
+	Meta        MetaMeta     `pulumi:"meta"`
+	ReservedIps []ReservedIp `pulumi:"reservedIps"`
+}
+
+type ListReservedIPsItemsOutput struct{ *pulumi.OutputState }
+
+func (ListReservedIPsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListReservedIPsItems)(nil)).Elem()
+}
+
+func (o ListReservedIPsItemsOutput) ToListReservedIPsItemsOutput() ListReservedIPsItemsOutput {
+	return o
+}
+
+func (o ListReservedIPsItemsOutput) ToListReservedIPsItemsOutputWithContext(ctx context.Context) ListReservedIPsItemsOutput {
+	return o
+}
+
+func (o ListReservedIPsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListReservedIPsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListReservedIPsItemsOutput) ReservedIps() ReservedIpArrayOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) []ReservedIp { return v.ReservedIps }).(ReservedIpArrayOutput)
 }
 
 type MetaMeta struct {
@@ -2684,18 +2684,18 @@ func init() {
 	pulumi.RegisterOutputType(DropletNetworksPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DropletNextBackupWindowPropertiesOutput{})
 	pulumi.RegisterOutputType(DropletNextBackupWindowPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GetReservedIPsActionsPropertiesOutput{})
-	pulumi.RegisterOutputType(GetReservedIPsActionsPropertiesActionOutput{})
-	pulumi.RegisterOutputType(GetReservedIPsActionsPropertiesActionPtrOutput{})
-	pulumi.RegisterOutputType(GetReservedIPsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetReservedIPPropertiesOutput{})
+	pulumi.RegisterOutputType(GetReservedIPsActionPropertiesOutput{})
+	pulumi.RegisterOutputType(GetReservedIPsActionPropertiesActionOutput{})
+	pulumi.RegisterOutputType(GetReservedIPsActionPropertiesActionPtrOutput{})
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImagePtrOutput{})
 	pulumi.RegisterOutputType(KernelOutput{})
 	pulumi.RegisterOutputType(KernelPtrOutput{})
 	pulumi.RegisterOutputType(LinksPropertiesOutput{})
 	pulumi.RegisterOutputType(LinksPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ListReservedIPsOutput{})
-	pulumi.RegisterOutputType(ListReservedIPsActionsOutput{})
+	pulumi.RegisterOutputType(ListReservedIPsActionsItemsOutput{})
+	pulumi.RegisterOutputType(ListReservedIPsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(NetworkV4Output{})
 	pulumi.RegisterOutputType(NetworkV4ArrayOutput{})

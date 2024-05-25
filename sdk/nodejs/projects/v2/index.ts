@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetProjectsArgs, GetProjectsResult, GetProjectsOutputArgs } from "./getProjects";
-export const getProjects: typeof import("./getProjects").getProjects = null as any;
-export const getProjectsOutput: typeof import("./getProjects").getProjectsOutput = null as any;
-utilities.lazyLoad(exports, ["getProjects","getProjectsOutput"], () => require("./getProjects"));
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
 export { GetProjectsDefaultArgs, GetProjectsDefaultResult } from "./getProjectsDefault";
 export const getProjectsDefault: typeof import("./getProjectsDefault").getProjectsDefault = null as any;

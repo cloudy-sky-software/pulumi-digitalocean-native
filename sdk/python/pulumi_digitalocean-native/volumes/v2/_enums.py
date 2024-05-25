@@ -7,8 +7,8 @@ from enum import Enum
 __all__ = [
     'ActionStatus',
     'SnapshotsPropertiesResourceType',
-    'VolumeActionPostBaseRegion',
-    'VolumeActionPostBaseType',
+    'VolumeActionCreateBaseRegion',
+    'VolumeActionCreateBaseType',
 ]
 
 
@@ -29,7 +29,7 @@ class SnapshotsPropertiesResourceType(str, Enum):
     VOLUME = "volume"
 
 
-class VolumeActionPostBaseRegion(str, Enum):
+class VolumeActionCreateBaseRegion(str, Enum):
     """
     The slug identifier for the region where the resource will initially be  available.
     """
@@ -49,7 +49,7 @@ class VolumeActionPostBaseRegion(str, Enum):
     TOR1 = "tor1"
 
 
-class VolumeActionPostBaseType(str, Enum):
+class VolumeActionCreateBaseType(str, Enum):
     """
     The volume action to initiate.
     """

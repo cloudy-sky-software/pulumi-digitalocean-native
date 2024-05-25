@@ -13,36 +13,36 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ListRegions struct {
+type ListRegionsItems struct {
 	Links   *PageLinks `pulumi:"links"`
 	Meta    MetaMeta   `pulumi:"meta"`
 	Regions []Region   `pulumi:"regions"`
 }
 
-type ListRegionsOutput struct{ *pulumi.OutputState }
+type ListRegionsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListRegionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListRegions)(nil)).Elem()
+func (ListRegionsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListRegionsItems)(nil)).Elem()
 }
 
-func (o ListRegionsOutput) ToListRegionsOutput() ListRegionsOutput {
+func (o ListRegionsItemsOutput) ToListRegionsItemsOutput() ListRegionsItemsOutput {
 	return o
 }
 
-func (o ListRegionsOutput) ToListRegionsOutputWithContext(ctx context.Context) ListRegionsOutput {
+func (o ListRegionsItemsOutput) ToListRegionsItemsOutputWithContext(ctx context.Context) ListRegionsItemsOutput {
 	return o
 }
 
-func (o ListRegionsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListRegions) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListRegionsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegionsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListRegionsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListRegions) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListRegionsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegionsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListRegionsOutput) Regions() RegionArrayOutput {
-	return o.ApplyT(func(v ListRegions) []Region { return v.Regions }).(RegionArrayOutput)
+func (o ListRegionsItemsOutput) Regions() RegionArrayOutput {
+	return o.ApplyT(func(v ListRegionsItems) []Region { return v.Regions }).(RegionArrayOutput)
 }
 
 type MetaMeta struct {
@@ -294,7 +294,7 @@ func (o RegionArrayOutput) Index(i pulumi.IntInput) RegionOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ListRegionsOutput{})
+	pulumi.RegisterOutputType(ListRegionsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

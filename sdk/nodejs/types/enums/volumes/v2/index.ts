@@ -23,7 +23,7 @@ export const SnapshotsPropertiesResourceType = {
  */
 export type SnapshotsPropertiesResourceType = (typeof SnapshotsPropertiesResourceType)[keyof typeof SnapshotsPropertiesResourceType];
 
-export const VolumeActionPostBaseRegion = {
+export const VolumeActionCreateBaseRegion = {
     Ams1: "ams1",
     Ams2: "ams2",
     Ams3: "ams3",
@@ -43,9 +43,9 @@ export const VolumeActionPostBaseRegion = {
 /**
  * The slug identifier for the region where the resource will initially be  available.
  */
-export type VolumeActionPostBaseRegion = (typeof VolumeActionPostBaseRegion)[keyof typeof VolumeActionPostBaseRegion];
+export type VolumeActionCreateBaseRegion = (typeof VolumeActionCreateBaseRegion)[keyof typeof VolumeActionCreateBaseRegion];
 
-export const VolumeActionPostBaseType = {
+export const VolumeActionCreateBaseType = {
     Attach: "attach",
     Detach: "detach",
     Resize: "resize",
@@ -54,4 +54,4 @@ export const VolumeActionPostBaseType = {
 /**
  * The volume action to initiate.
  */
-export type VolumeActionPostBaseType = (typeof VolumeActionPostBaseType)[keyof typeof VolumeActionPostBaseType];
+export type VolumeActionCreateBaseType = (typeof VolumeActionCreateBaseType)[keyof typeof VolumeActionCreateBaseType];

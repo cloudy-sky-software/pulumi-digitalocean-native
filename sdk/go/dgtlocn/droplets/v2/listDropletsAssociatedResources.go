@@ -27,7 +27,7 @@ type ListDropletsAssociatedResourcesArgs struct {
 }
 
 type ListDropletsAssociatedResourcesResult struct {
-	Items ListDropletsAssociatedResources `pulumi:"items"`
+	Items ListDropletsAssociatedResourcesItems `pulumi:"items"`
 }
 
 func ListDropletsAssociatedResourcesOutput(ctx *pulumi.Context, args ListDropletsAssociatedResourcesOutputArgs, opts ...pulumi.InvokeOption) ListDropletsAssociatedResourcesResultOutput {
@@ -66,8 +66,8 @@ func (o ListDropletsAssociatedResourcesResultOutput) ToListDropletsAssociatedRes
 	return o
 }
 
-func (o ListDropletsAssociatedResourcesResultOutput) Items() ListDropletsAssociatedResourcesOutput {
-	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) ListDropletsAssociatedResources { return v.Items }).(ListDropletsAssociatedResourcesOutput)
+func (o ListDropletsAssociatedResourcesResultOutput) Items() ListDropletsAssociatedResourcesItemsOutput {
+	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) ListDropletsAssociatedResourcesItems { return v.Items }).(ListDropletsAssociatedResourcesItemsOutput)
 }
 
 func init() {

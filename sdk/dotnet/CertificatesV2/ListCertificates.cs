@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.CertificatesV2
     [OutputType]
     public sealed class ListCertificatesResult
     {
-        public readonly Outputs.ListCertificates Items;
+        public readonly Outputs.ListCertificatesItems Items;
 
         [OutputConstructor]
-        private ListCertificatesResult(Outputs.ListCertificates items)
+        private ListCertificatesResult(Outputs.ListCertificatesItems items)
         {
             Items = items;
         }

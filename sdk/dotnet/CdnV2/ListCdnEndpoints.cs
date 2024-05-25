@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.CdnV2
     [OutputType]
     public sealed class ListCdnEndpointsResult
     {
-        public readonly Outputs.ListCdnEndpoints Items;
+        public readonly Outputs.ListCdnEndpointsItems Items;
 
         [OutputConstructor]
-        private ListCdnEndpointsResult(Outputs.ListCdnEndpoints items)
+        private ListCdnEndpointsResult(Outputs.ListCdnEndpointsItems items)
         {
             Items = items;
         }

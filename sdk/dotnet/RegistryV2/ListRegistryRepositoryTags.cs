@@ -63,10 +63,10 @@ namespace Pulumi.DigitalOceanNative.RegistryV2
     [OutputType]
     public sealed class ListRegistryRepositoryTagsResult
     {
-        public readonly Outputs.ListRegistryRepositoryTags Items;
+        public readonly Outputs.ListRegistryRepositoryTagsItems Items;
 
         [OutputConstructor]
-        private ListRegistryRepositoryTagsResult(Outputs.ListRegistryRepositoryTags items)
+        private ListRegistryRepositoryTagsResult(Outputs.ListRegistryRepositoryTagsItems items)
         {
             Items = items;
         }

@@ -5,7 +5,7 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from .get_vpcs import *
+from .get_vpc import *
 from .list_vpcs import *
 from .list_vpcs_members import *
 from .vpcs import *

@@ -5,30 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetKubernetesAvailableUpgradesArgs, GetKubernetesAvailableUpgradesResult, GetKubernetesAvailableUpgradesOutputArgs } from "./getKubernetesAvailableUpgrades";
-export const getKubernetesAvailableUpgrades: typeof import("./getKubernetesAvailableUpgrades").getKubernetesAvailableUpgrades = null as any;
-export const getKubernetesAvailableUpgradesOutput: typeof import("./getKubernetesAvailableUpgrades").getKubernetesAvailableUpgradesOutput = null as any;
-utilities.lazyLoad(exports, ["getKubernetesAvailableUpgrades","getKubernetesAvailableUpgradesOutput"], () => require("./getKubernetesAvailableUpgrades"));
+export { GetKubernetesAvailableUpgradeArgs, GetKubernetesAvailableUpgradeResult, GetKubernetesAvailableUpgradeOutputArgs } from "./getKubernetesAvailableUpgrade";
+export const getKubernetesAvailableUpgrade: typeof import("./getKubernetesAvailableUpgrade").getKubernetesAvailableUpgrade = null as any;
+export const getKubernetesAvailableUpgradeOutput: typeof import("./getKubernetesAvailableUpgrade").getKubernetesAvailableUpgradeOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesAvailableUpgrade","getKubernetesAvailableUpgradeOutput"], () => require("./getKubernetesAvailableUpgrade"));
 
 export { GetKubernetesClusterArgs, GetKubernetesClusterResult, GetKubernetesClusterOutputArgs } from "./getKubernetesCluster";
 export const getKubernetesCluster: typeof import("./getKubernetesCluster").getKubernetesCluster = null as any;
 export const getKubernetesClusterOutput: typeof import("./getKubernetesCluster").getKubernetesClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getKubernetesCluster","getKubernetesClusterOutput"], () => require("./getKubernetesCluster"));
 
-export { GetKubernetesClusterLintResultsArgs, GetKubernetesClusterLintResultsResult, GetKubernetesClusterLintResultsOutputArgs } from "./getKubernetesClusterLintResults";
-export const getKubernetesClusterLintResults: typeof import("./getKubernetesClusterLintResults").getKubernetesClusterLintResults = null as any;
-export const getKubernetesClusterLintResultsOutput: typeof import("./getKubernetesClusterLintResults").getKubernetesClusterLintResultsOutput = null as any;
-utilities.lazyLoad(exports, ["getKubernetesClusterLintResults","getKubernetesClusterLintResultsOutput"], () => require("./getKubernetesClusterLintResults"));
+export { GetKubernetesClusterLintResultArgs, GetKubernetesClusterLintResultResult, GetKubernetesClusterLintResultOutputArgs } from "./getKubernetesClusterLintResult";
+export const getKubernetesClusterLintResult: typeof import("./getKubernetesClusterLintResult").getKubernetesClusterLintResult = null as any;
+export const getKubernetesClusterLintResultOutput: typeof import("./getKubernetesClusterLintResult").getKubernetesClusterLintResultOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesClusterLintResult","getKubernetesClusterLintResultOutput"], () => require("./getKubernetesClusterLintResult"));
 
 export { GetKubernetesClusterUserArgs, GetKubernetesClusterUserResult, GetKubernetesClusterUserOutputArgs } from "./getKubernetesClusterUser";
 export const getKubernetesClusterUser: typeof import("./getKubernetesClusterUser").getKubernetesClusterUser = null as any;
 export const getKubernetesClusterUserOutput: typeof import("./getKubernetesClusterUser").getKubernetesClusterUserOutput = null as any;
 utilities.lazyLoad(exports, ["getKubernetesClusterUser","getKubernetesClusterUserOutput"], () => require("./getKubernetesClusterUser"));
 
-export { GetKubernetesCredentialsArgs, GetKubernetesCredentialsResult, GetKubernetesCredentialsOutputArgs } from "./getKubernetesCredentials";
-export const getKubernetesCredentials: typeof import("./getKubernetesCredentials").getKubernetesCredentials = null as any;
-export const getKubernetesCredentialsOutput: typeof import("./getKubernetesCredentials").getKubernetesCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["getKubernetesCredentials","getKubernetesCredentialsOutput"], () => require("./getKubernetesCredentials"));
+export { GetKubernetesCredentialArgs, GetKubernetesCredentialResult, GetKubernetesCredentialOutputArgs } from "./getKubernetesCredential";
+export const getKubernetesCredential: typeof import("./getKubernetesCredential").getKubernetesCredential = null as any;
+export const getKubernetesCredentialOutput: typeof import("./getKubernetesCredential").getKubernetesCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesCredential","getKubernetesCredentialOutput"], () => require("./getKubernetesCredential"));
 
 export { GetKubernetesNodePoolArgs, GetKubernetesNodePoolResult, GetKubernetesNodePoolOutputArgs } from "./getKubernetesNodePool";
 export const getKubernetesNodePool: typeof import("./getKubernetesNodePool").getKubernetesNodePool = null as any;

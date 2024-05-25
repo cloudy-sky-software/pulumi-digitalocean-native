@@ -5,15 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetReservedIPsArgs, GetReservedIPsResult, GetReservedIPsOutputArgs } from "./getReservedIPs";
-export const getReservedIPs: typeof import("./getReservedIPs").getReservedIPs = null as any;
-export const getReservedIPsOutput: typeof import("./getReservedIPs").getReservedIPsOutput = null as any;
-utilities.lazyLoad(exports, ["getReservedIPs","getReservedIPsOutput"], () => require("./getReservedIPs"));
+export { AssignArgs } from "./assign";
+export type Assign = import("./assign").Assign;
+export const Assign: typeof import("./assign").Assign = null as any;
+utilities.lazyLoad(exports, ["Assign"], () => require("./assign"));
 
-export { GetReservedIPsActionsArgs, GetReservedIPsActionsResult, GetReservedIPsActionsOutputArgs } from "./getReservedIPsActions";
-export const getReservedIPsActions: typeof import("./getReservedIPsActions").getReservedIPsActions = null as any;
-export const getReservedIPsActionsOutput: typeof import("./getReservedIPsActions").getReservedIPsActionsOutput = null as any;
-utilities.lazyLoad(exports, ["getReservedIPsActions","getReservedIPsActionsOutput"], () => require("./getReservedIPsActions"));
+export { GetReservedIPArgs, GetReservedIPResult, GetReservedIPOutputArgs } from "./getReservedIP";
+export const getReservedIP: typeof import("./getReservedIP").getReservedIP = null as any;
+export const getReservedIPOutput: typeof import("./getReservedIP").getReservedIPOutput = null as any;
+utilities.lazyLoad(exports, ["getReservedIP","getReservedIPOutput"], () => require("./getReservedIP"));
+
+export { GetReservedIPsActionArgs, GetReservedIPsActionResult, GetReservedIPsActionOutputArgs } from "./getReservedIPsAction";
+export const getReservedIPsAction: typeof import("./getReservedIPsAction").getReservedIPsAction = null as any;
+export const getReservedIPsActionOutput: typeof import("./getReservedIPsAction").getReservedIPsActionOutput = null as any;
+utilities.lazyLoad(exports, ["getReservedIPsAction","getReservedIPsActionOutput"], () => require("./getReservedIPsAction"));
 
 export { ListReservedIPsArgs, ListReservedIPsResult } from "./listReservedIPs";
 export const listReservedIPs: typeof import("./listReservedIPs").listReservedIPs = null as any;
@@ -30,15 +35,10 @@ export type ReservedIPs = import("./reservedIPs").ReservedIPs;
 export const ReservedIPs: typeof import("./reservedIPs").ReservedIPs = null as any;
 utilities.lazyLoad(exports, ["ReservedIPs"], () => require("./reservedIPs"));
 
-export { ReservedIPsActionsAssignArgs } from "./reservedIPsActionsAssign";
-export type ReservedIPsActionsAssign = import("./reservedIPsActionsAssign").ReservedIPsActionsAssign;
-export const ReservedIPsActionsAssign: typeof import("./reservedIPsActionsAssign").ReservedIPsActionsAssign = null as any;
-utilities.lazyLoad(exports, ["ReservedIPsActionsAssign"], () => require("./reservedIPsActionsAssign"));
-
-export { ReservedIPsActionsUnassignArgs } from "./reservedIPsActionsUnassign";
-export type ReservedIPsActionsUnassign = import("./reservedIPsActionsUnassign").ReservedIPsActionsUnassign;
-export const ReservedIPsActionsUnassign: typeof import("./reservedIPsActionsUnassign").ReservedIPsActionsUnassign = null as any;
-utilities.lazyLoad(exports, ["ReservedIPsActionsUnassign"], () => require("./reservedIPsActionsUnassign"));
+export { UnassignArgs } from "./unassign";
+export type Unassign = import("./unassign").Unassign;
+export const Unassign: typeof import("./unassign").Unassign = null as any;
+utilities.lazyLoad(exports, ["Unassign"], () => require("./unassign"));
 
 
 // Export enums:
@@ -48,12 +48,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "digitalocean-native:reserved_ips/v2:Assign":
+                return new Assign(name, <any>undefined, { urn })
             case "digitalocean-native:reserved_ips/v2:ReservedIPs":
                 return new ReservedIPs(name, <any>undefined, { urn })
-            case "digitalocean-native:reserved_ips/v2:ReservedIPsActionsAssign":
-                return new ReservedIPsActionsAssign(name, <any>undefined, { urn })
-            case "digitalocean-native:reserved_ips/v2:ReservedIPsActionsUnassign":
-                return new ReservedIPsActionsUnassign(name, <any>undefined, { urn })
+            case "digitalocean-native:reserved_ips/v2:Unassign":
+                return new Unassign(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

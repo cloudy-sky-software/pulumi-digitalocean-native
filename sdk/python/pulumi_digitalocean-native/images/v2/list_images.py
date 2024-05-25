@@ -27,7 +27,7 @@ class ListImagesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListImages':
+    def items(self) -> 'outputs.ListImagesItems':
         return pulumi.get(self, "items")
 
 

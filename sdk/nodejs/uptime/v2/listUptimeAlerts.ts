@@ -23,7 +23,7 @@ export interface ListUptimeAlertsArgs {
 }
 
 export interface ListUptimeAlertsResult {
-    readonly items: outputs.uptime.v2.ListUptimeAlerts;
+    readonly items: outputs.uptime.v2.ListUptimeAlertsItems;
 }
 export function listUptimeAlertsOutput(args: ListUptimeAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUptimeAlertsResult> {
     return pulumi.output(args).apply((a: any) => listUptimeAlerts(a, opts))

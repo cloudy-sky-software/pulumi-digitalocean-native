@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.DropletsV2
     [OutputType]
     public sealed class ListDropletsBackupsResult
     {
-        public readonly Outputs.ListDropletsBackups Items;
+        public readonly Outputs.ListDropletsBackupsItems Items;
 
         [OutputConstructor]
-        private ListDropletsBackupsResult(Outputs.ListDropletsBackups items)
+        private ListDropletsBackupsResult(Outputs.ListDropletsBackupsItems items)
         {
             Items = items;
         }

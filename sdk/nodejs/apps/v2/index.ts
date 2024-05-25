@@ -40,10 +40,10 @@ export type AppsValidateRollback = import("./appsValidateRollback").AppsValidate
 export const AppsValidateRollback: typeof import("./appsValidateRollback").AppsValidateRollback = null as any;
 utilities.lazyLoad(exports, ["AppsValidateRollback"], () => require("./appsValidateRollback"));
 
-export { GetAppsArgs, GetAppsResult, GetAppsOutputArgs } from "./getApps";
-export const getApps: typeof import("./getApps").getApps = null as any;
-export const getAppsOutput: typeof import("./getApps").getAppsOutput = null as any;
-utilities.lazyLoad(exports, ["getApps","getAppsOutput"], () => require("./getApps"));
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
 
 export { GetAppsDeploymentArgs, GetAppsDeploymentResult, GetAppsDeploymentOutputArgs } from "./getAppsDeployment";
 export const getAppsDeployment: typeof import("./getAppsDeployment").getAppsDeployment = null as any;
@@ -55,10 +55,10 @@ export const getAppsInstanceSize: typeof import("./getAppsInstanceSize").getApps
 export const getAppsInstanceSizeOutput: typeof import("./getAppsInstanceSize").getAppsInstanceSizeOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsInstanceSize","getAppsInstanceSizeOutput"], () => require("./getAppsInstanceSize"));
 
-export { GetAppsLogsArgs, GetAppsLogsResult, GetAppsLogsOutputArgs } from "./getAppsLogs";
-export const getAppsLogs: typeof import("./getAppsLogs").getAppsLogs = null as any;
-export const getAppsLogsOutput: typeof import("./getAppsLogs").getAppsLogsOutput = null as any;
-utilities.lazyLoad(exports, ["getAppsLogs","getAppsLogsOutput"], () => require("./getAppsLogs"));
+export { GetAppsLogArgs, GetAppsLogResult, GetAppsLogOutputArgs } from "./getAppsLog";
+export const getAppsLog: typeof import("./getAppsLog").getAppsLog = null as any;
+export const getAppsLogOutput: typeof import("./getAppsLog").getAppsLogOutput = null as any;
+utilities.lazyLoad(exports, ["getAppsLog","getAppsLogOutput"], () => require("./getAppsLog"));
 
 export { GetAppsLogsActiveDeploymentArgs, GetAppsLogsActiveDeploymentResult, GetAppsLogsActiveDeploymentOutputArgs } from "./getAppsLogsActiveDeployment";
 export const getAppsLogsActiveDeployment: typeof import("./getAppsLogsActiveDeployment").getAppsLogsActiveDeployment = null as any;

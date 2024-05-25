@@ -373,26 +373,26 @@ func (o DomainRecordArrayOutput) Index(i pulumi.IntInput) DomainRecordOutput {
 	}).(DomainRecordOutput)
 }
 
-type GetDomainsProperties struct {
+type GetDomainProperties struct {
 	Domain *Domain `pulumi:"domain"`
 }
 
-type GetDomainsPropertiesOutput struct{ *pulumi.OutputState }
+type GetDomainPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetDomainsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainsProperties)(nil)).Elem()
+func (GetDomainPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainProperties)(nil)).Elem()
 }
 
-func (o GetDomainsPropertiesOutput) ToGetDomainsPropertiesOutput() GetDomainsPropertiesOutput {
+func (o GetDomainPropertiesOutput) ToGetDomainPropertiesOutput() GetDomainPropertiesOutput {
 	return o
 }
 
-func (o GetDomainsPropertiesOutput) ToGetDomainsPropertiesOutputWithContext(ctx context.Context) GetDomainsPropertiesOutput {
+func (o GetDomainPropertiesOutput) ToGetDomainPropertiesOutputWithContext(ctx context.Context) GetDomainPropertiesOutput {
 	return o
 }
 
-func (o GetDomainsPropertiesOutput) Domain() DomainPtrOutput {
-	return o.ApplyT(func(v GetDomainsProperties) *Domain { return v.Domain }).(DomainPtrOutput)
+func (o GetDomainPropertiesOutput) Domain() DomainPtrOutput {
+	return o.ApplyT(func(v GetDomainProperties) *Domain { return v.Domain }).(DomainPtrOutput)
 }
 
 type GetDomainsRecordProperties struct {
@@ -417,70 +417,70 @@ func (o GetDomainsRecordPropertiesOutput) DomainRecord() DomainRecordPtrOutput {
 	return o.ApplyT(func(v GetDomainsRecordProperties) *DomainRecord { return v.DomainRecord }).(DomainRecordPtrOutput)
 }
 
-type ListDomains struct {
+type ListDomainsItems struct {
 	// Array of volumes.
 	Domains []Domain   `pulumi:"domains"`
 	Links   *PageLinks `pulumi:"links"`
 	Meta    MetaMeta   `pulumi:"meta"`
 }
 
-type ListDomainsOutput struct{ *pulumi.OutputState }
+type ListDomainsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListDomainsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListDomains)(nil)).Elem()
+func (ListDomainsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDomainsItems)(nil)).Elem()
 }
 
-func (o ListDomainsOutput) ToListDomainsOutput() ListDomainsOutput {
+func (o ListDomainsItemsOutput) ToListDomainsItemsOutput() ListDomainsItemsOutput {
 	return o
 }
 
-func (o ListDomainsOutput) ToListDomainsOutputWithContext(ctx context.Context) ListDomainsOutput {
+func (o ListDomainsItemsOutput) ToListDomainsItemsOutputWithContext(ctx context.Context) ListDomainsItemsOutput {
 	return o
 }
 
 // Array of volumes.
-func (o ListDomainsOutput) Domains() DomainArrayOutput {
-	return o.ApplyT(func(v ListDomains) []Domain { return v.Domains }).(DomainArrayOutput)
+func (o ListDomainsItemsOutput) Domains() DomainArrayOutput {
+	return o.ApplyT(func(v ListDomainsItems) []Domain { return v.Domains }).(DomainArrayOutput)
 }
 
-func (o ListDomainsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListDomains) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListDomainsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDomainsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListDomainsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListDomains) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListDomainsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDomainsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-type ListDomainsRecords struct {
+type ListDomainsRecordsItems struct {
 	DomainRecords []DomainRecord `pulumi:"domainRecords"`
 	Links         *PageLinks     `pulumi:"links"`
 	Meta          MetaMeta       `pulumi:"meta"`
 }
 
-type ListDomainsRecordsOutput struct{ *pulumi.OutputState }
+type ListDomainsRecordsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListDomainsRecordsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListDomainsRecords)(nil)).Elem()
+func (ListDomainsRecordsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListDomainsRecordsItems)(nil)).Elem()
 }
 
-func (o ListDomainsRecordsOutput) ToListDomainsRecordsOutput() ListDomainsRecordsOutput {
+func (o ListDomainsRecordsItemsOutput) ToListDomainsRecordsItemsOutput() ListDomainsRecordsItemsOutput {
 	return o
 }
 
-func (o ListDomainsRecordsOutput) ToListDomainsRecordsOutputWithContext(ctx context.Context) ListDomainsRecordsOutput {
+func (o ListDomainsRecordsItemsOutput) ToListDomainsRecordsItemsOutputWithContext(ctx context.Context) ListDomainsRecordsItemsOutput {
 	return o
 }
 
-func (o ListDomainsRecordsOutput) DomainRecords() DomainRecordArrayOutput {
-	return o.ApplyT(func(v ListDomainsRecords) []DomainRecord { return v.DomainRecords }).(DomainRecordArrayOutput)
+func (o ListDomainsRecordsItemsOutput) DomainRecords() DomainRecordArrayOutput {
+	return o.ApplyT(func(v ListDomainsRecordsItems) []DomainRecord { return v.DomainRecords }).(DomainRecordArrayOutput)
 }
 
-func (o ListDomainsRecordsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListDomainsRecords) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListDomainsRecordsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDomainsRecordsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListDomainsRecordsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListDomainsRecords) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListDomainsRecordsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDomainsRecordsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -666,10 +666,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainRecordOutput{})
 	pulumi.RegisterOutputType(DomainRecordPtrOutput{})
 	pulumi.RegisterOutputType(DomainRecordArrayOutput{})
-	pulumi.RegisterOutputType(GetDomainsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetDomainPropertiesOutput{})
 	pulumi.RegisterOutputType(GetDomainsRecordPropertiesOutput{})
-	pulumi.RegisterOutputType(ListDomainsOutput{})
-	pulumi.RegisterOutputType(ListDomainsRecordsOutput{})
+	pulumi.RegisterOutputType(ListDomainsItemsOutput{})
+	pulumi.RegisterOutputType(ListDomainsRecordsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

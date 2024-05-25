@@ -13,62 +13,62 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type GetTagsProperties struct {
+type GetTagProperties struct {
 	// A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
 	// Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
 	Tag *TagsType `pulumi:"tag"`
 }
 
-type GetTagsPropertiesOutput struct{ *pulumi.OutputState }
+type GetTagPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetTagsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTagsProperties)(nil)).Elem()
+func (GetTagPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagProperties)(nil)).Elem()
 }
 
-func (o GetTagsPropertiesOutput) ToGetTagsPropertiesOutput() GetTagsPropertiesOutput {
+func (o GetTagPropertiesOutput) ToGetTagPropertiesOutput() GetTagPropertiesOutput {
 	return o
 }
 
-func (o GetTagsPropertiesOutput) ToGetTagsPropertiesOutputWithContext(ctx context.Context) GetTagsPropertiesOutput {
+func (o GetTagPropertiesOutput) ToGetTagPropertiesOutputWithContext(ctx context.Context) GetTagPropertiesOutput {
 	return o
 }
 
 // A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
 // Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-func (o GetTagsPropertiesOutput) Tag() TagsTypePtrOutput {
-	return o.ApplyT(func(v GetTagsProperties) *TagsType { return v.Tag }).(TagsTypePtrOutput)
+func (o GetTagPropertiesOutput) Tag() TagsTypePtrOutput {
+	return o.ApplyT(func(v GetTagProperties) *TagsType { return v.Tag }).(TagsTypePtrOutput)
 }
 
-type ListTags struct {
+type ListTagsItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
 	Tags  []TagsType `pulumi:"tags"`
 }
 
-type ListTagsOutput struct{ *pulumi.OutputState }
+type ListTagsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListTags)(nil)).Elem()
+func (ListTagsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListTagsItems)(nil)).Elem()
 }
 
-func (o ListTagsOutput) ToListTagsOutput() ListTagsOutput {
+func (o ListTagsItemsOutput) ToListTagsItemsOutput() ListTagsItemsOutput {
 	return o
 }
 
-func (o ListTagsOutput) ToListTagsOutputWithContext(ctx context.Context) ListTagsOutput {
+func (o ListTagsItemsOutput) ToListTagsItemsOutputWithContext(ctx context.Context) ListTagsItemsOutput {
 	return o
 }
 
-func (o ListTagsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListTags) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListTagsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListTagsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListTagsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListTags) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListTagsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListTagsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListTagsOutput) Tags() TagsTypeArrayOutput {
-	return o.ApplyT(func(v ListTags) []TagsType { return v.Tags }).(TagsTypeArrayOutput)
+func (o ListTagsItemsOutput) Tags() TagsTypeArrayOutput {
+	return o.ApplyT(func(v ListTagsItems) []TagsType { return v.Tags }).(TagsTypeArrayOutput)
 }
 
 type MetaMeta struct {
@@ -630,8 +630,8 @@ func (o TagsResourcesPtrOutput) LastTaggedUri() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcesItemPropertiesInput)(nil)).Elem(), ResourcesItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcesItemPropertiesArrayInput)(nil)).Elem(), ResourcesItemPropertiesArray{})
-	pulumi.RegisterOutputType(GetTagsPropertiesOutput{})
-	pulumi.RegisterOutputType(ListTagsOutput{})
+	pulumi.RegisterOutputType(GetTagPropertiesOutput{})
+	pulumi.RegisterOutputType(ListTagsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

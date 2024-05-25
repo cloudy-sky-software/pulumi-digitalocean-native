@@ -5,140 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { DropletActionsByTagDisableBackupsArgs } from "./dropletActionsByTagDisableBackups";
-export type DropletActionsByTagDisableBackups = import("./dropletActionsByTagDisableBackups").DropletActionsByTagDisableBackups;
-export const DropletActionsByTagDisableBackups: typeof import("./dropletActionsByTagDisableBackups").DropletActionsByTagDisableBackups = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagDisableBackups"], () => require("./dropletActionsByTagDisableBackups"));
+export { ChangeKernelArgs } from "./changeKernel";
+export type ChangeKernel = import("./changeKernel").ChangeKernel;
+export const ChangeKernel: typeof import("./changeKernel").ChangeKernel = null as any;
+utilities.lazyLoad(exports, ["ChangeKernel"], () => require("./changeKernel"));
 
-export { DropletActionsByTagEnableBackupsArgs } from "./dropletActionsByTagEnableBackups";
-export type DropletActionsByTagEnableBackups = import("./dropletActionsByTagEnableBackups").DropletActionsByTagEnableBackups;
-export const DropletActionsByTagEnableBackups: typeof import("./dropletActionsByTagEnableBackups").DropletActionsByTagEnableBackups = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagEnableBackups"], () => require("./dropletActionsByTagEnableBackups"));
-
-export { DropletActionsByTagEnableIpv6Args } from "./dropletActionsByTagEnableIpv6";
-export type DropletActionsByTagEnableIpv6 = import("./dropletActionsByTagEnableIpv6").DropletActionsByTagEnableIpv6;
-export const DropletActionsByTagEnableIpv6: typeof import("./dropletActionsByTagEnableIpv6").DropletActionsByTagEnableIpv6 = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagEnableIpv6"], () => require("./dropletActionsByTagEnableIpv6"));
-
-export { DropletActionsByTagPowerCycleArgs } from "./dropletActionsByTagPowerCycle";
-export type DropletActionsByTagPowerCycle = import("./dropletActionsByTagPowerCycle").DropletActionsByTagPowerCycle;
-export const DropletActionsByTagPowerCycle: typeof import("./dropletActionsByTagPowerCycle").DropletActionsByTagPowerCycle = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagPowerCycle"], () => require("./dropletActionsByTagPowerCycle"));
-
-export { DropletActionsByTagPowerOffArgs } from "./dropletActionsByTagPowerOff";
-export type DropletActionsByTagPowerOff = import("./dropletActionsByTagPowerOff").DropletActionsByTagPowerOff;
-export const DropletActionsByTagPowerOff: typeof import("./dropletActionsByTagPowerOff").DropletActionsByTagPowerOff = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagPowerOff"], () => require("./dropletActionsByTagPowerOff"));
-
-export { DropletActionsByTagPowerOnArgs } from "./dropletActionsByTagPowerOn";
-export type DropletActionsByTagPowerOn = import("./dropletActionsByTagPowerOn").DropletActionsByTagPowerOn;
-export const DropletActionsByTagPowerOn: typeof import("./dropletActionsByTagPowerOn").DropletActionsByTagPowerOn = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagPowerOn"], () => require("./dropletActionsByTagPowerOn"));
-
-export { DropletActionsByTagShutdownArgs } from "./dropletActionsByTagShutdown";
-export type DropletActionsByTagShutdown = import("./dropletActionsByTagShutdown").DropletActionsByTagShutdown;
-export const DropletActionsByTagShutdown: typeof import("./dropletActionsByTagShutdown").DropletActionsByTagShutdown = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagShutdown"], () => require("./dropletActionsByTagShutdown"));
-
-export { DropletActionsByTagSnapshotArgs } from "./dropletActionsByTagSnapshot";
-export type DropletActionsByTagSnapshot = import("./dropletActionsByTagSnapshot").DropletActionsByTagSnapshot;
-export const DropletActionsByTagSnapshot: typeof import("./dropletActionsByTagSnapshot").DropletActionsByTagSnapshot = null as any;
-utilities.lazyLoad(exports, ["DropletActionsByTagSnapshot"], () => require("./dropletActionsByTagSnapshot"));
-
-export { DropletActionsChangeKernelArgs } from "./dropletActionsChangeKernel";
-export type DropletActionsChangeKernel = import("./dropletActionsChangeKernel").DropletActionsChangeKernel;
-export const DropletActionsChangeKernel: typeof import("./dropletActionsChangeKernel").DropletActionsChangeKernel = null as any;
-utilities.lazyLoad(exports, ["DropletActionsChangeKernel"], () => require("./dropletActionsChangeKernel"));
-
-export { DropletActionsDisableBackupsArgs } from "./dropletActionsDisableBackups";
-export type DropletActionsDisableBackups = import("./dropletActionsDisableBackups").DropletActionsDisableBackups;
-export const DropletActionsDisableBackups: typeof import("./dropletActionsDisableBackups").DropletActionsDisableBackups = null as any;
-utilities.lazyLoad(exports, ["DropletActionsDisableBackups"], () => require("./dropletActionsDisableBackups"));
-
-export { DropletActionsEnableBackupsArgs } from "./dropletActionsEnableBackups";
-export type DropletActionsEnableBackups = import("./dropletActionsEnableBackups").DropletActionsEnableBackups;
-export const DropletActionsEnableBackups: typeof import("./dropletActionsEnableBackups").DropletActionsEnableBackups = null as any;
-utilities.lazyLoad(exports, ["DropletActionsEnableBackups"], () => require("./dropletActionsEnableBackups"));
-
-export { DropletActionsEnableIpv6Args } from "./dropletActionsEnableIpv6";
-export type DropletActionsEnableIpv6 = import("./dropletActionsEnableIpv6").DropletActionsEnableIpv6;
-export const DropletActionsEnableIpv6: typeof import("./dropletActionsEnableIpv6").DropletActionsEnableIpv6 = null as any;
-utilities.lazyLoad(exports, ["DropletActionsEnableIpv6"], () => require("./dropletActionsEnableIpv6"));
-
-export { DropletActionsPasswordResetArgs } from "./dropletActionsPasswordReset";
-export type DropletActionsPasswordReset = import("./dropletActionsPasswordReset").DropletActionsPasswordReset;
-export const DropletActionsPasswordReset: typeof import("./dropletActionsPasswordReset").DropletActionsPasswordReset = null as any;
-utilities.lazyLoad(exports, ["DropletActionsPasswordReset"], () => require("./dropletActionsPasswordReset"));
-
-export { DropletActionsPowerCycleArgs } from "./dropletActionsPowerCycle";
-export type DropletActionsPowerCycle = import("./dropletActionsPowerCycle").DropletActionsPowerCycle;
-export const DropletActionsPowerCycle: typeof import("./dropletActionsPowerCycle").DropletActionsPowerCycle = null as any;
-utilities.lazyLoad(exports, ["DropletActionsPowerCycle"], () => require("./dropletActionsPowerCycle"));
-
-export { DropletActionsPowerOffArgs } from "./dropletActionsPowerOff";
-export type DropletActionsPowerOff = import("./dropletActionsPowerOff").DropletActionsPowerOff;
-export const DropletActionsPowerOff: typeof import("./dropletActionsPowerOff").DropletActionsPowerOff = null as any;
-utilities.lazyLoad(exports, ["DropletActionsPowerOff"], () => require("./dropletActionsPowerOff"));
-
-export { DropletActionsPowerOnArgs } from "./dropletActionsPowerOn";
-export type DropletActionsPowerOn = import("./dropletActionsPowerOn").DropletActionsPowerOn;
-export const DropletActionsPowerOn: typeof import("./dropletActionsPowerOn").DropletActionsPowerOn = null as any;
-utilities.lazyLoad(exports, ["DropletActionsPowerOn"], () => require("./dropletActionsPowerOn"));
-
-export { DropletActionsRebootArgs } from "./dropletActionsReboot";
-export type DropletActionsReboot = import("./dropletActionsReboot").DropletActionsReboot;
-export const DropletActionsReboot: typeof import("./dropletActionsReboot").DropletActionsReboot = null as any;
-utilities.lazyLoad(exports, ["DropletActionsReboot"], () => require("./dropletActionsReboot"));
-
-export { DropletActionsRebuildArgs } from "./dropletActionsRebuild";
-export type DropletActionsRebuild = import("./dropletActionsRebuild").DropletActionsRebuild;
-export const DropletActionsRebuild: typeof import("./dropletActionsRebuild").DropletActionsRebuild = null as any;
-utilities.lazyLoad(exports, ["DropletActionsRebuild"], () => require("./dropletActionsRebuild"));
-
-export { DropletActionsRenameArgs } from "./dropletActionsRename";
-export type DropletActionsRename = import("./dropletActionsRename").DropletActionsRename;
-export const DropletActionsRename: typeof import("./dropletActionsRename").DropletActionsRename = null as any;
-utilities.lazyLoad(exports, ["DropletActionsRename"], () => require("./dropletActionsRename"));
-
-export { DropletActionsResizeArgs } from "./dropletActionsResize";
-export type DropletActionsResize = import("./dropletActionsResize").DropletActionsResize;
-export const DropletActionsResize: typeof import("./dropletActionsResize").DropletActionsResize = null as any;
-utilities.lazyLoad(exports, ["DropletActionsResize"], () => require("./dropletActionsResize"));
-
-export { DropletActionsRestoreArgs } from "./dropletActionsRestore";
-export type DropletActionsRestore = import("./dropletActionsRestore").DropletActionsRestore;
-export const DropletActionsRestore: typeof import("./dropletActionsRestore").DropletActionsRestore = null as any;
-utilities.lazyLoad(exports, ["DropletActionsRestore"], () => require("./dropletActionsRestore"));
-
-export { DropletActionsShutdownArgs } from "./dropletActionsShutdown";
-export type DropletActionsShutdown = import("./dropletActionsShutdown").DropletActionsShutdown;
-export const DropletActionsShutdown: typeof import("./dropletActionsShutdown").DropletActionsShutdown = null as any;
-utilities.lazyLoad(exports, ["DropletActionsShutdown"], () => require("./dropletActionsShutdown"));
-
-export { DropletActionsSnapshotArgs } from "./dropletActionsSnapshot";
-export type DropletActionsSnapshot = import("./dropletActionsSnapshot").DropletActionsSnapshot;
-export const DropletActionsSnapshot: typeof import("./dropletActionsSnapshot").DropletActionsSnapshot = null as any;
-utilities.lazyLoad(exports, ["DropletActionsSnapshot"], () => require("./dropletActionsSnapshot"));
+export { DisableBackupsArgs } from "./disableBackups";
+export type DisableBackups = import("./disableBackups").DisableBackups;
+export const DisableBackups: typeof import("./disableBackups").DisableBackups = null as any;
+utilities.lazyLoad(exports, ["DisableBackups"], () => require("./disableBackups"));
 
 export { DropletsArgs } from "./droplets";
 export type Droplets = import("./droplets").Droplets;
 export const Droplets: typeof import("./droplets").Droplets = null as any;
 utilities.lazyLoad(exports, ["Droplets"], () => require("./droplets"));
 
-export { GetDropletActionsArgs, GetDropletActionsResult, GetDropletActionsOutputArgs } from "./getDropletActions";
-export const getDropletActions: typeof import("./getDropletActions").getDropletActions = null as any;
-export const getDropletActionsOutput: typeof import("./getDropletActions").getDropletActionsOutput = null as any;
-utilities.lazyLoad(exports, ["getDropletActions","getDropletActionsOutput"], () => require("./getDropletActions"));
+export { EnableBackupsArgs } from "./enableBackups";
+export type EnableBackups = import("./enableBackups").EnableBackups;
+export const EnableBackups: typeof import("./enableBackups").EnableBackups = null as any;
+utilities.lazyLoad(exports, ["EnableBackups"], () => require("./enableBackups"));
 
-export { GetDropletsArgs, GetDropletsResult, GetDropletsOutputArgs } from "./getDroplets";
-export const getDroplets: typeof import("./getDroplets").getDroplets = null as any;
-export const getDropletsOutput: typeof import("./getDroplets").getDropletsOutput = null as any;
-utilities.lazyLoad(exports, ["getDroplets","getDropletsOutput"], () => require("./getDroplets"));
+export { EnableIpv6Args } from "./enableIpv6";
+export type EnableIpv6 = import("./enableIpv6").EnableIpv6;
+export const EnableIpv6: typeof import("./enableIpv6").EnableIpv6 = null as any;
+utilities.lazyLoad(exports, ["EnableIpv6"], () => require("./enableIpv6"));
 
-export { GetDropletsDestroyAssociatedResourcesStatusArgs, GetDropletsDestroyAssociatedResourcesStatusResult, GetDropletsDestroyAssociatedResourcesStatusOutputArgs } from "./getDropletsDestroyAssociatedResourcesStatus";
-export const getDropletsDestroyAssociatedResourcesStatus: typeof import("./getDropletsDestroyAssociatedResourcesStatus").getDropletsDestroyAssociatedResourcesStatus = null as any;
-export const getDropletsDestroyAssociatedResourcesStatusOutput: typeof import("./getDropletsDestroyAssociatedResourcesStatus").getDropletsDestroyAssociatedResourcesStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getDropletsDestroyAssociatedResourcesStatus","getDropletsDestroyAssociatedResourcesStatusOutput"], () => require("./getDropletsDestroyAssociatedResourcesStatus"));
+export { GetDropletArgs, GetDropletResult, GetDropletOutputArgs } from "./getDroplet";
+export const getDroplet: typeof import("./getDroplet").getDroplet = null as any;
+export const getDropletOutput: typeof import("./getDroplet").getDropletOutput = null as any;
+utilities.lazyLoad(exports, ["getDroplet","getDropletOutput"], () => require("./getDroplet"));
+
+export { GetDropletActionArgs, GetDropletActionResult, GetDropletActionOutputArgs } from "./getDropletAction";
+export const getDropletAction: typeof import("./getDropletAction").getDropletAction = null as any;
+export const getDropletActionOutput: typeof import("./getDropletAction").getDropletActionOutput = null as any;
+utilities.lazyLoad(exports, ["getDropletAction","getDropletActionOutput"], () => require("./getDropletAction"));
+
+export { GetDropletsDestroyAssociatedResourcesStatuArgs, GetDropletsDestroyAssociatedResourcesStatuResult, GetDropletsDestroyAssociatedResourcesStatuOutputArgs } from "./getDropletsDestroyAssociatedResourcesStatu";
+export const getDropletsDestroyAssociatedResourcesStatu: typeof import("./getDropletsDestroyAssociatedResourcesStatu").getDropletsDestroyAssociatedResourcesStatu = null as any;
+export const getDropletsDestroyAssociatedResourcesStatuOutput: typeof import("./getDropletsDestroyAssociatedResourcesStatu").getDropletsDestroyAssociatedResourcesStatuOutput = null as any;
+utilities.lazyLoad(exports, ["getDropletsDestroyAssociatedResourcesStatu","getDropletsDestroyAssociatedResourcesStatuOutput"], () => require("./getDropletsDestroyAssociatedResourcesStatu"));
 
 export { ListDropletActionsArgs, ListDropletActionsResult, ListDropletActionsOutputArgs } from "./listDropletActions";
 export const listDropletActions: typeof import("./listDropletActions").listDropletActions = null as any;
@@ -180,6 +85,61 @@ export const listDropletsSnapshots: typeof import("./listDropletsSnapshots").lis
 export const listDropletsSnapshotsOutput: typeof import("./listDropletsSnapshots").listDropletsSnapshotsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsSnapshots","listDropletsSnapshotsOutput"], () => require("./listDropletsSnapshots"));
 
+export { PasswordResetArgs } from "./passwordReset";
+export type PasswordReset = import("./passwordReset").PasswordReset;
+export const PasswordReset: typeof import("./passwordReset").PasswordReset = null as any;
+utilities.lazyLoad(exports, ["PasswordReset"], () => require("./passwordReset"));
+
+export { PowerCycleArgs } from "./powerCycle";
+export type PowerCycle = import("./powerCycle").PowerCycle;
+export const PowerCycle: typeof import("./powerCycle").PowerCycle = null as any;
+utilities.lazyLoad(exports, ["PowerCycle"], () => require("./powerCycle"));
+
+export { PowerOffArgs } from "./powerOff";
+export type PowerOff = import("./powerOff").PowerOff;
+export const PowerOff: typeof import("./powerOff").PowerOff = null as any;
+utilities.lazyLoad(exports, ["PowerOff"], () => require("./powerOff"));
+
+export { PowerOnArgs } from "./powerOn";
+export type PowerOn = import("./powerOn").PowerOn;
+export const PowerOn: typeof import("./powerOn").PowerOn = null as any;
+utilities.lazyLoad(exports, ["PowerOn"], () => require("./powerOn"));
+
+export { RebootArgs } from "./reboot";
+export type Reboot = import("./reboot").Reboot;
+export const Reboot: typeof import("./reboot").Reboot = null as any;
+utilities.lazyLoad(exports, ["Reboot"], () => require("./reboot"));
+
+export { RebuildArgs } from "./rebuild";
+export type Rebuild = import("./rebuild").Rebuild;
+export const Rebuild: typeof import("./rebuild").Rebuild = null as any;
+utilities.lazyLoad(exports, ["Rebuild"], () => require("./rebuild"));
+
+export { RenameArgs } from "./rename";
+export type Rename = import("./rename").Rename;
+export const Rename: typeof import("./rename").Rename = null as any;
+utilities.lazyLoad(exports, ["Rename"], () => require("./rename"));
+
+export { ResizeArgs } from "./resize";
+export type Resize = import("./resize").Resize;
+export const Resize: typeof import("./resize").Resize = null as any;
+utilities.lazyLoad(exports, ["Resize"], () => require("./resize"));
+
+export { RestoreArgs } from "./restore";
+export type Restore = import("./restore").Restore;
+export const Restore: typeof import("./restore").Restore = null as any;
+utilities.lazyLoad(exports, ["Restore"], () => require("./restore"));
+
+export { ShutdownArgs } from "./shutdown";
+export type Shutdown = import("./shutdown").Shutdown;
+export const Shutdown: typeof import("./shutdown").Shutdown = null as any;
+utilities.lazyLoad(exports, ["Shutdown"], () => require("./shutdown"));
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 
 // Export enums:
 export * from "../../types/enums/droplets/v2";
@@ -188,54 +148,38 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:droplets/v2:DropletActionsByTagDisableBackups":
-                return new DropletActionsByTagDisableBackups(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagEnableBackups":
-                return new DropletActionsByTagEnableBackups(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagEnableIpv6":
-                return new DropletActionsByTagEnableIpv6(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagPowerCycle":
-                return new DropletActionsByTagPowerCycle(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagPowerOff":
-                return new DropletActionsByTagPowerOff(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagPowerOn":
-                return new DropletActionsByTagPowerOn(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagShutdown":
-                return new DropletActionsByTagShutdown(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsByTagSnapshot":
-                return new DropletActionsByTagSnapshot(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsChangeKernel":
-                return new DropletActionsChangeKernel(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsDisableBackups":
-                return new DropletActionsDisableBackups(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsEnableBackups":
-                return new DropletActionsEnableBackups(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsEnableIpv6":
-                return new DropletActionsEnableIpv6(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsPasswordReset":
-                return new DropletActionsPasswordReset(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsPowerCycle":
-                return new DropletActionsPowerCycle(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsPowerOff":
-                return new DropletActionsPowerOff(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsPowerOn":
-                return new DropletActionsPowerOn(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsReboot":
-                return new DropletActionsReboot(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsRebuild":
-                return new DropletActionsRebuild(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsRename":
-                return new DropletActionsRename(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsResize":
-                return new DropletActionsResize(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsRestore":
-                return new DropletActionsRestore(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsShutdown":
-                return new DropletActionsShutdown(name, <any>undefined, { urn })
-            case "digitalocean-native:droplets/v2:DropletActionsSnapshot":
-                return new DropletActionsSnapshot(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:ChangeKernel":
+                return new ChangeKernel(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:DisableBackups":
+                return new DisableBackups(name, <any>undefined, { urn })
             case "digitalocean-native:droplets/v2:Droplets":
                 return new Droplets(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:EnableBackups":
+                return new EnableBackups(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:EnableIpv6":
+                return new EnableIpv6(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:PasswordReset":
+                return new PasswordReset(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:PowerCycle":
+                return new PowerCycle(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:PowerOff":
+                return new PowerOff(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:PowerOn":
+                return new PowerOn(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Reboot":
+                return new Reboot(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Rebuild":
+                return new Rebuild(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Rename":
+                return new Rename(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Resize":
+                return new Resize(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Restore":
+                return new Restore(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Shutdown":
+                return new Shutdown(name, <any>undefined, { urn })
+            case "digitalocean-native:droplets/v2:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.MonitoringV2
     [OutputType]
     public sealed class ListMonitoringAlertPolicyResult
     {
-        public readonly Outputs.ListMonitoringAlertPolicy Items;
+        public readonly Outputs.ListMonitoringAlertPolicyItems Items;
 
         [OutputConstructor]
-        private ListMonitoringAlertPolicyResult(Outputs.ListMonitoringAlertPolicy items)
+        private ListMonitoringAlertPolicyResult(Outputs.ListMonitoringAlertPolicyItems items)
         {
             Items = items;
         }

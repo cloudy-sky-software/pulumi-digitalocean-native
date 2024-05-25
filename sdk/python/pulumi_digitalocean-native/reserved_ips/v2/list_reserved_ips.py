@@ -27,7 +27,7 @@ class ListReservedIPsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListReservedIPs':
+    def items(self) -> 'outputs.ListReservedIPsItems':
         return pulumi.get(self, "items")
 
 

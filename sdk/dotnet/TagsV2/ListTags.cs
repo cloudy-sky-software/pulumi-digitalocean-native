@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.TagsV2
     [OutputType]
     public sealed class ListTagsResult
     {
-        public readonly Outputs.ListTags Items;
+        public readonly Outputs.ListTagsItems Items;
 
         [OutputConstructor]
-        private ListTagsResult(Outputs.ListTags items)
+        private ListTagsResult(Outputs.ListTagsItems items)
         {
             Items = items;
         }

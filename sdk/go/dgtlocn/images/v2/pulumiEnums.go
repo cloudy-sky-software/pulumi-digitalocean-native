@@ -268,196 +268,6 @@ func (in *imageActionBaseTypePtr) ToImageActionBaseTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ImageActionBaseTypePtrOutput)
 }
 
-// The slug identifier for the region where the resource will initially be  available.
-type ImageActionsTransferPropertiesRegion string
-
-const (
-	ImageActionsTransferPropertiesRegionAms1 = ImageActionsTransferPropertiesRegion("ams1")
-	ImageActionsTransferPropertiesRegionAms2 = ImageActionsTransferPropertiesRegion("ams2")
-	ImageActionsTransferPropertiesRegionAms3 = ImageActionsTransferPropertiesRegion("ams3")
-	ImageActionsTransferPropertiesRegionBlr1 = ImageActionsTransferPropertiesRegion("blr1")
-	ImageActionsTransferPropertiesRegionFra1 = ImageActionsTransferPropertiesRegion("fra1")
-	ImageActionsTransferPropertiesRegionLon1 = ImageActionsTransferPropertiesRegion("lon1")
-	ImageActionsTransferPropertiesRegionNyc1 = ImageActionsTransferPropertiesRegion("nyc1")
-	ImageActionsTransferPropertiesRegionNyc2 = ImageActionsTransferPropertiesRegion("nyc2")
-	ImageActionsTransferPropertiesRegionNyc3 = ImageActionsTransferPropertiesRegion("nyc3")
-	ImageActionsTransferPropertiesRegionSfo1 = ImageActionsTransferPropertiesRegion("sfo1")
-	ImageActionsTransferPropertiesRegionSfo2 = ImageActionsTransferPropertiesRegion("sfo2")
-	ImageActionsTransferPropertiesRegionSfo3 = ImageActionsTransferPropertiesRegion("sfo3")
-	ImageActionsTransferPropertiesRegionSgp1 = ImageActionsTransferPropertiesRegion("sgp1")
-	ImageActionsTransferPropertiesRegionTor1 = ImageActionsTransferPropertiesRegion("tor1")
-)
-
-func (ImageActionsTransferPropertiesRegion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageActionsTransferPropertiesRegion)(nil)).Elem()
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToImageActionsTransferPropertiesRegionOutput() ImageActionsTransferPropertiesRegionOutput {
-	return pulumi.ToOutput(e).(ImageActionsTransferPropertiesRegionOutput)
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToImageActionsTransferPropertiesRegionOutputWithContext(ctx context.Context) ImageActionsTransferPropertiesRegionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ImageActionsTransferPropertiesRegionOutput)
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToImageActionsTransferPropertiesRegionPtrOutput() ImageActionsTransferPropertiesRegionPtrOutput {
-	return e.ToImageActionsTransferPropertiesRegionPtrOutputWithContext(context.Background())
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToImageActionsTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) ImageActionsTransferPropertiesRegionPtrOutput {
-	return ImageActionsTransferPropertiesRegion(e).ToImageActionsTransferPropertiesRegionOutputWithContext(ctx).ToImageActionsTransferPropertiesRegionPtrOutputWithContext(ctx)
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ImageActionsTransferPropertiesRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ImageActionsTransferPropertiesRegionOutput struct{ *pulumi.OutputState }
-
-func (ImageActionsTransferPropertiesRegionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageActionsTransferPropertiesRegion)(nil)).Elem()
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToImageActionsTransferPropertiesRegionOutput() ImageActionsTransferPropertiesRegionOutput {
-	return o
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToImageActionsTransferPropertiesRegionOutputWithContext(ctx context.Context) ImageActionsTransferPropertiesRegionOutput {
-	return o
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToImageActionsTransferPropertiesRegionPtrOutput() ImageActionsTransferPropertiesRegionPtrOutput {
-	return o.ToImageActionsTransferPropertiesRegionPtrOutputWithContext(context.Background())
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToImageActionsTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) ImageActionsTransferPropertiesRegionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageActionsTransferPropertiesRegion) *ImageActionsTransferPropertiesRegion {
-		return &v
-	}).(ImageActionsTransferPropertiesRegionPtrOutput)
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageActionsTransferPropertiesRegion) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ImageActionsTransferPropertiesRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageActionsTransferPropertiesRegion) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ImageActionsTransferPropertiesRegionPtrOutput struct{ *pulumi.OutputState }
-
-func (ImageActionsTransferPropertiesRegionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageActionsTransferPropertiesRegion)(nil)).Elem()
-}
-
-func (o ImageActionsTransferPropertiesRegionPtrOutput) ToImageActionsTransferPropertiesRegionPtrOutput() ImageActionsTransferPropertiesRegionPtrOutput {
-	return o
-}
-
-func (o ImageActionsTransferPropertiesRegionPtrOutput) ToImageActionsTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) ImageActionsTransferPropertiesRegionPtrOutput {
-	return o
-}
-
-func (o ImageActionsTransferPropertiesRegionPtrOutput) Elem() ImageActionsTransferPropertiesRegionOutput {
-	return o.ApplyT(func(v *ImageActionsTransferPropertiesRegion) ImageActionsTransferPropertiesRegion {
-		if v != nil {
-			return *v
-		}
-		var ret ImageActionsTransferPropertiesRegion
-		return ret
-	}).(ImageActionsTransferPropertiesRegionOutput)
-}
-
-func (o ImageActionsTransferPropertiesRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ImageActionsTransferPropertiesRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageActionsTransferPropertiesRegion) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ImageActionsTransferPropertiesRegionInput is an input type that accepts values of the ImageActionsTransferPropertiesRegion enum
-// A concrete instance of `ImageActionsTransferPropertiesRegionInput` can be one of the following:
-//
-//	ImageActionsTransferPropertiesRegionAms1
-//	ImageActionsTransferPropertiesRegionAms2
-//	ImageActionsTransferPropertiesRegionAms3
-//	ImageActionsTransferPropertiesRegionBlr1
-//	ImageActionsTransferPropertiesRegionFra1
-//	ImageActionsTransferPropertiesRegionLon1
-//	ImageActionsTransferPropertiesRegionNyc1
-//	ImageActionsTransferPropertiesRegionNyc2
-//	ImageActionsTransferPropertiesRegionNyc3
-//	ImageActionsTransferPropertiesRegionSfo1
-//	ImageActionsTransferPropertiesRegionSfo2
-//	ImageActionsTransferPropertiesRegionSfo3
-//	ImageActionsTransferPropertiesRegionSgp1
-//	ImageActionsTransferPropertiesRegionTor1
-type ImageActionsTransferPropertiesRegionInput interface {
-	pulumi.Input
-
-	ToImageActionsTransferPropertiesRegionOutput() ImageActionsTransferPropertiesRegionOutput
-	ToImageActionsTransferPropertiesRegionOutputWithContext(context.Context) ImageActionsTransferPropertiesRegionOutput
-}
-
-var imageActionsTransferPropertiesRegionPtrType = reflect.TypeOf((**ImageActionsTransferPropertiesRegion)(nil)).Elem()
-
-type ImageActionsTransferPropertiesRegionPtrInput interface {
-	pulumi.Input
-
-	ToImageActionsTransferPropertiesRegionPtrOutput() ImageActionsTransferPropertiesRegionPtrOutput
-	ToImageActionsTransferPropertiesRegionPtrOutputWithContext(context.Context) ImageActionsTransferPropertiesRegionPtrOutput
-}
-
-type imageActionsTransferPropertiesRegionPtr string
-
-func ImageActionsTransferPropertiesRegionPtr(v string) ImageActionsTransferPropertiesRegionPtrInput {
-	return (*imageActionsTransferPropertiesRegionPtr)(&v)
-}
-
-func (*imageActionsTransferPropertiesRegionPtr) ElementType() reflect.Type {
-	return imageActionsTransferPropertiesRegionPtrType
-}
-
-func (in *imageActionsTransferPropertiesRegionPtr) ToImageActionsTransferPropertiesRegionPtrOutput() ImageActionsTransferPropertiesRegionPtrOutput {
-	return pulumi.ToOutput(in).(ImageActionsTransferPropertiesRegionPtrOutput)
-}
-
-func (in *imageActionsTransferPropertiesRegionPtr) ToImageActionsTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) ImageActionsTransferPropertiesRegionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ImageActionsTransferPropertiesRegionPtrOutput)
-}
-
 // The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
 type ImageDistribution string
 
@@ -1343,6 +1153,196 @@ func (o StatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The slug identifier for the region where the resource will initially be  available.
+type TransferPropertiesRegion string
+
+const (
+	TransferPropertiesRegionAms1 = TransferPropertiesRegion("ams1")
+	TransferPropertiesRegionAms2 = TransferPropertiesRegion("ams2")
+	TransferPropertiesRegionAms3 = TransferPropertiesRegion("ams3")
+	TransferPropertiesRegionBlr1 = TransferPropertiesRegion("blr1")
+	TransferPropertiesRegionFra1 = TransferPropertiesRegion("fra1")
+	TransferPropertiesRegionLon1 = TransferPropertiesRegion("lon1")
+	TransferPropertiesRegionNyc1 = TransferPropertiesRegion("nyc1")
+	TransferPropertiesRegionNyc2 = TransferPropertiesRegion("nyc2")
+	TransferPropertiesRegionNyc3 = TransferPropertiesRegion("nyc3")
+	TransferPropertiesRegionSfo1 = TransferPropertiesRegion("sfo1")
+	TransferPropertiesRegionSfo2 = TransferPropertiesRegion("sfo2")
+	TransferPropertiesRegionSfo3 = TransferPropertiesRegion("sfo3")
+	TransferPropertiesRegionSgp1 = TransferPropertiesRegion("sgp1")
+	TransferPropertiesRegionTor1 = TransferPropertiesRegion("tor1")
+)
+
+func (TransferPropertiesRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferPropertiesRegion)(nil)).Elem()
+}
+
+func (e TransferPropertiesRegion) ToTransferPropertiesRegionOutput() TransferPropertiesRegionOutput {
+	return pulumi.ToOutput(e).(TransferPropertiesRegionOutput)
+}
+
+func (e TransferPropertiesRegion) ToTransferPropertiesRegionOutputWithContext(ctx context.Context) TransferPropertiesRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransferPropertiesRegionOutput)
+}
+
+func (e TransferPropertiesRegion) ToTransferPropertiesRegionPtrOutput() TransferPropertiesRegionPtrOutput {
+	return e.ToTransferPropertiesRegionPtrOutputWithContext(context.Background())
+}
+
+func (e TransferPropertiesRegion) ToTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) TransferPropertiesRegionPtrOutput {
+	return TransferPropertiesRegion(e).ToTransferPropertiesRegionOutputWithContext(ctx).ToTransferPropertiesRegionPtrOutputWithContext(ctx)
+}
+
+func (e TransferPropertiesRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransferPropertiesRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransferPropertiesRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransferPropertiesRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransferPropertiesRegionOutput struct{ *pulumi.OutputState }
+
+func (TransferPropertiesRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferPropertiesRegion)(nil)).Elem()
+}
+
+func (o TransferPropertiesRegionOutput) ToTransferPropertiesRegionOutput() TransferPropertiesRegionOutput {
+	return o
+}
+
+func (o TransferPropertiesRegionOutput) ToTransferPropertiesRegionOutputWithContext(ctx context.Context) TransferPropertiesRegionOutput {
+	return o
+}
+
+func (o TransferPropertiesRegionOutput) ToTransferPropertiesRegionPtrOutput() TransferPropertiesRegionPtrOutput {
+	return o.ToTransferPropertiesRegionPtrOutputWithContext(context.Background())
+}
+
+func (o TransferPropertiesRegionOutput) ToTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) TransferPropertiesRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransferPropertiesRegion) *TransferPropertiesRegion {
+		return &v
+	}).(TransferPropertiesRegionPtrOutput)
+}
+
+func (o TransferPropertiesRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransferPropertiesRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransferPropertiesRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransferPropertiesRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransferPropertiesRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransferPropertiesRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransferPropertiesRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (TransferPropertiesRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferPropertiesRegion)(nil)).Elem()
+}
+
+func (o TransferPropertiesRegionPtrOutput) ToTransferPropertiesRegionPtrOutput() TransferPropertiesRegionPtrOutput {
+	return o
+}
+
+func (o TransferPropertiesRegionPtrOutput) ToTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) TransferPropertiesRegionPtrOutput {
+	return o
+}
+
+func (o TransferPropertiesRegionPtrOutput) Elem() TransferPropertiesRegionOutput {
+	return o.ApplyT(func(v *TransferPropertiesRegion) TransferPropertiesRegion {
+		if v != nil {
+			return *v
+		}
+		var ret TransferPropertiesRegion
+		return ret
+	}).(TransferPropertiesRegionOutput)
+}
+
+func (o TransferPropertiesRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransferPropertiesRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransferPropertiesRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransferPropertiesRegionInput is an input type that accepts values of the TransferPropertiesRegion enum
+// A concrete instance of `TransferPropertiesRegionInput` can be one of the following:
+//
+//	TransferPropertiesRegionAms1
+//	TransferPropertiesRegionAms2
+//	TransferPropertiesRegionAms3
+//	TransferPropertiesRegionBlr1
+//	TransferPropertiesRegionFra1
+//	TransferPropertiesRegionLon1
+//	TransferPropertiesRegionNyc1
+//	TransferPropertiesRegionNyc2
+//	TransferPropertiesRegionNyc3
+//	TransferPropertiesRegionSfo1
+//	TransferPropertiesRegionSfo2
+//	TransferPropertiesRegionSfo3
+//	TransferPropertiesRegionSgp1
+//	TransferPropertiesRegionTor1
+type TransferPropertiesRegionInput interface {
+	pulumi.Input
+
+	ToTransferPropertiesRegionOutput() TransferPropertiesRegionOutput
+	ToTransferPropertiesRegionOutputWithContext(context.Context) TransferPropertiesRegionOutput
+}
+
+var transferPropertiesRegionPtrType = reflect.TypeOf((**TransferPropertiesRegion)(nil)).Elem()
+
+type TransferPropertiesRegionPtrInput interface {
+	pulumi.Input
+
+	ToTransferPropertiesRegionPtrOutput() TransferPropertiesRegionPtrOutput
+	ToTransferPropertiesRegionPtrOutputWithContext(context.Context) TransferPropertiesRegionPtrOutput
+}
+
+type transferPropertiesRegionPtr string
+
+func TransferPropertiesRegionPtr(v string) TransferPropertiesRegionPtrInput {
+	return (*transferPropertiesRegionPtr)(&v)
+}
+
+func (*transferPropertiesRegionPtr) ElementType() reflect.Type {
+	return transferPropertiesRegionPtrType
+}
+
+func (in *transferPropertiesRegionPtr) ToTransferPropertiesRegionPtrOutput() TransferPropertiesRegionPtrOutput {
+	return pulumi.ToOutput(in).(TransferPropertiesRegionPtrOutput)
+}
+
+func (in *transferPropertiesRegionPtr) ToTransferPropertiesRegionPtrOutputWithContext(ctx context.Context) TransferPropertiesRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransferPropertiesRegionPtrOutput)
+}
+
 // The action to be taken on the image. Can be either `convert` or `transfer`.
 type Type string
 
@@ -1512,20 +1512,18 @@ func (in *typePtr) ToTypePtrOutputWithContext(ctx context.Context) TypePtrOutput
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageActionBaseTypeInput)(nil)).Elem(), ImageActionBaseType("convert"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageActionBaseTypePtrInput)(nil)).Elem(), ImageActionBaseType("convert"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageActionsTransferPropertiesRegionInput)(nil)).Elem(), ImageActionsTransferPropertiesRegion("ams1"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageActionsTransferPropertiesRegionPtrInput)(nil)).Elem(), ImageActionsTransferPropertiesRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageUpdateDistributionInput)(nil)).Elem(), ImageUpdateDistribution("Arch Linux"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageUpdateDistributionPtrInput)(nil)).Elem(), ImageUpdateDistribution("Arch Linux"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagesCustomPropertiesRegionInput)(nil)).Elem(), ImagesCustomPropertiesRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagesCustomPropertiesRegionPtrInput)(nil)).Elem(), ImagesCustomPropertiesRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransferPropertiesRegionInput)(nil)).Elem(), TransferPropertiesRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransferPropertiesRegionPtrInput)(nil)).Elem(), TransferPropertiesRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeInput)(nil)).Elem(), Type("convert"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypePtrInput)(nil)).Elem(), Type("convert"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ImageActionBaseTypeOutput{})
 	pulumi.RegisterOutputType(ImageActionBaseTypePtrOutput{})
-	pulumi.RegisterOutputType(ImageActionsTransferPropertiesRegionOutput{})
-	pulumi.RegisterOutputType(ImageActionsTransferPropertiesRegionPtrOutput{})
 	pulumi.RegisterOutputType(ImageDistributionOutput{})
 	pulumi.RegisterOutputType(ImageDistributionPtrOutput{})
 	pulumi.RegisterOutputType(ImageRegionsItemOutput{})
@@ -1541,6 +1539,8 @@ func init() {
 	pulumi.RegisterOutputType(ImagesCustomPropertiesRegionPtrOutput{})
 	pulumi.RegisterOutputType(StatusOutput{})
 	pulumi.RegisterOutputType(StatusPtrOutput{})
+	pulumi.RegisterOutputType(TransferPropertiesRegionOutput{})
+	pulumi.RegisterOutputType(TransferPropertiesRegionPtrOutput{})
 	pulumi.RegisterOutputType(TypeOutput{})
 	pulumi.RegisterOutputType(TypePtrOutput{})
 }

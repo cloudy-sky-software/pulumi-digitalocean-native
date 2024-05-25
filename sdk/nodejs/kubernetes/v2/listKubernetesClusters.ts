@@ -19,7 +19,7 @@ export interface ListKubernetesClustersArgs {
 }
 
 export interface ListKubernetesClustersResult {
-    readonly items: outputs.kubernetes.v2.ListKubernetesClusters;
+    readonly items: outputs.kubernetes.v2.ListKubernetesClustersItems;
 }
 export function listKubernetesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListKubernetesClustersResult> {
     return pulumi.output(listKubernetesClusters(opts))

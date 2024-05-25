@@ -25,7 +25,7 @@ type ListKubernetesClustersArgs struct {
 }
 
 type ListKubernetesClustersResult struct {
-	Items ListKubernetesClusters `pulumi:"items"`
+	Items ListKubernetesClustersItems `pulumi:"items"`
 }
 
 func ListKubernetesClustersOutput(ctx *pulumi.Context, args ListKubernetesClustersOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesClustersResultOutput {
@@ -62,8 +62,8 @@ func (o ListKubernetesClustersResultOutput) ToListKubernetesClustersResultOutput
 	return o
 }
 
-func (o ListKubernetesClustersResultOutput) Items() ListKubernetesClustersOutput {
-	return o.ApplyT(func(v ListKubernetesClustersResult) ListKubernetesClusters { return v.Items }).(ListKubernetesClustersOutput)
+func (o ListKubernetesClustersResultOutput) Items() ListKubernetesClustersItemsOutput {
+	return o.ApplyT(func(v ListKubernetesClustersResult) ListKubernetesClustersItems { return v.Items }).(ListKubernetesClustersItemsOutput)
 }
 
 func init() {

@@ -14,10 +14,10 @@ from ._enums import *
 __all__ = [
     'Action',
     'ActionRegionSlug',
-    'GetImagesProperties',
+    'GetImageProperties',
     'Image',
-    'ListImageActions',
-    'ListImages',
+    'ListImageActionsItems',
+    'ListImagesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -141,7 +141,7 @@ class ActionRegionSlug(dict):
 
 
 @pulumi.output_type
-class GetImagesProperties(dict):
+class GetImageProperties(dict):
     def __init__(__self__, *,
                  image: 'outputs.Image'):
         pulumi.set(__self__, "image", image)
@@ -355,7 +355,7 @@ class Image(dict):
 
 
 @pulumi.output_type
-class ListImageActions(dict):
+class ListImageActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.Action']] = None,
@@ -383,7 +383,7 @@ class ListImageActions(dict):
 
 
 @pulumi.output_type
-class ListImages(dict):
+class ListImagesItems(dict):
     def __init__(__self__, *,
                  images: Sequence['outputs.Image'],
                  meta: 'outputs.MetaMeta',

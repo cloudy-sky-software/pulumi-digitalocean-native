@@ -5,25 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetImageActionsArgs, GetImageActionsResult, GetImageActionsOutputArgs } from "./getImageActions";
-export const getImageActions: typeof import("./getImageActions").getImageActions = null as any;
-export const getImageActionsOutput: typeof import("./getImageActions").getImageActionsOutput = null as any;
-utilities.lazyLoad(exports, ["getImageActions","getImageActionsOutput"], () => require("./getImageActions"));
+export { ConvertArgs } from "./convert";
+export type Convert = import("./convert").Convert;
+export const Convert: typeof import("./convert").Convert = null as any;
+utilities.lazyLoad(exports, ["Convert"], () => require("./convert"));
 
-export { GetImagesArgs, GetImagesResult, GetImagesOutputArgs } from "./getImages";
-export const getImages: typeof import("./getImages").getImages = null as any;
-export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
-utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
-export { ImageActionsConvertArgs } from "./imageActionsConvert";
-export type ImageActionsConvert = import("./imageActionsConvert").ImageActionsConvert;
-export const ImageActionsConvert: typeof import("./imageActionsConvert").ImageActionsConvert = null as any;
-utilities.lazyLoad(exports, ["ImageActionsConvert"], () => require("./imageActionsConvert"));
-
-export { ImageActionsTransferArgs } from "./imageActionsTransfer";
-export type ImageActionsTransfer = import("./imageActionsTransfer").ImageActionsTransfer;
-export const ImageActionsTransfer: typeof import("./imageActionsTransfer").ImageActionsTransfer = null as any;
-utilities.lazyLoad(exports, ["ImageActionsTransfer"], () => require("./imageActionsTransfer"));
+export { GetImageActionArgs, GetImageActionResult, GetImageActionOutputArgs } from "./getImageAction";
+export const getImageAction: typeof import("./getImageAction").getImageAction = null as any;
+export const getImageActionOutput: typeof import("./getImageAction").getImageActionOutput = null as any;
+utilities.lazyLoad(exports, ["getImageAction","getImageActionOutput"], () => require("./getImageAction"));
 
 export { ImagesCustomArgs } from "./imagesCustom";
 export type ImagesCustom = import("./imagesCustom").ImagesCustom;
@@ -40,6 +35,11 @@ export const listImages: typeof import("./listImages").listImages = null as any;
 export const listImagesOutput: typeof import("./listImages").listImagesOutput = null as any;
 utilities.lazyLoad(exports, ["listImages","listImagesOutput"], () => require("./listImages"));
 
+export { TransferArgs } from "./transfer";
+export type Transfer = import("./transfer").Transfer;
+export const Transfer: typeof import("./transfer").Transfer = null as any;
+utilities.lazyLoad(exports, ["Transfer"], () => require("./transfer"));
+
 
 // Export enums:
 export * from "../../types/enums/images/v2";
@@ -48,12 +48,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:images/v2:ImageActionsConvert":
-                return new ImageActionsConvert(name, <any>undefined, { urn })
-            case "digitalocean-native:images/v2:ImageActionsTransfer":
-                return new ImageActionsTransfer(name, <any>undefined, { urn })
+            case "digitalocean-native:images/v2:Convert":
+                return new Convert(name, <any>undefined, { urn })
             case "digitalocean-native:images/v2:ImagesCustom":
                 return new ImagesCustom(name, <any>undefined, { urn })
+            case "digitalocean-native:images/v2:Transfer":
+                return new Transfer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -6,7 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_load_balancers import *
+from .get_load_balancer import *
 from .list_load_balancers import *
 from .load_balancers import *
 from .load_balancers_droplets import *

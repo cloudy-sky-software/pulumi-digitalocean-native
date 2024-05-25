@@ -11,7 +11,7 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListSizes',
+    'ListSizesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ListSizes(dict):
+class ListSizesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  sizes: Sequence['outputs.Size'],

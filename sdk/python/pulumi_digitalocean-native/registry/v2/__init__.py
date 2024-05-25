@@ -7,8 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_registry import *
-from .get_registry_docker_credentials import *
-from .get_registry_options import *
+from .get_registry_docker_credential import *
+from .get_registry_option import *
 from .get_registry_subscription import *
 from .list_registry_garbage_collections import *
 from .list_registry_repositories import *

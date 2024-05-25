@@ -158,12 +158,12 @@ func (o ForwardingRuleArrayOutput) Index(i pulumi.IntInput) ForwardingRuleOutput
 	}).(ForwardingRuleOutput)
 }
 
-type GetLoadBalancersProperties struct {
+type GetLoadBalancerProperties struct {
 	LoadBalancer *LoadBalancer `pulumi:"loadBalancer"`
 }
 
-// Defaults sets the appropriate defaults for GetLoadBalancersProperties
-func (val *GetLoadBalancersProperties) Defaults() *GetLoadBalancersProperties {
+// Defaults sets the appropriate defaults for GetLoadBalancerProperties
+func (val *GetLoadBalancerProperties) Defaults() *GetLoadBalancerProperties {
 	if val == nil {
 		return nil
 	}
@@ -173,22 +173,22 @@ func (val *GetLoadBalancersProperties) Defaults() *GetLoadBalancersProperties {
 	return &tmp
 }
 
-type GetLoadBalancersPropertiesOutput struct{ *pulumi.OutputState }
+type GetLoadBalancerPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetLoadBalancersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancersProperties)(nil)).Elem()
+func (GetLoadBalancerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerProperties)(nil)).Elem()
 }
 
-func (o GetLoadBalancersPropertiesOutput) ToGetLoadBalancersPropertiesOutput() GetLoadBalancersPropertiesOutput {
+func (o GetLoadBalancerPropertiesOutput) ToGetLoadBalancerPropertiesOutput() GetLoadBalancerPropertiesOutput {
 	return o
 }
 
-func (o GetLoadBalancersPropertiesOutput) ToGetLoadBalancersPropertiesOutputWithContext(ctx context.Context) GetLoadBalancersPropertiesOutput {
+func (o GetLoadBalancerPropertiesOutput) ToGetLoadBalancerPropertiesOutputWithContext(ctx context.Context) GetLoadBalancerPropertiesOutput {
 	return o
 }
 
-func (o GetLoadBalancersPropertiesOutput) LoadBalancer() LoadBalancerPtrOutput {
-	return o.ApplyT(func(v GetLoadBalancersProperties) *LoadBalancer { return v.LoadBalancer }).(LoadBalancerPtrOutput)
+func (o GetLoadBalancerPropertiesOutput) LoadBalancer() LoadBalancerPtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerProperties) *LoadBalancer { return v.LoadBalancer }).(LoadBalancerPtrOutput)
 }
 
 // An object specifying health check settings for the load balancer.
@@ -467,36 +467,36 @@ func (o LbFirewallPtrOutput) Deny() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-type ListLoadBalancers struct {
+type ListLoadBalancersItems struct {
 	Links         *PageLinks     `pulumi:"links"`
 	LoadBalancers []LoadBalancer `pulumi:"loadBalancers"`
 	Meta          MetaMeta       `pulumi:"meta"`
 }
 
-type ListLoadBalancersOutput struct{ *pulumi.OutputState }
+type ListLoadBalancersItemsOutput struct{ *pulumi.OutputState }
 
-func (ListLoadBalancersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListLoadBalancers)(nil)).Elem()
+func (ListLoadBalancersItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListLoadBalancersItems)(nil)).Elem()
 }
 
-func (o ListLoadBalancersOutput) ToListLoadBalancersOutput() ListLoadBalancersOutput {
+func (o ListLoadBalancersItemsOutput) ToListLoadBalancersItemsOutput() ListLoadBalancersItemsOutput {
 	return o
 }
 
-func (o ListLoadBalancersOutput) ToListLoadBalancersOutputWithContext(ctx context.Context) ListLoadBalancersOutput {
+func (o ListLoadBalancersItemsOutput) ToListLoadBalancersItemsOutputWithContext(ctx context.Context) ListLoadBalancersItemsOutput {
 	return o
 }
 
-func (o ListLoadBalancersOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListLoadBalancers) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListLoadBalancersItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListLoadBalancersItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListLoadBalancersOutput) LoadBalancers() LoadBalancerArrayOutput {
-	return o.ApplyT(func(v ListLoadBalancers) []LoadBalancer { return v.LoadBalancers }).(LoadBalancerArrayOutput)
+func (o ListLoadBalancersItemsOutput) LoadBalancers() LoadBalancerArrayOutput {
+	return o.ApplyT(func(v ListLoadBalancersItems) []LoadBalancer { return v.LoadBalancers }).(LoadBalancerArrayOutput)
 }
 
-func (o ListLoadBalancersOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListLoadBalancers) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListLoadBalancersItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListLoadBalancersItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type LoadBalancer struct {
@@ -1261,12 +1261,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleArrayInput)(nil)).Elem(), ForwardingRuleArray{})
 	pulumi.RegisterOutputType(ForwardingRuleOutput{})
 	pulumi.RegisterOutputType(ForwardingRuleArrayOutput{})
-	pulumi.RegisterOutputType(GetLoadBalancersPropertiesOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerPropertiesOutput{})
 	pulumi.RegisterOutputType(HealthCheckOutput{})
 	pulumi.RegisterOutputType(HealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(LbFirewallOutput{})
 	pulumi.RegisterOutputType(LbFirewallPtrOutput{})
-	pulumi.RegisterOutputType(ListLoadBalancersOutput{})
+	pulumi.RegisterOutputType(ListLoadBalancersItemsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerArrayOutput{})

@@ -19,7 +19,7 @@ export interface ListLoadBalancersArgs {
 }
 
 export interface ListLoadBalancersResult {
-    readonly items: outputs.load_balancers.v2.ListLoadBalancers;
+    readonly items: outputs.load_balancers.v2.ListLoadBalancersItems;
 }
 export function listLoadBalancersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListLoadBalancersResult> {
     return pulumi.output(listLoadBalancers(opts))

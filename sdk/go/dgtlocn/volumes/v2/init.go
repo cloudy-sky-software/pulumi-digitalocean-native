@@ -21,12 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:volumes/v2:VolumeActionsByIdAttach":
-		r = &VolumeActionsByIdAttach{}
-	case "digitalocean-native:volumes/v2:VolumeActionsByIdDetach":
-		r = &VolumeActionsByIdDetach{}
-	case "digitalocean-native:volumes/v2:VolumeActionsByIdResize":
-		r = &VolumeActionsByIdResize{}
+	case "digitalocean-native:volumes/v2:Attach":
+		r = &Attach{}
+	case "digitalocean-native:volumes/v2:Detach":
+		r = &Detach{}
+	case "digitalocean-native:volumes/v2:Resize":
+		r = &Resize{}
 	case "digitalocean-native:volumes/v2:VolumeSnapshots":
 		r = &VolumeSnapshots{}
 	case "digitalocean-native:volumes/v2:Volumes":

@@ -27,7 +27,7 @@ type ListFunctionsTriggersArgs struct {
 }
 
 type ListFunctionsTriggersResult struct {
-	Items ListFunctionsTriggers `pulumi:"items"`
+	Items ListFunctionsTriggersItems `pulumi:"items"`
 }
 
 func ListFunctionsTriggersOutput(ctx *pulumi.Context, args ListFunctionsTriggersOutputArgs, opts ...pulumi.InvokeOption) ListFunctionsTriggersResultOutput {
@@ -66,8 +66,8 @@ func (o ListFunctionsTriggersResultOutput) ToListFunctionsTriggersResultOutputWi
 	return o
 }
 
-func (o ListFunctionsTriggersResultOutput) Items() ListFunctionsTriggersOutput {
-	return o.ApplyT(func(v ListFunctionsTriggersResult) ListFunctionsTriggers { return v.Items }).(ListFunctionsTriggersOutput)
+func (o ListFunctionsTriggersResultOutput) Items() ListFunctionsTriggersItemsOutput {
+	return o.ApplyT(func(v ListFunctionsTriggersResult) ListFunctionsTriggersItems { return v.Items }).(ListFunctionsTriggersItemsOutput)
 }
 
 func init() {

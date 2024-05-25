@@ -446,68 +446,68 @@ func (o GetUptimeCheckStatePropertiesOutput) State() StatePtrOutput {
 	return o.ApplyT(func(v GetUptimeCheckStateProperties) *State { return v.State }).(StatePtrOutput)
 }
 
-type ListUptimeAlerts struct {
+type ListUptimeAlertsItems struct {
 	Alerts []Alert    `pulumi:"alerts"`
 	Links  *PageLinks `pulumi:"links"`
 	Meta   MetaMeta   `pulumi:"meta"`
 }
 
-type ListUptimeAlertsOutput struct{ *pulumi.OutputState }
+type ListUptimeAlertsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListUptimeAlertsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListUptimeAlerts)(nil)).Elem()
+func (ListUptimeAlertsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListUptimeAlertsItems)(nil)).Elem()
 }
 
-func (o ListUptimeAlertsOutput) ToListUptimeAlertsOutput() ListUptimeAlertsOutput {
+func (o ListUptimeAlertsItemsOutput) ToListUptimeAlertsItemsOutput() ListUptimeAlertsItemsOutput {
 	return o
 }
 
-func (o ListUptimeAlertsOutput) ToListUptimeAlertsOutputWithContext(ctx context.Context) ListUptimeAlertsOutput {
+func (o ListUptimeAlertsItemsOutput) ToListUptimeAlertsItemsOutputWithContext(ctx context.Context) ListUptimeAlertsItemsOutput {
 	return o
 }
 
-func (o ListUptimeAlertsOutput) Alerts() AlertArrayOutput {
-	return o.ApplyT(func(v ListUptimeAlerts) []Alert { return v.Alerts }).(AlertArrayOutput)
+func (o ListUptimeAlertsItemsOutput) Alerts() AlertArrayOutput {
+	return o.ApplyT(func(v ListUptimeAlertsItems) []Alert { return v.Alerts }).(AlertArrayOutput)
 }
 
-func (o ListUptimeAlertsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListUptimeAlerts) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListUptimeAlertsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListUptimeAlertsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListUptimeAlertsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListUptimeAlerts) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListUptimeAlertsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListUptimeAlertsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-type ListUptimeChecks struct {
+type ListUptimeChecksItems struct {
 	Checks []Check    `pulumi:"checks"`
 	Links  *PageLinks `pulumi:"links"`
 	Meta   MetaMeta   `pulumi:"meta"`
 }
 
-type ListUptimeChecksOutput struct{ *pulumi.OutputState }
+type ListUptimeChecksItemsOutput struct{ *pulumi.OutputState }
 
-func (ListUptimeChecksOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListUptimeChecks)(nil)).Elem()
+func (ListUptimeChecksItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListUptimeChecksItems)(nil)).Elem()
 }
 
-func (o ListUptimeChecksOutput) ToListUptimeChecksOutput() ListUptimeChecksOutput {
+func (o ListUptimeChecksItemsOutput) ToListUptimeChecksItemsOutput() ListUptimeChecksItemsOutput {
 	return o
 }
 
-func (o ListUptimeChecksOutput) ToListUptimeChecksOutputWithContext(ctx context.Context) ListUptimeChecksOutput {
+func (o ListUptimeChecksItemsOutput) ToListUptimeChecksItemsOutputWithContext(ctx context.Context) ListUptimeChecksItemsOutput {
 	return o
 }
 
-func (o ListUptimeChecksOutput) Checks() CheckArrayOutput {
-	return o.ApplyT(func(v ListUptimeChecks) []Check { return v.Checks }).(CheckArrayOutput)
+func (o ListUptimeChecksItemsOutput) Checks() CheckArrayOutput {
+	return o.ApplyT(func(v ListUptimeChecksItems) []Check { return v.Checks }).(CheckArrayOutput)
 }
 
-func (o ListUptimeChecksOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListUptimeChecks) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListUptimeChecksItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListUptimeChecksItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListUptimeChecksOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListUptimeChecks) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListUptimeChecksItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListUptimeChecksItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -1288,8 +1288,8 @@ func init() {
 	pulumi.RegisterOutputType(GetUptimeAlertPropertiesOutput{})
 	pulumi.RegisterOutputType(GetUptimeCheckPropertiesOutput{})
 	pulumi.RegisterOutputType(GetUptimeCheckStatePropertiesOutput{})
-	pulumi.RegisterOutputType(ListUptimeAlertsOutput{})
-	pulumi.RegisterOutputType(ListUptimeChecksOutput{})
+	pulumi.RegisterOutputType(ListUptimeAlertsItemsOutput{})
+	pulumi.RegisterOutputType(ListUptimeChecksItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(NotificationOutput{})
 	pulumi.RegisterOutputType(NotificationPtrOutput{})

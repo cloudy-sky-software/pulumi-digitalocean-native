@@ -27,7 +27,7 @@ type ListDomainsRecordsArgs struct {
 }
 
 type ListDomainsRecordsResult struct {
-	Items ListDomainsRecords `pulumi:"items"`
+	Items ListDomainsRecordsItems `pulumi:"items"`
 }
 
 func ListDomainsRecordsOutput(ctx *pulumi.Context, args ListDomainsRecordsOutputArgs, opts ...pulumi.InvokeOption) ListDomainsRecordsResultOutput {
@@ -66,8 +66,8 @@ func (o ListDomainsRecordsResultOutput) ToListDomainsRecordsResultOutputWithCont
 	return o
 }
 
-func (o ListDomainsRecordsResultOutput) Items() ListDomainsRecordsOutput {
-	return o.ApplyT(func(v ListDomainsRecordsResult) ListDomainsRecords { return v.Items }).(ListDomainsRecordsOutput)
+func (o ListDomainsRecordsResultOutput) Items() ListDomainsRecordsItemsOutput {
+	return o.ApplyT(func(v ListDomainsRecordsResult) ListDomainsRecordsItems { return v.Items }).(ListDomainsRecordsItemsOutput)
 }
 
 func init() {

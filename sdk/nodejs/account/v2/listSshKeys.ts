@@ -19,7 +19,7 @@ export interface ListSshKeysArgs {
 }
 
 export interface ListSshKeysResult {
-    readonly items: outputs.account.v2.ListSshKeys;
+    readonly items: outputs.account.v2.ListSshKeysItems;
 }
 export function listSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListSshKeysResult> {
     return pulumi.output(listSshKeys(opts))

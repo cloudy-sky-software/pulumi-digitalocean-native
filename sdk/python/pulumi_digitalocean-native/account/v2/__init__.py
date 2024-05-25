@@ -7,7 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_account import *
-from .get_ssh_keys import *
+from .get_ssh_key import *
 from .list_ssh_keys import *
 from .ssh_keys import *
 from . import outputs

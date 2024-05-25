@@ -1195,6 +1195,39 @@ func (o FloatingIpRegionPtrOutput) Slug() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFloatingIPProperties struct {
+	FloatingIp *FloatingIp `pulumi:"floatingIp"`
+}
+
+// Defaults sets the appropriate defaults for GetFloatingIPProperties
+func (val *GetFloatingIPProperties) Defaults() *GetFloatingIPProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FloatingIp = tmp.FloatingIp.Defaults()
+
+	return &tmp
+}
+
+type GetFloatingIPPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetFloatingIPPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFloatingIPProperties)(nil)).Elem()
+}
+
+func (o GetFloatingIPPropertiesOutput) ToGetFloatingIPPropertiesOutput() GetFloatingIPPropertiesOutput {
+	return o
+}
+
+func (o GetFloatingIPPropertiesOutput) ToGetFloatingIPPropertiesOutputWithContext(ctx context.Context) GetFloatingIPPropertiesOutput {
+	return o
+}
+
+func (o GetFloatingIPPropertiesOutput) FloatingIp() FloatingIpPtrOutput {
+	return o.ApplyT(func(v GetFloatingIPProperties) *FloatingIp { return v.FloatingIp }).(FloatingIpPtrOutput)
+}
+
 type GetFloatingIPsActionProperties struct {
 	Action *GetFloatingIPsActionPropertiesAction `pulumi:"action"`
 }
@@ -1444,39 +1477,6 @@ func (o GetFloatingIPsActionPropertiesActionPtrOutput) Type() pulumi.StringPtrOu
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type GetFloatingIPsProperties struct {
-	FloatingIp *FloatingIp `pulumi:"floatingIp"`
-}
-
-// Defaults sets the appropriate defaults for GetFloatingIPsProperties
-func (val *GetFloatingIPsProperties) Defaults() *GetFloatingIPsProperties {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	tmp.FloatingIp = tmp.FloatingIp.Defaults()
-
-	return &tmp
-}
-
-type GetFloatingIPsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetFloatingIPsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFloatingIPsProperties)(nil)).Elem()
-}
-
-func (o GetFloatingIPsPropertiesOutput) ToGetFloatingIPsPropertiesOutput() GetFloatingIPsPropertiesOutput {
-	return o
-}
-
-func (o GetFloatingIPsPropertiesOutput) ToGetFloatingIPsPropertiesOutputWithContext(ctx context.Context) GetFloatingIPsPropertiesOutput {
-	return o
-}
-
-func (o GetFloatingIPsPropertiesOutput) FloatingIp() FloatingIpPtrOutput {
-	return o.ApplyT(func(v GetFloatingIPsProperties) *FloatingIp { return v.FloatingIp }).(FloatingIpPtrOutput)
 }
 
 type Image struct {
@@ -1941,68 +1941,68 @@ func (o LinksPropertiesPtrOutput) Droplets() ActionLinkArrayOutput {
 	}).(ActionLinkArrayOutput)
 }
 
-type ListFloatingIPs struct {
-	FloatingIps []FloatingIp `pulumi:"floatingIps"`
-	Links       *PageLinks   `pulumi:"links"`
-	Meta        MetaMeta     `pulumi:"meta"`
-}
-
-type ListFloatingIPsOutput struct{ *pulumi.OutputState }
-
-func (ListFloatingIPsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListFloatingIPs)(nil)).Elem()
-}
-
-func (o ListFloatingIPsOutput) ToListFloatingIPsOutput() ListFloatingIPsOutput {
-	return o
-}
-
-func (o ListFloatingIPsOutput) ToListFloatingIPsOutputWithContext(ctx context.Context) ListFloatingIPsOutput {
-	return o
-}
-
-func (o ListFloatingIPsOutput) FloatingIps() FloatingIpArrayOutput {
-	return o.ApplyT(func(v ListFloatingIPs) []FloatingIp { return v.FloatingIps }).(FloatingIpArrayOutput)
-}
-
-func (o ListFloatingIPsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListFloatingIPs) *PageLinks { return v.Links }).(PageLinksPtrOutput)
-}
-
-func (o ListFloatingIPsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListFloatingIPs) MetaMeta { return v.Meta }).(MetaMetaOutput)
-}
-
-type ListFloatingIPsAction struct {
+type ListFloatingIPsActionItems struct {
 	Actions []Action   `pulumi:"actions"`
 	Links   *PageLinks `pulumi:"links"`
 	Meta    MetaMeta   `pulumi:"meta"`
 }
 
-type ListFloatingIPsActionOutput struct{ *pulumi.OutputState }
+type ListFloatingIPsActionItemsOutput struct{ *pulumi.OutputState }
 
-func (ListFloatingIPsActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListFloatingIPsAction)(nil)).Elem()
+func (ListFloatingIPsActionItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListFloatingIPsActionItems)(nil)).Elem()
 }
 
-func (o ListFloatingIPsActionOutput) ToListFloatingIPsActionOutput() ListFloatingIPsActionOutput {
+func (o ListFloatingIPsActionItemsOutput) ToListFloatingIPsActionItemsOutput() ListFloatingIPsActionItemsOutput {
 	return o
 }
 
-func (o ListFloatingIPsActionOutput) ToListFloatingIPsActionOutputWithContext(ctx context.Context) ListFloatingIPsActionOutput {
+func (o ListFloatingIPsActionItemsOutput) ToListFloatingIPsActionItemsOutputWithContext(ctx context.Context) ListFloatingIPsActionItemsOutput {
 	return o
 }
 
-func (o ListFloatingIPsActionOutput) Actions() ActionArrayOutput {
-	return o.ApplyT(func(v ListFloatingIPsAction) []Action { return v.Actions }).(ActionArrayOutput)
+func (o ListFloatingIPsActionItemsOutput) Actions() ActionArrayOutput {
+	return o.ApplyT(func(v ListFloatingIPsActionItems) []Action { return v.Actions }).(ActionArrayOutput)
 }
 
-func (o ListFloatingIPsActionOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListFloatingIPsAction) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListFloatingIPsActionItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListFloatingIPsActionItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListFloatingIPsActionOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListFloatingIPsAction) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListFloatingIPsActionItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListFloatingIPsActionItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+type ListFloatingIPsItems struct {
+	FloatingIps []FloatingIp `pulumi:"floatingIps"`
+	Links       *PageLinks   `pulumi:"links"`
+	Meta        MetaMeta     `pulumi:"meta"`
+}
+
+type ListFloatingIPsItemsOutput struct{ *pulumi.OutputState }
+
+func (ListFloatingIPsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListFloatingIPsItems)(nil)).Elem()
+}
+
+func (o ListFloatingIPsItemsOutput) ToListFloatingIPsItemsOutput() ListFloatingIPsItemsOutput {
+	return o
+}
+
+func (o ListFloatingIPsItemsOutput) ToListFloatingIPsItemsOutputWithContext(ctx context.Context) ListFloatingIPsItemsOutput {
+	return o
+}
+
+func (o ListFloatingIPsItemsOutput) FloatingIps() FloatingIpArrayOutput {
+	return o.ApplyT(func(v ListFloatingIPsItems) []FloatingIp { return v.FloatingIps }).(FloatingIpArrayOutput)
+}
+
+func (o ListFloatingIPsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListFloatingIPsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListFloatingIPsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListFloatingIPsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -2689,18 +2689,18 @@ func init() {
 	pulumi.RegisterOutputType(FloatingIpArrayOutput{})
 	pulumi.RegisterOutputType(FloatingIpRegionOutput{})
 	pulumi.RegisterOutputType(FloatingIpRegionPtrOutput{})
+	pulumi.RegisterOutputType(GetFloatingIPPropertiesOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPsActionPropertiesOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPsActionPropertiesActionOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPsActionPropertiesActionPtrOutput{})
-	pulumi.RegisterOutputType(GetFloatingIPsPropertiesOutput{})
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImagePtrOutput{})
 	pulumi.RegisterOutputType(KernelOutput{})
 	pulumi.RegisterOutputType(KernelPtrOutput{})
 	pulumi.RegisterOutputType(LinksPropertiesOutput{})
 	pulumi.RegisterOutputType(LinksPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ListFloatingIPsOutput{})
-	pulumi.RegisterOutputType(ListFloatingIPsActionOutput{})
+	pulumi.RegisterOutputType(ListFloatingIPsActionItemsOutput{})
+	pulumi.RegisterOutputType(ListFloatingIPsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(NetworkV4Output{})
 	pulumi.RegisterOutputType(NetworkV4ArrayOutput{})

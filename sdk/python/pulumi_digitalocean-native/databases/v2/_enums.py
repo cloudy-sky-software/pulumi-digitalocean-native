@@ -5,6 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'CreategresDefaultToastCompression',
+    'CreategresLogErrorVerbosity',
+    'CreategresLogLinePrefix',
+    'CreategresPgStatStatementsTrack',
+    'CreategresSynchronousReplication',
+    'CreategresTrackCommitTimestamp',
+    'CreategresTrackFunctions',
+    'CreategresTrackIoTiming',
     'DatabaseClusterEngine',
     'DatabaseClusterStatus',
     'DatabaseReplicaStatus',
@@ -17,18 +25,78 @@ __all__ = [
     'OnlineMigrationStatus',
     'PgbouncerAutodbPoolMode',
     'PgbouncerIgnoreStartupParametersItem',
-    'PostgresDefaultToastCompression',
-    'PostgresLogErrorVerbosity',
-    'PostgresLogLinePrefix',
-    'PostgresPgStatStatementsTrack',
-    'PostgresSynchronousReplication',
-    'PostgresTrackCommitTimestamp',
-    'PostgresTrackFunctions',
-    'PostgresTrackIoTiming',
     'RedisRedisAclChannelsDefault',
     'RedisRedisMaxmemoryPolicy',
     'RedisRedisPersistence',
 ]
+
+
+class CreategresDefaultToastCompression(str, Enum):
+    """
+    Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+    """
+    LZ4 = "lz4"
+    PGLZ = "pglz"
+
+
+class CreategresLogErrorVerbosity(str, Enum):
+    """
+    Controls the amount of detail written in the server log for each message that is logged.
+    """
+    TERSE = "TERSE"
+    DEFAULT = "DEFAULT"
+    VERBOSE = "VERBOSE"
+
+
+class CreategresLogLinePrefix(str, Enum):
+    """
+    Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+    """
+    PIDPUSERUDBDAPPACLIENTH = "pid=%p,user=%u,db=%d,app=%a,client=%h"
+    MPQUSERUDBDAPPA = "%m [%p] %q[user=%u,db=%d,app=%a]"
+    TPL1_USERUDBDAPPACLIENTH = "%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h"
+
+
+class CreategresPgStatStatementsTrack(str, Enum):
+    """
+    Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+    """
+    ALL = "all"
+    TOP = "top"
+    NONE = "none"
+
+
+class CreategresSynchronousReplication(str, Enum):
+    """
+    Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+    """
+    OFF = "off"
+    QUORUM = "quorum"
+
+
+class CreategresTrackCommitTimestamp(str, Enum):
+    """
+    Record commit time of transactions.
+    """
+    OFF = "off"
+    ON = "on"
+
+
+class CreategresTrackFunctions(str, Enum):
+    """
+    Enables tracking of function call counts and time used.
+    """
+    ALL = "all"
+    PL = "pl"
+    NONE = "none"
+
+
+class CreategresTrackIoTiming(str, Enum):
+    """
+    Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+    """
+    OFF = "off"
+    ON = "on"
 
 
 class DatabaseClusterEngine(str, Enum):
@@ -166,74 +234,6 @@ class PgbouncerIgnoreStartupParametersItem(str, Enum):
     """
     EXTRA_FLOAT_DIGITS = "extra_float_digits"
     SEARCH_PATH = "search_path"
-
-
-class PostgresDefaultToastCompression(str, Enum):
-    """
-    Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-    """
-    LZ4 = "lz4"
-    PGLZ = "pglz"
-
-
-class PostgresLogErrorVerbosity(str, Enum):
-    """
-    Controls the amount of detail written in the server log for each message that is logged.
-    """
-    TERSE = "TERSE"
-    DEFAULT = "DEFAULT"
-    VERBOSE = "VERBOSE"
-
-
-class PostgresLogLinePrefix(str, Enum):
-    """
-    Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-    """
-    PIDPUSERUDBDAPPACLIENTH = "pid=%p,user=%u,db=%d,app=%a,client=%h"
-    MPQUSERUDBDAPPA = "%m [%p] %q[user=%u,db=%d,app=%a]"
-    TPL1_USERUDBDAPPACLIENTH = "%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h"
-
-
-class PostgresPgStatStatementsTrack(str, Enum):
-    """
-    Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-    """
-    ALL = "all"
-    TOP = "top"
-    NONE = "none"
-
-
-class PostgresSynchronousReplication(str, Enum):
-    """
-    Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-    """
-    OFF = "off"
-    QUORUM = "quorum"
-
-
-class PostgresTrackCommitTimestamp(str, Enum):
-    """
-    Record commit time of transactions.
-    """
-    OFF = "off"
-    ON = "on"
-
-
-class PostgresTrackFunctions(str, Enum):
-    """
-    Enables tracking of function call counts and time used.
-    """
-    ALL = "all"
-    PL = "pl"
-    NONE = "none"
-
-
-class PostgresTrackIoTiming(str, Enum):
-    """
-    Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-    """
-    OFF = "off"
-    ON = "on"
 
 
 class RedisRedisAclChannelsDefault(str, Enum):

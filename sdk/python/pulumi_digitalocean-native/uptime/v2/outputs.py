@@ -17,8 +17,8 @@ __all__ = [
     'GetUptimeAlertProperties',
     'GetUptimeCheckProperties',
     'GetUptimeCheckStateProperties',
-    'ListUptimeAlerts',
-    'ListUptimeChecks',
+    'ListUptimeAlertsItems',
+    'ListUptimeChecksItems',
     'MetaMeta',
     'Notification',
     'NotificationSlackItemProperties',
@@ -242,7 +242,7 @@ class GetUptimeCheckStateProperties(dict):
 
 
 @pulumi.output_type
-class ListUptimeAlerts(dict):
+class ListUptimeAlertsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  alerts: Optional[Sequence['outputs.Alert']] = None,
@@ -270,7 +270,7 @@ class ListUptimeAlerts(dict):
 
 
 @pulumi.output_type
-class ListUptimeChecks(dict):
+class ListUptimeChecksItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  checks: Optional[Sequence['outputs.Check']] = None,

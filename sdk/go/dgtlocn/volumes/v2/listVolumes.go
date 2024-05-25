@@ -25,7 +25,7 @@ type ListVolumesArgs struct {
 }
 
 type ListVolumesResult struct {
-	Items ListVolumes `pulumi:"items"`
+	Items ListVolumesItems `pulumi:"items"`
 }
 
 func ListVolumesOutput(ctx *pulumi.Context, args ListVolumesOutputArgs, opts ...pulumi.InvokeOption) ListVolumesResultOutput {
@@ -62,8 +62,8 @@ func (o ListVolumesResultOutput) ToListVolumesResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListVolumesResultOutput) Items() ListVolumesOutput {
-	return o.ApplyT(func(v ListVolumesResult) ListVolumes { return v.Items }).(ListVolumesOutput)
+func (o ListVolumesResultOutput) Items() ListVolumesItemsOutput {
+	return o.ApplyT(func(v ListVolumesResult) ListVolumesItems { return v.Items }).(ListVolumesItemsOutput)
 }
 
 func init() {

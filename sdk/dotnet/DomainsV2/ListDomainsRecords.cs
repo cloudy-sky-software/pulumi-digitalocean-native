@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.DomainsV2
     [OutputType]
     public sealed class ListDomainsRecordsResult
     {
-        public readonly Outputs.ListDomainsRecords Items;
+        public readonly Outputs.ListDomainsRecordsItems Items;
 
         [OutputConstructor]
-        private ListDomainsRecordsResult(Outputs.ListDomainsRecords items)
+        private ListDomainsRecordsResult(Outputs.ListDomainsRecordsItems items)
         {
             Items = items;
         }

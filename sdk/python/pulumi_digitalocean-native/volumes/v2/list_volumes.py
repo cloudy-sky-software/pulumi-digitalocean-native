@@ -26,7 +26,7 @@ class ListVolumesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListVolumes':
+    def items(self) -> 'outputs.ListVolumesItems':
         return pulumi.get(self, "items")
 
 

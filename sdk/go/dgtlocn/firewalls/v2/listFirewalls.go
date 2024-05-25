@@ -25,7 +25,7 @@ type ListFirewallsArgs struct {
 }
 
 type ListFirewallsResult struct {
-	Items ListFirewalls `pulumi:"items"`
+	Items ListFirewallsItems `pulumi:"items"`
 }
 
 func ListFirewallsOutput(ctx *pulumi.Context, args ListFirewallsOutputArgs, opts ...pulumi.InvokeOption) ListFirewallsResultOutput {
@@ -62,8 +62,8 @@ func (o ListFirewallsResultOutput) ToListFirewallsResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListFirewallsResultOutput) Items() ListFirewallsOutput {
-	return o.ApplyT(func(v ListFirewallsResult) ListFirewalls { return v.Items }).(ListFirewallsOutput)
+func (o ListFirewallsResultOutput) Items() ListFirewallsItemsOutput {
+	return o.ApplyT(func(v ListFirewallsResult) ListFirewallsItems { return v.Items }).(ListFirewallsItemsOutput)
 }
 
 func init() {

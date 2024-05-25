@@ -19,7 +19,7 @@ export interface ListFirewallsArgs {
 }
 
 export interface ListFirewallsResult {
-    readonly items: outputs.firewalls.v2.ListFirewalls;
+    readonly items: outputs.firewalls.v2.ListFirewallsItems;
 }
 export function listFirewallsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallsResult> {
     return pulumi.output(listFirewalls(opts))

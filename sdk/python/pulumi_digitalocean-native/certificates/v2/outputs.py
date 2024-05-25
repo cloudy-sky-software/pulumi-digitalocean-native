@@ -13,8 +13,8 @@ from ._enums import *
 
 __all__ = [
     'Certificate',
-    'GetCertificatesProperties',
-    'ListCertificates',
+    'GetCertificateProperties',
+    'ListCertificatesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -147,7 +147,7 @@ class Certificate(dict):
 
 
 @pulumi.output_type
-class GetCertificatesProperties(dict):
+class GetCertificateProperties(dict):
     def __init__(__self__, *,
                  certificate: Optional['outputs.Certificate'] = None):
         if certificate is not None:
@@ -160,7 +160,7 @@ class GetCertificatesProperties(dict):
 
 
 @pulumi.output_type
-class ListCertificates(dict):
+class ListCertificatesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  certificates: Optional[Sequence['outputs.Certificate']] = None,

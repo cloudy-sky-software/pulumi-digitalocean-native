@@ -25,7 +25,7 @@ type ListSshKeysArgs struct {
 }
 
 type ListSshKeysResult struct {
-	Items ListSshKeys `pulumi:"items"`
+	Items ListSshKeysItems `pulumi:"items"`
 }
 
 func ListSshKeysOutput(ctx *pulumi.Context, args ListSshKeysOutputArgs, opts ...pulumi.InvokeOption) ListSshKeysResultOutput {
@@ -62,8 +62,8 @@ func (o ListSshKeysResultOutput) ToListSshKeysResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListSshKeysResultOutput) Items() ListSshKeysOutput {
-	return o.ApplyT(func(v ListSshKeysResult) ListSshKeys { return v.Items }).(ListSshKeysOutput)
+func (o ListSshKeysResultOutput) Items() ListSshKeysItemsOutput {
+	return o.ApplyT(func(v ListSshKeysResult) ListSshKeysItems { return v.Items }).(ListSshKeysItemsOutput)
 }
 
 func init() {

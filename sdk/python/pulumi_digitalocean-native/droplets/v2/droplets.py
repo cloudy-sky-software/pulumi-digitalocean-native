@@ -13,11 +13,239 @@ __all__ = ['DropletsArgs', 'Droplets']
 
 @pulumi.input_type
 class DropletsArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 image: pulumi.Input[Union[str, int]],
+                 names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 size: pulumi.Input[str],
+                 backups: Optional[pulumi.Input[bool]] = None,
+                 ipv6: Optional[pulumi.Input[bool]] = None,
+                 monitoring: Optional[pulumi.Input[bool]] = None,
+                 private_networking: Optional[pulumi.Input[bool]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_uuid: Optional[pulumi.Input[str]] = None,
+                 with_droplet_agent: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Droplets resource.
+        :param pulumi.Input[Union[str, int]] image: The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] names: An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        :param pulumi.Input[str] size: The slug identifier for the size that you wish to select for this Droplet.
+        :param pulumi.Input[bool] backups: A boolean indicating whether automated backups should be enabled for the Droplet.
+        :param pulumi.Input[bool] ipv6: A boolean indicating whether to enable IPv6 on the Droplet.
+        :param pulumi.Input[bool] monitoring: A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        :param pulumi.Input[bool] private_networking: This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+        :param pulumi.Input[str] region: The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]] ssh_keys: An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        :param pulumi.Input[str] user_data: A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] volumes: An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+        :param pulumi.Input[str] vpc_uuid: A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+        :param pulumi.Input[bool] with_droplet_agent: A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
         """
-        pass
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "size", size)
+        if backups is None:
+            backups = False
+        if backups is not None:
+            pulumi.set(__self__, "backups", backups)
+        if ipv6 is None:
+            ipv6 = False
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+        if monitoring is None:
+            monitoring = False
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if private_networking is None:
+            private_networking = False
+        if private_networking is not None:
+            pulumi.set(__self__, "private_networking", private_networking)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if ssh_keys is not None:
+            pulumi.set(__self__, "ssh_keys", ssh_keys)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+        if vpc_uuid is not None:
+            pulumi.set(__self__, "vpc_uuid", vpc_uuid)
+        if with_droplet_agent is not None:
+            pulumi.set(__self__, "with_droplet_agent", with_droplet_agent)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[Union[str, int]]:
+        """
+        The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[Union[str, int]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        """
+        return pulumi.get(self, "names")
+
+    @names.setter
+    def names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "names", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[str]:
+        """
+        The slug identifier for the size that you wish to select for this Droplet.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def backups(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether automated backups should be enabled for the Droplet.
+        """
+        return pulumi.get(self, "backups")
+
+    @backups.setter
+    def backups(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "backups", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether to enable IPv6 on the Droplet.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        """
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter(name="privateNetworking")
+    def private_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+        """
+        return pulumi.get(self, "private_networking")
+
+    @private_networking.setter
+    def private_networking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_networking", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="sshKeys")
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]]]:
+        """
+        An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+        """
+        return pulumi.get(self, "ssh_keys")
+
+    @ssh_keys.setter
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]]]):
+        pulumi.set(self, "ssh_keys", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "volumes", value)
+
+    @property
+    @pulumi.getter(name="vpcUuid")
+    def vpc_uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+        """
+        return pulumi.get(self, "vpc_uuid")
+
+    @vpc_uuid.setter
+    def vpc_uuid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_uuid", value)
+
+    @property
+    @pulumi.getter(name="withDropletAgent")
+    def with_droplet_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+        """
+        return pulumi.get(self, "with_droplet_agent")
+
+    @with_droplet_agent.setter
+    def with_droplet_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "with_droplet_agent", value)
 
 
 class Droplets(pulumi.CustomResource):
@@ -25,17 +253,45 @@ class Droplets(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backups: Optional[pulumi.Input[bool]] = None,
+                 image: Optional[pulumi.Input[Union[str, int]]] = None,
+                 ipv6: Optional[pulumi.Input[bool]] = None,
+                 monitoring: Optional[pulumi.Input[bool]] = None,
+                 names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_networking: Optional[pulumi.Input[bool]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_uuid: Optional[pulumi.Input[str]] = None,
+                 with_droplet_agent: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Create a Droplets resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] backups: A boolean indicating whether automated backups should be enabled for the Droplet.
+        :param pulumi.Input[Union[str, int]] image: The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+        :param pulumi.Input[bool] ipv6: A boolean indicating whether to enable IPv6 on the Droplet.
+        :param pulumi.Input[bool] monitoring: A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] names: An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        :param pulumi.Input[bool] private_networking: This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+        :param pulumi.Input[str] region: The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+        :param pulumi.Input[str] size: The slug identifier for the size that you wish to select for this Droplet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]] ssh_keys: An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        :param pulumi.Input[str] user_data: A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] volumes: An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+        :param pulumi.Input[str] vpc_uuid: A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+        :param pulumi.Input[bool] with_droplet_agent: A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DropletsArgs] = None,
+                 args: DropletsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a Droplets resource with the given unique name, props, and options.
@@ -54,6 +310,20 @@ class Droplets(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backups: Optional[pulumi.Input[bool]] = None,
+                 image: Optional[pulumi.Input[Union[str, int]]] = None,
+                 ipv6: Optional[pulumi.Input[bool]] = None,
+                 monitoring: Optional[pulumi.Input[bool]] = None,
+                 names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_networking: Optional[pulumi.Input[bool]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, int]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_uuid: Optional[pulumi.Input[str]] = None,
+                 with_droplet_agent: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -63,6 +333,34 @@ class Droplets(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DropletsArgs.__new__(DropletsArgs)
 
+            if backups is None:
+                backups = False
+            __props__.__dict__["backups"] = backups
+            if image is None and not opts.urn:
+                raise TypeError("Missing required property 'image'")
+            __props__.__dict__["image"] = image
+            if ipv6 is None:
+                ipv6 = False
+            __props__.__dict__["ipv6"] = ipv6
+            if monitoring is None:
+                monitoring = False
+            __props__.__dict__["monitoring"] = monitoring
+            if names is None and not opts.urn:
+                raise TypeError("Missing required property 'names'")
+            __props__.__dict__["names"] = names
+            if private_networking is None:
+                private_networking = False
+            __props__.__dict__["private_networking"] = private_networking
+            __props__.__dict__["region"] = region
+            if size is None and not opts.urn:
+                raise TypeError("Missing required property 'size'")
+            __props__.__dict__["size"] = size
+            __props__.__dict__["ssh_keys"] = ssh_keys
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_data"] = user_data
+            __props__.__dict__["volumes"] = volumes
+            __props__.__dict__["vpc_uuid"] = vpc_uuid
+            __props__.__dict__["with_droplet_agent"] = with_droplet_agent
         super(Droplets, __self__).__init__(
             'digitalocean-native:droplets/v2:Droplets',
             resource_name,
@@ -85,5 +383,131 @@ class Droplets(pulumi.CustomResource):
 
         __props__ = DropletsArgs.__new__(DropletsArgs)
 
+        __props__.__dict__["backups"] = None
+        __props__.__dict__["image"] = None
+        __props__.__dict__["ipv6"] = None
+        __props__.__dict__["monitoring"] = None
+        __props__.__dict__["names"] = None
+        __props__.__dict__["private_networking"] = None
+        __props__.__dict__["region"] = None
+        __props__.__dict__["size"] = None
+        __props__.__dict__["ssh_keys"] = None
+        __props__.__dict__["tags"] = None
+        __props__.__dict__["user_data"] = None
+        __props__.__dict__["volumes"] = None
+        __props__.__dict__["vpc_uuid"] = None
+        __props__.__dict__["with_droplet_agent"] = None
         return Droplets(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def backups(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating whether automated backups should be enabled for the Droplet.
+        """
+        return pulumi.get(self, "backups")
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating whether to enable IPv6 on the Droplet.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        """
+        return pulumi.get(self, "monitoring")
+
+    @property
+    @pulumi.getter
+    def names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An array of human human-readable strings you wish to use when displaying the Droplet name. Each name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. Each name set during creation will also determine the hostname for the Droplet in its internal configuration.
+        """
+        return pulumi.get(self, "names")
+
+    @property
+    @pulumi.getter(name="privateNetworking")
+    def private_networking(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
+        """
+        return pulumi.get(self, "private_networking")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Output[Optional[str]]:
+        """
+        The slug identifier for the size that you wish to select for this Droplet.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sshKeys")
+    def ssh_keys(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+        """
+        An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
+        """
+        return pulumi.get(self, "ssh_keys")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
+        """
+        return pulumi.get(self, "user_data")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
+        """
+        return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter(name="vpcUuid")
+    def vpc_uuid(self) -> pulumi.Output[Optional[str]]:
+        """
+        A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
+        """
+        return pulumi.get(self, "vpc_uuid")
+
+    @property
+    @pulumi.getter(name="withDropletAgent")
+    def with_droplet_agent(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
+        """
+        return pulumi.get(self, "with_droplet_agent")
 

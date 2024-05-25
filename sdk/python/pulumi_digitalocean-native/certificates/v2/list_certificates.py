@@ -27,7 +27,7 @@ class ListCertificatesResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListCertificates':
+    def items(self) -> 'outputs.ListCertificatesItems':
         return pulumi.get(self, "items")
 
 

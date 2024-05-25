@@ -25,7 +25,7 @@ type ListRegionsArgs struct {
 }
 
 type ListRegionsResult struct {
-	Items ListRegions `pulumi:"items"`
+	Items ListRegionsItems `pulumi:"items"`
 }
 
 func ListRegionsOutput(ctx *pulumi.Context, args ListRegionsOutputArgs, opts ...pulumi.InvokeOption) ListRegionsResultOutput {
@@ -62,8 +62,8 @@ func (o ListRegionsResultOutput) ToListRegionsResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListRegionsResultOutput) Items() ListRegionsOutput {
-	return o.ApplyT(func(v ListRegionsResult) ListRegions { return v.Items }).(ListRegionsOutput)
+func (o ListRegionsResultOutput) Items() ListRegionsItemsOutput {
+	return o.ApplyT(func(v ListRegionsResult) ListRegionsItems { return v.Items }).(ListRegionsItemsOutput)
 }
 
 func init() {

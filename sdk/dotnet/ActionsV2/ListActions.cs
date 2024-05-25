@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.ActionsV2
     [OutputType]
     public sealed class ListActionsResult
     {
-        public readonly Outputs.ListActions Items;
+        public readonly Outputs.ListActionsItems Items;
 
         [OutputConstructor]
-        private ListActionsResult(Outputs.ListActions items)
+        private ListActionsResult(Outputs.ListActionsItems items)
         {
             Items = items;
         }

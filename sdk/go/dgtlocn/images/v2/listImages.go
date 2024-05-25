@@ -25,7 +25,7 @@ type ListImagesArgs struct {
 }
 
 type ListImagesResult struct {
-	Items ListImages `pulumi:"items"`
+	Items ListImagesItems `pulumi:"items"`
 }
 
 func ListImagesOutput(ctx *pulumi.Context, args ListImagesOutputArgs, opts ...pulumi.InvokeOption) ListImagesResultOutput {
@@ -62,8 +62,8 @@ func (o ListImagesResultOutput) ToListImagesResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o ListImagesResultOutput) Items() ListImagesOutput {
-	return o.ApplyT(func(v ListImagesResult) ListImages { return v.Items }).(ListImagesOutput)
+func (o ListImagesResultOutput) Items() ListImagesItemsOutput {
+	return o.ApplyT(func(v ListImagesResult) ListImagesItems { return v.Items }).(ListImagesItemsOutput)
 }
 
 func init() {

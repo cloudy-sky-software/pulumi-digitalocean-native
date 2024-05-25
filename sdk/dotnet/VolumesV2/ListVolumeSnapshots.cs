@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
     [OutputType]
     public sealed class ListVolumeSnapshotsResult
     {
-        public readonly Outputs.ListVolumeSnapshots Items;
+        public readonly Outputs.ListVolumeSnapshotsItems Items;
 
         [OutputConstructor]
-        private ListVolumeSnapshotsResult(Outputs.ListVolumeSnapshots items)
+        private ListVolumeSnapshotsResult(Outputs.ListVolumeSnapshotsItems items)
         {
             Items = items;
         }

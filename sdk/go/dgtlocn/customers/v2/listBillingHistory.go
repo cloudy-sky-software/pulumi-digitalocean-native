@@ -25,7 +25,7 @@ type ListBillingHistoryArgs struct {
 }
 
 type ListBillingHistoryResult struct {
-	Items ListBillingHistory `pulumi:"items"`
+	Items ListBillingHistoryItems `pulumi:"items"`
 }
 
 func ListBillingHistoryOutput(ctx *pulumi.Context, args ListBillingHistoryOutputArgs, opts ...pulumi.InvokeOption) ListBillingHistoryResultOutput {
@@ -62,8 +62,8 @@ func (o ListBillingHistoryResultOutput) ToListBillingHistoryResultOutputWithCont
 	return o
 }
 
-func (o ListBillingHistoryResultOutput) Items() ListBillingHistoryOutput {
-	return o.ApplyT(func(v ListBillingHistoryResult) ListBillingHistory { return v.Items }).(ListBillingHistoryOutput)
+func (o ListBillingHistoryResultOutput) Items() ListBillingHistoryItemsOutput {
+	return o.ApplyT(func(v ListBillingHistoryResult) ListBillingHistoryItems { return v.Items }).(ListBillingHistoryItemsOutput)
 }
 
 func init() {

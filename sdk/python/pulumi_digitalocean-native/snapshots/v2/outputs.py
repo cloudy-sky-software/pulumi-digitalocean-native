@@ -12,8 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetSnapshotsProperties',
-    'ListSnapshots',
+    'GetSnapshotProperties',
+    'ListSnapshotsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSnapshotsProperties(dict):
+class GetSnapshotProperties(dict):
     def __init__(__self__, *,
                  snapshot: Optional['outputs.Snapshots'] = None):
         if snapshot is not None:
@@ -34,7 +34,7 @@ class GetSnapshotsProperties(dict):
 
 
 @pulumi.output_type
-class ListSnapshots(dict):
+class ListSnapshotsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

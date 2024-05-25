@@ -15,7 +15,7 @@ __all__ = [
     'AlertPolicy',
     'Alerts',
     'GetMonitoringAlertPolicyProperties',
-    'ListMonitoringAlertPolicy',
+    'ListMonitoringAlertPolicyItems',
     'MetaMeta',
     'Metrics',
     'MetricsData',
@@ -143,7 +143,7 @@ class GetMonitoringAlertPolicyProperties(dict):
 
 
 @pulumi.output_type
-class ListMonitoringAlertPolicy(dict):
+class ListMonitoringAlertPolicyItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  policies: Sequence['outputs.AlertPolicy'],

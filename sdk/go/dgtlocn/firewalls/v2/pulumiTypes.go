@@ -654,58 +654,58 @@ func (o FirewallRulesOutboundRulesItemArrayOutput) Index(i pulumi.IntInput) Fire
 	}).(FirewallRulesOutboundRulesItemOutput)
 }
 
-type GetFirewallsProperties struct {
+type GetFirewallProperties struct {
 	Firewall *Firewall `pulumi:"firewall"`
 }
 
-type GetFirewallsPropertiesOutput struct{ *pulumi.OutputState }
+type GetFirewallPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetFirewallsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFirewallsProperties)(nil)).Elem()
+func (GetFirewallPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallProperties)(nil)).Elem()
 }
 
-func (o GetFirewallsPropertiesOutput) ToGetFirewallsPropertiesOutput() GetFirewallsPropertiesOutput {
+func (o GetFirewallPropertiesOutput) ToGetFirewallPropertiesOutput() GetFirewallPropertiesOutput {
 	return o
 }
 
-func (o GetFirewallsPropertiesOutput) ToGetFirewallsPropertiesOutputWithContext(ctx context.Context) GetFirewallsPropertiesOutput {
+func (o GetFirewallPropertiesOutput) ToGetFirewallPropertiesOutputWithContext(ctx context.Context) GetFirewallPropertiesOutput {
 	return o
 }
 
-func (o GetFirewallsPropertiesOutput) Firewall() FirewallPtrOutput {
-	return o.ApplyT(func(v GetFirewallsProperties) *Firewall { return v.Firewall }).(FirewallPtrOutput)
+func (o GetFirewallPropertiesOutput) Firewall() FirewallPtrOutput {
+	return o.ApplyT(func(v GetFirewallProperties) *Firewall { return v.Firewall }).(FirewallPtrOutput)
 }
 
-type ListFirewalls struct {
+type ListFirewallsItems struct {
 	Firewalls []Firewall `pulumi:"firewalls"`
 	Links     *PageLinks `pulumi:"links"`
 	Meta      MetaMeta   `pulumi:"meta"`
 }
 
-type ListFirewallsOutput struct{ *pulumi.OutputState }
+type ListFirewallsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListFirewallsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListFirewalls)(nil)).Elem()
+func (ListFirewallsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListFirewallsItems)(nil)).Elem()
 }
 
-func (o ListFirewallsOutput) ToListFirewallsOutput() ListFirewallsOutput {
+func (o ListFirewallsItemsOutput) ToListFirewallsItemsOutput() ListFirewallsItemsOutput {
 	return o
 }
 
-func (o ListFirewallsOutput) ToListFirewallsOutputWithContext(ctx context.Context) ListFirewallsOutput {
+func (o ListFirewallsItemsOutput) ToListFirewallsItemsOutputWithContext(ctx context.Context) ListFirewallsItemsOutput {
 	return o
 }
 
-func (o ListFirewallsOutput) Firewalls() FirewallArrayOutput {
-	return o.ApplyT(func(v ListFirewalls) []Firewall { return v.Firewalls }).(FirewallArrayOutput)
+func (o ListFirewallsItemsOutput) Firewalls() FirewallArrayOutput {
+	return o.ApplyT(func(v ListFirewallsItems) []Firewall { return v.Firewalls }).(FirewallArrayOutput)
 }
 
-func (o ListFirewallsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListFirewalls) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListFirewallsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListFirewallsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListFirewallsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListFirewalls) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListFirewallsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListFirewallsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -948,8 +948,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRulesInboundRulesItemArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRulesOutboundRulesItemOutput{})
 	pulumi.RegisterOutputType(FirewallRulesOutboundRulesItemArrayOutput{})
-	pulumi.RegisterOutputType(GetFirewallsPropertiesOutput{})
-	pulumi.RegisterOutputType(ListFirewallsOutput{})
+	pulumi.RegisterOutputType(GetFirewallPropertiesOutput{})
+	pulumi.RegisterOutputType(ListFirewallsItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

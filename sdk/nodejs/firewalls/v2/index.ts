@@ -25,10 +25,10 @@ export type FirewallsTags = import("./firewallsTags").FirewallsTags;
 export const FirewallsTags: typeof import("./firewallsTags").FirewallsTags = null as any;
 utilities.lazyLoad(exports, ["FirewallsTags"], () => require("./firewallsTags"));
 
-export { GetFirewallsArgs, GetFirewallsResult, GetFirewallsOutputArgs } from "./getFirewalls";
-export const getFirewalls: typeof import("./getFirewalls").getFirewalls = null as any;
-export const getFirewallsOutput: typeof import("./getFirewalls").getFirewallsOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewalls","getFirewallsOutput"], () => require("./getFirewalls"));
+export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
+export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
+export const getFirewallOutput: typeof import("./getFirewall").getFirewallOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewall","getFirewallOutput"], () => require("./getFirewall"));
 
 export { ListFirewallsArgs, ListFirewallsResult } from "./listFirewalls";
 export const listFirewalls: typeof import("./listFirewalls").listFirewalls = null as any;

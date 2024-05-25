@@ -23,7 +23,7 @@ export interface ListFloatingIPsActionArgs {
 }
 
 export interface ListFloatingIPsActionResult {
-    readonly items: outputs.floating_ips.v2.ListFloatingIPsAction;
+    readonly items: outputs.floating_ips.v2.ListFloatingIPsActionItems;
 }
 export function listFloatingIPsActionOutput(args: ListFloatingIPsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFloatingIPsActionResult> {
     return pulumi.output(args).apply((a: any) => listFloatingIPsAction(a, opts))

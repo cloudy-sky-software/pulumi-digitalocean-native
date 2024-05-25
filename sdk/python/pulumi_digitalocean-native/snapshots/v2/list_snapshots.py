@@ -27,7 +27,7 @@ class ListSnapshotsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListSnapshots':
+    def items(self) -> 'outputs.ListSnapshotsItems':
         return pulumi.get(self, "items")
 
 

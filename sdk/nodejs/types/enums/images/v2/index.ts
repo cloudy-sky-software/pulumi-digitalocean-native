@@ -23,28 +23,6 @@ export const ImageActionBaseType = {
  */
 export type ImageActionBaseType = (typeof ImageActionBaseType)[keyof typeof ImageActionBaseType];
 
-export const ImageActionsTransferPropertiesRegion = {
-    Ams1: "ams1",
-    Ams2: "ams2",
-    Ams3: "ams3",
-    Blr1: "blr1",
-    Fra1: "fra1",
-    Lon1: "lon1",
-    Nyc1: "nyc1",
-    Nyc2: "nyc2",
-    Nyc3: "nyc3",
-    Sfo1: "sfo1",
-    Sfo2: "sfo2",
-    Sfo3: "sfo3",
-    Sgp1: "sgp1",
-    Tor1: "tor1",
-} as const;
-
-/**
- * The slug identifier for the region where the resource will initially be  available.
- */
-export type ImageActionsTransferPropertiesRegion = (typeof ImageActionsTransferPropertiesRegion)[keyof typeof ImageActionsTransferPropertiesRegion];
-
 export const ImageDistribution = {
     ArchLinux: "Arch Linux",
     CentOS: "CentOS",
@@ -168,6 +146,28 @@ export const Status = {
  * The current status of the action. This can be "in-progress", "completed", or "errored".
  */
 export type Status = (typeof Status)[keyof typeof Status];
+
+export const TransferPropertiesRegion = {
+    Ams1: "ams1",
+    Ams2: "ams2",
+    Ams3: "ams3",
+    Blr1: "blr1",
+    Fra1: "fra1",
+    Lon1: "lon1",
+    Nyc1: "nyc1",
+    Nyc2: "nyc2",
+    Nyc3: "nyc3",
+    Sfo1: "sfo1",
+    Sfo2: "sfo2",
+    Sfo3: "sfo3",
+    Sgp1: "sgp1",
+    Tor1: "tor1",
+} as const;
+
+/**
+ * The slug identifier for the region where the resource will initially be  available.
+ */
+export type TransferPropertiesRegion = (typeof TransferPropertiesRegion)[keyof typeof TransferPropertiesRegion];
 
 export const Type = {
     Convert: "convert",

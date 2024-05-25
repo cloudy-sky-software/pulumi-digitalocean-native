@@ -8,29 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
-	regionSchema, ok := openAPIDoc.Components.Schemas["region"]
-	contract.Assertf(ok, "Expected to find a schema for region type")
-
-	regionSchema.Value.Properties["features"].Value.Type = &openapi3.Types{"array"}
-	regionSchema.Value.Properties["sizes"].Value.Type = &openapi3.Types{"array"}
-
-	for _, ty := range openAPIDoc.Components.Schemas {
-		fixObjectPropertyType(ty)
-	}
-
-	for _, ty := range openAPIDoc.Components.Responses {
-		fixResponseObjectPropertyType(ty)
-	}
-
-	fixDatabaseConfigType(openAPIDoc)
-	fixFloatingIPType(openAPIDoc)
-	fixReservedIPActionUnassignType(openAPIDoc)
-	fixReservedIPType(openAPIDoc)
-	fixPageLinksType(openAPIDoc)
-	fixCreateUptimeCheckRequest(openAPIDoc)
-}
-
 func fixCreateUptimeCheckRequest(openAPIDoc *openapi3.T) {
 	pathItem := openAPIDoc.Paths.Find("/v2/uptime/checks")
 	contract.Assertf(pathItem != nil, "Expected to find request path /v2/uptime/checks")
@@ -161,4 +138,49 @@ func fixPageLinksType(openAPIDoc *openapi3.T) {
 		"prev":  openapi3.NewStringSchema().NewRef(),
 	}
 	pagesProp.Value.AnyOf = nil
+}
+
+// The POST operation uses a oneOf definition in the
+// request body schema to let the user create either
+// one or many droplets. But the oneOf definition
+// does not have a discriminator. Instead, we'll
+// just change the definition to let the user
+// create multiple droplets. They can still
+// create a single droplet by passing a
+// single value in the `names` property,
+// which is the only difference between
+// a single and a multiple create request.
+func fixCreateDropletsRequest(openAPIDoc *openapi3.T) {
+	pathItem := openAPIDoc.Paths.Find("/v2/droplets")
+	contract.Assertf(pathItem != nil, "Expected to find request path /v2/droplets")
+
+	multipleCreate := openAPIDoc.Components.Schemas["droplet_multi_create"]
+
+	reqSchema := pathItem.Post.RequestBody.Value.Content.Get("application/json")
+	reqSchema.Schema = openapi3.NewSchemaRef("#/components/schemas/droplet_multi_create", multipleCreate.Value)
+	reqSchema.Schema.Value.OneOf = nil
+}
+
+func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
+	regionSchema, ok := openAPIDoc.Components.Schemas["region"]
+	contract.Assertf(ok, "Expected to find a schema for region type")
+
+	regionSchema.Value.Properties["features"].Value.Type = &openapi3.Types{"array"}
+	regionSchema.Value.Properties["sizes"].Value.Type = &openapi3.Types{"array"}
+
+	for _, ty := range openAPIDoc.Components.Schemas {
+		fixObjectPropertyType(ty)
+	}
+
+	for _, ty := range openAPIDoc.Components.Responses {
+		fixResponseObjectPropertyType(ty)
+	}
+
+	fixDatabaseConfigType(openAPIDoc)
+	fixFloatingIPType(openAPIDoc)
+	fixReservedIPActionUnassignType(openAPIDoc)
+	fixReservedIPType(openAPIDoc)
+	fixPageLinksType(openAPIDoc)
+	fixCreateUptimeCheckRequest(openAPIDoc)
+	fixCreateDropletsRequest(openAPIDoc)
 }

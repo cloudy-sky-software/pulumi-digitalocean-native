@@ -210,58 +210,58 @@ func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	}).(CertificateOutput)
 }
 
-type GetCertificatesProperties struct {
+type GetCertificateProperties struct {
 	Certificate *Certificate `pulumi:"certificate"`
 }
 
-type GetCertificatesPropertiesOutput struct{ *pulumi.OutputState }
+type GetCertificatePropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetCertificatesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCertificatesProperties)(nil)).Elem()
+func (GetCertificatePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateProperties)(nil)).Elem()
 }
 
-func (o GetCertificatesPropertiesOutput) ToGetCertificatesPropertiesOutput() GetCertificatesPropertiesOutput {
+func (o GetCertificatePropertiesOutput) ToGetCertificatePropertiesOutput() GetCertificatePropertiesOutput {
 	return o
 }
 
-func (o GetCertificatesPropertiesOutput) ToGetCertificatesPropertiesOutputWithContext(ctx context.Context) GetCertificatesPropertiesOutput {
+func (o GetCertificatePropertiesOutput) ToGetCertificatePropertiesOutputWithContext(ctx context.Context) GetCertificatePropertiesOutput {
 	return o
 }
 
-func (o GetCertificatesPropertiesOutput) Certificate() CertificatePtrOutput {
-	return o.ApplyT(func(v GetCertificatesProperties) *Certificate { return v.Certificate }).(CertificatePtrOutput)
+func (o GetCertificatePropertiesOutput) Certificate() CertificatePtrOutput {
+	return o.ApplyT(func(v GetCertificateProperties) *Certificate { return v.Certificate }).(CertificatePtrOutput)
 }
 
-type ListCertificates struct {
+type ListCertificatesItems struct {
 	Certificates []Certificate `pulumi:"certificates"`
 	Links        *PageLinks    `pulumi:"links"`
 	Meta         MetaMeta      `pulumi:"meta"`
 }
 
-type ListCertificatesOutput struct{ *pulumi.OutputState }
+type ListCertificatesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListCertificatesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListCertificates)(nil)).Elem()
+func (ListCertificatesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListCertificatesItems)(nil)).Elem()
 }
 
-func (o ListCertificatesOutput) ToListCertificatesOutput() ListCertificatesOutput {
+func (o ListCertificatesItemsOutput) ToListCertificatesItemsOutput() ListCertificatesItemsOutput {
 	return o
 }
 
-func (o ListCertificatesOutput) ToListCertificatesOutputWithContext(ctx context.Context) ListCertificatesOutput {
+func (o ListCertificatesItemsOutput) ToListCertificatesItemsOutputWithContext(ctx context.Context) ListCertificatesItemsOutput {
 	return o
 }
 
-func (o ListCertificatesOutput) Certificates() CertificateArrayOutput {
-	return o.ApplyT(func(v ListCertificates) []Certificate { return v.Certificates }).(CertificateArrayOutput)
+func (o ListCertificatesItemsOutput) Certificates() CertificateArrayOutput {
+	return o.ApplyT(func(v ListCertificatesItems) []Certificate { return v.Certificates }).(CertificateArrayOutput)
 }
 
-func (o ListCertificatesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListCertificates) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListCertificatesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListCertificatesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListCertificatesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListCertificates) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListCertificatesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListCertificatesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 type MetaMeta struct {
@@ -444,8 +444,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 	pulumi.RegisterOutputType(CertificatePtrOutput{})
 	pulumi.RegisterOutputType(CertificateArrayOutput{})
-	pulumi.RegisterOutputType(GetCertificatesPropertiesOutput{})
-	pulumi.RegisterOutputType(ListCertificatesOutput{})
+	pulumi.RegisterOutputType(GetCertificatePropertiesOutput{})
+	pulumi.RegisterOutputType(ListCertificatesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

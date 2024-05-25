@@ -5,60 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AArgs } from "./a";
+export type A = import("./a").A;
+export const A: typeof import("./a").A = null as any;
+utilities.lazyLoad(exports, ["A"], () => require("./a"));
+
+export { AaaaArgs } from "./aaaa";
+export type Aaaa = import("./aaaa").Aaaa;
+export const Aaaa: typeof import("./aaaa").Aaaa = null as any;
+utilities.lazyLoad(exports, ["Aaaa"], () => require("./aaaa"));
+
+export { CaaArgs } from "./caa";
+export type Caa = import("./caa").Caa;
+export const Caa: typeof import("./caa").Caa = null as any;
+utilities.lazyLoad(exports, ["Caa"], () => require("./caa"));
+
+export { CnameArgs } from "./cname";
+export type Cname = import("./cname").Cname;
+export const Cname: typeof import("./cname").Cname = null as any;
+utilities.lazyLoad(exports, ["Cname"], () => require("./cname"));
+
 export { DomainsArgs } from "./domains";
 export type Domains = import("./domains").Domains;
 export const Domains: typeof import("./domains").Domains = null as any;
 utilities.lazyLoad(exports, ["Domains"], () => require("./domains"));
 
-export { DomainsRecordAArgs } from "./domainsRecordA";
-export type DomainsRecordA = import("./domainsRecordA").DomainsRecordA;
-export const DomainsRecordA: typeof import("./domainsRecordA").DomainsRecordA = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordA"], () => require("./domainsRecordA"));
-
-export { DomainsRecordAaaaArgs } from "./domainsRecordAaaa";
-export type DomainsRecordAaaa = import("./domainsRecordAaaa").DomainsRecordAaaa;
-export const DomainsRecordAaaa: typeof import("./domainsRecordAaaa").DomainsRecordAaaa = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordAaaa"], () => require("./domainsRecordAaaa"));
-
-export { DomainsRecordCaaArgs } from "./domainsRecordCaa";
-export type DomainsRecordCaa = import("./domainsRecordCaa").DomainsRecordCaa;
-export const DomainsRecordCaa: typeof import("./domainsRecordCaa").DomainsRecordCaa = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordCaa"], () => require("./domainsRecordCaa"));
-
-export { DomainsRecordCnameArgs } from "./domainsRecordCname";
-export type DomainsRecordCname = import("./domainsRecordCname").DomainsRecordCname;
-export const DomainsRecordCname: typeof import("./domainsRecordCname").DomainsRecordCname = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordCname"], () => require("./domainsRecordCname"));
-
-export { DomainsRecordMxArgs } from "./domainsRecordMx";
-export type DomainsRecordMx = import("./domainsRecordMx").DomainsRecordMx;
-export const DomainsRecordMx: typeof import("./domainsRecordMx").DomainsRecordMx = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordMx"], () => require("./domainsRecordMx"));
-
-export { DomainsRecordNsArgs } from "./domainsRecordNs";
-export type DomainsRecordNs = import("./domainsRecordNs").DomainsRecordNs;
-export const DomainsRecordNs: typeof import("./domainsRecordNs").DomainsRecordNs = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordNs"], () => require("./domainsRecordNs"));
-
-export { DomainsRecordSoaArgs } from "./domainsRecordSoa";
-export type DomainsRecordSoa = import("./domainsRecordSoa").DomainsRecordSoa;
-export const DomainsRecordSoa: typeof import("./domainsRecordSoa").DomainsRecordSoa = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordSoa"], () => require("./domainsRecordSoa"));
-
-export { DomainsRecordSrvArgs } from "./domainsRecordSrv";
-export type DomainsRecordSrv = import("./domainsRecordSrv").DomainsRecordSrv;
-export const DomainsRecordSrv: typeof import("./domainsRecordSrv").DomainsRecordSrv = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordSrv"], () => require("./domainsRecordSrv"));
-
-export { DomainsRecordTxtArgs } from "./domainsRecordTxt";
-export type DomainsRecordTxt = import("./domainsRecordTxt").DomainsRecordTxt;
-export const DomainsRecordTxt: typeof import("./domainsRecordTxt").DomainsRecordTxt = null as any;
-utilities.lazyLoad(exports, ["DomainsRecordTxt"], () => require("./domainsRecordTxt"));
-
-export { GetDomainsArgs, GetDomainsResult, GetDomainsOutputArgs } from "./getDomains";
-export const getDomains: typeof import("./getDomains").getDomains = null as any;
-export const getDomainsOutput: typeof import("./getDomains").getDomainsOutput = null as any;
-utilities.lazyLoad(exports, ["getDomains","getDomainsOutput"], () => require("./getDomains"));
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
 export { GetDomainsRecordArgs, GetDomainsRecordResult, GetDomainsRecordOutputArgs } from "./getDomainsRecord";
 export const getDomainsRecord: typeof import("./getDomainsRecord").getDomainsRecord = null as any;
@@ -75,31 +50,56 @@ export const listDomainsRecords: typeof import("./listDomainsRecords").listDomai
 export const listDomainsRecordsOutput: typeof import("./listDomainsRecords").listDomainsRecordsOutput = null as any;
 utilities.lazyLoad(exports, ["listDomainsRecords","listDomainsRecordsOutput"], () => require("./listDomainsRecords"));
 
+export { MxArgs } from "./mx";
+export type Mx = import("./mx").Mx;
+export const Mx: typeof import("./mx").Mx = null as any;
+utilities.lazyLoad(exports, ["Mx"], () => require("./mx"));
+
+export { NsArgs } from "./ns";
+export type Ns = import("./ns").Ns;
+export const Ns: typeof import("./ns").Ns = null as any;
+utilities.lazyLoad(exports, ["Ns"], () => require("./ns"));
+
+export { SoaArgs } from "./soa";
+export type Soa = import("./soa").Soa;
+export const Soa: typeof import("./soa").Soa = null as any;
+utilities.lazyLoad(exports, ["Soa"], () => require("./soa"));
+
+export { SrvArgs } from "./srv";
+export type Srv = import("./srv").Srv;
+export const Srv: typeof import("./srv").Srv = null as any;
+utilities.lazyLoad(exports, ["Srv"], () => require("./srv"));
+
+export { TxtArgs } from "./txt";
+export type Txt = import("./txt").Txt;
+export const Txt: typeof import("./txt").Txt = null as any;
+utilities.lazyLoad(exports, ["Txt"], () => require("./txt"));
+
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "digitalocean-native:domains/v2:A":
+                return new A(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Aaaa":
+                return new Aaaa(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Caa":
+                return new Caa(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Cname":
+                return new Cname(name, <any>undefined, { urn })
             case "digitalocean-native:domains/v2:Domains":
                 return new Domains(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordA":
-                return new DomainsRecordA(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordAaaa":
-                return new DomainsRecordAaaa(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordCaa":
-                return new DomainsRecordCaa(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordCname":
-                return new DomainsRecordCname(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordMx":
-                return new DomainsRecordMx(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordNs":
-                return new DomainsRecordNs(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordSoa":
-                return new DomainsRecordSoa(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordSrv":
-                return new DomainsRecordSrv(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:DomainsRecordTxt":
-                return new DomainsRecordTxt(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Mx":
+                return new Mx(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Ns":
+                return new Ns(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Soa":
+                return new Soa(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Srv":
+                return new Srv(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Txt":
+                return new Txt(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

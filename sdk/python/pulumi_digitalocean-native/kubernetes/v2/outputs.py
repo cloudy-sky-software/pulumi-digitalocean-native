@@ -20,7 +20,7 @@ __all__ = [
     'ClusterlintResultsDiagnosticsItemProperties',
     'ClusterlintResultsDiagnosticsItemPropertiesObjectProperties',
     'Credentials',
-    'GetKubernetesAvailableUpgradesProperties',
+    'GetKubernetesAvailableUpgradeProperties',
     'GetKubernetesClusterProperties',
     'GetKubernetesNodePoolProperties',
     'KubernetesNodePool',
@@ -30,7 +30,7 @@ __all__ = [
     'KubernetesRegion',
     'KubernetesSize',
     'KubernetesVersion',
-    'ListKubernetesClusters',
+    'ListKubernetesClustersItems',
     'ListKubernetesNodePoolsProperties',
     'MaintenancePolicy',
     'MetaMeta',
@@ -689,7 +689,7 @@ class Credentials(dict):
 
 
 @pulumi.output_type
-class GetKubernetesAvailableUpgradesProperties(dict):
+class GetKubernetesAvailableUpgradeProperties(dict):
     def __init__(__self__, *,
                  available_upgrade_versions: Optional[Sequence['outputs.KubernetesVersion']] = None):
         if available_upgrade_versions is not None:
@@ -1078,7 +1078,7 @@ class KubernetesVersion(dict):
 
 
 @pulumi.output_type
-class ListKubernetesClusters(dict):
+class ListKubernetesClustersItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  kubernetes_clusters: Optional[Sequence['outputs.Cluster']] = None,

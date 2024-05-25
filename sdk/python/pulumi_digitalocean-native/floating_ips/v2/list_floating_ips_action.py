@@ -27,7 +27,7 @@ class ListFloatingIPsActionResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFloatingIPsAction':
+    def items(self) -> 'outputs.ListFloatingIPsActionItems':
         return pulumi.get(self, "items")
 
 

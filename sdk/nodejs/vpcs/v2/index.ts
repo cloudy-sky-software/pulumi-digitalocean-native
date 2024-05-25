@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetVpcsArgs, GetVpcsResult, GetVpcsOutputArgs } from "./getVpcs";
-export const getVpcs: typeof import("./getVpcs").getVpcs = null as any;
-export const getVpcsOutput: typeof import("./getVpcs").getVpcsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));
+export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
+export const getVpc: typeof import("./getVpc").getVpc = null as any;
+export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
+utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
 
 export { ListVpcsArgs, ListVpcsResult } from "./listVpcs";
 export const listVpcs: typeof import("./listVpcs").listVpcs = null as any;

@@ -13,6 +13,28 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetProjectProperties struct {
+	Project *Project `pulumi:"project"`
+}
+
+type GetProjectPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetProjectPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProjectProperties)(nil)).Elem()
+}
+
+func (o GetProjectPropertiesOutput) ToGetProjectPropertiesOutput() GetProjectPropertiesOutput {
+	return o
+}
+
+func (o GetProjectPropertiesOutput) ToGetProjectPropertiesOutputWithContext(ctx context.Context) GetProjectPropertiesOutput {
+	return o
+}
+
+func (o GetProjectPropertiesOutput) Project() ProjectPtrOutput {
+	return o.ApplyT(func(v GetProjectProperties) *Project { return v.Project }).(ProjectPtrOutput)
+}
+
 type GetProjectsDefaultProperties struct {
 	Project *Project `pulumi:"project"`
 }
@@ -35,122 +57,100 @@ func (o GetProjectsDefaultPropertiesOutput) Project() ProjectPtrOutput {
 	return o.ApplyT(func(v GetProjectsDefaultProperties) *Project { return v.Project }).(ProjectPtrOutput)
 }
 
-type GetProjectsProperties struct {
-	Project *Project `pulumi:"project"`
-}
-
-type GetProjectsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetProjectsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetProjectsProperties)(nil)).Elem()
-}
-
-func (o GetProjectsPropertiesOutput) ToGetProjectsPropertiesOutput() GetProjectsPropertiesOutput {
-	return o
-}
-
-func (o GetProjectsPropertiesOutput) ToGetProjectsPropertiesOutputWithContext(ctx context.Context) GetProjectsPropertiesOutput {
-	return o
-}
-
-func (o GetProjectsPropertiesOutput) Project() ProjectPtrOutput {
-	return o.ApplyT(func(v GetProjectsProperties) *Project { return v.Project }).(ProjectPtrOutput)
-}
-
-type ListProjects struct {
+type ListProjectsItems struct {
 	Links    *PageLinks `pulumi:"links"`
 	Meta     MetaMeta   `pulumi:"meta"`
 	Projects []Project  `pulumi:"projects"`
 }
 
-type ListProjectsOutput struct{ *pulumi.OutputState }
+type ListProjectsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListProjectsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListProjects)(nil)).Elem()
+func (ListProjectsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProjectsItems)(nil)).Elem()
 }
 
-func (o ListProjectsOutput) ToListProjectsOutput() ListProjectsOutput {
+func (o ListProjectsItemsOutput) ToListProjectsItemsOutput() ListProjectsItemsOutput {
 	return o
 }
 
-func (o ListProjectsOutput) ToListProjectsOutputWithContext(ctx context.Context) ListProjectsOutput {
+func (o ListProjectsItemsOutput) ToListProjectsItemsOutputWithContext(ctx context.Context) ListProjectsItemsOutput {
 	return o
 }
 
-func (o ListProjectsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListProjects) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListProjectsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListProjectsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListProjectsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListProjects) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListProjectsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListProjectsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListProjectsOutput) Projects() ProjectArrayOutput {
-	return o.ApplyT(func(v ListProjects) []Project { return v.Projects }).(ProjectArrayOutput)
+func (o ListProjectsItemsOutput) Projects() ProjectArrayOutput {
+	return o.ApplyT(func(v ListProjectsItems) []Project { return v.Projects }).(ProjectArrayOutput)
 }
 
-type ListProjectsResources struct {
+type ListProjectsResourcesDefaultItems struct {
 	Links     *PageLinks `pulumi:"links"`
 	Meta      MetaMeta   `pulumi:"meta"`
 	Resources []Resource `pulumi:"resources"`
 }
 
-type ListProjectsResourcesOutput struct{ *pulumi.OutputState }
+type ListProjectsResourcesDefaultItemsOutput struct{ *pulumi.OutputState }
 
-func (ListProjectsResourcesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListProjectsResources)(nil)).Elem()
+func (ListProjectsResourcesDefaultItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProjectsResourcesDefaultItems)(nil)).Elem()
 }
 
-func (o ListProjectsResourcesOutput) ToListProjectsResourcesOutput() ListProjectsResourcesOutput {
+func (o ListProjectsResourcesDefaultItemsOutput) ToListProjectsResourcesDefaultItemsOutput() ListProjectsResourcesDefaultItemsOutput {
 	return o
 }
 
-func (o ListProjectsResourcesOutput) ToListProjectsResourcesOutputWithContext(ctx context.Context) ListProjectsResourcesOutput {
+func (o ListProjectsResourcesDefaultItemsOutput) ToListProjectsResourcesDefaultItemsOutputWithContext(ctx context.Context) ListProjectsResourcesDefaultItemsOutput {
 	return o
 }
 
-func (o ListProjectsResourcesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListProjectsResources) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListProjectsResourcesDefaultItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListProjectsResourcesDefaultItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListProjectsResourcesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListProjectsResources) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListProjectsResourcesDefaultItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListProjectsResourcesDefaultItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListProjectsResourcesOutput) Resources() ResourceArrayOutput {
-	return o.ApplyT(func(v ListProjectsResources) []Resource { return v.Resources }).(ResourceArrayOutput)
+func (o ListProjectsResourcesDefaultItemsOutput) Resources() ResourceArrayOutput {
+	return o.ApplyT(func(v ListProjectsResourcesDefaultItems) []Resource { return v.Resources }).(ResourceArrayOutput)
 }
 
-type ListProjectsResourcesDefault struct {
+type ListProjectsResourcesItems struct {
 	Links     *PageLinks `pulumi:"links"`
 	Meta      MetaMeta   `pulumi:"meta"`
 	Resources []Resource `pulumi:"resources"`
 }
 
-type ListProjectsResourcesDefaultOutput struct{ *pulumi.OutputState }
+type ListProjectsResourcesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListProjectsResourcesDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListProjectsResourcesDefault)(nil)).Elem()
+func (ListProjectsResourcesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListProjectsResourcesItems)(nil)).Elem()
 }
 
-func (o ListProjectsResourcesDefaultOutput) ToListProjectsResourcesDefaultOutput() ListProjectsResourcesDefaultOutput {
+func (o ListProjectsResourcesItemsOutput) ToListProjectsResourcesItemsOutput() ListProjectsResourcesItemsOutput {
 	return o
 }
 
-func (o ListProjectsResourcesDefaultOutput) ToListProjectsResourcesDefaultOutputWithContext(ctx context.Context) ListProjectsResourcesDefaultOutput {
+func (o ListProjectsResourcesItemsOutput) ToListProjectsResourcesItemsOutputWithContext(ctx context.Context) ListProjectsResourcesItemsOutput {
 	return o
 }
 
-func (o ListProjectsResourcesDefaultOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListProjectsResourcesDefault) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListProjectsResourcesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListProjectsResourcesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListProjectsResourcesDefaultOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListProjectsResourcesDefault) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListProjectsResourcesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListProjectsResourcesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListProjectsResourcesDefaultOutput) Resources() ResourceArrayOutput {
-	return o.ApplyT(func(v ListProjectsResourcesDefault) []Resource { return v.Resources }).(ResourceArrayOutput)
+func (o ListProjectsResourcesItemsOutput) Resources() ResourceArrayOutput {
+	return o.ApplyT(func(v ListProjectsResourcesItems) []Resource { return v.Resources }).(ResourceArrayOutput)
 }
 
 type MetaMeta struct {
@@ -728,11 +728,11 @@ func (o ResourceLinksPropertiesPtrOutput) Self() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(GetProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(GetProjectsDefaultPropertiesOutput{})
-	pulumi.RegisterOutputType(GetProjectsPropertiesOutput{})
-	pulumi.RegisterOutputType(ListProjectsOutput{})
-	pulumi.RegisterOutputType(ListProjectsResourcesOutput{})
-	pulumi.RegisterOutputType(ListProjectsResourcesDefaultOutput{})
+	pulumi.RegisterOutputType(ListProjectsItemsOutput{})
+	pulumi.RegisterOutputType(ListProjectsResourcesDefaultItemsOutput{})
+	pulumi.RegisterOutputType(ListProjectsResourcesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

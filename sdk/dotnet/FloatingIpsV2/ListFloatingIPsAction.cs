@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
     [OutputType]
     public sealed class ListFloatingIPsActionResult
     {
-        public readonly Outputs.ListFloatingIPsAction Items;
+        public readonly Outputs.ListFloatingIPsActionItems Items;
 
         [OutputConstructor]
-        private ListFloatingIPsActionResult(Outputs.ListFloatingIPsAction items)
+        private ListFloatingIPsActionResult(Outputs.ListFloatingIPsActionItems items)
         {
             Items = items;
         }

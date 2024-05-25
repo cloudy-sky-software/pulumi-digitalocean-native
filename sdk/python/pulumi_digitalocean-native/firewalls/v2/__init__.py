@@ -10,7 +10,7 @@ from .firewalls import *
 from .firewalls_assign_droplets import *
 from .firewalls_rules import *
 from .firewalls_tags import *
-from .get_firewalls import *
+from .get_firewall import *
 from .list_firewalls import *
 from ._inputs import *
 from . import outputs

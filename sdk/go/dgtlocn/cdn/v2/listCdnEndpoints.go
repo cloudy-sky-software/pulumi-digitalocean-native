@@ -25,7 +25,7 @@ type ListCdnEndpointsArgs struct {
 }
 
 type ListCdnEndpointsResult struct {
-	Items ListCdnEndpoints `pulumi:"items"`
+	Items ListCdnEndpointsItems `pulumi:"items"`
 }
 
 func ListCdnEndpointsOutput(ctx *pulumi.Context, args ListCdnEndpointsOutputArgs, opts ...pulumi.InvokeOption) ListCdnEndpointsResultOutput {
@@ -62,8 +62,8 @@ func (o ListCdnEndpointsResultOutput) ToListCdnEndpointsResultOutputWithContext(
 	return o
 }
 
-func (o ListCdnEndpointsResultOutput) Items() ListCdnEndpointsOutput {
-	return o.ApplyT(func(v ListCdnEndpointsResult) ListCdnEndpoints { return v.Items }).(ListCdnEndpointsOutput)
+func (o ListCdnEndpointsResultOutput) Items() ListCdnEndpointsItemsOutput {
+	return o.ApplyT(func(v ListCdnEndpointsResult) ListCdnEndpointsItems { return v.Items }).(ListCdnEndpointsItemsOutput)
 }
 
 func init() {

@@ -27,7 +27,7 @@ type ListRegistryRepositoriesV2Args struct {
 }
 
 type ListRegistryRepositoriesV2Result struct {
-	Items ListRegistryRepositoriesV2 `pulumi:"items"`
+	Items ListRegistryRepositoriesV2Items `pulumi:"items"`
 }
 
 func ListRegistryRepositoriesV2Output(ctx *pulumi.Context, args ListRegistryRepositoriesV2OutputArgs, opts ...pulumi.InvokeOption) ListRegistryRepositoriesV2ResultOutput {
@@ -66,8 +66,8 @@ func (o ListRegistryRepositoriesV2ResultOutput) ToListRegistryRepositoriesV2Resu
 	return o
 }
 
-func (o ListRegistryRepositoriesV2ResultOutput) Items() ListRegistryRepositoriesV2Output {
-	return o.ApplyT(func(v ListRegistryRepositoriesV2Result) ListRegistryRepositoriesV2 { return v.Items }).(ListRegistryRepositoriesV2Output)
+func (o ListRegistryRepositoriesV2ResultOutput) Items() ListRegistryRepositoriesV2ItemsOutput {
+	return o.ApplyT(func(v ListRegistryRepositoriesV2Result) ListRegistryRepositoriesV2Items { return v.Items }).(ListRegistryRepositoriesV2ItemsOutput)
 }
 
 func init() {

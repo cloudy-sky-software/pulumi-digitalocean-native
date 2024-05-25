@@ -173,16 +173,16 @@ _utilities.register(
   "mod": "domains/v2",
   "fqn": "pulumi_digitalocean-native.domains.v2",
   "classes": {
+   "digitalocean-native:domains/v2:A": "A",
+   "digitalocean-native:domains/v2:Aaaa": "Aaaa",
+   "digitalocean-native:domains/v2:Caa": "Caa",
+   "digitalocean-native:domains/v2:Cname": "Cname",
    "digitalocean-native:domains/v2:Domains": "Domains",
-   "digitalocean-native:domains/v2:DomainsRecordA": "DomainsRecordA",
-   "digitalocean-native:domains/v2:DomainsRecordAaaa": "DomainsRecordAaaa",
-   "digitalocean-native:domains/v2:DomainsRecordCaa": "DomainsRecordCaa",
-   "digitalocean-native:domains/v2:DomainsRecordCname": "DomainsRecordCname",
-   "digitalocean-native:domains/v2:DomainsRecordMx": "DomainsRecordMx",
-   "digitalocean-native:domains/v2:DomainsRecordNs": "DomainsRecordNs",
-   "digitalocean-native:domains/v2:DomainsRecordSoa": "DomainsRecordSoa",
-   "digitalocean-native:domains/v2:DomainsRecordSrv": "DomainsRecordSrv",
-   "digitalocean-native:domains/v2:DomainsRecordTxt": "DomainsRecordTxt"
+   "digitalocean-native:domains/v2:Mx": "Mx",
+   "digitalocean-native:domains/v2:Ns": "Ns",
+   "digitalocean-native:domains/v2:Soa": "Soa",
+   "digitalocean-native:domains/v2:Srv": "Srv",
+   "digitalocean-native:domains/v2:Txt": "Txt"
   }
  },
  {
@@ -190,30 +190,22 @@ _utilities.register(
   "mod": "droplets/v2",
   "fqn": "pulumi_digitalocean-native.droplets.v2",
   "classes": {
-   "digitalocean-native:droplets/v2:DropletActionsByTagDisableBackups": "DropletActionsByTagDisableBackups",
-   "digitalocean-native:droplets/v2:DropletActionsByTagEnableBackups": "DropletActionsByTagEnableBackups",
-   "digitalocean-native:droplets/v2:DropletActionsByTagEnableIpv6": "DropletActionsByTagEnableIpv6",
-   "digitalocean-native:droplets/v2:DropletActionsByTagPowerCycle": "DropletActionsByTagPowerCycle",
-   "digitalocean-native:droplets/v2:DropletActionsByTagPowerOff": "DropletActionsByTagPowerOff",
-   "digitalocean-native:droplets/v2:DropletActionsByTagPowerOn": "DropletActionsByTagPowerOn",
-   "digitalocean-native:droplets/v2:DropletActionsByTagShutdown": "DropletActionsByTagShutdown",
-   "digitalocean-native:droplets/v2:DropletActionsByTagSnapshot": "DropletActionsByTagSnapshot",
-   "digitalocean-native:droplets/v2:DropletActionsChangeKernel": "DropletActionsChangeKernel",
-   "digitalocean-native:droplets/v2:DropletActionsDisableBackups": "DropletActionsDisableBackups",
-   "digitalocean-native:droplets/v2:DropletActionsEnableBackups": "DropletActionsEnableBackups",
-   "digitalocean-native:droplets/v2:DropletActionsEnableIpv6": "DropletActionsEnableIpv6",
-   "digitalocean-native:droplets/v2:DropletActionsPasswordReset": "DropletActionsPasswordReset",
-   "digitalocean-native:droplets/v2:DropletActionsPowerCycle": "DropletActionsPowerCycle",
-   "digitalocean-native:droplets/v2:DropletActionsPowerOff": "DropletActionsPowerOff",
-   "digitalocean-native:droplets/v2:DropletActionsPowerOn": "DropletActionsPowerOn",
-   "digitalocean-native:droplets/v2:DropletActionsReboot": "DropletActionsReboot",
-   "digitalocean-native:droplets/v2:DropletActionsRebuild": "DropletActionsRebuild",
-   "digitalocean-native:droplets/v2:DropletActionsRename": "DropletActionsRename",
-   "digitalocean-native:droplets/v2:DropletActionsResize": "DropletActionsResize",
-   "digitalocean-native:droplets/v2:DropletActionsRestore": "DropletActionsRestore",
-   "digitalocean-native:droplets/v2:DropletActionsShutdown": "DropletActionsShutdown",
-   "digitalocean-native:droplets/v2:DropletActionsSnapshot": "DropletActionsSnapshot",
-   "digitalocean-native:droplets/v2:Droplets": "Droplets"
+   "digitalocean-native:droplets/v2:ChangeKernel": "ChangeKernel",
+   "digitalocean-native:droplets/v2:DisableBackups": "DisableBackups",
+   "digitalocean-native:droplets/v2:Droplets": "Droplets",
+   "digitalocean-native:droplets/v2:EnableBackups": "EnableBackups",
+   "digitalocean-native:droplets/v2:EnableIpv6": "EnableIpv6",
+   "digitalocean-native:droplets/v2:PasswordReset": "PasswordReset",
+   "digitalocean-native:droplets/v2:PowerCycle": "PowerCycle",
+   "digitalocean-native:droplets/v2:PowerOff": "PowerOff",
+   "digitalocean-native:droplets/v2:PowerOn": "PowerOn",
+   "digitalocean-native:droplets/v2:Reboot": "Reboot",
+   "digitalocean-native:droplets/v2:Rebuild": "Rebuild",
+   "digitalocean-native:droplets/v2:Rename": "Rename",
+   "digitalocean-native:droplets/v2:Resize": "Resize",
+   "digitalocean-native:droplets/v2:Restore": "Restore",
+   "digitalocean-native:droplets/v2:Shutdown": "Shutdown",
+   "digitalocean-native:droplets/v2:Snapshot": "Snapshot"
   }
  },
  {
@@ -232,9 +224,9 @@ _utilities.register(
   "mod": "floating_ips/v2",
   "fqn": "pulumi_digitalocean-native.floating_ips.v2",
   "classes": {
+   "digitalocean-native:floating_ips/v2:Assign": "Assign",
    "digitalocean-native:floating_ips/v2:FloatingIPs": "FloatingIPs",
-   "digitalocean-native:floating_ips/v2:FloatingIPsActionAssign": "FloatingIPsActionAssign",
-   "digitalocean-native:floating_ips/v2:FloatingIPsActionUnassign": "FloatingIPsActionUnassign"
+   "digitalocean-native:floating_ips/v2:Unassign": "Unassign"
   }
  },
  {
@@ -251,9 +243,9 @@ _utilities.register(
   "mod": "images/v2",
   "fqn": "pulumi_digitalocean-native.images.v2",
   "classes": {
-   "digitalocean-native:images/v2:ImageActionsConvert": "ImageActionsConvert",
-   "digitalocean-native:images/v2:ImageActionsTransfer": "ImageActionsTransfer",
-   "digitalocean-native:images/v2:ImagesCustom": "ImagesCustom"
+   "digitalocean-native:images/v2:Convert": "Convert",
+   "digitalocean-native:images/v2:ImagesCustom": "ImagesCustom",
+   "digitalocean-native:images/v2:Transfer": "Transfer"
   }
  },
  {
@@ -313,9 +305,9 @@ _utilities.register(
   "mod": "reserved_ips/v2",
   "fqn": "pulumi_digitalocean-native.reserved_ips.v2",
   "classes": {
+   "digitalocean-native:reserved_ips/v2:Assign": "Assign",
    "digitalocean-native:reserved_ips/v2:ReservedIPs": "ReservedIPs",
-   "digitalocean-native:reserved_ips/v2:ReservedIPsActionsAssign": "ReservedIPsActionsAssign",
-   "digitalocean-native:reserved_ips/v2:ReservedIPsActionsUnassign": "ReservedIPsActionsUnassign"
+   "digitalocean-native:reserved_ips/v2:Unassign": "Unassign"
   }
  },
  {
@@ -341,9 +333,9 @@ _utilities.register(
   "mod": "volumes/v2",
   "fqn": "pulumi_digitalocean-native.volumes.v2",
   "classes": {
-   "digitalocean-native:volumes/v2:VolumeActionsByIdAttach": "VolumeActionsByIdAttach",
-   "digitalocean-native:volumes/v2:VolumeActionsByIdDetach": "VolumeActionsByIdDetach",
-   "digitalocean-native:volumes/v2:VolumeActionsByIdResize": "VolumeActionsByIdResize",
+   "digitalocean-native:volumes/v2:Attach": "Attach",
+   "digitalocean-native:volumes/v2:Detach": "Detach",
+   "digitalocean-native:volumes/v2:Resize": "Resize",
    "digitalocean-native:volumes/v2:VolumeSnapshots": "VolumeSnapshots",
    "digitalocean-native:volumes/v2:Volumes": "Volumes"
   }

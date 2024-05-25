@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.FunctionsV2
     [OutputType]
     public sealed class ListFunctionsTriggersResult
     {
-        public readonly Outputs.ListFunctionsTriggers Items;
+        public readonly Outputs.ListFunctionsTriggersItems Items;
 
         [OutputConstructor]
-        private ListFunctionsTriggersResult(Outputs.ListFunctionsTriggers items)
+        private ListFunctionsTriggersResult(Outputs.ListFunctionsTriggersItems items)
         {
             Items = items;
         }

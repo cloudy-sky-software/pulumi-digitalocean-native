@@ -19,7 +19,7 @@ export interface ListVpcsArgs {
 }
 
 export interface ListVpcsResult {
-    readonly items: outputs.vpcs.v2.ListVpcs;
+    readonly items: outputs.vpcs.v2.ListVpcsItems;
 }
 export function listVpcsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListVpcsResult> {
     return pulumi.output(listVpcs(opts))

@@ -54,12 +54,12 @@ func (o ActionRegionSlugPtrOutput) Elem() ActionRegionSlugOutput {
 	}).(ActionRegionSlugOutput)
 }
 
-type GetVolumeActionsProperties struct {
+type GetVolumeActionProperties struct {
 	Action *VolumeAction `pulumi:"action"`
 }
 
-// Defaults sets the appropriate defaults for GetVolumeActionsProperties
-func (val *GetVolumeActionsProperties) Defaults() *GetVolumeActionsProperties {
+// Defaults sets the appropriate defaults for GetVolumeActionProperties
+func (val *GetVolumeActionProperties) Defaults() *GetVolumeActionProperties {
 	if val == nil {
 		return nil
 	}
@@ -69,22 +69,44 @@ func (val *GetVolumeActionsProperties) Defaults() *GetVolumeActionsProperties {
 	return &tmp
 }
 
-type GetVolumeActionsPropertiesOutput struct{ *pulumi.OutputState }
+type GetVolumeActionPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetVolumeActionsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVolumeActionsProperties)(nil)).Elem()
+func (GetVolumeActionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeActionProperties)(nil)).Elem()
 }
 
-func (o GetVolumeActionsPropertiesOutput) ToGetVolumeActionsPropertiesOutput() GetVolumeActionsPropertiesOutput {
+func (o GetVolumeActionPropertiesOutput) ToGetVolumeActionPropertiesOutput() GetVolumeActionPropertiesOutput {
 	return o
 }
 
-func (o GetVolumeActionsPropertiesOutput) ToGetVolumeActionsPropertiesOutputWithContext(ctx context.Context) GetVolumeActionsPropertiesOutput {
+func (o GetVolumeActionPropertiesOutput) ToGetVolumeActionPropertiesOutputWithContext(ctx context.Context) GetVolumeActionPropertiesOutput {
 	return o
 }
 
-func (o GetVolumeActionsPropertiesOutput) Action() VolumeActionPtrOutput {
-	return o.ApplyT(func(v GetVolumeActionsProperties) *VolumeAction { return v.Action }).(VolumeActionPtrOutput)
+func (o GetVolumeActionPropertiesOutput) Action() VolumeActionPtrOutput {
+	return o.ApplyT(func(v GetVolumeActionProperties) *VolumeAction { return v.Action }).(VolumeActionPtrOutput)
+}
+
+type GetVolumeProperties struct {
+	Volume *VolumeFull `pulumi:"volume"`
+}
+
+type GetVolumePropertiesOutput struct{ *pulumi.OutputState }
+
+func (GetVolumePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeProperties)(nil)).Elem()
+}
+
+func (o GetVolumePropertiesOutput) ToGetVolumePropertiesOutput() GetVolumePropertiesOutput {
+	return o
+}
+
+func (o GetVolumePropertiesOutput) ToGetVolumePropertiesOutputWithContext(ctx context.Context) GetVolumePropertiesOutput {
+	return o
+}
+
+func (o GetVolumePropertiesOutput) Volume() VolumeFullPtrOutput {
+	return o.ApplyT(func(v GetVolumeProperties) *VolumeFull { return v.Volume }).(VolumeFullPtrOutput)
 }
 
 type GetVolumeSnapshotsByIdProperties struct {
@@ -109,124 +131,102 @@ func (o GetVolumeSnapshotsByIdPropertiesOutput) Snapshot() SnapshotsPtrOutput {
 	return o.ApplyT(func(v GetVolumeSnapshotsByIdProperties) *Snapshots { return v.Snapshot }).(SnapshotsPtrOutput)
 }
 
-type GetVolumesProperties struct {
-	Volume *VolumeFull `pulumi:"volume"`
-}
-
-type GetVolumesPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetVolumesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVolumesProperties)(nil)).Elem()
-}
-
-func (o GetVolumesPropertiesOutput) ToGetVolumesPropertiesOutput() GetVolumesPropertiesOutput {
-	return o
-}
-
-func (o GetVolumesPropertiesOutput) ToGetVolumesPropertiesOutputWithContext(ctx context.Context) GetVolumesPropertiesOutput {
-	return o
-}
-
-func (o GetVolumesPropertiesOutput) Volume() VolumeFullPtrOutput {
-	return o.ApplyT(func(v GetVolumesProperties) *VolumeFull { return v.Volume }).(VolumeFullPtrOutput)
-}
-
-type ListVolumeActions struct {
+type ListVolumeActionsItems struct {
 	Actions []VolumeAction `pulumi:"actions"`
 	Links   *PageLinks     `pulumi:"links"`
 	Meta    MetaMeta       `pulumi:"meta"`
 }
 
-type ListVolumeActionsOutput struct{ *pulumi.OutputState }
+type ListVolumeActionsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListVolumeActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListVolumeActions)(nil)).Elem()
+func (ListVolumeActionsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVolumeActionsItems)(nil)).Elem()
 }
 
-func (o ListVolumeActionsOutput) ToListVolumeActionsOutput() ListVolumeActionsOutput {
+func (o ListVolumeActionsItemsOutput) ToListVolumeActionsItemsOutput() ListVolumeActionsItemsOutput {
 	return o
 }
 
-func (o ListVolumeActionsOutput) ToListVolumeActionsOutputWithContext(ctx context.Context) ListVolumeActionsOutput {
+func (o ListVolumeActionsItemsOutput) ToListVolumeActionsItemsOutputWithContext(ctx context.Context) ListVolumeActionsItemsOutput {
 	return o
 }
 
-func (o ListVolumeActionsOutput) Actions() VolumeActionArrayOutput {
-	return o.ApplyT(func(v ListVolumeActions) []VolumeAction { return v.Actions }).(VolumeActionArrayOutput)
+func (o ListVolumeActionsItemsOutput) Actions() VolumeActionArrayOutput {
+	return o.ApplyT(func(v ListVolumeActionsItems) []VolumeAction { return v.Actions }).(VolumeActionArrayOutput)
 }
 
-func (o ListVolumeActionsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListVolumeActions) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListVolumeActionsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVolumeActionsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListVolumeActionsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListVolumeActions) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListVolumeActionsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVolumeActionsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-type ListVolumeSnapshots struct {
+type ListVolumeSnapshotsItems struct {
 	Links     *PageLinks  `pulumi:"links"`
 	Meta      MetaMeta    `pulumi:"meta"`
 	Snapshots []Snapshots `pulumi:"snapshots"`
 }
 
-type ListVolumeSnapshotsOutput struct{ *pulumi.OutputState }
+type ListVolumeSnapshotsItemsOutput struct{ *pulumi.OutputState }
 
-func (ListVolumeSnapshotsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListVolumeSnapshots)(nil)).Elem()
+func (ListVolumeSnapshotsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVolumeSnapshotsItems)(nil)).Elem()
 }
 
-func (o ListVolumeSnapshotsOutput) ToListVolumeSnapshotsOutput() ListVolumeSnapshotsOutput {
+func (o ListVolumeSnapshotsItemsOutput) ToListVolumeSnapshotsItemsOutput() ListVolumeSnapshotsItemsOutput {
 	return o
 }
 
-func (o ListVolumeSnapshotsOutput) ToListVolumeSnapshotsOutputWithContext(ctx context.Context) ListVolumeSnapshotsOutput {
+func (o ListVolumeSnapshotsItemsOutput) ToListVolumeSnapshotsItemsOutputWithContext(ctx context.Context) ListVolumeSnapshotsItemsOutput {
 	return o
 }
 
-func (o ListVolumeSnapshotsOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListVolumeSnapshots) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListVolumeSnapshotsItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListVolumeSnapshotsOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListVolumeSnapshots) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListVolumeSnapshotsItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListVolumeSnapshotsOutput) Snapshots() SnapshotsArrayOutput {
-	return o.ApplyT(func(v ListVolumeSnapshots) []Snapshots { return v.Snapshots }).(SnapshotsArrayOutput)
+func (o ListVolumeSnapshotsItemsOutput) Snapshots() SnapshotsArrayOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsItems) []Snapshots { return v.Snapshots }).(SnapshotsArrayOutput)
 }
 
-type ListVolumes struct {
+type ListVolumesItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
 	// Array of volumes.
 	Volumes []VolumeFull `pulumi:"volumes"`
 }
 
-type ListVolumesOutput struct{ *pulumi.OutputState }
+type ListVolumesItemsOutput struct{ *pulumi.OutputState }
 
-func (ListVolumesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListVolumes)(nil)).Elem()
+func (ListVolumesItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListVolumesItems)(nil)).Elem()
 }
 
-func (o ListVolumesOutput) ToListVolumesOutput() ListVolumesOutput {
+func (o ListVolumesItemsOutput) ToListVolumesItemsOutput() ListVolumesItemsOutput {
 	return o
 }
 
-func (o ListVolumesOutput) ToListVolumesOutputWithContext(ctx context.Context) ListVolumesOutput {
+func (o ListVolumesItemsOutput) ToListVolumesItemsOutputWithContext(ctx context.Context) ListVolumesItemsOutput {
 	return o
 }
 
-func (o ListVolumesOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListVolumes) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListVolumesItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVolumesItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListVolumesOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListVolumes) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListVolumesItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVolumesItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 // Array of volumes.
-func (o ListVolumesOutput) Volumes() VolumeFullArrayOutput {
-	return o.ApplyT(func(v ListVolumes) []VolumeFull { return v.Volumes }).(VolumeFullArrayOutput)
+func (o ListVolumesItemsOutput) Volumes() VolumeFullArrayOutput {
+	return o.ApplyT(func(v ListVolumesItems) []VolumeFull { return v.Volumes }).(VolumeFullArrayOutput)
 }
 
 type MetaMeta struct {
@@ -1306,12 +1306,12 @@ func (o VolumeFullPropertiesRegionPtrOutput) Slug() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ActionRegionSlugOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugPtrOutput{})
-	pulumi.RegisterOutputType(GetVolumeActionsPropertiesOutput{})
+	pulumi.RegisterOutputType(GetVolumeActionPropertiesOutput{})
+	pulumi.RegisterOutputType(GetVolumePropertiesOutput{})
 	pulumi.RegisterOutputType(GetVolumeSnapshotsByIdPropertiesOutput{})
-	pulumi.RegisterOutputType(GetVolumesPropertiesOutput{})
-	pulumi.RegisterOutputType(ListVolumeActionsOutput{})
-	pulumi.RegisterOutputType(ListVolumeSnapshotsOutput{})
-	pulumi.RegisterOutputType(ListVolumesOutput{})
+	pulumi.RegisterOutputType(ListVolumeActionsItemsOutput{})
+	pulumi.RegisterOutputType(ListVolumeSnapshotsItemsOutput{})
+	pulumi.RegisterOutputType(ListVolumesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

@@ -13,8 +13,8 @@ from . import outputs
 __all__ = [
     'GetFunctionsNamespaceProperties',
     'GetFunctionsTriggerProperties',
-    'ListFunctionsNamespaces',
-    'ListFunctionsTriggers',
+    'ListFunctionsNamespacesItems',
+    'ListFunctionsTriggersItems',
     'NamespaceInfo',
     'ScheduledDetails',
     'ScheduledDetailsBodyProperties',
@@ -49,7 +49,7 @@ class GetFunctionsTriggerProperties(dict):
 
 
 @pulumi.output_type
-class ListFunctionsNamespaces(dict):
+class ListFunctionsNamespacesItems(dict):
     def __init__(__self__, *,
                  namespaces: Optional[Sequence['outputs.NamespaceInfo']] = None):
         if namespaces is not None:
@@ -62,7 +62,7 @@ class ListFunctionsNamespaces(dict):
 
 
 @pulumi.output_type
-class ListFunctionsTriggers(dict):
+class ListFunctionsTriggersItems(dict):
     def __init__(__self__, *,
                  triggers: Optional[Sequence['outputs.TriggerInfo']] = None):
         if triggers is not None:

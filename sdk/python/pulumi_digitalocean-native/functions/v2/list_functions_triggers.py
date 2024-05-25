@@ -26,7 +26,7 @@ class ListFunctionsTriggersResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFunctionsTriggers':
+    def items(self) -> 'outputs.ListFunctionsTriggersItems':
         return pulumi.get(self, "items")
 
 

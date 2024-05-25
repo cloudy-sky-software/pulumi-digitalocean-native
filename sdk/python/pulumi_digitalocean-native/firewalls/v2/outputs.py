@@ -17,8 +17,8 @@ __all__ = [
     'FirewallPropertiesTags',
     'FirewallRulesInboundRulesItem',
     'FirewallRulesOutboundRulesItem',
-    'GetFirewallsProperties',
-    'ListFirewalls',
+    'GetFirewallProperties',
+    'ListFirewallsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -264,7 +264,7 @@ class FirewallRulesOutboundRulesItem(dict):
 
 
 @pulumi.output_type
-class GetFirewallsProperties(dict):
+class GetFirewallProperties(dict):
     def __init__(__self__, *,
                  firewall: Optional['outputs.Firewall'] = None):
         if firewall is not None:
@@ -277,7 +277,7 @@ class GetFirewallsProperties(dict):
 
 
 @pulumi.output_type
-class ListFirewalls(dict):
+class ListFirewallsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  firewalls: Optional[Sequence['outputs.Firewall']] = None,

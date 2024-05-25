@@ -13,10 +13,10 @@ from . import outputs
 __all__ = [
     'Domain',
     'DomainRecord',
-    'GetDomainsProperties',
+    'GetDomainProperties',
     'GetDomainsRecordProperties',
-    'ListDomains',
-    'ListDomainsRecords',
+    'ListDomainsItems',
+    'ListDomainsRecordsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -223,7 +223,7 @@ class DomainRecord(dict):
 
 
 @pulumi.output_type
-class GetDomainsProperties(dict):
+class GetDomainProperties(dict):
     def __init__(__self__, *,
                  domain: Optional['outputs.Domain'] = None):
         if domain is not None:
@@ -249,7 +249,7 @@ class GetDomainsRecordProperties(dict):
 
 
 @pulumi.output_type
-class ListDomains(dict):
+class ListDomainsItems(dict):
     def __init__(__self__, *,
                  domains: Sequence['outputs.Domain'],
                  meta: 'outputs.MetaMeta',
@@ -282,7 +282,7 @@ class ListDomains(dict):
 
 
 @pulumi.output_type
-class ListDomainsRecords(dict):
+class ListDomainsRecordsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  domain_records: Optional[Sequence['outputs.DomainRecord']] = None,

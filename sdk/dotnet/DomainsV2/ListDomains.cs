@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.DomainsV2
     [OutputType]
     public sealed class ListDomainsResult
     {
-        public readonly Outputs.ListDomains Items;
+        public readonly Outputs.ListDomainsItems Items;
 
         [OutputConstructor]
-        private ListDomainsResult(Outputs.ListDomains items)
+        private ListDomainsResult(Outputs.ListDomainsItems items)
         {
             Items = items;
         }

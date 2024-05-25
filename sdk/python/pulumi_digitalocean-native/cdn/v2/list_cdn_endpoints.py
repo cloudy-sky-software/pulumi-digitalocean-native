@@ -27,7 +27,7 @@ class ListCdnEndpointsResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListCdnEndpoints':
+    def items(self) -> 'outputs.ListCdnEndpointsItems':
         return pulumi.get(self, "items")
 
 

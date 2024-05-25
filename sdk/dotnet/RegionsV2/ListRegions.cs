@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.RegionsV2
     [OutputType]
     public sealed class ListRegionsResult
     {
-        public readonly Outputs.ListRegions Items;
+        public readonly Outputs.ListRegionsItems Items;
 
         [OutputConstructor]
-        private ListRegionsResult(Outputs.ListRegions items)
+        private ListRegionsResult(Outputs.ListRegionsItems items)
         {
             Items = items;
         }

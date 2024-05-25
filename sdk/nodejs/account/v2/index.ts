@@ -10,10 +10,10 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
-export { GetSshKeysArgs, GetSshKeysResult, GetSshKeysOutputArgs } from "./getSshKeys";
-export const getSshKeys: typeof import("./getSshKeys").getSshKeys = null as any;
-export const getSshKeysOutput: typeof import("./getSshKeys").getSshKeysOutput = null as any;
-utilities.lazyLoad(exports, ["getSshKeys","getSshKeysOutput"], () => require("./getSshKeys"));
+export { GetSshKeyArgs, GetSshKeyResult, GetSshKeyOutputArgs } from "./getSshKey";
+export const getSshKey: typeof import("./getSshKey").getSshKey = null as any;
+export const getSshKeyOutput: typeof import("./getSshKey").getSshKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getSshKey","getSshKeyOutput"], () => require("./getSshKey"));
 
 export { ListSshKeysArgs, ListSshKeysResult } from "./listSshKeys";
 export const listSshKeys: typeof import("./listSshKeys").listSshKeys = null as any;

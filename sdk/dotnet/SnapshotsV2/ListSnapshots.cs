@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.SnapshotsV2
     [OutputType]
     public sealed class ListSnapshotsResult
     {
-        public readonly Outputs.ListSnapshots Items;
+        public readonly Outputs.ListSnapshotsItems Items;
 
         [OutputConstructor]
-        private ListSnapshotsResult(Outputs.ListSnapshots items)
+        private ListSnapshotsResult(Outputs.ListSnapshotsItems items)
         {
             Items = items;
         }

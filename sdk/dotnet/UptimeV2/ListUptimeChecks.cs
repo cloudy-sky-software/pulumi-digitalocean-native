@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.UptimeV2
     [OutputType]
     public sealed class ListUptimeChecksResult
     {
-        public readonly Outputs.ListUptimeChecks Items;
+        public readonly Outputs.ListUptimeChecksItems Items;
 
         [OutputConstructor]
-        private ListUptimeChecksResult(Outputs.ListUptimeChecks items)
+        private ListUptimeChecksResult(Outputs.ListUptimeChecksItems items)
         {
             Items = items;
         }

@@ -11,9 +11,9 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVpcsProperties',
-    'ListVpcs',
-    'ListVpcsMembers',
+    'GetVpcProperties',
+    'ListVpcsItems',
+    'ListVpcsMembersItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcsProperties(dict):
+class GetVpcProperties(dict):
     def __init__(__self__, *,
                  vpc: Optional['outputs.Vpc'] = None):
         if vpc is not None:
@@ -35,7 +35,7 @@ class GetVpcsProperties(dict):
 
 
 @pulumi.output_type
-class ListVpcs(dict):
+class ListVpcsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -63,7 +63,7 @@ class ListVpcs(dict):
 
 
 @pulumi.output_type
-class ListVpcsMembers(dict):
+class ListVpcsMembersItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

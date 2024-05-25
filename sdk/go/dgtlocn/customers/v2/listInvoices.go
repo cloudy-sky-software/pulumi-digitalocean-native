@@ -25,7 +25,7 @@ type ListInvoicesArgs struct {
 }
 
 type ListInvoicesResult struct {
-	Items ListInvoices `pulumi:"items"`
+	Items ListInvoicesItems `pulumi:"items"`
 }
 
 func ListInvoicesOutput(ctx *pulumi.Context, args ListInvoicesOutputArgs, opts ...pulumi.InvokeOption) ListInvoicesResultOutput {
@@ -62,8 +62,8 @@ func (o ListInvoicesResultOutput) ToListInvoicesResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o ListInvoicesResultOutput) Items() ListInvoicesOutput {
-	return o.ApplyT(func(v ListInvoicesResult) ListInvoices { return v.Items }).(ListInvoicesOutput)
+func (o ListInvoicesResultOutput) Items() ListInvoicesItemsOutput {
+	return o.ApplyT(func(v ListInvoicesResult) ListInvoicesItems { return v.Items }).(ListInvoicesItemsOutput)
 }
 
 func init() {

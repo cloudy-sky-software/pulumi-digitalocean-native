@@ -23,7 +23,7 @@ export interface ListDropletsAssociatedResourcesArgs {
 }
 
 export interface ListDropletsAssociatedResourcesResult {
-    readonly items: outputs.droplets.v2.ListDropletsAssociatedResources;
+    readonly items: outputs.droplets.v2.ListDropletsAssociatedResourcesItems;
 }
 export function listDropletsAssociatedResourcesOutput(args: ListDropletsAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsAssociatedResourcesResult> {
     return pulumi.output(args).apply((a: any) => listDropletsAssociatedResources(a, opts))

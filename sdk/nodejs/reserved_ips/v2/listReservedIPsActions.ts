@@ -23,7 +23,7 @@ export interface ListReservedIPsActionsArgs {
 }
 
 export interface ListReservedIPsActionsResult {
-    readonly items: outputs.reserved_ips.v2.ListReservedIPsActions;
+    readonly items: outputs.reserved_ips.v2.ListReservedIPsActionsItems;
 }
 export function listReservedIPsActionsOutput(args: ListReservedIPsActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListReservedIPsActionsResult> {
     return pulumi.output(args).apply((a: any) => listReservedIPsActions(a, opts))

@@ -15,8 +15,8 @@ __all__ = [
     'Account',
     'AccountTeamProperties',
     'GetAccountProperties',
-    'GetSshKeysProperties',
-    'ListSshKeys',
+    'GetSshKeyProperties',
+    'ListSshKeysItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -184,7 +184,7 @@ class GetAccountProperties(dict):
 
 
 @pulumi.output_type
-class GetSshKeysProperties(dict):
+class GetSshKeyProperties(dict):
     def __init__(__self__, *,
                  ssh_key: Optional['outputs.SshKeys'] = None):
         if ssh_key is not None:
@@ -197,7 +197,7 @@ class GetSshKeysProperties(dict):
 
 
 @pulumi.output_type
-class ListSshKeys(dict):
+class ListSshKeysItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

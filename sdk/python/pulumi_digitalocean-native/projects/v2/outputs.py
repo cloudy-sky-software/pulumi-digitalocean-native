@@ -12,11 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'GetProjectProperties',
     'GetProjectsDefaultProperties',
-    'GetProjectsProperties',
-    'ListProjects',
-    'ListProjectsResources',
-    'ListProjectsResourcesDefault',
+    'ListProjectsItems',
+    'ListProjectsResourcesDefaultItems',
+    'ListProjectsResourcesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -24,6 +24,19 @@ __all__ = [
     'Resource',
     'ResourceLinksProperties',
 ]
+
+@pulumi.output_type
+class GetProjectProperties(dict):
+    def __init__(__self__, *,
+                 project: Optional['outputs.Project'] = None):
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional['outputs.Project']:
+        return pulumi.get(self, "project")
+
 
 @pulumi.output_type
 class GetProjectsDefaultProperties(dict):
@@ -39,20 +52,7 @@ class GetProjectsDefaultProperties(dict):
 
 
 @pulumi.output_type
-class GetProjectsProperties(dict):
-    def __init__(__self__, *,
-                 project: Optional['outputs.Project'] = None):
-        if project is not None:
-            pulumi.set(__self__, "project", project)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional['outputs.Project']:
-        return pulumi.get(self, "project")
-
-
-@pulumi.output_type
-class ListProjects(dict):
+class ListProjectsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -80,7 +80,7 @@ class ListProjects(dict):
 
 
 @pulumi.output_type
-class ListProjectsResources(dict):
+class ListProjectsResourcesDefaultItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,
@@ -108,7 +108,7 @@ class ListProjectsResources(dict):
 
 
 @pulumi.output_type
-class ListProjectsResourcesDefault(dict):
+class ListProjectsResourcesItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

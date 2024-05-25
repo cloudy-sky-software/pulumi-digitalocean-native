@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.KubernetesV2
     [OutputType]
     public sealed class ListKubernetesClustersResult
     {
-        public readonly Outputs.ListKubernetesClusters Items;
+        public readonly Outputs.ListKubernetesClustersItems Items;
 
         [OutputConstructor]
-        private ListKubernetesClustersResult(Outputs.ListKubernetesClusters items)
+        private ListKubernetesClustersResult(Outputs.ListKubernetesClustersItems items)
         {
             Items = items;
         }

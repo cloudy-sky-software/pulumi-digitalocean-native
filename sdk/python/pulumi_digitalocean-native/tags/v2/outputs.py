@@ -12,8 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetTagsProperties',
-    'ListTags',
+    'GetTagProperties',
+    'ListTagsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTagsProperties(dict):
+class GetTagProperties(dict):
     def __init__(__self__, *,
                  tag: Optional['outputs.Tags'] = None):
         """
@@ -45,7 +45,7 @@ class GetTagsProperties(dict):
 
 
 @pulumi.output_type
-class ListTags(dict):
+class ListTagsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  links: Optional['outputs.PageLinks'] = None,

@@ -14,8 +14,8 @@ from ._enums import *
 __all__ = [
     'Action',
     'ActionRegionSlug',
-    'GetActionsProperties',
-    'ListActions',
+    'GetActionProperties',
+    'ListActionsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -138,7 +138,7 @@ class ActionRegionSlug(dict):
 
 
 @pulumi.output_type
-class GetActionsProperties(dict):
+class GetActionProperties(dict):
     def __init__(__self__, *,
                  action: Optional['outputs.Action'] = None):
         if action is not None:
@@ -151,7 +151,7 @@ class GetActionsProperties(dict):
 
 
 @pulumi.output_type
-class ListActions(dict):
+class ListActionsItems(dict):
     def __init__(__self__, *,
                  meta: 'outputs.MetaMeta',
                  actions: Optional[Sequence['outputs.Action']] = None,

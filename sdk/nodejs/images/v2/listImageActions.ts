@@ -23,7 +23,7 @@ export interface ListImageActionsArgs {
 }
 
 export interface ListImageActionsResult {
-    readonly items: outputs.images.v2.ListImageActions;
+    readonly items: outputs.images.v2.ListImageActionsItems;
 }
 export function listImageActionsOutput(args: ListImageActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListImageActionsResult> {
     return pulumi.output(args).apply((a: any) => listImageActions(a, opts))

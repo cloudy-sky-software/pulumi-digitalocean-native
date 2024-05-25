@@ -71,49 +71,6 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
     }
 
     /// <summary>
-    /// The slug identifier for the region where the resource will initially be  available.
-    /// </summary>
-    [EnumType]
-    public readonly struct ImageActionsTransferPropertiesRegion : IEquatable<ImageActionsTransferPropertiesRegion>
-    {
-        private readonly string _value;
-
-        private ImageActionsTransferPropertiesRegion(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ImageActionsTransferPropertiesRegion Ams1 { get; } = new ImageActionsTransferPropertiesRegion("ams1");
-        public static ImageActionsTransferPropertiesRegion Ams2 { get; } = new ImageActionsTransferPropertiesRegion("ams2");
-        public static ImageActionsTransferPropertiesRegion Ams3 { get; } = new ImageActionsTransferPropertiesRegion("ams3");
-        public static ImageActionsTransferPropertiesRegion Blr1 { get; } = new ImageActionsTransferPropertiesRegion("blr1");
-        public static ImageActionsTransferPropertiesRegion Fra1 { get; } = new ImageActionsTransferPropertiesRegion("fra1");
-        public static ImageActionsTransferPropertiesRegion Lon1 { get; } = new ImageActionsTransferPropertiesRegion("lon1");
-        public static ImageActionsTransferPropertiesRegion Nyc1 { get; } = new ImageActionsTransferPropertiesRegion("nyc1");
-        public static ImageActionsTransferPropertiesRegion Nyc2 { get; } = new ImageActionsTransferPropertiesRegion("nyc2");
-        public static ImageActionsTransferPropertiesRegion Nyc3 { get; } = new ImageActionsTransferPropertiesRegion("nyc3");
-        public static ImageActionsTransferPropertiesRegion Sfo1 { get; } = new ImageActionsTransferPropertiesRegion("sfo1");
-        public static ImageActionsTransferPropertiesRegion Sfo2 { get; } = new ImageActionsTransferPropertiesRegion("sfo2");
-        public static ImageActionsTransferPropertiesRegion Sfo3 { get; } = new ImageActionsTransferPropertiesRegion("sfo3");
-        public static ImageActionsTransferPropertiesRegion Sgp1 { get; } = new ImageActionsTransferPropertiesRegion("sgp1");
-        public static ImageActionsTransferPropertiesRegion Tor1 { get; } = new ImageActionsTransferPropertiesRegion("tor1");
-
-        public static bool operator ==(ImageActionsTransferPropertiesRegion left, ImageActionsTransferPropertiesRegion right) => left.Equals(right);
-        public static bool operator !=(ImageActionsTransferPropertiesRegion left, ImageActionsTransferPropertiesRegion right) => !left.Equals(right);
-
-        public static explicit operator string(ImageActionsTransferPropertiesRegion value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ImageActionsTransferPropertiesRegion other && Equals(other);
-        public bool Equals(ImageActionsTransferPropertiesRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
     /// </summary>
     [EnumType]
@@ -377,6 +334,49 @@ namespace Pulumi.DigitalOceanNative.ImagesV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Status other && Equals(other);
         public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The slug identifier for the region where the resource will initially be  available.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransferPropertiesRegion : IEquatable<TransferPropertiesRegion>
+    {
+        private readonly string _value;
+
+        private TransferPropertiesRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransferPropertiesRegion Ams1 { get; } = new TransferPropertiesRegion("ams1");
+        public static TransferPropertiesRegion Ams2 { get; } = new TransferPropertiesRegion("ams2");
+        public static TransferPropertiesRegion Ams3 { get; } = new TransferPropertiesRegion("ams3");
+        public static TransferPropertiesRegion Blr1 { get; } = new TransferPropertiesRegion("blr1");
+        public static TransferPropertiesRegion Fra1 { get; } = new TransferPropertiesRegion("fra1");
+        public static TransferPropertiesRegion Lon1 { get; } = new TransferPropertiesRegion("lon1");
+        public static TransferPropertiesRegion Nyc1 { get; } = new TransferPropertiesRegion("nyc1");
+        public static TransferPropertiesRegion Nyc2 { get; } = new TransferPropertiesRegion("nyc2");
+        public static TransferPropertiesRegion Nyc3 { get; } = new TransferPropertiesRegion("nyc3");
+        public static TransferPropertiesRegion Sfo1 { get; } = new TransferPropertiesRegion("sfo1");
+        public static TransferPropertiesRegion Sfo2 { get; } = new TransferPropertiesRegion("sfo2");
+        public static TransferPropertiesRegion Sfo3 { get; } = new TransferPropertiesRegion("sfo3");
+        public static TransferPropertiesRegion Sgp1 { get; } = new TransferPropertiesRegion("sgp1");
+        public static TransferPropertiesRegion Tor1 { get; } = new TransferPropertiesRegion("tor1");
+
+        public static bool operator ==(TransferPropertiesRegion left, TransferPropertiesRegion right) => left.Equals(right);
+        public static bool operator !=(TransferPropertiesRegion left, TransferPropertiesRegion right) => !left.Equals(right);
+
+        public static explicit operator string(TransferPropertiesRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransferPropertiesRegion other && Equals(other);
+        public bool Equals(TransferPropertiesRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

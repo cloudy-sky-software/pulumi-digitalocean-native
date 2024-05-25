@@ -27,7 +27,7 @@ type ListProjectsResourcesArgs struct {
 }
 
 type ListProjectsResourcesResult struct {
-	Items ListProjectsResources `pulumi:"items"`
+	Items ListProjectsResourcesItems `pulumi:"items"`
 }
 
 func ListProjectsResourcesOutput(ctx *pulumi.Context, args ListProjectsResourcesOutputArgs, opts ...pulumi.InvokeOption) ListProjectsResourcesResultOutput {
@@ -66,8 +66,8 @@ func (o ListProjectsResourcesResultOutput) ToListProjectsResourcesResultOutputWi
 	return o
 }
 
-func (o ListProjectsResourcesResultOutput) Items() ListProjectsResourcesOutput {
-	return o.ApplyT(func(v ListProjectsResourcesResult) ListProjectsResources { return v.Items }).(ListProjectsResourcesOutput)
+func (o ListProjectsResourcesResultOutput) Items() ListProjectsResourcesItemsOutput {
+	return o.ApplyT(func(v ListProjectsResourcesResult) ListProjectsResourcesItems { return v.Items }).(ListProjectsResourcesItemsOutput)
 }
 
 func init() {

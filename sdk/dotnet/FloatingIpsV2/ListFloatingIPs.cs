@@ -31,10 +31,10 @@ namespace Pulumi.DigitalOceanNative.FloatingIpsV2
     [OutputType]
     public sealed class ListFloatingIPsResult
     {
-        public readonly Outputs.ListFloatingIPs Items;
+        public readonly Outputs.ListFloatingIPsItems Items;
 
         [OutputConstructor]
-        private ListFloatingIPsResult(Outputs.ListFloatingIPs items)
+        private ListFloatingIPsResult(Outputs.ListFloatingIPsItems items)
         {
             Items = items;
         }

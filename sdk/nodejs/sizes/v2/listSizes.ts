@@ -19,7 +19,7 @@ export interface ListSizesArgs {
 }
 
 export interface ListSizesResult {
-    readonly items: outputs.sizes.v2.ListSizes;
+    readonly items: outputs.sizes.v2.ListSizesItems;
 }
 export function listSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListSizesResult> {
     return pulumi.output(listSizes(opts))

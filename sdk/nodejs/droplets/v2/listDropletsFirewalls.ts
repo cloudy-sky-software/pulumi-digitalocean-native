@@ -23,7 +23,7 @@ export interface ListDropletsFirewallsArgs {
 }
 
 export interface ListDropletsFirewallsResult {
-    readonly items: outputs.droplets.v2.ListDropletsFirewalls;
+    readonly items: outputs.droplets.v2.ListDropletsFirewallsItems;
 }
 export function listDropletsFirewallsOutput(args: ListDropletsFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsFirewallsResult> {
     return pulumi.output(args).apply((a: any) => listDropletsFirewalls(a, opts))

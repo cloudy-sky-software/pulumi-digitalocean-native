@@ -21,54 +21,38 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:droplets/v2:DropletActionsByTagDisableBackups":
-		r = &DropletActionsByTagDisableBackups{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagEnableBackups":
-		r = &DropletActionsByTagEnableBackups{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagEnableIpv6":
-		r = &DropletActionsByTagEnableIpv6{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagPowerCycle":
-		r = &DropletActionsByTagPowerCycle{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagPowerOff":
-		r = &DropletActionsByTagPowerOff{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagPowerOn":
-		r = &DropletActionsByTagPowerOn{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagShutdown":
-		r = &DropletActionsByTagShutdown{}
-	case "digitalocean-native:droplets/v2:DropletActionsByTagSnapshot":
-		r = &DropletActionsByTagSnapshot{}
-	case "digitalocean-native:droplets/v2:DropletActionsChangeKernel":
-		r = &DropletActionsChangeKernel{}
-	case "digitalocean-native:droplets/v2:DropletActionsDisableBackups":
-		r = &DropletActionsDisableBackups{}
-	case "digitalocean-native:droplets/v2:DropletActionsEnableBackups":
-		r = &DropletActionsEnableBackups{}
-	case "digitalocean-native:droplets/v2:DropletActionsEnableIpv6":
-		r = &DropletActionsEnableIpv6{}
-	case "digitalocean-native:droplets/v2:DropletActionsPasswordReset":
-		r = &DropletActionsPasswordReset{}
-	case "digitalocean-native:droplets/v2:DropletActionsPowerCycle":
-		r = &DropletActionsPowerCycle{}
-	case "digitalocean-native:droplets/v2:DropletActionsPowerOff":
-		r = &DropletActionsPowerOff{}
-	case "digitalocean-native:droplets/v2:DropletActionsPowerOn":
-		r = &DropletActionsPowerOn{}
-	case "digitalocean-native:droplets/v2:DropletActionsReboot":
-		r = &DropletActionsReboot{}
-	case "digitalocean-native:droplets/v2:DropletActionsRebuild":
-		r = &DropletActionsRebuild{}
-	case "digitalocean-native:droplets/v2:DropletActionsRename":
-		r = &DropletActionsRename{}
-	case "digitalocean-native:droplets/v2:DropletActionsResize":
-		r = &DropletActionsResize{}
-	case "digitalocean-native:droplets/v2:DropletActionsRestore":
-		r = &DropletActionsRestore{}
-	case "digitalocean-native:droplets/v2:DropletActionsShutdown":
-		r = &DropletActionsShutdown{}
-	case "digitalocean-native:droplets/v2:DropletActionsSnapshot":
-		r = &DropletActionsSnapshot{}
+	case "digitalocean-native:droplets/v2:ChangeKernel":
+		r = &ChangeKernel{}
+	case "digitalocean-native:droplets/v2:DisableBackups":
+		r = &DisableBackups{}
 	case "digitalocean-native:droplets/v2:Droplets":
 		r = &Droplets{}
+	case "digitalocean-native:droplets/v2:EnableBackups":
+		r = &EnableBackups{}
+	case "digitalocean-native:droplets/v2:EnableIpv6":
+		r = &EnableIpv6{}
+	case "digitalocean-native:droplets/v2:PasswordReset":
+		r = &PasswordReset{}
+	case "digitalocean-native:droplets/v2:PowerCycle":
+		r = &PowerCycle{}
+	case "digitalocean-native:droplets/v2:PowerOff":
+		r = &PowerOff{}
+	case "digitalocean-native:droplets/v2:PowerOn":
+		r = &PowerOn{}
+	case "digitalocean-native:droplets/v2:Reboot":
+		r = &Reboot{}
+	case "digitalocean-native:droplets/v2:Rebuild":
+		r = &Rebuild{}
+	case "digitalocean-native:droplets/v2:Rename":
+		r = &Rename{}
+	case "digitalocean-native:droplets/v2:Resize":
+		r = &Resize{}
+	case "digitalocean-native:droplets/v2:Restore":
+		r = &Restore{}
+	case "digitalocean-native:droplets/v2:Shutdown":
+		r = &Shutdown{}
+	case "digitalocean-native:droplets/v2:Snapshot":
+		r = &Snapshot{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

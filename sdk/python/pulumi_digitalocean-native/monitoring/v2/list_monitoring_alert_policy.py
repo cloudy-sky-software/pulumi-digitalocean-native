@@ -27,7 +27,7 @@ class ListMonitoringAlertPolicyResult:
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListMonitoringAlertPolicy':
+    def items(self) -> 'outputs.ListMonitoringAlertPolicyItems':
         return pulumi.get(self, "items")
 
 

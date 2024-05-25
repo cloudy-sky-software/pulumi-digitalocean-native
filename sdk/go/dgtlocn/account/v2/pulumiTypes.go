@@ -332,58 +332,58 @@ func (o GetAccountPropertiesOutput) Account() AccountPtrOutput {
 	return o.ApplyT(func(v GetAccountProperties) *Account { return v.Account }).(AccountPtrOutput)
 }
 
-type GetSshKeysProperties struct {
+type GetSshKeyProperties struct {
 	SshKey *SshKeysType `pulumi:"sshKey"`
 }
 
-type GetSshKeysPropertiesOutput struct{ *pulumi.OutputState }
+type GetSshKeyPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GetSshKeysPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSshKeysProperties)(nil)).Elem()
+func (GetSshKeyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSshKeyProperties)(nil)).Elem()
 }
 
-func (o GetSshKeysPropertiesOutput) ToGetSshKeysPropertiesOutput() GetSshKeysPropertiesOutput {
+func (o GetSshKeyPropertiesOutput) ToGetSshKeyPropertiesOutput() GetSshKeyPropertiesOutput {
 	return o
 }
 
-func (o GetSshKeysPropertiesOutput) ToGetSshKeysPropertiesOutputWithContext(ctx context.Context) GetSshKeysPropertiesOutput {
+func (o GetSshKeyPropertiesOutput) ToGetSshKeyPropertiesOutputWithContext(ctx context.Context) GetSshKeyPropertiesOutput {
 	return o
 }
 
-func (o GetSshKeysPropertiesOutput) SshKey() SshKeysTypePtrOutput {
-	return o.ApplyT(func(v GetSshKeysProperties) *SshKeysType { return v.SshKey }).(SshKeysTypePtrOutput)
+func (o GetSshKeyPropertiesOutput) SshKey() SshKeysTypePtrOutput {
+	return o.ApplyT(func(v GetSshKeyProperties) *SshKeysType { return v.SshKey }).(SshKeysTypePtrOutput)
 }
 
-type ListSshKeys struct {
+type ListSshKeysItems struct {
 	Links   *PageLinks    `pulumi:"links"`
 	Meta    MetaMeta      `pulumi:"meta"`
 	SshKeys []SshKeysType `pulumi:"sshKeys"`
 }
 
-type ListSshKeysOutput struct{ *pulumi.OutputState }
+type ListSshKeysItemsOutput struct{ *pulumi.OutputState }
 
-func (ListSshKeysOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListSshKeys)(nil)).Elem()
+func (ListSshKeysItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListSshKeysItems)(nil)).Elem()
 }
 
-func (o ListSshKeysOutput) ToListSshKeysOutput() ListSshKeysOutput {
+func (o ListSshKeysItemsOutput) ToListSshKeysItemsOutput() ListSshKeysItemsOutput {
 	return o
 }
 
-func (o ListSshKeysOutput) ToListSshKeysOutputWithContext(ctx context.Context) ListSshKeysOutput {
+func (o ListSshKeysItemsOutput) ToListSshKeysItemsOutputWithContext(ctx context.Context) ListSshKeysItemsOutput {
 	return o
 }
 
-func (o ListSshKeysOutput) Links() PageLinksPtrOutput {
-	return o.ApplyT(func(v ListSshKeys) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+func (o ListSshKeysItemsOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListSshKeysItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListSshKeysOutput) Meta() MetaMetaOutput {
-	return o.ApplyT(func(v ListSshKeys) MetaMeta { return v.Meta }).(MetaMetaOutput)
+func (o ListSshKeysItemsOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListSshKeysItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListSshKeysOutput) SshKeys() SshKeysTypeArrayOutput {
-	return o.ApplyT(func(v ListSshKeys) []SshKeysType { return v.SshKeys }).(SshKeysTypeArrayOutput)
+func (o ListSshKeysItemsOutput) SshKeys() SshKeysTypeArrayOutput {
+	return o.ApplyT(func(v ListSshKeysItems) []SshKeysType { return v.SshKeys }).(SshKeysTypeArrayOutput)
 }
 
 type MetaMeta struct {
@@ -697,8 +697,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountTeamPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountTeamPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountPropertiesOutput{})
-	pulumi.RegisterOutputType(GetSshKeysPropertiesOutput{})
-	pulumi.RegisterOutputType(ListSshKeysOutput{})
+	pulumi.RegisterOutputType(GetSshKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(ListSshKeysItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

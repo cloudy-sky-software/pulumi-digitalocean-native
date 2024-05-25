@@ -19,7 +19,7 @@ export interface ListFunctionsNamespacesArgs {
 }
 
 export interface ListFunctionsNamespacesResult {
-    readonly items: outputs.functions.v2.ListFunctionsNamespaces;
+    readonly items: outputs.functions.v2.ListFunctionsNamespacesItems;
 }
 export function listFunctionsNamespacesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListFunctionsNamespacesResult> {
     return pulumi.output(listFunctionsNamespaces(opts))

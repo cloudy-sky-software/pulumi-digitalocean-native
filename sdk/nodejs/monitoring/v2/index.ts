@@ -10,60 +10,60 @@ export const getMonitoringAlertPolicy: typeof import("./getMonitoringAlertPolicy
 export const getMonitoringAlertPolicyOutput: typeof import("./getMonitoringAlertPolicy").getMonitoringAlertPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitoringAlertPolicy","getMonitoringAlertPolicyOutput"], () => require("./getMonitoringAlertPolicy"));
 
-export { GetMonitoringDropletBandwidthMetricsArgs, GetMonitoringDropletBandwidthMetricsResult } from "./getMonitoringDropletBandwidthMetrics";
-export const getMonitoringDropletBandwidthMetrics: typeof import("./getMonitoringDropletBandwidthMetrics").getMonitoringDropletBandwidthMetrics = null as any;
-export const getMonitoringDropletBandwidthMetricsOutput: typeof import("./getMonitoringDropletBandwidthMetrics").getMonitoringDropletBandwidthMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletBandwidthMetrics","getMonitoringDropletBandwidthMetricsOutput"], () => require("./getMonitoringDropletBandwidthMetrics"));
+export { GetMonitoringDropletBandwidthMetricArgs, GetMonitoringDropletBandwidthMetricResult } from "./getMonitoringDropletBandwidthMetric";
+export const getMonitoringDropletBandwidthMetric: typeof import("./getMonitoringDropletBandwidthMetric").getMonitoringDropletBandwidthMetric = null as any;
+export const getMonitoringDropletBandwidthMetricOutput: typeof import("./getMonitoringDropletBandwidthMetric").getMonitoringDropletBandwidthMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletBandwidthMetric","getMonitoringDropletBandwidthMetricOutput"], () => require("./getMonitoringDropletBandwidthMetric"));
 
-export { GetMonitoringDropletCpuMetricsArgs, GetMonitoringDropletCpuMetricsResult } from "./getMonitoringDropletCpuMetrics";
-export const getMonitoringDropletCpuMetrics: typeof import("./getMonitoringDropletCpuMetrics").getMonitoringDropletCpuMetrics = null as any;
-export const getMonitoringDropletCpuMetricsOutput: typeof import("./getMonitoringDropletCpuMetrics").getMonitoringDropletCpuMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletCpuMetrics","getMonitoringDropletCpuMetricsOutput"], () => require("./getMonitoringDropletCpuMetrics"));
+export { GetMonitoringDropletCpuMetricArgs, GetMonitoringDropletCpuMetricResult } from "./getMonitoringDropletCpuMetric";
+export const getMonitoringDropletCpuMetric: typeof import("./getMonitoringDropletCpuMetric").getMonitoringDropletCpuMetric = null as any;
+export const getMonitoringDropletCpuMetricOutput: typeof import("./getMonitoringDropletCpuMetric").getMonitoringDropletCpuMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletCpuMetric","getMonitoringDropletCpuMetricOutput"], () => require("./getMonitoringDropletCpuMetric"));
 
-export { GetMonitoringDropletFilesystemFreeMetricsArgs, GetMonitoringDropletFilesystemFreeMetricsResult } from "./getMonitoringDropletFilesystemFreeMetrics";
-export const getMonitoringDropletFilesystemFreeMetrics: typeof import("./getMonitoringDropletFilesystemFreeMetrics").getMonitoringDropletFilesystemFreeMetrics = null as any;
-export const getMonitoringDropletFilesystemFreeMetricsOutput: typeof import("./getMonitoringDropletFilesystemFreeMetrics").getMonitoringDropletFilesystemFreeMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletFilesystemFreeMetrics","getMonitoringDropletFilesystemFreeMetricsOutput"], () => require("./getMonitoringDropletFilesystemFreeMetrics"));
+export { GetMonitoringDropletFilesystemFreeMetricArgs, GetMonitoringDropletFilesystemFreeMetricResult } from "./getMonitoringDropletFilesystemFreeMetric";
+export const getMonitoringDropletFilesystemFreeMetric: typeof import("./getMonitoringDropletFilesystemFreeMetric").getMonitoringDropletFilesystemFreeMetric = null as any;
+export const getMonitoringDropletFilesystemFreeMetricOutput: typeof import("./getMonitoringDropletFilesystemFreeMetric").getMonitoringDropletFilesystemFreeMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletFilesystemFreeMetric","getMonitoringDropletFilesystemFreeMetricOutput"], () => require("./getMonitoringDropletFilesystemFreeMetric"));
 
-export { GetMonitoringDropletFilesystemSizeMetricsArgs, GetMonitoringDropletFilesystemSizeMetricsResult } from "./getMonitoringDropletFilesystemSizeMetrics";
-export const getMonitoringDropletFilesystemSizeMetrics: typeof import("./getMonitoringDropletFilesystemSizeMetrics").getMonitoringDropletFilesystemSizeMetrics = null as any;
-export const getMonitoringDropletFilesystemSizeMetricsOutput: typeof import("./getMonitoringDropletFilesystemSizeMetrics").getMonitoringDropletFilesystemSizeMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletFilesystemSizeMetrics","getMonitoringDropletFilesystemSizeMetricsOutput"], () => require("./getMonitoringDropletFilesystemSizeMetrics"));
+export { GetMonitoringDropletFilesystemSizeMetricArgs, GetMonitoringDropletFilesystemSizeMetricResult } from "./getMonitoringDropletFilesystemSizeMetric";
+export const getMonitoringDropletFilesystemSizeMetric: typeof import("./getMonitoringDropletFilesystemSizeMetric").getMonitoringDropletFilesystemSizeMetric = null as any;
+export const getMonitoringDropletFilesystemSizeMetricOutput: typeof import("./getMonitoringDropletFilesystemSizeMetric").getMonitoringDropletFilesystemSizeMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletFilesystemSizeMetric","getMonitoringDropletFilesystemSizeMetricOutput"], () => require("./getMonitoringDropletFilesystemSizeMetric"));
 
-export { GetMonitoringDropletLoad15MetricsArgs, GetMonitoringDropletLoad15MetricsResult } from "./getMonitoringDropletLoad15Metrics";
-export const getMonitoringDropletLoad15Metrics: typeof import("./getMonitoringDropletLoad15Metrics").getMonitoringDropletLoad15Metrics = null as any;
-export const getMonitoringDropletLoad15MetricsOutput: typeof import("./getMonitoringDropletLoad15Metrics").getMonitoringDropletLoad15MetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletLoad15Metrics","getMonitoringDropletLoad15MetricsOutput"], () => require("./getMonitoringDropletLoad15Metrics"));
+export { GetMonitoringDropletLoad15MetricArgs, GetMonitoringDropletLoad15MetricResult } from "./getMonitoringDropletLoad15Metric";
+export const getMonitoringDropletLoad15Metric: typeof import("./getMonitoringDropletLoad15Metric").getMonitoringDropletLoad15Metric = null as any;
+export const getMonitoringDropletLoad15MetricOutput: typeof import("./getMonitoringDropletLoad15Metric").getMonitoringDropletLoad15MetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletLoad15Metric","getMonitoringDropletLoad15MetricOutput"], () => require("./getMonitoringDropletLoad15Metric"));
 
-export { GetMonitoringDropletLoad1MetricsArgs, GetMonitoringDropletLoad1MetricsResult } from "./getMonitoringDropletLoad1Metrics";
-export const getMonitoringDropletLoad1Metrics: typeof import("./getMonitoringDropletLoad1Metrics").getMonitoringDropletLoad1Metrics = null as any;
-export const getMonitoringDropletLoad1MetricsOutput: typeof import("./getMonitoringDropletLoad1Metrics").getMonitoringDropletLoad1MetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletLoad1Metrics","getMonitoringDropletLoad1MetricsOutput"], () => require("./getMonitoringDropletLoad1Metrics"));
+export { GetMonitoringDropletLoad1MetricArgs, GetMonitoringDropletLoad1MetricResult } from "./getMonitoringDropletLoad1Metric";
+export const getMonitoringDropletLoad1Metric: typeof import("./getMonitoringDropletLoad1Metric").getMonitoringDropletLoad1Metric = null as any;
+export const getMonitoringDropletLoad1MetricOutput: typeof import("./getMonitoringDropletLoad1Metric").getMonitoringDropletLoad1MetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletLoad1Metric","getMonitoringDropletLoad1MetricOutput"], () => require("./getMonitoringDropletLoad1Metric"));
 
-export { GetMonitoringDropletLoad5MetricsArgs, GetMonitoringDropletLoad5MetricsResult } from "./getMonitoringDropletLoad5Metrics";
-export const getMonitoringDropletLoad5Metrics: typeof import("./getMonitoringDropletLoad5Metrics").getMonitoringDropletLoad5Metrics = null as any;
-export const getMonitoringDropletLoad5MetricsOutput: typeof import("./getMonitoringDropletLoad5Metrics").getMonitoringDropletLoad5MetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletLoad5Metrics","getMonitoringDropletLoad5MetricsOutput"], () => require("./getMonitoringDropletLoad5Metrics"));
+export { GetMonitoringDropletLoad5MetricArgs, GetMonitoringDropletLoad5MetricResult } from "./getMonitoringDropletLoad5Metric";
+export const getMonitoringDropletLoad5Metric: typeof import("./getMonitoringDropletLoad5Metric").getMonitoringDropletLoad5Metric = null as any;
+export const getMonitoringDropletLoad5MetricOutput: typeof import("./getMonitoringDropletLoad5Metric").getMonitoringDropletLoad5MetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletLoad5Metric","getMonitoringDropletLoad5MetricOutput"], () => require("./getMonitoringDropletLoad5Metric"));
 
-export { GetMonitoringDropletMemoryAvailableMetricsArgs, GetMonitoringDropletMemoryAvailableMetricsResult } from "./getMonitoringDropletMemoryAvailableMetrics";
-export const getMonitoringDropletMemoryAvailableMetrics: typeof import("./getMonitoringDropletMemoryAvailableMetrics").getMonitoringDropletMemoryAvailableMetrics = null as any;
-export const getMonitoringDropletMemoryAvailableMetricsOutput: typeof import("./getMonitoringDropletMemoryAvailableMetrics").getMonitoringDropletMemoryAvailableMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletMemoryAvailableMetrics","getMonitoringDropletMemoryAvailableMetricsOutput"], () => require("./getMonitoringDropletMemoryAvailableMetrics"));
+export { GetMonitoringDropletMemoryAvailableMetricArgs, GetMonitoringDropletMemoryAvailableMetricResult } from "./getMonitoringDropletMemoryAvailableMetric";
+export const getMonitoringDropletMemoryAvailableMetric: typeof import("./getMonitoringDropletMemoryAvailableMetric").getMonitoringDropletMemoryAvailableMetric = null as any;
+export const getMonitoringDropletMemoryAvailableMetricOutput: typeof import("./getMonitoringDropletMemoryAvailableMetric").getMonitoringDropletMemoryAvailableMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletMemoryAvailableMetric","getMonitoringDropletMemoryAvailableMetricOutput"], () => require("./getMonitoringDropletMemoryAvailableMetric"));
 
-export { GetMonitoringDropletMemoryCachedMetricsArgs, GetMonitoringDropletMemoryCachedMetricsResult } from "./getMonitoringDropletMemoryCachedMetrics";
-export const getMonitoringDropletMemoryCachedMetrics: typeof import("./getMonitoringDropletMemoryCachedMetrics").getMonitoringDropletMemoryCachedMetrics = null as any;
-export const getMonitoringDropletMemoryCachedMetricsOutput: typeof import("./getMonitoringDropletMemoryCachedMetrics").getMonitoringDropletMemoryCachedMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletMemoryCachedMetrics","getMonitoringDropletMemoryCachedMetricsOutput"], () => require("./getMonitoringDropletMemoryCachedMetrics"));
+export { GetMonitoringDropletMemoryCachedMetricArgs, GetMonitoringDropletMemoryCachedMetricResult } from "./getMonitoringDropletMemoryCachedMetric";
+export const getMonitoringDropletMemoryCachedMetric: typeof import("./getMonitoringDropletMemoryCachedMetric").getMonitoringDropletMemoryCachedMetric = null as any;
+export const getMonitoringDropletMemoryCachedMetricOutput: typeof import("./getMonitoringDropletMemoryCachedMetric").getMonitoringDropletMemoryCachedMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletMemoryCachedMetric","getMonitoringDropletMemoryCachedMetricOutput"], () => require("./getMonitoringDropletMemoryCachedMetric"));
 
-export { GetMonitoringDropletMemoryFreeMetricsArgs, GetMonitoringDropletMemoryFreeMetricsResult } from "./getMonitoringDropletMemoryFreeMetrics";
-export const getMonitoringDropletMemoryFreeMetrics: typeof import("./getMonitoringDropletMemoryFreeMetrics").getMonitoringDropletMemoryFreeMetrics = null as any;
-export const getMonitoringDropletMemoryFreeMetricsOutput: typeof import("./getMonitoringDropletMemoryFreeMetrics").getMonitoringDropletMemoryFreeMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletMemoryFreeMetrics","getMonitoringDropletMemoryFreeMetricsOutput"], () => require("./getMonitoringDropletMemoryFreeMetrics"));
+export { GetMonitoringDropletMemoryFreeMetricArgs, GetMonitoringDropletMemoryFreeMetricResult } from "./getMonitoringDropletMemoryFreeMetric";
+export const getMonitoringDropletMemoryFreeMetric: typeof import("./getMonitoringDropletMemoryFreeMetric").getMonitoringDropletMemoryFreeMetric = null as any;
+export const getMonitoringDropletMemoryFreeMetricOutput: typeof import("./getMonitoringDropletMemoryFreeMetric").getMonitoringDropletMemoryFreeMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletMemoryFreeMetric","getMonitoringDropletMemoryFreeMetricOutput"], () => require("./getMonitoringDropletMemoryFreeMetric"));
 
-export { GetMonitoringDropletMemoryTotalMetricsArgs, GetMonitoringDropletMemoryTotalMetricsResult } from "./getMonitoringDropletMemoryTotalMetrics";
-export const getMonitoringDropletMemoryTotalMetrics: typeof import("./getMonitoringDropletMemoryTotalMetrics").getMonitoringDropletMemoryTotalMetrics = null as any;
-export const getMonitoringDropletMemoryTotalMetricsOutput: typeof import("./getMonitoringDropletMemoryTotalMetrics").getMonitoringDropletMemoryTotalMetricsOutput = null as any;
-utilities.lazyLoad(exports, ["getMonitoringDropletMemoryTotalMetrics","getMonitoringDropletMemoryTotalMetricsOutput"], () => require("./getMonitoringDropletMemoryTotalMetrics"));
+export { GetMonitoringDropletMemoryTotalMetricArgs, GetMonitoringDropletMemoryTotalMetricResult } from "./getMonitoringDropletMemoryTotalMetric";
+export const getMonitoringDropletMemoryTotalMetric: typeof import("./getMonitoringDropletMemoryTotalMetric").getMonitoringDropletMemoryTotalMetric = null as any;
+export const getMonitoringDropletMemoryTotalMetricOutput: typeof import("./getMonitoringDropletMemoryTotalMetric").getMonitoringDropletMemoryTotalMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringDropletMemoryTotalMetric","getMonitoringDropletMemoryTotalMetricOutput"], () => require("./getMonitoringDropletMemoryTotalMetric"));
 
 export { ListMonitoringAlertPolicyArgs, ListMonitoringAlertPolicyResult } from "./listMonitoringAlertPolicy";
 export const listMonitoringAlertPolicy: typeof import("./listMonitoringAlertPolicy").listMonitoringAlertPolicy = null as any;

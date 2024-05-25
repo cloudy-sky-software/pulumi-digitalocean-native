@@ -51,10 +51,10 @@ namespace Pulumi.DigitalOceanNative.ProjectsV2
     [OutputType]
     public sealed class ListProjectsResourcesResult
     {
-        public readonly Outputs.ListProjectsResources Items;
+        public readonly Outputs.ListProjectsResourcesItems Items;
 
         [OutputConstructor]
-        private ListProjectsResourcesResult(Outputs.ListProjectsResources items)
+        private ListProjectsResourcesResult(Outputs.ListProjectsResourcesItems items)
         {
             Items = items;
         }

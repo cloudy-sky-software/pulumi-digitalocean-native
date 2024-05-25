@@ -25,7 +25,7 @@ type ListFloatingIPsArgs struct {
 }
 
 type ListFloatingIPsResult struct {
-	Items ListFloatingIPs `pulumi:"items"`
+	Items ListFloatingIPsItems `pulumi:"items"`
 }
 
 func ListFloatingIPsOutput(ctx *pulumi.Context, args ListFloatingIPsOutputArgs, opts ...pulumi.InvokeOption) ListFloatingIPsResultOutput {
@@ -62,8 +62,8 @@ func (o ListFloatingIPsResultOutput) ToListFloatingIPsResultOutputWithContext(ct
 	return o
 }
 
-func (o ListFloatingIPsResultOutput) Items() ListFloatingIPsOutput {
-	return o.ApplyT(func(v ListFloatingIPsResult) ListFloatingIPs { return v.Items }).(ListFloatingIPsOutput)
+func (o ListFloatingIPsResultOutput) Items() ListFloatingIPsItemsOutput {
+	return o.ApplyT(func(v ListFloatingIPsResult) ListFloatingIPsItems { return v.Items }).(ListFloatingIPsItemsOutput)
 }
 
 func init() {

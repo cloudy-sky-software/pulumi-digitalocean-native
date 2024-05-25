@@ -7,6 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .certificates import *
-from .get_certificates import *
+from .get_certificate import *
 from .list_certificates import *
 from . import outputs
