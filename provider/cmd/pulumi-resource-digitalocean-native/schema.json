@@ -2925,6 +2925,20 @@
             },
             "type": "object"
         },
+        "digitalocean-native:certificates/v2:CertificateCreateBaseType": {
+            "description": "A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Custom",
+                    "value": "custom"
+                },
+                {
+                    "name": "LetsEncrypt",
+                    "value": "lets_encrypt"
+                }
+            ]
+        },
         "digitalocean-native:certificates/v2:CertificateState": {
             "description": "A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.",
             "type": "string",
@@ -9742,6 +9756,68 @@
                 "slug"
             ]
         },
+        "digitalocean-native:load_balancers/v2:LoadBalancerPropertiesRegionEnum": {
+            "description": "The slug identifier for the region where the resource will initially be  available.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ams1",
+                    "value": "ams1"
+                },
+                {
+                    "name": "Ams2",
+                    "value": "ams2"
+                },
+                {
+                    "name": "Ams3",
+                    "value": "ams3"
+                },
+                {
+                    "name": "Blr1",
+                    "value": "blr1"
+                },
+                {
+                    "name": "Fra1",
+                    "value": "fra1"
+                },
+                {
+                    "name": "Lon1",
+                    "value": "lon1"
+                },
+                {
+                    "name": "Nyc1",
+                    "value": "nyc1"
+                },
+                {
+                    "name": "Nyc2",
+                    "value": "nyc2"
+                },
+                {
+                    "name": "Nyc3",
+                    "value": "nyc3"
+                },
+                {
+                    "name": "Sfo1",
+                    "value": "sfo1"
+                },
+                {
+                    "name": "Sfo2",
+                    "value": "sfo2"
+                },
+                {
+                    "name": "Sfo3",
+                    "value": "sfo3"
+                },
+                {
+                    "name": "Sgp1",
+                    "value": "sgp1"
+                },
+                {
+                    "name": "Tor1",
+                    "value": "tor1"
+                }
+            ]
+        },
         "digitalocean-native:load_balancers/v2:MetaMeta": {
             "properties": {
                 "total": {
@@ -13090,6 +13166,68 @@
                 }
             ]
         },
+        "digitalocean-native:volumes/v2:Ext4PropertiesRegion": {
+            "description": "The slug identifier for the region where the resource will initially be  available.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ams1",
+                    "value": "ams1"
+                },
+                {
+                    "name": "Ams2",
+                    "value": "ams2"
+                },
+                {
+                    "name": "Ams3",
+                    "value": "ams3"
+                },
+                {
+                    "name": "Blr1",
+                    "value": "blr1"
+                },
+                {
+                    "name": "Fra1",
+                    "value": "fra1"
+                },
+                {
+                    "name": "Lon1",
+                    "value": "lon1"
+                },
+                {
+                    "name": "Nyc1",
+                    "value": "nyc1"
+                },
+                {
+                    "name": "Nyc2",
+                    "value": "nyc2"
+                },
+                {
+                    "name": "Nyc3",
+                    "value": "nyc3"
+                },
+                {
+                    "name": "Sfo1",
+                    "value": "sfo1"
+                },
+                {
+                    "name": "Sfo2",
+                    "value": "sfo2"
+                },
+                {
+                    "name": "Sfo3",
+                    "value": "sfo3"
+                },
+                {
+                    "name": "Sgp1",
+                    "value": "sgp1"
+                },
+                {
+                    "name": "Tor1",
+                    "value": "tor1"
+                }
+            ]
+        },
         "digitalocean-native:volumes/v2:GetVolumeActionProperties": {
             "properties": {
                 "action": {
@@ -13538,6 +13676,68 @@
                 "slug"
             ]
         },
+        "digitalocean-native:volumes/v2:XfsPropertiesRegion": {
+            "description": "The slug identifier for the region where the resource will initially be  available.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ams1",
+                    "value": "ams1"
+                },
+                {
+                    "name": "Ams2",
+                    "value": "ams2"
+                },
+                {
+                    "name": "Ams3",
+                    "value": "ams3"
+                },
+                {
+                    "name": "Blr1",
+                    "value": "blr1"
+                },
+                {
+                    "name": "Fra1",
+                    "value": "fra1"
+                },
+                {
+                    "name": "Lon1",
+                    "value": "lon1"
+                },
+                {
+                    "name": "Nyc1",
+                    "value": "nyc1"
+                },
+                {
+                    "name": "Nyc2",
+                    "value": "nyc2"
+                },
+                {
+                    "name": "Nyc3",
+                    "value": "nyc3"
+                },
+                {
+                    "name": "Sfo1",
+                    "value": "sfo1"
+                },
+                {
+                    "name": "Sfo2",
+                    "value": "sfo2"
+                },
+                {
+                    "name": "Sfo3",
+                    "value": "sfo3"
+                },
+                {
+                    "name": "Sgp1",
+                    "value": "sgp1"
+                },
+                {
+                    "name": "Tor1",
+                    "value": "tor1"
+                }
+            ]
+        },
         "digitalocean-native:vpcs/v2:GetVpcProperties": {
             "properties": {
                 "vpc": {
@@ -13748,7 +13948,7 @@
                 "clusterUuid"
             ]
         },
-        "digitalocean-native:account/v2:SshKeys": {
+        "digitalocean-native:account/v2:SshKey": {
             "properties": {
                 "fingerprint": {
                     "type": "string",
@@ -13763,7 +13963,12 @@
                     "description": "The entire public key string that was uploaded. Embedded into the root user's `authorized_keys` file if you include this key during Droplet creation."
                 },
                 "sshKey": {
-                    "$ref": "#/types/digitalocean-native:account/v2:SshKeys"
+                    "$ref": "#/types/digitalocean-native:account/v2:SshKeys",
+                    "language": {
+                        "csharp": {
+                            "name": "SshKeyValue"
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -13785,11 +13990,16 @@
                 "publicKey"
             ]
         },
-        "digitalocean-native:apps/v2:Apps": {
+        "digitalocean-native:apps/v2:App": {
             "properties": {
                 "app": {
                     "$ref": "#/types/digitalocean-native:apps/v2:App",
-                    "description": "An application's configuration and status."
+                    "description": "An application's configuration and status.",
+                    "language": {
+                        "csharp": {
+                            "name": "AppValue"
+                        }
+                    }
                 },
                 "projectId": {
                     "type": "string",
@@ -13818,7 +14028,7 @@
                 "spec"
             ]
         },
-        "digitalocean-native:apps/v2:AppsAssignAlertDestinations": {
+        "digitalocean-native:apps/v2:AppsAssignAlertDestination": {
             "properties": {
                 "alert": {
                     "$ref": "#/types/digitalocean-native:apps/v2:AppAlert"
@@ -14100,15 +14310,82 @@
                 "origin"
             ]
         },
-        "digitalocean-native:certificates/v2:Certificates": {
+        "digitalocean-native:certificates/v2:Certificate": {
             "properties": {
                 "certificate": {
-                    "$ref": "#/types/digitalocean-native:certificates/v2:Certificate"
+                    "$ref": "#/types/digitalocean-native:certificates/v2:Certificate",
+                    "language": {
+                        "csharp": {
+                            "name": "CertificateValue"
+                        }
+                    }
+                },
+                "certificateChain": {
+                    "type": "string",
+                    "description": "The full PEM-formatted trust chain between the certificate authority's certificate and your domain's SSL certificate."
+                },
+                "dnsNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of fully qualified domain names (FQDNs) for which the certificate was issued. A certificate covering all subdomains can be issued using a wildcard (e.g. `*.example.com`)."
+                },
+                "leafCertificate": {
+                    "type": "string",
+                    "description": "The contents of a PEM-formatted public SSL certificate."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A unique human-readable name referring to a certificate."
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The contents of a PEM-formatted private-key corresponding to the SSL certificate."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:certificates/v2:CertificateCreateBaseType",
+                    "description": "A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt."
                 }
             },
-            "type": "object"
+            "type": "object",
+            "inputProperties": {
+                "certificateChain": {
+                    "type": "string",
+                    "description": "The full PEM-formatted trust chain between the certificate authority's certificate and your domain's SSL certificate."
+                },
+                "dnsNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of fully qualified domain names (FQDNs) for which the certificate was issued. A certificate covering all subdomains can be issued using a wildcard (e.g. `*.example.com`)."
+                },
+                "leafCertificate": {
+                    "type": "string",
+                    "description": "The contents of a PEM-formatted public SSL certificate."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A unique human-readable name referring to a certificate."
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "The contents of a PEM-formatted private-key corresponding to the SSL certificate."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:certificates/v2:CertificateCreateBaseType",
+                    "description": "A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt."
+                }
+            },
+            "requiredInputs": [
+                "dnsNames",
+                "leafCertificate",
+                "name",
+                "privateKey"
+            ]
         },
-        "digitalocean-native:databases/v2:Databases": {
+        "digitalocean-native:databases/v2:Database": {
             "properties": {
                 "db": {
                     "$ref": "#/types/digitalocean-native:databases/v2:Database"
@@ -15171,10 +15448,15 @@
                 "type"
             ]
         },
-        "digitalocean-native:domains/v2:Domains": {
+        "digitalocean-native:domains/v2:Domain": {
             "properties": {
                 "domain": {
-                    "$ref": "#/types/digitalocean-native:domains/v2:Domain"
+                    "$ref": "#/types/digitalocean-native:domains/v2:Domain",
+                    "language": {
+                        "csharp": {
+                            "name": "DomainValue"
+                        }
+                    }
                 },
                 "ipAddress": {
                     "type": "string",
@@ -16309,7 +16591,7 @@
                 "type"
             ]
         },
-        "digitalocean-native:firewalls/v2:Firewalls": {
+        "digitalocean-native:firewalls/v2:Firewall": {
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -16323,7 +16605,12 @@
                     "description": "An array containing the IDs of the Droplets assigned to the firewall."
                 },
                 "firewall": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:Firewall"
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:Firewall",
+                    "language": {
+                        "csharp": {
+                            "name": "FirewallValue"
+                        }
+                    }
                 },
                 "inboundRules": {
                     "type": "array",
@@ -16401,7 +16688,7 @@
                 }
             }
         },
-        "digitalocean-native:firewalls/v2:FirewallsAssignDroplets": {
+        "digitalocean-native:firewalls/v2:FirewallsAssignDroplet": {
             "properties": {
                 "dropletIds": {
                     "type": "array",
@@ -16432,7 +16719,7 @@
                 "dropletIds"
             ]
         },
-        "digitalocean-native:firewalls/v2:FirewallsRules": {
+        "digitalocean-native:firewalls/v2:FirewallsRule": {
             "properties": {
                 "inboundRules": {
                     "type": "array",
@@ -16467,7 +16754,7 @@
                 }
             }
         },
-        "digitalocean-native:firewalls/v2:FirewallsTags": {
+        "digitalocean-native:firewalls/v2:FirewallsTag": {
             "properties": {
                 "tags": {
                     "$ref": "#/types/digitalocean-native:firewalls/v2:Tags"
@@ -16524,16 +16811,34 @@
                 "type"
             ]
         },
-        "digitalocean-native:floating_ips/v2:FloatingIPs": {
+        "digitalocean-native:floating_ips/v2:FloatingIP": {
             "properties": {
                 "floatingIp": {
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:FloatingIp"
                 },
                 "links": {
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:LinksProperties"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the floating IP will be assigned."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The slug identifier for the region the floating IP will be reserved to."
                 }
             },
-            "type": "object"
+            "type": "object",
+            "inputProperties": {
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the floating IP will be assigned."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The slug identifier for the region the floating IP will be reserved to."
+                }
+            }
         },
         "digitalocean-native:floating_ips/v2:Unassign": {
             "properties": {
@@ -17247,15 +17552,199 @@
                 }
             }
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancers": {
+        "digitalocean-native:load_balancers/v2:LoadBalancer": {
             "properties": {
+                "algorithm": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseAlgorithm",
+                    "description": "This field has been deprecated. You can no longer specify an algorithm for load balancers.",
+                    "default": "round_robin"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the load balancer was created."
+                },
+                "disableLetsEncryptDnsRecords": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.",
+                    "default": false
+                },
+                "enableBackendKeepalive": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.",
+                    "default": false
+                },
+                "enableProxyProtocol": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether PROXY Protocol is in use.",
+                    "default": false
+                },
+                "firewall": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LbFirewall",
+                    "description": "An object specifying allow and deny rules to control traffic to the load balancer."
+                },
+                "forwardingRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:load_balancers/v2:ForwardingRule"
+                    },
+                    "description": "An array of objects specifying the forwarding rules for a load balancer."
+                },
+                "healthCheck": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:HealthCheck",
+                    "description": "An object specifying health check settings for the load balancer."
+                },
+                "httpIdleTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "An integer value which configures the idle timeout for HTTP requests to the target droplets.",
+                    "default": 60
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "An attribute containing the public-facing IP address of the load balancer."
+                },
                 "loadBalancer": {
-                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancer"
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancer",
+                    "language": {
+                        "csharp": {
+                            "name": "LoadBalancerValue"
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for a load balancer instance."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created."
+                },
+                "redirectHttpToHttps": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.",
+                    "default": false
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerPropertiesRegionEnum",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "size": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseSize",
+                    "description": "This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.\n* `lb-small` = 1 node\n* `lb-medium` = 3 nodes\n* `lb-large` = 6 nodes\n\nYou can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.",
+                    "default": "lb-small"
+                },
+                "sizeUnit": {
+                    "type": "integer",
+                    "description": "How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.",
+                    "default": 1
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseStatus",
+                    "description": "A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`."
+                },
+                "stickySessions": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:StickySessions",
+                    "description": "An object specifying sticky sessions settings for the load balancer."
+                },
+                "vpcUuid": {
+                    "type": "string",
+                    "description": "A string specifying the UUID of the VPC to which the load balancer is assigned."
                 }
             },
-            "type": "object"
+            "type": "object",
+            "inputProperties": {
+                "algorithm": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseAlgorithm",
+                    "description": "This field has been deprecated. You can no longer specify an algorithm for load balancers.",
+                    "default": "round_robin"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the load balancer was created."
+                },
+                "disableLetsEncryptDnsRecords": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.",
+                    "default": false
+                },
+                "enableBackendKeepalive": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.",
+                    "default": false
+                },
+                "enableProxyProtocol": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether PROXY Protocol is in use.",
+                    "default": false
+                },
+                "firewall": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LbFirewall",
+                    "description": "An object specifying allow and deny rules to control traffic to the load balancer."
+                },
+                "forwardingRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:load_balancers/v2:ForwardingRule"
+                    },
+                    "description": "An array of objects specifying the forwarding rules for a load balancer."
+                },
+                "healthCheck": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:HealthCheck",
+                    "description": "An object specifying health check settings for the load balancer."
+                },
+                "httpIdleTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "An integer value which configures the idle timeout for HTTP requests to the target droplets.",
+                    "default": 60
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "An attribute containing the public-facing IP address of the load balancer."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for a load balancer instance."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created."
+                },
+                "redirectHttpToHttps": {
+                    "type": "boolean",
+                    "description": "A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.",
+                    "default": false
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerPropertiesRegionEnum",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "size": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseSize",
+                    "description": "This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.\n* `lb-small` = 1 node\n* `lb-medium` = 3 nodes\n* `lb-large` = 6 nodes\n\nYou can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.",
+                    "default": "lb-small"
+                },
+                "sizeUnit": {
+                    "type": "integer",
+                    "description": "How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.",
+                    "default": 1
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:LoadBalancerBaseStatus",
+                    "description": "A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`."
+                },
+                "stickySessions": {
+                    "$ref": "#/types/digitalocean-native:load_balancers/v2:StickySessions",
+                    "description": "An object specifying sticky sessions settings for the load balancer."
+                },
+                "vpcUuid": {
+                    "type": "string",
+                    "description": "A string specifying the UUID of the VPC to which the load balancer is assigned."
+                }
+            },
+            "requiredInputs": [
+                "forwardingRules"
+            ]
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancersDroplets": {
+        "digitalocean-native:load_balancers/v2:LoadBalancersDroplet": {
             "properties": {
                 "dropletIds": {
                     "type": "array",
@@ -17286,7 +17775,7 @@
                 "dropletIds"
             ]
         },
-        "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRules": {
+        "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRule": {
             "properties": {
                 "forwardingRules": {
                     "type": "array",
@@ -17413,7 +17902,7 @@
                 "window"
             ]
         },
-        "digitalocean-native:projects/v2:Projects": {
+        "digitalocean-native:projects/v2:Project": {
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -17440,7 +17929,12 @@
                     "description": "The unique universal identifier of the project owner."
                 },
                 "project": {
-                    "$ref": "#/types/digitalocean-native:projects/v2:Project"
+                    "$ref": "#/types/digitalocean-native:projects/v2:Project",
+                    "language": {
+                        "csharp": {
+                            "name": "ProjectValue"
+                        }
+                    }
                 },
                 "purpose": {
                     "type": "string",
@@ -17491,7 +17985,7 @@
                 }
             }
         },
-        "digitalocean-native:projects/v2:ProjectsAssignResources": {
+        "digitalocean-native:projects/v2:ProjectsAssignResource": {
             "properties": {
                 "resources": {
                     "type": "array",
@@ -17737,16 +18231,34 @@
                 "type"
             ]
         },
-        "digitalocean-native:reserved_ips/v2:ReservedIPs": {
+        "digitalocean-native:reserved_ips/v2:ReservedIP": {
             "properties": {
                 "links": {
                     "$ref": "#/types/digitalocean-native:reserved_ips/v2:LinksProperties"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP will be assigned."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The slug identifier for the region the reserved IP will be reserved to."
                 },
                 "reservedIp": {
                     "$ref": "#/types/digitalocean-native:reserved_ips/v2:ReservedIp"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "inputProperties": {
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP will be assigned."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The slug identifier for the region the reserved IP will be reserved to."
+                }
+            }
         },
         "digitalocean-native:reserved_ips/v2:Unassign": {
             "properties": {
@@ -17784,7 +18296,7 @@
                 "type"
             ]
         },
-        "digitalocean-native:tags/v2:Tags": {
+        "digitalocean-native:tags/v2:Tag": {
             "description": "A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.\nTags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.",
             "properties": {
                 "name": {
@@ -17797,7 +18309,12 @@
                 },
                 "tag": {
                     "$ref": "#/types/digitalocean-native:tags/v2:Tags",
-                    "description": "A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.\nTags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged."
+                    "description": "A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.\nTags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.",
+                    "language": {
+                        "csharp": {
+                            "name": "TagValue"
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -17808,7 +18325,7 @@
                 }
             }
         },
-        "digitalocean-native:tags/v2:TagsAssignResources": {
+        "digitalocean-native:tags/v2:TagsAssignResource": {
             "properties": {
                 "resources": {
                     "type": "array",
@@ -18069,6 +18586,109 @@
                 "type"
             ]
         },
+        "digitalocean-native:volumes/v2:Ext4": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the block storage volume was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional free-form text field to describe a block storage volume."
+                },
+                "dropletIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet."
+                },
+                "filesystemLabel": {
+                    "type": "string"
+                },
+                "filesystemType": {
+                    "type": "string",
+                    "description": "The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \"-\", up to a limit of 64 characters. The name must begin with a letter."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:Ext4PropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "sizeGigabytes": {
+                    "type": "integer",
+                    "description": "The size of the block storage volume in GiB (1024^3). This field does not apply  when creating a volume from a snapshot."
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The unique identifier for the volume snapshot from which to create the volume."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                },
+                "volume": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:VolumeFull"
+                }
+            },
+            "type": "object",
+            "inputProperties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the block storage volume was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional free-form text field to describe a block storage volume."
+                },
+                "dropletIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet."
+                },
+                "filesystemLabel": {
+                    "type": "string"
+                },
+                "filesystemType": {
+                    "type": "string",
+                    "description": "The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \"-\", up to a limit of 64 characters. The name must begin with a letter."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:Ext4PropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "sizeGigabytes": {
+                    "type": "integer",
+                    "description": "The size of the block storage volume in GiB (1024^3). This field does not apply  when creating a volume from a snapshot."
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The unique identifier for the volume snapshot from which to create the volume."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                }
+            },
+            "requiredInputs": [
+                "region"
+            ]
+        },
         "digitalocean-native:volumes/v2:Resize": {
             "properties": {
                 "action": {
@@ -18111,7 +18731,7 @@
                 "type"
             ]
         },
-        "digitalocean-native:volumes/v2:VolumeSnapshots": {
+        "digitalocean-native:volumes/v2:VolumeSnapshot": {
             "properties": {
                 "name": {
                     "type": "string",
@@ -18150,15 +18770,110 @@
                 }
             }
         },
-        "digitalocean-native:volumes/v2:Volumes": {
+        "digitalocean-native:volumes/v2:Xfs": {
             "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the block storage volume was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional free-form text field to describe a block storage volume."
+                },
+                "dropletIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet."
+                },
+                "filesystemLabel": {
+                    "type": "string"
+                },
+                "filesystemType": {
+                    "type": "string",
+                    "description": "The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \"-\", up to a limit of 64 characters. The name must begin with a letter."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:XfsPropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "sizeGigabytes": {
+                    "type": "integer",
+                    "description": "The size of the block storage volume in GiB (1024^3). This field does not apply  when creating a volume from a snapshot."
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The unique identifier for the volume snapshot from which to create the volume."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                },
                 "volume": {
                     "$ref": "#/types/digitalocean-native:volumes/v2:VolumeFull"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "inputProperties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the block storage volume was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional free-form text field to describe a block storage volume."
+                },
+                "dropletIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet."
+                },
+                "filesystemLabel": {
+                    "type": "string"
+                },
+                "filesystemType": {
+                    "type": "string",
+                    "description": "The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and \"-\", up to a limit of 64 characters. The name must begin with a letter."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:volumes/v2:XfsPropertiesRegion",
+                    "description": "The slug identifier for the region where the resource will initially be  available."
+                },
+                "sizeGigabytes": {
+                    "type": "integer",
+                    "description": "The size of the block storage volume in GiB (1024^3). This field does not apply  when creating a volume from a snapshot."
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The unique identifier for the volume snapshot from which to create the volume."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags."
+                }
+            },
+            "requiredInputs": [
+                "region"
+            ]
         },
-        "digitalocean-native:vpcs/v2:Vpcs": {
+        "digitalocean-native:vpcs/v2:Vpc": {
             "properties": {
                 "description": {
                     "type": "string",
@@ -18177,7 +18892,12 @@
                     "description": "The slug identifier for the region where the VPC will be created."
                 },
                 "vpc": {
-                    "$ref": "#/types/digitalocean-native:vpcs/v2:Vpc"
+                    "$ref": "#/types/digitalocean-native:vpcs/v2:Vpc",
+                    "language": {
+                        "csharp": {
+                            "name": "VpcValue"
+                        }
+                    }
                 }
             },
             "type": "object",

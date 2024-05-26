@@ -4245,8 +4245,6 @@ components:
             oneOf:
                 - type: object
                   title: Assign to Droplet
-                  required:
-                    - droplet_id
                   properties:
                     droplet_id:
                         type: integer
@@ -4254,8 +4252,6 @@ components:
                         example: 2.457247e+06
                 - type: object
                   title: Reserve to Region
-                  required:
-                    - region
                   properties:
                     project_id:
                         type: string
@@ -5082,9 +5078,6 @@ components:
                             $ref: '#/components/schemas/region_slug'
                     - $ref: '#/components/schemas/load_balancer_base'
                   title: Assign Droplets by ID
-                  required:
-                    - droplet_ids
-                    - region
                 - allOf:
                     - type: object
                       properties:
@@ -5098,9 +5091,6 @@ components:
                             $ref: '#/components/schemas/region_slug'
                     - $ref: '#/components/schemas/load_balancer_base'
                   title: Assign Droplets by Tag
-                  required:
-                    - tag
-                    - region
         maintenance_policy:
             type: object
             description: An object specifying the maintenance window policy for the Kubernetes cluster.
@@ -6658,8 +6648,6 @@ components:
             oneOf:
                 - type: object
                   title: Assign to Droplet
-                  required:
-                    - droplet_id
                   properties:
                     droplet_id:
                         type: integer
@@ -6667,8 +6655,6 @@ components:
                         example: 2.457247e+06
                 - type: object
                   title: Reserve to Region
-                  required:
-                    - region
                   properties:
                     project_id:
                         type: string
@@ -7427,6 +7413,8 @@ components:
                     readOnly: true
                     items:
                         type: integer
+                filesystem_label:
+                    type: string
                 id:
                     type: string
                     description: The unique identifier for the block storage volume.
@@ -7488,6 +7476,8 @@ components:
         volume_snapshot_id:
             type: object
             properties:
+                filesystem_label:
+                    type: string
                 snapshot_id:
                     type: string
                     description: The unique identifier for the volume snapshot from which to create the volume.
@@ -7499,6 +7489,8 @@ components:
         volume_write_file_system_type:
             type: object
             properties:
+                filesystem_label:
+                    type: string
                 filesystem_type:
                     type: string
                     description: The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended.
@@ -7528,9 +7520,7 @@ components:
                     - region
                   properties:
                     filesystem_label:
-                        allOf:
-                            - $ref: '#/components/schemas/volume_write_file_system_label'
-                            - maxLength: 16
+                        type: string
                     region:
                         $ref: '#/components/schemas/region_slug'
             type: object
@@ -7546,9 +7536,7 @@ components:
                     - region
                   properties:
                     filesystem_label:
-                        allOf:
-                            - $ref: '#/components/schemas/volume_write_file_system_label'
-                            - maxLength: 12
+                        type: string
                     region:
                         $ref: '#/components/schemas/region_slug'
             type: object
@@ -27262,9 +27250,14 @@ paths:
                 content:
                     application/json:
                         schema:
-                            anyOf:
+                            oneOf:
                                 - $ref: '#/components/schemas/volumes_ext4'
                                 - $ref: '#/components/schemas/volumes_xfs'
+                            discriminator:
+                                propertyName: filesystem_type
+                                mapping:
+                                    ext4: '#/components/schemas/volumes_ext4'
+                                    xfs: '#/components/schemas/volumes_xfs'
                         examples:
                             Volume from a snapshot:
                                 value:
