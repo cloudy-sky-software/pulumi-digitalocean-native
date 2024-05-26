@@ -171,6 +171,37 @@ func fixDeleteDropletOperations(openAPIDoc *openapi3.T) {
 	pathItem.Delete.OperationID = "droplet_delete"
 }
 
+func fixCreateVolumeRequest(openAPIDoc *openapi3.T) {
+	pathItem := openAPIDoc.Paths.Find("/v2/volumes")
+	contract.Assertf(pathItem != nil, "Expected to find request path /v2/volumes")
+
+	schemaRefs := pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.AnyOf
+	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.OneOf = schemaRefs
+	volumesDiscriminator := &openapi3.Discriminator{
+		Mapping: map[string]string{
+			"ext4": "#/components/schemas/volumes_ext4",
+			"xfs":  "#/components/schemas/volumes_xfs",
+		},
+		PropertyName: "filesystem_type",
+	}
+	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.Discriminator = volumesDiscriminator
+	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.AnyOf = nil
+}
+
+func fixFileSystemLabelProperty(openAPIDoc *openapi3.T) {
+	schemas := []string{"volumes_ext4", "volumes_xfs"}
+	for _, schemaName := range schemas {
+		schemaTypeRef := openAPIDoc.Components.Schemas[schemaName]
+		for _, schemaRef := range schemaTypeRef.Value.AllOf {
+			if len(schemaRef.Value.Properties) == 0 {
+				continue
+			}
+
+			schemaRef.Value.Properties["filesystem_label"] = openapi3.NewSchemaRef("", openapi3.NewStringSchema())
+		}
+	}
+}
+
 func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	regionSchema, ok := openAPIDoc.Components.Schemas["region"]
 	contract.Assertf(ok, "Expected to find a schema for region type")
@@ -194,4 +225,6 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixCreateUptimeCheckRequest(openAPIDoc)
 	fixCreateDropletsRequest(openAPIDoc)
 	fixDeleteDropletOperations(openAPIDoc)
+	fixCreateVolumeRequest(openAPIDoc)
+	fixFileSystemLabelProperty(openAPIDoc)
 }
