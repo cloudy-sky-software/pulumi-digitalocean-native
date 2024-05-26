@@ -23,8 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "digitalocean-native:reserved_ips/v2:Assign":
 		r = &Assign{}
-	case "digitalocean-native:reserved_ips/v2:ReservedIPs":
-		r = &ReservedIPs{}
+	case "digitalocean-native:reserved_ips/v2:ReservedIP":
+		r = &ReservedIP{}
 	case "digitalocean-native:reserved_ips/v2:Unassign":
 		r = &Unassign{}
 	default:

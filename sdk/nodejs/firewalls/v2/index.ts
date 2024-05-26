@@ -5,25 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { FirewallsArgs } from "./firewalls";
-export type Firewalls = import("./firewalls").Firewalls;
-export const Firewalls: typeof import("./firewalls").Firewalls = null as any;
-utilities.lazyLoad(exports, ["Firewalls"], () => require("./firewalls"));
+export { FirewallArgs } from "./firewall";
+export type Firewall = import("./firewall").Firewall;
+export const Firewall: typeof import("./firewall").Firewall = null as any;
+utilities.lazyLoad(exports, ["Firewall"], () => require("./firewall"));
 
-export { FirewallsAssignDropletsArgs } from "./firewallsAssignDroplets";
-export type FirewallsAssignDroplets = import("./firewallsAssignDroplets").FirewallsAssignDroplets;
-export const FirewallsAssignDroplets: typeof import("./firewallsAssignDroplets").FirewallsAssignDroplets = null as any;
-utilities.lazyLoad(exports, ["FirewallsAssignDroplets"], () => require("./firewallsAssignDroplets"));
+export { FirewallsAssignDropletArgs } from "./firewallsAssignDroplet";
+export type FirewallsAssignDroplet = import("./firewallsAssignDroplet").FirewallsAssignDroplet;
+export const FirewallsAssignDroplet: typeof import("./firewallsAssignDroplet").FirewallsAssignDroplet = null as any;
+utilities.lazyLoad(exports, ["FirewallsAssignDroplet"], () => require("./firewallsAssignDroplet"));
 
-export { FirewallsRulesArgs } from "./firewallsRules";
-export type FirewallsRules = import("./firewallsRules").FirewallsRules;
-export const FirewallsRules: typeof import("./firewallsRules").FirewallsRules = null as any;
-utilities.lazyLoad(exports, ["FirewallsRules"], () => require("./firewallsRules"));
+export { FirewallsRuleArgs } from "./firewallsRule";
+export type FirewallsRule = import("./firewallsRule").FirewallsRule;
+export const FirewallsRule: typeof import("./firewallsRule").FirewallsRule = null as any;
+utilities.lazyLoad(exports, ["FirewallsRule"], () => require("./firewallsRule"));
 
-export { FirewallsTagsArgs } from "./firewallsTags";
-export type FirewallsTags = import("./firewallsTags").FirewallsTags;
-export const FirewallsTags: typeof import("./firewallsTags").FirewallsTags = null as any;
-utilities.lazyLoad(exports, ["FirewallsTags"], () => require("./firewallsTags"));
+export { FirewallsTagArgs } from "./firewallsTag";
+export type FirewallsTag = import("./firewallsTag").FirewallsTag;
+export const FirewallsTag: typeof import("./firewallsTag").FirewallsTag = null as any;
+utilities.lazyLoad(exports, ["FirewallsTag"], () => require("./firewallsTag"));
 
 export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
 export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
@@ -43,14 +43,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:firewalls/v2:Firewalls":
-                return new Firewalls(name, <any>undefined, { urn })
-            case "digitalocean-native:firewalls/v2:FirewallsAssignDroplets":
-                return new FirewallsAssignDroplets(name, <any>undefined, { urn })
-            case "digitalocean-native:firewalls/v2:FirewallsRules":
-                return new FirewallsRules(name, <any>undefined, { urn })
-            case "digitalocean-native:firewalls/v2:FirewallsTags":
-                return new FirewallsTags(name, <any>undefined, { urn })
+            case "digitalocean-native:firewalls/v2:Firewall":
+                return new Firewall(name, <any>undefined, { urn })
+            case "digitalocean-native:firewalls/v2:FirewallsAssignDroplet":
+                return new FirewallsAssignDroplet(name, <any>undefined, { urn })
+            case "digitalocean-native:firewalls/v2:FirewallsRule":
+                return new FirewallsRule(name, <any>undefined, { urn })
+            case "digitalocean-native:firewalls/v2:FirewallsTag":
+                return new FirewallsTag(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

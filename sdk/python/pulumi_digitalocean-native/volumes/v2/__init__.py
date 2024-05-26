@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .attach import *
 from .detach import *
+from .ext4 import *
 from .get_volume import *
 from .get_volume_action import *
 from .get_volume_snapshots_by_id import *
@@ -15,6 +16,6 @@ from .list_volume_actions import *
 from .list_volume_snapshots import *
 from .list_volumes import *
 from .resize import *
-from .volume_snapshots import *
-from .volumes import *
+from .volume_snapshot import *
+from .xfs import *
 from . import outputs

@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs, opts ...pulumi.InvokeOption) (*GetLoadBalancerResult, error) {
+func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetLoadBalancerResult
+	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("digitalocean-native:load_balancers/v2:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,17 +21,17 @@ func GetLoadBalancer(ctx *pulumi.Context, args *GetLoadBalancerArgs, opts ...pul
 	return rv.Defaults(), nil
 }
 
-type GetLoadBalancerArgs struct {
+type LookupLoadBalancerArgs struct {
 	// A unique identifier for a load balancer.
 	LbId string `pulumi:"lbId"`
 }
 
-type GetLoadBalancerResult struct {
+type LookupLoadBalancerResult struct {
 	Items GetLoadBalancerProperties `pulumi:"items"`
 }
 
-// Defaults sets the appropriate defaults for GetLoadBalancerResult
-func (val *GetLoadBalancerResult) Defaults() *GetLoadBalancerResult {
+// Defaults sets the appropriate defaults for LookupLoadBalancerResult
+func (val *LookupLoadBalancerResult) Defaults() *LookupLoadBalancerResult {
 	if val == nil {
 		return nil
 	}
@@ -41,46 +41,46 @@ func (val *GetLoadBalancerResult) Defaults() *GetLoadBalancerResult {
 	return &tmp
 }
 
-func GetLoadBalancerOutput(ctx *pulumi.Context, args GetLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) GetLoadBalancerResultOutput {
+func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLoadBalancerResult, error) {
-			args := v.(GetLoadBalancerArgs)
-			r, err := GetLoadBalancer(ctx, &args, opts...)
-			var s GetLoadBalancerResult
+		ApplyT(func(v interface{}) (LookupLoadBalancerResult, error) {
+			args := v.(LookupLoadBalancerArgs)
+			r, err := LookupLoadBalancer(ctx, &args, opts...)
+			var s LookupLoadBalancerResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetLoadBalancerResultOutput)
+		}).(LookupLoadBalancerResultOutput)
 }
 
-type GetLoadBalancerOutputArgs struct {
+type LookupLoadBalancerOutputArgs struct {
 	// A unique identifier for a load balancer.
 	LbId pulumi.StringInput `pulumi:"lbId"`
 }
 
-func (GetLoadBalancerOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerArgs)(nil)).Elem()
+func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLoadBalancerArgs)(nil)).Elem()
 }
 
-type GetLoadBalancerResultOutput struct{ *pulumi.OutputState }
+type LookupLoadBalancerResultOutput struct{ *pulumi.OutputState }
 
-func (GetLoadBalancerResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerResult)(nil)).Elem()
+func (LookupLoadBalancerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLoadBalancerResult)(nil)).Elem()
 }
 
-func (o GetLoadBalancerResultOutput) ToGetLoadBalancerResultOutput() GetLoadBalancerResultOutput {
+func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutput() LookupLoadBalancerResultOutput {
 	return o
 }
 
-func (o GetLoadBalancerResultOutput) ToGetLoadBalancerResultOutputWithContext(ctx context.Context) GetLoadBalancerResultOutput {
+func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithContext(ctx context.Context) LookupLoadBalancerResultOutput {
 	return o
 }
 
-func (o GetLoadBalancerResultOutput) Items() GetLoadBalancerPropertiesOutput {
-	return o.ApplyT(func(v GetLoadBalancerResult) GetLoadBalancerProperties { return v.Items }).(GetLoadBalancerPropertiesOutput)
+func (o LookupLoadBalancerResultOutput) Items() GetLoadBalancerPropertiesOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerProperties { return v.Items }).(GetLoadBalancerPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetLoadBalancerResultOutput{})
+	pulumi.RegisterOutputType(LookupLoadBalancerResultOutput{})
 }

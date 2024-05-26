@@ -6,7 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .databases import *
+from .database import *
 from .databases_cluster import *
 from .databases_cluster_size import *
 from .databases_connection_pool import *

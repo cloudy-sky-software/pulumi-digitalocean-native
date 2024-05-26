@@ -40,6 +40,49 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
     }
 
     /// <summary>
+    /// The slug identifier for the region where the resource will initially be  available.
+    /// </summary>
+    [EnumType]
+    public readonly struct Ext4PropertiesRegion : IEquatable<Ext4PropertiesRegion>
+    {
+        private readonly string _value;
+
+        private Ext4PropertiesRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ext4PropertiesRegion Ams1 { get; } = new Ext4PropertiesRegion("ams1");
+        public static Ext4PropertiesRegion Ams2 { get; } = new Ext4PropertiesRegion("ams2");
+        public static Ext4PropertiesRegion Ams3 { get; } = new Ext4PropertiesRegion("ams3");
+        public static Ext4PropertiesRegion Blr1 { get; } = new Ext4PropertiesRegion("blr1");
+        public static Ext4PropertiesRegion Fra1 { get; } = new Ext4PropertiesRegion("fra1");
+        public static Ext4PropertiesRegion Lon1 { get; } = new Ext4PropertiesRegion("lon1");
+        public static Ext4PropertiesRegion Nyc1 { get; } = new Ext4PropertiesRegion("nyc1");
+        public static Ext4PropertiesRegion Nyc2 { get; } = new Ext4PropertiesRegion("nyc2");
+        public static Ext4PropertiesRegion Nyc3 { get; } = new Ext4PropertiesRegion("nyc3");
+        public static Ext4PropertiesRegion Sfo1 { get; } = new Ext4PropertiesRegion("sfo1");
+        public static Ext4PropertiesRegion Sfo2 { get; } = new Ext4PropertiesRegion("sfo2");
+        public static Ext4PropertiesRegion Sfo3 { get; } = new Ext4PropertiesRegion("sfo3");
+        public static Ext4PropertiesRegion Sgp1 { get; } = new Ext4PropertiesRegion("sgp1");
+        public static Ext4PropertiesRegion Tor1 { get; } = new Ext4PropertiesRegion("tor1");
+
+        public static bool operator ==(Ext4PropertiesRegion left, Ext4PropertiesRegion right) => left.Equals(right);
+        public static bool operator !=(Ext4PropertiesRegion left, Ext4PropertiesRegion right) => !left.Equals(right);
+
+        public static explicit operator string(Ext4PropertiesRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ext4PropertiesRegion other && Equals(other);
+        public bool Equals(Ext4PropertiesRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of resource that the snapshot originated from.
     /// </summary>
     [EnumType]
@@ -138,6 +181,49 @@ namespace Pulumi.DigitalOceanNative.VolumesV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VolumeActionCreateBaseType other && Equals(other);
         public bool Equals(VolumeActionCreateBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The slug identifier for the region where the resource will initially be  available.
+    /// </summary>
+    [EnumType]
+    public readonly struct XfsPropertiesRegion : IEquatable<XfsPropertiesRegion>
+    {
+        private readonly string _value;
+
+        private XfsPropertiesRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static XfsPropertiesRegion Ams1 { get; } = new XfsPropertiesRegion("ams1");
+        public static XfsPropertiesRegion Ams2 { get; } = new XfsPropertiesRegion("ams2");
+        public static XfsPropertiesRegion Ams3 { get; } = new XfsPropertiesRegion("ams3");
+        public static XfsPropertiesRegion Blr1 { get; } = new XfsPropertiesRegion("blr1");
+        public static XfsPropertiesRegion Fra1 { get; } = new XfsPropertiesRegion("fra1");
+        public static XfsPropertiesRegion Lon1 { get; } = new XfsPropertiesRegion("lon1");
+        public static XfsPropertiesRegion Nyc1 { get; } = new XfsPropertiesRegion("nyc1");
+        public static XfsPropertiesRegion Nyc2 { get; } = new XfsPropertiesRegion("nyc2");
+        public static XfsPropertiesRegion Nyc3 { get; } = new XfsPropertiesRegion("nyc3");
+        public static XfsPropertiesRegion Sfo1 { get; } = new XfsPropertiesRegion("sfo1");
+        public static XfsPropertiesRegion Sfo2 { get; } = new XfsPropertiesRegion("sfo2");
+        public static XfsPropertiesRegion Sfo3 { get; } = new XfsPropertiesRegion("sfo3");
+        public static XfsPropertiesRegion Sgp1 { get; } = new XfsPropertiesRegion("sgp1");
+        public static XfsPropertiesRegion Tor1 { get; } = new XfsPropertiesRegion("tor1");
+
+        public static bool operator ==(XfsPropertiesRegion left, XfsPropertiesRegion right) => left.Equals(right);
+        public static bool operator !=(XfsPropertiesRegion left, XfsPropertiesRegion right) => !left.Equals(right);
+
+        public static explicit operator string(XfsPropertiesRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is XfsPropertiesRegion other && Equals(other);
+        public bool Equals(XfsPropertiesRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

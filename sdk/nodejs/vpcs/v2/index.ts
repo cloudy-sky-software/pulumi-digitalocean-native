@@ -20,18 +20,18 @@ export const listVpcsMembers: typeof import("./listVpcsMembers").listVpcsMembers
 export const listVpcsMembersOutput: typeof import("./listVpcsMembers").listVpcsMembersOutput = null as any;
 utilities.lazyLoad(exports, ["listVpcsMembers","listVpcsMembersOutput"], () => require("./listVpcsMembers"));
 
-export { VpcsArgs } from "./vpcs";
-export type Vpcs = import("./vpcs").Vpcs;
-export const Vpcs: typeof import("./vpcs").Vpcs = null as any;
-utilities.lazyLoad(exports, ["Vpcs"], () => require("./vpcs"));
+export { VpcArgs } from "./vpc";
+export type Vpc = import("./vpc").Vpc;
+export const Vpc: typeof import("./vpc").Vpc = null as any;
+utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:vpcs/v2:Vpcs":
-                return new Vpcs(name, <any>undefined, { urn })
+            case "digitalocean-native:vpcs/v2:Vpc":
+                return new Vpc(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

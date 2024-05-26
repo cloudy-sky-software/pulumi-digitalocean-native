@@ -13,7 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type Certificate struct {
+type CertificateType struct {
 	// A unique identifier generated from the SHA-1 fingerprint of the certificate.
 	_sha1Fingerprint *string `pulumi:"_sha1Fingerprint"`
 	// A time value given in ISO8601 combined date and time format that represents when the certificate was created.
@@ -27,92 +27,92 @@ type Certificate struct {
 	// A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
 	NotAfter *string `pulumi:"notAfter"`
 	// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
-	State *CertificateState `pulumi:"state"`
+	State *CertificateStateEnum `pulumi:"state"`
 	// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
-	Type *CertificateType `pulumi:"type"`
+	Type *CertificateTypeEnum `pulumi:"type"`
 }
 
-type CertificateOutput struct{ *pulumi.OutputState }
+type CertificateTypeOutput struct{ *pulumi.OutputState }
 
-func (CertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Certificate)(nil)).Elem()
+func (CertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateType)(nil)).Elem()
 }
 
-func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
+func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
 	return o
 }
 
-func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
+func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
 	return o
 }
 
 // A unique identifier generated from the SHA-1 fingerprint of the certificate.
-func (o CertificateOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Certificate) *string { return v._sha1Fingerprint }).(pulumi.StringPtrOutput)
+func (o CertificateTypeOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateType) *string { return v._sha1Fingerprint }).(pulumi.StringPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the certificate was created.
-func (o CertificateOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Certificate) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o CertificateTypeOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateType) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // An array of fully qualified domain names (FQDNs) for which the certificate was issued.
-func (o CertificateOutput) DnsNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Certificate) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
+func (o CertificateTypeOutput) DnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CertificateType) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
 }
 
 // A unique ID that can be used to identify and reference a certificate.
-func (o CertificateOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Certificate) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o CertificateTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A unique human-readable name referring to a certificate.
-func (o CertificateOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Certificate) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o CertificateTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
-func (o CertificateOutput) NotAfter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Certificate) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
+func (o CertificateTypeOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateType) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
 }
 
 // A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
-func (o CertificateOutput) State() CertificateStatePtrOutput {
-	return o.ApplyT(func(v Certificate) *CertificateState { return v.State }).(CertificateStatePtrOutput)
+func (o CertificateTypeOutput) State() CertificateStateEnumPtrOutput {
+	return o.ApplyT(func(v CertificateType) *CertificateStateEnum { return v.State }).(CertificateStateEnumPtrOutput)
 }
 
 // A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
-func (o CertificateOutput) Type() CertificateTypePtrOutput {
-	return o.ApplyT(func(v Certificate) *CertificateType { return v.Type }).(CertificateTypePtrOutput)
+func (o CertificateTypeOutput) Type() CertificateTypeEnumPtrOutput {
+	return o.ApplyT(func(v CertificateType) *CertificateTypeEnum { return v.Type }).(CertificateTypeEnumPtrOutput)
 }
 
-type CertificatePtrOutput struct{ *pulumi.OutputState }
+type CertificateTypePtrOutput struct{ *pulumi.OutputState }
 
-func (CertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Certificate)(nil)).Elem()
+func (CertificateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateType)(nil)).Elem()
 }
 
-func (o CertificatePtrOutput) ToCertificatePtrOutput() CertificatePtrOutput {
+func (o CertificateTypePtrOutput) ToCertificateTypePtrOutput() CertificateTypePtrOutput {
 	return o
 }
 
-func (o CertificatePtrOutput) ToCertificatePtrOutputWithContext(ctx context.Context) CertificatePtrOutput {
+func (o CertificateTypePtrOutput) ToCertificateTypePtrOutputWithContext(ctx context.Context) CertificateTypePtrOutput {
 	return o
 }
 
-func (o CertificatePtrOutput) Elem() CertificateOutput {
-	return o.ApplyT(func(v *Certificate) Certificate {
+func (o CertificateTypePtrOutput) Elem() CertificateTypeOutput {
+	return o.ApplyT(func(v *CertificateType) CertificateType {
 		if v != nil {
 			return *v
 		}
-		var ret Certificate
+		var ret CertificateType
 		return ret
-	}).(CertificateOutput)
+	}).(CertificateTypeOutput)
 }
 
 // A unique identifier generated from the SHA-1 fingerprint of the certificate.
-func (o CertificatePtrOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Certificate) *string {
+func (o CertificateTypePtrOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -121,8 +121,8 @@ func (o CertificatePtrOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the certificate was created.
-func (o CertificatePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Certificate) *string {
+func (o CertificateTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -131,8 +131,8 @@ func (o CertificatePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 }
 
 // An array of fully qualified domain names (FQDNs) for which the certificate was issued.
-func (o CertificatePtrOutput) DnsNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Certificate) []string {
+func (o CertificateTypePtrOutput) DnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CertificateType) []string {
 		if v == nil {
 			return nil
 		}
@@ -141,8 +141,8 @@ func (o CertificatePtrOutput) DnsNames() pulumi.StringArrayOutput {
 }
 
 // A unique ID that can be used to identify and reference a certificate.
-func (o CertificatePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Certificate) *string {
+func (o CertificateTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -151,8 +151,8 @@ func (o CertificatePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A unique human-readable name referring to a certificate.
-func (o CertificatePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Certificate) *string {
+func (o CertificateTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -161,8 +161,8 @@ func (o CertificatePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
-func (o CertificatePtrOutput) NotAfter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Certificate) *string {
+func (o CertificateTypePtrOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -171,47 +171,47 @@ func (o CertificatePtrOutput) NotAfter() pulumi.StringPtrOutput {
 }
 
 // A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
-func (o CertificatePtrOutput) State() CertificateStatePtrOutput {
-	return o.ApplyT(func(v *Certificate) *CertificateState {
+func (o CertificateTypePtrOutput) State() CertificateStateEnumPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *CertificateStateEnum {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(CertificateStatePtrOutput)
+	}).(CertificateStateEnumPtrOutput)
 }
 
 // A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
-func (o CertificatePtrOutput) Type() CertificateTypePtrOutput {
-	return o.ApplyT(func(v *Certificate) *CertificateType {
+func (o CertificateTypePtrOutput) Type() CertificateTypeEnumPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *CertificateTypeEnum {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(CertificateTypePtrOutput)
+	}).(CertificateTypeEnumPtrOutput)
 }
 
-type CertificateArrayOutput struct{ *pulumi.OutputState }
+type CertificateTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (CertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Certificate)(nil)).Elem()
+func (CertificateTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateType)(nil)).Elem()
 }
 
-func (o CertificateArrayOutput) ToCertificateArrayOutput() CertificateArrayOutput {
+func (o CertificateTypeArrayOutput) ToCertificateTypeArrayOutput() CertificateTypeArrayOutput {
 	return o
 }
 
-func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
+func (o CertificateTypeArrayOutput) ToCertificateTypeArrayOutputWithContext(ctx context.Context) CertificateTypeArrayOutput {
 	return o
 }
 
-func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Certificate {
-		return vs[0].([]Certificate)[vs[1].(int)]
-	}).(CertificateOutput)
+func (o CertificateTypeArrayOutput) Index(i pulumi.IntInput) CertificateTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateType {
+		return vs[0].([]CertificateType)[vs[1].(int)]
+	}).(CertificateTypeOutput)
 }
 
 type GetCertificateProperties struct {
-	Certificate *Certificate `pulumi:"certificate"`
+	Certificate *CertificateType `pulumi:"certificate"`
 }
 
 type GetCertificatePropertiesOutput struct{ *pulumi.OutputState }
@@ -228,14 +228,14 @@ func (o GetCertificatePropertiesOutput) ToGetCertificatePropertiesOutputWithCont
 	return o
 }
 
-func (o GetCertificatePropertiesOutput) Certificate() CertificatePtrOutput {
-	return o.ApplyT(func(v GetCertificateProperties) *Certificate { return v.Certificate }).(CertificatePtrOutput)
+func (o GetCertificatePropertiesOutput) Certificate() CertificateTypePtrOutput {
+	return o.ApplyT(func(v GetCertificateProperties) *CertificateType { return v.Certificate }).(CertificateTypePtrOutput)
 }
 
 type ListCertificatesItems struct {
-	Certificates []Certificate `pulumi:"certificates"`
-	Links        *PageLinks    `pulumi:"links"`
-	Meta         MetaMeta      `pulumi:"meta"`
+	Certificates []CertificateType `pulumi:"certificates"`
+	Links        *PageLinks        `pulumi:"links"`
+	Meta         MetaMeta          `pulumi:"meta"`
 }
 
 type ListCertificatesItemsOutput struct{ *pulumi.OutputState }
@@ -252,8 +252,8 @@ func (o ListCertificatesItemsOutput) ToListCertificatesItemsOutputWithContext(ct
 	return o
 }
 
-func (o ListCertificatesItemsOutput) Certificates() CertificateArrayOutput {
-	return o.ApplyT(func(v ListCertificatesItems) []Certificate { return v.Certificates }).(CertificateArrayOutput)
+func (o ListCertificatesItemsOutput) Certificates() CertificateTypeArrayOutput {
+	return o.ApplyT(func(v ListCertificatesItems) []CertificateType { return v.Certificates }).(CertificateTypeArrayOutput)
 }
 
 func (o ListCertificatesItemsOutput) Links() PageLinksPtrOutput {
@@ -441,9 +441,9 @@ func (o PageLinksPagesPropertiesPtrOutput) Prev() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CertificateOutput{})
-	pulumi.RegisterOutputType(CertificatePtrOutput{})
-	pulumi.RegisterOutputType(CertificateArrayOutput{})
+	pulumi.RegisterOutputType(CertificateTypeOutput{})
+	pulumi.RegisterOutputType(CertificateTypePtrOutput{})
+	pulumi.RegisterOutputType(CertificateTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(ListCertificatesItemsOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})

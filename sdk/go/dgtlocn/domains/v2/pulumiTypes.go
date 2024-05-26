@@ -13,7 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type Domain struct {
+type DomainType struct {
 	// This optional attribute may contain an IP address. When provided, an A record will be automatically created pointing to the apex domain.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name of the domain itself. This should follow the standard domain format of domain.TLD. For instance, `example.com` is a valid domain name.
@@ -24,67 +24,67 @@ type Domain struct {
 	ZoneFile *string `pulumi:"zoneFile"`
 }
 
-type DomainOutput struct{ *pulumi.OutputState }
+type DomainTypeOutput struct{ *pulumi.OutputState }
 
-func (DomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Domain)(nil)).Elem()
+func (DomainTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainType)(nil)).Elem()
 }
 
-func (o DomainOutput) ToDomainOutput() DomainOutput {
+func (o DomainTypeOutput) ToDomainTypeOutput() DomainTypeOutput {
 	return o
 }
 
-func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
+func (o DomainTypeOutput) ToDomainTypeOutputWithContext(ctx context.Context) DomainTypeOutput {
 	return o
 }
 
 // This optional attribute may contain an IP address. When provided, an A record will be automatically created pointing to the apex domain.
-func (o DomainOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Domain) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+func (o DomainTypeOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainType) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The name of the domain itself. This should follow the standard domain format of domain.TLD. For instance, `example.com` is a valid domain name.
-func (o DomainOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Domain) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o DomainTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // This value is the time to live for the records on this domain, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
-func (o DomainOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Domain) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+func (o DomainTypeOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainType) *int { return v.Ttl }).(pulumi.IntPtrOutput)
 }
 
 // This attribute contains the complete contents of the zone file for the selected domain. Individual domain record resources should be used to get more granular control over records. However, this attribute can also be used to get information about the SOA record, which is created automatically and is not accessible as an individual record resource.
-func (o DomainOutput) ZoneFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Domain) *string { return v.ZoneFile }).(pulumi.StringPtrOutput)
+func (o DomainTypeOutput) ZoneFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainType) *string { return v.ZoneFile }).(pulumi.StringPtrOutput)
 }
 
-type DomainPtrOutput struct{ *pulumi.OutputState }
+type DomainTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DomainPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Domain)(nil)).Elem()
+func (DomainTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainType)(nil)).Elem()
 }
 
-func (o DomainPtrOutput) ToDomainPtrOutput() DomainPtrOutput {
+func (o DomainTypePtrOutput) ToDomainTypePtrOutput() DomainTypePtrOutput {
 	return o
 }
 
-func (o DomainPtrOutput) ToDomainPtrOutputWithContext(ctx context.Context) DomainPtrOutput {
+func (o DomainTypePtrOutput) ToDomainTypePtrOutputWithContext(ctx context.Context) DomainTypePtrOutput {
 	return o
 }
 
-func (o DomainPtrOutput) Elem() DomainOutput {
-	return o.ApplyT(func(v *Domain) Domain {
+func (o DomainTypePtrOutput) Elem() DomainTypeOutput {
+	return o.ApplyT(func(v *DomainType) DomainType {
 		if v != nil {
 			return *v
 		}
-		var ret Domain
+		var ret DomainType
 		return ret
-	}).(DomainOutput)
+	}).(DomainTypeOutput)
 }
 
 // This optional attribute may contain an IP address. When provided, an A record will be automatically created pointing to the apex domain.
-func (o DomainPtrOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) *string {
+func (o DomainTypePtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainType) *string {
 		if v == nil {
 			return nil
 		}
@@ -93,8 +93,8 @@ func (o DomainPtrOutput) IpAddress() pulumi.StringPtrOutput {
 }
 
 // The name of the domain itself. This should follow the standard domain format of domain.TLD. For instance, `example.com` is a valid domain name.
-func (o DomainPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) *string {
+func (o DomainTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainType) *string {
 		if v == nil {
 			return nil
 		}
@@ -103,8 +103,8 @@ func (o DomainPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This value is the time to live for the records on this domain, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
-func (o DomainPtrOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Domain) *int {
+func (o DomainTypePtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainType) *int {
 		if v == nil {
 			return nil
 		}
@@ -113,8 +113,8 @@ func (o DomainPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 // This attribute contains the complete contents of the zone file for the selected domain. Individual domain record resources should be used to get more granular control over records. However, this attribute can also be used to get information about the SOA record, which is created automatically and is not accessible as an individual record resource.
-func (o DomainPtrOutput) ZoneFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) *string {
+func (o DomainTypePtrOutput) ZoneFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainType) *string {
 		if v == nil {
 			return nil
 		}
@@ -122,24 +122,24 @@ func (o DomainPtrOutput) ZoneFile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DomainArrayOutput struct{ *pulumi.OutputState }
+type DomainTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (DomainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Domain)(nil)).Elem()
+func (DomainTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainType)(nil)).Elem()
 }
 
-func (o DomainArrayOutput) ToDomainArrayOutput() DomainArrayOutput {
+func (o DomainTypeArrayOutput) ToDomainTypeArrayOutput() DomainTypeArrayOutput {
 	return o
 }
 
-func (o DomainArrayOutput) ToDomainArrayOutputWithContext(ctx context.Context) DomainArrayOutput {
+func (o DomainTypeArrayOutput) ToDomainTypeArrayOutputWithContext(ctx context.Context) DomainTypeArrayOutput {
 	return o
 }
 
-func (o DomainArrayOutput) Index(i pulumi.IntInput) DomainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Domain {
-		return vs[0].([]Domain)[vs[1].(int)]
-	}).(DomainOutput)
+func (o DomainTypeArrayOutput) Index(i pulumi.IntInput) DomainTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainType {
+		return vs[0].([]DomainType)[vs[1].(int)]
+	}).(DomainTypeOutput)
 }
 
 type DomainRecord struct {
@@ -374,7 +374,7 @@ func (o DomainRecordArrayOutput) Index(i pulumi.IntInput) DomainRecordOutput {
 }
 
 type GetDomainProperties struct {
-	Domain *Domain `pulumi:"domain"`
+	Domain *DomainType `pulumi:"domain"`
 }
 
 type GetDomainPropertiesOutput struct{ *pulumi.OutputState }
@@ -391,8 +391,8 @@ func (o GetDomainPropertiesOutput) ToGetDomainPropertiesOutputWithContext(ctx co
 	return o
 }
 
-func (o GetDomainPropertiesOutput) Domain() DomainPtrOutput {
-	return o.ApplyT(func(v GetDomainProperties) *Domain { return v.Domain }).(DomainPtrOutput)
+func (o GetDomainPropertiesOutput) Domain() DomainTypePtrOutput {
+	return o.ApplyT(func(v GetDomainProperties) *DomainType { return v.Domain }).(DomainTypePtrOutput)
 }
 
 type GetDomainsRecordProperties struct {
@@ -419,9 +419,9 @@ func (o GetDomainsRecordPropertiesOutput) DomainRecord() DomainRecordPtrOutput {
 
 type ListDomainsItems struct {
 	// Array of volumes.
-	Domains []Domain   `pulumi:"domains"`
-	Links   *PageLinks `pulumi:"links"`
-	Meta    MetaMeta   `pulumi:"meta"`
+	Domains []DomainType `pulumi:"domains"`
+	Links   *PageLinks   `pulumi:"links"`
+	Meta    MetaMeta     `pulumi:"meta"`
 }
 
 type ListDomainsItemsOutput struct{ *pulumi.OutputState }
@@ -439,8 +439,8 @@ func (o ListDomainsItemsOutput) ToListDomainsItemsOutputWithContext(ctx context.
 }
 
 // Array of volumes.
-func (o ListDomainsItemsOutput) Domains() DomainArrayOutput {
-	return o.ApplyT(func(v ListDomainsItems) []Domain { return v.Domains }).(DomainArrayOutput)
+func (o ListDomainsItemsOutput) Domains() DomainTypeArrayOutput {
+	return o.ApplyT(func(v ListDomainsItems) []DomainType { return v.Domains }).(DomainTypeArrayOutput)
 }
 
 func (o ListDomainsItemsOutput) Links() PageLinksPtrOutput {
@@ -660,9 +660,9 @@ func (o PageLinksPagesPropertiesPtrOutput) Prev() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(DomainOutput{})
-	pulumi.RegisterOutputType(DomainPtrOutput{})
-	pulumi.RegisterOutputType(DomainArrayOutput{})
+	pulumi.RegisterOutputType(DomainTypeOutput{})
+	pulumi.RegisterOutputType(DomainTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainTypeArrayOutput{})
 	pulumi.RegisterOutputType(DomainRecordOutput{})
 	pulumi.RegisterOutputType(DomainRecordPtrOutput{})
 	pulumi.RegisterOutputType(DomainRecordArrayOutput{})

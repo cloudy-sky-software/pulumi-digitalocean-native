@@ -915,7 +915,7 @@ func (o DropletNextBackupWindowPropertiesPtrOutput) Start() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-type FloatingIp struct {
+type FloatingIpType struct {
 	// The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 	Droplet *Droplet `pulumi:"droplet"`
 	// The public IP address of the floating IP. It also serves as its identifier.
@@ -927,8 +927,8 @@ type FloatingIp struct {
 	Region    *FloatingIpRegion `pulumi:"region"`
 }
 
-// Defaults sets the appropriate defaults for FloatingIp
-func (val *FloatingIp) Defaults() *FloatingIp {
+// Defaults sets the appropriate defaults for FloatingIpType
+func (val *FloatingIpType) Defaults() *FloatingIpType {
 	if val == nil {
 		return nil
 	}
@@ -938,71 +938,71 @@ func (val *FloatingIp) Defaults() *FloatingIp {
 	return &tmp
 }
 
-type FloatingIpOutput struct{ *pulumi.OutputState }
+type FloatingIpTypeOutput struct{ *pulumi.OutputState }
 
-func (FloatingIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FloatingIp)(nil)).Elem()
+func (FloatingIpTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FloatingIpType)(nil)).Elem()
 }
 
-func (o FloatingIpOutput) ToFloatingIpOutput() FloatingIpOutput {
+func (o FloatingIpTypeOutput) ToFloatingIpTypeOutput() FloatingIpTypeOutput {
 	return o
 }
 
-func (o FloatingIpOutput) ToFloatingIpOutputWithContext(ctx context.Context) FloatingIpOutput {
+func (o FloatingIpTypeOutput) ToFloatingIpTypeOutputWithContext(ctx context.Context) FloatingIpTypeOutput {
 	return o
 }
 
 // The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-func (o FloatingIpOutput) Droplet() DropletPtrOutput {
-	return o.ApplyT(func(v FloatingIp) *Droplet { return v.Droplet }).(DropletPtrOutput)
+func (o FloatingIpTypeOutput) Droplet() DropletPtrOutput {
+	return o.ApplyT(func(v FloatingIpType) *Droplet { return v.Droplet }).(DropletPtrOutput)
 }
 
 // The public IP address of the floating IP. It also serves as its identifier.
-func (o FloatingIpOutput) Ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FloatingIp) *string { return v.Ip }).(pulumi.StringPtrOutput)
+func (o FloatingIpTypeOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FloatingIpType) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
 // A boolean value indicating whether or not the floating IP has pending actions preventing new ones from being submitted.
-func (o FloatingIpOutput) Locked() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FloatingIp) *bool { return v.Locked }).(pulumi.BoolPtrOutput)
+func (o FloatingIpTypeOutput) Locked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FloatingIpType) *bool { return v.Locked }).(pulumi.BoolPtrOutput)
 }
 
 // The UUID of the project to which the reserved IP currently belongs.
-func (o FloatingIpOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FloatingIp) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+func (o FloatingIpTypeOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FloatingIpType) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-func (o FloatingIpOutput) Region() FloatingIpRegionPtrOutput {
-	return o.ApplyT(func(v FloatingIp) *FloatingIpRegion { return v.Region }).(FloatingIpRegionPtrOutput)
+func (o FloatingIpTypeOutput) Region() FloatingIpRegionPtrOutput {
+	return o.ApplyT(func(v FloatingIpType) *FloatingIpRegion { return v.Region }).(FloatingIpRegionPtrOutput)
 }
 
-type FloatingIpPtrOutput struct{ *pulumi.OutputState }
+type FloatingIpTypePtrOutput struct{ *pulumi.OutputState }
 
-func (FloatingIpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FloatingIp)(nil)).Elem()
+func (FloatingIpTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FloatingIpType)(nil)).Elem()
 }
 
-func (o FloatingIpPtrOutput) ToFloatingIpPtrOutput() FloatingIpPtrOutput {
+func (o FloatingIpTypePtrOutput) ToFloatingIpTypePtrOutput() FloatingIpTypePtrOutput {
 	return o
 }
 
-func (o FloatingIpPtrOutput) ToFloatingIpPtrOutputWithContext(ctx context.Context) FloatingIpPtrOutput {
+func (o FloatingIpTypePtrOutput) ToFloatingIpTypePtrOutputWithContext(ctx context.Context) FloatingIpTypePtrOutput {
 	return o
 }
 
-func (o FloatingIpPtrOutput) Elem() FloatingIpOutput {
-	return o.ApplyT(func(v *FloatingIp) FloatingIp {
+func (o FloatingIpTypePtrOutput) Elem() FloatingIpTypeOutput {
+	return o.ApplyT(func(v *FloatingIpType) FloatingIpType {
 		if v != nil {
 			return *v
 		}
-		var ret FloatingIp
+		var ret FloatingIpType
 		return ret
-	}).(FloatingIpOutput)
+	}).(FloatingIpTypeOutput)
 }
 
 // The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-func (o FloatingIpPtrOutput) Droplet() DropletPtrOutput {
-	return o.ApplyT(func(v *FloatingIp) *Droplet {
+func (o FloatingIpTypePtrOutput) Droplet() DropletPtrOutput {
+	return o.ApplyT(func(v *FloatingIpType) *Droplet {
 		if v == nil {
 			return nil
 		}
@@ -1011,8 +1011,8 @@ func (o FloatingIpPtrOutput) Droplet() DropletPtrOutput {
 }
 
 // The public IP address of the floating IP. It also serves as its identifier.
-func (o FloatingIpPtrOutput) Ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FloatingIp) *string {
+func (o FloatingIpTypePtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FloatingIpType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1021,8 +1021,8 @@ func (o FloatingIpPtrOutput) Ip() pulumi.StringPtrOutput {
 }
 
 // A boolean value indicating whether or not the floating IP has pending actions preventing new ones from being submitted.
-func (o FloatingIpPtrOutput) Locked() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FloatingIp) *bool {
+func (o FloatingIpTypePtrOutput) Locked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FloatingIpType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1031,8 +1031,8 @@ func (o FloatingIpPtrOutput) Locked() pulumi.BoolPtrOutput {
 }
 
 // The UUID of the project to which the reserved IP currently belongs.
-func (o FloatingIpPtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FloatingIp) *string {
+func (o FloatingIpTypePtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FloatingIpType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1040,8 +1040,8 @@ func (o FloatingIpPtrOutput) ProjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FloatingIpPtrOutput) Region() FloatingIpRegionPtrOutput {
-	return o.ApplyT(func(v *FloatingIp) *FloatingIpRegion {
+func (o FloatingIpTypePtrOutput) Region() FloatingIpRegionPtrOutput {
+	return o.ApplyT(func(v *FloatingIpType) *FloatingIpRegion {
 		if v == nil {
 			return nil
 		}
@@ -1049,24 +1049,24 @@ func (o FloatingIpPtrOutput) Region() FloatingIpRegionPtrOutput {
 	}).(FloatingIpRegionPtrOutput)
 }
 
-type FloatingIpArrayOutput struct{ *pulumi.OutputState }
+type FloatingIpTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (FloatingIpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FloatingIp)(nil)).Elem()
+func (FloatingIpTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FloatingIpType)(nil)).Elem()
 }
 
-func (o FloatingIpArrayOutput) ToFloatingIpArrayOutput() FloatingIpArrayOutput {
+func (o FloatingIpTypeArrayOutput) ToFloatingIpTypeArrayOutput() FloatingIpTypeArrayOutput {
 	return o
 }
 
-func (o FloatingIpArrayOutput) ToFloatingIpArrayOutputWithContext(ctx context.Context) FloatingIpArrayOutput {
+func (o FloatingIpTypeArrayOutput) ToFloatingIpTypeArrayOutputWithContext(ctx context.Context) FloatingIpTypeArrayOutput {
 	return o
 }
 
-func (o FloatingIpArrayOutput) Index(i pulumi.IntInput) FloatingIpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FloatingIp {
-		return vs[0].([]FloatingIp)[vs[1].(int)]
-	}).(FloatingIpOutput)
+func (o FloatingIpTypeArrayOutput) Index(i pulumi.IntInput) FloatingIpTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FloatingIpType {
+		return vs[0].([]FloatingIpType)[vs[1].(int)]
+	}).(FloatingIpTypeOutput)
 }
 
 type FloatingIpRegion struct {
@@ -1196,7 +1196,7 @@ func (o FloatingIpRegionPtrOutput) Slug() pulumi.StringPtrOutput {
 }
 
 type GetFloatingIPProperties struct {
-	FloatingIp *FloatingIp `pulumi:"floatingIp"`
+	FloatingIp *FloatingIpType `pulumi:"floatingIp"`
 }
 
 // Defaults sets the appropriate defaults for GetFloatingIPProperties
@@ -1224,8 +1224,8 @@ func (o GetFloatingIPPropertiesOutput) ToGetFloatingIPPropertiesOutputWithContex
 	return o
 }
 
-func (o GetFloatingIPPropertiesOutput) FloatingIp() FloatingIpPtrOutput {
-	return o.ApplyT(func(v GetFloatingIPProperties) *FloatingIp { return v.FloatingIp }).(FloatingIpPtrOutput)
+func (o GetFloatingIPPropertiesOutput) FloatingIp() FloatingIpTypePtrOutput {
+	return o.ApplyT(func(v GetFloatingIPProperties) *FloatingIpType { return v.FloatingIp }).(FloatingIpTypePtrOutput)
 }
 
 type GetFloatingIPsActionProperties struct {
@@ -1974,9 +1974,9 @@ func (o ListFloatingIPsActionItemsOutput) Meta() MetaMetaOutput {
 }
 
 type ListFloatingIPsItems struct {
-	FloatingIps []FloatingIp `pulumi:"floatingIps"`
-	Links       *PageLinks   `pulumi:"links"`
-	Meta        MetaMeta     `pulumi:"meta"`
+	FloatingIps []FloatingIpType `pulumi:"floatingIps"`
+	Links       *PageLinks       `pulumi:"links"`
+	Meta        MetaMeta         `pulumi:"meta"`
 }
 
 type ListFloatingIPsItemsOutput struct{ *pulumi.OutputState }
@@ -1993,8 +1993,8 @@ func (o ListFloatingIPsItemsOutput) ToListFloatingIPsItemsOutputWithContext(ctx 
 	return o
 }
 
-func (o ListFloatingIPsItemsOutput) FloatingIps() FloatingIpArrayOutput {
-	return o.ApplyT(func(v ListFloatingIPsItems) []FloatingIp { return v.FloatingIps }).(FloatingIpArrayOutput)
+func (o ListFloatingIPsItemsOutput) FloatingIps() FloatingIpTypeArrayOutput {
+	return o.ApplyT(func(v ListFloatingIPsItems) []FloatingIpType { return v.FloatingIps }).(FloatingIpTypeArrayOutput)
 }
 
 func (o ListFloatingIPsItemsOutput) Links() PageLinksPtrOutput {
@@ -2684,9 +2684,9 @@ func init() {
 	pulumi.RegisterOutputType(DropletNetworksPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DropletNextBackupWindowPropertiesOutput{})
 	pulumi.RegisterOutputType(DropletNextBackupWindowPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FloatingIpOutput{})
-	pulumi.RegisterOutputType(FloatingIpPtrOutput{})
-	pulumi.RegisterOutputType(FloatingIpArrayOutput{})
+	pulumi.RegisterOutputType(FloatingIpTypeOutput{})
+	pulumi.RegisterOutputType(FloatingIpTypePtrOutput{})
+	pulumi.RegisterOutputType(FloatingIpTypeArrayOutput{})
 	pulumi.RegisterOutputType(FloatingIpRegionOutput{})
 	pulumi.RegisterOutputType(FloatingIpRegionPtrOutput{})
 	pulumi.RegisterOutputType(GetFloatingIPPropertiesOutput{})

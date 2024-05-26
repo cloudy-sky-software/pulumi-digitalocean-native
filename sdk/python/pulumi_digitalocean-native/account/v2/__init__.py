@@ -9,5 +9,5 @@ from ._enums import *
 from .get_account import *
 from .get_ssh_key import *
 from .list_ssh_keys import *
-from .ssh_keys import *
+from .ssh_key import *
 from . import outputs

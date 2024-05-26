@@ -8,8 +8,8 @@ import typing
 from ._enums import *
 from .get_load_balancer import *
 from .list_load_balancers import *
-from .load_balancers import *
-from .load_balancers_droplets import *
-from .load_balancers_forwarding_rules import *
+from .load_balancer import *
+from .load_balancers_droplet import *
+from .load_balancers_forwarding_rule import *
 from ._inputs import *
 from . import outputs

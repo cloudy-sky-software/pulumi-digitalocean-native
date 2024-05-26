@@ -916,7 +916,7 @@ func (o DropletNextBackupWindowPropertiesPtrOutput) Start() pulumi.StringPtrOutp
 }
 
 type GetReservedIPProperties struct {
-	ReservedIp *ReservedIp `pulumi:"reservedIp"`
+	ReservedIp *ReservedIpType `pulumi:"reservedIp"`
 }
 
 // Defaults sets the appropriate defaults for GetReservedIPProperties
@@ -944,8 +944,8 @@ func (o GetReservedIPPropertiesOutput) ToGetReservedIPPropertiesOutputWithContex
 	return o
 }
 
-func (o GetReservedIPPropertiesOutput) ReservedIp() ReservedIpPtrOutput {
-	return o.ApplyT(func(v GetReservedIPProperties) *ReservedIp { return v.ReservedIp }).(ReservedIpPtrOutput)
+func (o GetReservedIPPropertiesOutput) ReservedIp() ReservedIpTypePtrOutput {
+	return o.ApplyT(func(v GetReservedIPProperties) *ReservedIpType { return v.ReservedIp }).(ReservedIpTypePtrOutput)
 }
 
 type GetReservedIPsActionProperties struct {
@@ -1694,9 +1694,9 @@ func (o ListReservedIPsActionsItemsOutput) Meta() MetaMetaOutput {
 }
 
 type ListReservedIPsItems struct {
-	Links       *PageLinks   `pulumi:"links"`
-	Meta        MetaMeta     `pulumi:"meta"`
-	ReservedIps []ReservedIp `pulumi:"reservedIps"`
+	Links       *PageLinks       `pulumi:"links"`
+	Meta        MetaMeta         `pulumi:"meta"`
+	ReservedIps []ReservedIpType `pulumi:"reservedIps"`
 }
 
 type ListReservedIPsItemsOutput struct{ *pulumi.OutputState }
@@ -1721,8 +1721,8 @@ func (o ListReservedIPsItemsOutput) Meta() MetaMetaOutput {
 	return o.ApplyT(func(v ListReservedIPsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListReservedIPsItemsOutput) ReservedIps() ReservedIpArrayOutput {
-	return o.ApplyT(func(v ListReservedIPsItems) []ReservedIp { return v.ReservedIps }).(ReservedIpArrayOutput)
+func (o ListReservedIPsItemsOutput) ReservedIps() ReservedIpTypeArrayOutput {
+	return o.ApplyT(func(v ListReservedIPsItems) []ReservedIpType { return v.ReservedIps }).(ReservedIpTypeArrayOutput)
 }
 
 type MetaMeta struct {
@@ -2167,7 +2167,7 @@ func (o RegionPtrOutput) Slug() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ReservedIp struct {
+type ReservedIpType struct {
 	// The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 	Droplet *Droplet `pulumi:"droplet"`
 	// The public IP address of the reserved IP. It also serves as its identifier.
@@ -2179,8 +2179,8 @@ type ReservedIp struct {
 	Region    *ReservedIpRegion `pulumi:"region"`
 }
 
-// Defaults sets the appropriate defaults for ReservedIp
-func (val *ReservedIp) Defaults() *ReservedIp {
+// Defaults sets the appropriate defaults for ReservedIpType
+func (val *ReservedIpType) Defaults() *ReservedIpType {
 	if val == nil {
 		return nil
 	}
@@ -2190,71 +2190,71 @@ func (val *ReservedIp) Defaults() *ReservedIp {
 	return &tmp
 }
 
-type ReservedIpOutput struct{ *pulumi.OutputState }
+type ReservedIpTypeOutput struct{ *pulumi.OutputState }
 
-func (ReservedIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReservedIp)(nil)).Elem()
+func (ReservedIpTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedIpType)(nil)).Elem()
 }
 
-func (o ReservedIpOutput) ToReservedIpOutput() ReservedIpOutput {
+func (o ReservedIpTypeOutput) ToReservedIpTypeOutput() ReservedIpTypeOutput {
 	return o
 }
 
-func (o ReservedIpOutput) ToReservedIpOutputWithContext(ctx context.Context) ReservedIpOutput {
+func (o ReservedIpTypeOutput) ToReservedIpTypeOutputWithContext(ctx context.Context) ReservedIpTypeOutput {
 	return o
 }
 
 // The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-func (o ReservedIpOutput) Droplet() DropletPtrOutput {
-	return o.ApplyT(func(v ReservedIp) *Droplet { return v.Droplet }).(DropletPtrOutput)
+func (o ReservedIpTypeOutput) Droplet() DropletPtrOutput {
+	return o.ApplyT(func(v ReservedIpType) *Droplet { return v.Droplet }).(DropletPtrOutput)
 }
 
 // The public IP address of the reserved IP. It also serves as its identifier.
-func (o ReservedIpOutput) Ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReservedIp) *string { return v.Ip }).(pulumi.StringPtrOutput)
+func (o ReservedIpTypeOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReservedIpType) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
 // A boolean value indicating whether or not the reserved IP has pending actions preventing new ones from being submitted.
-func (o ReservedIpOutput) Locked() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ReservedIp) *bool { return v.Locked }).(pulumi.BoolPtrOutput)
+func (o ReservedIpTypeOutput) Locked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReservedIpType) *bool { return v.Locked }).(pulumi.BoolPtrOutput)
 }
 
 // The UUID of the project to which the reserved IP currently belongs.
-func (o ReservedIpOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReservedIp) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+func (o ReservedIpTypeOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReservedIpType) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-func (o ReservedIpOutput) Region() ReservedIpRegionPtrOutput {
-	return o.ApplyT(func(v ReservedIp) *ReservedIpRegion { return v.Region }).(ReservedIpRegionPtrOutput)
+func (o ReservedIpTypeOutput) Region() ReservedIpRegionPtrOutput {
+	return o.ApplyT(func(v ReservedIpType) *ReservedIpRegion { return v.Region }).(ReservedIpRegionPtrOutput)
 }
 
-type ReservedIpPtrOutput struct{ *pulumi.OutputState }
+type ReservedIpTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ReservedIpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReservedIp)(nil)).Elem()
+func (ReservedIpTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReservedIpType)(nil)).Elem()
 }
 
-func (o ReservedIpPtrOutput) ToReservedIpPtrOutput() ReservedIpPtrOutput {
+func (o ReservedIpTypePtrOutput) ToReservedIpTypePtrOutput() ReservedIpTypePtrOutput {
 	return o
 }
 
-func (o ReservedIpPtrOutput) ToReservedIpPtrOutputWithContext(ctx context.Context) ReservedIpPtrOutput {
+func (o ReservedIpTypePtrOutput) ToReservedIpTypePtrOutputWithContext(ctx context.Context) ReservedIpTypePtrOutput {
 	return o
 }
 
-func (o ReservedIpPtrOutput) Elem() ReservedIpOutput {
-	return o.ApplyT(func(v *ReservedIp) ReservedIp {
+func (o ReservedIpTypePtrOutput) Elem() ReservedIpTypeOutput {
+	return o.ApplyT(func(v *ReservedIpType) ReservedIpType {
 		if v != nil {
 			return *v
 		}
-		var ret ReservedIp
+		var ret ReservedIpType
 		return ret
-	}).(ReservedIpOutput)
+	}).(ReservedIpTypeOutput)
 }
 
 // The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-func (o ReservedIpPtrOutput) Droplet() DropletPtrOutput {
-	return o.ApplyT(func(v *ReservedIp) *Droplet {
+func (o ReservedIpTypePtrOutput) Droplet() DropletPtrOutput {
+	return o.ApplyT(func(v *ReservedIpType) *Droplet {
 		if v == nil {
 			return nil
 		}
@@ -2263,8 +2263,8 @@ func (o ReservedIpPtrOutput) Droplet() DropletPtrOutput {
 }
 
 // The public IP address of the reserved IP. It also serves as its identifier.
-func (o ReservedIpPtrOutput) Ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReservedIp) *string {
+func (o ReservedIpTypePtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReservedIpType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2273,8 +2273,8 @@ func (o ReservedIpPtrOutput) Ip() pulumi.StringPtrOutput {
 }
 
 // A boolean value indicating whether or not the reserved IP has pending actions preventing new ones from being submitted.
-func (o ReservedIpPtrOutput) Locked() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReservedIp) *bool {
+func (o ReservedIpTypePtrOutput) Locked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReservedIpType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2283,8 +2283,8 @@ func (o ReservedIpPtrOutput) Locked() pulumi.BoolPtrOutput {
 }
 
 // The UUID of the project to which the reserved IP currently belongs.
-func (o ReservedIpPtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReservedIp) *string {
+func (o ReservedIpTypePtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReservedIpType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2292,8 +2292,8 @@ func (o ReservedIpPtrOutput) ProjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ReservedIpPtrOutput) Region() ReservedIpRegionPtrOutput {
-	return o.ApplyT(func(v *ReservedIp) *ReservedIpRegion {
+func (o ReservedIpTypePtrOutput) Region() ReservedIpRegionPtrOutput {
+	return o.ApplyT(func(v *ReservedIpType) *ReservedIpRegion {
 		if v == nil {
 			return nil
 		}
@@ -2301,24 +2301,24 @@ func (o ReservedIpPtrOutput) Region() ReservedIpRegionPtrOutput {
 	}).(ReservedIpRegionPtrOutput)
 }
 
-type ReservedIpArrayOutput struct{ *pulumi.OutputState }
+type ReservedIpTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ReservedIpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReservedIp)(nil)).Elem()
+func (ReservedIpTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReservedIpType)(nil)).Elem()
 }
 
-func (o ReservedIpArrayOutput) ToReservedIpArrayOutput() ReservedIpArrayOutput {
+func (o ReservedIpTypeArrayOutput) ToReservedIpTypeArrayOutput() ReservedIpTypeArrayOutput {
 	return o
 }
 
-func (o ReservedIpArrayOutput) ToReservedIpArrayOutputWithContext(ctx context.Context) ReservedIpArrayOutput {
+func (o ReservedIpTypeArrayOutput) ToReservedIpTypeArrayOutputWithContext(ctx context.Context) ReservedIpTypeArrayOutput {
 	return o
 }
 
-func (o ReservedIpArrayOutput) Index(i pulumi.IntInput) ReservedIpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReservedIp {
-		return vs[0].([]ReservedIp)[vs[1].(int)]
-	}).(ReservedIpOutput)
+func (o ReservedIpTypeArrayOutput) Index(i pulumi.IntInput) ReservedIpTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReservedIpType {
+		return vs[0].([]ReservedIpType)[vs[1].(int)]
+	}).(ReservedIpTypeOutput)
 }
 
 type ReservedIpRegion struct {
@@ -2707,9 +2707,9 @@ func init() {
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegionOutput{})
 	pulumi.RegisterOutputType(RegionPtrOutput{})
-	pulumi.RegisterOutputType(ReservedIpOutput{})
-	pulumi.RegisterOutputType(ReservedIpPtrOutput{})
-	pulumi.RegisterOutputType(ReservedIpArrayOutput{})
+	pulumi.RegisterOutputType(ReservedIpTypeOutput{})
+	pulumi.RegisterOutputType(ReservedIpTypePtrOutput{})
+	pulumi.RegisterOutputType(ReservedIpTypeArrayOutput{})
 	pulumi.RegisterOutputType(ReservedIpRegionOutput{})
 	pulumi.RegisterOutputType(ReservedIpRegionPtrOutput{})
 	pulumi.RegisterOutputType(SizeOutput{})

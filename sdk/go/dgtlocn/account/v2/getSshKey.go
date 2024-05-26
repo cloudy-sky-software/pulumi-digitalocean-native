@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetSshKey(ctx *pulumi.Context, args *GetSshKeyArgs, opts ...pulumi.InvokeOption) (*GetSshKeyResult, error) {
+func LookupSshKey(ctx *pulumi.Context, args *LookupSshKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetSshKeyResult
+	var rv LookupSshKeyResult
 	err := ctx.Invoke("digitalocean-native:account/v2:getSshKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,55 +21,55 @@ func GetSshKey(ctx *pulumi.Context, args *GetSshKeyArgs, opts ...pulumi.InvokeOp
 	return &rv, nil
 }
 
-type GetSshKeyArgs struct {
+type LookupSshKeyArgs struct {
 	// Either the ID or the fingerprint of an existing SSH key.
 	SshKeyIdentifier string `pulumi:"sshKeyIdentifier"`
 }
 
-type GetSshKeyResult struct {
+type LookupSshKeyResult struct {
 	Items GetSshKeyProperties `pulumi:"items"`
 }
 
-func GetSshKeyOutput(ctx *pulumi.Context, args GetSshKeyOutputArgs, opts ...pulumi.InvokeOption) GetSshKeyResultOutput {
+func LookupSshKeyOutput(ctx *pulumi.Context, args LookupSshKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSshKeyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSshKeyResult, error) {
-			args := v.(GetSshKeyArgs)
-			r, err := GetSshKey(ctx, &args, opts...)
-			var s GetSshKeyResult
+		ApplyT(func(v interface{}) (LookupSshKeyResult, error) {
+			args := v.(LookupSshKeyArgs)
+			r, err := LookupSshKey(ctx, &args, opts...)
+			var s LookupSshKeyResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetSshKeyResultOutput)
+		}).(LookupSshKeyResultOutput)
 }
 
-type GetSshKeyOutputArgs struct {
+type LookupSshKeyOutputArgs struct {
 	// Either the ID or the fingerprint of an existing SSH key.
 	SshKeyIdentifier pulumi.StringInput `pulumi:"sshKeyIdentifier"`
 }
 
-func (GetSshKeyOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSshKeyArgs)(nil)).Elem()
+func (LookupSshKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSshKeyArgs)(nil)).Elem()
 }
 
-type GetSshKeyResultOutput struct{ *pulumi.OutputState }
+type LookupSshKeyResultOutput struct{ *pulumi.OutputState }
 
-func (GetSshKeyResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSshKeyResult)(nil)).Elem()
+func (LookupSshKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSshKeyResult)(nil)).Elem()
 }
 
-func (o GetSshKeyResultOutput) ToGetSshKeyResultOutput() GetSshKeyResultOutput {
+func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutput() LookupSshKeyResultOutput {
 	return o
 }
 
-func (o GetSshKeyResultOutput) ToGetSshKeyResultOutputWithContext(ctx context.Context) GetSshKeyResultOutput {
+func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutputWithContext(ctx context.Context) LookupSshKeyResultOutput {
 	return o
 }
 
-func (o GetSshKeyResultOutput) Items() GetSshKeyPropertiesOutput {
-	return o.ApplyT(func(v GetSshKeyResult) GetSshKeyProperties { return v.Items }).(GetSshKeyPropertiesOutput)
+func (o LookupSshKeyResultOutput) Items() GetSshKeyPropertiesOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) GetSshKeyProperties { return v.Items }).(GetSshKeyPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetSshKeyResultOutput{})
+	pulumi.RegisterOutputType(LookupSshKeyResultOutput{})
 }

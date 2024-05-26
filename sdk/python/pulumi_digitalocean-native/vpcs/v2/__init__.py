@@ -8,5 +8,5 @@ import typing
 from .get_vpc import *
 from .list_vpcs import *
 from .list_vpcs_members import *
-from .vpcs import *
+from .vpc import *
 from . import outputs

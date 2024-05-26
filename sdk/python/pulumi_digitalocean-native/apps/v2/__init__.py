@@ -6,8 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .apps import *
-from .apps_assign_alert_destinations import *
+from .app import *
+from .apps_assign_alert_destination import *
 from .apps_deployment import *
 from .apps_list_metrics_bandwidth_daily import *
 from .apps_rollback import *

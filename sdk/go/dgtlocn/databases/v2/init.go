@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:databases/v2:Databases":
-		r = &Databases{}
+	case "digitalocean-native:databases/v2:Database":
+		r = &Database{}
 	case "digitalocean-native:databases/v2:DatabasesCluster":
 		r = &DatabasesCluster{}
 	case "digitalocean-native:databases/v2:DatabasesClusterSize":

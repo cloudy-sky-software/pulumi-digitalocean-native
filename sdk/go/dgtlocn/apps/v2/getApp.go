@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetApp(ctx *pulumi.Context, args *GetAppArgs, opts ...pulumi.InvokeOption) (*GetAppResult, error) {
+func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetAppResult
+	var rv LookupAppResult
 	err := ctx.Invoke("digitalocean-native:apps/v2:getApp", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,17 +21,17 @@ func GetApp(ctx *pulumi.Context, args *GetAppArgs, opts ...pulumi.InvokeOption) 
 	return rv.Defaults(), nil
 }
 
-type GetAppArgs struct {
+type LookupAppArgs struct {
 	// The ID of the app
 	Id string `pulumi:"id"`
 }
 
-type GetAppResult struct {
+type LookupAppResult struct {
 	Items AppResponse `pulumi:"items"`
 }
 
-// Defaults sets the appropriate defaults for GetAppResult
-func (val *GetAppResult) Defaults() *GetAppResult {
+// Defaults sets the appropriate defaults for LookupAppResult
+func (val *LookupAppResult) Defaults() *LookupAppResult {
 	if val == nil {
 		return nil
 	}
@@ -41,46 +41,46 @@ func (val *GetAppResult) Defaults() *GetAppResult {
 	return &tmp
 }
 
-func GetAppOutput(ctx *pulumi.Context, args GetAppOutputArgs, opts ...pulumi.InvokeOption) GetAppResultOutput {
+func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppResult, error) {
-			args := v.(GetAppArgs)
-			r, err := GetApp(ctx, &args, opts...)
-			var s GetAppResult
+		ApplyT(func(v interface{}) (LookupAppResult, error) {
+			args := v.(LookupAppArgs)
+			r, err := LookupApp(ctx, &args, opts...)
+			var s LookupAppResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetAppResultOutput)
+		}).(LookupAppResultOutput)
 }
 
-type GetAppOutputArgs struct {
+type LookupAppOutputArgs struct {
 	// The ID of the app
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (GetAppOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAppArgs)(nil)).Elem()
+func (LookupAppOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppArgs)(nil)).Elem()
 }
 
-type GetAppResultOutput struct{ *pulumi.OutputState }
+type LookupAppResultOutput struct{ *pulumi.OutputState }
 
-func (GetAppResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAppResult)(nil)).Elem()
+func (LookupAppResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAppResult)(nil)).Elem()
 }
 
-func (o GetAppResultOutput) ToGetAppResultOutput() GetAppResultOutput {
+func (o LookupAppResultOutput) ToLookupAppResultOutput() LookupAppResultOutput {
 	return o
 }
 
-func (o GetAppResultOutput) ToGetAppResultOutputWithContext(ctx context.Context) GetAppResultOutput {
+func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Context) LookupAppResultOutput {
 	return o
 }
 
-func (o GetAppResultOutput) Items() AppResponseOutput {
-	return o.ApplyT(func(v GetAppResult) AppResponse { return v.Items }).(AppResponseOutput)
+func (o LookupAppResultOutput) Items() AppResponseOutput {
+	return o.ApplyT(func(v LookupAppResult) AppResponse { return v.Items }).(AppResponseOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetAppResultOutput{})
+	pulumi.RegisterOutputType(LookupAppResultOutput{})
 }

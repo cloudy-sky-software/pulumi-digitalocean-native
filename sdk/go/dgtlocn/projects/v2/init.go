@@ -21,10 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:projects/v2:Projects":
-		r = &Projects{}
-	case "digitalocean-native:projects/v2:ProjectsAssignResources":
-		r = &ProjectsAssignResources{}
+	case "digitalocean-native:projects/v2:Project":
+		r = &Project{}
+	case "digitalocean-native:projects/v2:ProjectsAssignResource":
+		r = &ProjectsAssignResource{}
 	case "digitalocean-native:projects/v2:ProjectsAssignResourcesDefault":
 		r = &ProjectsAssignResourcesDefault{}
 	case "digitalocean-native:projects/v2:ProjectsDefault":

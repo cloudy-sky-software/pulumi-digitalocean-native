@@ -102,6 +102,196 @@ func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
+// The slug identifier for the region where the resource will initially be  available.
+type Ext4PropertiesRegion string
+
+const (
+	Ext4PropertiesRegionAms1 = Ext4PropertiesRegion("ams1")
+	Ext4PropertiesRegionAms2 = Ext4PropertiesRegion("ams2")
+	Ext4PropertiesRegionAms3 = Ext4PropertiesRegion("ams3")
+	Ext4PropertiesRegionBlr1 = Ext4PropertiesRegion("blr1")
+	Ext4PropertiesRegionFra1 = Ext4PropertiesRegion("fra1")
+	Ext4PropertiesRegionLon1 = Ext4PropertiesRegion("lon1")
+	Ext4PropertiesRegionNyc1 = Ext4PropertiesRegion("nyc1")
+	Ext4PropertiesRegionNyc2 = Ext4PropertiesRegion("nyc2")
+	Ext4PropertiesRegionNyc3 = Ext4PropertiesRegion("nyc3")
+	Ext4PropertiesRegionSfo1 = Ext4PropertiesRegion("sfo1")
+	Ext4PropertiesRegionSfo2 = Ext4PropertiesRegion("sfo2")
+	Ext4PropertiesRegionSfo3 = Ext4PropertiesRegion("sfo3")
+	Ext4PropertiesRegionSgp1 = Ext4PropertiesRegion("sgp1")
+	Ext4PropertiesRegionTor1 = Ext4PropertiesRegion("tor1")
+)
+
+func (Ext4PropertiesRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ext4PropertiesRegion)(nil)).Elem()
+}
+
+func (e Ext4PropertiesRegion) ToExt4PropertiesRegionOutput() Ext4PropertiesRegionOutput {
+	return pulumi.ToOutput(e).(Ext4PropertiesRegionOutput)
+}
+
+func (e Ext4PropertiesRegion) ToExt4PropertiesRegionOutputWithContext(ctx context.Context) Ext4PropertiesRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(Ext4PropertiesRegionOutput)
+}
+
+func (e Ext4PropertiesRegion) ToExt4PropertiesRegionPtrOutput() Ext4PropertiesRegionPtrOutput {
+	return e.ToExt4PropertiesRegionPtrOutputWithContext(context.Background())
+}
+
+func (e Ext4PropertiesRegion) ToExt4PropertiesRegionPtrOutputWithContext(ctx context.Context) Ext4PropertiesRegionPtrOutput {
+	return Ext4PropertiesRegion(e).ToExt4PropertiesRegionOutputWithContext(ctx).ToExt4PropertiesRegionPtrOutputWithContext(ctx)
+}
+
+func (e Ext4PropertiesRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ext4PropertiesRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ext4PropertiesRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Ext4PropertiesRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Ext4PropertiesRegionOutput struct{ *pulumi.OutputState }
+
+func (Ext4PropertiesRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ext4PropertiesRegion)(nil)).Elem()
+}
+
+func (o Ext4PropertiesRegionOutput) ToExt4PropertiesRegionOutput() Ext4PropertiesRegionOutput {
+	return o
+}
+
+func (o Ext4PropertiesRegionOutput) ToExt4PropertiesRegionOutputWithContext(ctx context.Context) Ext4PropertiesRegionOutput {
+	return o
+}
+
+func (o Ext4PropertiesRegionOutput) ToExt4PropertiesRegionPtrOutput() Ext4PropertiesRegionPtrOutput {
+	return o.ToExt4PropertiesRegionPtrOutputWithContext(context.Background())
+}
+
+func (o Ext4PropertiesRegionOutput) ToExt4PropertiesRegionPtrOutputWithContext(ctx context.Context) Ext4PropertiesRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ext4PropertiesRegion) *Ext4PropertiesRegion {
+		return &v
+	}).(Ext4PropertiesRegionPtrOutput)
+}
+
+func (o Ext4PropertiesRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o Ext4PropertiesRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ext4PropertiesRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o Ext4PropertiesRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ext4PropertiesRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ext4PropertiesRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ext4PropertiesRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (Ext4PropertiesRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ext4PropertiesRegion)(nil)).Elem()
+}
+
+func (o Ext4PropertiesRegionPtrOutput) ToExt4PropertiesRegionPtrOutput() Ext4PropertiesRegionPtrOutput {
+	return o
+}
+
+func (o Ext4PropertiesRegionPtrOutput) ToExt4PropertiesRegionPtrOutputWithContext(ctx context.Context) Ext4PropertiesRegionPtrOutput {
+	return o
+}
+
+func (o Ext4PropertiesRegionPtrOutput) Elem() Ext4PropertiesRegionOutput {
+	return o.ApplyT(func(v *Ext4PropertiesRegion) Ext4PropertiesRegion {
+		if v != nil {
+			return *v
+		}
+		var ret Ext4PropertiesRegion
+		return ret
+	}).(Ext4PropertiesRegionOutput)
+}
+
+func (o Ext4PropertiesRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ext4PropertiesRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ext4PropertiesRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ext4PropertiesRegionInput is an input type that accepts values of the Ext4PropertiesRegion enum
+// A concrete instance of `Ext4PropertiesRegionInput` can be one of the following:
+//
+//	Ext4PropertiesRegionAms1
+//	Ext4PropertiesRegionAms2
+//	Ext4PropertiesRegionAms3
+//	Ext4PropertiesRegionBlr1
+//	Ext4PropertiesRegionFra1
+//	Ext4PropertiesRegionLon1
+//	Ext4PropertiesRegionNyc1
+//	Ext4PropertiesRegionNyc2
+//	Ext4PropertiesRegionNyc3
+//	Ext4PropertiesRegionSfo1
+//	Ext4PropertiesRegionSfo2
+//	Ext4PropertiesRegionSfo3
+//	Ext4PropertiesRegionSgp1
+//	Ext4PropertiesRegionTor1
+type Ext4PropertiesRegionInput interface {
+	pulumi.Input
+
+	ToExt4PropertiesRegionOutput() Ext4PropertiesRegionOutput
+	ToExt4PropertiesRegionOutputWithContext(context.Context) Ext4PropertiesRegionOutput
+}
+
+var ext4PropertiesRegionPtrType = reflect.TypeOf((**Ext4PropertiesRegion)(nil)).Elem()
+
+type Ext4PropertiesRegionPtrInput interface {
+	pulumi.Input
+
+	ToExt4PropertiesRegionPtrOutput() Ext4PropertiesRegionPtrOutput
+	ToExt4PropertiesRegionPtrOutputWithContext(context.Context) Ext4PropertiesRegionPtrOutput
+}
+
+type ext4PropertiesRegionPtr string
+
+func Ext4PropertiesRegionPtr(v string) Ext4PropertiesRegionPtrInput {
+	return (*ext4PropertiesRegionPtr)(&v)
+}
+
+func (*ext4PropertiesRegionPtr) ElementType() reflect.Type {
+	return ext4PropertiesRegionPtrType
+}
+
+func (in *ext4PropertiesRegionPtr) ToExt4PropertiesRegionPtrOutput() Ext4PropertiesRegionPtrOutput {
+	return pulumi.ToOutput(in).(Ext4PropertiesRegionPtrOutput)
+}
+
+func (in *ext4PropertiesRegionPtr) ToExt4PropertiesRegionPtrOutputWithContext(ctx context.Context) Ext4PropertiesRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(Ext4PropertiesRegionPtrOutput)
+}
+
 // The type of resource that the snapshot originated from.
 type SnapshotsPropertiesResourceType string
 
@@ -551,17 +741,215 @@ func (in *volumeActionCreateBaseTypePtr) ToVolumeActionCreateBaseTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(VolumeActionCreateBaseTypePtrOutput)
 }
 
+// The slug identifier for the region where the resource will initially be  available.
+type XfsPropertiesRegion string
+
+const (
+	XfsPropertiesRegionAms1 = XfsPropertiesRegion("ams1")
+	XfsPropertiesRegionAms2 = XfsPropertiesRegion("ams2")
+	XfsPropertiesRegionAms3 = XfsPropertiesRegion("ams3")
+	XfsPropertiesRegionBlr1 = XfsPropertiesRegion("blr1")
+	XfsPropertiesRegionFra1 = XfsPropertiesRegion("fra1")
+	XfsPropertiesRegionLon1 = XfsPropertiesRegion("lon1")
+	XfsPropertiesRegionNyc1 = XfsPropertiesRegion("nyc1")
+	XfsPropertiesRegionNyc2 = XfsPropertiesRegion("nyc2")
+	XfsPropertiesRegionNyc3 = XfsPropertiesRegion("nyc3")
+	XfsPropertiesRegionSfo1 = XfsPropertiesRegion("sfo1")
+	XfsPropertiesRegionSfo2 = XfsPropertiesRegion("sfo2")
+	XfsPropertiesRegionSfo3 = XfsPropertiesRegion("sfo3")
+	XfsPropertiesRegionSgp1 = XfsPropertiesRegion("sgp1")
+	XfsPropertiesRegionTor1 = XfsPropertiesRegion("tor1")
+)
+
+func (XfsPropertiesRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*XfsPropertiesRegion)(nil)).Elem()
+}
+
+func (e XfsPropertiesRegion) ToXfsPropertiesRegionOutput() XfsPropertiesRegionOutput {
+	return pulumi.ToOutput(e).(XfsPropertiesRegionOutput)
+}
+
+func (e XfsPropertiesRegion) ToXfsPropertiesRegionOutputWithContext(ctx context.Context) XfsPropertiesRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(XfsPropertiesRegionOutput)
+}
+
+func (e XfsPropertiesRegion) ToXfsPropertiesRegionPtrOutput() XfsPropertiesRegionPtrOutput {
+	return e.ToXfsPropertiesRegionPtrOutputWithContext(context.Background())
+}
+
+func (e XfsPropertiesRegion) ToXfsPropertiesRegionPtrOutputWithContext(ctx context.Context) XfsPropertiesRegionPtrOutput {
+	return XfsPropertiesRegion(e).ToXfsPropertiesRegionOutputWithContext(ctx).ToXfsPropertiesRegionPtrOutputWithContext(ctx)
+}
+
+func (e XfsPropertiesRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e XfsPropertiesRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e XfsPropertiesRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e XfsPropertiesRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type XfsPropertiesRegionOutput struct{ *pulumi.OutputState }
+
+func (XfsPropertiesRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*XfsPropertiesRegion)(nil)).Elem()
+}
+
+func (o XfsPropertiesRegionOutput) ToXfsPropertiesRegionOutput() XfsPropertiesRegionOutput {
+	return o
+}
+
+func (o XfsPropertiesRegionOutput) ToXfsPropertiesRegionOutputWithContext(ctx context.Context) XfsPropertiesRegionOutput {
+	return o
+}
+
+func (o XfsPropertiesRegionOutput) ToXfsPropertiesRegionPtrOutput() XfsPropertiesRegionPtrOutput {
+	return o.ToXfsPropertiesRegionPtrOutputWithContext(context.Background())
+}
+
+func (o XfsPropertiesRegionOutput) ToXfsPropertiesRegionPtrOutputWithContext(ctx context.Context) XfsPropertiesRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v XfsPropertiesRegion) *XfsPropertiesRegion {
+		return &v
+	}).(XfsPropertiesRegionPtrOutput)
+}
+
+func (o XfsPropertiesRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o XfsPropertiesRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e XfsPropertiesRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o XfsPropertiesRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o XfsPropertiesRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e XfsPropertiesRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type XfsPropertiesRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (XfsPropertiesRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**XfsPropertiesRegion)(nil)).Elem()
+}
+
+func (o XfsPropertiesRegionPtrOutput) ToXfsPropertiesRegionPtrOutput() XfsPropertiesRegionPtrOutput {
+	return o
+}
+
+func (o XfsPropertiesRegionPtrOutput) ToXfsPropertiesRegionPtrOutputWithContext(ctx context.Context) XfsPropertiesRegionPtrOutput {
+	return o
+}
+
+func (o XfsPropertiesRegionPtrOutput) Elem() XfsPropertiesRegionOutput {
+	return o.ApplyT(func(v *XfsPropertiesRegion) XfsPropertiesRegion {
+		if v != nil {
+			return *v
+		}
+		var ret XfsPropertiesRegion
+		return ret
+	}).(XfsPropertiesRegionOutput)
+}
+
+func (o XfsPropertiesRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o XfsPropertiesRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *XfsPropertiesRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// XfsPropertiesRegionInput is an input type that accepts values of the XfsPropertiesRegion enum
+// A concrete instance of `XfsPropertiesRegionInput` can be one of the following:
+//
+//	XfsPropertiesRegionAms1
+//	XfsPropertiesRegionAms2
+//	XfsPropertiesRegionAms3
+//	XfsPropertiesRegionBlr1
+//	XfsPropertiesRegionFra1
+//	XfsPropertiesRegionLon1
+//	XfsPropertiesRegionNyc1
+//	XfsPropertiesRegionNyc2
+//	XfsPropertiesRegionNyc3
+//	XfsPropertiesRegionSfo1
+//	XfsPropertiesRegionSfo2
+//	XfsPropertiesRegionSfo3
+//	XfsPropertiesRegionSgp1
+//	XfsPropertiesRegionTor1
+type XfsPropertiesRegionInput interface {
+	pulumi.Input
+
+	ToXfsPropertiesRegionOutput() XfsPropertiesRegionOutput
+	ToXfsPropertiesRegionOutputWithContext(context.Context) XfsPropertiesRegionOutput
+}
+
+var xfsPropertiesRegionPtrType = reflect.TypeOf((**XfsPropertiesRegion)(nil)).Elem()
+
+type XfsPropertiesRegionPtrInput interface {
+	pulumi.Input
+
+	ToXfsPropertiesRegionPtrOutput() XfsPropertiesRegionPtrOutput
+	ToXfsPropertiesRegionPtrOutputWithContext(context.Context) XfsPropertiesRegionPtrOutput
+}
+
+type xfsPropertiesRegionPtr string
+
+func XfsPropertiesRegionPtr(v string) XfsPropertiesRegionPtrInput {
+	return (*xfsPropertiesRegionPtr)(&v)
+}
+
+func (*xfsPropertiesRegionPtr) ElementType() reflect.Type {
+	return xfsPropertiesRegionPtrType
+}
+
+func (in *xfsPropertiesRegionPtr) ToXfsPropertiesRegionPtrOutput() XfsPropertiesRegionPtrOutput {
+	return pulumi.ToOutput(in).(XfsPropertiesRegionPtrOutput)
+}
+
+func (in *xfsPropertiesRegionPtr) ToXfsPropertiesRegionPtrOutputWithContext(ctx context.Context) XfsPropertiesRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(XfsPropertiesRegionPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*Ext4PropertiesRegionInput)(nil)).Elem(), Ext4PropertiesRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ext4PropertiesRegionPtrInput)(nil)).Elem(), Ext4PropertiesRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseRegionInput)(nil)).Elem(), VolumeActionCreateBaseRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseRegionPtrInput)(nil)).Elem(), VolumeActionCreateBaseRegion("ams1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseTypeInput)(nil)).Elem(), VolumeActionCreateBaseType("attach"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeActionCreateBaseTypePtrInput)(nil)).Elem(), VolumeActionCreateBaseType("attach"))
+	pulumi.RegisterInputType(reflect.TypeOf((*XfsPropertiesRegionInput)(nil)).Elem(), XfsPropertiesRegion("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*XfsPropertiesRegionPtrInput)(nil)).Elem(), XfsPropertiesRegion("ams1"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
+	pulumi.RegisterOutputType(Ext4PropertiesRegionOutput{})
+	pulumi.RegisterOutputType(Ext4PropertiesRegionPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotsPropertiesResourceTypeOutput{})
 	pulumi.RegisterOutputType(SnapshotsPropertiesResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(VolumeActionCreateBaseRegionOutput{})
 	pulumi.RegisterOutputType(VolumeActionCreateBaseRegionPtrOutput{})
 	pulumi.RegisterOutputType(VolumeActionCreateBaseTypeOutput{})
 	pulumi.RegisterOutputType(VolumeActionCreateBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(XfsPropertiesRegionOutput{})
+	pulumi.RegisterOutputType(XfsPropertiesRegionPtrOutput{})
 }

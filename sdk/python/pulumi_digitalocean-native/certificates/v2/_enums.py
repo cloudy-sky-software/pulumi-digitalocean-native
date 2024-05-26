@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'CertificateCreateBaseType',
     'CertificateState',
     'CertificateType',
 ]
+
+
+class CertificateCreateBaseType(str, Enum):
+    """
+    A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
+    """
+    CUSTOM = "custom"
+    LETS_ENCRYPT = "lets_encrypt"
 
 
 class CertificateState(str, Enum):

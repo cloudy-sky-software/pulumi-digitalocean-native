@@ -21,14 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:firewalls/v2:Firewalls":
-		r = &Firewalls{}
-	case "digitalocean-native:firewalls/v2:FirewallsAssignDroplets":
-		r = &FirewallsAssignDroplets{}
-	case "digitalocean-native:firewalls/v2:FirewallsRules":
-		r = &FirewallsRules{}
-	case "digitalocean-native:firewalls/v2:FirewallsTags":
-		r = &FirewallsTags{}
+	case "digitalocean-native:firewalls/v2:Firewall":
+		r = &Firewall{}
+	case "digitalocean-native:firewalls/v2:FirewallsAssignDroplet":
+		r = &FirewallsAssignDroplet{}
+	case "digitalocean-native:firewalls/v2:FirewallsRule":
+		r = &FirewallsRule{}
+	case "digitalocean-native:firewalls/v2:FirewallsTag":
+		r = &FirewallsTag{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

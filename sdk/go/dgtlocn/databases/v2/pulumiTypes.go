@@ -1734,48 +1734,48 @@ func (o CreategresPtrOutput) WorkMem() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type Database struct {
+type DatabaseType struct {
 	// The name of the database.
 	Name string `pulumi:"name"`
 }
 
-type DatabaseOutput struct{ *pulumi.OutputState }
+type DatabaseTypeOutput struct{ *pulumi.OutputState }
 
-func (DatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Database)(nil)).Elem()
+func (DatabaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
 }
 
-func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
+func (o DatabaseTypeOutput) ToDatabaseTypeOutput() DatabaseTypeOutput {
 	return o
 }
 
-func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
+func (o DatabaseTypeOutput) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
 	return o
 }
 
 // The name of the database.
-func (o DatabaseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Database) string { return v.Name }).(pulumi.StringOutput)
+func (o DatabaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DatabaseArrayOutput struct{ *pulumi.OutputState }
+type DatabaseTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (DatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Database)(nil)).Elem()
+func (DatabaseTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseType)(nil)).Elem()
 }
 
-func (o DatabaseArrayOutput) ToDatabaseArrayOutput() DatabaseArrayOutput {
+func (o DatabaseTypeArrayOutput) ToDatabaseTypeArrayOutput() DatabaseTypeArrayOutput {
 	return o
 }
 
-func (o DatabaseArrayOutput) ToDatabaseArrayOutputWithContext(ctx context.Context) DatabaseArrayOutput {
+func (o DatabaseTypeArrayOutput) ToDatabaseTypeArrayOutputWithContext(ctx context.Context) DatabaseTypeArrayOutput {
 	return o
 }
 
-func (o DatabaseArrayOutput) Index(i pulumi.IntInput) DatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Database {
-		return vs[0].([]Database)[vs[1].(int)]
-	}).(DatabaseOutput)
+func (o DatabaseTypeArrayOutput) Index(i pulumi.IntInput) DatabaseTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseType {
+		return vs[0].([]DatabaseType)[vs[1].(int)]
+	}).(DatabaseTypeOutput)
 }
 
 type DatabaseBackup struct {
@@ -3918,7 +3918,7 @@ func (o FirewallRuleArrayOutput) Index(i pulumi.IntInput) FirewallRuleOutput {
 }
 
 type GetDatabaseProperties struct {
-	Db Database `pulumi:"db"`
+	Db DatabaseType `pulumi:"db"`
 }
 
 type GetDatabasePropertiesOutput struct{ *pulumi.OutputState }
@@ -3935,8 +3935,8 @@ func (o GetDatabasePropertiesOutput) ToGetDatabasePropertiesOutputWithContext(ct
 	return o
 }
 
-func (o GetDatabasePropertiesOutput) Db() DatabaseOutput {
-	return o.ApplyT(func(v GetDatabaseProperties) Database { return v.Db }).(DatabaseOutput)
+func (o GetDatabasePropertiesOutput) Db() DatabaseTypeOutput {
+	return o.ApplyT(func(v GetDatabaseProperties) DatabaseType { return v.Db }).(DatabaseTypeOutput)
 }
 
 type GetDatabasesCaProperties struct {
@@ -4156,7 +4156,7 @@ func (o ListDatabasesFirewallRulesPropertiesOutput) Rules() FirewallRuleArrayOut
 }
 
 type ListDatabasesProperties struct {
-	Dbs []Database `pulumi:"dbs"`
+	Dbs []DatabaseType `pulumi:"dbs"`
 }
 
 type ListDatabasesPropertiesOutput struct{ *pulumi.OutputState }
@@ -4173,8 +4173,8 @@ func (o ListDatabasesPropertiesOutput) ToListDatabasesPropertiesOutputWithContex
 	return o
 }
 
-func (o ListDatabasesPropertiesOutput) Dbs() DatabaseArrayOutput {
-	return o.ApplyT(func(v ListDatabasesProperties) []Database { return v.Dbs }).(DatabaseArrayOutput)
+func (o ListDatabasesPropertiesOutput) Dbs() DatabaseTypeArrayOutput {
+	return o.ApplyT(func(v ListDatabasesProperties) []DatabaseType { return v.Dbs }).(DatabaseTypeArrayOutput)
 }
 
 type ListDatabasesReplicasProperties struct {
@@ -6619,8 +6619,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPoolsOutput{})
 	pulumi.RegisterOutputType(CreategresOutput{})
 	pulumi.RegisterOutputType(CreategresPtrOutput{})
-	pulumi.RegisterOutputType(DatabaseOutput{})
-	pulumi.RegisterOutputType(DatabaseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseTypeArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseClusterOutput{})

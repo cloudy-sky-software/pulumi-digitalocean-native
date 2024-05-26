@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.DigitalOceanNative.CertificatesV2
 {
     /// <summary>
+    /// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateCreateBaseType : IEquatable<CertificateCreateBaseType>
+    {
+        private readonly string _value;
+
+        private CertificateCreateBaseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateCreateBaseType Custom { get; } = new CertificateCreateBaseType("custom");
+        public static CertificateCreateBaseType LetsEncrypt { get; } = new CertificateCreateBaseType("lets_encrypt");
+
+        public static bool operator ==(CertificateCreateBaseType left, CertificateCreateBaseType right) => left.Equals(right);
+        public static bool operator !=(CertificateCreateBaseType left, CertificateCreateBaseType right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateCreateBaseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateCreateBaseType other && Equals(other);
+        public bool Equals(CertificateCreateBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
     /// </summary>
     [EnumType]

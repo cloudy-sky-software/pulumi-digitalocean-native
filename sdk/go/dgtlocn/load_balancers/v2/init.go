@@ -21,12 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:load_balancers/v2:LoadBalancers":
-		r = &LoadBalancers{}
-	case "digitalocean-native:load_balancers/v2:LoadBalancersDroplets":
-		r = &LoadBalancersDroplets{}
-	case "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRules":
-		r = &LoadBalancersForwardingRules{}
+	case "digitalocean-native:load_balancers/v2:LoadBalancer":
+		r = &LoadBalancer{}
+	case "digitalocean-native:load_balancers/v2:LoadBalancersDroplet":
+		r = &LoadBalancersDroplet{}
+	case "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRule":
+		r = &LoadBalancersForwardingRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

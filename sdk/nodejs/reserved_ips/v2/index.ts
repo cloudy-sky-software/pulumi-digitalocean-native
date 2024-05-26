@@ -30,10 +30,10 @@ export const listReservedIPsActions: typeof import("./listReservedIPsActions").l
 export const listReservedIPsActionsOutput: typeof import("./listReservedIPsActions").listReservedIPsActionsOutput = null as any;
 utilities.lazyLoad(exports, ["listReservedIPsActions","listReservedIPsActionsOutput"], () => require("./listReservedIPsActions"));
 
-export { ReservedIPsArgs } from "./reservedIPs";
-export type ReservedIPs = import("./reservedIPs").ReservedIPs;
-export const ReservedIPs: typeof import("./reservedIPs").ReservedIPs = null as any;
-utilities.lazyLoad(exports, ["ReservedIPs"], () => require("./reservedIPs"));
+export { ReservedIPArgs } from "./reservedIP";
+export type ReservedIP = import("./reservedIP").ReservedIP;
+export const ReservedIP: typeof import("./reservedIP").ReservedIP = null as any;
+utilities.lazyLoad(exports, ["ReservedIP"], () => require("./reservedIP"));
 
 export { UnassignArgs } from "./unassign";
 export type Unassign = import("./unassign").Unassign;
@@ -50,8 +50,8 @@ const _module = {
         switch (type) {
             case "digitalocean-native:reserved_ips/v2:Assign":
                 return new Assign(name, <any>undefined, { urn })
-            case "digitalocean-native:reserved_ips/v2:ReservedIPs":
-                return new ReservedIPs(name, <any>undefined, { urn })
+            case "digitalocean-native:reserved_ips/v2:ReservedIP":
+                return new ReservedIP(name, <any>undefined, { urn })
             case "digitalocean-native:reserved_ips/v2:Unassign":
                 return new Unassign(name, <any>undefined, { urn })
             default:

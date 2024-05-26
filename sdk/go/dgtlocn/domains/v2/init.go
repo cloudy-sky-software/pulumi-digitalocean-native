@@ -29,8 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Caa{}
 	case "digitalocean-native:domains/v2:Cname":
 		r = &Cname{}
-	case "digitalocean-native:domains/v2:Domains":
-		r = &Domains{}
+	case "digitalocean-native:domains/v2:Domain":
+		r = &Domain{}
 	case "digitalocean-native:domains/v2:Mx":
 		r = &Mx{}
 	case "digitalocean-native:domains/v2:Ns":

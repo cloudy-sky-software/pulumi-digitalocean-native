@@ -23,8 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "digitalocean-native:floating_ips/v2:Assign":
 		r = &Assign{}
-	case "digitalocean-native:floating_ips/v2:FloatingIPs":
-		r = &FloatingIPs{}
+	case "digitalocean-native:floating_ips/v2:FloatingIP":
+		r = &FloatingIP{}
 	case "digitalocean-native:floating_ips/v2:Unassign":
 		r = &Unassign{}
 	default:

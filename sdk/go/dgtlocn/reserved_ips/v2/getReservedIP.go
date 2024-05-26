@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetReservedIP(ctx *pulumi.Context, args *GetReservedIPArgs, opts ...pulumi.InvokeOption) (*GetReservedIPResult, error) {
+func LookupReservedIP(ctx *pulumi.Context, args *LookupReservedIPArgs, opts ...pulumi.InvokeOption) (*LookupReservedIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetReservedIPResult
+	var rv LookupReservedIPResult
 	err := ctx.Invoke("digitalocean-native:reserved_ips/v2:getReservedIP", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,17 +21,17 @@ func GetReservedIP(ctx *pulumi.Context, args *GetReservedIPArgs, opts ...pulumi.
 	return rv.Defaults(), nil
 }
 
-type GetReservedIPArgs struct {
+type LookupReservedIPArgs struct {
 	// A reserved IP address.
 	ReservedIp string `pulumi:"reservedIp"`
 }
 
-type GetReservedIPResult struct {
+type LookupReservedIPResult struct {
 	Items GetReservedIPProperties `pulumi:"items"`
 }
 
-// Defaults sets the appropriate defaults for GetReservedIPResult
-func (val *GetReservedIPResult) Defaults() *GetReservedIPResult {
+// Defaults sets the appropriate defaults for LookupReservedIPResult
+func (val *LookupReservedIPResult) Defaults() *LookupReservedIPResult {
 	if val == nil {
 		return nil
 	}
@@ -41,46 +41,46 @@ func (val *GetReservedIPResult) Defaults() *GetReservedIPResult {
 	return &tmp
 }
 
-func GetReservedIPOutput(ctx *pulumi.Context, args GetReservedIPOutputArgs, opts ...pulumi.InvokeOption) GetReservedIPResultOutput {
+func LookupReservedIPOutput(ctx *pulumi.Context, args LookupReservedIPOutputArgs, opts ...pulumi.InvokeOption) LookupReservedIPResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetReservedIPResult, error) {
-			args := v.(GetReservedIPArgs)
-			r, err := GetReservedIP(ctx, &args, opts...)
-			var s GetReservedIPResult
+		ApplyT(func(v interface{}) (LookupReservedIPResult, error) {
+			args := v.(LookupReservedIPArgs)
+			r, err := LookupReservedIP(ctx, &args, opts...)
+			var s LookupReservedIPResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetReservedIPResultOutput)
+		}).(LookupReservedIPResultOutput)
 }
 
-type GetReservedIPOutputArgs struct {
+type LookupReservedIPOutputArgs struct {
 	// A reserved IP address.
 	ReservedIp pulumi.StringInput `pulumi:"reservedIp"`
 }
 
-func (GetReservedIPOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetReservedIPArgs)(nil)).Elem()
+func (LookupReservedIPOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReservedIPArgs)(nil)).Elem()
 }
 
-type GetReservedIPResultOutput struct{ *pulumi.OutputState }
+type LookupReservedIPResultOutput struct{ *pulumi.OutputState }
 
-func (GetReservedIPResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetReservedIPResult)(nil)).Elem()
+func (LookupReservedIPResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReservedIPResult)(nil)).Elem()
 }
 
-func (o GetReservedIPResultOutput) ToGetReservedIPResultOutput() GetReservedIPResultOutput {
+func (o LookupReservedIPResultOutput) ToLookupReservedIPResultOutput() LookupReservedIPResultOutput {
 	return o
 }
 
-func (o GetReservedIPResultOutput) ToGetReservedIPResultOutputWithContext(ctx context.Context) GetReservedIPResultOutput {
+func (o LookupReservedIPResultOutput) ToLookupReservedIPResultOutputWithContext(ctx context.Context) LookupReservedIPResultOutput {
 	return o
 }
 
-func (o GetReservedIPResultOutput) Items() GetReservedIPPropertiesOutput {
-	return o.ApplyT(func(v GetReservedIPResult) GetReservedIPProperties { return v.Items }).(GetReservedIPPropertiesOutput)
+func (o LookupReservedIPResultOutput) Items() GetReservedIPPropertiesOutput {
+	return o.ApplyT(func(v LookupReservedIPResult) GetReservedIPProperties { return v.Items }).(GetReservedIPPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetReservedIPResultOutput{})
+	pulumi.RegisterOutputType(LookupReservedIPResultOutput{})
 }

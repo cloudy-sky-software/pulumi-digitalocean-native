@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetCertificate(ctx *pulumi.Context, args *GetCertificateArgs, opts ...pulumi.InvokeOption) (*GetCertificateResult, error) {
+func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetCertificateResult
+	var rv LookupCertificateResult
 	err := ctx.Invoke("digitalocean-native:certificates/v2:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,55 +21,55 @@ func GetCertificate(ctx *pulumi.Context, args *GetCertificateArgs, opts ...pulum
 	return &rv, nil
 }
 
-type GetCertificateArgs struct {
+type LookupCertificateArgs struct {
 	// A unique identifier for a certificate.
 	CertificateId string `pulumi:"certificateId"`
 }
 
-type GetCertificateResult struct {
+type LookupCertificateResult struct {
 	Items GetCertificateProperties `pulumi:"items"`
 }
 
-func GetCertificateOutput(ctx *pulumi.Context, args GetCertificateOutputArgs, opts ...pulumi.InvokeOption) GetCertificateResultOutput {
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCertificateResult, error) {
-			args := v.(GetCertificateArgs)
-			r, err := GetCertificate(ctx, &args, opts...)
-			var s GetCertificateResult
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			var s LookupCertificateResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetCertificateResultOutput)
+		}).(LookupCertificateResultOutput)
 }
 
-type GetCertificateOutputArgs struct {
+type LookupCertificateOutputArgs struct {
 	// A unique identifier for a certificate.
 	CertificateId pulumi.StringInput `pulumi:"certificateId"`
 }
 
-func (GetCertificateOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCertificateArgs)(nil)).Elem()
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
 }
 
-type GetCertificateResultOutput struct{ *pulumi.OutputState }
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
 
-func (GetCertificateResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCertificateResult)(nil)).Elem()
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
 }
 
-func (o GetCertificateResultOutput) ToGetCertificateResultOutput() GetCertificateResultOutput {
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
 	return o
 }
 
-func (o GetCertificateResultOutput) ToGetCertificateResultOutputWithContext(ctx context.Context) GetCertificateResultOutput {
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
 	return o
 }
 
-func (o GetCertificateResultOutput) Items() GetCertificatePropertiesOutput {
-	return o.ApplyT(func(v GetCertificateResult) GetCertificateProperties { return v.Items }).(GetCertificatePropertiesOutput)
+func (o LookupCertificateResultOutput) Items() GetCertificatePropertiesOutput {
+	return o.ApplyT(func(v LookupCertificateResult) GetCertificateProperties { return v.Items }).(GetCertificatePropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetCertificateResultOutput{})
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

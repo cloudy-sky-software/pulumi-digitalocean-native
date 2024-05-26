@@ -25,10 +25,10 @@ export type Cname = import("./cname").Cname;
 export const Cname: typeof import("./cname").Cname = null as any;
 utilities.lazyLoad(exports, ["Cname"], () => require("./cname"));
 
-export { DomainsArgs } from "./domains";
-export type Domains = import("./domains").Domains;
-export const Domains: typeof import("./domains").Domains = null as any;
-utilities.lazyLoad(exports, ["Domains"], () => require("./domains"));
+export { DomainArgs } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
@@ -88,8 +88,8 @@ const _module = {
                 return new Caa(name, <any>undefined, { urn })
             case "digitalocean-native:domains/v2:Cname":
                 return new Cname(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Domains":
-                return new Domains(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:Domain":
+                return new Domain(name, <any>undefined, { urn })
             case "digitalocean-native:domains/v2:Mx":
                 return new Mx(name, <any>undefined, { urn })
             case "digitalocean-native:domains/v2:Ns":

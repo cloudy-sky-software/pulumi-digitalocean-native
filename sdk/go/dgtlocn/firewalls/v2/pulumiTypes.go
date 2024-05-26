@@ -13,7 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type Firewall struct {
+type FirewallType struct {
 	// A time value given in ISO8601 combined date and time format that represents when the firewall was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// An array containing the IDs of the Droplets assigned to the firewall.
@@ -31,89 +31,89 @@ type Firewall struct {
 	Tags   *FirewallPropertiesTags   `pulumi:"tags"`
 }
 
-type FirewallOutput struct{ *pulumi.OutputState }
+type FirewallTypeOutput struct{ *pulumi.OutputState }
 
-func (FirewallOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Firewall)(nil)).Elem()
+func (FirewallTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallType)(nil)).Elem()
 }
 
-func (o FirewallOutput) ToFirewallOutput() FirewallOutput {
+func (o FirewallTypeOutput) ToFirewallTypeOutput() FirewallTypeOutput {
 	return o
 }
 
-func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) FirewallOutput {
+func (o FirewallTypeOutput) ToFirewallTypeOutputWithContext(ctx context.Context) FirewallTypeOutput {
 	return o
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the firewall was created.
-func (o FirewallOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Firewall) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o FirewallTypeOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallType) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // An array containing the IDs of the Droplets assigned to the firewall.
-func (o FirewallOutput) DropletIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v Firewall) []int { return v.DropletIds }).(pulumi.IntArrayOutput)
+func (o FirewallTypeOutput) DropletIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v FirewallType) []int { return v.DropletIds }).(pulumi.IntArrayOutput)
 }
 
 // A unique ID that can be used to identify and reference a firewall.
-func (o FirewallOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Firewall) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o FirewallTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o FirewallOutput) InboundRules() FirewallRulesInboundRulesItemArrayOutput {
-	return o.ApplyT(func(v Firewall) []FirewallRulesInboundRulesItem { return v.InboundRules }).(FirewallRulesInboundRulesItemArrayOutput)
+func (o FirewallTypeOutput) InboundRules() FirewallRulesInboundRulesItemArrayOutput {
+	return o.ApplyT(func(v FirewallType) []FirewallRulesInboundRulesItem { return v.InboundRules }).(FirewallRulesInboundRulesItemArrayOutput)
 }
 
 // A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
-func (o FirewallOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Firewall) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o FirewallTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o FirewallOutput) OutboundRules() FirewallRulesOutboundRulesItemArrayOutput {
-	return o.ApplyT(func(v Firewall) []FirewallRulesOutboundRulesItem { return v.OutboundRules }).(FirewallRulesOutboundRulesItemArrayOutput)
+func (o FirewallTypeOutput) OutboundRules() FirewallRulesOutboundRulesItemArrayOutput {
+	return o.ApplyT(func(v FirewallType) []FirewallRulesOutboundRulesItem { return v.OutboundRules }).(FirewallRulesOutboundRulesItemArrayOutput)
 }
 
 // An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
-func (o FirewallOutput) PendingChanges() FirewallPropertiesPendingChangesItemPropertiesArrayOutput {
-	return o.ApplyT(func(v Firewall) []FirewallPropertiesPendingChangesItemProperties { return v.PendingChanges }).(FirewallPropertiesPendingChangesItemPropertiesArrayOutput)
+func (o FirewallTypeOutput) PendingChanges() FirewallPropertiesPendingChangesItemPropertiesArrayOutput {
+	return o.ApplyT(func(v FirewallType) []FirewallPropertiesPendingChangesItemProperties { return v.PendingChanges }).(FirewallPropertiesPendingChangesItemPropertiesArrayOutput)
 }
 
 // A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
-func (o FirewallOutput) Status() FirewallPropertiesStatusPtrOutput {
-	return o.ApplyT(func(v Firewall) *FirewallPropertiesStatus { return v.Status }).(FirewallPropertiesStatusPtrOutput)
+func (o FirewallTypeOutput) Status() FirewallPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v FirewallType) *FirewallPropertiesStatus { return v.Status }).(FirewallPropertiesStatusPtrOutput)
 }
 
-func (o FirewallOutput) Tags() FirewallPropertiesTagsPtrOutput {
-	return o.ApplyT(func(v Firewall) *FirewallPropertiesTags { return v.Tags }).(FirewallPropertiesTagsPtrOutput)
+func (o FirewallTypeOutput) Tags() FirewallPropertiesTagsPtrOutput {
+	return o.ApplyT(func(v FirewallType) *FirewallPropertiesTags { return v.Tags }).(FirewallPropertiesTagsPtrOutput)
 }
 
-type FirewallPtrOutput struct{ *pulumi.OutputState }
+type FirewallTypePtrOutput struct{ *pulumi.OutputState }
 
-func (FirewallPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Firewall)(nil)).Elem()
+func (FirewallTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallType)(nil)).Elem()
 }
 
-func (o FirewallPtrOutput) ToFirewallPtrOutput() FirewallPtrOutput {
+func (o FirewallTypePtrOutput) ToFirewallTypePtrOutput() FirewallTypePtrOutput {
 	return o
 }
 
-func (o FirewallPtrOutput) ToFirewallPtrOutputWithContext(ctx context.Context) FirewallPtrOutput {
+func (o FirewallTypePtrOutput) ToFirewallTypePtrOutputWithContext(ctx context.Context) FirewallTypePtrOutput {
 	return o
 }
 
-func (o FirewallPtrOutput) Elem() FirewallOutput {
-	return o.ApplyT(func(v *Firewall) Firewall {
+func (o FirewallTypePtrOutput) Elem() FirewallTypeOutput {
+	return o.ApplyT(func(v *FirewallType) FirewallType {
 		if v != nil {
 			return *v
 		}
-		var ret Firewall
+		var ret FirewallType
 		return ret
-	}).(FirewallOutput)
+	}).(FirewallTypeOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the firewall was created.
-func (o FirewallPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Firewall) *string {
+func (o FirewallTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallType) *string {
 		if v == nil {
 			return nil
 		}
@@ -122,8 +122,8 @@ func (o FirewallPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 }
 
 // An array containing the IDs of the Droplets assigned to the firewall.
-func (o FirewallPtrOutput) DropletIds() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *Firewall) []int {
+func (o FirewallTypePtrOutput) DropletIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *FirewallType) []int {
 		if v == nil {
 			return nil
 		}
@@ -132,8 +132,8 @@ func (o FirewallPtrOutput) DropletIds() pulumi.IntArrayOutput {
 }
 
 // A unique ID that can be used to identify and reference a firewall.
-func (o FirewallPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Firewall) *string {
+func (o FirewallTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallType) *string {
 		if v == nil {
 			return nil
 		}
@@ -141,8 +141,8 @@ func (o FirewallPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FirewallPtrOutput) InboundRules() FirewallRulesInboundRulesItemArrayOutput {
-	return o.ApplyT(func(v *Firewall) []FirewallRulesInboundRulesItem {
+func (o FirewallTypePtrOutput) InboundRules() FirewallRulesInboundRulesItemArrayOutput {
+	return o.ApplyT(func(v *FirewallType) []FirewallRulesInboundRulesItem {
 		if v == nil {
 			return nil
 		}
@@ -151,8 +151,8 @@ func (o FirewallPtrOutput) InboundRules() FirewallRulesInboundRulesItemArrayOutp
 }
 
 // A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
-func (o FirewallPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Firewall) *string {
+func (o FirewallTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallType) *string {
 		if v == nil {
 			return nil
 		}
@@ -160,8 +160,8 @@ func (o FirewallPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FirewallPtrOutput) OutboundRules() FirewallRulesOutboundRulesItemArrayOutput {
-	return o.ApplyT(func(v *Firewall) []FirewallRulesOutboundRulesItem {
+func (o FirewallTypePtrOutput) OutboundRules() FirewallRulesOutboundRulesItemArrayOutput {
+	return o.ApplyT(func(v *FirewallType) []FirewallRulesOutboundRulesItem {
 		if v == nil {
 			return nil
 		}
@@ -170,8 +170,8 @@ func (o FirewallPtrOutput) OutboundRules() FirewallRulesOutboundRulesItemArrayOu
 }
 
 // An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
-func (o FirewallPtrOutput) PendingChanges() FirewallPropertiesPendingChangesItemPropertiesArrayOutput {
-	return o.ApplyT(func(v *Firewall) []FirewallPropertiesPendingChangesItemProperties {
+func (o FirewallTypePtrOutput) PendingChanges() FirewallPropertiesPendingChangesItemPropertiesArrayOutput {
+	return o.ApplyT(func(v *FirewallType) []FirewallPropertiesPendingChangesItemProperties {
 		if v == nil {
 			return nil
 		}
@@ -180,8 +180,8 @@ func (o FirewallPtrOutput) PendingChanges() FirewallPropertiesPendingChangesItem
 }
 
 // A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
-func (o FirewallPtrOutput) Status() FirewallPropertiesStatusPtrOutput {
-	return o.ApplyT(func(v *Firewall) *FirewallPropertiesStatus {
+func (o FirewallTypePtrOutput) Status() FirewallPropertiesStatusPtrOutput {
+	return o.ApplyT(func(v *FirewallType) *FirewallPropertiesStatus {
 		if v == nil {
 			return nil
 		}
@@ -189,8 +189,8 @@ func (o FirewallPtrOutput) Status() FirewallPropertiesStatusPtrOutput {
 	}).(FirewallPropertiesStatusPtrOutput)
 }
 
-func (o FirewallPtrOutput) Tags() FirewallPropertiesTagsPtrOutput {
-	return o.ApplyT(func(v *Firewall) *FirewallPropertiesTags {
+func (o FirewallTypePtrOutput) Tags() FirewallPropertiesTagsPtrOutput {
+	return o.ApplyT(func(v *FirewallType) *FirewallPropertiesTags {
 		if v == nil {
 			return nil
 		}
@@ -198,24 +198,24 @@ func (o FirewallPtrOutput) Tags() FirewallPropertiesTagsPtrOutput {
 	}).(FirewallPropertiesTagsPtrOutput)
 }
 
-type FirewallArrayOutput struct{ *pulumi.OutputState }
+type FirewallTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (FirewallArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Firewall)(nil)).Elem()
+func (FirewallTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallType)(nil)).Elem()
 }
 
-func (o FirewallArrayOutput) ToFirewallArrayOutput() FirewallArrayOutput {
+func (o FirewallTypeArrayOutput) ToFirewallTypeArrayOutput() FirewallTypeArrayOutput {
 	return o
 }
 
-func (o FirewallArrayOutput) ToFirewallArrayOutputWithContext(ctx context.Context) FirewallArrayOutput {
+func (o FirewallTypeArrayOutput) ToFirewallTypeArrayOutputWithContext(ctx context.Context) FirewallTypeArrayOutput {
 	return o
 }
 
-func (o FirewallArrayOutput) Index(i pulumi.IntInput) FirewallOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Firewall {
-		return vs[0].([]Firewall)[vs[1].(int)]
-	}).(FirewallOutput)
+func (o FirewallTypeArrayOutput) Index(i pulumi.IntInput) FirewallTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallType {
+		return vs[0].([]FirewallType)[vs[1].(int)]
+	}).(FirewallTypeOutput)
 }
 
 type FirewallPropertiesPendingChangesItemProperties struct {
@@ -655,7 +655,7 @@ func (o FirewallRulesOutboundRulesItemArrayOutput) Index(i pulumi.IntInput) Fire
 }
 
 type GetFirewallProperties struct {
-	Firewall *Firewall `pulumi:"firewall"`
+	Firewall *FirewallType `pulumi:"firewall"`
 }
 
 type GetFirewallPropertiesOutput struct{ *pulumi.OutputState }
@@ -672,14 +672,14 @@ func (o GetFirewallPropertiesOutput) ToGetFirewallPropertiesOutputWithContext(ct
 	return o
 }
 
-func (o GetFirewallPropertiesOutput) Firewall() FirewallPtrOutput {
-	return o.ApplyT(func(v GetFirewallProperties) *Firewall { return v.Firewall }).(FirewallPtrOutput)
+func (o GetFirewallPropertiesOutput) Firewall() FirewallTypePtrOutput {
+	return o.ApplyT(func(v GetFirewallProperties) *FirewallType { return v.Firewall }).(FirewallTypePtrOutput)
 }
 
 type ListFirewallsItems struct {
-	Firewalls []Firewall `pulumi:"firewalls"`
-	Links     *PageLinks `pulumi:"links"`
-	Meta      MetaMeta   `pulumi:"meta"`
+	Firewalls []FirewallType `pulumi:"firewalls"`
+	Links     *PageLinks     `pulumi:"links"`
+	Meta      MetaMeta       `pulumi:"meta"`
 }
 
 type ListFirewallsItemsOutput struct{ *pulumi.OutputState }
@@ -696,8 +696,8 @@ func (o ListFirewallsItemsOutput) ToListFirewallsItemsOutputWithContext(ctx cont
 	return o
 }
 
-func (o ListFirewallsItemsOutput) Firewalls() FirewallArrayOutput {
-	return o.ApplyT(func(v ListFirewallsItems) []Firewall { return v.Firewalls }).(FirewallArrayOutput)
+func (o ListFirewallsItemsOutput) Firewalls() FirewallTypeArrayOutput {
+	return o.ApplyT(func(v ListFirewallsItems) []FirewallType { return v.Firewalls }).(FirewallTypeArrayOutput)
 }
 
 func (o ListFirewallsItemsOutput) Links() PageLinksPtrOutput {
@@ -937,9 +937,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRulesOutboundRulesItemInput)(nil)).Elem(), FirewallRulesOutboundRulesItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRulesOutboundRulesItemArrayInput)(nil)).Elem(), FirewallRulesOutboundRulesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagsInput)(nil)).Elem(), TagsArgs{})
-	pulumi.RegisterOutputType(FirewallOutput{})
-	pulumi.RegisterOutputType(FirewallPtrOutput{})
-	pulumi.RegisterOutputType(FirewallArrayOutput{})
+	pulumi.RegisterOutputType(FirewallTypeOutput{})
+	pulumi.RegisterOutputType(FirewallTypePtrOutput{})
+	pulumi.RegisterOutputType(FirewallTypeArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPropertiesPendingChangesItemPropertiesOutput{})
 	pulumi.RegisterOutputType(FirewallPropertiesPendingChangesItemPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPropertiesTagsOutput{})

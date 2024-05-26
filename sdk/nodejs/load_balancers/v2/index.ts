@@ -15,20 +15,20 @@ export const listLoadBalancers: typeof import("./listLoadBalancers").listLoadBal
 export const listLoadBalancersOutput: typeof import("./listLoadBalancers").listLoadBalancersOutput = null as any;
 utilities.lazyLoad(exports, ["listLoadBalancers","listLoadBalancersOutput"], () => require("./listLoadBalancers"));
 
-export { LoadBalancersArgs } from "./loadBalancers";
-export type LoadBalancers = import("./loadBalancers").LoadBalancers;
-export const LoadBalancers: typeof import("./loadBalancers").LoadBalancers = null as any;
-utilities.lazyLoad(exports, ["LoadBalancers"], () => require("./loadBalancers"));
+export { LoadBalancerArgs } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
 
-export { LoadBalancersDropletsArgs } from "./loadBalancersDroplets";
-export type LoadBalancersDroplets = import("./loadBalancersDroplets").LoadBalancersDroplets;
-export const LoadBalancersDroplets: typeof import("./loadBalancersDroplets").LoadBalancersDroplets = null as any;
-utilities.lazyLoad(exports, ["LoadBalancersDroplets"], () => require("./loadBalancersDroplets"));
+export { LoadBalancersDropletArgs } from "./loadBalancersDroplet";
+export type LoadBalancersDroplet = import("./loadBalancersDroplet").LoadBalancersDroplet;
+export const LoadBalancersDroplet: typeof import("./loadBalancersDroplet").LoadBalancersDroplet = null as any;
+utilities.lazyLoad(exports, ["LoadBalancersDroplet"], () => require("./loadBalancersDroplet"));
 
-export { LoadBalancersForwardingRulesArgs } from "./loadBalancersForwardingRules";
-export type LoadBalancersForwardingRules = import("./loadBalancersForwardingRules").LoadBalancersForwardingRules;
-export const LoadBalancersForwardingRules: typeof import("./loadBalancersForwardingRules").LoadBalancersForwardingRules = null as any;
-utilities.lazyLoad(exports, ["LoadBalancersForwardingRules"], () => require("./loadBalancersForwardingRules"));
+export { LoadBalancersForwardingRuleArgs } from "./loadBalancersForwardingRule";
+export type LoadBalancersForwardingRule = import("./loadBalancersForwardingRule").LoadBalancersForwardingRule;
+export const LoadBalancersForwardingRule: typeof import("./loadBalancersForwardingRule").LoadBalancersForwardingRule = null as any;
+utilities.lazyLoad(exports, ["LoadBalancersForwardingRule"], () => require("./loadBalancersForwardingRule"));
 
 
 // Export enums:
@@ -38,12 +38,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:load_balancers/v2:LoadBalancers":
-                return new LoadBalancers(name, <any>undefined, { urn })
-            case "digitalocean-native:load_balancers/v2:LoadBalancersDroplets":
-                return new LoadBalancersDroplets(name, <any>undefined, { urn })
-            case "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRules":
-                return new LoadBalancersForwardingRules(name, <any>undefined, { urn })
+            case "digitalocean-native:load_balancers/v2:LoadBalancer":
+                return new LoadBalancer(name, <any>undefined, { urn })
+            case "digitalocean-native:load_balancers/v2:LoadBalancersDroplet":
+                return new LoadBalancersDroplet(name, <any>undefined, { urn })
+            case "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRule":
+                return new LoadBalancersForwardingRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -21,10 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:tags/v2:Tags":
-		r = &Tags{}
-	case "digitalocean-native:tags/v2:TagsAssignResources":
-		r = &TagsAssignResources{}
+	case "digitalocean-native:tags/v2:Tag":
+		r = &Tag{}
+	case "digitalocean-native:tags/v2:TagsAssignResource":
+		r = &TagsAssignResource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

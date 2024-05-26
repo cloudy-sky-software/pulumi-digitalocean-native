@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetFirewall(ctx *pulumi.Context, args *GetFirewallArgs, opts ...pulumi.InvokeOption) (*GetFirewallResult, error) {
+func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetFirewallResult
+	var rv LookupFirewallResult
 	err := ctx.Invoke("digitalocean-native:firewalls/v2:getFirewall", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,55 +21,55 @@ func GetFirewall(ctx *pulumi.Context, args *GetFirewallArgs, opts ...pulumi.Invo
 	return &rv, nil
 }
 
-type GetFirewallArgs struct {
+type LookupFirewallArgs struct {
 	// A unique ID that can be used to identify and reference a firewall.
 	FirewallId string `pulumi:"firewallId"`
 }
 
-type GetFirewallResult struct {
+type LookupFirewallResult struct {
 	Items GetFirewallProperties `pulumi:"items"`
 }
 
-func GetFirewallOutput(ctx *pulumi.Context, args GetFirewallOutputArgs, opts ...pulumi.InvokeOption) GetFirewallResultOutput {
+func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFirewallResult, error) {
-			args := v.(GetFirewallArgs)
-			r, err := GetFirewall(ctx, &args, opts...)
-			var s GetFirewallResult
+		ApplyT(func(v interface{}) (LookupFirewallResult, error) {
+			args := v.(LookupFirewallArgs)
+			r, err := LookupFirewall(ctx, &args, opts...)
+			var s LookupFirewallResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetFirewallResultOutput)
+		}).(LookupFirewallResultOutput)
 }
 
-type GetFirewallOutputArgs struct {
+type LookupFirewallOutputArgs struct {
 	// A unique ID that can be used to identify and reference a firewall.
 	FirewallId pulumi.StringInput `pulumi:"firewallId"`
 }
 
-func (GetFirewallOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFirewallArgs)(nil)).Elem()
+func (LookupFirewallOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallArgs)(nil)).Elem()
 }
 
-type GetFirewallResultOutput struct{ *pulumi.OutputState }
+type LookupFirewallResultOutput struct{ *pulumi.OutputState }
 
-func (GetFirewallResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFirewallResult)(nil)).Elem()
+func (LookupFirewallResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFirewallResult)(nil)).Elem()
 }
 
-func (o GetFirewallResultOutput) ToGetFirewallResultOutput() GetFirewallResultOutput {
+func (o LookupFirewallResultOutput) ToLookupFirewallResultOutput() LookupFirewallResultOutput {
 	return o
 }
 
-func (o GetFirewallResultOutput) ToGetFirewallResultOutputWithContext(ctx context.Context) GetFirewallResultOutput {
+func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx context.Context) LookupFirewallResultOutput {
 	return o
 }
 
-func (o GetFirewallResultOutput) Items() GetFirewallPropertiesOutput {
-	return o.ApplyT(func(v GetFirewallResult) GetFirewallProperties { return v.Items }).(GetFirewallPropertiesOutput)
+func (o LookupFirewallResultOutput) Items() GetFirewallPropertiesOutput {
+	return o.ApplyT(func(v LookupFirewallResult) GetFirewallProperties { return v.Items }).(GetFirewallPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetFirewallResultOutput{})
+	pulumi.RegisterOutputType(LookupFirewallResultOutput{})
 }

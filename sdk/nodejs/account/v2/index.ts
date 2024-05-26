@@ -20,10 +20,10 @@ export const listSshKeys: typeof import("./listSshKeys").listSshKeys = null as a
 export const listSshKeysOutput: typeof import("./listSshKeys").listSshKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listSshKeys","listSshKeysOutput"], () => require("./listSshKeys"));
 
-export { SshKeysArgs } from "./sshKeys";
-export type SshKeys = import("./sshKeys").SshKeys;
-export const SshKeys: typeof import("./sshKeys").SshKeys = null as any;
-utilities.lazyLoad(exports, ["SshKeys"], () => require("./sshKeys"));
+export { SshKeyArgs } from "./sshKey";
+export type SshKey = import("./sshKey").SshKey;
+export const SshKey: typeof import("./sshKey").SshKey = null as any;
+utilities.lazyLoad(exports, ["SshKey"], () => require("./sshKey"));
 
 
 // Export enums:
@@ -33,8 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:account/v2:SshKeys":
-                return new SshKeys(name, <any>undefined, { urn })
+            case "digitalocean-native:account/v2:SshKey":
+                return new SshKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

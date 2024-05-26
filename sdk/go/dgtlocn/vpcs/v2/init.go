@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:vpcs/v2:Vpcs":
-		r = &Vpcs{}
+	case "digitalocean-native:vpcs/v2:Vpc":
+		r = &Vpc{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

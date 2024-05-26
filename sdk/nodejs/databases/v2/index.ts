@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { DatabasesArgs } from "./databases";
-export type Databases = import("./databases").Databases;
-export const Databases: typeof import("./databases").Databases = null as any;
-utilities.lazyLoad(exports, ["Databases"], () => require("./databases"));
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { DatabasesClusterArgs } from "./databasesCluster";
 export type DatabasesCluster = import("./databasesCluster").DatabasesCluster;
@@ -173,8 +173,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:databases/v2:Databases":
-                return new Databases(name, <any>undefined, { urn })
+            case "digitalocean-native:databases/v2:Database":
+                return new Database(name, <any>undefined, { urn })
             case "digitalocean-native:databases/v2:DatabasesCluster":
                 return new DatabasesCluster(name, <any>undefined, { urn })
             case "digitalocean-native:databases/v2:DatabasesClusterSize":

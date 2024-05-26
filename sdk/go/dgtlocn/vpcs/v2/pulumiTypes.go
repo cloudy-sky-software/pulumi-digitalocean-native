@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetVpcProperties struct {
-	Vpc *Vpc `pulumi:"vpc"`
+	Vpc *VpcType `pulumi:"vpc"`
 }
 
 type GetVpcPropertiesOutput struct{ *pulumi.OutputState }
@@ -31,14 +31,14 @@ func (o GetVpcPropertiesOutput) ToGetVpcPropertiesOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetVpcPropertiesOutput) Vpc() VpcPtrOutput {
-	return o.ApplyT(func(v GetVpcProperties) *Vpc { return v.Vpc }).(VpcPtrOutput)
+func (o GetVpcPropertiesOutput) Vpc() VpcTypePtrOutput {
+	return o.ApplyT(func(v GetVpcProperties) *VpcType { return v.Vpc }).(VpcTypePtrOutput)
 }
 
 type ListVpcsItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
-	Vpcs  []Vpc      `pulumi:"vpcs"`
+	Vpcs  []VpcType  `pulumi:"vpcs"`
 }
 
 type ListVpcsItemsOutput struct{ *pulumi.OutputState }
@@ -63,8 +63,8 @@ func (o ListVpcsItemsOutput) Meta() MetaMetaOutput {
 	return o.ApplyT(func(v ListVpcsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListVpcsItemsOutput) Vpcs() VpcArrayOutput {
-	return o.ApplyT(func(v ListVpcsItems) []Vpc { return v.Vpcs }).(VpcArrayOutput)
+func (o ListVpcsItemsOutput) Vpcs() VpcTypeArrayOutput {
+	return o.ApplyT(func(v ListVpcsItems) []VpcType { return v.Vpcs }).(VpcTypeArrayOutput)
 }
 
 type ListVpcsMembersItems struct {
@@ -275,7 +275,7 @@ func (o PageLinksPagesPropertiesPtrOutput) Prev() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type Vpc struct {
+type VpcType struct {
 	// A time value given in ISO8601 combined date and time format.
 	CreatedAt *string `pulumi:"createdAt"`
 	// A boolean value indicating whether or not the VPC is the default network for the region. All applicable resources are placed into the default VPC network unless otherwise specified during their creation. The `default` field cannot be unset from `true`. If you want to set a new default VPC network, update the `default` field of another VPC network in the same region. The previous network's `default` field will be set to `false` when a new default VPC has been defined.
@@ -294,87 +294,87 @@ type Vpc struct {
 	Urn *string `pulumi:"urn"`
 }
 
-type VpcOutput struct{ *pulumi.OutputState }
+type VpcTypeOutput struct{ *pulumi.OutputState }
 
-func (VpcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vpc)(nil)).Elem()
+func (VpcTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcType)(nil)).Elem()
 }
 
-func (o VpcOutput) ToVpcOutput() VpcOutput {
+func (o VpcTypeOutput) ToVpcTypeOutput() VpcTypeOutput {
 	return o
 }
 
-func (o VpcOutput) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
+func (o VpcTypeOutput) ToVpcTypeOutputWithContext(ctx context.Context) VpcTypeOutput {
 	return o
 }
 
 // A time value given in ISO8601 combined date and time format.
-func (o VpcOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // A boolean value indicating whether or not the VPC is the default network for the region. All applicable resources are placed into the default VPC network unless otherwise specified during their creation. The `default` field cannot be unset from `true`. If you want to set a new default VPC network, update the `default` field of another VPC network in the same region. The previous network's `default` field will be set to `false` when a new default VPC has been defined.
-func (o VpcOutput) Default() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Vpc) *bool { return v.Default }).(pulumi.BoolPtrOutput)
+func (o VpcTypeOutput) Default() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcType) *bool { return v.Default }).(pulumi.BoolPtrOutput)
 }
 
 // A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.
-func (o VpcOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A unique ID that can be used to identify and reference the VPC.
-func (o VpcOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The range of IP addresses in the VPC in CIDR notation. Network ranges cannot overlap with other networks in the same account and must be in range of private addresses as defined in RFC1918. It may not be smaller than `/28` nor larger than `/16`. If no IP range is specified, a `/20` network range is generated that won't conflict with other VPC networks in your account.
-func (o VpcOutput) IpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.IpRange }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) IpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.IpRange }).(pulumi.StringPtrOutput)
 }
 
 // The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods.
-func (o VpcOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The slug identifier for the region where the VPC will be created.
-func (o VpcOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 // The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.
-func (o VpcOutput) Urn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Vpc) *string { return v.Urn }).(pulumi.StringPtrOutput)
+func (o VpcTypeOutput) Urn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcType) *string { return v.Urn }).(pulumi.StringPtrOutput)
 }
 
-type VpcPtrOutput struct{ *pulumi.OutputState }
+type VpcTypePtrOutput struct{ *pulumi.OutputState }
 
-func (VpcPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Vpc)(nil)).Elem()
+func (VpcTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcType)(nil)).Elem()
 }
 
-func (o VpcPtrOutput) ToVpcPtrOutput() VpcPtrOutput {
+func (o VpcTypePtrOutput) ToVpcTypePtrOutput() VpcTypePtrOutput {
 	return o
 }
 
-func (o VpcPtrOutput) ToVpcPtrOutputWithContext(ctx context.Context) VpcPtrOutput {
+func (o VpcTypePtrOutput) ToVpcTypePtrOutputWithContext(ctx context.Context) VpcTypePtrOutput {
 	return o
 }
 
-func (o VpcPtrOutput) Elem() VpcOutput {
-	return o.ApplyT(func(v *Vpc) Vpc {
+func (o VpcTypePtrOutput) Elem() VpcTypeOutput {
+	return o.ApplyT(func(v *VpcType) VpcType {
 		if v != nil {
 			return *v
 		}
-		var ret Vpc
+		var ret VpcType
 		return ret
-	}).(VpcOutput)
+	}).(VpcTypeOutput)
 }
 
 // A time value given in ISO8601 combined date and time format.
-func (o VpcPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -383,8 +383,8 @@ func (o VpcPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 }
 
 // A boolean value indicating whether or not the VPC is the default network for the region. All applicable resources are placed into the default VPC network unless otherwise specified during their creation. The `default` field cannot be unset from `true`. If you want to set a new default VPC network, update the `default` field of another VPC network in the same region. The previous network's `default` field will be set to `false` when a new default VPC has been defined.
-func (o VpcPtrOutput) Default() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Vpc) *bool {
+func (o VpcTypePtrOutput) Default() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -393,8 +393,8 @@ func (o VpcPtrOutput) Default() pulumi.BoolPtrOutput {
 }
 
 // A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.
-func (o VpcPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -403,8 +403,8 @@ func (o VpcPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // A unique ID that can be used to identify and reference the VPC.
-func (o VpcPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -413,8 +413,8 @@ func (o VpcPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The range of IP addresses in the VPC in CIDR notation. Network ranges cannot overlap with other networks in the same account and must be in range of private addresses as defined in RFC1918. It may not be smaller than `/28` nor larger than `/16`. If no IP range is specified, a `/20` network range is generated that won't conflict with other VPC networks in your account.
-func (o VpcPtrOutput) IpRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) IpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -423,8 +423,8 @@ func (o VpcPtrOutput) IpRange() pulumi.StringPtrOutput {
 }
 
 // The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods.
-func (o VpcPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -433,8 +433,8 @@ func (o VpcPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The slug identifier for the region where the VPC will be created.
-func (o VpcPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -443,8 +443,8 @@ func (o VpcPtrOutput) Region() pulumi.StringPtrOutput {
 }
 
 // The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.
-func (o VpcPtrOutput) Urn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Vpc) *string {
+func (o VpcTypePtrOutput) Urn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcType) *string {
 		if v == nil {
 			return nil
 		}
@@ -452,24 +452,24 @@ func (o VpcPtrOutput) Urn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type VpcArrayOutput struct{ *pulumi.OutputState }
+type VpcTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (VpcArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Vpc)(nil)).Elem()
+func (VpcTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcType)(nil)).Elem()
 }
 
-func (o VpcArrayOutput) ToVpcArrayOutput() VpcArrayOutput {
+func (o VpcTypeArrayOutput) ToVpcTypeArrayOutput() VpcTypeArrayOutput {
 	return o
 }
 
-func (o VpcArrayOutput) ToVpcArrayOutputWithContext(ctx context.Context) VpcArrayOutput {
+func (o VpcTypeArrayOutput) ToVpcTypeArrayOutputWithContext(ctx context.Context) VpcTypeArrayOutput {
 	return o
 }
 
-func (o VpcArrayOutput) Index(i pulumi.IntInput) VpcOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Vpc {
-		return vs[0].([]Vpc)[vs[1].(int)]
-	}).(VpcOutput)
+func (o VpcTypeArrayOutput) Index(i pulumi.IntInput) VpcTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcType {
+		return vs[0].([]VpcType)[vs[1].(int)]
+	}).(VpcTypeOutput)
 }
 
 type VpcMember struct {
@@ -539,9 +539,9 @@ func init() {
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(VpcOutput{})
-	pulumi.RegisterOutputType(VpcPtrOutput{})
-	pulumi.RegisterOutputType(VpcArrayOutput{})
+	pulumi.RegisterOutputType(VpcTypeOutput{})
+	pulumi.RegisterOutputType(VpcTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpcMemberOutput{})
 	pulumi.RegisterOutputType(VpcMemberArrayOutput{})
 }

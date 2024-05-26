@@ -159,7 +159,7 @@ func (o ForwardingRuleArrayOutput) Index(i pulumi.IntInput) ForwardingRuleOutput
 }
 
 type GetLoadBalancerProperties struct {
-	LoadBalancer *LoadBalancer `pulumi:"loadBalancer"`
+	LoadBalancer *LoadBalancerType `pulumi:"loadBalancer"`
 }
 
 // Defaults sets the appropriate defaults for GetLoadBalancerProperties
@@ -187,8 +187,8 @@ func (o GetLoadBalancerPropertiesOutput) ToGetLoadBalancerPropertiesOutputWithCo
 	return o
 }
 
-func (o GetLoadBalancerPropertiesOutput) LoadBalancer() LoadBalancerPtrOutput {
-	return o.ApplyT(func(v GetLoadBalancerProperties) *LoadBalancer { return v.LoadBalancer }).(LoadBalancerPtrOutput)
+func (o GetLoadBalancerPropertiesOutput) LoadBalancer() LoadBalancerTypePtrOutput {
+	return o.ApplyT(func(v GetLoadBalancerProperties) *LoadBalancerType { return v.LoadBalancer }).(LoadBalancerTypePtrOutput)
 }
 
 // An object specifying health check settings for the load balancer.
@@ -246,6 +246,117 @@ func (val *HealthCheck) Defaults() *HealthCheck {
 	return &tmp
 }
 
+// HealthCheckInput is an input type that accepts HealthCheckArgs and HealthCheckOutput values.
+// You can construct a concrete instance of `HealthCheckInput` via:
+//
+//	HealthCheckArgs{...}
+type HealthCheckInput interface {
+	pulumi.Input
+
+	ToHealthCheckOutput() HealthCheckOutput
+	ToHealthCheckOutputWithContext(context.Context) HealthCheckOutput
+}
+
+// An object specifying health check settings for the load balancer.
+type HealthCheckArgs struct {
+	// The number of seconds between between two consecutive health checks.
+	CheckIntervalSeconds pulumi.IntPtrInput `pulumi:"checkIntervalSeconds"`
+	// The number of times a health check must pass for a backend Droplet to be marked "healthy" and be re-added to the pool.
+	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
+	// The path on the backend Droplets to which the load balancer instance will send a request.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// An integer representing the port on the backend Droplets on which the health check will attempt a connection.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The protocol used for health checks sent to the backend Droplets. The possible values are `http`, `https`, or `tcp`.
+	Protocol HealthCheckProtocolPtrInput `pulumi:"protocol"`
+	// The number of seconds the load balancer instance will wait for a response until marking a health check as failed.
+	ResponseTimeoutSeconds pulumi.IntPtrInput `pulumi:"responseTimeoutSeconds"`
+	// The number of times a health check must fail for a backend Droplet to be marked "unhealthy" and be removed from the pool.
+	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
+}
+
+// Defaults sets the appropriate defaults for HealthCheckArgs
+func (val *HealthCheckArgs) Defaults() *HealthCheckArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.CheckIntervalSeconds == nil {
+		tmp.CheckIntervalSeconds = pulumi.IntPtr(10)
+	}
+	if tmp.HealthyThreshold == nil {
+		tmp.HealthyThreshold = pulumi.IntPtr(3)
+	}
+	if tmp.Path == nil {
+		tmp.Path = pulumi.StringPtr("/")
+	}
+	if tmp.Port == nil {
+		tmp.Port = pulumi.IntPtr(80)
+	}
+	if tmp.Protocol == nil {
+		tmp.Protocol = HealthCheckProtocol("http")
+	}
+	if tmp.ResponseTimeoutSeconds == nil {
+		tmp.ResponseTimeoutSeconds = pulumi.IntPtr(5)
+	}
+	if tmp.UnhealthyThreshold == nil {
+		tmp.UnhealthyThreshold = pulumi.IntPtr(5)
+	}
+	return &tmp
+}
+func (HealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheck)(nil)).Elem()
+}
+
+func (i HealthCheckArgs) ToHealthCheckOutput() HealthCheckOutput {
+	return i.ToHealthCheckOutputWithContext(context.Background())
+}
+
+func (i HealthCheckArgs) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckOutput)
+}
+
+func (i HealthCheckArgs) ToHealthCheckPtrOutput() HealthCheckPtrOutput {
+	return i.ToHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i HealthCheckArgs) ToHealthCheckPtrOutputWithContext(ctx context.Context) HealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckOutput).ToHealthCheckPtrOutputWithContext(ctx)
+}
+
+// HealthCheckPtrInput is an input type that accepts HealthCheckArgs, HealthCheckPtr and HealthCheckPtrOutput values.
+// You can construct a concrete instance of `HealthCheckPtrInput` via:
+//
+//	        HealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type HealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckPtrOutput() HealthCheckPtrOutput
+	ToHealthCheckPtrOutputWithContext(context.Context) HealthCheckPtrOutput
+}
+
+type healthCheckPtrType HealthCheckArgs
+
+func HealthCheckPtr(v *HealthCheckArgs) HealthCheckPtrInput {
+	return (*healthCheckPtrType)(v)
+}
+
+func (*healthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheck)(nil)).Elem()
+}
+
+func (i *healthCheckPtrType) ToHealthCheckPtrOutput() HealthCheckPtrOutput {
+	return i.ToHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *healthCheckPtrType) ToHealthCheckPtrOutputWithContext(ctx context.Context) HealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckPtrOutput)
+}
+
 // An object specifying health check settings for the load balancer.
 type HealthCheckOutput struct{ *pulumi.OutputState }
 
@@ -259,6 +370,16 @@ func (o HealthCheckOutput) ToHealthCheckOutput() HealthCheckOutput {
 
 func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
 	return o
+}
+
+func (o HealthCheckOutput) ToHealthCheckPtrOutput() HealthCheckPtrOutput {
+	return o.ToHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckOutput) ToHealthCheckPtrOutputWithContext(ctx context.Context) HealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheck) *HealthCheck {
+		return &v
+	}).(HealthCheckPtrOutput)
 }
 
 // The number of seconds between between two consecutive health checks.
@@ -398,6 +519,78 @@ type LbFirewall struct {
 	Deny []string `pulumi:"deny"`
 }
 
+// LbFirewallInput is an input type that accepts LbFirewallArgs and LbFirewallOutput values.
+// You can construct a concrete instance of `LbFirewallInput` via:
+//
+//	LbFirewallArgs{...}
+type LbFirewallInput interface {
+	pulumi.Input
+
+	ToLbFirewallOutput() LbFirewallOutput
+	ToLbFirewallOutputWithContext(context.Context) LbFirewallOutput
+}
+
+// An object specifying allow and deny rules to control traffic to the load balancer.
+type LbFirewallArgs struct {
+	// the rules for allowing traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+	Allow pulumi.StringArrayInput `pulumi:"allow"`
+	// the rules for denying traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+	Deny pulumi.StringArrayInput `pulumi:"deny"`
+}
+
+func (LbFirewallArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LbFirewall)(nil)).Elem()
+}
+
+func (i LbFirewallArgs) ToLbFirewallOutput() LbFirewallOutput {
+	return i.ToLbFirewallOutputWithContext(context.Background())
+}
+
+func (i LbFirewallArgs) ToLbFirewallOutputWithContext(ctx context.Context) LbFirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LbFirewallOutput)
+}
+
+func (i LbFirewallArgs) ToLbFirewallPtrOutput() LbFirewallPtrOutput {
+	return i.ToLbFirewallPtrOutputWithContext(context.Background())
+}
+
+func (i LbFirewallArgs) ToLbFirewallPtrOutputWithContext(ctx context.Context) LbFirewallPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LbFirewallOutput).ToLbFirewallPtrOutputWithContext(ctx)
+}
+
+// LbFirewallPtrInput is an input type that accepts LbFirewallArgs, LbFirewallPtr and LbFirewallPtrOutput values.
+// You can construct a concrete instance of `LbFirewallPtrInput` via:
+//
+//	        LbFirewallArgs{...}
+//
+//	or:
+//
+//	        nil
+type LbFirewallPtrInput interface {
+	pulumi.Input
+
+	ToLbFirewallPtrOutput() LbFirewallPtrOutput
+	ToLbFirewallPtrOutputWithContext(context.Context) LbFirewallPtrOutput
+}
+
+type lbFirewallPtrType LbFirewallArgs
+
+func LbFirewallPtr(v *LbFirewallArgs) LbFirewallPtrInput {
+	return (*lbFirewallPtrType)(v)
+}
+
+func (*lbFirewallPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LbFirewall)(nil)).Elem()
+}
+
+func (i *lbFirewallPtrType) ToLbFirewallPtrOutput() LbFirewallPtrOutput {
+	return i.ToLbFirewallPtrOutputWithContext(context.Background())
+}
+
+func (i *lbFirewallPtrType) ToLbFirewallPtrOutputWithContext(ctx context.Context) LbFirewallPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LbFirewallPtrOutput)
+}
+
 // An object specifying allow and deny rules to control traffic to the load balancer.
 type LbFirewallOutput struct{ *pulumi.OutputState }
 
@@ -411,6 +604,16 @@ func (o LbFirewallOutput) ToLbFirewallOutput() LbFirewallOutput {
 
 func (o LbFirewallOutput) ToLbFirewallOutputWithContext(ctx context.Context) LbFirewallOutput {
 	return o
+}
+
+func (o LbFirewallOutput) ToLbFirewallPtrOutput() LbFirewallPtrOutput {
+	return o.ToLbFirewallPtrOutputWithContext(context.Background())
+}
+
+func (o LbFirewallOutput) ToLbFirewallPtrOutputWithContext(ctx context.Context) LbFirewallPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LbFirewall) *LbFirewall {
+		return &v
+	}).(LbFirewallPtrOutput)
 }
 
 // the rules for allowing traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
@@ -468,9 +671,9 @@ func (o LbFirewallPtrOutput) Deny() pulumi.StringArrayOutput {
 }
 
 type ListLoadBalancersItems struct {
-	Links         *PageLinks     `pulumi:"links"`
-	LoadBalancers []LoadBalancer `pulumi:"loadBalancers"`
-	Meta          MetaMeta       `pulumi:"meta"`
+	Links         *PageLinks         `pulumi:"links"`
+	LoadBalancers []LoadBalancerType `pulumi:"loadBalancers"`
+	Meta          MetaMeta           `pulumi:"meta"`
 }
 
 type ListLoadBalancersItemsOutput struct{ *pulumi.OutputState }
@@ -491,15 +694,15 @@ func (o ListLoadBalancersItemsOutput) Links() PageLinksPtrOutput {
 	return o.ApplyT(func(v ListLoadBalancersItems) *PageLinks { return v.Links }).(PageLinksPtrOutput)
 }
 
-func (o ListLoadBalancersItemsOutput) LoadBalancers() LoadBalancerArrayOutput {
-	return o.ApplyT(func(v ListLoadBalancersItems) []LoadBalancer { return v.LoadBalancers }).(LoadBalancerArrayOutput)
+func (o ListLoadBalancersItemsOutput) LoadBalancers() LoadBalancerTypeArrayOutput {
+	return o.ApplyT(func(v ListLoadBalancersItems) []LoadBalancerType { return v.LoadBalancers }).(LoadBalancerTypeArrayOutput)
 }
 
 func (o ListLoadBalancersItemsOutput) Meta() MetaMetaOutput {
 	return o.ApplyT(func(v ListLoadBalancersItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-type LoadBalancer struct {
+type LoadBalancerType struct {
 	// This field has been deprecated. You can no longer specify an algorithm for load balancers.
 	Algorithm *LoadBalancerBaseAlgorithm `pulumi:"algorithm"`
 	// A time value given in ISO8601 combined date and time format that represents when the load balancer was created.
@@ -547,8 +750,8 @@ type LoadBalancer struct {
 	VpcUuid *string `pulumi:"vpcUuid"`
 }
 
-// Defaults sets the appropriate defaults for LoadBalancer
-func (val *LoadBalancer) Defaults() *LoadBalancer {
+// Defaults sets the appropriate defaults for LoadBalancerType
+func (val *LoadBalancerType) Defaults() *LoadBalancerType {
 	if val == nil {
 		return nil
 	}
@@ -592,88 +795,88 @@ func (val *LoadBalancer) Defaults() *LoadBalancer {
 	return &tmp
 }
 
-type LoadBalancerOutput struct{ *pulumi.OutputState }
+type LoadBalancerTypeOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancer)(nil)).Elem()
+func (LoadBalancerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerType)(nil)).Elem()
 }
 
-func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
+func (o LoadBalancerTypeOutput) ToLoadBalancerTypeOutput() LoadBalancerTypeOutput {
 	return o
 }
 
-func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
+func (o LoadBalancerTypeOutput) ToLoadBalancerTypeOutputWithContext(ctx context.Context) LoadBalancerTypeOutput {
 	return o
 }
 
 // This field has been deprecated. You can no longer specify an algorithm for load balancers.
-func (o LoadBalancerOutput) Algorithm() LoadBalancerBaseAlgorithmPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *LoadBalancerBaseAlgorithm { return v.Algorithm }).(LoadBalancerBaseAlgorithmPtrOutput)
+func (o LoadBalancerTypeOutput) Algorithm() LoadBalancerBaseAlgorithmPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *LoadBalancerBaseAlgorithm { return v.Algorithm }).(LoadBalancerBaseAlgorithmPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the load balancer was created.
-func (o LoadBalancerOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
-func (o LoadBalancerOutput) DisableLetsEncryptDnsRecords() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *bool { return v.DisableLetsEncryptDnsRecords }).(pulumi.BoolPtrOutput)
+func (o LoadBalancerTypeOutput) DisableLetsEncryptDnsRecords() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *bool { return v.DisableLetsEncryptDnsRecords }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
-func (o LoadBalancerOutput) EnableBackendKeepalive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *bool { return v.EnableBackendKeepalive }).(pulumi.BoolPtrOutput)
+func (o LoadBalancerTypeOutput) EnableBackendKeepalive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *bool { return v.EnableBackendKeepalive }).(pulumi.BoolPtrOutput)
 }
 
 // A boolean value indicating whether PROXY Protocol is in use.
-func (o LoadBalancerOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *bool { return v.EnableProxyProtocol }).(pulumi.BoolPtrOutput)
+func (o LoadBalancerTypeOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *bool { return v.EnableProxyProtocol }).(pulumi.BoolPtrOutput)
 }
 
 // An object specifying allow and deny rules to control traffic to the load balancer.
-func (o LoadBalancerOutput) Firewall() LbFirewallPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *LbFirewall { return v.Firewall }).(LbFirewallPtrOutput)
+func (o LoadBalancerTypeOutput) Firewall() LbFirewallPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *LbFirewall { return v.Firewall }).(LbFirewallPtrOutput)
 }
 
 // An array of objects specifying the forwarding rules for a load balancer.
-func (o LoadBalancerOutput) ForwardingRules() ForwardingRuleArrayOutput {
-	return o.ApplyT(func(v LoadBalancer) []ForwardingRule { return v.ForwardingRules }).(ForwardingRuleArrayOutput)
+func (o LoadBalancerTypeOutput) ForwardingRules() ForwardingRuleArrayOutput {
+	return o.ApplyT(func(v LoadBalancerType) []ForwardingRule { return v.ForwardingRules }).(ForwardingRuleArrayOutput)
 }
 
 // An object specifying health check settings for the load balancer.
-func (o LoadBalancerOutput) HealthCheck() HealthCheckPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *HealthCheck { return v.HealthCheck }).(HealthCheckPtrOutput)
+func (o LoadBalancerTypeOutput) HealthCheck() HealthCheckPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *HealthCheck { return v.HealthCheck }).(HealthCheckPtrOutput)
 }
 
 // An integer value which configures the idle timeout for HTTP requests to the target droplets.
-func (o LoadBalancerOutput) HttpIdleTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *int { return v.HttpIdleTimeoutSeconds }).(pulumi.IntPtrOutput)
+func (o LoadBalancerTypeOutput) HttpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *int { return v.HttpIdleTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // A unique ID that can be used to identify and reference a load balancer.
-func (o LoadBalancerOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // An attribute containing the public-facing IP address of the load balancer.
-func (o LoadBalancerOutput) Ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.Ip }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
 // A human-readable name for a load balancer instance.
-func (o LoadBalancerOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.
-func (o LoadBalancerOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
 // A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.
-func (o LoadBalancerOutput) RedirectHttpToHttps() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *bool { return v.RedirectHttpToHttps }).(pulumi.BoolPtrOutput)
+func (o LoadBalancerTypeOutput) RedirectHttpToHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *bool { return v.RedirectHttpToHttps }).(pulumi.BoolPtrOutput)
 }
 
 // This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.
@@ -682,62 +885,62 @@ func (o LoadBalancerOutput) RedirectHttpToHttps() pulumi.BoolPtrOutput {
 // * `lb-large` = 6 nodes
 //
 // You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
-func (o LoadBalancerOutput) Size() LoadBalancerBaseSizePtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *LoadBalancerBaseSize { return v.Size }).(LoadBalancerBaseSizePtrOutput)
+func (o LoadBalancerTypeOutput) Size() LoadBalancerBaseSizePtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *LoadBalancerBaseSize { return v.Size }).(LoadBalancerBaseSizePtrOutput)
 }
 
 // How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.
-func (o LoadBalancerOutput) SizeUnit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *int { return v.SizeUnit }).(pulumi.IntPtrOutput)
+func (o LoadBalancerTypeOutput) SizeUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *int { return v.SizeUnit }).(pulumi.IntPtrOutput)
 }
 
 // A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.
-func (o LoadBalancerOutput) Status() LoadBalancerBaseStatusPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *LoadBalancerBaseStatus { return v.Status }).(LoadBalancerBaseStatusPtrOutput)
+func (o LoadBalancerTypeOutput) Status() LoadBalancerBaseStatusPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *LoadBalancerBaseStatus { return v.Status }).(LoadBalancerBaseStatusPtrOutput)
 }
 
 // An object specifying sticky sessions settings for the load balancer.
-func (o LoadBalancerOutput) StickySessions() StickySessionsPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *StickySessions { return v.StickySessions }).(StickySessionsPtrOutput)
+func (o LoadBalancerTypeOutput) StickySessions() StickySessionsPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *StickySessions { return v.StickySessions }).(StickySessionsPtrOutput)
 }
 
 // The name of a Droplet tag corresponding to Droplets assigned to the load balancer.
-func (o LoadBalancerOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.Tag }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
 // A string specifying the UUID of the VPC to which the load balancer is assigned.
-func (o LoadBalancerOutput) VpcUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancer) *string { return v.VpcUuid }).(pulumi.StringPtrOutput)
+func (o LoadBalancerTypeOutput) VpcUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerType) *string { return v.VpcUuid }).(pulumi.StringPtrOutput)
 }
 
-type LoadBalancerPtrOutput struct{ *pulumi.OutputState }
+type LoadBalancerTypePtrOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoadBalancer)(nil)).Elem()
+func (LoadBalancerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerType)(nil)).Elem()
 }
 
-func (o LoadBalancerPtrOutput) ToLoadBalancerPtrOutput() LoadBalancerPtrOutput {
+func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
 	return o
 }
 
-func (o LoadBalancerPtrOutput) ToLoadBalancerPtrOutputWithContext(ctx context.Context) LoadBalancerPtrOutput {
+func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
 	return o
 }
 
-func (o LoadBalancerPtrOutput) Elem() LoadBalancerOutput {
-	return o.ApplyT(func(v *LoadBalancer) LoadBalancer {
+func (o LoadBalancerTypePtrOutput) Elem() LoadBalancerTypeOutput {
+	return o.ApplyT(func(v *LoadBalancerType) LoadBalancerType {
 		if v != nil {
 			return *v
 		}
-		var ret LoadBalancer
+		var ret LoadBalancerType
 		return ret
-	}).(LoadBalancerOutput)
+	}).(LoadBalancerTypeOutput)
 }
 
 // This field has been deprecated. You can no longer specify an algorithm for load balancers.
-func (o LoadBalancerPtrOutput) Algorithm() LoadBalancerBaseAlgorithmPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *LoadBalancerBaseAlgorithm {
+func (o LoadBalancerTypePtrOutput) Algorithm() LoadBalancerBaseAlgorithmPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *LoadBalancerBaseAlgorithm {
 		if v == nil {
 			return nil
 		}
@@ -746,8 +949,8 @@ func (o LoadBalancerPtrOutput) Algorithm() LoadBalancerBaseAlgorithmPtrOutput {
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the load balancer was created.
-func (o LoadBalancerPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -756,8 +959,8 @@ func (o LoadBalancerPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 }
 
 // A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
-func (o LoadBalancerPtrOutput) DisableLetsEncryptDnsRecords() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *bool {
+func (o LoadBalancerTypePtrOutput) DisableLetsEncryptDnsRecords() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -766,8 +969,8 @@ func (o LoadBalancerPtrOutput) DisableLetsEncryptDnsRecords() pulumi.BoolPtrOutp
 }
 
 // A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
-func (o LoadBalancerPtrOutput) EnableBackendKeepalive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *bool {
+func (o LoadBalancerTypePtrOutput) EnableBackendKeepalive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -776,8 +979,8 @@ func (o LoadBalancerPtrOutput) EnableBackendKeepalive() pulumi.BoolPtrOutput {
 }
 
 // A boolean value indicating whether PROXY Protocol is in use.
-func (o LoadBalancerPtrOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *bool {
+func (o LoadBalancerTypePtrOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -786,8 +989,8 @@ func (o LoadBalancerPtrOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
 }
 
 // An object specifying allow and deny rules to control traffic to the load balancer.
-func (o LoadBalancerPtrOutput) Firewall() LbFirewallPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *LbFirewall {
+func (o LoadBalancerTypePtrOutput) Firewall() LbFirewallPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *LbFirewall {
 		if v == nil {
 			return nil
 		}
@@ -796,8 +999,8 @@ func (o LoadBalancerPtrOutput) Firewall() LbFirewallPtrOutput {
 }
 
 // An array of objects specifying the forwarding rules for a load balancer.
-func (o LoadBalancerPtrOutput) ForwardingRules() ForwardingRuleArrayOutput {
-	return o.ApplyT(func(v *LoadBalancer) []ForwardingRule {
+func (o LoadBalancerTypePtrOutput) ForwardingRules() ForwardingRuleArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerType) []ForwardingRule {
 		if v == nil {
 			return nil
 		}
@@ -806,8 +1009,8 @@ func (o LoadBalancerPtrOutput) ForwardingRules() ForwardingRuleArrayOutput {
 }
 
 // An object specifying health check settings for the load balancer.
-func (o LoadBalancerPtrOutput) HealthCheck() HealthCheckPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *HealthCheck {
+func (o LoadBalancerTypePtrOutput) HealthCheck() HealthCheckPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *HealthCheck {
 		if v == nil {
 			return nil
 		}
@@ -816,8 +1019,8 @@ func (o LoadBalancerPtrOutput) HealthCheck() HealthCheckPtrOutput {
 }
 
 // An integer value which configures the idle timeout for HTTP requests to the target droplets.
-func (o LoadBalancerPtrOutput) HttpIdleTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *int {
+func (o LoadBalancerTypePtrOutput) HttpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *int {
 		if v == nil {
 			return nil
 		}
@@ -826,8 +1029,8 @@ func (o LoadBalancerPtrOutput) HttpIdleTimeoutSeconds() pulumi.IntPtrOutput {
 }
 
 // A unique ID that can be used to identify and reference a load balancer.
-func (o LoadBalancerPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -836,8 +1039,8 @@ func (o LoadBalancerPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // An attribute containing the public-facing IP address of the load balancer.
-func (o LoadBalancerPtrOutput) Ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -846,8 +1049,8 @@ func (o LoadBalancerPtrOutput) Ip() pulumi.StringPtrOutput {
 }
 
 // A human-readable name for a load balancer instance.
-func (o LoadBalancerPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -856,8 +1059,8 @@ func (o LoadBalancerPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.
-func (o LoadBalancerPtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -866,8 +1069,8 @@ func (o LoadBalancerPtrOutput) ProjectId() pulumi.StringPtrOutput {
 }
 
 // A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.
-func (o LoadBalancerPtrOutput) RedirectHttpToHttps() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *bool {
+func (o LoadBalancerTypePtrOutput) RedirectHttpToHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -881,8 +1084,8 @@ func (o LoadBalancerPtrOutput) RedirectHttpToHttps() pulumi.BoolPtrOutput {
 // * `lb-large` = 6 nodes
 //
 // You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
-func (o LoadBalancerPtrOutput) Size() LoadBalancerBaseSizePtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *LoadBalancerBaseSize {
+func (o LoadBalancerTypePtrOutput) Size() LoadBalancerBaseSizePtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *LoadBalancerBaseSize {
 		if v == nil {
 			return nil
 		}
@@ -891,8 +1094,8 @@ func (o LoadBalancerPtrOutput) Size() LoadBalancerBaseSizePtrOutput {
 }
 
 // How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.
-func (o LoadBalancerPtrOutput) SizeUnit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *int {
+func (o LoadBalancerTypePtrOutput) SizeUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *int {
 		if v == nil {
 			return nil
 		}
@@ -901,8 +1104,8 @@ func (o LoadBalancerPtrOutput) SizeUnit() pulumi.IntPtrOutput {
 }
 
 // A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.
-func (o LoadBalancerPtrOutput) Status() LoadBalancerBaseStatusPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *LoadBalancerBaseStatus {
+func (o LoadBalancerTypePtrOutput) Status() LoadBalancerBaseStatusPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *LoadBalancerBaseStatus {
 		if v == nil {
 			return nil
 		}
@@ -911,8 +1114,8 @@ func (o LoadBalancerPtrOutput) Status() LoadBalancerBaseStatusPtrOutput {
 }
 
 // An object specifying sticky sessions settings for the load balancer.
-func (o LoadBalancerPtrOutput) StickySessions() StickySessionsPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *StickySessions {
+func (o LoadBalancerTypePtrOutput) StickySessions() StickySessionsPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *StickySessions {
 		if v == nil {
 			return nil
 		}
@@ -921,8 +1124,8 @@ func (o LoadBalancerPtrOutput) StickySessions() StickySessionsPtrOutput {
 }
 
 // The name of a Droplet tag corresponding to Droplets assigned to the load balancer.
-func (o LoadBalancerPtrOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -931,8 +1134,8 @@ func (o LoadBalancerPtrOutput) Tag() pulumi.StringPtrOutput {
 }
 
 // A string specifying the UUID of the VPC to which the load balancer is assigned.
-func (o LoadBalancerPtrOutput) VpcUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) *string {
+func (o LoadBalancerTypePtrOutput) VpcUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -940,24 +1143,24 @@ func (o LoadBalancerPtrOutput) VpcUuid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type LoadBalancerArrayOutput struct{ *pulumi.OutputState }
+type LoadBalancerTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancer)(nil)).Elem()
+func (LoadBalancerTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerType)(nil)).Elem()
 }
 
-func (o LoadBalancerArrayOutput) ToLoadBalancerArrayOutput() LoadBalancerArrayOutput {
+func (o LoadBalancerTypeArrayOutput) ToLoadBalancerTypeArrayOutput() LoadBalancerTypeArrayOutput {
 	return o
 }
 
-func (o LoadBalancerArrayOutput) ToLoadBalancerArrayOutputWithContext(ctx context.Context) LoadBalancerArrayOutput {
+func (o LoadBalancerTypeArrayOutput) ToLoadBalancerTypeArrayOutputWithContext(ctx context.Context) LoadBalancerTypeArrayOutput {
 	return o
 }
 
-func (o LoadBalancerArrayOutput) Index(i pulumi.IntInput) LoadBalancerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancer {
-		return vs[0].([]LoadBalancer)[vs[1].(int)]
-	}).(LoadBalancerOutput)
+func (o LoadBalancerTypeArrayOutput) Index(i pulumi.IntInput) LoadBalancerTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerType {
+		return vs[0].([]LoadBalancerType)[vs[1].(int)]
+	}).(LoadBalancerTypeOutput)
 }
 
 type LoadBalancerPropertiesRegion struct {
@@ -1172,6 +1375,91 @@ func (val *StickySessions) Defaults() *StickySessions {
 	return &tmp
 }
 
+// StickySessionsInput is an input type that accepts StickySessionsArgs and StickySessionsOutput values.
+// You can construct a concrete instance of `StickySessionsInput` via:
+//
+//	StickySessionsArgs{...}
+type StickySessionsInput interface {
+	pulumi.Input
+
+	ToStickySessionsOutput() StickySessionsOutput
+	ToStickySessionsOutputWithContext(context.Context) StickySessionsOutput
+}
+
+// An object specifying sticky sessions settings for the load balancer.
+type StickySessionsArgs struct {
+	// The name of the cookie sent to the client. This attribute is only returned when using `cookies` for the sticky sessions type.
+	CookieName pulumi.StringPtrInput `pulumi:"cookieName"`
+	// The number of seconds until the cookie set by the load balancer expires. This attribute is only returned when using `cookies` for the sticky sessions type.
+	CookieTtlSeconds pulumi.IntPtrInput `pulumi:"cookieTtlSeconds"`
+	// An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
+	Type StickySessionsTypePtrInput `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for StickySessionsArgs
+func (val *StickySessionsArgs) Defaults() *StickySessionsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.Type == nil {
+		tmp.Type = StickySessionsType("none")
+	}
+	return &tmp
+}
+func (StickySessionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StickySessions)(nil)).Elem()
+}
+
+func (i StickySessionsArgs) ToStickySessionsOutput() StickySessionsOutput {
+	return i.ToStickySessionsOutputWithContext(context.Background())
+}
+
+func (i StickySessionsArgs) ToStickySessionsOutputWithContext(ctx context.Context) StickySessionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StickySessionsOutput)
+}
+
+func (i StickySessionsArgs) ToStickySessionsPtrOutput() StickySessionsPtrOutput {
+	return i.ToStickySessionsPtrOutputWithContext(context.Background())
+}
+
+func (i StickySessionsArgs) ToStickySessionsPtrOutputWithContext(ctx context.Context) StickySessionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StickySessionsOutput).ToStickySessionsPtrOutputWithContext(ctx)
+}
+
+// StickySessionsPtrInput is an input type that accepts StickySessionsArgs, StickySessionsPtr and StickySessionsPtrOutput values.
+// You can construct a concrete instance of `StickySessionsPtrInput` via:
+//
+//	        StickySessionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StickySessionsPtrInput interface {
+	pulumi.Input
+
+	ToStickySessionsPtrOutput() StickySessionsPtrOutput
+	ToStickySessionsPtrOutputWithContext(context.Context) StickySessionsPtrOutput
+}
+
+type stickySessionsPtrType StickySessionsArgs
+
+func StickySessionsPtr(v *StickySessionsArgs) StickySessionsPtrInput {
+	return (*stickySessionsPtrType)(v)
+}
+
+func (*stickySessionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StickySessions)(nil)).Elem()
+}
+
+func (i *stickySessionsPtrType) ToStickySessionsPtrOutput() StickySessionsPtrOutput {
+	return i.ToStickySessionsPtrOutputWithContext(context.Background())
+}
+
+func (i *stickySessionsPtrType) ToStickySessionsPtrOutputWithContext(ctx context.Context) StickySessionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StickySessionsPtrOutput)
+}
+
 // An object specifying sticky sessions settings for the load balancer.
 type StickySessionsOutput struct{ *pulumi.OutputState }
 
@@ -1185,6 +1473,16 @@ func (o StickySessionsOutput) ToStickySessionsOutput() StickySessionsOutput {
 
 func (o StickySessionsOutput) ToStickySessionsOutputWithContext(ctx context.Context) StickySessionsOutput {
 	return o
+}
+
+func (o StickySessionsOutput) ToStickySessionsPtrOutput() StickySessionsPtrOutput {
+	return o.ToStickySessionsPtrOutputWithContext(context.Background())
+}
+
+func (o StickySessionsOutput) ToStickySessionsPtrOutputWithContext(ctx context.Context) StickySessionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StickySessions) *StickySessions {
+		return &v
+	}).(StickySessionsPtrOutput)
 }
 
 // The name of the cookie sent to the client. This attribute is only returned when using `cookies` for the sticky sessions type.
@@ -1259,6 +1557,12 @@ func (o StickySessionsPtrOutput) Type() StickySessionsTypePtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleInput)(nil)).Elem(), ForwardingRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleArrayInput)(nil)).Elem(), ForwardingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckInput)(nil)).Elem(), HealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckPtrInput)(nil)).Elem(), HealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LbFirewallInput)(nil)).Elem(), LbFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LbFirewallPtrInput)(nil)).Elem(), LbFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StickySessionsInput)(nil)).Elem(), StickySessionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StickySessionsPtrInput)(nil)).Elem(), StickySessionsArgs{})
 	pulumi.RegisterOutputType(ForwardingRuleOutput{})
 	pulumi.RegisterOutputType(ForwardingRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerPropertiesOutput{})
@@ -1267,9 +1571,9 @@ func init() {
 	pulumi.RegisterOutputType(LbFirewallOutput{})
 	pulumi.RegisterOutputType(LbFirewallPtrOutput{})
 	pulumi.RegisterOutputType(ListLoadBalancersItemsOutput{})
-	pulumi.RegisterOutputType(LoadBalancerOutput{})
-	pulumi.RegisterOutputType(LoadBalancerPtrOutput{})
-	pulumi.RegisterOutputType(LoadBalancerArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTypeOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTypePtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTypeArrayOutput{})
 	pulumi.RegisterOutputType(MetaMetaOutput{})
 	pulumi.RegisterOutputType(PageLinksOutput{})
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})

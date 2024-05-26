@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { CertificatesArgs } from "./certificates";
-export type Certificates = import("./certificates").Certificates;
-export const Certificates: typeof import("./certificates").Certificates = null as any;
-utilities.lazyLoad(exports, ["Certificates"], () => require("./certificates"));
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
@@ -28,8 +28,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:certificates/v2:Certificates":
-                return new Certificates(name, <any>undefined, { urn })
+            case "digitalocean-native:certificates/v2:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

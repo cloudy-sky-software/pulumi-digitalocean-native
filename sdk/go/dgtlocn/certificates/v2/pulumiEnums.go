@@ -10,90 +10,256 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
-type CertificateState string
+// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
+type CertificateCreateBaseType string
 
 const (
-	CertificateStatePending  = CertificateState("pending")
-	CertificateStateVerified = CertificateState("verified")
-	CertificateStateError    = CertificateState("error")
+	CertificateCreateBaseTypeCustom      = CertificateCreateBaseType("custom")
+	CertificateCreateBaseTypeLetsEncrypt = CertificateCreateBaseType("lets_encrypt")
 )
 
-type CertificateStateOutput struct{ *pulumi.OutputState }
-
-func (CertificateStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateState)(nil)).Elem()
+func (CertificateCreateBaseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCreateBaseType)(nil)).Elem()
 }
 
-func (o CertificateStateOutput) ToCertificateStateOutput() CertificateStateOutput {
+func (e CertificateCreateBaseType) ToCertificateCreateBaseTypeOutput() CertificateCreateBaseTypeOutput {
+	return pulumi.ToOutput(e).(CertificateCreateBaseTypeOutput)
+}
+
+func (e CertificateCreateBaseType) ToCertificateCreateBaseTypeOutputWithContext(ctx context.Context) CertificateCreateBaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CertificateCreateBaseTypeOutput)
+}
+
+func (e CertificateCreateBaseType) ToCertificateCreateBaseTypePtrOutput() CertificateCreateBaseTypePtrOutput {
+	return e.ToCertificateCreateBaseTypePtrOutputWithContext(context.Background())
+}
+
+func (e CertificateCreateBaseType) ToCertificateCreateBaseTypePtrOutputWithContext(ctx context.Context) CertificateCreateBaseTypePtrOutput {
+	return CertificateCreateBaseType(e).ToCertificateCreateBaseTypeOutputWithContext(ctx).ToCertificateCreateBaseTypePtrOutputWithContext(ctx)
+}
+
+func (e CertificateCreateBaseType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateCreateBaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateCreateBaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CertificateCreateBaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CertificateCreateBaseTypeOutput struct{ *pulumi.OutputState }
+
+func (CertificateCreateBaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCreateBaseType)(nil)).Elem()
+}
+
+func (o CertificateCreateBaseTypeOutput) ToCertificateCreateBaseTypeOutput() CertificateCreateBaseTypeOutput {
 	return o
 }
 
-func (o CertificateStateOutput) ToCertificateStateOutputWithContext(ctx context.Context) CertificateStateOutput {
+func (o CertificateCreateBaseTypeOutput) ToCertificateCreateBaseTypeOutputWithContext(ctx context.Context) CertificateCreateBaseTypeOutput {
 	return o
 }
 
-func (o CertificateStateOutput) ToCertificateStatePtrOutput() CertificateStatePtrOutput {
-	return o.ToCertificateStatePtrOutputWithContext(context.Background())
+func (o CertificateCreateBaseTypeOutput) ToCertificateCreateBaseTypePtrOutput() CertificateCreateBaseTypePtrOutput {
+	return o.ToCertificateCreateBaseTypePtrOutputWithContext(context.Background())
 }
 
-func (o CertificateStateOutput) ToCertificateStatePtrOutputWithContext(ctx context.Context) CertificateStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateState) *CertificateState {
+func (o CertificateCreateBaseTypeOutput) ToCertificateCreateBaseTypePtrOutputWithContext(ctx context.Context) CertificateCreateBaseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCreateBaseType) *CertificateCreateBaseType {
 		return &v
-	}).(CertificateStatePtrOutput)
+	}).(CertificateCreateBaseTypePtrOutput)
 }
 
-func (o CertificateStateOutput) ToStringOutput() pulumi.StringOutput {
+func (o CertificateCreateBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CertificateStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateState) string {
+func (o CertificateCreateBaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateCreateBaseType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CertificateStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CertificateCreateBaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateState) *string {
+func (o CertificateCreateBaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateCreateBaseType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CertificateStatePtrOutput struct{ *pulumi.OutputState }
+type CertificateCreateBaseTypePtrOutput struct{ *pulumi.OutputState }
 
-func (CertificateStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateState)(nil)).Elem()
+func (CertificateCreateBaseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCreateBaseType)(nil)).Elem()
 }
 
-func (o CertificateStatePtrOutput) ToCertificateStatePtrOutput() CertificateStatePtrOutput {
+func (o CertificateCreateBaseTypePtrOutput) ToCertificateCreateBaseTypePtrOutput() CertificateCreateBaseTypePtrOutput {
 	return o
 }
 
-func (o CertificateStatePtrOutput) ToCertificateStatePtrOutputWithContext(ctx context.Context) CertificateStatePtrOutput {
+func (o CertificateCreateBaseTypePtrOutput) ToCertificateCreateBaseTypePtrOutputWithContext(ctx context.Context) CertificateCreateBaseTypePtrOutput {
 	return o
 }
 
-func (o CertificateStatePtrOutput) Elem() CertificateStateOutput {
-	return o.ApplyT(func(v *CertificateState) CertificateState {
+func (o CertificateCreateBaseTypePtrOutput) Elem() CertificateCreateBaseTypeOutput {
+	return o.ApplyT(func(v *CertificateCreateBaseType) CertificateCreateBaseType {
 		if v != nil {
 			return *v
 		}
-		var ret CertificateState
+		var ret CertificateCreateBaseType
 		return ret
-	}).(CertificateStateOutput)
+	}).(CertificateCreateBaseTypeOutput)
 }
 
-func (o CertificateStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CertificateCreateBaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateState) *string {
+func (o CertificateCreateBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateCreateBaseType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CertificateCreateBaseTypeInput is an input type that accepts values of the CertificateCreateBaseType enum
+// A concrete instance of `CertificateCreateBaseTypeInput` can be one of the following:
+//
+//	CertificateCreateBaseTypeCustom
+//	CertificateCreateBaseTypeLetsEncrypt
+type CertificateCreateBaseTypeInput interface {
+	pulumi.Input
+
+	ToCertificateCreateBaseTypeOutput() CertificateCreateBaseTypeOutput
+	ToCertificateCreateBaseTypeOutputWithContext(context.Context) CertificateCreateBaseTypeOutput
+}
+
+var certificateCreateBaseTypePtrType = reflect.TypeOf((**CertificateCreateBaseType)(nil)).Elem()
+
+type CertificateCreateBaseTypePtrInput interface {
+	pulumi.Input
+
+	ToCertificateCreateBaseTypePtrOutput() CertificateCreateBaseTypePtrOutput
+	ToCertificateCreateBaseTypePtrOutputWithContext(context.Context) CertificateCreateBaseTypePtrOutput
+}
+
+type certificateCreateBaseTypePtr string
+
+func CertificateCreateBaseTypePtr(v string) CertificateCreateBaseTypePtrInput {
+	return (*certificateCreateBaseTypePtr)(&v)
+}
+
+func (*certificateCreateBaseTypePtr) ElementType() reflect.Type {
+	return certificateCreateBaseTypePtrType
+}
+
+func (in *certificateCreateBaseTypePtr) ToCertificateCreateBaseTypePtrOutput() CertificateCreateBaseTypePtrOutput {
+	return pulumi.ToOutput(in).(CertificateCreateBaseTypePtrOutput)
+}
+
+func (in *certificateCreateBaseTypePtr) ToCertificateCreateBaseTypePtrOutputWithContext(ctx context.Context) CertificateCreateBaseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CertificateCreateBaseTypePtrOutput)
+}
+
+// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
+type CertificateStateEnum string
+
+const (
+	CertificateStateEnumPending  = CertificateStateEnum("pending")
+	CertificateStateEnumVerified = CertificateStateEnum("verified")
+	CertificateStateEnumError    = CertificateStateEnum("error")
+)
+
+type CertificateStateEnumOutput struct{ *pulumi.OutputState }
+
+func (CertificateStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateStateEnum)(nil)).Elem()
+}
+
+func (o CertificateStateEnumOutput) ToCertificateStateEnumOutput() CertificateStateEnumOutput {
+	return o
+}
+
+func (o CertificateStateEnumOutput) ToCertificateStateEnumOutputWithContext(ctx context.Context) CertificateStateEnumOutput {
+	return o
+}
+
+func (o CertificateStateEnumOutput) ToCertificateStateEnumPtrOutput() CertificateStateEnumPtrOutput {
+	return o.ToCertificateStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateStateEnumOutput) ToCertificateStateEnumPtrOutputWithContext(ctx context.Context) CertificateStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateStateEnum) *CertificateStateEnum {
+		return &v
+	}).(CertificateStateEnumPtrOutput)
+}
+
+func (o CertificateStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CertificateStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CertificateStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CertificateStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateStateEnum)(nil)).Elem()
+}
+
+func (o CertificateStateEnumPtrOutput) ToCertificateStateEnumPtrOutput() CertificateStateEnumPtrOutput {
+	return o
+}
+
+func (o CertificateStateEnumPtrOutput) ToCertificateStateEnumPtrOutputWithContext(ctx context.Context) CertificateStateEnumPtrOutput {
+	return o
+}
+
+func (o CertificateStateEnumPtrOutput) Elem() CertificateStateEnumOutput {
+	return o.ApplyT(func(v *CertificateStateEnum) CertificateStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateStateEnum
+		return ret
+	}).(CertificateStateEnumOutput)
+}
+
+func (o CertificateStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateStateEnum) *string {
 		if e == nil {
 			return nil
 		}
@@ -103,88 +269,88 @@ func (o CertificateStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 }
 
 // A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
-type CertificateType string
+type CertificateTypeEnum string
 
 const (
-	CertificateTypeCustom      = CertificateType("custom")
-	CertificateTypeLetsEncrypt = CertificateType("lets_encrypt")
+	CertificateTypeEnumCustom      = CertificateTypeEnum("custom")
+	CertificateTypeEnumLetsEncrypt = CertificateTypeEnum("lets_encrypt")
 )
 
-type CertificateTypeOutput struct{ *pulumi.OutputState }
+type CertificateTypeEnumOutput struct{ *pulumi.OutputState }
 
-func (CertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
+func (CertificateTypeEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTypeEnum)(nil)).Elem()
 }
 
-func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
+func (o CertificateTypeEnumOutput) ToCertificateTypeEnumOutput() CertificateTypeEnumOutput {
 	return o
 }
 
-func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
+func (o CertificateTypeEnumOutput) ToCertificateTypeEnumOutputWithContext(ctx context.Context) CertificateTypeEnumOutput {
 	return o
 }
 
-func (o CertificateTypeOutput) ToCertificateTypePtrOutput() CertificateTypePtrOutput {
-	return o.ToCertificateTypePtrOutputWithContext(context.Background())
+func (o CertificateTypeEnumOutput) ToCertificateTypeEnumPtrOutput() CertificateTypeEnumPtrOutput {
+	return o.ToCertificateTypeEnumPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateTypeOutput) ToCertificateTypePtrOutputWithContext(ctx context.Context) CertificateTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateType) *CertificateType {
+func (o CertificateTypeEnumOutput) ToCertificateTypeEnumPtrOutputWithContext(ctx context.Context) CertificateTypeEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateTypeEnum) *CertificateTypeEnum {
 		return &v
-	}).(CertificateTypePtrOutput)
+	}).(CertificateTypeEnumPtrOutput)
 }
 
-func (o CertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o CertificateTypeEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CertificateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateType) string {
+func (o CertificateTypeEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateTypeEnum) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CertificateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CertificateTypeEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateType) *string {
+func (o CertificateTypeEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateTypeEnum) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CertificateTypePtrOutput struct{ *pulumi.OutputState }
+type CertificateTypeEnumPtrOutput struct{ *pulumi.OutputState }
 
-func (CertificateTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateType)(nil)).Elem()
+func (CertificateTypeEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateTypeEnum)(nil)).Elem()
 }
 
-func (o CertificateTypePtrOutput) ToCertificateTypePtrOutput() CertificateTypePtrOutput {
+func (o CertificateTypeEnumPtrOutput) ToCertificateTypeEnumPtrOutput() CertificateTypeEnumPtrOutput {
 	return o
 }
 
-func (o CertificateTypePtrOutput) ToCertificateTypePtrOutputWithContext(ctx context.Context) CertificateTypePtrOutput {
+func (o CertificateTypeEnumPtrOutput) ToCertificateTypeEnumPtrOutputWithContext(ctx context.Context) CertificateTypeEnumPtrOutput {
 	return o
 }
 
-func (o CertificateTypePtrOutput) Elem() CertificateTypeOutput {
-	return o.ApplyT(func(v *CertificateType) CertificateType {
+func (o CertificateTypeEnumPtrOutput) Elem() CertificateTypeEnumOutput {
+	return o.ApplyT(func(v *CertificateTypeEnum) CertificateTypeEnum {
 		if v != nil {
 			return *v
 		}
-		var ret CertificateType
+		var ret CertificateTypeEnum
 		return ret
-	}).(CertificateTypeOutput)
+	}).(CertificateTypeEnumOutput)
 }
 
-func (o CertificateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CertificateTypeEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateType) *string {
+func (o CertificateTypeEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateTypeEnum) *string {
 		if e == nil {
 			return nil
 		}
@@ -194,8 +360,12 @@ func (o CertificateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 }
 
 func init() {
-	pulumi.RegisterOutputType(CertificateStateOutput{})
-	pulumi.RegisterOutputType(CertificateStatePtrOutput{})
-	pulumi.RegisterOutputType(CertificateTypeOutput{})
-	pulumi.RegisterOutputType(CertificateTypePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCreateBaseTypeInput)(nil)).Elem(), CertificateCreateBaseType("custom"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCreateBaseTypePtrInput)(nil)).Elem(), CertificateCreateBaseType("custom"))
+	pulumi.RegisterOutputType(CertificateCreateBaseTypeOutput{})
+	pulumi.RegisterOutputType(CertificateCreateBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(CertificateStateEnumOutput{})
+	pulumi.RegisterOutputType(CertificateStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(CertificateTypeEnumOutput{})
+	pulumi.RegisterOutputType(CertificateTypeEnumPtrOutput{})
 }

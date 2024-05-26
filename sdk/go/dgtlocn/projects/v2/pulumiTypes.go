@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetProjectProperties struct {
-	Project *Project `pulumi:"project"`
+	Project *ProjectType `pulumi:"project"`
 }
 
 type GetProjectPropertiesOutput struct{ *pulumi.OutputState }
@@ -31,12 +31,12 @@ func (o GetProjectPropertiesOutput) ToGetProjectPropertiesOutputWithContext(ctx 
 	return o
 }
 
-func (o GetProjectPropertiesOutput) Project() ProjectPtrOutput {
-	return o.ApplyT(func(v GetProjectProperties) *Project { return v.Project }).(ProjectPtrOutput)
+func (o GetProjectPropertiesOutput) Project() ProjectTypePtrOutput {
+	return o.ApplyT(func(v GetProjectProperties) *ProjectType { return v.Project }).(ProjectTypePtrOutput)
 }
 
 type GetProjectsDefaultProperties struct {
-	Project *Project `pulumi:"project"`
+	Project *ProjectType `pulumi:"project"`
 }
 
 type GetProjectsDefaultPropertiesOutput struct{ *pulumi.OutputState }
@@ -53,14 +53,14 @@ func (o GetProjectsDefaultPropertiesOutput) ToGetProjectsDefaultPropertiesOutput
 	return o
 }
 
-func (o GetProjectsDefaultPropertiesOutput) Project() ProjectPtrOutput {
-	return o.ApplyT(func(v GetProjectsDefaultProperties) *Project { return v.Project }).(ProjectPtrOutput)
+func (o GetProjectsDefaultPropertiesOutput) Project() ProjectTypePtrOutput {
+	return o.ApplyT(func(v GetProjectsDefaultProperties) *ProjectType { return v.Project }).(ProjectTypePtrOutput)
 }
 
 type ListProjectsItems struct {
-	Links    *PageLinks `pulumi:"links"`
-	Meta     MetaMeta   `pulumi:"meta"`
-	Projects []Project  `pulumi:"projects"`
+	Links    *PageLinks    `pulumi:"links"`
+	Meta     MetaMeta      `pulumi:"meta"`
+	Projects []ProjectType `pulumi:"projects"`
 }
 
 type ListProjectsItemsOutput struct{ *pulumi.OutputState }
@@ -85,8 +85,8 @@ func (o ListProjectsItemsOutput) Meta() MetaMetaOutput {
 	return o.ApplyT(func(v ListProjectsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListProjectsItemsOutput) Projects() ProjectArrayOutput {
-	return o.ApplyT(func(v ListProjectsItems) []Project { return v.Projects }).(ProjectArrayOutput)
+func (o ListProjectsItemsOutput) Projects() ProjectTypeArrayOutput {
+	return o.ApplyT(func(v ListProjectsItems) []ProjectType { return v.Projects }).(ProjectTypeArrayOutput)
 }
 
 type ListProjectsResourcesDefaultItems struct {
@@ -329,7 +329,7 @@ func (o PageLinksPagesPropertiesPtrOutput) Prev() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type Project struct {
+type ProjectType struct {
 	// A time value given in ISO8601 combined date and time format that represents when the project was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the project. The maximum length is 255 characters.
@@ -366,58 +366,58 @@ type Project struct {
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
-type ProjectOutput struct{ *pulumi.OutputState }
+type ProjectTypeOutput struct{ *pulumi.OutputState }
 
-func (ProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Project)(nil)).Elem()
+func (ProjectTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectType)(nil)).Elem()
 }
 
-func (o ProjectOutput) ToProjectOutput() ProjectOutput {
+func (o ProjectTypeOutput) ToProjectTypeOutput() ProjectTypeOutput {
 	return o
 }
 
-func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
+func (o ProjectTypeOutput) ToProjectTypeOutputWithContext(ctx context.Context) ProjectTypeOutput {
 	return o
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the project was created.
-func (o ProjectOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The description of the project. The maximum length is 255 characters.
-func (o ProjectOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The environment of the project's resources.
-func (o ProjectOutput) Environment() ProjectBaseEnvironmentPtrOutput {
-	return o.ApplyT(func(v Project) *ProjectBaseEnvironment { return v.Environment }).(ProjectBaseEnvironmentPtrOutput)
+func (o ProjectTypeOutput) Environment() ProjectBaseEnvironmentPtrOutput {
+	return o.ApplyT(func(v ProjectType) *ProjectBaseEnvironment { return v.Environment }).(ProjectBaseEnvironmentPtrOutput)
 }
 
 // The unique universal identifier of this project.
-func (o ProjectOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // If true, all resources will be added to this project if no project is specified.
-func (o ProjectOutput) IsDefault() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Project) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+func (o ProjectTypeOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectType) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
 }
 
 // The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
-func (o ProjectOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The integer id of the project owner.
-func (o ProjectOutput) OwnerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Project) *int { return v.OwnerId }).(pulumi.IntPtrOutput)
+func (o ProjectTypeOutput) OwnerId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectType) *int { return v.OwnerId }).(pulumi.IntPtrOutput)
 }
 
 // The unique universal identifier of the project owner.
-func (o ProjectOutput) OwnerUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.OwnerUuid }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) OwnerUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.OwnerUuid }).(pulumi.StringPtrOutput)
 }
 
 // The purpose of the project. The maximum length is 255 characters. It can
@@ -435,42 +435,42 @@ func (o ProjectOutput) OwnerUuid() pulumi.StringPtrOutput {
 //
 // If another value for purpose is specified, for example, "your custom purpose",
 // your purpose will be stored as `Other: your custom purpose`.
-func (o ProjectOutput) Purpose() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.Purpose }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) Purpose() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.Purpose }).(pulumi.StringPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the project was updated.
-func (o ProjectOutput) UpdatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Project) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+func (o ProjectTypeOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectType) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
-type ProjectPtrOutput struct{ *pulumi.OutputState }
+type ProjectTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ProjectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Project)(nil)).Elem()
+func (ProjectTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectType)(nil)).Elem()
 }
 
-func (o ProjectPtrOutput) ToProjectPtrOutput() ProjectPtrOutput {
+func (o ProjectTypePtrOutput) ToProjectTypePtrOutput() ProjectTypePtrOutput {
 	return o
 }
 
-func (o ProjectPtrOutput) ToProjectPtrOutputWithContext(ctx context.Context) ProjectPtrOutput {
+func (o ProjectTypePtrOutput) ToProjectTypePtrOutputWithContext(ctx context.Context) ProjectTypePtrOutput {
 	return o
 }
 
-func (o ProjectPtrOutput) Elem() ProjectOutput {
-	return o.ApplyT(func(v *Project) Project {
+func (o ProjectTypePtrOutput) Elem() ProjectTypeOutput {
+	return o.ApplyT(func(v *ProjectType) ProjectType {
 		if v != nil {
 			return *v
 		}
-		var ret Project
+		var ret ProjectType
 		return ret
-	}).(ProjectOutput)
+	}).(ProjectTypeOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the project was created.
-func (o ProjectPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -479,8 +479,8 @@ func (o ProjectPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 }
 
 // The description of the project. The maximum length is 255 characters.
-func (o ProjectPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -489,8 +489,8 @@ func (o ProjectPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The environment of the project's resources.
-func (o ProjectPtrOutput) Environment() ProjectBaseEnvironmentPtrOutput {
-	return o.ApplyT(func(v *Project) *ProjectBaseEnvironment {
+func (o ProjectTypePtrOutput) Environment() ProjectBaseEnvironmentPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *ProjectBaseEnvironment {
 		if v == nil {
 			return nil
 		}
@@ -499,8 +499,8 @@ func (o ProjectPtrOutput) Environment() ProjectBaseEnvironmentPtrOutput {
 }
 
 // The unique universal identifier of this project.
-func (o ProjectPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -509,8 +509,8 @@ func (o ProjectPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // If true, all resources will be added to this project if no project is specified.
-func (o ProjectPtrOutput) IsDefault() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Project) *bool {
+func (o ProjectTypePtrOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -519,8 +519,8 @@ func (o ProjectPtrOutput) IsDefault() pulumi.BoolPtrOutput {
 }
 
 // The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
-func (o ProjectPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -529,8 +529,8 @@ func (o ProjectPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The integer id of the project owner.
-func (o ProjectPtrOutput) OwnerId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Project) *int {
+func (o ProjectTypePtrOutput) OwnerId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *int {
 		if v == nil {
 			return nil
 		}
@@ -539,8 +539,8 @@ func (o ProjectPtrOutput) OwnerId() pulumi.IntPtrOutput {
 }
 
 // The unique universal identifier of the project owner.
-func (o ProjectPtrOutput) OwnerUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) OwnerUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -563,8 +563,8 @@ func (o ProjectPtrOutput) OwnerUuid() pulumi.StringPtrOutput {
 //
 // If another value for purpose is specified, for example, "your custom purpose",
 // your purpose will be stored as `Other: your custom purpose`.
-func (o ProjectPtrOutput) Purpose() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) Purpose() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -573,8 +573,8 @@ func (o ProjectPtrOutput) Purpose() pulumi.StringPtrOutput {
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the project was updated.
-func (o ProjectPtrOutput) UpdatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) *string {
+func (o ProjectTypePtrOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectType) *string {
 		if v == nil {
 			return nil
 		}
@@ -582,24 +582,24 @@ func (o ProjectPtrOutput) UpdatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ProjectArrayOutput struct{ *pulumi.OutputState }
+type ProjectTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ProjectArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Project)(nil)).Elem()
+func (ProjectTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectType)(nil)).Elem()
 }
 
-func (o ProjectArrayOutput) ToProjectArrayOutput() ProjectArrayOutput {
+func (o ProjectTypeArrayOutput) ToProjectTypeArrayOutput() ProjectTypeArrayOutput {
 	return o
 }
 
-func (o ProjectArrayOutput) ToProjectArrayOutputWithContext(ctx context.Context) ProjectArrayOutput {
+func (o ProjectTypeArrayOutput) ToProjectTypeArrayOutputWithContext(ctx context.Context) ProjectTypeArrayOutput {
 	return o
 }
 
-func (o ProjectArrayOutput) Index(i pulumi.IntInput) ProjectOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Project {
-		return vs[0].([]Project)[vs[1].(int)]
-	}).(ProjectOutput)
+func (o ProjectTypeArrayOutput) Index(i pulumi.IntInput) ProjectTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectType {
+		return vs[0].([]ProjectType)[vs[1].(int)]
+	}).(ProjectTypeOutput)
 }
 
 type Resource struct {
@@ -738,9 +738,9 @@ func init() {
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ProjectOutput{})
-	pulumi.RegisterOutputType(ProjectPtrOutput{})
-	pulumi.RegisterOutputType(ProjectArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTypeOutput{})
+	pulumi.RegisterOutputType(ProjectTypePtrOutput{})
+	pulumi.RegisterOutputType(ProjectTypeArrayOutput{})
 	pulumi.RegisterOutputType(ResourceOutput{})
 	pulumi.RegisterOutputType(ResourceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceLinksPropertiesOutput{})

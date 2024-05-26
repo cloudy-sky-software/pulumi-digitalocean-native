@@ -1336,6 +1336,95 @@ export namespace load_balancers {
             tlsPassthrough?: pulumi.Input<boolean>;
         }
 
+        /**
+         * An object specifying health check settings for the load balancer.
+         */
+        export interface HealthCheckArgs {
+            /**
+             * The number of seconds between between two consecutive health checks.
+             */
+            checkIntervalSeconds?: pulumi.Input<number>;
+            /**
+             * The number of times a health check must pass for a backend Droplet to be marked "healthy" and be re-added to the pool.
+             */
+            healthyThreshold?: pulumi.Input<number>;
+            /**
+             * The path on the backend Droplets to which the load balancer instance will send a request.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * An integer representing the port on the backend Droplets on which the health check will attempt a connection.
+             */
+            port?: pulumi.Input<number>;
+            /**
+             * The protocol used for health checks sent to the backend Droplets. The possible values are `http`, `https`, or `tcp`.
+             */
+            protocol?: pulumi.Input<enums.load_balancers.v2.HealthCheckProtocol>;
+            /**
+             * The number of seconds the load balancer instance will wait for a response until marking a health check as failed.
+             */
+            responseTimeoutSeconds?: pulumi.Input<number>;
+            /**
+             * The number of times a health check must fail for a backend Droplet to be marked "unhealthy" and be removed from the pool.
+             */
+            unhealthyThreshold?: pulumi.Input<number>;
+        }
+        /**
+         * healthCheckArgsProvideDefaults sets the appropriate defaults for HealthCheckArgs
+         */
+        export function healthCheckArgsProvideDefaults(val: HealthCheckArgs): HealthCheckArgs {
+            return {
+                ...val,
+                checkIntervalSeconds: (val.checkIntervalSeconds) ?? 10,
+                healthyThreshold: (val.healthyThreshold) ?? 3,
+                path: (val.path) ?? "/",
+                port: (val.port) ?? 80,
+                protocol: (val.protocol) ?? "http",
+                responseTimeoutSeconds: (val.responseTimeoutSeconds) ?? 5,
+                unhealthyThreshold: (val.unhealthyThreshold) ?? 5,
+            };
+        }
+
+        /**
+         * An object specifying allow and deny rules to control traffic to the load balancer.
+         */
+        export interface LbFirewallArgs {
+            /**
+             * the rules for allowing traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+             */
+            allow?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * the rules for denying traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+             */
+            deny?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * An object specifying sticky sessions settings for the load balancer.
+         */
+        export interface StickySessionsArgs {
+            /**
+             * The name of the cookie sent to the client. This attribute is only returned when using `cookies` for the sticky sessions type.
+             */
+            cookieName?: pulumi.Input<string>;
+            /**
+             * The number of seconds until the cookie set by the load balancer expires. This attribute is only returned when using `cookies` for the sticky sessions type.
+             */
+            cookieTtlSeconds?: pulumi.Input<number>;
+            /**
+             * An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
+             */
+            type?: pulumi.Input<enums.load_balancers.v2.StickySessionsType>;
+        }
+        /**
+         * stickySessionsArgsProvideDefaults sets the appropriate defaults for StickySessionsArgs
+         */
+        export function stickySessionsArgsProvideDefaults(val: StickySessionsArgs): StickySessionsArgs {
+            return {
+                ...val,
+                type: (val.type) ?? "none",
+            };
+        }
     }
 }
 

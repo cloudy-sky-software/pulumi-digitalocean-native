@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetTag(ctx *pulumi.Context, args *GetTagArgs, opts ...pulumi.InvokeOption) (*GetTagResult, error) {
+func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetTagResult
+	var rv LookupTagResult
 	err := ctx.Invoke("digitalocean-native:tags/v2:getTag", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,55 +21,55 @@ func GetTag(ctx *pulumi.Context, args *GetTagArgs, opts ...pulumi.InvokeOption) 
 	return &rv, nil
 }
 
-type GetTagArgs struct {
+type LookupTagArgs struct {
 	// The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
 	TagId string `pulumi:"tagId"`
 }
 
-type GetTagResult struct {
+type LookupTagResult struct {
 	Items GetTagProperties `pulumi:"items"`
 }
 
-func GetTagOutput(ctx *pulumi.Context, args GetTagOutputArgs, opts ...pulumi.InvokeOption) GetTagResultOutput {
+func LookupTagOutput(ctx *pulumi.Context, args LookupTagOutputArgs, opts ...pulumi.InvokeOption) LookupTagResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTagResult, error) {
-			args := v.(GetTagArgs)
-			r, err := GetTag(ctx, &args, opts...)
-			var s GetTagResult
+		ApplyT(func(v interface{}) (LookupTagResult, error) {
+			args := v.(LookupTagArgs)
+			r, err := LookupTag(ctx, &args, opts...)
+			var s LookupTagResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetTagResultOutput)
+		}).(LookupTagResultOutput)
 }
 
-type GetTagOutputArgs struct {
+type LookupTagOutputArgs struct {
 	// The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
 	TagId pulumi.StringInput `pulumi:"tagId"`
 }
 
-func (GetTagOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTagArgs)(nil)).Elem()
+func (LookupTagOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTagArgs)(nil)).Elem()
 }
 
-type GetTagResultOutput struct{ *pulumi.OutputState }
+type LookupTagResultOutput struct{ *pulumi.OutputState }
 
-func (GetTagResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTagResult)(nil)).Elem()
+func (LookupTagResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTagResult)(nil)).Elem()
 }
 
-func (o GetTagResultOutput) ToGetTagResultOutput() GetTagResultOutput {
+func (o LookupTagResultOutput) ToLookupTagResultOutput() LookupTagResultOutput {
 	return o
 }
 
-func (o GetTagResultOutput) ToGetTagResultOutputWithContext(ctx context.Context) GetTagResultOutput {
+func (o LookupTagResultOutput) ToLookupTagResultOutputWithContext(ctx context.Context) LookupTagResultOutput {
 	return o
 }
 
-func (o GetTagResultOutput) Items() GetTagPropertiesOutput {
-	return o.ApplyT(func(v GetTagResult) GetTagProperties { return v.Items }).(GetTagPropertiesOutput)
+func (o LookupTagResultOutput) Items() GetTagPropertiesOutput {
+	return o.ApplyT(func(v LookupTagResult) GetTagProperties { return v.Items }).(GetTagPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetTagResultOutput{})
+	pulumi.RegisterOutputType(LookupTagResultOutput{})
 }

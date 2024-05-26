@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOption) (*GetDomainResult, error) {
+func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetDomainResult
+	var rv LookupDomainResult
 	err := ctx.Invoke("digitalocean-native:domains/v2:getDomain", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,55 +21,55 @@ func GetDomain(ctx *pulumi.Context, args *GetDomainArgs, opts ...pulumi.InvokeOp
 	return &rv, nil
 }
 
-type GetDomainArgs struct {
+type LookupDomainArgs struct {
 	// The name of the domain itself.
 	DomainName string `pulumi:"domainName"`
 }
 
-type GetDomainResult struct {
+type LookupDomainResult struct {
 	Items GetDomainProperties `pulumi:"items"`
 }
 
-func GetDomainOutput(ctx *pulumi.Context, args GetDomainOutputArgs, opts ...pulumi.InvokeOption) GetDomainResultOutput {
+func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDomainResult, error) {
-			args := v.(GetDomainArgs)
-			r, err := GetDomain(ctx, &args, opts...)
-			var s GetDomainResult
+		ApplyT(func(v interface{}) (LookupDomainResult, error) {
+			args := v.(LookupDomainArgs)
+			r, err := LookupDomain(ctx, &args, opts...)
+			var s LookupDomainResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetDomainResultOutput)
+		}).(LookupDomainResultOutput)
 }
 
-type GetDomainOutputArgs struct {
+type LookupDomainOutputArgs struct {
 	// The name of the domain itself.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
-func (GetDomainOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainArgs)(nil)).Elem()
+func (LookupDomainOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainArgs)(nil)).Elem()
 }
 
-type GetDomainResultOutput struct{ *pulumi.OutputState }
+type LookupDomainResultOutput struct{ *pulumi.OutputState }
 
-func (GetDomainResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainResult)(nil)).Elem()
+func (LookupDomainResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainResult)(nil)).Elem()
 }
 
-func (o GetDomainResultOutput) ToGetDomainResultOutput() GetDomainResultOutput {
+func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResultOutput {
 	return o
 }
 
-func (o GetDomainResultOutput) ToGetDomainResultOutputWithContext(ctx context.Context) GetDomainResultOutput {
+func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
 	return o
 }
 
-func (o GetDomainResultOutput) Items() GetDomainPropertiesOutput {
-	return o.ApplyT(func(v GetDomainResult) GetDomainProperties { return v.Items }).(GetDomainPropertiesOutput)
+func (o LookupDomainResultOutput) Items() GetDomainPropertiesOutput {
+	return o.ApplyT(func(v LookupDomainResult) GetDomainProperties { return v.Items }).(GetDomainPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetDomainResultOutput{})
+	pulumi.RegisterOutputType(LookupDomainResultOutput{})
 }

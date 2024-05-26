@@ -7,7 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .assign import *
-from .floating_ips import *
+from .floating_ip import *
 from .get_floating_ip import *
 from .get_floating_ips_action import *
 from .list_floating_ips import *

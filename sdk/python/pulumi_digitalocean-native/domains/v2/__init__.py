@@ -9,7 +9,7 @@ from .a import *
 from .aaaa import *
 from .caa import *
 from .cname import *
-from .domains import *
+from .domain import *
 from .get_domain import *
 from .get_domains_record import *
 from .list_domains import *

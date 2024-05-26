@@ -209,6 +209,49 @@ namespace Pulumi.DigitalOceanNative.LoadBalancersV2
     }
 
     /// <summary>
+    /// The slug identifier for the region where the resource will initially be  available.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoadBalancerPropertiesRegionEnum : IEquatable<LoadBalancerPropertiesRegionEnum>
+    {
+        private readonly string _value;
+
+        private LoadBalancerPropertiesRegionEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoadBalancerPropertiesRegionEnum Ams1 { get; } = new LoadBalancerPropertiesRegionEnum("ams1");
+        public static LoadBalancerPropertiesRegionEnum Ams2 { get; } = new LoadBalancerPropertiesRegionEnum("ams2");
+        public static LoadBalancerPropertiesRegionEnum Ams3 { get; } = new LoadBalancerPropertiesRegionEnum("ams3");
+        public static LoadBalancerPropertiesRegionEnum Blr1 { get; } = new LoadBalancerPropertiesRegionEnum("blr1");
+        public static LoadBalancerPropertiesRegionEnum Fra1 { get; } = new LoadBalancerPropertiesRegionEnum("fra1");
+        public static LoadBalancerPropertiesRegionEnum Lon1 { get; } = new LoadBalancerPropertiesRegionEnum("lon1");
+        public static LoadBalancerPropertiesRegionEnum Nyc1 { get; } = new LoadBalancerPropertiesRegionEnum("nyc1");
+        public static LoadBalancerPropertiesRegionEnum Nyc2 { get; } = new LoadBalancerPropertiesRegionEnum("nyc2");
+        public static LoadBalancerPropertiesRegionEnum Nyc3 { get; } = new LoadBalancerPropertiesRegionEnum("nyc3");
+        public static LoadBalancerPropertiesRegionEnum Sfo1 { get; } = new LoadBalancerPropertiesRegionEnum("sfo1");
+        public static LoadBalancerPropertiesRegionEnum Sfo2 { get; } = new LoadBalancerPropertiesRegionEnum("sfo2");
+        public static LoadBalancerPropertiesRegionEnum Sfo3 { get; } = new LoadBalancerPropertiesRegionEnum("sfo3");
+        public static LoadBalancerPropertiesRegionEnum Sgp1 { get; } = new LoadBalancerPropertiesRegionEnum("sgp1");
+        public static LoadBalancerPropertiesRegionEnum Tor1 { get; } = new LoadBalancerPropertiesRegionEnum("tor1");
+
+        public static bool operator ==(LoadBalancerPropertiesRegionEnum left, LoadBalancerPropertiesRegionEnum right) => left.Equals(right);
+        public static bool operator !=(LoadBalancerPropertiesRegionEnum left, LoadBalancerPropertiesRegionEnum right) => !left.Equals(right);
+
+        public static explicit operator string(LoadBalancerPropertiesRegionEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoadBalancerPropertiesRegionEnum other && Equals(other);
+        public bool Equals(LoadBalancerPropertiesRegionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
     /// </summary>
     [EnumType]

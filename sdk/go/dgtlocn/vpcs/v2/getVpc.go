@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetVpc(ctx *pulumi.Context, args *GetVpcArgs, opts ...pulumi.InvokeOption) (*GetVpcResult, error) {
+func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOption) (*LookupVpcResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetVpcResult
+	var rv LookupVpcResult
 	err := ctx.Invoke("digitalocean-native:vpcs/v2:getVpc", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,55 +21,55 @@ func GetVpc(ctx *pulumi.Context, args *GetVpcArgs, opts ...pulumi.InvokeOption) 
 	return &rv, nil
 }
 
-type GetVpcArgs struct {
+type LookupVpcArgs struct {
 	// A unique identifier for a VPC.
 	VpcId string `pulumi:"vpcId"`
 }
 
-type GetVpcResult struct {
+type LookupVpcResult struct {
 	Items GetVpcProperties `pulumi:"items"`
 }
 
-func GetVpcOutput(ctx *pulumi.Context, args GetVpcOutputArgs, opts ...pulumi.InvokeOption) GetVpcResultOutput {
+func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVpcResult, error) {
-			args := v.(GetVpcArgs)
-			r, err := GetVpc(ctx, &args, opts...)
-			var s GetVpcResult
+		ApplyT(func(v interface{}) (LookupVpcResult, error) {
+			args := v.(LookupVpcArgs)
+			r, err := LookupVpc(ctx, &args, opts...)
+			var s LookupVpcResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetVpcResultOutput)
+		}).(LookupVpcResultOutput)
 }
 
-type GetVpcOutputArgs struct {
+type LookupVpcOutputArgs struct {
 	// A unique identifier for a VPC.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
-func (GetVpcOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcArgs)(nil)).Elem()
+func (LookupVpcOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpcArgs)(nil)).Elem()
 }
 
-type GetVpcResultOutput struct{ *pulumi.OutputState }
+type LookupVpcResultOutput struct{ *pulumi.OutputState }
 
-func (GetVpcResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcResult)(nil)).Elem()
+func (LookupVpcResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpcResult)(nil)).Elem()
 }
 
-func (o GetVpcResultOutput) ToGetVpcResultOutput() GetVpcResultOutput {
+func (o LookupVpcResultOutput) ToLookupVpcResultOutput() LookupVpcResultOutput {
 	return o
 }
 
-func (o GetVpcResultOutput) ToGetVpcResultOutputWithContext(ctx context.Context) GetVpcResultOutput {
+func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Context) LookupVpcResultOutput {
 	return o
 }
 
-func (o GetVpcResultOutput) Items() GetVpcPropertiesOutput {
-	return o.ApplyT(func(v GetVpcResult) GetVpcProperties { return v.Items }).(GetVpcPropertiesOutput)
+func (o LookupVpcResultOutput) Items() GetVpcPropertiesOutput {
+	return o.ApplyT(func(v LookupVpcResult) GetVpcProperties { return v.Items }).(GetVpcPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetVpcResultOutput{})
+	pulumi.RegisterOutputType(LookupVpcResultOutput{})
 }

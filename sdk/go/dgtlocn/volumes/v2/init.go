@@ -25,12 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Attach{}
 	case "digitalocean-native:volumes/v2:Detach":
 		r = &Detach{}
+	case "digitalocean-native:volumes/v2:Ext4":
+		r = &Ext4{}
 	case "digitalocean-native:volumes/v2:Resize":
 		r = &Resize{}
-	case "digitalocean-native:volumes/v2:VolumeSnapshots":
-		r = &VolumeSnapshots{}
-	case "digitalocean-native:volumes/v2:Volumes":
-		r = &Volumes{}
+	case "digitalocean-native:volumes/v2:VolumeSnapshot":
+		r = &VolumeSnapshot{}
+	case "digitalocean-native:volumes/v2:Xfs":
+		r = &Xfs{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

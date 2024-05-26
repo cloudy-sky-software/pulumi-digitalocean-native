@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // An application's configuration and status.
-type App struct {
+type AppType struct {
 	ActiveDeployment        *AppsDeploymentType   `pulumi:"activeDeployment"`
 	CreatedAt               *string               `pulumi:"createdAt"`
 	DefaultIngress          *string               `pulumi:"defaultIngress"`
@@ -36,8 +36,8 @@ type App struct {
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
-// Defaults sets the appropriate defaults for App
-func (val *App) Defaults() *App {
+// Defaults sets the appropriate defaults for AppType
+func (val *AppType) Defaults() *AppType {
 	if val == nil {
 		return nil
 	}
@@ -54,119 +54,119 @@ func (val *App) Defaults() *App {
 }
 
 // An application's configuration and status.
-type AppOutput struct{ *pulumi.OutputState }
+type AppTypeOutput struct{ *pulumi.OutputState }
 
-func (AppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*App)(nil)).Elem()
+func (AppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppType)(nil)).Elem()
 }
 
-func (o AppOutput) ToAppOutput() AppOutput {
+func (o AppTypeOutput) ToAppTypeOutput() AppTypeOutput {
 	return o
 }
 
-func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
+func (o AppTypeOutput) ToAppTypeOutputWithContext(ctx context.Context) AppTypeOutput {
 	return o
 }
 
-func (o AppOutput) ActiveDeployment() AppsDeploymentTypePtrOutput {
-	return o.ApplyT(func(v App) *AppsDeploymentType { return v.ActiveDeployment }).(AppsDeploymentTypePtrOutput)
+func (o AppTypeOutput) ActiveDeployment() AppsDeploymentTypePtrOutput {
+	return o.ApplyT(func(v AppType) *AppsDeploymentType { return v.ActiveDeployment }).(AppsDeploymentTypePtrOutput)
 }
 
-func (o AppOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) DefaultIngress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.DefaultIngress }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) DefaultIngress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.DefaultIngress }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) Domains() AppsDomainArrayOutput {
-	return o.ApplyT(func(v App) []AppsDomain { return v.Domains }).(AppsDomainArrayOutput)
+func (o AppTypeOutput) Domains() AppsDomainArrayOutput {
+	return o.ApplyT(func(v AppType) []AppsDomain { return v.Domains }).(AppsDomainArrayOutput)
 }
 
-func (o AppOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) InProgressDeployment() AppsDeploymentTypePtrOutput {
-	return o.ApplyT(func(v App) *AppsDeploymentType { return v.InProgressDeployment }).(AppsDeploymentTypePtrOutput)
+func (o AppTypeOutput) InProgressDeployment() AppsDeploymentTypePtrOutput {
+	return o.ApplyT(func(v AppType) *AppsDeploymentType { return v.InProgressDeployment }).(AppsDeploymentTypePtrOutput)
 }
 
-func (o AppOutput) LastDeploymentCreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.LastDeploymentCreatedAt }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) LastDeploymentCreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.LastDeploymentCreatedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) LiveDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.LiveDomain }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) LiveDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.LiveDomain }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) LiveUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.LiveUrl }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) LiveUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.LiveUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) LiveUrlBase() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.LiveUrlBase }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) LiveUrlBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.LiveUrlBase }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) OwnerUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.OwnerUuid }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) OwnerUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.OwnerUuid }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) PendingDeployment() AppPendingDeploymentPtrOutput {
-	return o.ApplyT(func(v App) *AppPendingDeployment { return v.PendingDeployment }).(AppPendingDeploymentPtrOutput)
+func (o AppTypeOutput) PendingDeployment() AppPendingDeploymentPtrOutput {
+	return o.ApplyT(func(v AppType) *AppPendingDeployment { return v.PendingDeployment }).(AppPendingDeploymentPtrOutput)
 }
 
-func (o AppOutput) PinnedDeployment() AppPinnedDeploymentPtrOutput {
-	return o.ApplyT(func(v App) *AppPinnedDeployment { return v.PinnedDeployment }).(AppPinnedDeploymentPtrOutput)
+func (o AppTypeOutput) PinnedDeployment() AppPinnedDeploymentPtrOutput {
+	return o.ApplyT(func(v AppType) *AppPinnedDeployment { return v.PinnedDeployment }).(AppPinnedDeploymentPtrOutput)
 }
 
-func (o AppOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) Region() AppsRegionPtrOutput {
-	return o.ApplyT(func(v App) *AppsRegion { return v.Region }).(AppsRegionPtrOutput)
+func (o AppTypeOutput) Region() AppsRegionPtrOutput {
+	return o.ApplyT(func(v AppType) *AppsRegion { return v.Region }).(AppsRegionPtrOutput)
 }
 
 // The desired configuration of an application.
-func (o AppOutput) Spec() AppSpecOutput {
-	return o.ApplyT(func(v App) AppSpec { return v.Spec }).(AppSpecOutput)
+func (o AppTypeOutput) Spec() AppSpecOutput {
+	return o.ApplyT(func(v AppType) AppSpec { return v.Spec }).(AppSpecOutput)
 }
 
-func (o AppOutput) TierSlug() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.TierSlug }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) TierSlug() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.TierSlug }).(pulumi.StringPtrOutput)
 }
 
-func (o AppOutput) UpdatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v App) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+func (o AppTypeOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppType) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
-type AppPtrOutput struct{ *pulumi.OutputState }
+type AppTypePtrOutput struct{ *pulumi.OutputState }
 
-func (AppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**App)(nil)).Elem()
+func (AppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppType)(nil)).Elem()
 }
 
-func (o AppPtrOutput) ToAppPtrOutput() AppPtrOutput {
+func (o AppTypePtrOutput) ToAppTypePtrOutput() AppTypePtrOutput {
 	return o
 }
 
-func (o AppPtrOutput) ToAppPtrOutputWithContext(ctx context.Context) AppPtrOutput {
+func (o AppTypePtrOutput) ToAppTypePtrOutputWithContext(ctx context.Context) AppTypePtrOutput {
 	return o
 }
 
-func (o AppPtrOutput) Elem() AppOutput {
-	return o.ApplyT(func(v *App) App {
+func (o AppTypePtrOutput) Elem() AppTypeOutput {
+	return o.ApplyT(func(v *AppType) AppType {
 		if v != nil {
 			return *v
 		}
-		var ret App
+		var ret AppType
 		return ret
-	}).(AppOutput)
+	}).(AppTypeOutput)
 }
 
-func (o AppPtrOutput) ActiveDeployment() AppsDeploymentTypePtrOutput {
-	return o.ApplyT(func(v *App) *AppsDeploymentType {
+func (o AppTypePtrOutput) ActiveDeployment() AppsDeploymentTypePtrOutput {
+	return o.ApplyT(func(v *AppType) *AppsDeploymentType {
 		if v == nil {
 			return nil
 		}
@@ -174,8 +174,8 @@ func (o AppPtrOutput) ActiveDeployment() AppsDeploymentTypePtrOutput {
 	}).(AppsDeploymentTypePtrOutput)
 }
 
-func (o AppPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -183,8 +183,8 @@ func (o AppPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) DefaultIngress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) DefaultIngress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -192,8 +192,8 @@ func (o AppPtrOutput) DefaultIngress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) Domains() AppsDomainArrayOutput {
-	return o.ApplyT(func(v *App) []AppsDomain {
+func (o AppTypePtrOutput) Domains() AppsDomainArrayOutput {
+	return o.ApplyT(func(v *AppType) []AppsDomain {
 		if v == nil {
 			return nil
 		}
@@ -201,8 +201,8 @@ func (o AppPtrOutput) Domains() AppsDomainArrayOutput {
 	}).(AppsDomainArrayOutput)
 }
 
-func (o AppPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -210,8 +210,8 @@ func (o AppPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) InProgressDeployment() AppsDeploymentTypePtrOutput {
-	return o.ApplyT(func(v *App) *AppsDeploymentType {
+func (o AppTypePtrOutput) InProgressDeployment() AppsDeploymentTypePtrOutput {
+	return o.ApplyT(func(v *AppType) *AppsDeploymentType {
 		if v == nil {
 			return nil
 		}
@@ -219,8 +219,8 @@ func (o AppPtrOutput) InProgressDeployment() AppsDeploymentTypePtrOutput {
 	}).(AppsDeploymentTypePtrOutput)
 }
 
-func (o AppPtrOutput) LastDeploymentCreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) LastDeploymentCreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -228,8 +228,8 @@ func (o AppPtrOutput) LastDeploymentCreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) LiveDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) LiveDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -237,8 +237,8 @@ func (o AppPtrOutput) LiveDomain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) LiveUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) LiveUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -246,8 +246,8 @@ func (o AppPtrOutput) LiveUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) LiveUrlBase() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) LiveUrlBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -255,8 +255,8 @@ func (o AppPtrOutput) LiveUrlBase() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) OwnerUuid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) OwnerUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -264,8 +264,8 @@ func (o AppPtrOutput) OwnerUuid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) PendingDeployment() AppPendingDeploymentPtrOutput {
-	return o.ApplyT(func(v *App) *AppPendingDeployment {
+func (o AppTypePtrOutput) PendingDeployment() AppPendingDeploymentPtrOutput {
+	return o.ApplyT(func(v *AppType) *AppPendingDeployment {
 		if v == nil {
 			return nil
 		}
@@ -273,8 +273,8 @@ func (o AppPtrOutput) PendingDeployment() AppPendingDeploymentPtrOutput {
 	}).(AppPendingDeploymentPtrOutput)
 }
 
-func (o AppPtrOutput) PinnedDeployment() AppPinnedDeploymentPtrOutput {
-	return o.ApplyT(func(v *App) *AppPinnedDeployment {
+func (o AppTypePtrOutput) PinnedDeployment() AppPinnedDeploymentPtrOutput {
+	return o.ApplyT(func(v *AppType) *AppPinnedDeployment {
 		if v == nil {
 			return nil
 		}
@@ -282,8 +282,8 @@ func (o AppPtrOutput) PinnedDeployment() AppPinnedDeploymentPtrOutput {
 	}).(AppPinnedDeploymentPtrOutput)
 }
 
-func (o AppPtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -291,8 +291,8 @@ func (o AppPtrOutput) ProjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) Region() AppsRegionPtrOutput {
-	return o.ApplyT(func(v *App) *AppsRegion {
+func (o AppTypePtrOutput) Region() AppsRegionPtrOutput {
+	return o.ApplyT(func(v *AppType) *AppsRegion {
 		if v == nil {
 			return nil
 		}
@@ -301,8 +301,8 @@ func (o AppPtrOutput) Region() AppsRegionPtrOutput {
 }
 
 // The desired configuration of an application.
-func (o AppPtrOutput) Spec() AppSpecPtrOutput {
-	return o.ApplyT(func(v *App) *AppSpec {
+func (o AppTypePtrOutput) Spec() AppSpecPtrOutput {
+	return o.ApplyT(func(v *AppType) *AppSpec {
 		if v == nil {
 			return nil
 		}
@@ -310,8 +310,8 @@ func (o AppPtrOutput) Spec() AppSpecPtrOutput {
 	}).(AppSpecPtrOutput)
 }
 
-func (o AppPtrOutput) TierSlug() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) TierSlug() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -319,8 +319,8 @@ func (o AppPtrOutput) TierSlug() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppPtrOutput) UpdatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) *string {
+func (o AppTypePtrOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppType) *string {
 		if v == nil {
 			return nil
 		}
@@ -328,24 +328,24 @@ func (o AppPtrOutput) UpdatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type AppArrayOutput struct{ *pulumi.OutputState }
+type AppTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (AppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]App)(nil)).Elem()
+func (AppTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppType)(nil)).Elem()
 }
 
-func (o AppArrayOutput) ToAppArrayOutput() AppArrayOutput {
+func (o AppTypeArrayOutput) ToAppTypeArrayOutput() AppTypeArrayOutput {
 	return o
 }
 
-func (o AppArrayOutput) ToAppArrayOutputWithContext(ctx context.Context) AppArrayOutput {
+func (o AppTypeArrayOutput) ToAppTypeArrayOutputWithContext(ctx context.Context) AppTypeArrayOutput {
 	return o
 }
 
-func (o AppArrayOutput) Index(i pulumi.IntInput) AppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) App {
-		return vs[0].([]App)[vs[1].(int)]
-	}).(AppOutput)
+func (o AppTypeArrayOutput) Index(i pulumi.IntInput) AppTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppType {
+		return vs[0].([]AppType)[vs[1].(int)]
+	}).(AppTypeOutput)
 }
 
 type AppAlert struct {
@@ -4143,7 +4143,7 @@ func (o AppPinnedDeploymentPtrOutput) Workers() AppsDeploymentWorkerArrayOutput 
 
 type AppResponse struct {
 	// An application's configuration and status.
-	App *App `pulumi:"app"`
+	App *AppType `pulumi:"app"`
 }
 
 // Defaults sets the appropriate defaults for AppResponse
@@ -4172,8 +4172,8 @@ func (o AppResponseOutput) ToAppResponseOutputWithContext(ctx context.Context) A
 }
 
 // An application's configuration and status.
-func (o AppResponseOutput) App() AppPtrOutput {
-	return o.ApplyT(func(v AppResponse) *App { return v.App }).(AppPtrOutput)
+func (o AppResponseOutput) App() AppTypePtrOutput {
+	return o.ApplyT(func(v AppResponse) *AppType { return v.App }).(AppTypePtrOutput)
 }
 
 type AppRollbackValidationCondition struct {
@@ -8387,7 +8387,7 @@ func (o AppsRegionArrayOutput) Index(i pulumi.IntInput) AppsRegionOutput {
 }
 
 type AppsResponse struct {
-	Apps  []App      `pulumi:"apps"`
+	Apps  []AppType  `pulumi:"apps"`
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
 }
@@ -8406,8 +8406,8 @@ func (o AppsResponseOutput) ToAppsResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o AppsResponseOutput) Apps() AppArrayOutput {
-	return o.ApplyT(func(v AppsResponse) []App { return v.Apps }).(AppArrayOutput)
+func (o AppsResponseOutput) Apps() AppTypeArrayOutput {
+	return o.ApplyT(func(v AppsResponse) []AppType { return v.Apps }).(AppTypeArrayOutput)
 }
 
 func (o AppsResponseOutput) Links() PageLinksPtrOutput {
@@ -9023,9 +9023,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppsImageSourceSpecPtrInput)(nil)).Elem(), AppsImageSourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppsStringMatchInput)(nil)).Elem(), AppsStringMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppsStringMatchArrayInput)(nil)).Elem(), AppsStringMatchArray{})
-	pulumi.RegisterOutputType(AppOutput{})
-	pulumi.RegisterOutputType(AppPtrOutput{})
-	pulumi.RegisterOutputType(AppArrayOutput{})
+	pulumi.RegisterOutputType(AppTypeOutput{})
+	pulumi.RegisterOutputType(AppTypePtrOutput{})
+	pulumi.RegisterOutputType(AppTypeArrayOutput{})
 	pulumi.RegisterOutputType(AppAlertOutput{})
 	pulumi.RegisterOutputType(AppAlertPtrOutput{})
 	pulumi.RegisterOutputType(AppAlertArrayOutput{})

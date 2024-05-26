@@ -114,7 +114,7 @@ _utilities.register(
   "mod": "account/v2",
   "fqn": "pulumi_digitalocean-native.account.v2",
   "classes": {
-   "digitalocean-native:account/v2:SshKeys": "SshKeys"
+   "digitalocean-native:account/v2:SshKey": "SshKey"
   }
  },
  {
@@ -122,8 +122,8 @@ _utilities.register(
   "mod": "apps/v2",
   "fqn": "pulumi_digitalocean-native.apps.v2",
   "classes": {
-   "digitalocean-native:apps/v2:Apps": "Apps",
-   "digitalocean-native:apps/v2:AppsAssignAlertDestinations": "AppsAssignAlertDestinations",
+   "digitalocean-native:apps/v2:App": "App",
+   "digitalocean-native:apps/v2:AppsAssignAlertDestination": "AppsAssignAlertDestination",
    "digitalocean-native:apps/v2:AppsDeployment": "AppsDeployment",
    "digitalocean-native:apps/v2:AppsListMetricsBandwidthDaily": "AppsListMetricsBandwidthDaily",
    "digitalocean-native:apps/v2:AppsRollback": "AppsRollback",
@@ -144,7 +144,7 @@ _utilities.register(
   "mod": "certificates/v2",
   "fqn": "pulumi_digitalocean-native.certificates.v2",
   "classes": {
-   "digitalocean-native:certificates/v2:Certificates": "Certificates"
+   "digitalocean-native:certificates/v2:Certificate": "Certificate"
   }
  },
  {
@@ -152,7 +152,7 @@ _utilities.register(
   "mod": "databases/v2",
   "fqn": "pulumi_digitalocean-native.databases.v2",
   "classes": {
-   "digitalocean-native:databases/v2:Databases": "Databases",
+   "digitalocean-native:databases/v2:Database": "Database",
    "digitalocean-native:databases/v2:DatabasesCluster": "DatabasesCluster",
    "digitalocean-native:databases/v2:DatabasesClusterSize": "DatabasesClusterSize",
    "digitalocean-native:databases/v2:DatabasesConnectionPool": "DatabasesConnectionPool",
@@ -177,7 +177,7 @@ _utilities.register(
    "digitalocean-native:domains/v2:Aaaa": "Aaaa",
    "digitalocean-native:domains/v2:Caa": "Caa",
    "digitalocean-native:domains/v2:Cname": "Cname",
-   "digitalocean-native:domains/v2:Domains": "Domains",
+   "digitalocean-native:domains/v2:Domain": "Domain",
    "digitalocean-native:domains/v2:Mx": "Mx",
    "digitalocean-native:domains/v2:Ns": "Ns",
    "digitalocean-native:domains/v2:Soa": "Soa",
@@ -213,10 +213,10 @@ _utilities.register(
   "mod": "firewalls/v2",
   "fqn": "pulumi_digitalocean-native.firewalls.v2",
   "classes": {
-   "digitalocean-native:firewalls/v2:Firewalls": "Firewalls",
-   "digitalocean-native:firewalls/v2:FirewallsAssignDroplets": "FirewallsAssignDroplets",
-   "digitalocean-native:firewalls/v2:FirewallsRules": "FirewallsRules",
-   "digitalocean-native:firewalls/v2:FirewallsTags": "FirewallsTags"
+   "digitalocean-native:firewalls/v2:Firewall": "Firewall",
+   "digitalocean-native:firewalls/v2:FirewallsAssignDroplet": "FirewallsAssignDroplet",
+   "digitalocean-native:firewalls/v2:FirewallsRule": "FirewallsRule",
+   "digitalocean-native:firewalls/v2:FirewallsTag": "FirewallsTag"
   }
  },
  {
@@ -225,7 +225,7 @@ _utilities.register(
   "fqn": "pulumi_digitalocean-native.floating_ips.v2",
   "classes": {
    "digitalocean-native:floating_ips/v2:Assign": "Assign",
-   "digitalocean-native:floating_ips/v2:FloatingIPs": "FloatingIPs",
+   "digitalocean-native:floating_ips/v2:FloatingIP": "FloatingIP",
    "digitalocean-native:floating_ips/v2:Unassign": "Unassign"
   }
  },
@@ -266,9 +266,9 @@ _utilities.register(
   "mod": "load_balancers/v2",
   "fqn": "pulumi_digitalocean-native.load_balancers.v2",
   "classes": {
-   "digitalocean-native:load_balancers/v2:LoadBalancers": "LoadBalancers",
-   "digitalocean-native:load_balancers/v2:LoadBalancersDroplets": "LoadBalancersDroplets",
-   "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRules": "LoadBalancersForwardingRules"
+   "digitalocean-native:load_balancers/v2:LoadBalancer": "LoadBalancer",
+   "digitalocean-native:load_balancers/v2:LoadBalancersDroplet": "LoadBalancersDroplet",
+   "digitalocean-native:load_balancers/v2:LoadBalancersForwardingRule": "LoadBalancersForwardingRule"
   }
  },
  {
@@ -284,8 +284,8 @@ _utilities.register(
   "mod": "projects/v2",
   "fqn": "pulumi_digitalocean-native.projects.v2",
   "classes": {
-   "digitalocean-native:projects/v2:Projects": "Projects",
-   "digitalocean-native:projects/v2:ProjectsAssignResources": "ProjectsAssignResources",
+   "digitalocean-native:projects/v2:Project": "Project",
+   "digitalocean-native:projects/v2:ProjectsAssignResource": "ProjectsAssignResource",
    "digitalocean-native:projects/v2:ProjectsAssignResourcesDefault": "ProjectsAssignResourcesDefault",
    "digitalocean-native:projects/v2:ProjectsDefault": "ProjectsDefault"
   }
@@ -306,7 +306,7 @@ _utilities.register(
   "fqn": "pulumi_digitalocean-native.reserved_ips.v2",
   "classes": {
    "digitalocean-native:reserved_ips/v2:Assign": "Assign",
-   "digitalocean-native:reserved_ips/v2:ReservedIPs": "ReservedIPs",
+   "digitalocean-native:reserved_ips/v2:ReservedIP": "ReservedIP",
    "digitalocean-native:reserved_ips/v2:Unassign": "Unassign"
   }
  },
@@ -315,8 +315,8 @@ _utilities.register(
   "mod": "tags/v2",
   "fqn": "pulumi_digitalocean-native.tags.v2",
   "classes": {
-   "digitalocean-native:tags/v2:Tags": "Tags",
-   "digitalocean-native:tags/v2:TagsAssignResources": "TagsAssignResources"
+   "digitalocean-native:tags/v2:Tag": "Tag",
+   "digitalocean-native:tags/v2:TagsAssignResource": "TagsAssignResource"
   }
  },
  {
@@ -335,9 +335,10 @@ _utilities.register(
   "classes": {
    "digitalocean-native:volumes/v2:Attach": "Attach",
    "digitalocean-native:volumes/v2:Detach": "Detach",
+   "digitalocean-native:volumes/v2:Ext4": "Ext4",
    "digitalocean-native:volumes/v2:Resize": "Resize",
-   "digitalocean-native:volumes/v2:VolumeSnapshots": "VolumeSnapshots",
-   "digitalocean-native:volumes/v2:Volumes": "Volumes"
+   "digitalocean-native:volumes/v2:VolumeSnapshot": "VolumeSnapshot",
+   "digitalocean-native:volumes/v2:Xfs": "Xfs"
   }
  },
  {
@@ -345,7 +346,7 @@ _utilities.register(
   "mod": "vpcs/v2",
   "fqn": "pulumi_digitalocean-native.vpcs.v2",
   "classes": {
-   "digitalocean-native:vpcs/v2:Vpcs": "Vpcs"
+   "digitalocean-native:vpcs/v2:Vpc": "Vpc"
   }
  }
 ]

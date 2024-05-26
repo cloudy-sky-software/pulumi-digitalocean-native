@@ -11,6 +11,6 @@ from .get_reserved_ip import *
 from .get_reserved_ips_action import *
 from .list_reserved_ips import *
 from .list_reserved_ips_actions import *
-from .reserved_ips import *
+from .reserved_ip import *
 from .unassign import *
 from . import outputs

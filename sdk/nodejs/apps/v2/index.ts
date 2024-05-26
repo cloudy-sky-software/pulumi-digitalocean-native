@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AppsArgs } from "./apps";
-export type Apps = import("./apps").Apps;
-export const Apps: typeof import("./apps").Apps = null as any;
-utilities.lazyLoad(exports, ["Apps"], () => require("./apps"));
+export { AppArgs } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
 
-export { AppsAssignAlertDestinationsArgs } from "./appsAssignAlertDestinations";
-export type AppsAssignAlertDestinations = import("./appsAssignAlertDestinations").AppsAssignAlertDestinations;
-export const AppsAssignAlertDestinations: typeof import("./appsAssignAlertDestinations").AppsAssignAlertDestinations = null as any;
-utilities.lazyLoad(exports, ["AppsAssignAlertDestinations"], () => require("./appsAssignAlertDestinations"));
+export { AppsAssignAlertDestinationArgs } from "./appsAssignAlertDestination";
+export type AppsAssignAlertDestination = import("./appsAssignAlertDestination").AppsAssignAlertDestination;
+export const AppsAssignAlertDestination: typeof import("./appsAssignAlertDestination").AppsAssignAlertDestination = null as any;
+utilities.lazyLoad(exports, ["AppsAssignAlertDestination"], () => require("./appsAssignAlertDestination"));
 
 export { AppsDeploymentArgs } from "./appsDeployment";
 export type AppsDeployment = import("./appsDeployment").AppsDeployment;
@@ -123,10 +123,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:apps/v2:Apps":
-                return new Apps(name, <any>undefined, { urn })
-            case "digitalocean-native:apps/v2:AppsAssignAlertDestinations":
-                return new AppsAssignAlertDestinations(name, <any>undefined, { urn })
+            case "digitalocean-native:apps/v2:App":
+                return new App(name, <any>undefined, { urn })
+            case "digitalocean-native:apps/v2:AppsAssignAlertDestination":
+                return new AppsAssignAlertDestination(name, <any>undefined, { urn })
             case "digitalocean-native:apps/v2:AppsDeployment":
                 return new AppsDeployment(name, <any>undefined, { urn })
             case "digitalocean-native:apps/v2:AppsListMetricsBandwidthDaily":

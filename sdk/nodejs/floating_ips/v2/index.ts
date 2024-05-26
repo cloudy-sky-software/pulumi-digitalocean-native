@@ -10,10 +10,10 @@ export type Assign = import("./assign").Assign;
 export const Assign: typeof import("./assign").Assign = null as any;
 utilities.lazyLoad(exports, ["Assign"], () => require("./assign"));
 
-export { FloatingIPsArgs } from "./floatingIPs";
-export type FloatingIPs = import("./floatingIPs").FloatingIPs;
-export const FloatingIPs: typeof import("./floatingIPs").FloatingIPs = null as any;
-utilities.lazyLoad(exports, ["FloatingIPs"], () => require("./floatingIPs"));
+export { FloatingIPArgs } from "./floatingIP";
+export type FloatingIP = import("./floatingIP").FloatingIP;
+export const FloatingIP: typeof import("./floatingIP").FloatingIP = null as any;
+utilities.lazyLoad(exports, ["FloatingIP"], () => require("./floatingIP"));
 
 export { GetFloatingIPArgs, GetFloatingIPResult, GetFloatingIPOutputArgs } from "./getFloatingIP";
 export const getFloatingIP: typeof import("./getFloatingIP").getFloatingIP = null as any;
@@ -50,8 +50,8 @@ const _module = {
         switch (type) {
             case "digitalocean-native:floating_ips/v2:Assign":
                 return new Assign(name, <any>undefined, { urn })
-            case "digitalocean-native:floating_ips/v2:FloatingIPs":
-                return new FloatingIPs(name, <any>undefined, { urn })
+            case "digitalocean-native:floating_ips/v2:FloatingIP":
+                return new FloatingIP(name, <any>undefined, { urn })
             case "digitalocean-native:floating_ips/v2:Unassign":
                 return new Unassign(name, <any>undefined, { urn })
             default:

@@ -21,10 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:apps/v2:Apps":
-		r = &Apps{}
-	case "digitalocean-native:apps/v2:AppsAssignAlertDestinations":
-		r = &AppsAssignAlertDestinations{}
+	case "digitalocean-native:apps/v2:App":
+		r = &App{}
+	case "digitalocean-native:apps/v2:AppsAssignAlertDestination":
+		r = &AppsAssignAlertDestination{}
 	case "digitalocean-native:apps/v2:AppsDeployment":
 		r = &AppsDeployment{}
 	case "digitalocean-native:apps/v2:AppsListMetricsBandwidthDaily":

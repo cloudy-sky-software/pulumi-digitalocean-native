@@ -11,8 +11,8 @@ from .get_projects_default import *
 from .list_projects import *
 from .list_projects_resources import *
 from .list_projects_resources_default import *
-from .projects import *
-from .projects_assign_resources import *
+from .project import *
+from .projects_assign_resource import *
 from .projects_assign_resources_default import *
 from .projects_default import *
 from . import outputs

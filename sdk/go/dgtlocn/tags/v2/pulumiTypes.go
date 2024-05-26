@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type GetTagProperties struct {
 	// A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
 	// Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-	Tag *TagsType `pulumi:"tag"`
+	Tag *Tags `pulumi:"tag"`
 }
 
 type GetTagPropertiesOutput struct{ *pulumi.OutputState }
@@ -35,14 +35,14 @@ func (o GetTagPropertiesOutput) ToGetTagPropertiesOutputWithContext(ctx context.
 
 // A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
 // Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-func (o GetTagPropertiesOutput) Tag() TagsTypePtrOutput {
-	return o.ApplyT(func(v GetTagProperties) *TagsType { return v.Tag }).(TagsTypePtrOutput)
+func (o GetTagPropertiesOutput) Tag() TagsPtrOutput {
+	return o.ApplyT(func(v GetTagProperties) *Tags { return v.Tag }).(TagsPtrOutput)
 }
 
 type ListTagsItems struct {
 	Links *PageLinks `pulumi:"links"`
 	Meta  MetaMeta   `pulumi:"meta"`
-	Tags  []TagsType `pulumi:"tags"`
+	Tags  []Tags     `pulumi:"tags"`
 }
 
 type ListTagsItemsOutput struct{ *pulumi.OutputState }
@@ -67,8 +67,8 @@ func (o ListTagsItemsOutput) Meta() MetaMetaOutput {
 	return o.ApplyT(func(v ListTagsItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListTagsItemsOutput) Tags() TagsTypeArrayOutput {
-	return o.ApplyT(func(v ListTagsItems) []TagsType { return v.Tags }).(TagsTypeArrayOutput)
+func (o ListTagsItemsOutput) Tags() TagsArrayOutput {
+	return o.ApplyT(func(v ListTagsItems) []Tags { return v.Tags }).(TagsArrayOutput)
 }
 
 type MetaMeta struct {
@@ -432,7 +432,7 @@ func (o ResourcesItemPropertiesArrayOutput) Index(i pulumi.IntInput) ResourcesIt
 
 // A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
 // Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-type TagsType struct {
+type Tags struct {
 	// The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores.
 	// There is a limit of 255 characters per tag.
 	//
@@ -448,17 +448,17 @@ type TagsType struct {
 
 // A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
 // Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-type TagsTypeOutput struct{ *pulumi.OutputState }
+type TagsOutput struct{ *pulumi.OutputState }
 
-func (TagsTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsType)(nil)).Elem()
+func (TagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tags)(nil)).Elem()
 }
 
-func (o TagsTypeOutput) ToTagsTypeOutput() TagsTypeOutput {
+func (o TagsOutput) ToTagsOutput() TagsOutput {
 	return o
 }
 
-func (o TagsTypeOutput) ToTagsTypeOutputWithContext(ctx context.Context) TagsTypeOutput {
+func (o TagsOutput) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
 	return o
 }
 
@@ -470,37 +470,37 @@ func (o TagsTypeOutput) ToTagsTypeOutputWithContext(ctx context.Context) TagsTyp
 // When working with tags in the API, you must use the tag's canonical capitalization. For example, if you create a tag named "PROD", the URL to add that tag to a resource would be `https://api.digitalocean.com/v2/tags/PROD/resources` (not `/v2/tags/prod/resources`).
 //
 // Tagged resources in the control panel will always display the canonical capitalization. For example, if you create a tag named "PROD", you can tag resources in the control panel by entering "prod". The tag will still display with its canonical capitalization, "PROD".
-func (o TagsTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TagsType) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o TagsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Tags) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag.
-func (o TagsTypeOutput) Resources() TagsResourcesPtrOutput {
-	return o.ApplyT(func(v TagsType) *TagsResources { return v.Resources }).(TagsResourcesPtrOutput)
+func (o TagsOutput) Resources() TagsResourcesPtrOutput {
+	return o.ApplyT(func(v Tags) *TagsResources { return v.Resources }).(TagsResourcesPtrOutput)
 }
 
-type TagsTypePtrOutput struct{ *pulumi.OutputState }
+type TagsPtrOutput struct{ *pulumi.OutputState }
 
-func (TagsTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsType)(nil)).Elem()
+func (TagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Tags)(nil)).Elem()
 }
 
-func (o TagsTypePtrOutput) ToTagsTypePtrOutput() TagsTypePtrOutput {
+func (o TagsPtrOutput) ToTagsPtrOutput() TagsPtrOutput {
 	return o
 }
 
-func (o TagsTypePtrOutput) ToTagsTypePtrOutputWithContext(ctx context.Context) TagsTypePtrOutput {
+func (o TagsPtrOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
 	return o
 }
 
-func (o TagsTypePtrOutput) Elem() TagsTypeOutput {
-	return o.ApplyT(func(v *TagsType) TagsType {
+func (o TagsPtrOutput) Elem() TagsOutput {
+	return o.ApplyT(func(v *Tags) Tags {
 		if v != nil {
 			return *v
 		}
-		var ret TagsType
+		var ret Tags
 		return ret
-	}).(TagsTypeOutput)
+	}).(TagsOutput)
 }
 
 // The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores.
@@ -511,8 +511,8 @@ func (o TagsTypePtrOutput) Elem() TagsTypeOutput {
 // When working with tags in the API, you must use the tag's canonical capitalization. For example, if you create a tag named "PROD", the URL to add that tag to a resource would be `https://api.digitalocean.com/v2/tags/PROD/resources` (not `/v2/tags/prod/resources`).
 //
 // Tagged resources in the control panel will always display the canonical capitalization. For example, if you create a tag named "PROD", you can tag resources in the control panel by entering "prod". The tag will still display with its canonical capitalization, "PROD".
-func (o TagsTypePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TagsType) *string {
+func (o TagsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Tags) *string {
 		if v == nil {
 			return nil
 		}
@@ -521,8 +521,8 @@ func (o TagsTypePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag.
-func (o TagsTypePtrOutput) Resources() TagsResourcesPtrOutput {
-	return o.ApplyT(func(v *TagsType) *TagsResources {
+func (o TagsPtrOutput) Resources() TagsResourcesPtrOutput {
+	return o.ApplyT(func(v *Tags) *TagsResources {
 		if v == nil {
 			return nil
 		}
@@ -530,24 +530,24 @@ func (o TagsTypePtrOutput) Resources() TagsResourcesPtrOutput {
 	}).(TagsResourcesPtrOutput)
 }
 
-type TagsTypeArrayOutput struct{ *pulumi.OutputState }
+type TagsArrayOutput struct{ *pulumi.OutputState }
 
-func (TagsTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TagsType)(nil)).Elem()
+func (TagsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Tags)(nil)).Elem()
 }
 
-func (o TagsTypeArrayOutput) ToTagsTypeArrayOutput() TagsTypeArrayOutput {
+func (o TagsArrayOutput) ToTagsArrayOutput() TagsArrayOutput {
 	return o
 }
 
-func (o TagsTypeArrayOutput) ToTagsTypeArrayOutputWithContext(ctx context.Context) TagsTypeArrayOutput {
+func (o TagsArrayOutput) ToTagsArrayOutputWithContext(ctx context.Context) TagsArrayOutput {
 	return o
 }
 
-func (o TagsTypeArrayOutput) Index(i pulumi.IntInput) TagsTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagsType {
-		return vs[0].([]TagsType)[vs[1].(int)]
-	}).(TagsTypeOutput)
+func (o TagsArrayOutput) Index(i pulumi.IntInput) TagsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Tags {
+		return vs[0].([]Tags)[vs[1].(int)]
+	}).(TagsOutput)
 }
 
 // An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag.
@@ -641,9 +641,9 @@ func init() {
 	pulumi.RegisterOutputType(ResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ResourcesItemPropertiesOutput{})
 	pulumi.RegisterOutputType(ResourcesItemPropertiesArrayOutput{})
-	pulumi.RegisterOutputType(TagsTypeOutput{})
-	pulumi.RegisterOutputType(TagsTypePtrOutput{})
-	pulumi.RegisterOutputType(TagsTypeArrayOutput{})
+	pulumi.RegisterOutputType(TagsOutput{})
+	pulumi.RegisterOutputType(TagsPtrOutput{})
+	pulumi.RegisterOutputType(TagsArrayOutput{})
 	pulumi.RegisterOutputType(TagsResourcesOutput{})
 	pulumi.RegisterOutputType(TagsResourcesPtrOutput{})
 }

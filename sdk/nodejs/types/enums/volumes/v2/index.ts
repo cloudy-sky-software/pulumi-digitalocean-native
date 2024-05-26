@@ -13,6 +13,28 @@ export const ActionStatus = {
  */
 export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
 
+export const Ext4PropertiesRegion = {
+    Ams1: "ams1",
+    Ams2: "ams2",
+    Ams3: "ams3",
+    Blr1: "blr1",
+    Fra1: "fra1",
+    Lon1: "lon1",
+    Nyc1: "nyc1",
+    Nyc2: "nyc2",
+    Nyc3: "nyc3",
+    Sfo1: "sfo1",
+    Sfo2: "sfo2",
+    Sfo3: "sfo3",
+    Sgp1: "sgp1",
+    Tor1: "tor1",
+} as const;
+
+/**
+ * The slug identifier for the region where the resource will initially be  available.
+ */
+export type Ext4PropertiesRegion = (typeof Ext4PropertiesRegion)[keyof typeof Ext4PropertiesRegion];
+
 export const SnapshotsPropertiesResourceType = {
     Droplet: "droplet",
     Volume: "volume",
@@ -55,3 +77,25 @@ export const VolumeActionCreateBaseType = {
  * The volume action to initiate.
  */
 export type VolumeActionCreateBaseType = (typeof VolumeActionCreateBaseType)[keyof typeof VolumeActionCreateBaseType];
+
+export const XfsPropertiesRegion = {
+    Ams1: "ams1",
+    Ams2: "ams2",
+    Ams3: "ams3",
+    Blr1: "blr1",
+    Fra1: "fra1",
+    Lon1: "lon1",
+    Nyc1: "nyc1",
+    Nyc2: "nyc2",
+    Nyc3: "nyc3",
+    Sfo1: "sfo1",
+    Sfo2: "sfo2",
+    Sfo3: "sfo3",
+    Sgp1: "sgp1",
+    Tor1: "tor1",
+} as const;
+
+/**
+ * The slug identifier for the region where the resource will initially be  available.
+ */
+export type XfsPropertiesRegion = (typeof XfsPropertiesRegion)[keyof typeof XfsPropertiesRegion];

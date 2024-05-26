@@ -15,15 +15,15 @@ export const listTags: typeof import("./listTags").listTags = null as any;
 export const listTagsOutput: typeof import("./listTags").listTagsOutput = null as any;
 utilities.lazyLoad(exports, ["listTags","listTagsOutput"], () => require("./listTags"));
 
-export { TagsArgs } from "./tags";
-export type Tags = import("./tags").Tags;
-export const Tags: typeof import("./tags").Tags = null as any;
-utilities.lazyLoad(exports, ["Tags"], () => require("./tags"));
+export { TagArgs } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
-export { TagsAssignResourcesArgs } from "./tagsAssignResources";
-export type TagsAssignResources = import("./tagsAssignResources").TagsAssignResources;
-export const TagsAssignResources: typeof import("./tagsAssignResources").TagsAssignResources = null as any;
-utilities.lazyLoad(exports, ["TagsAssignResources"], () => require("./tagsAssignResources"));
+export { TagsAssignResourceArgs } from "./tagsAssignResource";
+export type TagsAssignResource = import("./tagsAssignResource").TagsAssignResource;
+export const TagsAssignResource: typeof import("./tagsAssignResource").TagsAssignResource = null as any;
+utilities.lazyLoad(exports, ["TagsAssignResource"], () => require("./tagsAssignResource"));
 
 
 // Export enums:
@@ -33,10 +33,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:tags/v2:Tags":
-                return new Tags(name, <any>undefined, { urn })
-            case "digitalocean-native:tags/v2:TagsAssignResources":
-                return new TagsAssignResources(name, <any>undefined, { urn })
+            case "digitalocean-native:tags/v2:Tag":
+                return new Tag(name, <any>undefined, { urn })
+            case "digitalocean-native:tags/v2:TagsAssignResource":
+                return new TagsAssignResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

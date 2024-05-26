@@ -30,15 +30,15 @@ export const listProjectsResourcesDefault: typeof import("./listProjectsResource
 export const listProjectsResourcesDefaultOutput: typeof import("./listProjectsResourcesDefault").listProjectsResourcesDefaultOutput = null as any;
 utilities.lazyLoad(exports, ["listProjectsResourcesDefault","listProjectsResourcesDefaultOutput"], () => require("./listProjectsResourcesDefault"));
 
-export { ProjectsArgs } from "./projects";
-export type Projects = import("./projects").Projects;
-export const Projects: typeof import("./projects").Projects = null as any;
-utilities.lazyLoad(exports, ["Projects"], () => require("./projects"));
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
-export { ProjectsAssignResourcesArgs } from "./projectsAssignResources";
-export type ProjectsAssignResources = import("./projectsAssignResources").ProjectsAssignResources;
-export const ProjectsAssignResources: typeof import("./projectsAssignResources").ProjectsAssignResources = null as any;
-utilities.lazyLoad(exports, ["ProjectsAssignResources"], () => require("./projectsAssignResources"));
+export { ProjectsAssignResourceArgs } from "./projectsAssignResource";
+export type ProjectsAssignResource = import("./projectsAssignResource").ProjectsAssignResource;
+export const ProjectsAssignResource: typeof import("./projectsAssignResource").ProjectsAssignResource = null as any;
+utilities.lazyLoad(exports, ["ProjectsAssignResource"], () => require("./projectsAssignResource"));
 
 export { ProjectsAssignResourcesDefaultArgs } from "./projectsAssignResourcesDefault";
 export type ProjectsAssignResourcesDefault = import("./projectsAssignResourcesDefault").ProjectsAssignResourcesDefault;
@@ -58,10 +58,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:projects/v2:Projects":
-                return new Projects(name, <any>undefined, { urn })
-            case "digitalocean-native:projects/v2:ProjectsAssignResources":
-                return new ProjectsAssignResources(name, <any>undefined, { urn })
+            case "digitalocean-native:projects/v2:Project":
+                return new Project(name, <any>undefined, { urn })
+            case "digitalocean-native:projects/v2:ProjectsAssignResource":
+                return new ProjectsAssignResource(name, <any>undefined, { urn })
             case "digitalocean-native:projects/v2:ProjectsAssignResourcesDefault":
                 return new ProjectsAssignResourcesDefault(name, <any>undefined, { urn })
             case "digitalocean-native:projects/v2:ProjectsDefault":

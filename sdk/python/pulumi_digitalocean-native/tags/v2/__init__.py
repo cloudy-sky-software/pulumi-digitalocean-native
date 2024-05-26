@@ -8,7 +8,7 @@ import typing
 from ._enums import *
 from .get_tag import *
 from .list_tags import *
-from .tags import *
-from .tags_assign_resources import *
+from .tag import *
+from .tags_assign_resource import *
 from ._inputs import *
 from . import outputs

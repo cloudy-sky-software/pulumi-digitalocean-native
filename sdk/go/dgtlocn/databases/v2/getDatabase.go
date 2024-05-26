@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetDatabase(ctx *pulumi.Context, args *GetDatabaseArgs, opts ...pulumi.InvokeOption) (*GetDatabaseResult, error) {
+func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetDatabaseResult
+	var rv LookupDatabaseResult
 	err := ctx.Invoke("digitalocean-native:databases/v2:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,59 +21,59 @@ func GetDatabase(ctx *pulumi.Context, args *GetDatabaseArgs, opts ...pulumi.Invo
 	return &rv, nil
 }
 
-type GetDatabaseArgs struct {
+type LookupDatabaseArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid string `pulumi:"databaseClusterUuid"`
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
 }
 
-type GetDatabaseResult struct {
+type LookupDatabaseResult struct {
 	Items GetDatabaseProperties `pulumi:"items"`
 }
 
-func GetDatabaseOutput(ctx *pulumi.Context, args GetDatabaseOutputArgs, opts ...pulumi.InvokeOption) GetDatabaseResultOutput {
+func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDatabaseResult, error) {
-			args := v.(GetDatabaseArgs)
-			r, err := GetDatabase(ctx, &args, opts...)
-			var s GetDatabaseResult
+		ApplyT(func(v interface{}) (LookupDatabaseResult, error) {
+			args := v.(LookupDatabaseArgs)
+			r, err := LookupDatabase(ctx, &args, opts...)
+			var s LookupDatabaseResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetDatabaseResultOutput)
+		}).(LookupDatabaseResultOutput)
 }
 
-type GetDatabaseOutputArgs struct {
+type LookupDatabaseOutputArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid pulumi.StringInput `pulumi:"databaseClusterUuid"`
 	// The name of the database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 }
 
-func (GetDatabaseOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseArgs)(nil)).Elem()
+func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseArgs)(nil)).Elem()
 }
 
-type GetDatabaseResultOutput struct{ *pulumi.OutputState }
+type LookupDatabaseResultOutput struct{ *pulumi.OutputState }
 
-func (GetDatabaseResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseResult)(nil)).Elem()
+func (LookupDatabaseResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDatabaseResult)(nil)).Elem()
 }
 
-func (o GetDatabaseResultOutput) ToGetDatabaseResultOutput() GetDatabaseResultOutput {
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutput() LookupDatabaseResultOutput {
 	return o
 }
 
-func (o GetDatabaseResultOutput) ToGetDatabaseResultOutputWithContext(ctx context.Context) GetDatabaseResultOutput {
+func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx context.Context) LookupDatabaseResultOutput {
 	return o
 }
 
-func (o GetDatabaseResultOutput) Items() GetDatabasePropertiesOutput {
-	return o.ApplyT(func(v GetDatabaseResult) GetDatabaseProperties { return v.Items }).(GetDatabasePropertiesOutput)
+func (o LookupDatabaseResultOutput) Items() GetDatabasePropertiesOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) GetDatabaseProperties { return v.Items }).(GetDatabasePropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetDatabaseResultOutput{})
+	pulumi.RegisterOutputType(LookupDatabaseResultOutput{})
 }

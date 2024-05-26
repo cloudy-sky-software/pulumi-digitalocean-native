@@ -365,6 +365,42 @@ const (
 	HealthCheckProtocolTcp   = HealthCheckProtocol("tcp")
 )
 
+func (HealthCheckProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckProtocol)(nil)).Elem()
+}
+
+func (e HealthCheckProtocol) ToHealthCheckProtocolOutput() HealthCheckProtocolOutput {
+	return pulumi.ToOutput(e).(HealthCheckProtocolOutput)
+}
+
+func (e HealthCheckProtocol) ToHealthCheckProtocolOutputWithContext(ctx context.Context) HealthCheckProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthCheckProtocolOutput)
+}
+
+func (e HealthCheckProtocol) ToHealthCheckProtocolPtrOutput() HealthCheckProtocolPtrOutput {
+	return e.ToHealthCheckProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckProtocol) ToHealthCheckProtocolPtrOutputWithContext(ctx context.Context) HealthCheckProtocolPtrOutput {
+	return HealthCheckProtocol(e).ToHealthCheckProtocolOutputWithContext(ctx).ToHealthCheckProtocolPtrOutputWithContext(ctx)
+}
+
+func (e HealthCheckProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type HealthCheckProtocolOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckProtocolOutput) ElementType() reflect.Type {
@@ -448,6 +484,46 @@ func (o HealthCheckProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// HealthCheckProtocolInput is an input type that accepts values of the HealthCheckProtocol enum
+// A concrete instance of `HealthCheckProtocolInput` can be one of the following:
+//
+//	HealthCheckProtocolHttp
+//	HealthCheckProtocolHttps
+//	HealthCheckProtocolTcp
+type HealthCheckProtocolInput interface {
+	pulumi.Input
+
+	ToHealthCheckProtocolOutput() HealthCheckProtocolOutput
+	ToHealthCheckProtocolOutputWithContext(context.Context) HealthCheckProtocolOutput
+}
+
+var healthCheckProtocolPtrType = reflect.TypeOf((**HealthCheckProtocol)(nil)).Elem()
+
+type HealthCheckProtocolPtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckProtocolPtrOutput() HealthCheckProtocolPtrOutput
+	ToHealthCheckProtocolPtrOutputWithContext(context.Context) HealthCheckProtocolPtrOutput
+}
+
+type healthCheckProtocolPtr string
+
+func HealthCheckProtocolPtr(v string) HealthCheckProtocolPtrInput {
+	return (*healthCheckProtocolPtr)(&v)
+}
+
+func (*healthCheckProtocolPtr) ElementType() reflect.Type {
+	return healthCheckProtocolPtrType
+}
+
+func (in *healthCheckProtocolPtr) ToHealthCheckProtocolPtrOutput() HealthCheckProtocolPtrOutput {
+	return pulumi.ToOutput(in).(HealthCheckProtocolPtrOutput)
+}
+
+func (in *healthCheckProtocolPtr) ToHealthCheckProtocolPtrOutputWithContext(ctx context.Context) HealthCheckProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckProtocolPtrOutput)
+}
+
 // This field has been deprecated. You can no longer specify an algorithm for load balancers.
 type LoadBalancerBaseAlgorithm string
 
@@ -455,6 +531,42 @@ const (
 	LoadBalancerBaseAlgorithmRoundRobin       = LoadBalancerBaseAlgorithm("round_robin")
 	LoadBalancerBaseAlgorithmLeastConnections = LoadBalancerBaseAlgorithm("least_connections")
 )
+
+func (LoadBalancerBaseAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBaseAlgorithm)(nil)).Elem()
+}
+
+func (e LoadBalancerBaseAlgorithm) ToLoadBalancerBaseAlgorithmOutput() LoadBalancerBaseAlgorithmOutput {
+	return pulumi.ToOutput(e).(LoadBalancerBaseAlgorithmOutput)
+}
+
+func (e LoadBalancerBaseAlgorithm) ToLoadBalancerBaseAlgorithmOutputWithContext(ctx context.Context) LoadBalancerBaseAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerBaseAlgorithmOutput)
+}
+
+func (e LoadBalancerBaseAlgorithm) ToLoadBalancerBaseAlgorithmPtrOutput() LoadBalancerBaseAlgorithmPtrOutput {
+	return e.ToLoadBalancerBaseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerBaseAlgorithm) ToLoadBalancerBaseAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerBaseAlgorithmPtrOutput {
+	return LoadBalancerBaseAlgorithm(e).ToLoadBalancerBaseAlgorithmOutputWithContext(ctx).ToLoadBalancerBaseAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e LoadBalancerBaseAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerBaseAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerBaseAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerBaseAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type LoadBalancerBaseAlgorithmOutput struct{ *pulumi.OutputState }
 
@@ -539,6 +651,45 @@ func (o LoadBalancerBaseAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
+// LoadBalancerBaseAlgorithmInput is an input type that accepts values of the LoadBalancerBaseAlgorithm enum
+// A concrete instance of `LoadBalancerBaseAlgorithmInput` can be one of the following:
+//
+//	LoadBalancerBaseAlgorithmRoundRobin
+//	LoadBalancerBaseAlgorithmLeastConnections
+type LoadBalancerBaseAlgorithmInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBaseAlgorithmOutput() LoadBalancerBaseAlgorithmOutput
+	ToLoadBalancerBaseAlgorithmOutputWithContext(context.Context) LoadBalancerBaseAlgorithmOutput
+}
+
+var loadBalancerBaseAlgorithmPtrType = reflect.TypeOf((**LoadBalancerBaseAlgorithm)(nil)).Elem()
+
+type LoadBalancerBaseAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBaseAlgorithmPtrOutput() LoadBalancerBaseAlgorithmPtrOutput
+	ToLoadBalancerBaseAlgorithmPtrOutputWithContext(context.Context) LoadBalancerBaseAlgorithmPtrOutput
+}
+
+type loadBalancerBaseAlgorithmPtr string
+
+func LoadBalancerBaseAlgorithmPtr(v string) LoadBalancerBaseAlgorithmPtrInput {
+	return (*loadBalancerBaseAlgorithmPtr)(&v)
+}
+
+func (*loadBalancerBaseAlgorithmPtr) ElementType() reflect.Type {
+	return loadBalancerBaseAlgorithmPtrType
+}
+
+func (in *loadBalancerBaseAlgorithmPtr) ToLoadBalancerBaseAlgorithmPtrOutput() LoadBalancerBaseAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(LoadBalancerBaseAlgorithmPtrOutput)
+}
+
+func (in *loadBalancerBaseAlgorithmPtr) ToLoadBalancerBaseAlgorithmPtrOutputWithContext(ctx context.Context) LoadBalancerBaseAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerBaseAlgorithmPtrOutput)
+}
+
 // This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.
 // * `lb-small` = 1 node
 // * `lb-medium` = 3 nodes
@@ -552,6 +703,42 @@ const (
 	LoadBalancerBaseSizeLbMedium = LoadBalancerBaseSize("lb-medium")
 	LoadBalancerBaseSizeLbLarge  = LoadBalancerBaseSize("lb-large")
 )
+
+func (LoadBalancerBaseSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBaseSize)(nil)).Elem()
+}
+
+func (e LoadBalancerBaseSize) ToLoadBalancerBaseSizeOutput() LoadBalancerBaseSizeOutput {
+	return pulumi.ToOutput(e).(LoadBalancerBaseSizeOutput)
+}
+
+func (e LoadBalancerBaseSize) ToLoadBalancerBaseSizeOutputWithContext(ctx context.Context) LoadBalancerBaseSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerBaseSizeOutput)
+}
+
+func (e LoadBalancerBaseSize) ToLoadBalancerBaseSizePtrOutput() LoadBalancerBaseSizePtrOutput {
+	return e.ToLoadBalancerBaseSizePtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerBaseSize) ToLoadBalancerBaseSizePtrOutputWithContext(ctx context.Context) LoadBalancerBaseSizePtrOutput {
+	return LoadBalancerBaseSize(e).ToLoadBalancerBaseSizeOutputWithContext(ctx).ToLoadBalancerBaseSizePtrOutputWithContext(ctx)
+}
+
+func (e LoadBalancerBaseSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerBaseSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerBaseSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerBaseSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type LoadBalancerBaseSizeOutput struct{ *pulumi.OutputState }
 
@@ -636,6 +823,46 @@ func (o LoadBalancerBaseSizePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
+// LoadBalancerBaseSizeInput is an input type that accepts values of the LoadBalancerBaseSize enum
+// A concrete instance of `LoadBalancerBaseSizeInput` can be one of the following:
+//
+//	LoadBalancerBaseSizeLbSmall
+//	LoadBalancerBaseSizeLbMedium
+//	LoadBalancerBaseSizeLbLarge
+type LoadBalancerBaseSizeInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBaseSizeOutput() LoadBalancerBaseSizeOutput
+	ToLoadBalancerBaseSizeOutputWithContext(context.Context) LoadBalancerBaseSizeOutput
+}
+
+var loadBalancerBaseSizePtrType = reflect.TypeOf((**LoadBalancerBaseSize)(nil)).Elem()
+
+type LoadBalancerBaseSizePtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBaseSizePtrOutput() LoadBalancerBaseSizePtrOutput
+	ToLoadBalancerBaseSizePtrOutputWithContext(context.Context) LoadBalancerBaseSizePtrOutput
+}
+
+type loadBalancerBaseSizePtr string
+
+func LoadBalancerBaseSizePtr(v string) LoadBalancerBaseSizePtrInput {
+	return (*loadBalancerBaseSizePtr)(&v)
+}
+
+func (*loadBalancerBaseSizePtr) ElementType() reflect.Type {
+	return loadBalancerBaseSizePtrType
+}
+
+func (in *loadBalancerBaseSizePtr) ToLoadBalancerBaseSizePtrOutput() LoadBalancerBaseSizePtrOutput {
+	return pulumi.ToOutput(in).(LoadBalancerBaseSizePtrOutput)
+}
+
+func (in *loadBalancerBaseSizePtr) ToLoadBalancerBaseSizePtrOutputWithContext(ctx context.Context) LoadBalancerBaseSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerBaseSizePtrOutput)
+}
+
 // A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.
 type LoadBalancerBaseStatus string
 
@@ -644,6 +871,42 @@ const (
 	LoadBalancerBaseStatusActive  = LoadBalancerBaseStatus("active")
 	LoadBalancerBaseStatusErrored = LoadBalancerBaseStatus("errored")
 )
+
+func (LoadBalancerBaseStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerBaseStatus)(nil)).Elem()
+}
+
+func (e LoadBalancerBaseStatus) ToLoadBalancerBaseStatusOutput() LoadBalancerBaseStatusOutput {
+	return pulumi.ToOutput(e).(LoadBalancerBaseStatusOutput)
+}
+
+func (e LoadBalancerBaseStatus) ToLoadBalancerBaseStatusOutputWithContext(ctx context.Context) LoadBalancerBaseStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerBaseStatusOutput)
+}
+
+func (e LoadBalancerBaseStatus) ToLoadBalancerBaseStatusPtrOutput() LoadBalancerBaseStatusPtrOutput {
+	return e.ToLoadBalancerBaseStatusPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerBaseStatus) ToLoadBalancerBaseStatusPtrOutputWithContext(ctx context.Context) LoadBalancerBaseStatusPtrOutput {
+	return LoadBalancerBaseStatus(e).ToLoadBalancerBaseStatusOutputWithContext(ctx).ToLoadBalancerBaseStatusPtrOutputWithContext(ctx)
+}
+
+func (e LoadBalancerBaseStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerBaseStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerBaseStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerBaseStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type LoadBalancerBaseStatusOutput struct{ *pulumi.OutputState }
 
@@ -728,6 +991,236 @@ func (o LoadBalancerBaseStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+// LoadBalancerBaseStatusInput is an input type that accepts values of the LoadBalancerBaseStatus enum
+// A concrete instance of `LoadBalancerBaseStatusInput` can be one of the following:
+//
+//	LoadBalancerBaseStatusNew
+//	LoadBalancerBaseStatusActive
+//	LoadBalancerBaseStatusErrored
+type LoadBalancerBaseStatusInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBaseStatusOutput() LoadBalancerBaseStatusOutput
+	ToLoadBalancerBaseStatusOutputWithContext(context.Context) LoadBalancerBaseStatusOutput
+}
+
+var loadBalancerBaseStatusPtrType = reflect.TypeOf((**LoadBalancerBaseStatus)(nil)).Elem()
+
+type LoadBalancerBaseStatusPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerBaseStatusPtrOutput() LoadBalancerBaseStatusPtrOutput
+	ToLoadBalancerBaseStatusPtrOutputWithContext(context.Context) LoadBalancerBaseStatusPtrOutput
+}
+
+type loadBalancerBaseStatusPtr string
+
+func LoadBalancerBaseStatusPtr(v string) LoadBalancerBaseStatusPtrInput {
+	return (*loadBalancerBaseStatusPtr)(&v)
+}
+
+func (*loadBalancerBaseStatusPtr) ElementType() reflect.Type {
+	return loadBalancerBaseStatusPtrType
+}
+
+func (in *loadBalancerBaseStatusPtr) ToLoadBalancerBaseStatusPtrOutput() LoadBalancerBaseStatusPtrOutput {
+	return pulumi.ToOutput(in).(LoadBalancerBaseStatusPtrOutput)
+}
+
+func (in *loadBalancerBaseStatusPtr) ToLoadBalancerBaseStatusPtrOutputWithContext(ctx context.Context) LoadBalancerBaseStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerBaseStatusPtrOutput)
+}
+
+// The slug identifier for the region where the resource will initially be  available.
+type LoadBalancerPropertiesRegionEnum string
+
+const (
+	LoadBalancerPropertiesRegionEnumAms1 = LoadBalancerPropertiesRegionEnum("ams1")
+	LoadBalancerPropertiesRegionEnumAms2 = LoadBalancerPropertiesRegionEnum("ams2")
+	LoadBalancerPropertiesRegionEnumAms3 = LoadBalancerPropertiesRegionEnum("ams3")
+	LoadBalancerPropertiesRegionEnumBlr1 = LoadBalancerPropertiesRegionEnum("blr1")
+	LoadBalancerPropertiesRegionEnumFra1 = LoadBalancerPropertiesRegionEnum("fra1")
+	LoadBalancerPropertiesRegionEnumLon1 = LoadBalancerPropertiesRegionEnum("lon1")
+	LoadBalancerPropertiesRegionEnumNyc1 = LoadBalancerPropertiesRegionEnum("nyc1")
+	LoadBalancerPropertiesRegionEnumNyc2 = LoadBalancerPropertiesRegionEnum("nyc2")
+	LoadBalancerPropertiesRegionEnumNyc3 = LoadBalancerPropertiesRegionEnum("nyc3")
+	LoadBalancerPropertiesRegionEnumSfo1 = LoadBalancerPropertiesRegionEnum("sfo1")
+	LoadBalancerPropertiesRegionEnumSfo2 = LoadBalancerPropertiesRegionEnum("sfo2")
+	LoadBalancerPropertiesRegionEnumSfo3 = LoadBalancerPropertiesRegionEnum("sfo3")
+	LoadBalancerPropertiesRegionEnumSgp1 = LoadBalancerPropertiesRegionEnum("sgp1")
+	LoadBalancerPropertiesRegionEnumTor1 = LoadBalancerPropertiesRegionEnum("tor1")
+)
+
+func (LoadBalancerPropertiesRegionEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerPropertiesRegionEnum)(nil)).Elem()
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToLoadBalancerPropertiesRegionEnumOutput() LoadBalancerPropertiesRegionEnumOutput {
+	return pulumi.ToOutput(e).(LoadBalancerPropertiesRegionEnumOutput)
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToLoadBalancerPropertiesRegionEnumOutputWithContext(ctx context.Context) LoadBalancerPropertiesRegionEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerPropertiesRegionEnumOutput)
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToLoadBalancerPropertiesRegionEnumPtrOutput() LoadBalancerPropertiesRegionEnumPtrOutput {
+	return e.ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(ctx context.Context) LoadBalancerPropertiesRegionEnumPtrOutput {
+	return LoadBalancerPropertiesRegionEnum(e).ToLoadBalancerPropertiesRegionEnumOutputWithContext(ctx).ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(ctx)
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerPropertiesRegionEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoadBalancerPropertiesRegionEnumOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerPropertiesRegionEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerPropertiesRegionEnum)(nil)).Elem()
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToLoadBalancerPropertiesRegionEnumOutput() LoadBalancerPropertiesRegionEnumOutput {
+	return o
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToLoadBalancerPropertiesRegionEnumOutputWithContext(ctx context.Context) LoadBalancerPropertiesRegionEnumOutput {
+	return o
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToLoadBalancerPropertiesRegionEnumPtrOutput() LoadBalancerPropertiesRegionEnumPtrOutput {
+	return o.ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(ctx context.Context) LoadBalancerPropertiesRegionEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerPropertiesRegionEnum) *LoadBalancerPropertiesRegionEnum {
+		return &v
+	}).(LoadBalancerPropertiesRegionEnumPtrOutput)
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoadBalancerPropertiesRegionEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerPropertiesRegionEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoadBalancerPropertiesRegionEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerPropertiesRegionEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerPropertiesRegionEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerPropertiesRegionEnum)(nil)).Elem()
+}
+
+func (o LoadBalancerPropertiesRegionEnumPtrOutput) ToLoadBalancerPropertiesRegionEnumPtrOutput() LoadBalancerPropertiesRegionEnumPtrOutput {
+	return o
+}
+
+func (o LoadBalancerPropertiesRegionEnumPtrOutput) ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(ctx context.Context) LoadBalancerPropertiesRegionEnumPtrOutput {
+	return o
+}
+
+func (o LoadBalancerPropertiesRegionEnumPtrOutput) Elem() LoadBalancerPropertiesRegionEnumOutput {
+	return o.ApplyT(func(v *LoadBalancerPropertiesRegionEnum) LoadBalancerPropertiesRegionEnum {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerPropertiesRegionEnum
+		return ret
+	}).(LoadBalancerPropertiesRegionEnumOutput)
+}
+
+func (o LoadBalancerPropertiesRegionEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerPropertiesRegionEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoadBalancerPropertiesRegionEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoadBalancerPropertiesRegionEnumInput is an input type that accepts values of the LoadBalancerPropertiesRegionEnum enum
+// A concrete instance of `LoadBalancerPropertiesRegionEnumInput` can be one of the following:
+//
+//	LoadBalancerPropertiesRegionEnumAms1
+//	LoadBalancerPropertiesRegionEnumAms2
+//	LoadBalancerPropertiesRegionEnumAms3
+//	LoadBalancerPropertiesRegionEnumBlr1
+//	LoadBalancerPropertiesRegionEnumFra1
+//	LoadBalancerPropertiesRegionEnumLon1
+//	LoadBalancerPropertiesRegionEnumNyc1
+//	LoadBalancerPropertiesRegionEnumNyc2
+//	LoadBalancerPropertiesRegionEnumNyc3
+//	LoadBalancerPropertiesRegionEnumSfo1
+//	LoadBalancerPropertiesRegionEnumSfo2
+//	LoadBalancerPropertiesRegionEnumSfo3
+//	LoadBalancerPropertiesRegionEnumSgp1
+//	LoadBalancerPropertiesRegionEnumTor1
+type LoadBalancerPropertiesRegionEnumInput interface {
+	pulumi.Input
+
+	ToLoadBalancerPropertiesRegionEnumOutput() LoadBalancerPropertiesRegionEnumOutput
+	ToLoadBalancerPropertiesRegionEnumOutputWithContext(context.Context) LoadBalancerPropertiesRegionEnumOutput
+}
+
+var loadBalancerPropertiesRegionEnumPtrType = reflect.TypeOf((**LoadBalancerPropertiesRegionEnum)(nil)).Elem()
+
+type LoadBalancerPropertiesRegionEnumPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerPropertiesRegionEnumPtrOutput() LoadBalancerPropertiesRegionEnumPtrOutput
+	ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(context.Context) LoadBalancerPropertiesRegionEnumPtrOutput
+}
+
+type loadBalancerPropertiesRegionEnumPtr string
+
+func LoadBalancerPropertiesRegionEnumPtr(v string) LoadBalancerPropertiesRegionEnumPtrInput {
+	return (*loadBalancerPropertiesRegionEnumPtr)(&v)
+}
+
+func (*loadBalancerPropertiesRegionEnumPtr) ElementType() reflect.Type {
+	return loadBalancerPropertiesRegionEnumPtrType
+}
+
+func (in *loadBalancerPropertiesRegionEnumPtr) ToLoadBalancerPropertiesRegionEnumPtrOutput() LoadBalancerPropertiesRegionEnumPtrOutput {
+	return pulumi.ToOutput(in).(LoadBalancerPropertiesRegionEnumPtrOutput)
+}
+
+func (in *loadBalancerPropertiesRegionEnumPtr) ToLoadBalancerPropertiesRegionEnumPtrOutputWithContext(ctx context.Context) LoadBalancerPropertiesRegionEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerPropertiesRegionEnumPtrOutput)
+}
+
 // An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
 type StickySessionsType string
 
@@ -735,6 +1228,42 @@ const (
 	StickySessionsTypeCookies = StickySessionsType("cookies")
 	StickySessionsTypeNone    = StickySessionsType("none")
 )
+
+func (StickySessionsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StickySessionsType)(nil)).Elem()
+}
+
+func (e StickySessionsType) ToStickySessionsTypeOutput() StickySessionsTypeOutput {
+	return pulumi.ToOutput(e).(StickySessionsTypeOutput)
+}
+
+func (e StickySessionsType) ToStickySessionsTypeOutputWithContext(ctx context.Context) StickySessionsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StickySessionsTypeOutput)
+}
+
+func (e StickySessionsType) ToStickySessionsTypePtrOutput() StickySessionsTypePtrOutput {
+	return e.ToStickySessionsTypePtrOutputWithContext(context.Background())
+}
+
+func (e StickySessionsType) ToStickySessionsTypePtrOutputWithContext(ctx context.Context) StickySessionsTypePtrOutput {
+	return StickySessionsType(e).ToStickySessionsTypeOutputWithContext(ctx).ToStickySessionsTypePtrOutputWithContext(ctx)
+}
+
+func (e StickySessionsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StickySessionsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StickySessionsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StickySessionsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
 
 type StickySessionsTypeOutput struct{ *pulumi.OutputState }
 
@@ -819,11 +1348,62 @@ func (o StickySessionsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
+// StickySessionsTypeInput is an input type that accepts values of the StickySessionsType enum
+// A concrete instance of `StickySessionsTypeInput` can be one of the following:
+//
+//	StickySessionsTypeCookies
+//	StickySessionsTypeNone
+type StickySessionsTypeInput interface {
+	pulumi.Input
+
+	ToStickySessionsTypeOutput() StickySessionsTypeOutput
+	ToStickySessionsTypeOutputWithContext(context.Context) StickySessionsTypeOutput
+}
+
+var stickySessionsTypePtrType = reflect.TypeOf((**StickySessionsType)(nil)).Elem()
+
+type StickySessionsTypePtrInput interface {
+	pulumi.Input
+
+	ToStickySessionsTypePtrOutput() StickySessionsTypePtrOutput
+	ToStickySessionsTypePtrOutputWithContext(context.Context) StickySessionsTypePtrOutput
+}
+
+type stickySessionsTypePtr string
+
+func StickySessionsTypePtr(v string) StickySessionsTypePtrInput {
+	return (*stickySessionsTypePtr)(&v)
+}
+
+func (*stickySessionsTypePtr) ElementType() reflect.Type {
+	return stickySessionsTypePtrType
+}
+
+func (in *stickySessionsTypePtr) ToStickySessionsTypePtrOutput() StickySessionsTypePtrOutput {
+	return pulumi.ToOutput(in).(StickySessionsTypePtrOutput)
+}
+
+func (in *stickySessionsTypePtr) ToStickySessionsTypePtrOutputWithContext(ctx context.Context) StickySessionsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StickySessionsTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleEntryProtocolInput)(nil)).Elem(), ForwardingRuleEntryProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleEntryProtocolPtrInput)(nil)).Elem(), ForwardingRuleEntryProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleTargetProtocolInput)(nil)).Elem(), ForwardingRuleTargetProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ForwardingRuleTargetProtocolPtrInput)(nil)).Elem(), ForwardingRuleTargetProtocol("http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckProtocolInput)(nil)).Elem(), HealthCheckProtocol("http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckProtocolPtrInput)(nil)).Elem(), HealthCheckProtocol("http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBaseAlgorithmInput)(nil)).Elem(), LoadBalancerBaseAlgorithm("round_robin"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBaseAlgorithmPtrInput)(nil)).Elem(), LoadBalancerBaseAlgorithm("round_robin"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBaseSizeInput)(nil)).Elem(), LoadBalancerBaseSize("lb-small"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBaseSizePtrInput)(nil)).Elem(), LoadBalancerBaseSize("lb-small"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBaseStatusInput)(nil)).Elem(), LoadBalancerBaseStatus("new"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBaseStatusPtrInput)(nil)).Elem(), LoadBalancerBaseStatus("new"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPropertiesRegionEnumInput)(nil)).Elem(), LoadBalancerPropertiesRegionEnum("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPropertiesRegionEnumPtrInput)(nil)).Elem(), LoadBalancerPropertiesRegionEnum("ams1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StickySessionsTypeInput)(nil)).Elem(), StickySessionsType("cookies"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StickySessionsTypePtrInput)(nil)).Elem(), StickySessionsType("cookies"))
 	pulumi.RegisterOutputType(ForwardingRuleEntryProtocolOutput{})
 	pulumi.RegisterOutputType(ForwardingRuleEntryProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ForwardingRuleTargetProtocolOutput{})
@@ -836,6 +1416,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerBaseSizePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerBaseStatusOutput{})
 	pulumi.RegisterOutputType(LoadBalancerBaseStatusPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerPropertiesRegionEnumOutput{})
+	pulumi.RegisterOutputType(LoadBalancerPropertiesRegionEnumPtrOutput{})
 	pulumi.RegisterOutputType(StickySessionsTypeOutput{})
 	pulumi.RegisterOutputType(StickySessionsTypePtrOutput{})
 }

@@ -15,6 +15,11 @@ export type Detach = import("./detach").Detach;
 export const Detach: typeof import("./detach").Detach = null as any;
 utilities.lazyLoad(exports, ["Detach"], () => require("./detach"));
 
+export { Ext4Args } from "./ext4";
+export type Ext4 = import("./ext4").Ext4;
+export const Ext4: typeof import("./ext4").Ext4 = null as any;
+utilities.lazyLoad(exports, ["Ext4"], () => require("./ext4"));
+
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -50,15 +55,15 @@ export type Resize = import("./resize").Resize;
 export const Resize: typeof import("./resize").Resize = null as any;
 utilities.lazyLoad(exports, ["Resize"], () => require("./resize"));
 
-export { VolumeSnapshotsArgs } from "./volumeSnapshots";
-export type VolumeSnapshots = import("./volumeSnapshots").VolumeSnapshots;
-export const VolumeSnapshots: typeof import("./volumeSnapshots").VolumeSnapshots = null as any;
-utilities.lazyLoad(exports, ["VolumeSnapshots"], () => require("./volumeSnapshots"));
+export { VolumeSnapshotArgs } from "./volumeSnapshot";
+export type VolumeSnapshot = import("./volumeSnapshot").VolumeSnapshot;
+export const VolumeSnapshot: typeof import("./volumeSnapshot").VolumeSnapshot = null as any;
+utilities.lazyLoad(exports, ["VolumeSnapshot"], () => require("./volumeSnapshot"));
 
-export { VolumesArgs } from "./volumes";
-export type Volumes = import("./volumes").Volumes;
-export const Volumes: typeof import("./volumes").Volumes = null as any;
-utilities.lazyLoad(exports, ["Volumes"], () => require("./volumes"));
+export { XfsArgs } from "./xfs";
+export type Xfs = import("./xfs").Xfs;
+export const Xfs: typeof import("./xfs").Xfs = null as any;
+utilities.lazyLoad(exports, ["Xfs"], () => require("./xfs"));
 
 
 // Export enums:
@@ -72,12 +77,14 @@ const _module = {
                 return new Attach(name, <any>undefined, { urn })
             case "digitalocean-native:volumes/v2:Detach":
                 return new Detach(name, <any>undefined, { urn })
+            case "digitalocean-native:volumes/v2:Ext4":
+                return new Ext4(name, <any>undefined, { urn })
             case "digitalocean-native:volumes/v2:Resize":
                 return new Resize(name, <any>undefined, { urn })
-            case "digitalocean-native:volumes/v2:VolumeSnapshots":
-                return new VolumeSnapshots(name, <any>undefined, { urn })
-            case "digitalocean-native:volumes/v2:Volumes":
-                return new Volumes(name, <any>undefined, { urn })
+            case "digitalocean-native:volumes/v2:VolumeSnapshot":
+                return new VolumeSnapshot(name, <any>undefined, { urn })
+            case "digitalocean-native:volumes/v2:Xfs":
+                return new Xfs(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

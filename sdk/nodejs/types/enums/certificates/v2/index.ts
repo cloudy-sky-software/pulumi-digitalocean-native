@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CertificateCreateBaseType = {
+    Custom: "custom",
+    LetsEncrypt: "lets_encrypt",
+} as const;
+
+/**
+ * A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
+ */
+export type CertificateCreateBaseType = (typeof CertificateCreateBaseType)[keyof typeof CertificateCreateBaseType];
+
 export const CertificateState = {
     Pending: "pending",
     Verified: "verified",

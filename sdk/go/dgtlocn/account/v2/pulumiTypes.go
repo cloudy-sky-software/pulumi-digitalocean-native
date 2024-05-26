@@ -333,7 +333,7 @@ func (o GetAccountPropertiesOutput) Account() AccountPtrOutput {
 }
 
 type GetSshKeyProperties struct {
-	SshKey *SshKeysType `pulumi:"sshKey"`
+	SshKey *SshKeys `pulumi:"sshKey"`
 }
 
 type GetSshKeyPropertiesOutput struct{ *pulumi.OutputState }
@@ -350,14 +350,14 @@ func (o GetSshKeyPropertiesOutput) ToGetSshKeyPropertiesOutputWithContext(ctx co
 	return o
 }
 
-func (o GetSshKeyPropertiesOutput) SshKey() SshKeysTypePtrOutput {
-	return o.ApplyT(func(v GetSshKeyProperties) *SshKeysType { return v.SshKey }).(SshKeysTypePtrOutput)
+func (o GetSshKeyPropertiesOutput) SshKey() SshKeysPtrOutput {
+	return o.ApplyT(func(v GetSshKeyProperties) *SshKeys { return v.SshKey }).(SshKeysPtrOutput)
 }
 
 type ListSshKeysItems struct {
-	Links   *PageLinks    `pulumi:"links"`
-	Meta    MetaMeta      `pulumi:"meta"`
-	SshKeys []SshKeysType `pulumi:"sshKeys"`
+	Links   *PageLinks `pulumi:"links"`
+	Meta    MetaMeta   `pulumi:"meta"`
+	SshKeys []SshKeys  `pulumi:"sshKeys"`
 }
 
 type ListSshKeysItemsOutput struct{ *pulumi.OutputState }
@@ -382,8 +382,8 @@ func (o ListSshKeysItemsOutput) Meta() MetaMetaOutput {
 	return o.ApplyT(func(v ListSshKeysItems) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
-func (o ListSshKeysItemsOutput) SshKeys() SshKeysTypeArrayOutput {
-	return o.ApplyT(func(v ListSshKeysItems) []SshKeysType { return v.SshKeys }).(SshKeysTypeArrayOutput)
+func (o ListSshKeysItemsOutput) SshKeys() SshKeysArrayOutput {
+	return o.ApplyT(func(v ListSshKeysItems) []SshKeys { return v.SshKeys }).(SshKeysArrayOutput)
 }
 
 type MetaMeta struct {
@@ -562,7 +562,7 @@ func (o PageLinksPagesPropertiesPtrOutput) Prev() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type SshKeysType struct {
+type SshKeys struct {
 	// A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.
 	Fingerprint *string `pulumi:"fingerprint"`
 	// A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.
@@ -573,67 +573,67 @@ type SshKeysType struct {
 	PublicKey string `pulumi:"publicKey"`
 }
 
-type SshKeysTypeOutput struct{ *pulumi.OutputState }
+type SshKeysOutput struct{ *pulumi.OutputState }
 
-func (SshKeysTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshKeysType)(nil)).Elem()
+func (SshKeysOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshKeys)(nil)).Elem()
 }
 
-func (o SshKeysTypeOutput) ToSshKeysTypeOutput() SshKeysTypeOutput {
+func (o SshKeysOutput) ToSshKeysOutput() SshKeysOutput {
 	return o
 }
 
-func (o SshKeysTypeOutput) ToSshKeysTypeOutputWithContext(ctx context.Context) SshKeysTypeOutput {
+func (o SshKeysOutput) ToSshKeysOutputWithContext(ctx context.Context) SshKeysOutput {
 	return o
 }
 
 // A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.
-func (o SshKeysTypeOutput) Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SshKeysType) *string { return v.Fingerprint }).(pulumi.StringPtrOutput)
+func (o SshKeysOutput) Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshKeys) *string { return v.Fingerprint }).(pulumi.StringPtrOutput)
 }
 
 // A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.
-func (o SshKeysTypeOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SshKeysType) *int { return v.Id }).(pulumi.IntPtrOutput)
+func (o SshKeysOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SshKeys) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
 // A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
-func (o SshKeysTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SshKeysType) string { return v.Name }).(pulumi.StringOutput)
+func (o SshKeysOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SshKeys) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The entire public key string that was uploaded. Embedded into the root user's `authorized_keys` file if you include this key during Droplet creation.
-func (o SshKeysTypeOutput) PublicKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SshKeysType) string { return v.PublicKey }).(pulumi.StringOutput)
+func (o SshKeysOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SshKeys) string { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-type SshKeysTypePtrOutput struct{ *pulumi.OutputState }
+type SshKeysPtrOutput struct{ *pulumi.OutputState }
 
-func (SshKeysTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshKeysType)(nil)).Elem()
+func (SshKeysPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SshKeys)(nil)).Elem()
 }
 
-func (o SshKeysTypePtrOutput) ToSshKeysTypePtrOutput() SshKeysTypePtrOutput {
+func (o SshKeysPtrOutput) ToSshKeysPtrOutput() SshKeysPtrOutput {
 	return o
 }
 
-func (o SshKeysTypePtrOutput) ToSshKeysTypePtrOutputWithContext(ctx context.Context) SshKeysTypePtrOutput {
+func (o SshKeysPtrOutput) ToSshKeysPtrOutputWithContext(ctx context.Context) SshKeysPtrOutput {
 	return o
 }
 
-func (o SshKeysTypePtrOutput) Elem() SshKeysTypeOutput {
-	return o.ApplyT(func(v *SshKeysType) SshKeysType {
+func (o SshKeysPtrOutput) Elem() SshKeysOutput {
+	return o.ApplyT(func(v *SshKeys) SshKeys {
 		if v != nil {
 			return *v
 		}
-		var ret SshKeysType
+		var ret SshKeys
 		return ret
-	}).(SshKeysTypeOutput)
+	}).(SshKeysOutput)
 }
 
 // A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.
-func (o SshKeysTypePtrOutput) Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SshKeysType) *string {
+func (o SshKeysPtrOutput) Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SshKeys) *string {
 		if v == nil {
 			return nil
 		}
@@ -642,8 +642,8 @@ func (o SshKeysTypePtrOutput) Fingerprint() pulumi.StringPtrOutput {
 }
 
 // A unique identification number for this key. Can be used to embed a  specific SSH key into a Droplet.
-func (o SshKeysTypePtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SshKeysType) *int {
+func (o SshKeysPtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SshKeys) *int {
 		if v == nil {
 			return nil
 		}
@@ -652,8 +652,8 @@ func (o SshKeysTypePtrOutput) Id() pulumi.IntPtrOutput {
 }
 
 // A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
-func (o SshKeysTypePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SshKeysType) *string {
+func (o SshKeysPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SshKeys) *string {
 		if v == nil {
 			return nil
 		}
@@ -662,8 +662,8 @@ func (o SshKeysTypePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The entire public key string that was uploaded. Embedded into the root user's `authorized_keys` file if you include this key during Droplet creation.
-func (o SshKeysTypePtrOutput) PublicKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SshKeysType) *string {
+func (o SshKeysPtrOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SshKeys) *string {
 		if v == nil {
 			return nil
 		}
@@ -671,24 +671,24 @@ func (o SshKeysTypePtrOutput) PublicKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type SshKeysTypeArrayOutput struct{ *pulumi.OutputState }
+type SshKeysArrayOutput struct{ *pulumi.OutputState }
 
-func (SshKeysTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SshKeysType)(nil)).Elem()
+func (SshKeysArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SshKeys)(nil)).Elem()
 }
 
-func (o SshKeysTypeArrayOutput) ToSshKeysTypeArrayOutput() SshKeysTypeArrayOutput {
+func (o SshKeysArrayOutput) ToSshKeysArrayOutput() SshKeysArrayOutput {
 	return o
 }
 
-func (o SshKeysTypeArrayOutput) ToSshKeysTypeArrayOutputWithContext(ctx context.Context) SshKeysTypeArrayOutput {
+func (o SshKeysArrayOutput) ToSshKeysArrayOutputWithContext(ctx context.Context) SshKeysArrayOutput {
 	return o
 }
 
-func (o SshKeysTypeArrayOutput) Index(i pulumi.IntInput) SshKeysTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshKeysType {
-		return vs[0].([]SshKeysType)[vs[1].(int)]
-	}).(SshKeysTypeOutput)
+func (o SshKeysArrayOutput) Index(i pulumi.IntInput) SshKeysOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshKeys {
+		return vs[0].([]SshKeys)[vs[1].(int)]
+	}).(SshKeysOutput)
 }
 
 func init() {
@@ -704,7 +704,7 @@ func init() {
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SshKeysTypeOutput{})
-	pulumi.RegisterOutputType(SshKeysTypePtrOutput{})
-	pulumi.RegisterOutputType(SshKeysTypeArrayOutput{})
+	pulumi.RegisterOutputType(SshKeysOutput{})
+	pulumi.RegisterOutputType(SshKeysPtrOutput{})
+	pulumi.RegisterOutputType(SshKeysArrayOutput{})
 }

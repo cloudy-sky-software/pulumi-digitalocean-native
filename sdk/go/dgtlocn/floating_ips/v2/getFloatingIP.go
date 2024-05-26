@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetFloatingIP(ctx *pulumi.Context, args *GetFloatingIPArgs, opts ...pulumi.InvokeOption) (*GetFloatingIPResult, error) {
+func LookupFloatingIP(ctx *pulumi.Context, args *LookupFloatingIPArgs, opts ...pulumi.InvokeOption) (*LookupFloatingIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetFloatingIPResult
+	var rv LookupFloatingIPResult
 	err := ctx.Invoke("digitalocean-native:floating_ips/v2:getFloatingIP", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,17 +21,17 @@ func GetFloatingIP(ctx *pulumi.Context, args *GetFloatingIPArgs, opts ...pulumi.
 	return rv.Defaults(), nil
 }
 
-type GetFloatingIPArgs struct {
+type LookupFloatingIPArgs struct {
 	// A floating IP address.
 	FloatingIp string `pulumi:"floatingIp"`
 }
 
-type GetFloatingIPResult struct {
+type LookupFloatingIPResult struct {
 	Items GetFloatingIPProperties `pulumi:"items"`
 }
 
-// Defaults sets the appropriate defaults for GetFloatingIPResult
-func (val *GetFloatingIPResult) Defaults() *GetFloatingIPResult {
+// Defaults sets the appropriate defaults for LookupFloatingIPResult
+func (val *LookupFloatingIPResult) Defaults() *LookupFloatingIPResult {
 	if val == nil {
 		return nil
 	}
@@ -41,46 +41,46 @@ func (val *GetFloatingIPResult) Defaults() *GetFloatingIPResult {
 	return &tmp
 }
 
-func GetFloatingIPOutput(ctx *pulumi.Context, args GetFloatingIPOutputArgs, opts ...pulumi.InvokeOption) GetFloatingIPResultOutput {
+func LookupFloatingIPOutput(ctx *pulumi.Context, args LookupFloatingIPOutputArgs, opts ...pulumi.InvokeOption) LookupFloatingIPResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFloatingIPResult, error) {
-			args := v.(GetFloatingIPArgs)
-			r, err := GetFloatingIP(ctx, &args, opts...)
-			var s GetFloatingIPResult
+		ApplyT(func(v interface{}) (LookupFloatingIPResult, error) {
+			args := v.(LookupFloatingIPArgs)
+			r, err := LookupFloatingIP(ctx, &args, opts...)
+			var s LookupFloatingIPResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetFloatingIPResultOutput)
+		}).(LookupFloatingIPResultOutput)
 }
 
-type GetFloatingIPOutputArgs struct {
+type LookupFloatingIPOutputArgs struct {
 	// A floating IP address.
 	FloatingIp pulumi.StringInput `pulumi:"floatingIp"`
 }
 
-func (GetFloatingIPOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFloatingIPArgs)(nil)).Elem()
+func (LookupFloatingIPOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFloatingIPArgs)(nil)).Elem()
 }
 
-type GetFloatingIPResultOutput struct{ *pulumi.OutputState }
+type LookupFloatingIPResultOutput struct{ *pulumi.OutputState }
 
-func (GetFloatingIPResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFloatingIPResult)(nil)).Elem()
+func (LookupFloatingIPResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupFloatingIPResult)(nil)).Elem()
 }
 
-func (o GetFloatingIPResultOutput) ToGetFloatingIPResultOutput() GetFloatingIPResultOutput {
+func (o LookupFloatingIPResultOutput) ToLookupFloatingIPResultOutput() LookupFloatingIPResultOutput {
 	return o
 }
 
-func (o GetFloatingIPResultOutput) ToGetFloatingIPResultOutputWithContext(ctx context.Context) GetFloatingIPResultOutput {
+func (o LookupFloatingIPResultOutput) ToLookupFloatingIPResultOutputWithContext(ctx context.Context) LookupFloatingIPResultOutput {
 	return o
 }
 
-func (o GetFloatingIPResultOutput) Items() GetFloatingIPPropertiesOutput {
-	return o.ApplyT(func(v GetFloatingIPResult) GetFloatingIPProperties { return v.Items }).(GetFloatingIPPropertiesOutput)
+func (o LookupFloatingIPResultOutput) Items() GetFloatingIPPropertiesOutput {
+	return o.ApplyT(func(v LookupFloatingIPResult) GetFloatingIPProperties { return v.Items }).(GetFloatingIPPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetFloatingIPResultOutput{})
+	pulumi.RegisterOutputType(LookupFloatingIPResultOutput{})
 }
