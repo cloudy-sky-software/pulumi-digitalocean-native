@@ -203,8 +203,24 @@ func fixFileSystemLabelProperty(openAPIDoc *openapi3.T) {
 }
 
 func fixCreateCustomDomainRequest(openAPIDoc *openapi3.T) {
+	// The POST operation uses an anyOf definition with a
+	// discriminator. While it's technically correct, none
+	// of the other operations on a domain record use the
+	// discriminator leading to a situation where we are
+	// not able to tie the other operations to the
+	// corresponding type token properly.
+	//
+	// Moreover, it seems that the reasoning for using
+	// the anyOf definition is to require separate properties
+	// in the same underlying object that they all point to.
+	// While we'd lose the per-record type resource,
+	// we are ensuring that the custom domain record
+	// resource is fully linked with all operations.
+	//
+	// We'll revisit this based on user feedback.
 	recordsPathItem := openAPIDoc.Paths.Find("/v2/domains/{domain_name}/records")
 	contract.Assertf(recordsPathItem != nil, "Expected to find request path /v2/domains/{domain_name}/records")
+
 	domainRecord := openAPIDoc.Components.Schemas["domain_record"]
 	recordsPathItem.Post.RequestBody.Value.Content.Get("application/json").Schema = openapi3.NewSchemaRef("#/components/schemas/domain_record", domainRecord.Value)
 }
