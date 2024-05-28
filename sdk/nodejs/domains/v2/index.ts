@@ -5,30 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AArgs } from "./a";
-export type A = import("./a").A;
-export const A: typeof import("./a").A = null as any;
-utilities.lazyLoad(exports, ["A"], () => require("./a"));
-
-export { AaaaArgs } from "./aaaa";
-export type Aaaa = import("./aaaa").Aaaa;
-export const Aaaa: typeof import("./aaaa").Aaaa = null as any;
-utilities.lazyLoad(exports, ["Aaaa"], () => require("./aaaa"));
-
-export { CaaArgs } from "./caa";
-export type Caa = import("./caa").Caa;
-export const Caa: typeof import("./caa").Caa = null as any;
-utilities.lazyLoad(exports, ["Caa"], () => require("./caa"));
-
-export { CnameArgs } from "./cname";
-export type Cname = import("./cname").Cname;
-export const Cname: typeof import("./cname").Cname = null as any;
-utilities.lazyLoad(exports, ["Cname"], () => require("./cname"));
-
 export { DomainArgs } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+
+export { DomainsRecordArgs } from "./domainsRecord";
+export type DomainsRecord = import("./domainsRecord").DomainsRecord;
+export const DomainsRecord: typeof import("./domainsRecord").DomainsRecord = null as any;
+utilities.lazyLoad(exports, ["DomainsRecord"], () => require("./domainsRecord"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
@@ -50,56 +35,15 @@ export const listDomainsRecords: typeof import("./listDomainsRecords").listDomai
 export const listDomainsRecordsOutput: typeof import("./listDomainsRecords").listDomainsRecordsOutput = null as any;
 utilities.lazyLoad(exports, ["listDomainsRecords","listDomainsRecordsOutput"], () => require("./listDomainsRecords"));
 
-export { MxArgs } from "./mx";
-export type Mx = import("./mx").Mx;
-export const Mx: typeof import("./mx").Mx = null as any;
-utilities.lazyLoad(exports, ["Mx"], () => require("./mx"));
-
-export { NsArgs } from "./ns";
-export type Ns = import("./ns").Ns;
-export const Ns: typeof import("./ns").Ns = null as any;
-utilities.lazyLoad(exports, ["Ns"], () => require("./ns"));
-
-export { SoaArgs } from "./soa";
-export type Soa = import("./soa").Soa;
-export const Soa: typeof import("./soa").Soa = null as any;
-utilities.lazyLoad(exports, ["Soa"], () => require("./soa"));
-
-export { SrvArgs } from "./srv";
-export type Srv = import("./srv").Srv;
-export const Srv: typeof import("./srv").Srv = null as any;
-utilities.lazyLoad(exports, ["Srv"], () => require("./srv"));
-
-export { TxtArgs } from "./txt";
-export type Txt = import("./txt").Txt;
-export const Txt: typeof import("./txt").Txt = null as any;
-utilities.lazyLoad(exports, ["Txt"], () => require("./txt"));
-
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "digitalocean-native:domains/v2:A":
-                return new A(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Aaaa":
-                return new Aaaa(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Caa":
-                return new Caa(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Cname":
-                return new Cname(name, <any>undefined, { urn })
             case "digitalocean-native:domains/v2:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Mx":
-                return new Mx(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Ns":
-                return new Ns(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Soa":
-                return new Soa(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Srv":
-                return new Srv(name, <any>undefined, { urn })
-            case "digitalocean-native:domains/v2:Txt":
-                return new Txt(name, <any>undefined, { urn })
+            case "digitalocean-native:domains/v2:DomainsRecord":
+                return new DomainsRecord(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -21,26 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "digitalocean-native:domains/v2:A":
-		r = &A{}
-	case "digitalocean-native:domains/v2:Aaaa":
-		r = &Aaaa{}
-	case "digitalocean-native:domains/v2:Caa":
-		r = &Caa{}
-	case "digitalocean-native:domains/v2:Cname":
-		r = &Cname{}
 	case "digitalocean-native:domains/v2:Domain":
 		r = &Domain{}
-	case "digitalocean-native:domains/v2:Mx":
-		r = &Mx{}
-	case "digitalocean-native:domains/v2:Ns":
-		r = &Ns{}
-	case "digitalocean-native:domains/v2:Soa":
-		r = &Soa{}
-	case "digitalocean-native:domains/v2:Srv":
-		r = &Srv{}
-	case "digitalocean-native:domains/v2:Txt":
-		r = &Txt{}
+	case "digitalocean-native:domains/v2:DomainsRecord":
+		r = &DomainsRecord{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

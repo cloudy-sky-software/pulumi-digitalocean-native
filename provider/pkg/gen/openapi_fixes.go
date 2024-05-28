@@ -202,6 +202,13 @@ func fixFileSystemLabelProperty(openAPIDoc *openapi3.T) {
 	}
 }
 
+func fixCreateCustomDomainRequest(openAPIDoc *openapi3.T) {
+	recordsPathItem := openAPIDoc.Paths.Find("/v2/domains/{domain_name}/records")
+	contract.Assertf(recordsPathItem != nil, "Expected to find request path /v2/domains/{domain_name}/records")
+	domainRecord := openAPIDoc.Components.Schemas["domain_record"]
+	recordsPathItem.Post.RequestBody.Value.Content.Get("application/json").Schema = openapi3.NewSchemaRef("#/components/schemas/domain_record", domainRecord.Value)
+}
+
 func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	regionSchema, ok := openAPIDoc.Components.Schemas["region"]
 	contract.Assertf(ok, "Expected to find a schema for region type")
@@ -227,4 +234,5 @@ func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
 	fixDeleteDropletOperations(openAPIDoc)
 	fixCreateVolumeRequest(openAPIDoc)
 	fixFileSystemLabelProperty(openAPIDoc)
+	fixCreateCustomDomainRequest(openAPIDoc)
 }

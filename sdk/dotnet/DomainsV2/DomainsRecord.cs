@@ -9,8 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.DigitalOceanNative.DomainsV2
 {
-    [DigitalOceanNativeResourceType("digitalocean-native:domains/v2:Txt")]
-    public partial class Txt : global::Pulumi.CustomResource
+    [DigitalOceanNativeResourceType("digitalocean-native:domains/v2:DomainsRecord")]
+    public partial class DomainsRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
@@ -61,7 +61,7 @@ namespace Pulumi.DigitalOceanNative.DomainsV2
         /// The type of the DNS record. For example: A, CNAME, TXT, ...
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// The weight for SRV records.
@@ -71,19 +71,19 @@ namespace Pulumi.DigitalOceanNative.DomainsV2
 
 
         /// <summary>
-        /// Create a Txt resource with the given unique name, arguments, and options.
+        /// Create a DomainsRecord resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Txt(string name, TxtArgs args, CustomResourceOptions? options = null)
-            : base("digitalocean-native:domains/v2:Txt", name, args ?? new TxtArgs(), MakeResourceOptions(options, ""))
+        public DomainsRecord(string name, DomainsRecordArgs args, CustomResourceOptions? options = null)
+            : base("digitalocean-native:domains/v2:DomainsRecord", name, args ?? new DomainsRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Txt(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("digitalocean-native:domains/v2:Txt", name, null, MakeResourceOptions(options, id))
+        private DomainsRecord(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("digitalocean-native:domains/v2:DomainsRecord", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -100,20 +100,20 @@ namespace Pulumi.DigitalOceanNative.DomainsV2
             return merged;
         }
         /// <summary>
-        /// Get an existing Txt resource's state with the given name, ID, and optional extra
+        /// Get an existing DomainsRecord resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Txt Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static DomainsRecord Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Txt(name, id, options);
+            return new DomainsRecord(name, id, options);
         }
     }
 
-    public sealed class TxtArgs : global::Pulumi.ResourceArgs
+    public sealed class DomainsRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
@@ -175,9 +175,9 @@ namespace Pulumi.DigitalOceanNative.DomainsV2
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 
-        public TxtArgs()
+        public DomainsRecordArgs()
         {
         }
-        public static new TxtArgs Empty => new TxtArgs();
+        public static new DomainsRecordArgs Empty => new DomainsRecordArgs();
     }
 }

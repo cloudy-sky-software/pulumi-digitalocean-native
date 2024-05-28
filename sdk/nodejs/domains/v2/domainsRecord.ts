@@ -7,31 +7,31 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export class Cname extends pulumi.CustomResource {
+export class DomainsRecord extends pulumi.CustomResource {
     /**
-     * Get an existing Cname resource's state with the given name, ID, and optional extra
+     * Get an existing DomainsRecord resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cname {
-        return new Cname(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainsRecord {
+        return new DomainsRecord(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'digitalocean-native:domains/v2:Cname';
+    public static readonly __pulumiType = 'digitalocean-native:domains/v2:DomainsRecord';
 
     /**
-     * Returns true if the given object is an instance of Cname.  This is designed to work even
+     * Returns true if the given object is an instance of DomainsRecord.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Cname {
+    public static isInstance(obj: any): obj is DomainsRecord {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Cname.__pulumiType;
+        return obj['__pulumiType'] === DomainsRecord.__pulumiType;
     }
 
     /**
@@ -66,20 +66,20 @@ export class Cname extends pulumi.CustomResource {
     /**
      * The type of the DNS record. For example: A, CNAME, TXT, ...
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The weight for SRV records.
      */
     public readonly weight!: pulumi.Output<number | undefined>;
 
     /**
-     * Create a Cname resource with the given unique name, arguments, and options.
+     * Create a DomainsRecord resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CnameArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DomainsRecordArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -110,14 +110,14 @@ export class Cname extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Cname.__pulumiType, name, resourceInputs, opts);
+        super(DomainsRecord.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a Cname resource.
+ * The set of arguments for constructing a DomainsRecord resource.
  */
-export interface CnameArgs {
+export interface DomainsRecordArgs {
     /**
      * Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
      */

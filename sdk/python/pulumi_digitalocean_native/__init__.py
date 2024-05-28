@@ -173,16 +173,8 @@ _utilities.register(
   "mod": "domains/v2",
   "fqn": "pulumi_digitalocean_native.domains.v2",
   "classes": {
-   "digitalocean-native:domains/v2:A": "A",
-   "digitalocean-native:domains/v2:Aaaa": "Aaaa",
-   "digitalocean-native:domains/v2:Caa": "Caa",
-   "digitalocean-native:domains/v2:Cname": "Cname",
    "digitalocean-native:domains/v2:Domain": "Domain",
-   "digitalocean-native:domains/v2:Mx": "Mx",
-   "digitalocean-native:domains/v2:Ns": "Ns",
-   "digitalocean-native:domains/v2:Soa": "Soa",
-   "digitalocean-native:domains/v2:Srv": "Srv",
-   "digitalocean-native:domains/v2:Txt": "Txt"
+   "digitalocean-native:domains/v2:DomainsRecord": "DomainsRecord"
   }
  },
  {

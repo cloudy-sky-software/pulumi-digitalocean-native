@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func GetDomainsRecord(ctx *pulumi.Context, args *GetDomainsRecordArgs, opts ...pulumi.InvokeOption) (*GetDomainsRecordResult, error) {
+func LookupDomainsRecord(ctx *pulumi.Context, args *LookupDomainsRecordArgs, opts ...pulumi.InvokeOption) (*LookupDomainsRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetDomainsRecordResult
+	var rv LookupDomainsRecordResult
 	err := ctx.Invoke("digitalocean-native:domains/v2:getDomainsRecord", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -21,59 +21,59 @@ func GetDomainsRecord(ctx *pulumi.Context, args *GetDomainsRecordArgs, opts ...p
 	return &rv, nil
 }
 
-type GetDomainsRecordArgs struct {
+type LookupDomainsRecordArgs struct {
 	// The name of the domain itself.
 	DomainName string `pulumi:"domainName"`
 	// The unique identifier of the domain record.
 	DomainRecordId string `pulumi:"domainRecordId"`
 }
 
-type GetDomainsRecordResult struct {
+type LookupDomainsRecordResult struct {
 	Items GetDomainsRecordProperties `pulumi:"items"`
 }
 
-func GetDomainsRecordOutput(ctx *pulumi.Context, args GetDomainsRecordOutputArgs, opts ...pulumi.InvokeOption) GetDomainsRecordResultOutput {
+func LookupDomainsRecordOutput(ctx *pulumi.Context, args LookupDomainsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupDomainsRecordResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDomainsRecordResult, error) {
-			args := v.(GetDomainsRecordArgs)
-			r, err := GetDomainsRecord(ctx, &args, opts...)
-			var s GetDomainsRecordResult
+		ApplyT(func(v interface{}) (LookupDomainsRecordResult, error) {
+			args := v.(LookupDomainsRecordArgs)
+			r, err := LookupDomainsRecord(ctx, &args, opts...)
+			var s LookupDomainsRecordResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetDomainsRecordResultOutput)
+		}).(LookupDomainsRecordResultOutput)
 }
 
-type GetDomainsRecordOutputArgs struct {
+type LookupDomainsRecordOutputArgs struct {
 	// The name of the domain itself.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The unique identifier of the domain record.
 	DomainRecordId pulumi.StringInput `pulumi:"domainRecordId"`
 }
 
-func (GetDomainsRecordOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainsRecordArgs)(nil)).Elem()
+func (LookupDomainsRecordOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainsRecordArgs)(nil)).Elem()
 }
 
-type GetDomainsRecordResultOutput struct{ *pulumi.OutputState }
+type LookupDomainsRecordResultOutput struct{ *pulumi.OutputState }
 
-func (GetDomainsRecordResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainsRecordResult)(nil)).Elem()
+func (LookupDomainsRecordResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDomainsRecordResult)(nil)).Elem()
 }
 
-func (o GetDomainsRecordResultOutput) ToGetDomainsRecordResultOutput() GetDomainsRecordResultOutput {
+func (o LookupDomainsRecordResultOutput) ToLookupDomainsRecordResultOutput() LookupDomainsRecordResultOutput {
 	return o
 }
 
-func (o GetDomainsRecordResultOutput) ToGetDomainsRecordResultOutputWithContext(ctx context.Context) GetDomainsRecordResultOutput {
+func (o LookupDomainsRecordResultOutput) ToLookupDomainsRecordResultOutputWithContext(ctx context.Context) LookupDomainsRecordResultOutput {
 	return o
 }
 
-func (o GetDomainsRecordResultOutput) Items() GetDomainsRecordPropertiesOutput {
-	return o.ApplyT(func(v GetDomainsRecordResult) GetDomainsRecordProperties { return v.Items }).(GetDomainsRecordPropertiesOutput)
+func (o LookupDomainsRecordResultOutput) Items() GetDomainsRecordPropertiesOutput {
+	return o.ApplyT(func(v LookupDomainsRecordResult) GetDomainsRecordProperties { return v.Items }).(GetDomainsRecordPropertiesOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetDomainsRecordResultOutput{})
+	pulumi.RegisterOutputType(LookupDomainsRecordResultOutput{})
 }

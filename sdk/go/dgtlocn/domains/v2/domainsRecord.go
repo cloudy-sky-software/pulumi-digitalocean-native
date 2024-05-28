@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type Ns struct {
+type DomainsRecord struct {
 	pulumi.CustomResourceState
 
 	// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
@@ -31,14 +31,14 @@ type Ns struct {
 	// This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
 	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
 	// The type of the DNS record. For example: A, CNAME, TXT, ...
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
 	// The weight for SRV records.
 	Weight pulumi.IntPtrOutput `pulumi:"weight"`
 }
 
-// NewNs registers a new resource with the given unique name, arguments, and options.
-func NewNs(ctx *pulumi.Context,
-	name string, args *NsArgs, opts ...pulumi.ResourceOption) (*Ns, error) {
+// NewDomainsRecord registers a new resource with the given unique name, arguments, and options.
+func NewDomainsRecord(ctx *pulumi.Context,
+	name string, args *DomainsRecordArgs, opts ...pulumi.ResourceOption) (*DomainsRecord, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -47,38 +47,38 @@ func NewNs(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
-	var resource Ns
-	err := ctx.RegisterResource("digitalocean-native:domains/v2:Ns", name, args, &resource, opts...)
+	var resource DomainsRecord
+	err := ctx.RegisterResource("digitalocean-native:domains/v2:DomainsRecord", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetNs gets an existing Ns resource's state with the given name, ID, and optional
+// GetDomainsRecord gets an existing DomainsRecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetNs(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *NsState, opts ...pulumi.ResourceOption) (*Ns, error) {
-	var resource Ns
-	err := ctx.ReadResource("digitalocean-native:domains/v2:Ns", name, id, state, &resource, opts...)
+func GetDomainsRecord(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DomainsRecordState, opts ...pulumi.ResourceOption) (*DomainsRecord, error) {
+	var resource DomainsRecord
+	err := ctx.ReadResource("digitalocean-native:domains/v2:DomainsRecord", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering Ns resources.
-type nsState struct {
+// Input properties used for looking up and filtering DomainsRecord resources.
+type domainsRecordState struct {
 }
 
-type NsState struct {
+type DomainsRecordState struct {
 }
 
-func (NsState) ElementType() reflect.Type {
-	return reflect.TypeOf((*nsState)(nil)).Elem()
+func (DomainsRecordState) ElementType() reflect.Type {
+	return reflect.TypeOf((*domainsRecordState)(nil)).Elem()
 }
 
-type nsArgs struct {
+type domainsRecordArgs struct {
 	// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
 	Data *string `pulumi:"data"`
 	// The name of the domain itself.
@@ -101,8 +101,8 @@ type nsArgs struct {
 	Weight *int `pulumi:"weight"`
 }
 
-// The set of arguments for constructing a Ns resource.
-type NsArgs struct {
+// The set of arguments for constructing a DomainsRecord resource.
+type DomainsRecordArgs struct {
 	// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
 	Data pulumi.StringPtrInput
 	// The name of the domain itself.
@@ -125,93 +125,93 @@ type NsArgs struct {
 	Weight pulumi.IntPtrInput
 }
 
-func (NsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*nsArgs)(nil)).Elem()
+func (DomainsRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*domainsRecordArgs)(nil)).Elem()
 }
 
-type NsInput interface {
+type DomainsRecordInput interface {
 	pulumi.Input
 
-	ToNsOutput() NsOutput
-	ToNsOutputWithContext(ctx context.Context) NsOutput
+	ToDomainsRecordOutput() DomainsRecordOutput
+	ToDomainsRecordOutputWithContext(ctx context.Context) DomainsRecordOutput
 }
 
-func (*Ns) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ns)(nil)).Elem()
+func (*DomainsRecord) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainsRecord)(nil)).Elem()
 }
 
-func (i *Ns) ToNsOutput() NsOutput {
-	return i.ToNsOutputWithContext(context.Background())
+func (i *DomainsRecord) ToDomainsRecordOutput() DomainsRecordOutput {
+	return i.ToDomainsRecordOutputWithContext(context.Background())
 }
 
-func (i *Ns) ToNsOutputWithContext(ctx context.Context) NsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsOutput)
+func (i *DomainsRecord) ToDomainsRecordOutputWithContext(ctx context.Context) DomainsRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainsRecordOutput)
 }
 
-type NsOutput struct{ *pulumi.OutputState }
+type DomainsRecordOutput struct{ *pulumi.OutputState }
 
-func (NsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ns)(nil)).Elem()
+func (DomainsRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainsRecord)(nil)).Elem()
 }
 
-func (o NsOutput) ToNsOutput() NsOutput {
+func (o DomainsRecordOutput) ToDomainsRecordOutput() DomainsRecordOutput {
 	return o
 }
 
-func (o NsOutput) ToNsOutputWithContext(ctx context.Context) NsOutput {
+func (o DomainsRecordOutput) ToDomainsRecordOutputWithContext(ctx context.Context) DomainsRecordOutput {
 	return o
 }
 
 // Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
-func (o NsOutput) Data() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.StringPtrOutput { return v.Data }).(pulumi.StringPtrOutput)
+func (o DomainsRecordOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.StringPtrOutput { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-func (o NsOutput) DomainRecord() DomainRecordPtrOutput {
-	return o.ApplyT(func(v *Ns) DomainRecordPtrOutput { return v.DomainRecord }).(DomainRecordPtrOutput)
+func (o DomainsRecordOutput) DomainRecord() DomainRecordPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) DomainRecordPtrOutput { return v.DomainRecord }).(DomainRecordPtrOutput)
 }
 
 // An unsigned integer between 0-255 used for CAA records.
-func (o NsOutput) Flags() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.IntPtrOutput { return v.Flags }).(pulumi.IntPtrOutput)
+func (o DomainsRecordOutput) Flags() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.IntPtrOutput { return v.Flags }).(pulumi.IntPtrOutput)
 }
 
 // The host name, alias, or service being defined by the record.
-func (o NsOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o DomainsRecordOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The port for SRV records.
-func (o NsOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+func (o DomainsRecordOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The priority for SRV and MX records.
-func (o NsOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+func (o DomainsRecordOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
-func (o NsOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.StringPtrOutput { return v.Tag }).(pulumi.StringPtrOutput)
+func (o DomainsRecordOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.StringPtrOutput { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
 // This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
-func (o NsOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.IntPtrOutput { return v.Ttl }).(pulumi.IntPtrOutput)
+func (o DomainsRecordOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.IntPtrOutput { return v.Ttl }).(pulumi.IntPtrOutput)
 }
 
 // The type of the DNS record. For example: A, CNAME, TXT, ...
-func (o NsOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+func (o DomainsRecordOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 // The weight for SRV records.
-func (o NsOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Ns) pulumi.IntPtrOutput { return v.Weight }).(pulumi.IntPtrOutput)
+func (o DomainsRecordOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainsRecord) pulumi.IntPtrOutput { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*NsInput)(nil)).Elem(), &Ns{})
-	pulumi.RegisterOutputType(NsOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainsRecordInput)(nil)).Elem(), &DomainsRecord{})
+	pulumi.RegisterOutputType(DomainsRecordOutput{})
 }

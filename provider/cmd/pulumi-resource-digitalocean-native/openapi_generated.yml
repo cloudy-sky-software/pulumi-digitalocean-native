@@ -21521,28 +21521,7 @@ paths:
                 content:
                     application/json:
                         schema:
-                            anyOf:
-                                - $ref: '#/components/schemas/domain_record_a'
-                                - $ref: '#/components/schemas/domain_record_aaaa'
-                                - $ref: '#/components/schemas/domain_record_caa'
-                                - $ref: '#/components/schemas/domain_record_cname'
-                                - $ref: '#/components/schemas/domain_record_mx'
-                                - $ref: '#/components/schemas/domain_record_ns'
-                                - $ref: '#/components/schemas/domain_record_soa'
-                                - $ref: '#/components/schemas/domain_record_srv'
-                                - $ref: '#/components/schemas/domain_record_txt'
-                            discriminator:
-                                propertyName: type
-                                mapping:
-                                    A: '#/components/schemas/domain_record_a'
-                                    AAAA: '#/components/schemas/domain_record_aaaa'
-                                    CAA: '#/components/schemas/domain_record_caa'
-                                    CNAME: '#/components/schemas/domain_record_cname'
-                                    MX: '#/components/schemas/domain_record_mx'
-                                    NS: '#/components/schemas/domain_record_ns'
-                                    SOA: '#/components/schemas/domain_record_soa'
-                                    SRV: '#/components/schemas/domain_record_srv'
-                                    TXT: '#/components/schemas/domain_record_txt'
+                            $ref: '#/components/schemas/domain_record'
                         example:
                             data: 162.10.66.0
                             flags: null

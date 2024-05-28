@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
-__all__ = ['SoaArgs', 'Soa']
+__all__ = ['DomainsRecordArgs', 'DomainsRecord']
 
 @pulumi.input_type
-class SoaArgs:
+class DomainsRecordArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class SoaArgs:
                  ttl: Optional[pulumi.Input[int]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
-        The set of arguments for constructing a Soa resource.
+        The set of arguments for constructing a DomainsRecord resource.
         :param pulumi.Input[str] type: The type of the DNS record. For example: A, CNAME, TXT, ...
         :param pulumi.Input[str] data: Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
         :param pulumi.Input[str] domain_name: The name of the domain itself.
@@ -179,7 +179,7 @@ class SoaArgs:
         pulumi.set(self, "weight", value)
 
 
-class Soa(pulumi.CustomResource):
+class DomainsRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -196,7 +196,7 @@ class Soa(pulumi.CustomResource):
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a Soa resource with the given unique name, props, and options.
+        Create a DomainsRecord resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data: Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
@@ -214,17 +214,17 @@ class Soa(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SoaArgs,
+                 args: DomainsRecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Soa resource with the given unique name, props, and options.
+        Create a DomainsRecord resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param SoaArgs args: The arguments to use to populate this resource's properties.
+        :param DomainsRecordArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SoaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainsRecordArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -250,7 +250,7 @@ class Soa(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SoaArgs.__new__(SoaArgs)
+            __props__ = DomainsRecordArgs.__new__(DomainsRecordArgs)
 
             __props__.__dict__["data"] = data
             __props__.__dict__["domain_name"] = domain_name
@@ -265,8 +265,8 @@ class Soa(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["weight"] = weight
             __props__.__dict__["domain_record"] = None
-        super(Soa, __self__).__init__(
-            'digitalocean-native:domains/v2:Soa',
+        super(DomainsRecord, __self__).__init__(
+            'digitalocean-native:domains/v2:DomainsRecord',
             resource_name,
             __props__,
             opts)
@@ -274,9 +274,9 @@ class Soa(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'Soa':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'DomainsRecord':
         """
-        Get an existing Soa resource's state with the given name, id, and optional extra
+        Get an existing DomainsRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -285,7 +285,7 @@ class Soa(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SoaArgs.__new__(SoaArgs)
+        __props__ = DomainsRecordArgs.__new__(DomainsRecordArgs)
 
         __props__.__dict__["data"] = None
         __props__.__dict__["domain_record"] = None
@@ -297,7 +297,7 @@ class Soa(pulumi.CustomResource):
         __props__.__dict__["ttl"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["weight"] = None
-        return Soa(resource_name, opts=opts, __props__=__props__)
+        return DomainsRecord(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -362,7 +362,7 @@ class Soa(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the DNS record. For example: A, CNAME, TXT, ...
         """

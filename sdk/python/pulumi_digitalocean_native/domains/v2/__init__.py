@@ -5,18 +5,10 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from .a import *
-from .aaaa import *
-from .caa import *
-from .cname import *
 from .domain import *
+from .domains_record import *
 from .get_domain import *
 from .get_domains_record import *
 from .list_domains import *
 from .list_domains_records import *
-from .mx import *
-from .ns import *
-from .soa import *
-from .srv import *
-from .txt import *
 from . import outputs
