@@ -113,6 +113,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			// since it is by volume ID.
 			"/v2/volumes/actions",
 		},
+		AllowedPluralResources: []string{"DatabasesFirewallRules"},
 	}
 
 	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
@@ -153,9 +154,12 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 	})
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
-		"packageName": "pulumi_digitalocean-native",
+		"packageName": "pulumi_digitalocean_native",
 		"requires": map[string]string{
 			"pulumi": ">=3.0.0,<4.0.0",
+		},
+		"pyproject": map[string]bool{
+			"enabled": true,
 		},
 	})
 
