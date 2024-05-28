@@ -104,8 +104,8 @@ func (p *digitalOceanProvider) OnPreRead(_ context.Context, _ *pulumirpc.ReadReq
 	return nil
 }
 
-func (p *digitalOceanProvider) OnPostRead(_ context.Context, _ *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
-	return outputs, nil
+func (p *digitalOceanProvider) OnPostRead(_ context.Context, _ *pulumirpc.ReadRequest, outputs interface{}) (map[string]interface{}, error) {
+	return outputs.(map[string]interface{}), nil
 }
 
 func (p *digitalOceanProvider) OnPreUpdate(_ context.Context, _ *pulumirpc.UpdateRequest, _ *http.Request) error {
