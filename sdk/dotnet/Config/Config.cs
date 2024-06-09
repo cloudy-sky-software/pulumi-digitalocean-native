@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.DigitalOceanNative
+namespace CloudySkySoftware.Pulumi.DigitalOceanNative
 {
     public static class Config
     {

@@ -50,7 +50,7 @@
                 "volumes/v2": "VolumesV2",
                 "vpcs/v2": "VpcsV2"
             },
-            "rootNamespace": "Pulumi"
+            "rootNamespace": "CloudySkySoftware.Pulumi"
         },
         "go": {
             "importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn"
