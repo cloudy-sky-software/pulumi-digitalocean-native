@@ -14,7 +14,7 @@ Despite the fact that all Pulumi providers created by Cloudy Sky Software being 
 
 - Node.js: https://www.npmjs.com/package/@cloudyskysoftware/pulumi-digitalocean-native
 - Python: https://pypi.org/project/pulumi_digitalocean_native/
-- .NET: https://www.nuget.org/packages/Pulumi.DigitalOceanNative
+- .NET: https://www.nuget.org/packages/CloudySkySoftware.Pulumi.DigitalOceanNative
 - Go: `import github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn`
 
 ## Using The Provider

@@ -139,7 +139,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 		PackageReferences: map[string]string{
 			"Pulumi": "3.*",
 		},
-		RootNamespace: "Pulumi",
+		RootNamespace: "CloudySkySoftware.Pulumi",
 	})
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
