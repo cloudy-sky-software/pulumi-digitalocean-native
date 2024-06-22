@@ -3,11 +3,11 @@ module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 go 1.21
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20240613152213-1798b174f28e
+	github.com/cloudy-sky-software/pulschema v0.0.0-20240622044904-598e966788ec
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240613181529-977ea93dda09
 	github.com/getkin/kin-openapi v0.125.0
-	github.com/pulumi/pulumi/pkg/v3 v3.120.0
-	github.com/pulumi/pulumi/sdk/v3 v3.120.0
+	github.com/pulumi/pulumi/pkg/v3 v3.121.0
+	github.com/pulumi/pulumi/sdk/v3 v3.121.0
 )
 
 require github.com/stretchr/testify v1.9.0
@@ -144,6 +144,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.9.1 // indirect
+	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
