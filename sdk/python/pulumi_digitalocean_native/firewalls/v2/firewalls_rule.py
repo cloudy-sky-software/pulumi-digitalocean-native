@@ -68,8 +68,8 @@ class FirewallsRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_id: Optional[pulumi.Input[str]] = None,
-                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesInboundRulesItemArgs']]]]] = None,
-                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesOutboundRulesItemArgs']]]]] = None,
+                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesInboundRulesItemArgs', 'FirewallRulesInboundRulesItemArgsDict']]]]] = None,
+                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesOutboundRulesItemArgs', 'FirewallRulesOutboundRulesItemArgsDict']]]]] = None,
                  __props__=None):
         """
         Create a FirewallsRule resource with the given unique name, props, and options.
@@ -101,8 +101,8 @@ class FirewallsRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_id: Optional[pulumi.Input[str]] = None,
-                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesInboundRulesItemArgs']]]]] = None,
-                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesOutboundRulesItemArgs']]]]] = None,
+                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesInboundRulesItemArgs', 'FirewallRulesInboundRulesItemArgsDict']]]]] = None,
+                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesOutboundRulesItemArgs', 'FirewallRulesOutboundRulesItemArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

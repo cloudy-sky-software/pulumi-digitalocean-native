@@ -142,7 +142,7 @@ class UptimeAlert(pulumi.CustomResource):
                  check_id: Optional[pulumi.Input[str]] = None,
                  comparison: Optional[pulumi.Input['AlertUpdatableComparison']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['NotificationArgs']]] = None,
+                 notifications: Optional[pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]] = None,
                  period: Optional[pulumi.Input['AlertUpdatablePeriod']] = None,
                  threshold: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['AlertUpdatableType']] = None,
@@ -154,7 +154,7 @@ class UptimeAlert(pulumi.CustomResource):
         :param pulumi.Input[str] check_id: A unique identifier for a check.
         :param pulumi.Input['AlertUpdatableComparison'] comparison: The comparison operator used against the alert's threshold.
         :param pulumi.Input[str] name: A human-friendly display name.
-        :param pulumi.Input[pulumi.InputType['NotificationArgs']] notifications: The notification settings for a trigger alert.
+        :param pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']] notifications: The notification settings for a trigger alert.
         :param pulumi.Input['AlertUpdatablePeriod'] period: Period of time the threshold must be exceeded to trigger the alert.
         :param pulumi.Input[int] threshold: The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
         :param pulumi.Input['AlertUpdatableType'] type: The type of alert.
@@ -185,7 +185,7 @@ class UptimeAlert(pulumi.CustomResource):
                  check_id: Optional[pulumi.Input[str]] = None,
                  comparison: Optional[pulumi.Input['AlertUpdatableComparison']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['NotificationArgs']]] = None,
+                 notifications: Optional[pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]] = None,
                  period: Optional[pulumi.Input['AlertUpdatablePeriod']] = None,
                  threshold: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input['AlertUpdatableType']] = None,

@@ -210,10 +210,10 @@ class KubernetesNodePool(pulumi.CustomResource):
                  max_nodes: Optional[pulumi.Input[int]] = None,
                  min_nodes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeArgs']]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeArgs', 'NodeArgsDict']]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesNodePoolTaintArgs']]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesNodePoolTaintArgs', 'KubernetesNodePoolTaintArgsDict']]]]] = None,
                  __props__=None):
         """
         Create a KubernetesNodePool resource with the given unique name, props, and options.
@@ -226,10 +226,10 @@ class KubernetesNodePool(pulumi.CustomResource):
         :param pulumi.Input[int] max_nodes: The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
         :param pulumi.Input[int] min_nodes: The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
         :param pulumi.Input[str] name: A human-readable name for the node pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeArgs']]]] nodes: An object specifying the details of a specific worker node in a node pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeArgs', 'NodeArgsDict']]]] nodes: An object specifying the details of a specific worker node in a node pool.
         :param pulumi.Input[str] size: The slug identifier for the type of Droplet used as workers in the node pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesNodePoolTaintArgs']]]] taints: An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesNodePoolTaintArgs', 'KubernetesNodePoolTaintArgsDict']]]] taints: An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
         """
         ...
     @overload
@@ -261,10 +261,10 @@ class KubernetesNodePool(pulumi.CustomResource):
                  max_nodes: Optional[pulumi.Input[int]] = None,
                  min_nodes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeArgs']]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeArgs', 'NodeArgsDict']]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesNodePoolTaintArgs']]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesNodePoolTaintArgs', 'KubernetesNodePoolTaintArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

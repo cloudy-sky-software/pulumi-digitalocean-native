@@ -361,9 +361,9 @@ class LoadBalancer(pulumi.CustomResource):
                  disable_lets_encrypt_dns_records: Optional[pulumi.Input[bool]] = None,
                  enable_backend_keepalive: Optional[pulumi.Input[bool]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
-                 firewall: Optional[pulumi.Input[pulumi.InputType['LbFirewallArgs']]] = None,
-                 forwarding_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingRuleArgs']]]]] = None,
-                 health_check: Optional[pulumi.Input[pulumi.InputType['HealthCheckArgs']]] = None,
+                 firewall: Optional[pulumi.Input[Union['LbFirewallArgs', 'LbFirewallArgsDict']]] = None,
+                 forwarding_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ForwardingRuleArgs', 'ForwardingRuleArgsDict']]]]] = None,
+                 health_check: Optional[pulumi.Input[Union['HealthCheckArgs', 'HealthCheckArgsDict']]] = None,
                  http_idle_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class LoadBalancer(pulumi.CustomResource):
                  size: Optional[pulumi.Input['LoadBalancerBaseSize']] = None,
                  size_unit: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input['LoadBalancerBaseStatus']] = None,
-                 sticky_sessions: Optional[pulumi.Input[pulumi.InputType['StickySessionsArgs']]] = None,
+                 sticky_sessions: Optional[pulumi.Input[Union['StickySessionsArgs', 'StickySessionsArgsDict']]] = None,
                  vpc_uuid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -385,9 +385,9 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_lets_encrypt_dns_records: A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
         :param pulumi.Input[bool] enable_backend_keepalive: A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
         :param pulumi.Input[bool] enable_proxy_protocol: A boolean value indicating whether PROXY Protocol is in use.
-        :param pulumi.Input[pulumi.InputType['LbFirewallArgs']] firewall: An object specifying allow and deny rules to control traffic to the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingRuleArgs']]]] forwarding_rules: An array of objects specifying the forwarding rules for a load balancer.
-        :param pulumi.Input[pulumi.InputType['HealthCheckArgs']] health_check: An object specifying health check settings for the load balancer.
+        :param pulumi.Input[Union['LbFirewallArgs', 'LbFirewallArgsDict']] firewall: An object specifying allow and deny rules to control traffic to the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ForwardingRuleArgs', 'ForwardingRuleArgsDict']]]] forwarding_rules: An array of objects specifying the forwarding rules for a load balancer.
+        :param pulumi.Input[Union['HealthCheckArgs', 'HealthCheckArgsDict']] health_check: An object specifying health check settings for the load balancer.
         :param pulumi.Input[int] http_idle_timeout_seconds: An integer value which configures the idle timeout for HTTP requests to the target droplets.
         :param pulumi.Input[str] ip: An attribute containing the public-facing IP address of the load balancer.
         :param pulumi.Input[str] name: A human-readable name for a load balancer instance.
@@ -402,7 +402,7 @@ class LoadBalancer(pulumi.CustomResource):
                You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
         :param pulumi.Input[int] size_unit: How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.
         :param pulumi.Input['LoadBalancerBaseStatus'] status: A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.
-        :param pulumi.Input[pulumi.InputType['StickySessionsArgs']] sticky_sessions: An object specifying sticky sessions settings for the load balancer.
+        :param pulumi.Input[Union['StickySessionsArgs', 'StickySessionsArgsDict']] sticky_sessions: An object specifying sticky sessions settings for the load balancer.
         :param pulumi.Input[str] vpc_uuid: A string specifying the UUID of the VPC to which the load balancer is assigned.
         """
         ...
@@ -433,9 +433,9 @@ class LoadBalancer(pulumi.CustomResource):
                  disable_lets_encrypt_dns_records: Optional[pulumi.Input[bool]] = None,
                  enable_backend_keepalive: Optional[pulumi.Input[bool]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
-                 firewall: Optional[pulumi.Input[pulumi.InputType['LbFirewallArgs']]] = None,
-                 forwarding_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ForwardingRuleArgs']]]]] = None,
-                 health_check: Optional[pulumi.Input[pulumi.InputType['HealthCheckArgs']]] = None,
+                 firewall: Optional[pulumi.Input[Union['LbFirewallArgs', 'LbFirewallArgsDict']]] = None,
+                 forwarding_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ForwardingRuleArgs', 'ForwardingRuleArgsDict']]]]] = None,
+                 health_check: Optional[pulumi.Input[Union['HealthCheckArgs', 'HealthCheckArgsDict']]] = None,
                  http_idle_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -445,7 +445,7 @@ class LoadBalancer(pulumi.CustomResource):
                  size: Optional[pulumi.Input['LoadBalancerBaseSize']] = None,
                  size_unit: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input['LoadBalancerBaseStatus']] = None,
-                 sticky_sessions: Optional[pulumi.Input[pulumi.InputType['StickySessionsArgs']]] = None,
+                 sticky_sessions: Optional[pulumi.Input[Union['StickySessionsArgs', 'StickySessionsArgsDict']]] = None,
                  vpc_uuid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

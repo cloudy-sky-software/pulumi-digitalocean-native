@@ -59,14 +59,14 @@ class AppsValidateAppSpec(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['AppSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['AppSpecArgs', 'AppSpecArgsDict']]] = None,
                  __props__=None):
         """
         Create a AppsValidateAppSpec resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: An optional ID of an existing app. If set, the spec will be treated as a proposed update to the specified app. The existing app is not modified using this method.
-        :param pulumi.Input[pulumi.InputType['AppSpecArgs']] spec: The desired configuration of an application.
+        :param pulumi.Input[Union['AppSpecArgs', 'AppSpecArgsDict']] spec: The desired configuration of an application.
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class AppsValidateAppSpec(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['AppSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['AppSpecArgs', 'AppSpecArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

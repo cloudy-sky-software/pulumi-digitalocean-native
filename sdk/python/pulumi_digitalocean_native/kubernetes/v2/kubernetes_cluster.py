@@ -192,9 +192,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade: Optional[pulumi.Input[bool]] = None,
                  ha: Optional[pulumi.Input[bool]] = None,
-                 maintenance_policy: Optional[pulumi.Input[pulumi.InputType['MaintenancePolicyArgs']]] = None,
+                 maintenance_policy: Optional[pulumi.Input[Union['MaintenancePolicyArgs', 'MaintenancePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 node_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesNodePoolArgs']]]]] = None,
+                 node_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesNodePoolArgs', 'KubernetesNodePoolArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  surge_upgrade: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -207,9 +207,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade: A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
         :param pulumi.Input[bool] ha: A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled.
-        :param pulumi.Input[pulumi.InputType['MaintenancePolicyArgs']] maintenance_policy: An object specifying the maintenance window policy for the Kubernetes cluster.
+        :param pulumi.Input[Union['MaintenancePolicyArgs', 'MaintenancePolicyArgsDict']] maintenance_policy: An object specifying the maintenance window policy for the Kubernetes cluster.
         :param pulumi.Input[str] name: A human-readable name for a Kubernetes cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesNodePoolArgs']]]] node_pools: An object specifying the details of the worker nodes available to the Kubernetes cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesNodePoolArgs', 'KubernetesNodePoolArgsDict']]]] node_pools: An object specifying the details of the worker nodes available to the Kubernetes cluster.
         :param pulumi.Input[str] region: The slug identifier for the region where the Kubernetes cluster is located.
         :param pulumi.Input[bool] surge_upgrade: A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`.
@@ -241,9 +241,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade: Optional[pulumi.Input[bool]] = None,
                  ha: Optional[pulumi.Input[bool]] = None,
-                 maintenance_policy: Optional[pulumi.Input[pulumi.InputType['MaintenancePolicyArgs']]] = None,
+                 maintenance_policy: Optional[pulumi.Input[Union['MaintenancePolicyArgs', 'MaintenancePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 node_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesNodePoolArgs']]]]] = None,
+                 node_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KubernetesNodePoolArgs', 'KubernetesNodePoolArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  surge_upgrade: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
