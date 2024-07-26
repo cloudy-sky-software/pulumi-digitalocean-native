@@ -122,7 +122,7 @@ class FunctionsTrigger(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 scheduled_details: Optional[pulumi.Input[pulumi.InputType['ScheduledDetailsArgs']]] = None,
+                 scheduled_details: Optional[pulumi.Input[Union['ScheduledDetailsArgs', 'ScheduledDetailsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -133,7 +133,7 @@ class FunctionsTrigger(pulumi.CustomResource):
         :param pulumi.Input[bool] is_enabled: Indicates weather the trigger is paused or unpaused.
         :param pulumi.Input[str] name: The trigger's unique name within the namespace.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to be managed.
-        :param pulumi.Input[pulumi.InputType['ScheduledDetailsArgs']] scheduled_details: Trigger details for SCHEDULED type, where body is optional.
+        :param pulumi.Input[Union['ScheduledDetailsArgs', 'ScheduledDetailsArgsDict']] scheduled_details: Trigger details for SCHEDULED type, where body is optional.
         :param pulumi.Input[str] type: One of different type of triggers. Currently only SCHEDULED is supported.
         """
         ...
@@ -163,7 +163,7 @@ class FunctionsTrigger(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 scheduled_details: Optional[pulumi.Input[pulumi.InputType['ScheduledDetailsArgs']]] = None,
+                 scheduled_details: Optional[pulumi.Input[Union['ScheduledDetailsArgs', 'ScheduledDetailsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

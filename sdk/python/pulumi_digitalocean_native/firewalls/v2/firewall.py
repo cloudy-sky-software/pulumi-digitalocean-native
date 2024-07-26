@@ -145,12 +145,12 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  droplet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesInboundRulesItemArgs']]]]] = None,
+                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesInboundRulesItemArgs', 'FirewallRulesInboundRulesItemArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesOutboundRulesItemArgs']]]]] = None,
-                 pending_changes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPropertiesPendingChangesItemPropertiesArgs']]]]] = None,
+                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesOutboundRulesItemArgs', 'FirewallRulesOutboundRulesItemArgsDict']]]]] = None,
+                 pending_changes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPropertiesPendingChangesItemPropertiesArgs', 'FirewallPropertiesPendingChangesItemPropertiesArgsDict']]]]] = None,
                  status: Optional[pulumi.Input['FirewallPropertiesStatus']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['FirewallPropertiesTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Union['FirewallPropertiesTagsArgs', 'FirewallPropertiesTagsArgsDict']]] = None,
                  __props__=None):
         """
         Create a Firewall resource with the given unique name, props, and options.
@@ -159,7 +159,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: A time value given in ISO8601 combined date and time format that represents when the firewall was created.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] droplet_ids: An array containing the IDs of the Droplets assigned to the firewall.
         :param pulumi.Input[str] name: A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPropertiesPendingChangesItemPropertiesArgs']]]] pending_changes: An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPropertiesPendingChangesItemPropertiesArgs', 'FirewallPropertiesPendingChangesItemPropertiesArgsDict']]]] pending_changes: An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
         :param pulumi.Input['FirewallPropertiesStatus'] status: A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
         """
         ...
@@ -187,12 +187,12 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  droplet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesInboundRulesItemArgs']]]]] = None,
+                 inbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesInboundRulesItemArgs', 'FirewallRulesInboundRulesItemArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRulesOutboundRulesItemArgs']]]]] = None,
-                 pending_changes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPropertiesPendingChangesItemPropertiesArgs']]]]] = None,
+                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallRulesOutboundRulesItemArgs', 'FirewallRulesOutboundRulesItemArgsDict']]]]] = None,
+                 pending_changes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPropertiesPendingChangesItemPropertiesArgs', 'FirewallPropertiesPendingChangesItemPropertiesArgsDict']]]]] = None,
                  status: Optional[pulumi.Input['FirewallPropertiesStatus']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['FirewallPropertiesTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Union['FirewallPropertiesTagsArgs', 'FirewallPropertiesTagsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

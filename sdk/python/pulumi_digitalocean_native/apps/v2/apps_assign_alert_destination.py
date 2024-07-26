@@ -86,7 +86,7 @@ class AppsAssignAlertDestination(pulumi.CustomResource):
                  alert_id: Optional[pulumi.Input[str]] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 slack_webhooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppAlertSlackWebhookArgs']]]]] = None,
+                 slack_webhooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAlertSlackWebhookArgs', 'AppAlertSlackWebhookArgsDict']]]]] = None,
                  __props__=None):
         """
         Create a AppsAssignAlertDestination resource with the given unique name, props, and options.
@@ -121,7 +121,7 @@ class AppsAssignAlertDestination(pulumi.CustomResource):
                  alert_id: Optional[pulumi.Input[str]] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 slack_webhooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppAlertSlackWebhookArgs']]]]] = None,
+                 slack_webhooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAlertSlackWebhookArgs', 'AppAlertSlackWebhookArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

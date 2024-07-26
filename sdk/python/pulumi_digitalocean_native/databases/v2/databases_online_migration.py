@@ -72,7 +72,7 @@ class DatabasesOnlineMigration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                  disable_ssl: Optional[pulumi.Input[bool]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['SourcePropertiesArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Create a DatabasesOnlineMigration resource with the given unique name, props, and options.
@@ -106,7 +106,7 @@ class DatabasesOnlineMigration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                  disable_ssl: Optional[pulumi.Input[bool]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['SourcePropertiesArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

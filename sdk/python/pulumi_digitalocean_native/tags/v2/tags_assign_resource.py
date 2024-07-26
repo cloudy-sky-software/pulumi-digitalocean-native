@@ -58,14 +58,14 @@ class TagsAssignResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcesItemPropertiesArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourcesItemPropertiesArgs', 'ResourcesItemPropertiesArgsDict']]]]] = None,
                  tag_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a TagsAssignResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcesItemPropertiesArgs']]]] resources: An array of objects containing resource_id and resource_type  attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourcesItemPropertiesArgs', 'ResourcesItemPropertiesArgsDict']]]] resources: An array of objects containing resource_id and resource_type  attributes.
         :param pulumi.Input[str] tag_id: The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
         """
         ...
@@ -91,7 +91,7 @@ class TagsAssignResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourcesItemPropertiesArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourcesItemPropertiesArgs', 'ResourcesItemPropertiesArgsDict']]]]] = None,
                  tag_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

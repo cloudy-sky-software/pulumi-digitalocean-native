@@ -72,7 +72,7 @@ class DatabasesReAuth(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                 mysql_settings: Optional[pulumi.Input[pulumi.InputType['MysqlSettingsArgs']]] = None,
+                 mysql_settings: Optional[pulumi.Input[Union['MysqlSettingsArgs', 'MysqlSettingsArgsDict']]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -106,7 +106,7 @@ class DatabasesReAuth(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                 mysql_settings: Optional[pulumi.Input[pulumi.InputType['MysqlSettingsArgs']]] = None,
+                 mysql_settings: Optional[pulumi.Input[Union['MysqlSettingsArgs', 'MysqlSettingsArgsDict']]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
