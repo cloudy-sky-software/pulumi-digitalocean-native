@@ -765,975 +765,6 @@ func (o ConnectionPoolsOutput) Pools() ConnectionPoolArrayOutput {
 	return o.ApplyT(func(v ConnectionPools) []ConnectionPool { return v.Pools }).(ConnectionPoolArrayOutput)
 }
 
-type Creategres struct {
-	// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
-	AutovacuumAnalyzeScaleFactor *float64 `pulumi:"autovacuumAnalyzeScaleFactor"`
-	// Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
-	AutovacuumAnalyzeThreshold *int `pulumi:"autovacuumAnalyzeThreshold"`
-	// Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
-	AutovacuumFreezeMaxAge *int `pulumi:"autovacuumFreezeMaxAge"`
-	// Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
-	AutovacuumMaxWorkers *int `pulumi:"autovacuumMaxWorkers"`
-	// Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
-	AutovacuumNaptime *int `pulumi:"autovacuumNaptime"`
-	// Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
-	AutovacuumVacuumCostDelay *int `pulumi:"autovacuumVacuumCostDelay"`
-	// Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
-	AutovacuumVacuumCostLimit *int `pulumi:"autovacuumVacuumCostLimit"`
-	// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
-	AutovacuumVacuumScaleFactor *float64 `pulumi:"autovacuumVacuumScaleFactor"`
-	// Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
-	AutovacuumVacuumThreshold *int `pulumi:"autovacuumVacuumThreshold"`
-	// The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
-	BackupHour *int `pulumi:"backupHour"`
-	// The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
-	BackupMinute *int `pulumi:"backupMinute"`
-	// Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
-	BgwriterDelay *int `pulumi:"bgwriterDelay"`
-	// The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
-	BgwriterFlushAfter *int `pulumi:"bgwriterFlushAfter"`
-	// The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
-	BgwriterLruMaxpages *int `pulumi:"bgwriterLruMaxpages"`
-	// The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
-	BgwriterLruMultiplier *float64 `pulumi:"bgwriterLruMultiplier"`
-	// The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
-	DeadlockTimeout *int `pulumi:"deadlockTimeout"`
-	// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-	DefaultToastCompression *CreategresDefaultToastCompression `pulumi:"defaultToastCompression"`
-	// Time out sessions with open transactions after this number of milliseconds
-	IdleInTransactionSessionTimeout *int `pulumi:"idleInTransactionSessionTimeout"`
-	// Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
-	Jit *bool `pulumi:"jit"`
-	// Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
-	LogAutovacuumMinDuration *int `pulumi:"logAutovacuumMinDuration"`
-	// Controls the amount of detail written in the server log for each message that is logged.
-	LogErrorVerbosity *CreategresLogErrorVerbosity `pulumi:"logErrorVerbosity"`
-	// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-	LogLinePrefix *CreategresLogLinePrefix `pulumi:"logLinePrefix"`
-	// Log statements that take more than this number of milliseconds to run. If -1, disables.
-	LogMinDurationStatement *int `pulumi:"logMinDurationStatement"`
-	// PostgreSQL maximum number of files that can be open per process.
-	MaxFilesPerProcess *int `pulumi:"maxFilesPerProcess"`
-	// PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
-	MaxLocksPerTransaction *int `pulumi:"maxLocksPerTransaction"`
-	// PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
-	MaxLogicalReplicationWorkers *int `pulumi:"maxLogicalReplicationWorkers"`
-	// Sets the maximum number of workers that the system can support for parallel queries.
-	MaxParallelWorkers *int `pulumi:"maxParallelWorkers"`
-	// Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
-	MaxParallelWorkersPerGather *int `pulumi:"maxParallelWorkersPerGather"`
-	// PostgreSQL maximum predicate locks per transaction.
-	MaxPredLocksPerTransaction *int `pulumi:"maxPredLocksPerTransaction"`
-	// PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
-	MaxPreparedTransactions *int `pulumi:"maxPreparedTransactions"`
-	// PostgreSQL maximum replication slots.
-	MaxReplicationSlots *int `pulumi:"maxReplicationSlots"`
-	// Maximum depth of the stack in bytes.
-	MaxStackDepth *int `pulumi:"maxStackDepth"`
-	// Max standby archive delay in milliseconds.
-	MaxStandbyArchiveDelay *int `pulumi:"maxStandbyArchiveDelay"`
-	// Max standby streaming delay in milliseconds.
-	MaxStandbyStreamingDelay *int `pulumi:"maxStandbyStreamingDelay"`
-	// PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
-	MaxWalSenders *int `pulumi:"maxWalSenders"`
-	// Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
-	MaxWorkerProcesses *int `pulumi:"maxWorkerProcesses"`
-	// Sets the time interval to run pg_partman's scheduled tasks.
-	PgPartmanBgwInterval *int `pulumi:"pgPartmanBgwInterval"`
-	// Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
-	PgPartmanBgwRole *string `pulumi:"pgPartmanBgwRole"`
-	// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-	PgStatStatementsTrack *CreategresPgStatStatementsTrack `pulumi:"pgStatStatementsTrack"`
-	// PGBouncer connection pooling settings
-	Pgbouncer *Pgbouncer `pulumi:"pgbouncer"`
-	// Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
-	SharedBuffersPercentage *float64 `pulumi:"sharedBuffersPercentage"`
-	// Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
-	StatMonitorEnable *bool `pulumi:"statMonitorEnable"`
-	// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-	SynchronousReplication *CreategresSynchronousReplication `pulumi:"synchronousReplication"`
-	// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
-	TempFileLimit *int `pulumi:"tempFileLimit"`
-	// TimescaleDB extension configuration values
-	Timescaledb *Timescaledb `pulumi:"timescaledb"`
-	// PostgreSQL service timezone
-	Timezone *string `pulumi:"timezone"`
-	// Specifies the number of bytes reserved to track the currently executing command for each active session.
-	TrackActivityQuerySize *int `pulumi:"trackActivityQuerySize"`
-	// Record commit time of transactions.
-	TrackCommitTimestamp *CreategresTrackCommitTimestamp `pulumi:"trackCommitTimestamp"`
-	// Enables tracking of function call counts and time used.
-	TrackFunctions *CreategresTrackFunctions `pulumi:"trackFunctions"`
-	// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-	TrackIoTiming *CreategresTrackIoTiming `pulumi:"trackIoTiming"`
-	Type          *string                  `pulumi:"type"`
-	// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
-	WalSenderTimeout *int `pulumi:"walSenderTimeout"`
-	// WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
-	WalWriterDelay *int `pulumi:"walWriterDelay"`
-	// The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
-	WorkMem *int `pulumi:"workMem"`
-}
-
-// Defaults sets the appropriate defaults for Creategres
-func (val *Creategres) Defaults() *Creategres {
-	if val == nil {
-		return nil
-	}
-	tmp := *val
-	if tmp.Type == nil {
-		type_ := "postgres"
-		tmp.Type = &type_
-	}
-	return &tmp
-}
-
-type CreategresOutput struct{ *pulumi.OutputState }
-
-func (CreategresOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Creategres)(nil)).Elem()
-}
-
-func (o CreategresOutput) ToCreategresOutput() CreategresOutput {
-	return o
-}
-
-func (o CreategresOutput) ToCreategresOutputWithContext(ctx context.Context) CreategresOutput {
-	return o
-}
-
-// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
-func (o CreategresOutput) AutovacuumAnalyzeScaleFactor() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v Creategres) *float64 { return v.AutovacuumAnalyzeScaleFactor }).(pulumi.Float64PtrOutput)
-}
-
-// Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
-func (o CreategresOutput) AutovacuumAnalyzeThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumAnalyzeThreshold }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
-func (o CreategresOutput) AutovacuumFreezeMaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumFreezeMaxAge }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
-func (o CreategresOutput) AutovacuumMaxWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumMaxWorkers }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
-func (o CreategresOutput) AutovacuumNaptime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumNaptime }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
-func (o CreategresOutput) AutovacuumVacuumCostDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumVacuumCostDelay }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
-func (o CreategresOutput) AutovacuumVacuumCostLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumVacuumCostLimit }).(pulumi.IntPtrOutput)
-}
-
-// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
-func (o CreategresOutput) AutovacuumVacuumScaleFactor() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v Creategres) *float64 { return v.AutovacuumVacuumScaleFactor }).(pulumi.Float64PtrOutput)
-}
-
-// Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
-func (o CreategresOutput) AutovacuumVacuumThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.AutovacuumVacuumThreshold }).(pulumi.IntPtrOutput)
-}
-
-// The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
-func (o CreategresOutput) BackupHour() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.BackupHour }).(pulumi.IntPtrOutput)
-}
-
-// The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
-func (o CreategresOutput) BackupMinute() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.BackupMinute }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
-func (o CreategresOutput) BgwriterDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.BgwriterDelay }).(pulumi.IntPtrOutput)
-}
-
-// The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
-func (o CreategresOutput) BgwriterFlushAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.BgwriterFlushAfter }).(pulumi.IntPtrOutput)
-}
-
-// The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
-func (o CreategresOutput) BgwriterLruMaxpages() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.BgwriterLruMaxpages }).(pulumi.IntPtrOutput)
-}
-
-// The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
-func (o CreategresOutput) BgwriterLruMultiplier() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v Creategres) *float64 { return v.BgwriterLruMultiplier }).(pulumi.Float64PtrOutput)
-}
-
-// The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
-func (o CreategresOutput) DeadlockTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.DeadlockTimeout }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-func (o CreategresOutput) DefaultToastCompression() CreategresDefaultToastCompressionPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresDefaultToastCompression { return v.DefaultToastCompression }).(CreategresDefaultToastCompressionPtrOutput)
-}
-
-// Time out sessions with open transactions after this number of milliseconds
-func (o CreategresOutput) IdleInTransactionSessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.IdleInTransactionSessionTimeout }).(pulumi.IntPtrOutput)
-}
-
-// Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
-func (o CreategresOutput) Jit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Creategres) *bool { return v.Jit }).(pulumi.BoolPtrOutput)
-}
-
-// Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
-func (o CreategresOutput) LogAutovacuumMinDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.LogAutovacuumMinDuration }).(pulumi.IntPtrOutput)
-}
-
-// Controls the amount of detail written in the server log for each message that is logged.
-func (o CreategresOutput) LogErrorVerbosity() CreategresLogErrorVerbosityPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresLogErrorVerbosity { return v.LogErrorVerbosity }).(CreategresLogErrorVerbosityPtrOutput)
-}
-
-// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-func (o CreategresOutput) LogLinePrefix() CreategresLogLinePrefixPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresLogLinePrefix { return v.LogLinePrefix }).(CreategresLogLinePrefixPtrOutput)
-}
-
-// Log statements that take more than this number of milliseconds to run. If -1, disables.
-func (o CreategresOutput) LogMinDurationStatement() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.LogMinDurationStatement }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum number of files that can be open per process.
-func (o CreategresOutput) MaxFilesPerProcess() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxFilesPerProcess }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresOutput) MaxLocksPerTransaction() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxLocksPerTransaction }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
-func (o CreategresOutput) MaxLogicalReplicationWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxLogicalReplicationWorkers }).(pulumi.IntPtrOutput)
-}
-
-// Sets the maximum number of workers that the system can support for parallel queries.
-func (o CreategresOutput) MaxParallelWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxParallelWorkers }).(pulumi.IntPtrOutput)
-}
-
-// Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
-func (o CreategresOutput) MaxParallelWorkersPerGather() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxParallelWorkersPerGather }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum predicate locks per transaction.
-func (o CreategresOutput) MaxPredLocksPerTransaction() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxPredLocksPerTransaction }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresOutput) MaxPreparedTransactions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxPreparedTransactions }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum replication slots.
-func (o CreategresOutput) MaxReplicationSlots() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxReplicationSlots }).(pulumi.IntPtrOutput)
-}
-
-// Maximum depth of the stack in bytes.
-func (o CreategresOutput) MaxStackDepth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxStackDepth }).(pulumi.IntPtrOutput)
-}
-
-// Max standby archive delay in milliseconds.
-func (o CreategresOutput) MaxStandbyArchiveDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxStandbyArchiveDelay }).(pulumi.IntPtrOutput)
-}
-
-// Max standby streaming delay in milliseconds.
-func (o CreategresOutput) MaxStandbyStreamingDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxStandbyStreamingDelay }).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresOutput) MaxWalSenders() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxWalSenders }).(pulumi.IntPtrOutput)
-}
-
-// Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresOutput) MaxWorkerProcesses() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.MaxWorkerProcesses }).(pulumi.IntPtrOutput)
-}
-
-// Sets the time interval to run pg_partman's scheduled tasks.
-func (o CreategresOutput) PgPartmanBgwInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.PgPartmanBgwInterval }).(pulumi.IntPtrOutput)
-}
-
-// Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
-func (o CreategresOutput) PgPartmanBgwRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Creategres) *string { return v.PgPartmanBgwRole }).(pulumi.StringPtrOutput)
-}
-
-// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-func (o CreategresOutput) PgStatStatementsTrack() CreategresPgStatStatementsTrackPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresPgStatStatementsTrack { return v.PgStatStatementsTrack }).(CreategresPgStatStatementsTrackPtrOutput)
-}
-
-// PGBouncer connection pooling settings
-func (o CreategresOutput) Pgbouncer() PgbouncerPtrOutput {
-	return o.ApplyT(func(v Creategres) *Pgbouncer { return v.Pgbouncer }).(PgbouncerPtrOutput)
-}
-
-// Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
-func (o CreategresOutput) SharedBuffersPercentage() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v Creategres) *float64 { return v.SharedBuffersPercentage }).(pulumi.Float64PtrOutput)
-}
-
-// Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
-func (o CreategresOutput) StatMonitorEnable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Creategres) *bool { return v.StatMonitorEnable }).(pulumi.BoolPtrOutput)
-}
-
-// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-func (o CreategresOutput) SynchronousReplication() CreategresSynchronousReplicationPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresSynchronousReplication { return v.SynchronousReplication }).(CreategresSynchronousReplicationPtrOutput)
-}
-
-// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
-func (o CreategresOutput) TempFileLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.TempFileLimit }).(pulumi.IntPtrOutput)
-}
-
-// TimescaleDB extension configuration values
-func (o CreategresOutput) Timescaledb() TimescaledbPtrOutput {
-	return o.ApplyT(func(v Creategres) *Timescaledb { return v.Timescaledb }).(TimescaledbPtrOutput)
-}
-
-// PostgreSQL service timezone
-func (o CreategresOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Creategres) *string { return v.Timezone }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the number of bytes reserved to track the currently executing command for each active session.
-func (o CreategresOutput) TrackActivityQuerySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.TrackActivityQuerySize }).(pulumi.IntPtrOutput)
-}
-
-// Record commit time of transactions.
-func (o CreategresOutput) TrackCommitTimestamp() CreategresTrackCommitTimestampPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresTrackCommitTimestamp { return v.TrackCommitTimestamp }).(CreategresTrackCommitTimestampPtrOutput)
-}
-
-// Enables tracking of function call counts and time used.
-func (o CreategresOutput) TrackFunctions() CreategresTrackFunctionsPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresTrackFunctions { return v.TrackFunctions }).(CreategresTrackFunctionsPtrOutput)
-}
-
-// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-func (o CreategresOutput) TrackIoTiming() CreategresTrackIoTimingPtrOutput {
-	return o.ApplyT(func(v Creategres) *CreategresTrackIoTiming { return v.TrackIoTiming }).(CreategresTrackIoTimingPtrOutput)
-}
-
-func (o CreategresOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Creategres) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
-func (o CreategresOutput) WalSenderTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.WalSenderTimeout }).(pulumi.IntPtrOutput)
-}
-
-// WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
-func (o CreategresOutput) WalWriterDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.WalWriterDelay }).(pulumi.IntPtrOutput)
-}
-
-// The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
-func (o CreategresOutput) WorkMem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Creategres) *int { return v.WorkMem }).(pulumi.IntPtrOutput)
-}
-
-type CreategresPtrOutput struct{ *pulumi.OutputState }
-
-func (CreategresPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Creategres)(nil)).Elem()
-}
-
-func (o CreategresPtrOutput) ToCreategresPtrOutput() CreategresPtrOutput {
-	return o
-}
-
-func (o CreategresPtrOutput) ToCreategresPtrOutputWithContext(ctx context.Context) CreategresPtrOutput {
-	return o
-}
-
-func (o CreategresPtrOutput) Elem() CreategresOutput {
-	return o.ApplyT(func(v *Creategres) Creategres {
-		if v != nil {
-			return *v
-		}
-		var ret Creategres
-		return ret
-	}).(CreategresOutput)
-}
-
-// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
-func (o CreategresPtrOutput) AutovacuumAnalyzeScaleFactor() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *Creategres) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumAnalyzeScaleFactor
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
-func (o CreategresPtrOutput) AutovacuumAnalyzeThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumAnalyzeThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
-func (o CreategresPtrOutput) AutovacuumFreezeMaxAge() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumFreezeMaxAge
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
-func (o CreategresPtrOutput) AutovacuumMaxWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumMaxWorkers
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
-func (o CreategresPtrOutput) AutovacuumNaptime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumNaptime
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
-func (o CreategresPtrOutput) AutovacuumVacuumCostDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumVacuumCostDelay
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
-func (o CreategresPtrOutput) AutovacuumVacuumCostLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumVacuumCostLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
-func (o CreategresPtrOutput) AutovacuumVacuumScaleFactor() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *Creategres) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumVacuumScaleFactor
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
-func (o CreategresPtrOutput) AutovacuumVacuumThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AutovacuumVacuumThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
-func (o CreategresPtrOutput) BackupHour() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BackupHour
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
-func (o CreategresPtrOutput) BackupMinute() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BackupMinute
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
-func (o CreategresPtrOutput) BgwriterDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BgwriterDelay
-	}).(pulumi.IntPtrOutput)
-}
-
-// The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
-func (o CreategresPtrOutput) BgwriterFlushAfter() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BgwriterFlushAfter
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
-func (o CreategresPtrOutput) BgwriterLruMaxpages() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BgwriterLruMaxpages
-	}).(pulumi.IntPtrOutput)
-}
-
-// The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
-func (o CreategresPtrOutput) BgwriterLruMultiplier() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *Creategres) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.BgwriterLruMultiplier
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
-func (o CreategresPtrOutput) DeadlockTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DeadlockTimeout
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-func (o CreategresPtrOutput) DefaultToastCompression() CreategresDefaultToastCompressionPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresDefaultToastCompression {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultToastCompression
-	}).(CreategresDefaultToastCompressionPtrOutput)
-}
-
-// Time out sessions with open transactions after this number of milliseconds
-func (o CreategresPtrOutput) IdleInTransactionSessionTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IdleInTransactionSessionTimeout
-	}).(pulumi.IntPtrOutput)
-}
-
-// Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
-func (o CreategresPtrOutput) Jit() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Creategres) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Jit
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
-func (o CreategresPtrOutput) LogAutovacuumMinDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.LogAutovacuumMinDuration
-	}).(pulumi.IntPtrOutput)
-}
-
-// Controls the amount of detail written in the server log for each message that is logged.
-func (o CreategresPtrOutput) LogErrorVerbosity() CreategresLogErrorVerbosityPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresLogErrorVerbosity {
-		if v == nil {
-			return nil
-		}
-		return v.LogErrorVerbosity
-	}).(CreategresLogErrorVerbosityPtrOutput)
-}
-
-// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-func (o CreategresPtrOutput) LogLinePrefix() CreategresLogLinePrefixPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresLogLinePrefix {
-		if v == nil {
-			return nil
-		}
-		return v.LogLinePrefix
-	}).(CreategresLogLinePrefixPtrOutput)
-}
-
-// Log statements that take more than this number of milliseconds to run. If -1, disables.
-func (o CreategresPtrOutput) LogMinDurationStatement() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.LogMinDurationStatement
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum number of files that can be open per process.
-func (o CreategresPtrOutput) MaxFilesPerProcess() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxFilesPerProcess
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresPtrOutput) MaxLocksPerTransaction() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxLocksPerTransaction
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
-func (o CreategresPtrOutput) MaxLogicalReplicationWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxLogicalReplicationWorkers
-	}).(pulumi.IntPtrOutput)
-}
-
-// Sets the maximum number of workers that the system can support for parallel queries.
-func (o CreategresPtrOutput) MaxParallelWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxParallelWorkers
-	}).(pulumi.IntPtrOutput)
-}
-
-// Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
-func (o CreategresPtrOutput) MaxParallelWorkersPerGather() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxParallelWorkersPerGather
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum predicate locks per transaction.
-func (o CreategresPtrOutput) MaxPredLocksPerTransaction() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPredLocksPerTransaction
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresPtrOutput) MaxPreparedTransactions() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPreparedTransactions
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum replication slots.
-func (o CreategresPtrOutput) MaxReplicationSlots() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxReplicationSlots
-	}).(pulumi.IntPtrOutput)
-}
-
-// Maximum depth of the stack in bytes.
-func (o CreategresPtrOutput) MaxStackDepth() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxStackDepth
-	}).(pulumi.IntPtrOutput)
-}
-
-// Max standby archive delay in milliseconds.
-func (o CreategresPtrOutput) MaxStandbyArchiveDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxStandbyArchiveDelay
-	}).(pulumi.IntPtrOutput)
-}
-
-// Max standby streaming delay in milliseconds.
-func (o CreategresPtrOutput) MaxStandbyStreamingDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxStandbyStreamingDelay
-	}).(pulumi.IntPtrOutput)
-}
-
-// PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresPtrOutput) MaxWalSenders() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxWalSenders
-	}).(pulumi.IntPtrOutput)
-}
-
-// Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
-func (o CreategresPtrOutput) MaxWorkerProcesses() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxWorkerProcesses
-	}).(pulumi.IntPtrOutput)
-}
-
-// Sets the time interval to run pg_partman's scheduled tasks.
-func (o CreategresPtrOutput) PgPartmanBgwInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PgPartmanBgwInterval
-	}).(pulumi.IntPtrOutput)
-}
-
-// Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
-func (o CreategresPtrOutput) PgPartmanBgwRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Creategres) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PgPartmanBgwRole
-	}).(pulumi.StringPtrOutput)
-}
-
-// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-func (o CreategresPtrOutput) PgStatStatementsTrack() CreategresPgStatStatementsTrackPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresPgStatStatementsTrack {
-		if v == nil {
-			return nil
-		}
-		return v.PgStatStatementsTrack
-	}).(CreategresPgStatStatementsTrackPtrOutput)
-}
-
-// PGBouncer connection pooling settings
-func (o CreategresPtrOutput) Pgbouncer() PgbouncerPtrOutput {
-	return o.ApplyT(func(v *Creategres) *Pgbouncer {
-		if v == nil {
-			return nil
-		}
-		return v.Pgbouncer
-	}).(PgbouncerPtrOutput)
-}
-
-// Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
-func (o CreategresPtrOutput) SharedBuffersPercentage() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *Creategres) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.SharedBuffersPercentage
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
-func (o CreategresPtrOutput) StatMonitorEnable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Creategres) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StatMonitorEnable
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-func (o CreategresPtrOutput) SynchronousReplication() CreategresSynchronousReplicationPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresSynchronousReplication {
-		if v == nil {
-			return nil
-		}
-		return v.SynchronousReplication
-	}).(CreategresSynchronousReplicationPtrOutput)
-}
-
-// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
-func (o CreategresPtrOutput) TempFileLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TempFileLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// TimescaleDB extension configuration values
-func (o CreategresPtrOutput) Timescaledb() TimescaledbPtrOutput {
-	return o.ApplyT(func(v *Creategres) *Timescaledb {
-		if v == nil {
-			return nil
-		}
-		return v.Timescaledb
-	}).(TimescaledbPtrOutput)
-}
-
-// PostgreSQL service timezone
-func (o CreategresPtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Creategres) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Timezone
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the number of bytes reserved to track the currently executing command for each active session.
-func (o CreategresPtrOutput) TrackActivityQuerySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TrackActivityQuerySize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Record commit time of transactions.
-func (o CreategresPtrOutput) TrackCommitTimestamp() CreategresTrackCommitTimestampPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresTrackCommitTimestamp {
-		if v == nil {
-			return nil
-		}
-		return v.TrackCommitTimestamp
-	}).(CreategresTrackCommitTimestampPtrOutput)
-}
-
-// Enables tracking of function call counts and time used.
-func (o CreategresPtrOutput) TrackFunctions() CreategresTrackFunctionsPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresTrackFunctions {
-		if v == nil {
-			return nil
-		}
-		return v.TrackFunctions
-	}).(CreategresTrackFunctionsPtrOutput)
-}
-
-// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-func (o CreategresPtrOutput) TrackIoTiming() CreategresTrackIoTimingPtrOutput {
-	return o.ApplyT(func(v *Creategres) *CreategresTrackIoTiming {
-		if v == nil {
-			return nil
-		}
-		return v.TrackIoTiming
-	}).(CreategresTrackIoTimingPtrOutput)
-}
-
-func (o CreategresPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Creategres) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
-func (o CreategresPtrOutput) WalSenderTimeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.WalSenderTimeout
-	}).(pulumi.IntPtrOutput)
-}
-
-// WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
-func (o CreategresPtrOutput) WalWriterDelay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.WalWriterDelay
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
-func (o CreategresPtrOutput) WorkMem() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Creategres) *int {
-		if v == nil {
-			return nil
-		}
-		return v.WorkMem
-	}).(pulumi.IntPtrOutput)
-}
-
 type DatabaseType struct {
 	// The name of the database.
 	Name string `pulumi:"name"`
@@ -5736,6 +4767,975 @@ func (o PgbouncerPtrOutput) ServerResetQueryAlways() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type Postgres struct {
+	// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
+	AutovacuumAnalyzeScaleFactor *float64 `pulumi:"autovacuumAnalyzeScaleFactor"`
+	// Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+	AutovacuumAnalyzeThreshold *int `pulumi:"autovacuumAnalyzeThreshold"`
+	// Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+	AutovacuumFreezeMaxAge *int `pulumi:"autovacuumFreezeMaxAge"`
+	// Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+	AutovacuumMaxWorkers *int `pulumi:"autovacuumMaxWorkers"`
+	// Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
+	AutovacuumNaptime *int `pulumi:"autovacuumNaptime"`
+	// Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
+	AutovacuumVacuumCostDelay *int `pulumi:"autovacuumVacuumCostDelay"`
+	// Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+	AutovacuumVacuumCostLimit *int `pulumi:"autovacuumVacuumCostLimit"`
+	// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
+	AutovacuumVacuumScaleFactor *float64 `pulumi:"autovacuumVacuumScaleFactor"`
+	// Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+	AutovacuumVacuumThreshold *int `pulumi:"autovacuumVacuumThreshold"`
+	// The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
+	BackupHour *int `pulumi:"backupHour"`
+	// The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
+	BackupMinute *int `pulumi:"backupMinute"`
+	// Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
+	BgwriterDelay *int `pulumi:"bgwriterDelay"`
+	// The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
+	BgwriterFlushAfter *int `pulumi:"bgwriterFlushAfter"`
+	// The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
+	BgwriterLruMaxpages *int `pulumi:"bgwriterLruMaxpages"`
+	// The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
+	BgwriterLruMultiplier *float64 `pulumi:"bgwriterLruMultiplier"`
+	// The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+	DeadlockTimeout *int `pulumi:"deadlockTimeout"`
+	// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+	DefaultToastCompression *PostgresDefaultToastCompression `pulumi:"defaultToastCompression"`
+	// Time out sessions with open transactions after this number of milliseconds
+	IdleInTransactionSessionTimeout *int `pulumi:"idleInTransactionSessionTimeout"`
+	// Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
+	Jit *bool `pulumi:"jit"`
+	// Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+	LogAutovacuumMinDuration *int `pulumi:"logAutovacuumMinDuration"`
+	// Controls the amount of detail written in the server log for each message that is logged.
+	LogErrorVerbosity *PostgresLogErrorVerbosity `pulumi:"logErrorVerbosity"`
+	// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+	LogLinePrefix *PostgresLogLinePrefix `pulumi:"logLinePrefix"`
+	// Log statements that take more than this number of milliseconds to run. If -1, disables.
+	LogMinDurationStatement *int `pulumi:"logMinDurationStatement"`
+	// PostgreSQL maximum number of files that can be open per process.
+	MaxFilesPerProcess *int `pulumi:"maxFilesPerProcess"`
+	// PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
+	MaxLocksPerTransaction *int `pulumi:"maxLocksPerTransaction"`
+	// PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
+	MaxLogicalReplicationWorkers *int `pulumi:"maxLogicalReplicationWorkers"`
+	// Sets the maximum number of workers that the system can support for parallel queries.
+	MaxParallelWorkers *int `pulumi:"maxParallelWorkers"`
+	// Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
+	MaxParallelWorkersPerGather *int `pulumi:"maxParallelWorkersPerGather"`
+	// PostgreSQL maximum predicate locks per transaction.
+	MaxPredLocksPerTransaction *int `pulumi:"maxPredLocksPerTransaction"`
+	// PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
+	MaxPreparedTransactions *int `pulumi:"maxPreparedTransactions"`
+	// PostgreSQL maximum replication slots.
+	MaxReplicationSlots *int `pulumi:"maxReplicationSlots"`
+	// Maximum depth of the stack in bytes.
+	MaxStackDepth *int `pulumi:"maxStackDepth"`
+	// Max standby archive delay in milliseconds.
+	MaxStandbyArchiveDelay *int `pulumi:"maxStandbyArchiveDelay"`
+	// Max standby streaming delay in milliseconds.
+	MaxStandbyStreamingDelay *int `pulumi:"maxStandbyStreamingDelay"`
+	// PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
+	MaxWalSenders *int `pulumi:"maxWalSenders"`
+	// Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
+	MaxWorkerProcesses *int `pulumi:"maxWorkerProcesses"`
+	// Sets the time interval to run pg_partman's scheduled tasks.
+	PgPartmanBgwInterval *int `pulumi:"pgPartmanBgwInterval"`
+	// Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
+	PgPartmanBgwRole *string `pulumi:"pgPartmanBgwRole"`
+	// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+	PgStatStatementsTrack *PostgresPgStatStatementsTrack `pulumi:"pgStatStatementsTrack"`
+	// PGBouncer connection pooling settings
+	Pgbouncer *Pgbouncer `pulumi:"pgbouncer"`
+	// Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
+	SharedBuffersPercentage *float64 `pulumi:"sharedBuffersPercentage"`
+	// Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
+	StatMonitorEnable *bool `pulumi:"statMonitorEnable"`
+	// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+	SynchronousReplication *PostgresSynchronousReplication `pulumi:"synchronousReplication"`
+	// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
+	TempFileLimit *int `pulumi:"tempFileLimit"`
+	// TimescaleDB extension configuration values
+	Timescaledb *Timescaledb `pulumi:"timescaledb"`
+	// PostgreSQL service timezone
+	Timezone *string `pulumi:"timezone"`
+	// Specifies the number of bytes reserved to track the currently executing command for each active session.
+	TrackActivityQuerySize *int `pulumi:"trackActivityQuerySize"`
+	// Record commit time of transactions.
+	TrackCommitTimestamp *PostgresTrackCommitTimestamp `pulumi:"trackCommitTimestamp"`
+	// Enables tracking of function call counts and time used.
+	TrackFunctions *PostgresTrackFunctions `pulumi:"trackFunctions"`
+	// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+	TrackIoTiming *PostgresTrackIoTiming `pulumi:"trackIoTiming"`
+	Type          *string                `pulumi:"type"`
+	// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
+	WalSenderTimeout *int `pulumi:"walSenderTimeout"`
+	// WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
+	WalWriterDelay *int `pulumi:"walWriterDelay"`
+	// The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
+	WorkMem *int `pulumi:"workMem"`
+}
+
+// Defaults sets the appropriate defaults for Postgres
+func (val *Postgres) Defaults() *Postgres {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.Type == nil {
+		type_ := "postgres"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+type PostgresOutput struct{ *pulumi.OutputState }
+
+func (PostgresOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Postgres)(nil)).Elem()
+}
+
+func (o PostgresOutput) ToPostgresOutput() PostgresOutput {
+	return o
+}
+
+func (o PostgresOutput) ToPostgresOutputWithContext(ctx context.Context) PostgresOutput {
+	return o
+}
+
+// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
+func (o PostgresOutput) AutovacuumAnalyzeScaleFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Postgres) *float64 { return v.AutovacuumAnalyzeScaleFactor }).(pulumi.Float64PtrOutput)
+}
+
+// Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+func (o PostgresOutput) AutovacuumAnalyzeThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumAnalyzeThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+func (o PostgresOutput) AutovacuumFreezeMaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumFreezeMaxAge }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+func (o PostgresOutput) AutovacuumMaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumMaxWorkers }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
+func (o PostgresOutput) AutovacuumNaptime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumNaptime }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
+func (o PostgresOutput) AutovacuumVacuumCostDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumVacuumCostDelay }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+func (o PostgresOutput) AutovacuumVacuumCostLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumVacuumCostLimit }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
+func (o PostgresOutput) AutovacuumVacuumScaleFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Postgres) *float64 { return v.AutovacuumVacuumScaleFactor }).(pulumi.Float64PtrOutput)
+}
+
+// Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+func (o PostgresOutput) AutovacuumVacuumThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.AutovacuumVacuumThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
+func (o PostgresOutput) BackupHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.BackupHour }).(pulumi.IntPtrOutput)
+}
+
+// The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
+func (o PostgresOutput) BackupMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.BackupMinute }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
+func (o PostgresOutput) BgwriterDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.BgwriterDelay }).(pulumi.IntPtrOutput)
+}
+
+// The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
+func (o PostgresOutput) BgwriterFlushAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.BgwriterFlushAfter }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
+func (o PostgresOutput) BgwriterLruMaxpages() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.BgwriterLruMaxpages }).(pulumi.IntPtrOutput)
+}
+
+// The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
+func (o PostgresOutput) BgwriterLruMultiplier() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Postgres) *float64 { return v.BgwriterLruMultiplier }).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+func (o PostgresOutput) DeadlockTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.DeadlockTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+func (o PostgresOutput) DefaultToastCompression() PostgresDefaultToastCompressionPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresDefaultToastCompression { return v.DefaultToastCompression }).(PostgresDefaultToastCompressionPtrOutput)
+}
+
+// Time out sessions with open transactions after this number of milliseconds
+func (o PostgresOutput) IdleInTransactionSessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.IdleInTransactionSessionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
+func (o PostgresOutput) Jit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Postgres) *bool { return v.Jit }).(pulumi.BoolPtrOutput)
+}
+
+// Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+func (o PostgresOutput) LogAutovacuumMinDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.LogAutovacuumMinDuration }).(pulumi.IntPtrOutput)
+}
+
+// Controls the amount of detail written in the server log for each message that is logged.
+func (o PostgresOutput) LogErrorVerbosity() PostgresLogErrorVerbosityPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresLogErrorVerbosity { return v.LogErrorVerbosity }).(PostgresLogErrorVerbosityPtrOutput)
+}
+
+// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+func (o PostgresOutput) LogLinePrefix() PostgresLogLinePrefixPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresLogLinePrefix { return v.LogLinePrefix }).(PostgresLogLinePrefixPtrOutput)
+}
+
+// Log statements that take more than this number of milliseconds to run. If -1, disables.
+func (o PostgresOutput) LogMinDurationStatement() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.LogMinDurationStatement }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum number of files that can be open per process.
+func (o PostgresOutput) MaxFilesPerProcess() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxFilesPerProcess }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresOutput) MaxLocksPerTransaction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxLocksPerTransaction }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
+func (o PostgresOutput) MaxLogicalReplicationWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxLogicalReplicationWorkers }).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum number of workers that the system can support for parallel queries.
+func (o PostgresOutput) MaxParallelWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxParallelWorkers }).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
+func (o PostgresOutput) MaxParallelWorkersPerGather() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxParallelWorkersPerGather }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum predicate locks per transaction.
+func (o PostgresOutput) MaxPredLocksPerTransaction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxPredLocksPerTransaction }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresOutput) MaxPreparedTransactions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxPreparedTransactions }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum replication slots.
+func (o PostgresOutput) MaxReplicationSlots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxReplicationSlots }).(pulumi.IntPtrOutput)
+}
+
+// Maximum depth of the stack in bytes.
+func (o PostgresOutput) MaxStackDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxStackDepth }).(pulumi.IntPtrOutput)
+}
+
+// Max standby archive delay in milliseconds.
+func (o PostgresOutput) MaxStandbyArchiveDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxStandbyArchiveDelay }).(pulumi.IntPtrOutput)
+}
+
+// Max standby streaming delay in milliseconds.
+func (o PostgresOutput) MaxStandbyStreamingDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxStandbyStreamingDelay }).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresOutput) MaxWalSenders() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxWalSenders }).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresOutput) MaxWorkerProcesses() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.MaxWorkerProcesses }).(pulumi.IntPtrOutput)
+}
+
+// Sets the time interval to run pg_partman's scheduled tasks.
+func (o PostgresOutput) PgPartmanBgwInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.PgPartmanBgwInterval }).(pulumi.IntPtrOutput)
+}
+
+// Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
+func (o PostgresOutput) PgPartmanBgwRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Postgres) *string { return v.PgPartmanBgwRole }).(pulumi.StringPtrOutput)
+}
+
+// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+func (o PostgresOutput) PgStatStatementsTrack() PostgresPgStatStatementsTrackPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresPgStatStatementsTrack { return v.PgStatStatementsTrack }).(PostgresPgStatStatementsTrackPtrOutput)
+}
+
+// PGBouncer connection pooling settings
+func (o PostgresOutput) Pgbouncer() PgbouncerPtrOutput {
+	return o.ApplyT(func(v Postgres) *Pgbouncer { return v.Pgbouncer }).(PgbouncerPtrOutput)
+}
+
+// Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
+func (o PostgresOutput) SharedBuffersPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v Postgres) *float64 { return v.SharedBuffersPercentage }).(pulumi.Float64PtrOutput)
+}
+
+// Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
+func (o PostgresOutput) StatMonitorEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Postgres) *bool { return v.StatMonitorEnable }).(pulumi.BoolPtrOutput)
+}
+
+// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+func (o PostgresOutput) SynchronousReplication() PostgresSynchronousReplicationPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresSynchronousReplication { return v.SynchronousReplication }).(PostgresSynchronousReplicationPtrOutput)
+}
+
+// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
+func (o PostgresOutput) TempFileLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.TempFileLimit }).(pulumi.IntPtrOutput)
+}
+
+// TimescaleDB extension configuration values
+func (o PostgresOutput) Timescaledb() TimescaledbPtrOutput {
+	return o.ApplyT(func(v Postgres) *Timescaledb { return v.Timescaledb }).(TimescaledbPtrOutput)
+}
+
+// PostgreSQL service timezone
+func (o PostgresOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Postgres) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of bytes reserved to track the currently executing command for each active session.
+func (o PostgresOutput) TrackActivityQuerySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.TrackActivityQuerySize }).(pulumi.IntPtrOutput)
+}
+
+// Record commit time of transactions.
+func (o PostgresOutput) TrackCommitTimestamp() PostgresTrackCommitTimestampPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresTrackCommitTimestamp { return v.TrackCommitTimestamp }).(PostgresTrackCommitTimestampPtrOutput)
+}
+
+// Enables tracking of function call counts and time used.
+func (o PostgresOutput) TrackFunctions() PostgresTrackFunctionsPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresTrackFunctions { return v.TrackFunctions }).(PostgresTrackFunctionsPtrOutput)
+}
+
+// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+func (o PostgresOutput) TrackIoTiming() PostgresTrackIoTimingPtrOutput {
+	return o.ApplyT(func(v Postgres) *PostgresTrackIoTiming { return v.TrackIoTiming }).(PostgresTrackIoTimingPtrOutput)
+}
+
+func (o PostgresOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Postgres) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
+func (o PostgresOutput) WalSenderTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.WalSenderTimeout }).(pulumi.IntPtrOutput)
+}
+
+// WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
+func (o PostgresOutput) WalWriterDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.WalWriterDelay }).(pulumi.IntPtrOutput)
+}
+
+// The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
+func (o PostgresOutput) WorkMem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Postgres) *int { return v.WorkMem }).(pulumi.IntPtrOutput)
+}
+
+type PostgresPtrOutput struct{ *pulumi.OutputState }
+
+func (PostgresPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Postgres)(nil)).Elem()
+}
+
+func (o PostgresPtrOutput) ToPostgresPtrOutput() PostgresPtrOutput {
+	return o
+}
+
+func (o PostgresPtrOutput) ToPostgresPtrOutputWithContext(ctx context.Context) PostgresPtrOutput {
+	return o
+}
+
+func (o PostgresPtrOutput) Elem() PostgresOutput {
+	return o.ApplyT(func(v *Postgres) Postgres {
+		if v != nil {
+			return *v
+		}
+		var ret Postgres
+		return ret
+	}).(PostgresOutput)
+}
+
+// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
+func (o PostgresPtrOutput) AutovacuumAnalyzeScaleFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Postgres) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumAnalyzeScaleFactor
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+func (o PostgresPtrOutput) AutovacuumAnalyzeThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumAnalyzeThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+func (o PostgresPtrOutput) AutovacuumFreezeMaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumFreezeMaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+func (o PostgresPtrOutput) AutovacuumMaxWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumMaxWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
+func (o PostgresPtrOutput) AutovacuumNaptime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumNaptime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
+func (o PostgresPtrOutput) AutovacuumVacuumCostDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumVacuumCostDelay
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+func (o PostgresPtrOutput) AutovacuumVacuumCostLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumVacuumCostLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
+func (o PostgresPtrOutput) AutovacuumVacuumScaleFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Postgres) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumVacuumScaleFactor
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+func (o PostgresPtrOutput) AutovacuumVacuumThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutovacuumVacuumThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
+func (o PostgresPtrOutput) BackupHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
+func (o PostgresPtrOutput) BackupMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
+func (o PostgresPtrOutput) BgwriterDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BgwriterDelay
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
+func (o PostgresPtrOutput) BgwriterFlushAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BgwriterFlushAfter
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
+func (o PostgresPtrOutput) BgwriterLruMaxpages() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BgwriterLruMaxpages
+	}).(pulumi.IntPtrOutput)
+}
+
+// The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
+func (o PostgresPtrOutput) BgwriterLruMultiplier() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Postgres) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.BgwriterLruMultiplier
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+func (o PostgresPtrOutput) DeadlockTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeadlockTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+func (o PostgresPtrOutput) DefaultToastCompression() PostgresDefaultToastCompressionPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresDefaultToastCompression {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultToastCompression
+	}).(PostgresDefaultToastCompressionPtrOutput)
+}
+
+// Time out sessions with open transactions after this number of milliseconds
+func (o PostgresPtrOutput) IdleInTransactionSessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleInTransactionSessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
+func (o PostgresPtrOutput) Jit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Postgres) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Jit
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+func (o PostgresPtrOutput) LogAutovacuumMinDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LogAutovacuumMinDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls the amount of detail written in the server log for each message that is logged.
+func (o PostgresPtrOutput) LogErrorVerbosity() PostgresLogErrorVerbosityPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresLogErrorVerbosity {
+		if v == nil {
+			return nil
+		}
+		return v.LogErrorVerbosity
+	}).(PostgresLogErrorVerbosityPtrOutput)
+}
+
+// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+func (o PostgresPtrOutput) LogLinePrefix() PostgresLogLinePrefixPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresLogLinePrefix {
+		if v == nil {
+			return nil
+		}
+		return v.LogLinePrefix
+	}).(PostgresLogLinePrefixPtrOutput)
+}
+
+// Log statements that take more than this number of milliseconds to run. If -1, disables.
+func (o PostgresPtrOutput) LogMinDurationStatement() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LogMinDurationStatement
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum number of files that can be open per process.
+func (o PostgresPtrOutput) MaxFilesPerProcess() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFilesPerProcess
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresPtrOutput) MaxLocksPerTransaction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLocksPerTransaction
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
+func (o PostgresPtrOutput) MaxLogicalReplicationWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLogicalReplicationWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum number of workers that the system can support for parallel queries.
+func (o PostgresPtrOutput) MaxParallelWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxParallelWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
+func (o PostgresPtrOutput) MaxParallelWorkersPerGather() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxParallelWorkersPerGather
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum predicate locks per transaction.
+func (o PostgresPtrOutput) MaxPredLocksPerTransaction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPredLocksPerTransaction
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresPtrOutput) MaxPreparedTransactions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPreparedTransactions
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum replication slots.
+func (o PostgresPtrOutput) MaxReplicationSlots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReplicationSlots
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum depth of the stack in bytes.
+func (o PostgresPtrOutput) MaxStackDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxStackDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// Max standby archive delay in milliseconds.
+func (o PostgresPtrOutput) MaxStandbyArchiveDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxStandbyArchiveDelay
+	}).(pulumi.IntPtrOutput)
+}
+
+// Max standby streaming delay in milliseconds.
+func (o PostgresPtrOutput) MaxStandbyStreamingDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxStandbyStreamingDelay
+	}).(pulumi.IntPtrOutput)
+}
+
+// PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresPtrOutput) MaxWalSenders() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWalSenders
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
+func (o PostgresPtrOutput) MaxWorkerProcesses() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWorkerProcesses
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the time interval to run pg_partman's scheduled tasks.
+func (o PostgresPtrOutput) PgPartmanBgwInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PgPartmanBgwInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
+func (o PostgresPtrOutput) PgPartmanBgwRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Postgres) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PgPartmanBgwRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+func (o PostgresPtrOutput) PgStatStatementsTrack() PostgresPgStatStatementsTrackPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresPgStatStatementsTrack {
+		if v == nil {
+			return nil
+		}
+		return v.PgStatStatementsTrack
+	}).(PostgresPgStatStatementsTrackPtrOutput)
+}
+
+// PGBouncer connection pooling settings
+func (o PostgresPtrOutput) Pgbouncer() PgbouncerPtrOutput {
+	return o.ApplyT(func(v *Postgres) *Pgbouncer {
+		if v == nil {
+			return nil
+		}
+		return v.Pgbouncer
+	}).(PgbouncerPtrOutput)
+}
+
+// Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
+func (o PostgresPtrOutput) SharedBuffersPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Postgres) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SharedBuffersPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
+func (o PostgresPtrOutput) StatMonitorEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Postgres) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatMonitorEnable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+func (o PostgresPtrOutput) SynchronousReplication() PostgresSynchronousReplicationPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresSynchronousReplication {
+		if v == nil {
+			return nil
+		}
+		return v.SynchronousReplication
+	}).(PostgresSynchronousReplicationPtrOutput)
+}
+
+// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
+func (o PostgresPtrOutput) TempFileLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TempFileLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// TimescaleDB extension configuration values
+func (o PostgresPtrOutput) Timescaledb() TimescaledbPtrOutput {
+	return o.ApplyT(func(v *Postgres) *Timescaledb {
+		if v == nil {
+			return nil
+		}
+		return v.Timescaledb
+	}).(TimescaledbPtrOutput)
+}
+
+// PostgreSQL service timezone
+func (o PostgresPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Postgres) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of bytes reserved to track the currently executing command for each active session.
+func (o PostgresPtrOutput) TrackActivityQuerySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TrackActivityQuerySize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Record commit time of transactions.
+func (o PostgresPtrOutput) TrackCommitTimestamp() PostgresTrackCommitTimestampPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresTrackCommitTimestamp {
+		if v == nil {
+			return nil
+		}
+		return v.TrackCommitTimestamp
+	}).(PostgresTrackCommitTimestampPtrOutput)
+}
+
+// Enables tracking of function call counts and time used.
+func (o PostgresPtrOutput) TrackFunctions() PostgresTrackFunctionsPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresTrackFunctions {
+		if v == nil {
+			return nil
+		}
+		return v.TrackFunctions
+	}).(PostgresTrackFunctionsPtrOutput)
+}
+
+// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+func (o PostgresPtrOutput) TrackIoTiming() PostgresTrackIoTimingPtrOutput {
+	return o.ApplyT(func(v *Postgres) *PostgresTrackIoTiming {
+		if v == nil {
+			return nil
+		}
+		return v.TrackIoTiming
+	}).(PostgresTrackIoTimingPtrOutput)
+}
+
+func (o PostgresPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Postgres) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
+func (o PostgresPtrOutput) WalSenderTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WalSenderTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
+func (o PostgresPtrOutput) WalWriterDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WalWriterDelay
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
+func (o PostgresPtrOutput) WorkMem() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Postgres) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WorkMem
+	}).(pulumi.IntPtrOutput)
+}
+
 type PrivateConnection struct {
 	// The name of the default database.
 	Database *string `pulumi:"database"`
@@ -6617,8 +6617,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPoolPrivateConnectionOutput{})
 	pulumi.RegisterOutputType(ConnectionPoolPrivateConnectionPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPoolsOutput{})
-	pulumi.RegisterOutputType(CreategresOutput{})
-	pulumi.RegisterOutputType(CreategresPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseTypeArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupOutput{})
@@ -6680,6 +6678,8 @@ func init() {
 	pulumi.RegisterOutputType(OptionsVersionAvailabilityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PgbouncerOutput{})
 	pulumi.RegisterOutputType(PgbouncerPtrOutput{})
+	pulumi.RegisterOutputType(PostgresOutput{})
+	pulumi.RegisterOutputType(PostgresPtrOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionPtrOutput{})
 	pulumi.RegisterOutputType(RedisOutput{})

@@ -14,9 +14,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2.Outputs
     [OutputType]
     public sealed class ReservedIp
     {
-        /// <summary>
-        /// The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-        /// </summary>
         public readonly Outputs.Droplet? Droplet;
         /// <summary>
         /// The public IP address of the reserved IP. It also serves as its identifier.

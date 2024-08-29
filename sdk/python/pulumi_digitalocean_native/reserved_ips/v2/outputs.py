@@ -1362,7 +1362,6 @@ class ReservedIp(dict):
                  project_id: Optional[str] = None,
                  region: Optional['outputs.ReservedIpRegion'] = None):
         """
-        :param 'Droplet' droplet: The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
         :param str ip: The public IP address of the reserved IP. It also serves as its identifier.
         :param bool locked: A boolean value indicating whether or not the reserved IP has pending actions preventing new ones from being submitted.
         :param str project_id: The UUID of the project to which the reserved IP currently belongs.
@@ -1381,9 +1380,6 @@ class ReservedIp(dict):
     @property
     @pulumi.getter
     def droplet(self) -> Optional['outputs.Droplet']:
-        """
-        The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-        """
         return pulumi.get(self, "droplet")
 
     @property

@@ -12,7 +12,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
 {
 
     [OutputType]
-    public sealed class Creategres
+    public sealed class Postgres
     {
         /// <summary>
         /// Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
@@ -81,7 +81,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
         /// <summary>
         /// Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresDefaultToastCompression? DefaultToastCompression;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresDefaultToastCompression? DefaultToastCompression;
         /// <summary>
         /// Time out sessions with open transactions after this number of milliseconds
         /// </summary>
@@ -97,11 +97,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
         /// <summary>
         /// Controls the amount of detail written in the server log for each message that is logged.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresLogErrorVerbosity? LogErrorVerbosity;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresLogErrorVerbosity? LogErrorVerbosity;
         /// <summary>
         /// Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresLogLinePrefix? LogLinePrefix;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresLogLinePrefix? LogLinePrefix;
         /// <summary>
         /// Log statements that take more than this number of milliseconds to run. If -1, disables.
         /// </summary>
@@ -169,7 +169,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
         /// <summary>
         /// Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresPgStatStatementsTrack? PgStatStatementsTrack;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresPgStatStatementsTrack? PgStatStatementsTrack;
         /// <summary>
         /// PGBouncer connection pooling settings
         /// </summary>
@@ -185,7 +185,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
         /// <summary>
         /// Synchronous replication type. Note that the service plan also needs to support synchronous replication.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresSynchronousReplication? SynchronousReplication;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresSynchronousReplication? SynchronousReplication;
         /// <summary>
         /// PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
         /// </summary>
@@ -205,15 +205,15 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
         /// <summary>
         /// Record commit time of transactions.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresTrackCommitTimestamp? TrackCommitTimestamp;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresTrackCommitTimestamp? TrackCommitTimestamp;
         /// <summary>
         /// Enables tracking of function call counts and time used.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresTrackFunctions? TrackFunctions;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresTrackFunctions? TrackFunctions;
         /// <summary>
         /// Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
         /// </summary>
-        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresTrackIoTiming? TrackIoTiming;
+        public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresTrackIoTiming? TrackIoTiming;
         public readonly string? Type;
         /// <summary>
         /// Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
@@ -229,7 +229,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
         public readonly int? WorkMem;
 
         [OutputConstructor]
-        private Creategres(
+        private Postgres(
             double? autovacuumAnalyzeScaleFactor,
 
             int? autovacuumAnalyzeThreshold,
@@ -262,7 +262,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
 
             int? deadlockTimeout,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresDefaultToastCompression? defaultToastCompression,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresDefaultToastCompression? defaultToastCompression,
 
             int? idleInTransactionSessionTimeout,
 
@@ -270,9 +270,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
 
             int? logAutovacuumMinDuration,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresLogErrorVerbosity? logErrorVerbosity,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresLogErrorVerbosity? logErrorVerbosity,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresLogLinePrefix? logLinePrefix,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresLogLinePrefix? logLinePrefix,
 
             int? logMinDurationStatement,
 
@@ -306,7 +306,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
 
             string? pgPartmanBgwRole,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresPgStatStatementsTrack? pgStatStatementsTrack,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresPgStatStatementsTrack? pgStatStatementsTrack,
 
             Outputs.Pgbouncer? pgbouncer,
 
@@ -314,7 +314,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
 
             bool? statMonitorEnable,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresSynchronousReplication? synchronousReplication,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresSynchronousReplication? synchronousReplication,
 
             int? tempFileLimit,
 
@@ -324,11 +324,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Outputs
 
             int? trackActivityQuerySize,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresTrackCommitTimestamp? trackCommitTimestamp,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresTrackCommitTimestamp? trackCommitTimestamp,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresTrackFunctions? trackFunctions,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresTrackFunctions? trackFunctions,
 
-            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.CreategresTrackIoTiming? trackIoTiming,
+            CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.PostgresTrackIoTiming? trackIoTiming,
 
             string? type,
 

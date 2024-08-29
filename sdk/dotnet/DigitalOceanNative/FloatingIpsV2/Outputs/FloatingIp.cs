@@ -14,9 +14,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2.Outputs
     [OutputType]
     public sealed class FloatingIp
     {
-        /// <summary>
-        /// The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-        /// </summary>
         public readonly Outputs.Droplet? Droplet;
         /// <summary>
         /// The public IP address of the floating IP. It also serves as its identifier.

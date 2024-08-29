@@ -40,9 +40,13 @@ func fixReservedIPType(openAPIDoc *openapi3.T) {
 	// The droplet property of this type can be null if the floating IP
 	// is not attached to any droplet. The way this is represented in the
 	// spec causes validation issues. So let's simplify it.
-	schemaRef.Value.Properties["droplet"].Ref = "#/components/schemas/droplet"
-	schemaRef.Value.Properties["droplet"].Value.AnyOf = nil
-	schemaRef.Value.Properties["droplet"].Value.Example = nil
+	dropletProp := schemaRef.Value.Properties["droplet"]
+	dropletProp.Ref = "#/components/schemas/droplet"
+	dropletProp.Value.AnyOf = nil
+	dropletProp.Value.Example = nil
+	dropletSchema, ok := openAPIDoc.Components.Schemas["droplet"]
+	contract.Assertf(ok, "droplet schema type not found. required by reserved_ip type")
+	dropletProp.Value = dropletSchema.Value
 }
 
 // fixObjectPropertyType adds `type: object` for any type that
@@ -79,9 +83,13 @@ func fixFloatingIPType(openAPIDoc *openapi3.T) {
 	// The droplet property of this type can be null if the floating IP
 	// is not attached to any droplet. The way this is represented in the
 	// spec causes validation issues. So let's simplify it.
-	floatingIP.Value.Properties["droplet"].Ref = "#/components/schemas/droplet"
-	floatingIP.Value.Properties["droplet"].Value.AnyOf = nil
-	floatingIP.Value.Properties["droplet"].Value.Example = nil
+	dropletProp := floatingIP.Value.Properties["droplet"]
+	dropletProp.Ref = "#/components/schemas/droplet"
+	dropletProp.Value.AnyOf = nil
+	dropletProp.Value.Example = nil
+	dropletSchema, ok := openAPIDoc.Components.Schemas["droplet"]
+	contract.Assertf(ok, "droplet schema type not found. required by floating_ip schema type")
+	dropletProp.Value = dropletSchema.Value
 }
 
 // fixDatabaseConfigType fixes the database_config type to use
@@ -122,6 +130,7 @@ func fixDatabaseConfigType(openAPIDoc *openapi3.T) {
 	contract.Assertf(ok, "Expected to find the response schema for database_config")
 
 	resp.Value.Content.Get("application/json").Schema.Ref = "#/components/schemas/database_config"
+	resp.Value.Content.Get("application/json").Schema.Value = databaseConfig.Value
 }
 
 func fixPageLinksType(openAPIDoc *openapi3.T) {

@@ -2168,7 +2168,6 @@ func (o RegionPtrOutput) Slug() pulumi.StringPtrOutput {
 }
 
 type ReservedIpType struct {
-	// The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 	Droplet *Droplet `pulumi:"droplet"`
 	// The public IP address of the reserved IP. It also serves as its identifier.
 	Ip *string `pulumi:"ip"`
@@ -2204,7 +2203,6 @@ func (o ReservedIpTypeOutput) ToReservedIpTypeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 func (o ReservedIpTypeOutput) Droplet() DropletPtrOutput {
 	return o.ApplyT(func(v ReservedIpType) *Droplet { return v.Droplet }).(DropletPtrOutput)
 }
@@ -2252,7 +2250,6 @@ func (o ReservedIpTypePtrOutput) Elem() ReservedIpTypeOutput {
 	}).(ReservedIpTypeOutput)
 }
 
-// The Droplet that the reserved IP has been assigned to. When you query a reserved IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 func (o ReservedIpTypePtrOutput) Droplet() DropletPtrOutput {
 	return o.ApplyT(func(v *ReservedIpType) *Droplet {
 		if v == nil {

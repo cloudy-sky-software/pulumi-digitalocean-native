@@ -916,7 +916,6 @@ func (o DropletNextBackupWindowPropertiesPtrOutput) Start() pulumi.StringPtrOutp
 }
 
 type FloatingIpType struct {
-	// The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 	Droplet *Droplet `pulumi:"droplet"`
 	// The public IP address of the floating IP. It also serves as its identifier.
 	Ip *string `pulumi:"ip"`
@@ -952,7 +951,6 @@ func (o FloatingIpTypeOutput) ToFloatingIpTypeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 func (o FloatingIpTypeOutput) Droplet() DropletPtrOutput {
 	return o.ApplyT(func(v FloatingIpType) *Droplet { return v.Droplet }).(DropletPtrOutput)
 }
@@ -1000,7 +998,6 @@ func (o FloatingIpTypePtrOutput) Elem() FloatingIpTypeOutput {
 	}).(FloatingIpTypeOutput)
 }
 
-// The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
 func (o FloatingIpTypePtrOutput) Droplet() DropletPtrOutput {
 	return o.ApplyT(func(v *FloatingIpType) *Droplet {
 		if v == nil {
