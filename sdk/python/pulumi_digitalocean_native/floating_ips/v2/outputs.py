@@ -593,7 +593,6 @@ class FloatingIp(dict):
                  project_id: Optional[str] = None,
                  region: Optional['outputs.FloatingIpRegion'] = None):
         """
-        :param 'Droplet' droplet: The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
         :param str ip: The public IP address of the floating IP. It also serves as its identifier.
         :param bool locked: A boolean value indicating whether or not the floating IP has pending actions preventing new ones from being submitted.
         :param str project_id: The UUID of the project to which the reserved IP currently belongs.
@@ -612,9 +611,6 @@ class FloatingIp(dict):
     @property
     @pulumi.getter
     def droplet(self) -> Optional['outputs.Droplet']:
-        """
-        The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null.
-        """
         return pulumi.get(self, "droplet")
 
     @property

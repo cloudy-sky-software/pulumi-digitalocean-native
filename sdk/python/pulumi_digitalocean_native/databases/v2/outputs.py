@@ -19,7 +19,6 @@ __all__ = [
     'ConnectionPoolConnection',
     'ConnectionPoolPrivateConnection',
     'ConnectionPools',
-    'Creategres',
     'Database',
     'DatabaseBackup',
     'DatabaseCluster',
@@ -58,6 +57,7 @@ __all__ = [
     'OptionsOptionsPropertiesRedis',
     'OptionsVersionAvailabilityProperties',
     'Pgbouncer',
+    'Postgres',
     'PrivateConnection',
     'Redis',
     'SourceProperties',
@@ -498,659 +498,6 @@ class ConnectionPools(dict):
         An array of connection pool objects.
         """
         return pulumi.get(self, "pools")
-
-
-@pulumi.output_type
-class Creategres(dict):
-    def __init__(__self__, *,
-                 autovacuum_analyze_scale_factor: Optional[float] = None,
-                 autovacuum_analyze_threshold: Optional[int] = None,
-                 autovacuum_freeze_max_age: Optional[int] = None,
-                 autovacuum_max_workers: Optional[int] = None,
-                 autovacuum_naptime: Optional[int] = None,
-                 autovacuum_vacuum_cost_delay: Optional[int] = None,
-                 autovacuum_vacuum_cost_limit: Optional[int] = None,
-                 autovacuum_vacuum_scale_factor: Optional[float] = None,
-                 autovacuum_vacuum_threshold: Optional[int] = None,
-                 backup_hour: Optional[int] = None,
-                 backup_minute: Optional[int] = None,
-                 bgwriter_delay: Optional[int] = None,
-                 bgwriter_flush_after: Optional[int] = None,
-                 bgwriter_lru_maxpages: Optional[int] = None,
-                 bgwriter_lru_multiplier: Optional[float] = None,
-                 deadlock_timeout: Optional[int] = None,
-                 default_toast_compression: Optional['CreategresDefaultToastCompression'] = None,
-                 idle_in_transaction_session_timeout: Optional[int] = None,
-                 jit: Optional[bool] = None,
-                 log_autovacuum_min_duration: Optional[int] = None,
-                 log_error_verbosity: Optional['CreategresLogErrorVerbosity'] = None,
-                 log_line_prefix: Optional['CreategresLogLinePrefix'] = None,
-                 log_min_duration_statement: Optional[int] = None,
-                 max_files_per_process: Optional[int] = None,
-                 max_locks_per_transaction: Optional[int] = None,
-                 max_logical_replication_workers: Optional[int] = None,
-                 max_parallel_workers: Optional[int] = None,
-                 max_parallel_workers_per_gather: Optional[int] = None,
-                 max_pred_locks_per_transaction: Optional[int] = None,
-                 max_prepared_transactions: Optional[int] = None,
-                 max_replication_slots: Optional[int] = None,
-                 max_stack_depth: Optional[int] = None,
-                 max_standby_archive_delay: Optional[int] = None,
-                 max_standby_streaming_delay: Optional[int] = None,
-                 max_wal_senders: Optional[int] = None,
-                 max_worker_processes: Optional[int] = None,
-                 pg_partman_bgw_interval: Optional[int] = None,
-                 pg_partman_bgw_role: Optional[str] = None,
-                 pg_stat_statements_track: Optional['CreategresPgStatStatementsTrack'] = None,
-                 pgbouncer: Optional['outputs.Pgbouncer'] = None,
-                 shared_buffers_percentage: Optional[float] = None,
-                 stat_monitor_enable: Optional[bool] = None,
-                 synchronous_replication: Optional['CreategresSynchronousReplication'] = None,
-                 temp_file_limit: Optional[int] = None,
-                 timescaledb: Optional['outputs.Timescaledb'] = None,
-                 timezone: Optional[str] = None,
-                 track_activity_query_size: Optional[int] = None,
-                 track_commit_timestamp: Optional['CreategresTrackCommitTimestamp'] = None,
-                 track_functions: Optional['CreategresTrackFunctions'] = None,
-                 track_io_timing: Optional['CreategresTrackIoTiming'] = None,
-                 type: Optional[str] = None,
-                 wal_sender_timeout: Optional[int] = None,
-                 wal_writer_delay: Optional[int] = None,
-                 work_mem: Optional[int] = None):
-        """
-        :param float autovacuum_analyze_scale_factor: Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
-        :param int autovacuum_analyze_threshold: Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
-        :param int autovacuum_freeze_max_age: Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
-        :param int autovacuum_max_workers: Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
-        :param int autovacuum_naptime: Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
-        :param int autovacuum_vacuum_cost_delay: Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
-        :param int autovacuum_vacuum_cost_limit: Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
-        :param float autovacuum_vacuum_scale_factor: Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
-        :param int autovacuum_vacuum_threshold: Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
-        :param int backup_hour: The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
-        :param int backup_minute: The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
-        :param int bgwriter_delay: Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
-        :param int bgwriter_flush_after: The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
-        :param int bgwriter_lru_maxpages: The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
-        :param float bgwriter_lru_multiplier: The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
-        :param int deadlock_timeout: The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
-        :param 'CreategresDefaultToastCompression' default_toast_compression: Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-        :param int idle_in_transaction_session_timeout: Time out sessions with open transactions after this number of milliseconds
-        :param bool jit: Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
-        :param int log_autovacuum_min_duration: Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
-        :param 'CreategresLogErrorVerbosity' log_error_verbosity: Controls the amount of detail written in the server log for each message that is logged.
-        :param 'CreategresLogLinePrefix' log_line_prefix: Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-        :param int log_min_duration_statement: Log statements that take more than this number of milliseconds to run. If -1, disables.
-        :param int max_files_per_process: PostgreSQL maximum number of files that can be open per process.
-        :param int max_locks_per_transaction: PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
-        :param int max_logical_replication_workers: PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
-        :param int max_parallel_workers: Sets the maximum number of workers that the system can support for parallel queries.
-        :param int max_parallel_workers_per_gather: Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
-        :param int max_pred_locks_per_transaction: PostgreSQL maximum predicate locks per transaction.
-        :param int max_prepared_transactions: PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
-        :param int max_replication_slots: PostgreSQL maximum replication slots.
-        :param int max_stack_depth: Maximum depth of the stack in bytes.
-        :param int max_standby_archive_delay: Max standby archive delay in milliseconds.
-        :param int max_standby_streaming_delay: Max standby streaming delay in milliseconds.
-        :param int max_wal_senders: PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
-        :param int max_worker_processes: Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
-        :param int pg_partman_bgw_interval: Sets the time interval to run pg_partman's scheduled tasks.
-        :param str pg_partman_bgw_role: Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
-        :param 'CreategresPgStatStatementsTrack' pg_stat_statements_track: Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-        :param 'Pgbouncer' pgbouncer: PGBouncer connection pooling settings
-        :param float shared_buffers_percentage: Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
-        :param bool stat_monitor_enable: Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
-        :param 'CreategresSynchronousReplication' synchronous_replication: Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-        :param int temp_file_limit: PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
-        :param 'Timescaledb' timescaledb: TimescaleDB extension configuration values
-        :param str timezone: PostgreSQL service timezone
-        :param int track_activity_query_size: Specifies the number of bytes reserved to track the currently executing command for each active session.
-        :param 'CreategresTrackCommitTimestamp' track_commit_timestamp: Record commit time of transactions.
-        :param 'CreategresTrackFunctions' track_functions: Enables tracking of function call counts and time used.
-        :param 'CreategresTrackIoTiming' track_io_timing: Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-        :param int wal_sender_timeout: Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
-        :param int wal_writer_delay: WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
-        :param int work_mem: The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
-        """
-        if autovacuum_analyze_scale_factor is not None:
-            pulumi.set(__self__, "autovacuum_analyze_scale_factor", autovacuum_analyze_scale_factor)
-        if autovacuum_analyze_threshold is not None:
-            pulumi.set(__self__, "autovacuum_analyze_threshold", autovacuum_analyze_threshold)
-        if autovacuum_freeze_max_age is not None:
-            pulumi.set(__self__, "autovacuum_freeze_max_age", autovacuum_freeze_max_age)
-        if autovacuum_max_workers is not None:
-            pulumi.set(__self__, "autovacuum_max_workers", autovacuum_max_workers)
-        if autovacuum_naptime is not None:
-            pulumi.set(__self__, "autovacuum_naptime", autovacuum_naptime)
-        if autovacuum_vacuum_cost_delay is not None:
-            pulumi.set(__self__, "autovacuum_vacuum_cost_delay", autovacuum_vacuum_cost_delay)
-        if autovacuum_vacuum_cost_limit is not None:
-            pulumi.set(__self__, "autovacuum_vacuum_cost_limit", autovacuum_vacuum_cost_limit)
-        if autovacuum_vacuum_scale_factor is not None:
-            pulumi.set(__self__, "autovacuum_vacuum_scale_factor", autovacuum_vacuum_scale_factor)
-        if autovacuum_vacuum_threshold is not None:
-            pulumi.set(__self__, "autovacuum_vacuum_threshold", autovacuum_vacuum_threshold)
-        if backup_hour is not None:
-            pulumi.set(__self__, "backup_hour", backup_hour)
-        if backup_minute is not None:
-            pulumi.set(__self__, "backup_minute", backup_minute)
-        if bgwriter_delay is not None:
-            pulumi.set(__self__, "bgwriter_delay", bgwriter_delay)
-        if bgwriter_flush_after is not None:
-            pulumi.set(__self__, "bgwriter_flush_after", bgwriter_flush_after)
-        if bgwriter_lru_maxpages is not None:
-            pulumi.set(__self__, "bgwriter_lru_maxpages", bgwriter_lru_maxpages)
-        if bgwriter_lru_multiplier is not None:
-            pulumi.set(__self__, "bgwriter_lru_multiplier", bgwriter_lru_multiplier)
-        if deadlock_timeout is not None:
-            pulumi.set(__self__, "deadlock_timeout", deadlock_timeout)
-        if default_toast_compression is not None:
-            pulumi.set(__self__, "default_toast_compression", default_toast_compression)
-        if idle_in_transaction_session_timeout is not None:
-            pulumi.set(__self__, "idle_in_transaction_session_timeout", idle_in_transaction_session_timeout)
-        if jit is not None:
-            pulumi.set(__self__, "jit", jit)
-        if log_autovacuum_min_duration is not None:
-            pulumi.set(__self__, "log_autovacuum_min_duration", log_autovacuum_min_duration)
-        if log_error_verbosity is not None:
-            pulumi.set(__self__, "log_error_verbosity", log_error_verbosity)
-        if log_line_prefix is not None:
-            pulumi.set(__self__, "log_line_prefix", log_line_prefix)
-        if log_min_duration_statement is not None:
-            pulumi.set(__self__, "log_min_duration_statement", log_min_duration_statement)
-        if max_files_per_process is not None:
-            pulumi.set(__self__, "max_files_per_process", max_files_per_process)
-        if max_locks_per_transaction is not None:
-            pulumi.set(__self__, "max_locks_per_transaction", max_locks_per_transaction)
-        if max_logical_replication_workers is not None:
-            pulumi.set(__self__, "max_logical_replication_workers", max_logical_replication_workers)
-        if max_parallel_workers is not None:
-            pulumi.set(__self__, "max_parallel_workers", max_parallel_workers)
-        if max_parallel_workers_per_gather is not None:
-            pulumi.set(__self__, "max_parallel_workers_per_gather", max_parallel_workers_per_gather)
-        if max_pred_locks_per_transaction is not None:
-            pulumi.set(__self__, "max_pred_locks_per_transaction", max_pred_locks_per_transaction)
-        if max_prepared_transactions is not None:
-            pulumi.set(__self__, "max_prepared_transactions", max_prepared_transactions)
-        if max_replication_slots is not None:
-            pulumi.set(__self__, "max_replication_slots", max_replication_slots)
-        if max_stack_depth is not None:
-            pulumi.set(__self__, "max_stack_depth", max_stack_depth)
-        if max_standby_archive_delay is not None:
-            pulumi.set(__self__, "max_standby_archive_delay", max_standby_archive_delay)
-        if max_standby_streaming_delay is not None:
-            pulumi.set(__self__, "max_standby_streaming_delay", max_standby_streaming_delay)
-        if max_wal_senders is not None:
-            pulumi.set(__self__, "max_wal_senders", max_wal_senders)
-        if max_worker_processes is not None:
-            pulumi.set(__self__, "max_worker_processes", max_worker_processes)
-        if pg_partman_bgw_interval is not None:
-            pulumi.set(__self__, "pg_partman_bgw_interval", pg_partman_bgw_interval)
-        if pg_partman_bgw_role is not None:
-            pulumi.set(__self__, "pg_partman_bgw_role", pg_partman_bgw_role)
-        if pg_stat_statements_track is not None:
-            pulumi.set(__self__, "pg_stat_statements_track", pg_stat_statements_track)
-        if pgbouncer is not None:
-            pulumi.set(__self__, "pgbouncer", pgbouncer)
-        if shared_buffers_percentage is not None:
-            pulumi.set(__self__, "shared_buffers_percentage", shared_buffers_percentage)
-        if stat_monitor_enable is not None:
-            pulumi.set(__self__, "stat_monitor_enable", stat_monitor_enable)
-        if synchronous_replication is not None:
-            pulumi.set(__self__, "synchronous_replication", synchronous_replication)
-        if temp_file_limit is not None:
-            pulumi.set(__self__, "temp_file_limit", temp_file_limit)
-        if timescaledb is not None:
-            pulumi.set(__self__, "timescaledb", timescaledb)
-        if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
-        if track_activity_query_size is not None:
-            pulumi.set(__self__, "track_activity_query_size", track_activity_query_size)
-        if track_commit_timestamp is not None:
-            pulumi.set(__self__, "track_commit_timestamp", track_commit_timestamp)
-        if track_functions is not None:
-            pulumi.set(__self__, "track_functions", track_functions)
-        if track_io_timing is not None:
-            pulumi.set(__self__, "track_io_timing", track_io_timing)
-        if type is None:
-            type = 'postgres'
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if wal_sender_timeout is not None:
-            pulumi.set(__self__, "wal_sender_timeout", wal_sender_timeout)
-        if wal_writer_delay is not None:
-            pulumi.set(__self__, "wal_writer_delay", wal_writer_delay)
-        if work_mem is not None:
-            pulumi.set(__self__, "work_mem", work_mem)
-
-    @property
-    @pulumi.getter(name="autovacuumAnalyzeScaleFactor")
-    def autovacuum_analyze_scale_factor(self) -> Optional[float]:
-        """
-        Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
-        """
-        return pulumi.get(self, "autovacuum_analyze_scale_factor")
-
-    @property
-    @pulumi.getter(name="autovacuumAnalyzeThreshold")
-    def autovacuum_analyze_threshold(self) -> Optional[int]:
-        """
-        Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
-        """
-        return pulumi.get(self, "autovacuum_analyze_threshold")
-
-    @property
-    @pulumi.getter(name="autovacuumFreezeMaxAge")
-    def autovacuum_freeze_max_age(self) -> Optional[int]:
-        """
-        Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
-        """
-        return pulumi.get(self, "autovacuum_freeze_max_age")
-
-    @property
-    @pulumi.getter(name="autovacuumMaxWorkers")
-    def autovacuum_max_workers(self) -> Optional[int]:
-        """
-        Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
-        """
-        return pulumi.get(self, "autovacuum_max_workers")
-
-    @property
-    @pulumi.getter(name="autovacuumNaptime")
-    def autovacuum_naptime(self) -> Optional[int]:
-        """
-        Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
-        """
-        return pulumi.get(self, "autovacuum_naptime")
-
-    @property
-    @pulumi.getter(name="autovacuumVacuumCostDelay")
-    def autovacuum_vacuum_cost_delay(self) -> Optional[int]:
-        """
-        Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
-        """
-        return pulumi.get(self, "autovacuum_vacuum_cost_delay")
-
-    @property
-    @pulumi.getter(name="autovacuumVacuumCostLimit")
-    def autovacuum_vacuum_cost_limit(self) -> Optional[int]:
-        """
-        Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
-        """
-        return pulumi.get(self, "autovacuum_vacuum_cost_limit")
-
-    @property
-    @pulumi.getter(name="autovacuumVacuumScaleFactor")
-    def autovacuum_vacuum_scale_factor(self) -> Optional[float]:
-        """
-        Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
-        """
-        return pulumi.get(self, "autovacuum_vacuum_scale_factor")
-
-    @property
-    @pulumi.getter(name="autovacuumVacuumThreshold")
-    def autovacuum_vacuum_threshold(self) -> Optional[int]:
-        """
-        Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
-        """
-        return pulumi.get(self, "autovacuum_vacuum_threshold")
-
-    @property
-    @pulumi.getter(name="backupHour")
-    def backup_hour(self) -> Optional[int]:
-        """
-        The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
-        """
-        return pulumi.get(self, "backup_hour")
-
-    @property
-    @pulumi.getter(name="backupMinute")
-    def backup_minute(self) -> Optional[int]:
-        """
-        The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
-        """
-        return pulumi.get(self, "backup_minute")
-
-    @property
-    @pulumi.getter(name="bgwriterDelay")
-    def bgwriter_delay(self) -> Optional[int]:
-        """
-        Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
-        """
-        return pulumi.get(self, "bgwriter_delay")
-
-    @property
-    @pulumi.getter(name="bgwriterFlushAfter")
-    def bgwriter_flush_after(self) -> Optional[int]:
-        """
-        The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
-        """
-        return pulumi.get(self, "bgwriter_flush_after")
-
-    @property
-    @pulumi.getter(name="bgwriterLruMaxpages")
-    def bgwriter_lru_maxpages(self) -> Optional[int]:
-        """
-        The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
-        """
-        return pulumi.get(self, "bgwriter_lru_maxpages")
-
-    @property
-    @pulumi.getter(name="bgwriterLruMultiplier")
-    def bgwriter_lru_multiplier(self) -> Optional[float]:
-        """
-        The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
-        """
-        return pulumi.get(self, "bgwriter_lru_multiplier")
-
-    @property
-    @pulumi.getter(name="deadlockTimeout")
-    def deadlock_timeout(self) -> Optional[int]:
-        """
-        The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
-        """
-        return pulumi.get(self, "deadlock_timeout")
-
-    @property
-    @pulumi.getter(name="defaultToastCompression")
-    def default_toast_compression(self) -> Optional['CreategresDefaultToastCompression']:
-        """
-        Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
-        """
-        return pulumi.get(self, "default_toast_compression")
-
-    @property
-    @pulumi.getter(name="idleInTransactionSessionTimeout")
-    def idle_in_transaction_session_timeout(self) -> Optional[int]:
-        """
-        Time out sessions with open transactions after this number of milliseconds
-        """
-        return pulumi.get(self, "idle_in_transaction_session_timeout")
-
-    @property
-    @pulumi.getter
-    def jit(self) -> Optional[bool]:
-        """
-        Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
-        """
-        return pulumi.get(self, "jit")
-
-    @property
-    @pulumi.getter(name="logAutovacuumMinDuration")
-    def log_autovacuum_min_duration(self) -> Optional[int]:
-        """
-        Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
-        """
-        return pulumi.get(self, "log_autovacuum_min_duration")
-
-    @property
-    @pulumi.getter(name="logErrorVerbosity")
-    def log_error_verbosity(self) -> Optional['CreategresLogErrorVerbosity']:
-        """
-        Controls the amount of detail written in the server log for each message that is logged.
-        """
-        return pulumi.get(self, "log_error_verbosity")
-
-    @property
-    @pulumi.getter(name="logLinePrefix")
-    def log_line_prefix(self) -> Optional['CreategresLogLinePrefix']:
-        """
-        Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
-        """
-        return pulumi.get(self, "log_line_prefix")
-
-    @property
-    @pulumi.getter(name="logMinDurationStatement")
-    def log_min_duration_statement(self) -> Optional[int]:
-        """
-        Log statements that take more than this number of milliseconds to run. If -1, disables.
-        """
-        return pulumi.get(self, "log_min_duration_statement")
-
-    @property
-    @pulumi.getter(name="maxFilesPerProcess")
-    def max_files_per_process(self) -> Optional[int]:
-        """
-        PostgreSQL maximum number of files that can be open per process.
-        """
-        return pulumi.get(self, "max_files_per_process")
-
-    @property
-    @pulumi.getter(name="maxLocksPerTransaction")
-    def max_locks_per_transaction(self) -> Optional[int]:
-        """
-        PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
-        """
-        return pulumi.get(self, "max_locks_per_transaction")
-
-    @property
-    @pulumi.getter(name="maxLogicalReplicationWorkers")
-    def max_logical_replication_workers(self) -> Optional[int]:
-        """
-        PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
-        """
-        return pulumi.get(self, "max_logical_replication_workers")
-
-    @property
-    @pulumi.getter(name="maxParallelWorkers")
-    def max_parallel_workers(self) -> Optional[int]:
-        """
-        Sets the maximum number of workers that the system can support for parallel queries.
-        """
-        return pulumi.get(self, "max_parallel_workers")
-
-    @property
-    @pulumi.getter(name="maxParallelWorkersPerGather")
-    def max_parallel_workers_per_gather(self) -> Optional[int]:
-        """
-        Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
-        """
-        return pulumi.get(self, "max_parallel_workers_per_gather")
-
-    @property
-    @pulumi.getter(name="maxPredLocksPerTransaction")
-    def max_pred_locks_per_transaction(self) -> Optional[int]:
-        """
-        PostgreSQL maximum predicate locks per transaction.
-        """
-        return pulumi.get(self, "max_pred_locks_per_transaction")
-
-    @property
-    @pulumi.getter(name="maxPreparedTransactions")
-    def max_prepared_transactions(self) -> Optional[int]:
-        """
-        PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
-        """
-        return pulumi.get(self, "max_prepared_transactions")
-
-    @property
-    @pulumi.getter(name="maxReplicationSlots")
-    def max_replication_slots(self) -> Optional[int]:
-        """
-        PostgreSQL maximum replication slots.
-        """
-        return pulumi.get(self, "max_replication_slots")
-
-    @property
-    @pulumi.getter(name="maxStackDepth")
-    def max_stack_depth(self) -> Optional[int]:
-        """
-        Maximum depth of the stack in bytes.
-        """
-        return pulumi.get(self, "max_stack_depth")
-
-    @property
-    @pulumi.getter(name="maxStandbyArchiveDelay")
-    def max_standby_archive_delay(self) -> Optional[int]:
-        """
-        Max standby archive delay in milliseconds.
-        """
-        return pulumi.get(self, "max_standby_archive_delay")
-
-    @property
-    @pulumi.getter(name="maxStandbyStreamingDelay")
-    def max_standby_streaming_delay(self) -> Optional[int]:
-        """
-        Max standby streaming delay in milliseconds.
-        """
-        return pulumi.get(self, "max_standby_streaming_delay")
-
-    @property
-    @pulumi.getter(name="maxWalSenders")
-    def max_wal_senders(self) -> Optional[int]:
-        """
-        PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
-        """
-        return pulumi.get(self, "max_wal_senders")
-
-    @property
-    @pulumi.getter(name="maxWorkerProcesses")
-    def max_worker_processes(self) -> Optional[int]:
-        """
-        Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
-        """
-        return pulumi.get(self, "max_worker_processes")
-
-    @property
-    @pulumi.getter(name="pgPartmanBgwInterval")
-    def pg_partman_bgw_interval(self) -> Optional[int]:
-        """
-        Sets the time interval to run pg_partman's scheduled tasks.
-        """
-        return pulumi.get(self, "pg_partman_bgw_interval")
-
-    @property
-    @pulumi.getter(name="pgPartmanBgwRole")
-    def pg_partman_bgw_role(self) -> Optional[str]:
-        """
-        Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
-        """
-        return pulumi.get(self, "pg_partman_bgw_role")
-
-    @property
-    @pulumi.getter(name="pgStatStatementsTrack")
-    def pg_stat_statements_track(self) -> Optional['CreategresPgStatStatementsTrack']:
-        """
-        Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
-        """
-        return pulumi.get(self, "pg_stat_statements_track")
-
-    @property
-    @pulumi.getter
-    def pgbouncer(self) -> Optional['outputs.Pgbouncer']:
-        """
-        PGBouncer connection pooling settings
-        """
-        return pulumi.get(self, "pgbouncer")
-
-    @property
-    @pulumi.getter(name="sharedBuffersPercentage")
-    def shared_buffers_percentage(self) -> Optional[float]:
-        """
-        Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
-        """
-        return pulumi.get(self, "shared_buffers_percentage")
-
-    @property
-    @pulumi.getter(name="statMonitorEnable")
-    def stat_monitor_enable(self) -> Optional[bool]:
-        """
-        Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
-        """
-        return pulumi.get(self, "stat_monitor_enable")
-
-    @property
-    @pulumi.getter(name="synchronousReplication")
-    def synchronous_replication(self) -> Optional['CreategresSynchronousReplication']:
-        """
-        Synchronous replication type. Note that the service plan also needs to support synchronous replication.
-        """
-        return pulumi.get(self, "synchronous_replication")
-
-    @property
-    @pulumi.getter(name="tempFileLimit")
-    def temp_file_limit(self) -> Optional[int]:
-        """
-        PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
-        """
-        return pulumi.get(self, "temp_file_limit")
-
-    @property
-    @pulumi.getter
-    def timescaledb(self) -> Optional['outputs.Timescaledb']:
-        """
-        TimescaleDB extension configuration values
-        """
-        return pulumi.get(self, "timescaledb")
-
-    @property
-    @pulumi.getter
-    def timezone(self) -> Optional[str]:
-        """
-        PostgreSQL service timezone
-        """
-        return pulumi.get(self, "timezone")
-
-    @property
-    @pulumi.getter(name="trackActivityQuerySize")
-    def track_activity_query_size(self) -> Optional[int]:
-        """
-        Specifies the number of bytes reserved to track the currently executing command for each active session.
-        """
-        return pulumi.get(self, "track_activity_query_size")
-
-    @property
-    @pulumi.getter(name="trackCommitTimestamp")
-    def track_commit_timestamp(self) -> Optional['CreategresTrackCommitTimestamp']:
-        """
-        Record commit time of transactions.
-        """
-        return pulumi.get(self, "track_commit_timestamp")
-
-    @property
-    @pulumi.getter(name="trackFunctions")
-    def track_functions(self) -> Optional['CreategresTrackFunctions']:
-        """
-        Enables tracking of function call counts and time used.
-        """
-        return pulumi.get(self, "track_functions")
-
-    @property
-    @pulumi.getter(name="trackIoTiming")
-    def track_io_timing(self) -> Optional['CreategresTrackIoTiming']:
-        """
-        Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
-        """
-        return pulumi.get(self, "track_io_timing")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="walSenderTimeout")
-    def wal_sender_timeout(self) -> Optional[int]:
-        """
-        Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
-        """
-        return pulumi.get(self, "wal_sender_timeout")
-
-    @property
-    @pulumi.getter(name="walWriterDelay")
-    def wal_writer_delay(self) -> Optional[int]:
-        """
-        WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
-        """
-        return pulumi.get(self, "wal_writer_delay")
-
-    @property
-    @pulumi.getter(name="workMem")
-    def work_mem(self) -> Optional[int]:
-        """
-        The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
-        """
-        return pulumi.get(self, "work_mem")
 
 
 @pulumi.output_type
@@ -3292,6 +2639,659 @@ class Pgbouncer(dict):
         Run server_reset_query (DISCARD ALL) in all pooling modes.
         """
         return pulumi.get(self, "server_reset_query_always")
+
+
+@pulumi.output_type
+class Postgres(dict):
+    def __init__(__self__, *,
+                 autovacuum_analyze_scale_factor: Optional[float] = None,
+                 autovacuum_analyze_threshold: Optional[int] = None,
+                 autovacuum_freeze_max_age: Optional[int] = None,
+                 autovacuum_max_workers: Optional[int] = None,
+                 autovacuum_naptime: Optional[int] = None,
+                 autovacuum_vacuum_cost_delay: Optional[int] = None,
+                 autovacuum_vacuum_cost_limit: Optional[int] = None,
+                 autovacuum_vacuum_scale_factor: Optional[float] = None,
+                 autovacuum_vacuum_threshold: Optional[int] = None,
+                 backup_hour: Optional[int] = None,
+                 backup_minute: Optional[int] = None,
+                 bgwriter_delay: Optional[int] = None,
+                 bgwriter_flush_after: Optional[int] = None,
+                 bgwriter_lru_maxpages: Optional[int] = None,
+                 bgwriter_lru_multiplier: Optional[float] = None,
+                 deadlock_timeout: Optional[int] = None,
+                 default_toast_compression: Optional['PostgresDefaultToastCompression'] = None,
+                 idle_in_transaction_session_timeout: Optional[int] = None,
+                 jit: Optional[bool] = None,
+                 log_autovacuum_min_duration: Optional[int] = None,
+                 log_error_verbosity: Optional['PostgresLogErrorVerbosity'] = None,
+                 log_line_prefix: Optional['PostgresLogLinePrefix'] = None,
+                 log_min_duration_statement: Optional[int] = None,
+                 max_files_per_process: Optional[int] = None,
+                 max_locks_per_transaction: Optional[int] = None,
+                 max_logical_replication_workers: Optional[int] = None,
+                 max_parallel_workers: Optional[int] = None,
+                 max_parallel_workers_per_gather: Optional[int] = None,
+                 max_pred_locks_per_transaction: Optional[int] = None,
+                 max_prepared_transactions: Optional[int] = None,
+                 max_replication_slots: Optional[int] = None,
+                 max_stack_depth: Optional[int] = None,
+                 max_standby_archive_delay: Optional[int] = None,
+                 max_standby_streaming_delay: Optional[int] = None,
+                 max_wal_senders: Optional[int] = None,
+                 max_worker_processes: Optional[int] = None,
+                 pg_partman_bgw_interval: Optional[int] = None,
+                 pg_partman_bgw_role: Optional[str] = None,
+                 pg_stat_statements_track: Optional['PostgresPgStatStatementsTrack'] = None,
+                 pgbouncer: Optional['outputs.Pgbouncer'] = None,
+                 shared_buffers_percentage: Optional[float] = None,
+                 stat_monitor_enable: Optional[bool] = None,
+                 synchronous_replication: Optional['PostgresSynchronousReplication'] = None,
+                 temp_file_limit: Optional[int] = None,
+                 timescaledb: Optional['outputs.Timescaledb'] = None,
+                 timezone: Optional[str] = None,
+                 track_activity_query_size: Optional[int] = None,
+                 track_commit_timestamp: Optional['PostgresTrackCommitTimestamp'] = None,
+                 track_functions: Optional['PostgresTrackFunctions'] = None,
+                 track_io_timing: Optional['PostgresTrackIoTiming'] = None,
+                 type: Optional[str] = None,
+                 wal_sender_timeout: Optional[int] = None,
+                 wal_writer_delay: Optional[int] = None,
+                 work_mem: Optional[int] = None):
+        """
+        :param float autovacuum_analyze_scale_factor: Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
+        :param int autovacuum_analyze_threshold: Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+        :param int autovacuum_freeze_max_age: Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+        :param int autovacuum_max_workers: Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+        :param int autovacuum_naptime: Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
+        :param int autovacuum_vacuum_cost_delay: Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
+        :param int autovacuum_vacuum_cost_limit: Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+        :param float autovacuum_vacuum_scale_factor: Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
+        :param int autovacuum_vacuum_threshold: Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+        :param int backup_hour: The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
+        :param int backup_minute: The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
+        :param int bgwriter_delay: Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
+        :param int bgwriter_flush_after: The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
+        :param int bgwriter_lru_maxpages: The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
+        :param float bgwriter_lru_multiplier: The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
+        :param int deadlock_timeout: The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+        :param 'PostgresDefaultToastCompression' default_toast_compression: Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+        :param int idle_in_transaction_session_timeout: Time out sessions with open transactions after this number of milliseconds
+        :param bool jit: Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
+        :param int log_autovacuum_min_duration: Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+        :param 'PostgresLogErrorVerbosity' log_error_verbosity: Controls the amount of detail written in the server log for each message that is logged.
+        :param 'PostgresLogLinePrefix' log_line_prefix: Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+        :param int log_min_duration_statement: Log statements that take more than this number of milliseconds to run. If -1, disables.
+        :param int max_files_per_process: PostgreSQL maximum number of files that can be open per process.
+        :param int max_locks_per_transaction: PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
+        :param int max_logical_replication_workers: PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
+        :param int max_parallel_workers: Sets the maximum number of workers that the system can support for parallel queries.
+        :param int max_parallel_workers_per_gather: Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
+        :param int max_pred_locks_per_transaction: PostgreSQL maximum predicate locks per transaction.
+        :param int max_prepared_transactions: PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
+        :param int max_replication_slots: PostgreSQL maximum replication slots.
+        :param int max_stack_depth: Maximum depth of the stack in bytes.
+        :param int max_standby_archive_delay: Max standby archive delay in milliseconds.
+        :param int max_standby_streaming_delay: Max standby streaming delay in milliseconds.
+        :param int max_wal_senders: PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
+        :param int max_worker_processes: Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
+        :param int pg_partman_bgw_interval: Sets the time interval to run pg_partman's scheduled tasks.
+        :param str pg_partman_bgw_role: Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
+        :param 'PostgresPgStatStatementsTrack' pg_stat_statements_track: Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+        :param 'Pgbouncer' pgbouncer: PGBouncer connection pooling settings
+        :param float shared_buffers_percentage: Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
+        :param bool stat_monitor_enable: Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
+        :param 'PostgresSynchronousReplication' synchronous_replication: Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+        :param int temp_file_limit: PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
+        :param 'Timescaledb' timescaledb: TimescaleDB extension configuration values
+        :param str timezone: PostgreSQL service timezone
+        :param int track_activity_query_size: Specifies the number of bytes reserved to track the currently executing command for each active session.
+        :param 'PostgresTrackCommitTimestamp' track_commit_timestamp: Record commit time of transactions.
+        :param 'PostgresTrackFunctions' track_functions: Enables tracking of function call counts and time used.
+        :param 'PostgresTrackIoTiming' track_io_timing: Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+        :param int wal_sender_timeout: Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
+        :param int wal_writer_delay: WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
+        :param int work_mem: The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
+        """
+        if autovacuum_analyze_scale_factor is not None:
+            pulumi.set(__self__, "autovacuum_analyze_scale_factor", autovacuum_analyze_scale_factor)
+        if autovacuum_analyze_threshold is not None:
+            pulumi.set(__self__, "autovacuum_analyze_threshold", autovacuum_analyze_threshold)
+        if autovacuum_freeze_max_age is not None:
+            pulumi.set(__self__, "autovacuum_freeze_max_age", autovacuum_freeze_max_age)
+        if autovacuum_max_workers is not None:
+            pulumi.set(__self__, "autovacuum_max_workers", autovacuum_max_workers)
+        if autovacuum_naptime is not None:
+            pulumi.set(__self__, "autovacuum_naptime", autovacuum_naptime)
+        if autovacuum_vacuum_cost_delay is not None:
+            pulumi.set(__self__, "autovacuum_vacuum_cost_delay", autovacuum_vacuum_cost_delay)
+        if autovacuum_vacuum_cost_limit is not None:
+            pulumi.set(__self__, "autovacuum_vacuum_cost_limit", autovacuum_vacuum_cost_limit)
+        if autovacuum_vacuum_scale_factor is not None:
+            pulumi.set(__self__, "autovacuum_vacuum_scale_factor", autovacuum_vacuum_scale_factor)
+        if autovacuum_vacuum_threshold is not None:
+            pulumi.set(__self__, "autovacuum_vacuum_threshold", autovacuum_vacuum_threshold)
+        if backup_hour is not None:
+            pulumi.set(__self__, "backup_hour", backup_hour)
+        if backup_minute is not None:
+            pulumi.set(__self__, "backup_minute", backup_minute)
+        if bgwriter_delay is not None:
+            pulumi.set(__self__, "bgwriter_delay", bgwriter_delay)
+        if bgwriter_flush_after is not None:
+            pulumi.set(__self__, "bgwriter_flush_after", bgwriter_flush_after)
+        if bgwriter_lru_maxpages is not None:
+            pulumi.set(__self__, "bgwriter_lru_maxpages", bgwriter_lru_maxpages)
+        if bgwriter_lru_multiplier is not None:
+            pulumi.set(__self__, "bgwriter_lru_multiplier", bgwriter_lru_multiplier)
+        if deadlock_timeout is not None:
+            pulumi.set(__self__, "deadlock_timeout", deadlock_timeout)
+        if default_toast_compression is not None:
+            pulumi.set(__self__, "default_toast_compression", default_toast_compression)
+        if idle_in_transaction_session_timeout is not None:
+            pulumi.set(__self__, "idle_in_transaction_session_timeout", idle_in_transaction_session_timeout)
+        if jit is not None:
+            pulumi.set(__self__, "jit", jit)
+        if log_autovacuum_min_duration is not None:
+            pulumi.set(__self__, "log_autovacuum_min_duration", log_autovacuum_min_duration)
+        if log_error_verbosity is not None:
+            pulumi.set(__self__, "log_error_verbosity", log_error_verbosity)
+        if log_line_prefix is not None:
+            pulumi.set(__self__, "log_line_prefix", log_line_prefix)
+        if log_min_duration_statement is not None:
+            pulumi.set(__self__, "log_min_duration_statement", log_min_duration_statement)
+        if max_files_per_process is not None:
+            pulumi.set(__self__, "max_files_per_process", max_files_per_process)
+        if max_locks_per_transaction is not None:
+            pulumi.set(__self__, "max_locks_per_transaction", max_locks_per_transaction)
+        if max_logical_replication_workers is not None:
+            pulumi.set(__self__, "max_logical_replication_workers", max_logical_replication_workers)
+        if max_parallel_workers is not None:
+            pulumi.set(__self__, "max_parallel_workers", max_parallel_workers)
+        if max_parallel_workers_per_gather is not None:
+            pulumi.set(__self__, "max_parallel_workers_per_gather", max_parallel_workers_per_gather)
+        if max_pred_locks_per_transaction is not None:
+            pulumi.set(__self__, "max_pred_locks_per_transaction", max_pred_locks_per_transaction)
+        if max_prepared_transactions is not None:
+            pulumi.set(__self__, "max_prepared_transactions", max_prepared_transactions)
+        if max_replication_slots is not None:
+            pulumi.set(__self__, "max_replication_slots", max_replication_slots)
+        if max_stack_depth is not None:
+            pulumi.set(__self__, "max_stack_depth", max_stack_depth)
+        if max_standby_archive_delay is not None:
+            pulumi.set(__self__, "max_standby_archive_delay", max_standby_archive_delay)
+        if max_standby_streaming_delay is not None:
+            pulumi.set(__self__, "max_standby_streaming_delay", max_standby_streaming_delay)
+        if max_wal_senders is not None:
+            pulumi.set(__self__, "max_wal_senders", max_wal_senders)
+        if max_worker_processes is not None:
+            pulumi.set(__self__, "max_worker_processes", max_worker_processes)
+        if pg_partman_bgw_interval is not None:
+            pulumi.set(__self__, "pg_partman_bgw_interval", pg_partman_bgw_interval)
+        if pg_partman_bgw_role is not None:
+            pulumi.set(__self__, "pg_partman_bgw_role", pg_partman_bgw_role)
+        if pg_stat_statements_track is not None:
+            pulumi.set(__self__, "pg_stat_statements_track", pg_stat_statements_track)
+        if pgbouncer is not None:
+            pulumi.set(__self__, "pgbouncer", pgbouncer)
+        if shared_buffers_percentage is not None:
+            pulumi.set(__self__, "shared_buffers_percentage", shared_buffers_percentage)
+        if stat_monitor_enable is not None:
+            pulumi.set(__self__, "stat_monitor_enable", stat_monitor_enable)
+        if synchronous_replication is not None:
+            pulumi.set(__self__, "synchronous_replication", synchronous_replication)
+        if temp_file_limit is not None:
+            pulumi.set(__self__, "temp_file_limit", temp_file_limit)
+        if timescaledb is not None:
+            pulumi.set(__self__, "timescaledb", timescaledb)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if track_activity_query_size is not None:
+            pulumi.set(__self__, "track_activity_query_size", track_activity_query_size)
+        if track_commit_timestamp is not None:
+            pulumi.set(__self__, "track_commit_timestamp", track_commit_timestamp)
+        if track_functions is not None:
+            pulumi.set(__self__, "track_functions", track_functions)
+        if track_io_timing is not None:
+            pulumi.set(__self__, "track_io_timing", track_io_timing)
+        if type is None:
+            type = 'postgres'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if wal_sender_timeout is not None:
+            pulumi.set(__self__, "wal_sender_timeout", wal_sender_timeout)
+        if wal_writer_delay is not None:
+            pulumi.set(__self__, "wal_writer_delay", wal_writer_delay)
+        if work_mem is not None:
+            pulumi.set(__self__, "work_mem", work_mem)
+
+    @property
+    @pulumi.getter(name="autovacuumAnalyzeScaleFactor")
+    def autovacuum_analyze_scale_factor(self) -> Optional[float]:
+        """
+        Specifies a fraction, in a decimal value, of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size).
+        """
+        return pulumi.get(self, "autovacuum_analyze_scale_factor")
+
+    @property
+    @pulumi.getter(name="autovacuumAnalyzeThreshold")
+    def autovacuum_analyze_threshold(self) -> Optional[int]:
+        """
+        Specifies the minimum number of inserted, updated, or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+        """
+        return pulumi.get(self, "autovacuum_analyze_threshold")
+
+    @property
+    @pulumi.getter(name="autovacuumFreezeMaxAge")
+    def autovacuum_freeze_max_age(self) -> Optional[int]:
+        """
+        Specifies the maximum age (in transactions) that a table's pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+        """
+        return pulumi.get(self, "autovacuum_freeze_max_age")
+
+    @property
+    @pulumi.getter(name="autovacuumMaxWorkers")
+    def autovacuum_max_workers(self) -> Optional[int]:
+        """
+        Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+        """
+        return pulumi.get(self, "autovacuum_max_workers")
+
+    @property
+    @pulumi.getter(name="autovacuumNaptime")
+    def autovacuum_naptime(self) -> Optional[int]:
+        """
+        Specifies the minimum delay, in seconds, between autovacuum runs on any given database. The default is one minute.
+        """
+        return pulumi.get(self, "autovacuum_naptime")
+
+    @property
+    @pulumi.getter(name="autovacuumVacuumCostDelay")
+    def autovacuum_vacuum_cost_delay(self) -> Optional[int]:
+        """
+        Specifies the cost delay value, in milliseconds, that will be used in automatic VACUUM operations. If -1, uses the regular vacuum_cost_delay value, which is 20 milliseconds.
+        """
+        return pulumi.get(self, "autovacuum_vacuum_cost_delay")
+
+    @property
+    @pulumi.getter(name="autovacuumVacuumCostLimit")
+    def autovacuum_vacuum_cost_limit(self) -> Optional[int]:
+        """
+        Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+        """
+        return pulumi.get(self, "autovacuum_vacuum_cost_limit")
+
+    @property
+    @pulumi.getter(name="autovacuumVacuumScaleFactor")
+    def autovacuum_vacuum_scale_factor(self) -> Optional[float]:
+        """
+        Specifies a fraction, in a decimal value, of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size).
+        """
+        return pulumi.get(self, "autovacuum_vacuum_scale_factor")
+
+    @property
+    @pulumi.getter(name="autovacuumVacuumThreshold")
+    def autovacuum_vacuum_threshold(self) -> Optional[int]:
+        """
+        Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+        """
+        return pulumi.get(self, "autovacuum_vacuum_threshold")
+
+    @property
+    @pulumi.getter(name="backupHour")
+    def backup_hour(self) -> Optional[int]:
+        """
+        The hour of day (in UTC) when backup for the service starts. New backup only starts if previous backup has already completed.
+        """
+        return pulumi.get(self, "backup_hour")
+
+    @property
+    @pulumi.getter(name="backupMinute")
+    def backup_minute(self) -> Optional[int]:
+        """
+        The minute of the backup hour when backup for the service starts. New backup is only started if previous backup has already completed.
+        """
+        return pulumi.get(self, "backup_minute")
+
+    @property
+    @pulumi.getter(name="bgwriterDelay")
+    def bgwriter_delay(self) -> Optional[int]:
+        """
+        Specifies the delay, in milliseconds, between activity rounds for the background writer. Default is 200 ms.
+        """
+        return pulumi.get(self, "bgwriter_delay")
+
+    @property
+    @pulumi.getter(name="bgwriterFlushAfter")
+    def bgwriter_flush_after(self) -> Optional[int]:
+        """
+        The amount of kilobytes that need to be written by the background writer before attempting to force the OS to issue these writes to underlying storage. Specified in kilobytes, default is 512.  Setting of 0 disables forced writeback.
+        """
+        return pulumi.get(self, "bgwriter_flush_after")
+
+    @property
+    @pulumi.getter(name="bgwriterLruMaxpages")
+    def bgwriter_lru_maxpages(self) -> Optional[int]:
+        """
+        The maximum number of buffers that the background writer can write. Setting this to zero disables background writing. Default is 100.
+        """
+        return pulumi.get(self, "bgwriter_lru_maxpages")
+
+    @property
+    @pulumi.getter(name="bgwriterLruMultiplier")
+    def bgwriter_lru_multiplier(self) -> Optional[float]:
+        """
+        The average recent need for new buffers is multiplied by bgwriter_lru_multiplier to arrive at an estimate of the number that will be needed during the next round, (up to bgwriter_lru_maxpages). 1.0 represents a “just in time” policy of writing exactly the number of buffers predicted to be needed. Larger values provide some cushion against spikes in demand, while smaller values intentionally leave writes to be done by server processes. The default is 2.0.
+        """
+        return pulumi.get(self, "bgwriter_lru_multiplier")
+
+    @property
+    @pulumi.getter(name="deadlockTimeout")
+    def deadlock_timeout(self) -> Optional[int]:
+        """
+        The amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+        """
+        return pulumi.get(self, "deadlock_timeout")
+
+    @property
+    @pulumi.getter(name="defaultToastCompression")
+    def default_toast_compression(self) -> Optional['PostgresDefaultToastCompression']:
+        """
+        Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+        """
+        return pulumi.get(self, "default_toast_compression")
+
+    @property
+    @pulumi.getter(name="idleInTransactionSessionTimeout")
+    def idle_in_transaction_session_timeout(self) -> Optional[int]:
+        """
+        Time out sessions with open transactions after this number of milliseconds
+        """
+        return pulumi.get(self, "idle_in_transaction_session_timeout")
+
+    @property
+    @pulumi.getter
+    def jit(self) -> Optional[bool]:
+        """
+        Activates, in a boolean, the system-wide use of Just-in-Time Compilation (JIT).
+        """
+        return pulumi.get(self, "jit")
+
+    @property
+    @pulumi.getter(name="logAutovacuumMinDuration")
+    def log_autovacuum_min_duration(self) -> Optional[int]:
+        """
+        Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+        """
+        return pulumi.get(self, "log_autovacuum_min_duration")
+
+    @property
+    @pulumi.getter(name="logErrorVerbosity")
+    def log_error_verbosity(self) -> Optional['PostgresLogErrorVerbosity']:
+        """
+        Controls the amount of detail written in the server log for each message that is logged.
+        """
+        return pulumi.get(self, "log_error_verbosity")
+
+    @property
+    @pulumi.getter(name="logLinePrefix")
+    def log_line_prefix(self) -> Optional['PostgresLogLinePrefix']:
+        """
+        Selects one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze, etc.
+        """
+        return pulumi.get(self, "log_line_prefix")
+
+    @property
+    @pulumi.getter(name="logMinDurationStatement")
+    def log_min_duration_statement(self) -> Optional[int]:
+        """
+        Log statements that take more than this number of milliseconds to run. If -1, disables.
+        """
+        return pulumi.get(self, "log_min_duration_statement")
+
+    @property
+    @pulumi.getter(name="maxFilesPerProcess")
+    def max_files_per_process(self) -> Optional[int]:
+        """
+        PostgreSQL maximum number of files that can be open per process.
+        """
+        return pulumi.get(self, "max_files_per_process")
+
+    @property
+    @pulumi.getter(name="maxLocksPerTransaction")
+    def max_locks_per_transaction(self) -> Optional[int]:
+        """
+        PostgreSQL maximum locks per transaction. Once increased, this parameter cannot be lowered from its set value.
+        """
+        return pulumi.get(self, "max_locks_per_transaction")
+
+    @property
+    @pulumi.getter(name="maxLogicalReplicationWorkers")
+    def max_logical_replication_workers(self) -> Optional[int]:
+        """
+        PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers).
+        """
+        return pulumi.get(self, "max_logical_replication_workers")
+
+    @property
+    @pulumi.getter(name="maxParallelWorkers")
+    def max_parallel_workers(self) -> Optional[int]:
+        """
+        Sets the maximum number of workers that the system can support for parallel queries.
+        """
+        return pulumi.get(self, "max_parallel_workers")
+
+    @property
+    @pulumi.getter(name="maxParallelWorkersPerGather")
+    def max_parallel_workers_per_gather(self) -> Optional[int]:
+        """
+        Sets the maximum number of workers that can be started by a single Gather or Gather Merge node.
+        """
+        return pulumi.get(self, "max_parallel_workers_per_gather")
+
+    @property
+    @pulumi.getter(name="maxPredLocksPerTransaction")
+    def max_pred_locks_per_transaction(self) -> Optional[int]:
+        """
+        PostgreSQL maximum predicate locks per transaction.
+        """
+        return pulumi.get(self, "max_pred_locks_per_transaction")
+
+    @property
+    @pulumi.getter(name="maxPreparedTransactions")
+    def max_prepared_transactions(self) -> Optional[int]:
+        """
+        PostgreSQL maximum prepared transactions. Once increased, this parameter cannot be lowered from its set value.
+        """
+        return pulumi.get(self, "max_prepared_transactions")
+
+    @property
+    @pulumi.getter(name="maxReplicationSlots")
+    def max_replication_slots(self) -> Optional[int]:
+        """
+        PostgreSQL maximum replication slots.
+        """
+        return pulumi.get(self, "max_replication_slots")
+
+    @property
+    @pulumi.getter(name="maxStackDepth")
+    def max_stack_depth(self) -> Optional[int]:
+        """
+        Maximum depth of the stack in bytes.
+        """
+        return pulumi.get(self, "max_stack_depth")
+
+    @property
+    @pulumi.getter(name="maxStandbyArchiveDelay")
+    def max_standby_archive_delay(self) -> Optional[int]:
+        """
+        Max standby archive delay in milliseconds.
+        """
+        return pulumi.get(self, "max_standby_archive_delay")
+
+    @property
+    @pulumi.getter(name="maxStandbyStreamingDelay")
+    def max_standby_streaming_delay(self) -> Optional[int]:
+        """
+        Max standby streaming delay in milliseconds.
+        """
+        return pulumi.get(self, "max_standby_streaming_delay")
+
+    @property
+    @pulumi.getter(name="maxWalSenders")
+    def max_wal_senders(self) -> Optional[int]:
+        """
+        PostgreSQL maximum WAL senders. Once increased, this parameter cannot be lowered from its set value.
+        """
+        return pulumi.get(self, "max_wal_senders")
+
+    @property
+    @pulumi.getter(name="maxWorkerProcesses")
+    def max_worker_processes(self) -> Optional[int]:
+        """
+        Sets the maximum number of background processes that the system can support. Once increased, this parameter cannot be lowered from its set value.
+        """
+        return pulumi.get(self, "max_worker_processes")
+
+    @property
+    @pulumi.getter(name="pgPartmanBgwInterval")
+    def pg_partman_bgw_interval(self) -> Optional[int]:
+        """
+        Sets the time interval to run pg_partman's scheduled tasks.
+        """
+        return pulumi.get(self, "pg_partman_bgw_interval")
+
+    @property
+    @pulumi.getter(name="pgPartmanBgwRole")
+    def pg_partman_bgw_role(self) -> Optional[str]:
+        """
+        Controls which role to use for pg_partman's scheduled background tasks. Must consist of alpha-numeric characters, dots, underscores, or dashes. May not start with dash or dot. Maximum of 64 characters.
+        """
+        return pulumi.get(self, "pg_partman_bgw_role")
+
+    @property
+    @pulumi.getter(name="pgStatStatementsTrack")
+    def pg_stat_statements_track(self) -> Optional['PostgresPgStatStatementsTrack']:
+        """
+        Controls which statements are counted. Specify 'top' to track top-level statements (those issued directly by clients), 'all' to also track nested statements (such as statements invoked within functions), or 'none' to disable statement statistics collection. The default value is top.
+        """
+        return pulumi.get(self, "pg_stat_statements_track")
+
+    @property
+    @pulumi.getter
+    def pgbouncer(self) -> Optional['outputs.Pgbouncer']:
+        """
+        PGBouncer connection pooling settings
+        """
+        return pulumi.get(self, "pgbouncer")
+
+    @property
+    @pulumi.getter(name="sharedBuffersPercentage")
+    def shared_buffers_percentage(self) -> Optional[float]:
+        """
+        Percentage of total RAM that the database server uses for shared memory buffers.  Valid range is 20-60 (float), which corresponds to 20% - 60%.  This setting adjusts the shared_buffers configuration value.
+        """
+        return pulumi.get(self, "shared_buffers_percentage")
+
+    @property
+    @pulumi.getter(name="statMonitorEnable")
+    def stat_monitor_enable(self) -> Optional[bool]:
+        """
+        Enable the pg_stat_monitor extension. <b>Enabling this extension will cause the cluster to be restarted.</b> When this extension is enabled, pg_stat_statements results for utility commands are unreliable.
+        """
+        return pulumi.get(self, "stat_monitor_enable")
+
+    @property
+    @pulumi.getter(name="synchronousReplication")
+    def synchronous_replication(self) -> Optional['PostgresSynchronousReplication']:
+        """
+        Synchronous replication type. Note that the service plan also needs to support synchronous replication.
+        """
+        return pulumi.get(self, "synchronous_replication")
+
+    @property
+    @pulumi.getter(name="tempFileLimit")
+    def temp_file_limit(self) -> Optional[int]:
+        """
+        PostgreSQL temporary file limit in KiB. If -1, sets to unlimited.
+        """
+        return pulumi.get(self, "temp_file_limit")
+
+    @property
+    @pulumi.getter
+    def timescaledb(self) -> Optional['outputs.Timescaledb']:
+        """
+        TimescaleDB extension configuration values
+        """
+        return pulumi.get(self, "timescaledb")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        PostgreSQL service timezone
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="trackActivityQuerySize")
+    def track_activity_query_size(self) -> Optional[int]:
+        """
+        Specifies the number of bytes reserved to track the currently executing command for each active session.
+        """
+        return pulumi.get(self, "track_activity_query_size")
+
+    @property
+    @pulumi.getter(name="trackCommitTimestamp")
+    def track_commit_timestamp(self) -> Optional['PostgresTrackCommitTimestamp']:
+        """
+        Record commit time of transactions.
+        """
+        return pulumi.get(self, "track_commit_timestamp")
+
+    @property
+    @pulumi.getter(name="trackFunctions")
+    def track_functions(self) -> Optional['PostgresTrackFunctions']:
+        """
+        Enables tracking of function call counts and time used.
+        """
+        return pulumi.get(self, "track_functions")
+
+    @property
+    @pulumi.getter(name="trackIoTiming")
+    def track_io_timing(self) -> Optional['PostgresTrackIoTiming']:
+        """
+        Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+        """
+        return pulumi.get(self, "track_io_timing")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="walSenderTimeout")
+    def wal_sender_timeout(self) -> Optional[int]:
+        """
+        Terminate replication connections that are inactive for longer than this amount of time, in milliseconds. Setting this value to zero disables the timeout. Must be either 0 or between 5000 and 10800000.
+        """
+        return pulumi.get(self, "wal_sender_timeout")
+
+    @property
+    @pulumi.getter(name="walWriterDelay")
+    def wal_writer_delay(self) -> Optional[int]:
+        """
+        WAL flush interval in milliseconds. Note that setting this value to lower than the default 200ms may negatively impact performance
+        """
+        return pulumi.get(self, "wal_writer_delay")
+
+    @property
+    @pulumi.getter(name="workMem")
+    def work_mem(self) -> Optional[int]:
+        """
+        The maximum amount of memory, in MB, used by a query operation (such as a sort or hash table) before writing to temporary disk files. Default is 1MB + 0.075% of total RAM (up to 32MB).
+        """
+        return pulumi.get(self, "work_mem")
 
 
 @pulumi.output_type
