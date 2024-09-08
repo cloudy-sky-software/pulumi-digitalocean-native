@@ -1,3 +1,7 @@
+## 0.0.7
+
+Remove unnecessary envelope properties from `get*` and `list*` functions.
+
 ## 0.0.6
 
 Upgrade pulumi-provider-framework to fix a bug with validating response codes for DELETE calls.
