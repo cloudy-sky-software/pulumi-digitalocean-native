@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletCpuMetric
     {
-        public static Task<GetMonitoringDropletCpuMetricResult> InvokeAsync(GetMonitoringDropletCpuMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletCpuMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric", args ?? new GetMonitoringDropletCpuMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletCpuMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric", args ?? new GetMonitoringDropletCpuMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletCpuMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletCpuMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletCpuMetricArgs Empty => new GetMonitoringDropletCpuMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletCpuMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletCpuMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

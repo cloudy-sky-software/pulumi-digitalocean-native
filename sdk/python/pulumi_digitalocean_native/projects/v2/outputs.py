@@ -12,11 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetProjectProperties',
-    'GetProjectsDefaultProperties',
-    'ListProjectsItems',
-    'ListProjectsResourcesDefaultItems',
-    'ListProjectsResourcesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -24,116 +19,6 @@ __all__ = [
     'Resource',
     'ResourceLinksProperties',
 ]
-
-@pulumi.output_type
-class GetProjectProperties(dict):
-    def __init__(__self__, *,
-                 project: Optional['outputs.Project'] = None):
-        if project is not None:
-            pulumi.set(__self__, "project", project)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional['outputs.Project']:
-        return pulumi.get(self, "project")
-
-
-@pulumi.output_type
-class GetProjectsDefaultProperties(dict):
-    def __init__(__self__, *,
-                 project: Optional['outputs.Project'] = None):
-        if project is not None:
-            pulumi.set(__self__, "project", project)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional['outputs.Project']:
-        return pulumi.get(self, "project")
-
-
-@pulumi.output_type
-class ListProjectsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 projects: Optional[Sequence['outputs.Project']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if projects is not None:
-            pulumi.set(__self__, "projects", projects)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def projects(self) -> Optional[Sequence['outputs.Project']]:
-        return pulumi.get(self, "projects")
-
-
-@pulumi.output_type
-class ListProjectsResourcesDefaultItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 resources: Optional[Sequence['outputs.Resource']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional[Sequence['outputs.Resource']]:
-        return pulumi.get(self, "resources")
-
-
-@pulumi.output_type
-class ListProjectsResourcesItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 resources: Optional[Sequence['outputs.Resource']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional[Sequence['outputs.Resource']]:
-        return pulumi.get(self, "resources")
-
 
 @pulumi.output_type
 class MetaMeta(dict):

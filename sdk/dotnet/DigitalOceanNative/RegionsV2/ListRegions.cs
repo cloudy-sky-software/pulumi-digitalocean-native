@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegionsV2
 {
     public static class ListRegions
     {
-        public static Task<ListRegionsResult> InvokeAsync(ListRegionsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegionsResult>("digitalocean-native:regions/v2:listRegions", args ?? new ListRegionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListRegionsItems> InvokeAsync(ListRegionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListRegionsItems>("digitalocean-native:regions/v2:listRegions", args ?? new ListRegionsArgs(), options.WithDefaults());
 
-        public static Output<ListRegionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListRegionsResult>("digitalocean-native:regions/v2:listRegions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListRegionsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegionsItems>("digitalocean-native:regions/v2:listRegions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegionsV2
         {
         }
         public static new ListRegionsArgs Empty => new ListRegionsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListRegionsResult
-    {
-        public readonly Outputs.ListRegionsItems Items;
-
-        [OutputConstructor]
-        private ListRegionsResult(Outputs.ListRegionsItems items)
-        {
-            Items = items;
-        }
     }
 }

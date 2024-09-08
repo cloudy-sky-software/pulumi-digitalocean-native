@@ -29,7 +29,7 @@ type LookupAppsDeploymentArgs struct {
 }
 
 type LookupAppsDeploymentResult struct {
-	Items AppsDeploymentResponse `pulumi:"items"`
+	Deployment *AppsDeploymentType `pulumi:"deployment"`
 }
 
 // Defaults sets the appropriate defaults for LookupAppsDeploymentResult
@@ -38,7 +38,7 @@ func (val *LookupAppsDeploymentResult) Defaults() *LookupAppsDeploymentResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Deployment = tmp.Deployment.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupAppsDeploymentResultOutput) ToLookupAppsDeploymentResultOutputWith
 	return o
 }
 
-func (o LookupAppsDeploymentResultOutput) Items() AppsDeploymentResponseOutput {
-	return o.ApplyT(func(v LookupAppsDeploymentResult) AppsDeploymentResponse { return v.Items }).(AppsDeploymentResponseOutput)
+func (o LookupAppsDeploymentResultOutput) Deployment() AppsDeploymentTypePtrOutput {
+	return o.ApplyT(func(v LookupAppsDeploymentResult) *AppsDeploymentType { return v.Deployment }).(AppsDeploymentTypePtrOutput)
 }
 
 func init() {

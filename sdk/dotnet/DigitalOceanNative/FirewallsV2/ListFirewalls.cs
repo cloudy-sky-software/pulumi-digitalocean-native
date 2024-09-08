@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
 {
     public static class ListFirewalls
     {
-        public static Task<ListFirewallsResult> InvokeAsync(ListFirewallsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFirewallsResult>("digitalocean-native:firewalls/v2:listFirewalls", args ?? new ListFirewallsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListFirewallsItems> InvokeAsync(ListFirewallsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListFirewallsItems>("digitalocean-native:firewalls/v2:listFirewalls", args ?? new ListFirewallsArgs(), options.WithDefaults());
 
-        public static Output<ListFirewallsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListFirewallsResult>("digitalocean-native:firewalls/v2:listFirewalls", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListFirewallsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFirewallsItems>("digitalocean-native:firewalls/v2:listFirewalls", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
         {
         }
         public static new ListFirewallsArgs Empty => new ListFirewallsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListFirewallsResult
-    {
-        public readonly Outputs.ListFirewallsItems Items;
-
-        [OutputConstructor]
-        private ListFirewallsResult(Outputs.ListFirewallsItems items)
-        {
-            Items = items;
-        }
     }
 }

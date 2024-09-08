@@ -8,25 +8,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from . import outputs
 
 __all__ = [
-    'ListOneClicksProperties',
     'OneClicks',
 ]
-
-@pulumi.output_type
-class ListOneClicksProperties(dict):
-    def __init__(__self__, *,
-                 _1_clicks: Optional[Sequence['outputs.OneClicks']] = None):
-        if _1_clicks is not None:
-            pulumi.set(__self__, "_1_clicks", _1_clicks)
-
-    @property
-    @pulumi.getter(name="_1Clicks")
-    def _1_clicks(self) -> Optional[Sequence['outputs.OneClicks']]:
-        return pulumi.get(self, "_1_clicks")
-
 
 @pulumi.output_type
 class OneClicks(dict):

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class GetDropletsDestroyAssociatedResourcesStatu
     {
-        public static Task<GetDropletsDestroyAssociatedResourcesStatuResult> InvokeAsync(GetDropletsDestroyAssociatedResourcesStatuArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDropletsDestroyAssociatedResourcesStatuResult>("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args ?? new GetDropletsDestroyAssociatedResourcesStatuArgs(), options.WithDefaults());
+        public static Task<Outputs.AssociatedResourceStatus> InvokeAsync(GetDropletsDestroyAssociatedResourcesStatuArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AssociatedResourceStatus>("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args ?? new GetDropletsDestroyAssociatedResourcesStatuArgs(), options.WithDefaults());
 
-        public static Output<GetDropletsDestroyAssociatedResourcesStatuResult> Invoke(GetDropletsDestroyAssociatedResourcesStatuInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDropletsDestroyAssociatedResourcesStatuResult>("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args ?? new GetDropletsDestroyAssociatedResourcesStatuInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AssociatedResourceStatus> Invoke(GetDropletsDestroyAssociatedResourcesStatuInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AssociatedResourceStatus>("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args ?? new GetDropletsDestroyAssociatedResourcesStatuInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new GetDropletsDestroyAssociatedResourcesStatuInvokeArgs Empty => new GetDropletsDestroyAssociatedResourcesStatuInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDropletsDestroyAssociatedResourcesStatuResult
-    {
-        public readonly Outputs.AssociatedResourceStatus Items;
-
-        [OutputConstructor]
-        private GetDropletsDestroyAssociatedResourcesStatuResult(Outputs.AssociatedResourceStatus items)
-        {
-            Items = items;
-        }
     }
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDatabases(args: ListDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasesResult> {
+export function listDatabases(args: ListDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.ListDatabasesProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:listDatabases", {
@@ -21,11 +21,7 @@ export interface ListDatabasesArgs {
      */
     databaseClusterUuid: string;
 }
-
-export interface ListDatabasesResult {
-    readonly items: outputs.databases.v2.ListDatabasesProperties;
-}
-export function listDatabasesOutput(args: ListDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasesResult> {
+export function listDatabasesOutput(args: ListDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesProperties> {
     return pulumi.output(args).apply((a: any) => listDatabases(a, opts))
 }
 

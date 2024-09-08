@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listVpcsMembers(args: ListVpcsMembersArgs, opts?: pulumi.InvokeOptions): Promise<ListVpcsMembersResult> {
+export function listVpcsMembers(args: ListVpcsMembersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.vpcs.v2.ListVpcsMembersItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:vpcs/v2:listVpcsMembers", {
@@ -21,11 +21,7 @@ export interface ListVpcsMembersArgs {
      */
     vpcId: string;
 }
-
-export interface ListVpcsMembersResult {
-    readonly items: outputs.vpcs.v2.ListVpcsMembersItems;
-}
-export function listVpcsMembersOutput(args: ListVpcsMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVpcsMembersResult> {
+export function listVpcsMembersOutput(args: ListVpcsMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsMembersItems> {
     return pulumi.output(args).apply((a: any) => listVpcsMembers(a, opts))
 }
 

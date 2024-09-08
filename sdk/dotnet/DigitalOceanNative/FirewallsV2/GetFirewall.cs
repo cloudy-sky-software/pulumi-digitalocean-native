@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
 {
     public static class GetFirewall
     {
-        public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("digitalocean-native:firewalls/v2:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
+        public static Task<Outputs.GetFirewallProperties> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetFirewallProperties>("digitalocean-native:firewalls/v2:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
-        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("digitalocean-native:firewalls/v2:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetFirewallProperties> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFirewallProperties>("digitalocean-native:firewalls/v2:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
         {
         }
         public static new GetFirewallInvokeArgs Empty => new GetFirewallInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetFirewallResult
-    {
-        public readonly Outputs.GetFirewallProperties Items;
-
-        [OutputConstructor]
-        private GetFirewallResult(Outputs.GetFirewallProperties items)
-        {
-            Items = items;
-        }
     }
 }

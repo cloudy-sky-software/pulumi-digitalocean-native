@@ -29,7 +29,7 @@ type LookupDatabasesConnectionPoolArgs struct {
 }
 
 type LookupDatabasesConnectionPoolResult struct {
-	Items GetDatabasesConnectionPoolProperties `pulumi:"items"`
+	Pool ConnectionPool `pulumi:"pool"`
 }
 
 func LookupDatabasesConnectionPoolOutput(ctx *pulumi.Context, args LookupDatabasesConnectionPoolOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesConnectionPoolResultOutput {
@@ -70,8 +70,8 @@ func (o LookupDatabasesConnectionPoolResultOutput) ToLookupDatabasesConnectionPo
 	return o
 }
 
-func (o LookupDatabasesConnectionPoolResultOutput) Items() GetDatabasesConnectionPoolPropertiesOutput {
-	return o.ApplyT(func(v LookupDatabasesConnectionPoolResult) GetDatabasesConnectionPoolProperties { return v.Items }).(GetDatabasesConnectionPoolPropertiesOutput)
+func (o LookupDatabasesConnectionPoolResultOutput) Pool() ConnectionPoolOutput {
+	return o.ApplyT(func(v LookupDatabasesConnectionPoolResult) ConnectionPool { return v.Pool }).(ConnectionPoolOutput)
 }
 
 func init() {

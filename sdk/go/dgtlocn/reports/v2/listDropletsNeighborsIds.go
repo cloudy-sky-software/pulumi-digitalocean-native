@@ -25,7 +25,8 @@ type ListDropletsNeighborsIdsArgs struct {
 }
 
 type ListDropletsNeighborsIdsResult struct {
-	Items NeighborIds `pulumi:"items"`
+	// An array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server.
+	NeighborIds [][]int `pulumi:"neighborIds"`
 }
 
 func ListDropletsNeighborsIdsOutput(ctx *pulumi.Context, args ListDropletsNeighborsIdsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsNeighborsIdsResultOutput {
@@ -62,8 +63,9 @@ func (o ListDropletsNeighborsIdsResultOutput) ToListDropletsNeighborsIdsResultOu
 	return o
 }
 
-func (o ListDropletsNeighborsIdsResultOutput) Items() NeighborIdsOutput {
-	return o.ApplyT(func(v ListDropletsNeighborsIdsResult) NeighborIds { return v.Items }).(NeighborIdsOutput)
+// An array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server.
+func (o ListDropletsNeighborsIdsResultOutput) NeighborIds() pulumi.IntArrayArrayOutput {
+	return o.ApplyT(func(v ListDropletsNeighborsIdsResult) [][]int { return v.NeighborIds }).(pulumi.IntArrayArrayOutput)
 }
 
 func init() {

@@ -6,53 +6,76 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListDomainsResult',
-    'AwaitableListDomainsResult',
+    'ListDomainsItems',
+    'AwaitableListDomainsItems',
     'list_domains',
     'list_domains_output',
 ]
 
 @pulumi.output_type
-class ListDomainsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDomainsItems:
+    def __init__(__self__, domains=None, links=None, meta=None):
+        if domains and not isinstance(domains, list):
+            raise TypeError("Expected argument 'domains' to be a list")
+        pulumi.set(__self__, "domains", domains)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDomainsItems':
-        return pulumi.get(self, "items")
+    def domains(self) -> Sequence['outputs.Domain']:
+        """
+        Array of volumes.
+        """
+        return pulumi.get(self, "domains")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListDomainsResult(ListDomainsResult):
+class AwaitableListDomainsItems(ListDomainsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDomainsResult(
-            items=self.items)
+        return ListDomainsItems(
+            domains=self.domains,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_domains(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainsResult:
+def list_domains(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:domains/v2:listDomains', __args__, opts=opts, typ=ListDomainsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:domains/v2:listDomains', __args__, opts=opts, typ=ListDomainsItems).value
 
-    return AwaitableListDomainsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDomainsItems(
+        domains=pulumi.get(__ret__, 'domains'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_domains)
-def list_domains_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainsResult]:
+def list_domains_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainsItems]:
     """
     Use this data source to access information about an existing resource.
     """

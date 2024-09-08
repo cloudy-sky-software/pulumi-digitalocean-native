@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
 {
     public static class GetFunctionsTrigger
     {
-        public static Task<GetFunctionsTriggerResult> InvokeAsync(GetFunctionsTriggerArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsTriggerResult>("digitalocean-native:functions/v2:getFunctionsTrigger", args ?? new GetFunctionsTriggerArgs(), options.WithDefaults());
+        public static Task<Outputs.GetFunctionsTriggerProperties> InvokeAsync(GetFunctionsTriggerArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetFunctionsTriggerProperties>("digitalocean-native:functions/v2:getFunctionsTrigger", args ?? new GetFunctionsTriggerArgs(), options.WithDefaults());
 
-        public static Output<GetFunctionsTriggerResult> Invoke(GetFunctionsTriggerInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsTriggerResult>("digitalocean-native:functions/v2:getFunctionsTrigger", args ?? new GetFunctionsTriggerInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetFunctionsTriggerProperties> Invoke(GetFunctionsTriggerInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFunctionsTriggerProperties>("digitalocean-native:functions/v2:getFunctionsTrigger", args ?? new GetFunctionsTriggerInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
         {
         }
         public static new GetFunctionsTriggerInvokeArgs Empty => new GetFunctionsTriggerInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetFunctionsTriggerResult
-    {
-        public readonly Outputs.GetFunctionsTriggerProperties Items;
-
-        [OutputConstructor]
-        private GetFunctionsTriggerResult(Outputs.GetFunctionsTriggerProperties items)
-        {
-            Items = items;
-        }
     }
 }

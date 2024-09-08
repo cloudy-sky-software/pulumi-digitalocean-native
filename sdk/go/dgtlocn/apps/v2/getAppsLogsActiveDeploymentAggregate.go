@@ -27,7 +27,9 @@ type GetAppsLogsActiveDeploymentAggregateArgs struct {
 }
 
 type GetAppsLogsActiveDeploymentAggregateResult struct {
-	Items AppsGetLogsResponse `pulumi:"items"`
+	HistoricUrls []string `pulumi:"historicUrls"`
+	// A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.
+	LiveUrl *string `pulumi:"liveUrl"`
 }
 
 func GetAppsLogsActiveDeploymentAggregateOutput(ctx *pulumi.Context, args GetAppsLogsActiveDeploymentAggregateOutputArgs, opts ...pulumi.InvokeOption) GetAppsLogsActiveDeploymentAggregateResultOutput {
@@ -66,8 +68,13 @@ func (o GetAppsLogsActiveDeploymentAggregateResultOutput) ToGetAppsLogsActiveDep
 	return o
 }
 
-func (o GetAppsLogsActiveDeploymentAggregateResultOutput) Items() AppsGetLogsResponseOutput {
-	return o.ApplyT(func(v GetAppsLogsActiveDeploymentAggregateResult) AppsGetLogsResponse { return v.Items }).(AppsGetLogsResponseOutput)
+func (o GetAppsLogsActiveDeploymentAggregateResultOutput) HistoricUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppsLogsActiveDeploymentAggregateResult) []string { return v.HistoricUrls }).(pulumi.StringArrayOutput)
+}
+
+// A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.
+func (o GetAppsLogsActiveDeploymentAggregateResultOutput) LiveUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppsLogsActiveDeploymentAggregateResult) *string { return v.LiveUrl }).(pulumi.StringPtrOutput)
 }
 
 func init() {

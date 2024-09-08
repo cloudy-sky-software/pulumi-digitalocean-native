@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class ListDropletsBackups
     {
-        public static Task<ListDropletsBackupsResult> InvokeAsync(ListDropletsBackupsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletsBackupsResult>("digitalocean-native:droplets/v2:listDropletsBackups", args ?? new ListDropletsBackupsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDropletsBackupsItems> InvokeAsync(ListDropletsBackupsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDropletsBackupsItems>("digitalocean-native:droplets/v2:listDropletsBackups", args ?? new ListDropletsBackupsArgs(), options.WithDefaults());
 
-        public static Output<ListDropletsBackupsResult> Invoke(ListDropletsBackupsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletsBackupsResult>("digitalocean-native:droplets/v2:listDropletsBackups", args ?? new ListDropletsBackupsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDropletsBackupsItems> Invoke(ListDropletsBackupsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsBackupsItems>("digitalocean-native:droplets/v2:listDropletsBackups", args ?? new ListDropletsBackupsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new ListDropletsBackupsInvokeArgs Empty => new ListDropletsBackupsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletsBackupsResult
-    {
-        public readonly Outputs.ListDropletsBackupsItems Items;
-
-        [OutputConstructor]
-        private ListDropletsBackupsResult(Outputs.ListDropletsBackupsItems items)
-        {
-            Items = items;
-        }
     }
 }

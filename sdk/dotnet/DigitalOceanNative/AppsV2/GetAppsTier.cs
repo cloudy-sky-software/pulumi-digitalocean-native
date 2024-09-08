@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsTier
     {
-        public static Task<GetAppsTierResult> InvokeAsync(GetAppsTierArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsTierResult>("digitalocean-native:apps/v2:getAppsTier", args ?? new GetAppsTierArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsGetTierResponse> InvokeAsync(GetAppsTierArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsGetTierResponse>("digitalocean-native:apps/v2:getAppsTier", args ?? new GetAppsTierArgs(), options.WithDefaults());
 
-        public static Output<GetAppsTierResult> Invoke(GetAppsTierInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsTierResult>("digitalocean-native:apps/v2:getAppsTier", args ?? new GetAppsTierInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsGetTierResponse> Invoke(GetAppsTierInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetTierResponse>("digitalocean-native:apps/v2:getAppsTier", args ?? new GetAppsTierInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsTierInvokeArgs Empty => new GetAppsTierInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsTierResult
-    {
-        public readonly Outputs.AppsGetTierResponse Items;
-
-        [OutputConstructor]
-        private GetAppsTierResult(Outputs.AppsGetTierResponse items)
-        {
-            Items = items;
-        }
     }
 }

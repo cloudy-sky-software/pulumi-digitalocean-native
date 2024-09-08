@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getKubernetesClusterUser(args: GetKubernetesClusterUserArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterUserResult> {
+export function getKubernetesClusterUser(args: GetKubernetesClusterUserArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.User> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", {
@@ -21,11 +21,7 @@ export interface GetKubernetesClusterUserArgs {
      */
     clusterId: string;
 }
-
-export interface GetKubernetesClusterUserResult {
-    readonly items: outputs.kubernetes.v2.User;
-}
-export function getKubernetesClusterUserOutput(args: GetKubernetesClusterUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterUserResult> {
+export function getKubernetesClusterUserOutput(args: GetKubernetesClusterUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.User> {
     return pulumi.output(args).apply((a: any) => getKubernetesClusterUser(a, opts))
 }
 

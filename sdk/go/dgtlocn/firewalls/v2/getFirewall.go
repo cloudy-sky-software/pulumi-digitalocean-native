@@ -27,7 +27,7 @@ type LookupFirewallArgs struct {
 }
 
 type LookupFirewallResult struct {
-	Items GetFirewallProperties `pulumi:"items"`
+	Firewall *FirewallType `pulumi:"firewall"`
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
@@ -66,8 +66,8 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupFirewallResultOutput) Items() GetFirewallPropertiesOutput {
-	return o.ApplyT(func(v LookupFirewallResult) GetFirewallProperties { return v.Items }).(GetFirewallPropertiesOutput)
+func (o LookupFirewallResultOutput) Firewall() FirewallTypePtrOutput {
+	return o.ApplyT(func(v LookupFirewallResult) *FirewallType { return v.Firewall }).(FirewallTypePtrOutput)
 }
 
 func init() {

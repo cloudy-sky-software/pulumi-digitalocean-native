@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class GetRegistryDockerCredential
     {
-        public static Task<GetRegistryDockerCredentialResult> InvokeAsync(GetRegistryDockerCredentialArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryDockerCredentialResult>("digitalocean-native:registry/v2:getRegistryDockerCredential", args ?? new GetRegistryDockerCredentialArgs(), options.WithDefaults());
+        public static Task<Outputs.DockerCredentials> InvokeAsync(GetRegistryDockerCredentialArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.DockerCredentials>("digitalocean-native:registry/v2:getRegistryDockerCredential", args ?? new GetRegistryDockerCredentialArgs(), options.WithDefaults());
 
-        public static Output<GetRegistryDockerCredentialResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryDockerCredentialResult>("digitalocean-native:registry/v2:getRegistryDockerCredential", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.DockerCredentials> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.DockerCredentials>("digitalocean-native:registry/v2:getRegistryDockerCredential", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new GetRegistryDockerCredentialArgs Empty => new GetRegistryDockerCredentialArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetRegistryDockerCredentialResult
-    {
-        public readonly Outputs.DockerCredentials Items;
-
-        [OutputConstructor]
-        private GetRegistryDockerCredentialResult(Outputs.DockerCredentials items)
-        {
-            Items = items;
-        }
     }
 }

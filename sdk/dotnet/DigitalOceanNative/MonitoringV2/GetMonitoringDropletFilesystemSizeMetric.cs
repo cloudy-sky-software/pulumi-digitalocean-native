@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletFilesystemSizeMetric
     {
-        public static Task<GetMonitoringDropletFilesystemSizeMetricResult> InvokeAsync(GetMonitoringDropletFilesystemSizeMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletFilesystemSizeMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", args ?? new GetMonitoringDropletFilesystemSizeMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletFilesystemSizeMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", args ?? new GetMonitoringDropletFilesystemSizeMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletFilesystemSizeMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletFilesystemSizeMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletFilesystemSizeMetricArgs Empty => new GetMonitoringDropletFilesystemSizeMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletFilesystemSizeMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletFilesystemSizeMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

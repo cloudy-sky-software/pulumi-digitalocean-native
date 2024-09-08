@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListKubernetesNodePoolsResult',
-    'AwaitableListKubernetesNodePoolsResult',
+    'ListKubernetesNodePoolsProperties',
+    'AwaitableListKubernetesNodePoolsProperties',
     'list_kubernetes_node_pools',
     'list_kubernetes_node_pools_output',
 ]
 
 @pulumi.output_type
-class ListKubernetesNodePoolsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListKubernetesNodePoolsProperties:
+    def __init__(__self__, node_pools=None):
+        if node_pools and not isinstance(node_pools, list):
+            raise TypeError("Expected argument 'node_pools' to be a list")
+        pulumi.set(__self__, "node_pools", node_pools)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.ListKubernetesNodePoolsProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="nodePools")
+    def node_pools(self) -> Optional[Sequence['outputs.KubernetesNodePool']]:
+        return pulumi.get(self, "node_pools")
 
 
-class AwaitableListKubernetesNodePoolsResult(ListKubernetesNodePoolsResult):
+class AwaitableListKubernetesNodePoolsProperties(ListKubernetesNodePoolsProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListKubernetesNodePoolsResult(
-            items=self.items)
+        return ListKubernetesNodePoolsProperties(
+            node_pools=self.node_pools)
 
 
 def list_kubernetes_node_pools(cluster_id: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKubernetesNodePoolsResult:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKubernetesNodePoolsProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def list_kubernetes_node_pools(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesNodePools', __args__, opts=opts, typ=ListKubernetesNodePoolsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesNodePools', __args__, opts=opts, typ=ListKubernetesNodePoolsProperties).value
 
-    return AwaitableListKubernetesNodePoolsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListKubernetesNodePoolsProperties(
+        node_pools=pulumi.get(__ret__, 'node_pools'))
 
 
 @_utilities.lift_output_func(list_kubernetes_node_pools)
 def list_kubernetes_node_pools_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesNodePoolsResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesNodePoolsProperties]:
     """
     Use this data source to access information about an existing resource.
 

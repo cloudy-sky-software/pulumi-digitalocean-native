@@ -6,42 +6,68 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDatabasesMigrationStatuResult',
-    'AwaitableGetDatabasesMigrationStatuResult',
+    'OnlineMigration',
+    'AwaitableOnlineMigration',
     'get_databases_migration_statu',
     'get_databases_migration_statu_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesMigrationStatuResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class OnlineMigration:
+    def __init__(__self__, created_at=None, id=None, status=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The time the migration was initiated, in ISO 8601 format.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.OnlineMigration':
-        return pulumi.get(self, "items")
+    def id(self) -> Optional[str]:
+        """
+        The ID of the most recent migration.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['OnlineMigrationStatus']:
+        """
+        The current status of the migration.
+        """
+        return pulumi.get(self, "status")
 
 
-class AwaitableGetDatabasesMigrationStatuResult(GetDatabasesMigrationStatuResult):
+class AwaitableOnlineMigration(OnlineMigration):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesMigrationStatuResult(
-            items=self.items)
+        return OnlineMigration(
+            created_at=self.created_at,
+            id=self.id,
+            status=self.status)
 
 
 def get_databases_migration_statu(database_cluster_uuid: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesMigrationStatuResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableOnlineMigration:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +76,17 @@ def get_databases_migration_statu(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesMigrationStatu', __args__, opts=opts, typ=GetDatabasesMigrationStatuResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesMigrationStatu', __args__, opts=opts, typ=OnlineMigration).value
 
-    return AwaitableGetDatabasesMigrationStatuResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableOnlineMigration(
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_databases_migration_statu)
 def get_databases_migration_statu_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesMigrationStatuResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[OnlineMigration]:
     """
     Use this data source to access information about an existing resource.
 

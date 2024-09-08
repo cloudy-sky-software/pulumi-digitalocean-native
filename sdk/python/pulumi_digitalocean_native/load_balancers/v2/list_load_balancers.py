@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListLoadBalancersResult',
-    'AwaitableListLoadBalancersResult',
+    'ListLoadBalancersItems',
+    'AwaitableListLoadBalancersItems',
     'list_load_balancers',
     'list_load_balancers_output',
 ]
 
 @pulumi.output_type
-class ListLoadBalancersResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListLoadBalancersItems:
+    def __init__(__self__, links=None, load_balancers=None, meta=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if load_balancers and not isinstance(load_balancers, list):
+            raise TypeError("Expected argument 'load_balancers' to be a list")
+        pulumi.set(__self__, "load_balancers", load_balancers)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListLoadBalancersItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter(name="loadBalancers")
+    def load_balancers(self) -> Optional[Sequence['outputs.LoadBalancer']]:
+        return pulumi.get(self, "load_balancers")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListLoadBalancersResult(ListLoadBalancersResult):
+class AwaitableListLoadBalancersItems(ListLoadBalancersItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListLoadBalancersResult(
-            items=self.items)
+        return ListLoadBalancersItems(
+            links=self.links,
+            load_balancers=self.load_balancers,
+            meta=self.meta)
 
 
-def list_load_balancers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLoadBalancersResult:
+def list_load_balancers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLoadBalancersItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:load_balancers/v2:listLoadBalancers', __args__, opts=opts, typ=ListLoadBalancersResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:load_balancers/v2:listLoadBalancers', __args__, opts=opts, typ=ListLoadBalancersItems).value
 
-    return AwaitableListLoadBalancersResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListLoadBalancersItems(
+        links=pulumi.get(__ret__, 'links'),
+        load_balancers=pulumi.get(__ret__, 'load_balancers'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_load_balancers)
-def list_load_balancers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLoadBalancersResult]:
+def list_load_balancers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLoadBalancersItems]:
     """
     Use this data source to access information about an existing resource.
     """

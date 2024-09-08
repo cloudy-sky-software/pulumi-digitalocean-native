@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 {
     public static class ListVolumeActions
     {
-        public static Task<ListVolumeActionsResult> InvokeAsync(ListVolumeActionsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumeActionsResult>("digitalocean-native:volumes/v2:listVolumeActions", args ?? new ListVolumeActionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListVolumeActionsItems> InvokeAsync(ListVolumeActionsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListVolumeActionsItems>("digitalocean-native:volumes/v2:listVolumeActions", args ?? new ListVolumeActionsArgs(), options.WithDefaults());
 
-        public static Output<ListVolumeActionsResult> Invoke(ListVolumeActionsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListVolumeActionsResult>("digitalocean-native:volumes/v2:listVolumeActions", args ?? new ListVolumeActionsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListVolumeActionsItems> Invoke(ListVolumeActionsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVolumeActionsItems>("digitalocean-native:volumes/v2:listVolumeActions", args ?? new ListVolumeActionsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
         {
         }
         public static new ListVolumeActionsInvokeArgs Empty => new ListVolumeActionsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListVolumeActionsResult
-    {
-        public readonly Outputs.ListVolumeActionsItems Items;
-
-        [OutputConstructor]
-        private ListVolumeActionsResult(Outputs.ListVolumeActionsItems items)
-        {
-            Items = items;
-        }
     }
 }

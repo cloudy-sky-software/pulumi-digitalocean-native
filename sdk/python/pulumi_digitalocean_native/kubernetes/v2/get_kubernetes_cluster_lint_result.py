@@ -6,41 +6,80 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetKubernetesClusterLintResultResult',
-    'AwaitableGetKubernetesClusterLintResultResult',
+    'ClusterlintResults',
+    'AwaitableClusterlintResults',
     'get_kubernetes_cluster_lint_result',
     'get_kubernetes_cluster_lint_result_output',
 ]
 
 @pulumi.output_type
-class GetKubernetesClusterLintResultResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ClusterlintResults:
+    def __init__(__self__, completed_at=None, diagnostics=None, requested_at=None, run_id=None):
+        if completed_at and not isinstance(completed_at, str):
+            raise TypeError("Expected argument 'completed_at' to be a str")
+        pulumi.set(__self__, "completed_at", completed_at)
+        if diagnostics and not isinstance(diagnostics, list):
+            raise TypeError("Expected argument 'diagnostics' to be a list")
+        pulumi.set(__self__, "diagnostics", diagnostics)
+        if requested_at and not isinstance(requested_at, str):
+            raise TypeError("Expected argument 'requested_at' to be a str")
+        pulumi.set(__self__, "requested_at", requested_at)
+        if run_id and not isinstance(run_id, str):
+            raise TypeError("Expected argument 'run_id' to be a str")
+        pulumi.set(__self__, "run_id", run_id)
+
+    @property
+    @pulumi.getter(name="completedAt")
+    def completed_at(self) -> Optional[str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed.
+        """
+        return pulumi.get(self, "completed_at")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ClusterlintResults':
-        return pulumi.get(self, "items")
+    def diagnostics(self) -> Optional[Sequence['outputs.ClusterlintResultsDiagnosticsItemProperties']]:
+        """
+        An array of diagnostics reporting potential problems for the given cluster.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="requestedAt")
+    def requested_at(self) -> Optional[str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made.
+        """
+        return pulumi.get(self, "requested_at")
+
+    @property
+    @pulumi.getter(name="runId")
+    def run_id(self) -> Optional[str]:
+        """
+        Id of the clusterlint run that can be used later to fetch the diagnostics.
+        """
+        return pulumi.get(self, "run_id")
 
 
-class AwaitableGetKubernetesClusterLintResultResult(GetKubernetesClusterLintResultResult):
+class AwaitableClusterlintResults(ClusterlintResults):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetKubernetesClusterLintResultResult(
-            items=self.items)
+        return ClusterlintResults(
+            completed_at=self.completed_at,
+            diagnostics=self.diagnostics,
+            requested_at=self.requested_at,
+            run_id=self.run_id)
 
 
 def get_kubernetes_cluster_lint_result(cluster_id: Optional[str] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterLintResultResult:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableClusterlintResults:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +88,18 @@ def get_kubernetes_cluster_lint_result(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult', __args__, opts=opts, typ=GetKubernetesClusterLintResultResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult', __args__, opts=opts, typ=ClusterlintResults).value
 
-    return AwaitableGetKubernetesClusterLintResultResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableClusterlintResults(
+        completed_at=pulumi.get(__ret__, 'completed_at'),
+        diagnostics=pulumi.get(__ret__, 'diagnostics'),
+        requested_at=pulumi.get(__ret__, 'requested_at'),
+        run_id=pulumi.get(__ret__, 'run_id'))
 
 
 @_utilities.lift_output_func(get_kubernetes_cluster_lint_result)
 def get_kubernetes_cluster_lint_result_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterLintResultResult]:
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ClusterlintResults]:
     """
     Use this data source to access information about an existing resource.
 

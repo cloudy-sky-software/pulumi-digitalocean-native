@@ -25,7 +25,9 @@ type ListUptimeChecksArgs struct {
 }
 
 type ListUptimeChecksResult struct {
-	Items ListUptimeChecksItems `pulumi:"items"`
+	Checks []Check    `pulumi:"checks"`
+	Links  *PageLinks `pulumi:"links"`
+	Meta   MetaMeta   `pulumi:"meta"`
 }
 
 func ListUptimeChecksOutput(ctx *pulumi.Context, args ListUptimeChecksOutputArgs, opts ...pulumi.InvokeOption) ListUptimeChecksResultOutput {
@@ -62,8 +64,16 @@ func (o ListUptimeChecksResultOutput) ToListUptimeChecksResultOutputWithContext(
 	return o
 }
 
-func (o ListUptimeChecksResultOutput) Items() ListUptimeChecksItemsOutput {
-	return o.ApplyT(func(v ListUptimeChecksResult) ListUptimeChecksItems { return v.Items }).(ListUptimeChecksItemsOutput)
+func (o ListUptimeChecksResultOutput) Checks() CheckArrayOutput {
+	return o.ApplyT(func(v ListUptimeChecksResult) []Check { return v.Checks }).(CheckArrayOutput)
+}
+
+func (o ListUptimeChecksResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListUptimeChecksResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListUptimeChecksResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListUptimeChecksResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

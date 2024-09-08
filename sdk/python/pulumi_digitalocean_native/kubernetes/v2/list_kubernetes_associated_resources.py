@@ -6,41 +6,71 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListKubernetesAssociatedResourcesResult',
-    'AwaitableListKubernetesAssociatedResourcesResult',
+    'AssociatedKubernetesResources',
+    'AwaitableAssociatedKubernetesResources',
     'list_kubernetes_associated_resources',
     'list_kubernetes_associated_resources_output',
 ]
 
 @pulumi.output_type
-class ListKubernetesAssociatedResourcesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AssociatedKubernetesResources:
+    """
+    An object containing the IDs of resources associated with a Kubernetes cluster.
+    """
+    def __init__(__self__, load_balancers=None, volume_snapshots=None, volumes=None):
+        if load_balancers and not isinstance(load_balancers, list):
+            raise TypeError("Expected argument 'load_balancers' to be a list")
+        pulumi.set(__self__, "load_balancers", load_balancers)
+        if volume_snapshots and not isinstance(volume_snapshots, list):
+            raise TypeError("Expected argument 'volume_snapshots' to be a list")
+        pulumi.set(__self__, "volume_snapshots", volume_snapshots)
+        if volumes and not isinstance(volumes, list):
+            raise TypeError("Expected argument 'volumes' to be a list")
+        pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter(name="loadBalancers")
+    def load_balancers(self) -> Optional[Sequence['outputs.AssociatedKubernetesResource']]:
+        """
+        A list of names and IDs for associated load balancers that can be destroyed along with the cluster.
+        """
+        return pulumi.get(self, "load_balancers")
+
+    @property
+    @pulumi.getter(name="volumeSnapshots")
+    def volume_snapshots(self) -> Optional[Sequence['outputs.AssociatedKubernetesResource']]:
+        """
+        A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.
+        """
+        return pulumi.get(self, "volume_snapshots")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AssociatedKubernetesResources':
-        return pulumi.get(self, "items")
+    def volumes(self) -> Optional[Sequence['outputs.AssociatedKubernetesResource']]:
+        """
+        A list of names and IDs for associated volumes that can be destroyed along with the cluster.
+        """
+        return pulumi.get(self, "volumes")
 
 
-class AwaitableListKubernetesAssociatedResourcesResult(ListKubernetesAssociatedResourcesResult):
+class AwaitableAssociatedKubernetesResources(AssociatedKubernetesResources):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListKubernetesAssociatedResourcesResult(
-            items=self.items)
+        return AssociatedKubernetesResources(
+            load_balancers=self.load_balancers,
+            volume_snapshots=self.volume_snapshots,
+            volumes=self.volumes)
 
 
 def list_kubernetes_associated_resources(cluster_id: Optional[str] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKubernetesAssociatedResourcesResult:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAssociatedKubernetesResources:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +79,17 @@ def list_kubernetes_associated_resources(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources', __args__, opts=opts, typ=ListKubernetesAssociatedResourcesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources', __args__, opts=opts, typ=AssociatedKubernetesResources).value
 
-    return AwaitableListKubernetesAssociatedResourcesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAssociatedKubernetesResources(
+        load_balancers=pulumi.get(__ret__, 'load_balancers'),
+        volume_snapshots=pulumi.get(__ret__, 'volume_snapshots'),
+        volumes=pulumi.get(__ret__, 'volumes'))
 
 
 @_utilities.lift_output_func(list_kubernetes_associated_resources)
 def list_kubernetes_associated_resources_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesAssociatedResourcesResult]:
+                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AssociatedKubernetesResources]:
     """
     Use this data source to access information about an existing resource.
 

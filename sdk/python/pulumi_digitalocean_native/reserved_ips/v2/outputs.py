@@ -18,14 +18,10 @@ __all__ = [
     'Droplet',
     'DropletNetworksProperties',
     'DropletNextBackupWindowProperties',
-    'GetReservedIPProperties',
-    'GetReservedIPsActionProperties',
     'GetReservedIPsActionPropertiesAction',
     'Image',
     'Kernel',
     'LinksProperties',
-    'ListReservedIPsActionsItems',
-    'ListReservedIPsItems',
     'MetaMeta',
     'NetworkV4',
     'NetworkV6',
@@ -568,32 +564,6 @@ class DropletNextBackupWindowProperties(dict):
 
 
 @pulumi.output_type
-class GetReservedIPProperties(dict):
-    def __init__(__self__, *,
-                 reserved_ip: Optional['outputs.ReservedIp'] = None):
-        if reserved_ip is not None:
-            pulumi.set(__self__, "reserved_ip", reserved_ip)
-
-    @property
-    @pulumi.getter(name="reservedIp")
-    def reserved_ip(self) -> Optional['outputs.ReservedIp']:
-        return pulumi.get(self, "reserved_ip")
-
-
-@pulumi.output_type
-class GetReservedIPsActionProperties(dict):
-    def __init__(__self__, *,
-                 action: Optional['outputs.GetReservedIPsActionPropertiesAction'] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional['outputs.GetReservedIPsActionPropertiesAction']:
-        return pulumi.get(self, "action")
-
-
-@pulumi.output_type
 class GetReservedIPsActionPropertiesAction(dict):
     def __init__(__self__, *,
                  completed_at: Optional[str] = None,
@@ -993,62 +963,6 @@ class LinksProperties(dict):
     @pulumi.getter
     def droplets(self) -> Optional[Sequence['outputs.ActionLink']]:
         return pulumi.get(self, "droplets")
-
-
-@pulumi.output_type
-class ListReservedIPsActionsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 actions: Optional[Sequence['outputs.Action']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.Action']]:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListReservedIPsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 reserved_ips: Optional[Sequence['outputs.ReservedIp']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if reserved_ips is not None:
-            pulumi.set(__self__, "reserved_ips", reserved_ips)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter(name="reservedIps")
-    def reserved_ips(self) -> Optional[Sequence['outputs.ReservedIp']]:
-        return pulumi.get(self, "reserved_ips")
 
 
 @pulumi.output_type

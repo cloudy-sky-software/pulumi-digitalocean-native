@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDatabasesUserResult',
-    'AwaitableGetDatabasesUserResult',
+    'GetDatabasesUserProperties',
+    'AwaitableGetDatabasesUserProperties',
     'get_databases_user',
     'get_databases_user_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesUserResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetDatabasesUserProperties:
+    def __init__(__self__, user=None):
+        if user and not isinstance(user, dict):
+            raise TypeError("Expected argument 'user' to be a dict")
+        pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetDatabasesUserProperties':
-        return pulumi.get(self, "items")
+    def user(self) -> 'outputs.DatabaseUser':
+        return pulumi.get(self, "user")
 
 
-class AwaitableGetDatabasesUserResult(GetDatabasesUserResult):
+class AwaitableGetDatabasesUserProperties(GetDatabasesUserProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesUserResult(
-            items=self.items)
+        return GetDatabasesUserProperties(
+            user=self.user)
 
 
 def get_databases_user(database_cluster_uuid: Optional[str] = None,
                        username: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesUserResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesUserProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_databases_user(database_cluster_uuid: Optional[str] = None,
     __args__['databaseClusterUuid'] = database_cluster_uuid
     __args__['username'] = username
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesUser', __args__, opts=opts, typ=GetDatabasesUserResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesUser', __args__, opts=opts, typ=GetDatabasesUserProperties).value
 
-    return AwaitableGetDatabasesUserResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetDatabasesUserProperties(
+        user=pulumi.get(__ret__, 'user'))
 
 
 @_utilities.lift_output_func(get_databases_user)
 def get_databases_user_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                               username: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesUserResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesUserProperties]:
     """
     Use this data source to access information about an existing resource.
 

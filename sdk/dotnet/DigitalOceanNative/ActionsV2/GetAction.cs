@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ActionsV2
 {
     public static class GetAction
     {
-        public static Task<GetActionResult> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("digitalocean-native:actions/v2:getAction", args ?? new GetActionArgs(), options.WithDefaults());
+        public static Task<Outputs.GetActionProperties> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetActionProperties>("digitalocean-native:actions/v2:getAction", args ?? new GetActionArgs(), options.WithDefaults());
 
-        public static Output<GetActionResult> Invoke(GetActionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetActionResult>("digitalocean-native:actions/v2:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetActionProperties> Invoke(GetActionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetActionProperties>("digitalocean-native:actions/v2:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ActionsV2
         {
         }
         public static new GetActionInvokeArgs Empty => new GetActionInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetActionResult
-    {
-        public readonly Outputs.GetActionProperties Items;
-
-        [OutputConstructor]
-        private GetActionResult(Outputs.GetActionProperties items)
-        {
-            Items = items;
-        }
     }
 }

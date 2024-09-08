@@ -27,7 +27,7 @@ type GetKubernetesClusterUserArgs struct {
 }
 
 type GetKubernetesClusterUserResult struct {
-	Items User `pulumi:"items"`
+	KubernetesClusterUser *UserKubernetesClusterUserProperties `pulumi:"kubernetesClusterUser"`
 }
 
 func GetKubernetesClusterUserOutput(ctx *pulumi.Context, args GetKubernetesClusterUserOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesClusterUserResultOutput {
@@ -66,8 +66,10 @@ func (o GetKubernetesClusterUserResultOutput) ToGetKubernetesClusterUserResultOu
 	return o
 }
 
-func (o GetKubernetesClusterUserResultOutput) Items() UserOutput {
-	return o.ApplyT(func(v GetKubernetesClusterUserResult) User { return v.Items }).(UserOutput)
+func (o GetKubernetesClusterUserResultOutput) KubernetesClusterUser() UserKubernetesClusterUserPropertiesPtrOutput {
+	return o.ApplyT(func(v GetKubernetesClusterUserResult) *UserKubernetesClusterUserProperties {
+		return v.KubernetesClusterUser
+	}).(UserKubernetesClusterUserPropertiesPtrOutput)
 }
 
 func init() {

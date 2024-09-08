@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAppsLogsActiveDeploymentAggregate(args: GetAppsLogsActiveDeploymentAggregateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppsLogsActiveDeploymentAggregateResult> {
+export function getAppsLogsActiveDeploymentAggregate(args: GetAppsLogsActiveDeploymentAggregateArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetLogsResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate", {
@@ -21,11 +21,7 @@ export interface GetAppsLogsActiveDeploymentAggregateArgs {
      */
     appId: string;
 }
-
-export interface GetAppsLogsActiveDeploymentAggregateResult {
-    readonly items: outputs.apps.v2.AppsGetLogsResponse;
-}
-export function getAppsLogsActiveDeploymentAggregateOutput(args: GetAppsLogsActiveDeploymentAggregateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsLogsActiveDeploymentAggregateResult> {
+export function getAppsLogsActiveDeploymentAggregateOutput(args: GetAppsLogsActiveDeploymentAggregateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
     return pulumi.output(args).apply((a: any) => getAppsLogsActiveDeploymentAggregate(a, opts))
 }
 

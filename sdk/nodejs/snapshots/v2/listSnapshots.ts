@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listSnapshots(args?: ListSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<ListSnapshotsResult> {
+export function listSnapshots(args?: ListSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.snapshots.v2.ListSnapshotsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listSnapshots(args?: ListSnapshotsArgs, opts?: pulumi.InvokeOpti
 
 export interface ListSnapshotsArgs {
 }
-
-export interface ListSnapshotsResult {
-    readonly items: outputs.snapshots.v2.ListSnapshotsItems;
-}
-export function listSnapshotsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListSnapshotsResult> {
+export function listSnapshotsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.v2.ListSnapshotsItems> {
     return pulumi.output(listSnapshots(opts))
 }

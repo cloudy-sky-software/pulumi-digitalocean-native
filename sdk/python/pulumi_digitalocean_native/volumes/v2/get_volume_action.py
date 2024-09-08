@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetVolumeActionResult',
-    'AwaitableGetVolumeActionResult',
+    'GetVolumeActionProperties',
+    'AwaitableGetVolumeActionProperties',
     'get_volume_action',
     'get_volume_action_output',
 ]
 
 @pulumi.output_type
-class GetVolumeActionResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetVolumeActionProperties:
+    def __init__(__self__, action=None):
+        if action and not isinstance(action, dict):
+            raise TypeError("Expected argument 'action' to be a dict")
+        pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetVolumeActionProperties':
-        return pulumi.get(self, "items")
+    def action(self) -> Optional['outputs.VolumeAction']:
+        return pulumi.get(self, "action")
 
 
-class AwaitableGetVolumeActionResult(GetVolumeActionResult):
+class AwaitableGetVolumeActionProperties(GetVolumeActionProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVolumeActionResult(
-            items=self.items)
+        return GetVolumeActionProperties(
+            action=self.action)
 
 
 def get_volume_action(action_id: Optional[str] = None,
                       volume_id: Optional[str] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeActionResult:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeActionProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_volume_action(action_id: Optional[str] = None,
     __args__['actionId'] = action_id
     __args__['volumeId'] = volume_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:volumes/v2:getVolumeAction', __args__, opts=opts, typ=GetVolumeActionResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:volumes/v2:getVolumeAction', __args__, opts=opts, typ=GetVolumeActionProperties).value
 
-    return AwaitableGetVolumeActionResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetVolumeActionProperties(
+        action=pulumi.get(__ret__, 'action'))
 
 
 @_utilities.lift_output_func(get_volume_action)
 def get_volume_action_output(action_id: Optional[pulumi.Input[str]] = None,
                              volume_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeActionResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeActionProperties]:
     """
     Use this data source to access information about an existing resource.
 

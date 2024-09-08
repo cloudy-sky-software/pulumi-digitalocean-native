@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listKubernetesClusters(args?: ListKubernetesClustersArgs, opts?: pulumi.InvokeOptions): Promise<ListKubernetesClustersResult> {
+export function listKubernetesClusters(args?: ListKubernetesClustersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.ListKubernetesClustersItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listKubernetesClusters(args?: ListKubernetesClustersArgs, opts?:
 
 export interface ListKubernetesClustersArgs {
 }
-
-export interface ListKubernetesClustersResult {
-    readonly items: outputs.kubernetes.v2.ListKubernetesClustersItems;
-}
-export function listKubernetesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListKubernetesClustersResult> {
+export function listKubernetesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.ListKubernetesClustersItems> {
     return pulumi.output(listKubernetesClusters(opts))
 }

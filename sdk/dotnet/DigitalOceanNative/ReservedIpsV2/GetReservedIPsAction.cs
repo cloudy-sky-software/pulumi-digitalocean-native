@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
 {
     public static class GetReservedIPsAction
     {
-        public static Task<GetReservedIPsActionResult> InvokeAsync(GetReservedIPsActionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReservedIPsActionResult>("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args ?? new GetReservedIPsActionArgs(), options.WithDefaults());
+        public static Task<Outputs.GetReservedIPsActionProperties> InvokeAsync(GetReservedIPsActionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetReservedIPsActionProperties>("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args ?? new GetReservedIPsActionArgs(), options.WithDefaults());
 
-        public static Output<GetReservedIPsActionResult> Invoke(GetReservedIPsActionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetReservedIPsActionResult>("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args ?? new GetReservedIPsActionInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetReservedIPsActionProperties> Invoke(GetReservedIPsActionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetReservedIPsActionProperties>("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args ?? new GetReservedIPsActionInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
         {
         }
         public static new GetReservedIPsActionInvokeArgs Empty => new GetReservedIPsActionInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetReservedIPsActionResult
-    {
-        public readonly Outputs.GetReservedIPsActionProperties Items;
-
-        [OutputConstructor]
-        private GetReservedIPsActionResult(Outputs.GetReservedIPsActionProperties items)
-        {
-            Items = items;
-        }
     }
 }

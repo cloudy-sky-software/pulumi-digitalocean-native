@@ -6,42 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListDropletsSnapshotsResult',
-    'AwaitableListDropletsSnapshotsResult',
+    'ListDropletsSnapshotsItems',
+    'AwaitableListDropletsSnapshotsItems',
     'list_droplets_snapshots',
     'list_droplets_snapshots_output',
 ]
 
 @pulumi.output_type
-class ListDropletsSnapshotsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDropletsSnapshotsItems:
+    def __init__(__self__, links=None, meta=None, snapshots=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if snapshots and not isinstance(snapshots, list):
+            raise TypeError("Expected argument 'snapshots' to be a list")
+        pulumi.set(__self__, "snapshots", snapshots)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDropletsSnapshotsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def snapshots(self) -> Optional[Sequence['outputs.DropletSnapshot']]:
+        return pulumi.get(self, "snapshots")
 
 
-class AwaitableListDropletsSnapshotsResult(ListDropletsSnapshotsResult):
+class AwaitableListDropletsSnapshotsItems(ListDropletsSnapshotsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDropletsSnapshotsResult(
-            items=self.items)
+        return ListDropletsSnapshotsItems(
+            links=self.links,
+            meta=self.meta,
+            snapshots=self.snapshots)
 
 
 def list_droplets_snapshots(droplet_id: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDropletsSnapshotsResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDropletsSnapshotsItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +68,17 @@ def list_droplets_snapshots(droplet_id: Optional[str] = None,
     __args__ = dict()
     __args__['dropletId'] = droplet_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:listDropletsSnapshots', __args__, opts=opts, typ=ListDropletsSnapshotsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:listDropletsSnapshots', __args__, opts=opts, typ=ListDropletsSnapshotsItems).value
 
-    return AwaitableListDropletsSnapshotsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDropletsSnapshotsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        snapshots=pulumi.get(__ret__, 'snapshots'))
 
 
 @_utilities.lift_output_func(list_droplets_snapshots)
 def list_droplets_snapshots_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsSnapshotsResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsSnapshotsItems]:
     """
     Use this data source to access information about an existing resource.
 

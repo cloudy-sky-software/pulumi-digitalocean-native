@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class ListAppsAlerts
     {
-        public static Task<ListAppsAlertsResult> InvokeAsync(ListAppsAlertsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAppsAlertsResult>("digitalocean-native:apps/v2:listAppsAlerts", args ?? new ListAppsAlertsArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsListAlertsResponse> InvokeAsync(ListAppsAlertsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsListAlertsResponse>("digitalocean-native:apps/v2:listAppsAlerts", args ?? new ListAppsAlertsArgs(), options.WithDefaults());
 
-        public static Output<ListAppsAlertsResult> Invoke(ListAppsAlertsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListAppsAlertsResult>("digitalocean-native:apps/v2:listAppsAlerts", args ?? new ListAppsAlertsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsListAlertsResponse> Invoke(ListAppsAlertsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsListAlertsResponse>("digitalocean-native:apps/v2:listAppsAlerts", args ?? new ListAppsAlertsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new ListAppsAlertsInvokeArgs Empty => new ListAppsAlertsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListAppsAlertsResult
-    {
-        public readonly Outputs.AppsListAlertsResponse Items;
-
-        [OutputConstructor]
-        private ListAppsAlertsResult(Outputs.AppsListAlertsResponse items)
-        {
-            Items = items;
-        }
     }
 }

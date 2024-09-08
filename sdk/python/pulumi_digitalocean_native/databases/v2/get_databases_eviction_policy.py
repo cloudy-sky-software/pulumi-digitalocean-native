@@ -6,42 +6,51 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDatabasesEvictionPolicyResult',
-    'AwaitableGetDatabasesEvictionPolicyResult',
+    'GetDatabasesEvictionPolicyProperties',
+    'AwaitableGetDatabasesEvictionPolicyProperties',
     'get_databases_eviction_policy',
     'get_databases_eviction_policy_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesEvictionPolicyResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetDatabasesEvictionPolicyProperties:
+    def __init__(__self__, eviction_policy=None):
+        if eviction_policy and not isinstance(eviction_policy, str):
+            raise TypeError("Expected argument 'eviction_policy' to be a str")
+        pulumi.set(__self__, "eviction_policy", eviction_policy)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.GetDatabasesEvictionPolicyProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> 'GetDatabasesEvictionPolicyPropertiesEvictionPolicy':
+        """
+        A string specifying the desired eviction policy for the Redis cluster.
+
+        - `noeviction`: Don't evict any data, returns error when memory limit is reached.
+        - `allkeys_lru:` Evict any key, least recently used (LRU) first.
+        - `allkeys_random`: Evict keys in a random order.
+        - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
+        - `volatile_random`: Evict keys with expiration only in a random order.
+        - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
+        """
+        return pulumi.get(self, "eviction_policy")
 
 
-class AwaitableGetDatabasesEvictionPolicyResult(GetDatabasesEvictionPolicyResult):
+class AwaitableGetDatabasesEvictionPolicyProperties(GetDatabasesEvictionPolicyProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesEvictionPolicyResult(
-            items=self.items)
+        return GetDatabasesEvictionPolicyProperties(
+            eviction_policy=self.eviction_policy)
 
 
 def get_databases_eviction_policy(database_cluster_uuid: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesEvictionPolicyResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesEvictionPolicyProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +59,15 @@ def get_databases_eviction_policy(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesEvictionPolicy', __args__, opts=opts, typ=GetDatabasesEvictionPolicyResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesEvictionPolicy', __args__, opts=opts, typ=GetDatabasesEvictionPolicyProperties).value
 
-    return AwaitableGetDatabasesEvictionPolicyResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetDatabasesEvictionPolicyProperties(
+        eviction_policy=pulumi.get(__ret__, 'eviction_policy'))
 
 
 @_utilities.lift_output_func(get_databases_eviction_policy)
 def get_databases_eviction_policy_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesEvictionPolicyResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesEvictionPolicyProperties]:
     """
     Use this data source to access information about an existing resource.
 

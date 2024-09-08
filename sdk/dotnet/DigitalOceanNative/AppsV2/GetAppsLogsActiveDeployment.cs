@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsLogsActiveDeployment
     {
-        public static Task<GetAppsLogsActiveDeploymentResult> InvokeAsync(GetAppsLogsActiveDeploymentArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsLogsActiveDeploymentResult>("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", args ?? new GetAppsLogsActiveDeploymentArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsGetLogsResponse> InvokeAsync(GetAppsLogsActiveDeploymentArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", args ?? new GetAppsLogsActiveDeploymentArgs(), options.WithDefaults());
 
-        public static Output<GetAppsLogsActiveDeploymentResult> Invoke(GetAppsLogsActiveDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsLogsActiveDeploymentResult>("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", args ?? new GetAppsLogsActiveDeploymentInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsGetLogsResponse> Invoke(GetAppsLogsActiveDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", args ?? new GetAppsLogsActiveDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsLogsActiveDeploymentInvokeArgs Empty => new GetAppsLogsActiveDeploymentInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsLogsActiveDeploymentResult
-    {
-        public readonly Outputs.AppsGetLogsResponse Items;
-
-        [OutputConstructor]
-        private GetAppsLogsActiveDeploymentResult(Outputs.AppsGetLogsResponse items)
-        {
-            Items = items;
-        }
     }
 }

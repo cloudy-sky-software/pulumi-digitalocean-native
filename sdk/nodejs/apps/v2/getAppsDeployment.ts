@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAppsDeployment(args: GetAppsDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppsDeploymentResult> {
+export function getAppsDeployment(args: GetAppsDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsDeploymentResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsDeployment", {
@@ -26,11 +26,7 @@ export interface GetAppsDeploymentArgs {
      */
     deploymentId: string;
 }
-
-export interface GetAppsDeploymentResult {
-    readonly items: outputs.apps.v2.AppsDeploymentResponse;
-}
-export function getAppsDeploymentOutput(args: GetAppsDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsDeploymentResult> {
+export function getAppsDeploymentOutput(args: GetAppsDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsDeploymentResponse> {
     return pulumi.output(args).apply((a: any) => getAppsDeployment(a, opts))
 }
 

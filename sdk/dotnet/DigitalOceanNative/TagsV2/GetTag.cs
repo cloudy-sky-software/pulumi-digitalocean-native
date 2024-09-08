@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.TagsV2
 {
     public static class GetTag
     {
-        public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("digitalocean-native:tags/v2:getTag", args ?? new GetTagArgs(), options.WithDefaults());
+        public static Task<Outputs.GetTagProperties> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetTagProperties>("digitalocean-native:tags/v2:getTag", args ?? new GetTagArgs(), options.WithDefaults());
 
-        public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetTagResult>("digitalocean-native:tags/v2:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetTagProperties> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetTagProperties>("digitalocean-native:tags/v2:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.TagsV2
         {
         }
         public static new GetTagInvokeArgs Empty => new GetTagInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetTagResult
-    {
-        public readonly Outputs.GetTagProperties Items;
-
-        [OutputConstructor]
-        private GetTagResult(Outputs.GetTagProperties items)
-        {
-            Items = items;
-        }
     }
 }

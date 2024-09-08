@@ -13,10 +13,6 @@ from . import outputs
 __all__ = [
     'Domain',
     'DomainRecord',
-    'GetDomainProperties',
-    'GetDomainsRecordProperties',
-    'ListDomainsItems',
-    'ListDomainsRecordsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -220,93 +216,6 @@ class DomainRecord(dict):
         The weight for SRV records.
         """
         return pulumi.get(self, "weight")
-
-
-@pulumi.output_type
-class GetDomainProperties(dict):
-    def __init__(__self__, *,
-                 domain: Optional['outputs.Domain'] = None):
-        if domain is not None:
-            pulumi.set(__self__, "domain", domain)
-
-    @property
-    @pulumi.getter
-    def domain(self) -> Optional['outputs.Domain']:
-        return pulumi.get(self, "domain")
-
-
-@pulumi.output_type
-class GetDomainsRecordProperties(dict):
-    def __init__(__self__, *,
-                 domain_record: Optional['outputs.DomainRecord'] = None):
-        if domain_record is not None:
-            pulumi.set(__self__, "domain_record", domain_record)
-
-    @property
-    @pulumi.getter(name="domainRecord")
-    def domain_record(self) -> Optional['outputs.DomainRecord']:
-        return pulumi.get(self, "domain_record")
-
-
-@pulumi.output_type
-class ListDomainsItems(dict):
-    def __init__(__self__, *,
-                 domains: Sequence['outputs.Domain'],
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None):
-        """
-        :param Sequence['Domain'] domains: Array of volumes.
-        """
-        pulumi.set(__self__, "domains", domains)
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def domains(self) -> Sequence['outputs.Domain']:
-        """
-        Array of volumes.
-        """
-        return pulumi.get(self, "domains")
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDomainsRecordsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 domain_records: Optional[Sequence['outputs.DomainRecord']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if domain_records is not None:
-            pulumi.set(__self__, "domain_records", domain_records)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter(name="domainRecords")
-    def domain_records(self) -> Optional[Sequence['outputs.DomainRecord']]:
-        return pulumi.get(self, "domain_records")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

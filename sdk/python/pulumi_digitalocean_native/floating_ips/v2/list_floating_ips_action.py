@@ -6,42 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListFloatingIPsActionResult',
-    'AwaitableListFloatingIPsActionResult',
+    'ListFloatingIPsActionItems',
+    'AwaitableListFloatingIPsActionItems',
     'list_floating_ips_action',
     'list_floating_ips_action_output',
 ]
 
 @pulumi.output_type
-class ListFloatingIPsActionResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListFloatingIPsActionItems:
+    def __init__(__self__, actions=None, links=None, meta=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        pulumi.set(__self__, "actions", actions)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFloatingIPsActionItems':
-        return pulumi.get(self, "items")
+    def actions(self) -> Optional[Sequence['outputs.Action']]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListFloatingIPsActionResult(ListFloatingIPsActionResult):
+class AwaitableListFloatingIPsActionItems(ListFloatingIPsActionItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListFloatingIPsActionResult(
-            items=self.items)
+        return ListFloatingIPsActionItems(
+            actions=self.actions,
+            links=self.links,
+            meta=self.meta)
 
 
 def list_floating_ips_action(floating_ip: Optional[str] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFloatingIPsActionResult:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFloatingIPsActionItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +68,17 @@ def list_floating_ips_action(floating_ip: Optional[str] = None,
     __args__ = dict()
     __args__['floatingIp'] = floating_ip
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:floating_ips/v2:listFloatingIPsAction', __args__, opts=opts, typ=ListFloatingIPsActionResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:floating_ips/v2:listFloatingIPsAction', __args__, opts=opts, typ=ListFloatingIPsActionItems).value
 
-    return AwaitableListFloatingIPsActionResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListFloatingIPsActionItems(
+        actions=pulumi.get(__ret__, 'actions'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_floating_ips_action)
 def list_floating_ips_action_output(floating_ip: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFloatingIPsActionResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFloatingIPsActionItems]:
     """
     Use this data source to access information about an existing resource.
 

@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDatabasesConfigResult',
-    'AwaitableGetDatabasesConfigResult',
+    'DatabaseConfig',
+    'AwaitableDatabaseConfig',
     'get_databases_config',
     'get_databases_config_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesConfigResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class DatabaseConfig:
+    def __init__(__self__, config=None):
+        if config and not isinstance(config, dict):
+            raise TypeError("Expected argument 'config' to be a dict")
+        pulumi.set(__self__, "config", config)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.DatabaseConfig':
-        return pulumi.get(self, "items")
+    def config(self) -> Optional[Any]:
+        return pulumi.get(self, "config")
 
 
-class AwaitableGetDatabasesConfigResult(GetDatabasesConfigResult):
+class AwaitableDatabaseConfig(DatabaseConfig):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesConfigResult(
-            items=self.items)
+        return DatabaseConfig(
+            config=self.config)
 
 
 def get_databases_config(database_cluster_uuid: Optional[str] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesConfigResult:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableDatabaseConfig:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_databases_config(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesConfig', __args__, opts=opts, typ=GetDatabasesConfigResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesConfig', __args__, opts=opts, typ=DatabaseConfig).value
 
-    return AwaitableGetDatabasesConfigResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableDatabaseConfig(
+        config=pulumi.get(__ret__, 'config'))
 
 
 @_utilities.lift_output_func(get_databases_config)
 def get_databases_config_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesConfigResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[DatabaseConfig]:
     """
     Use this data source to access information about an existing resource.
 

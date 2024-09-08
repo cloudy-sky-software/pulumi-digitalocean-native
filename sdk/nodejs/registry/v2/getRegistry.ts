@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getRegistry(args?: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
+export function getRegistry(args?: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.GetRegistryProperties> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function getRegistry(args?: GetRegistryArgs, opts?: pulumi.InvokeOptions)
 
 export interface GetRegistryArgs {
 }
-
-export interface GetRegistryResult {
-    readonly items: outputs.registry.v2.GetRegistryProperties;
-}
-export function getRegistryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
+export function getRegistryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.GetRegistryProperties> {
     return pulumi.output(getRegistry(opts))
 }

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2
 {
     public static class GetCertificate
     {
-        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("digitalocean-native:certificates/v2:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
+        public static Task<Outputs.GetCertificateProperties> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetCertificateProperties>("digitalocean-native:certificates/v2:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
-        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("digitalocean-native:certificates/v2:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetCertificateProperties> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetCertificateProperties>("digitalocean-native:certificates/v2:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2
         {
         }
         public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetCertificateResult
-    {
-        public readonly Outputs.GetCertificateProperties Items;
-
-        [OutputConstructor]
-        private GetCertificateResult(Outputs.GetCertificateProperties items)
-        {
-            Items = items;
-        }
     }
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getFunctionsTrigger(args: GetFunctionsTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionsTriggerResult> {
+export function getFunctionsTrigger(args: GetFunctionsTriggerArgs, opts?: pulumi.InvokeOptions): Promise<outputs.functions.v2.GetFunctionsTriggerProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:functions/v2:getFunctionsTrigger", {
@@ -26,11 +26,7 @@ export interface GetFunctionsTriggerArgs {
      */
     triggerName: string;
 }
-
-export interface GetFunctionsTriggerResult {
-    readonly items: outputs.functions.v2.GetFunctionsTriggerProperties;
-}
-export function getFunctionsTriggerOutput(args: GetFunctionsTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionsTriggerResult> {
+export function getFunctionsTriggerOutput(args: GetFunctionsTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.GetFunctionsTriggerProperties> {
     return pulumi.output(args).apply((a: any) => getFunctionsTrigger(a, opts))
 }
 

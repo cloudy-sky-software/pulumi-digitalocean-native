@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<GetActionResult> {
+export function getAction(args: GetActionArgs, opts?: pulumi.InvokeOptions): Promise<outputs.actions.v2.GetActionProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:actions/v2:getAction", {
@@ -21,11 +21,7 @@ export interface GetActionArgs {
      */
     actionId: string;
 }
-
-export interface GetActionResult {
-    readonly items: outputs.actions.v2.GetActionProperties;
-}
-export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionResult> {
+export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.actions.v2.GetActionProperties> {
     return pulumi.output(args).apply((a: any) => getAction(a, opts))
 }
 

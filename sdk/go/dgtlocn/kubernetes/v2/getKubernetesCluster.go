@@ -27,7 +27,7 @@ type LookupKubernetesClusterArgs struct {
 }
 
 type LookupKubernetesClusterResult struct {
-	Items GetKubernetesClusterProperties `pulumi:"items"`
+	KubernetesCluster *Cluster `pulumi:"kubernetesCluster"`
 }
 
 // Defaults sets the appropriate defaults for LookupKubernetesClusterResult
@@ -36,7 +36,7 @@ func (val *LookupKubernetesClusterResult) Defaults() *LookupKubernetesClusterRes
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.KubernetesCluster = tmp.KubernetesCluster.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupKubernetesClusterResultOutput) ToLookupKubernetesClusterResultOutp
 	return o
 }
 
-func (o LookupKubernetesClusterResultOutput) Items() GetKubernetesClusterPropertiesOutput {
-	return o.ApplyT(func(v LookupKubernetesClusterResult) GetKubernetesClusterProperties { return v.Items }).(GetKubernetesClusterPropertiesOutput)
+func (o LookupKubernetesClusterResultOutput) KubernetesCluster() ClusterPtrOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) *Cluster { return v.KubernetesCluster }).(ClusterPtrOutput)
 }
 
 func init() {

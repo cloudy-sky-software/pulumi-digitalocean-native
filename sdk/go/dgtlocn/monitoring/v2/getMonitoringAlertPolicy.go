@@ -27,7 +27,7 @@ type LookupMonitoringAlertPolicyArgs struct {
 }
 
 type LookupMonitoringAlertPolicyResult struct {
-	Items GetMonitoringAlertPolicyProperties `pulumi:"items"`
+	Policy *AlertPolicy `pulumi:"policy"`
 }
 
 func LookupMonitoringAlertPolicyOutput(ctx *pulumi.Context, args LookupMonitoringAlertPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupMonitoringAlertPolicyResultOutput {
@@ -66,8 +66,8 @@ func (o LookupMonitoringAlertPolicyResultOutput) ToLookupMonitoringAlertPolicyRe
 	return o
 }
 
-func (o LookupMonitoringAlertPolicyResultOutput) Items() GetMonitoringAlertPolicyPropertiesOutput {
-	return o.ApplyT(func(v LookupMonitoringAlertPolicyResult) GetMonitoringAlertPolicyProperties { return v.Items }).(GetMonitoringAlertPolicyPropertiesOutput)
+func (o LookupMonitoringAlertPolicyResultOutput) Policy() AlertPolicyPtrOutput {
+	return o.ApplyT(func(v LookupMonitoringAlertPolicyResult) *AlertPolicy { return v.Policy }).(AlertPolicyPtrOutput)
 }
 
 func init() {

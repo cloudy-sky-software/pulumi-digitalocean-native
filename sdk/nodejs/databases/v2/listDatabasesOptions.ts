@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDatabasesOptions(args?: ListDatabasesOptionsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasesOptionsResult> {
+export function listDatabasesOptions(args?: ListDatabasesOptionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.Options> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listDatabasesOptions(args?: ListDatabasesOptionsArgs, opts?: pul
 
 export interface ListDatabasesOptionsArgs {
 }
-
-export interface ListDatabasesOptionsResult {
-    readonly items: outputs.databases.v2.Options;
-}
-export function listDatabasesOptionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasesOptionsResult> {
+export function listDatabasesOptionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.Options> {
     return pulumi.output(listDatabasesOptions(opts))
 }

@@ -27,7 +27,7 @@ type GetDatabasesConfigArgs struct {
 }
 
 type GetDatabasesConfigResult struct {
-	Items DatabaseConfig `pulumi:"items"`
+	Config interface{} `pulumi:"config"`
 }
 
 func GetDatabasesConfigOutput(ctx *pulumi.Context, args GetDatabasesConfigOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesConfigResultOutput {
@@ -66,8 +66,8 @@ func (o GetDatabasesConfigResultOutput) ToGetDatabasesConfigResultOutputWithCont
 	return o
 }
 
-func (o GetDatabasesConfigResultOutput) Items() DatabaseConfigOutput {
-	return o.ApplyT(func(v GetDatabasesConfigResult) DatabaseConfig { return v.Items }).(DatabaseConfigOutput)
+func (o GetDatabasesConfigResultOutput) Config() pulumi.AnyOutput {
+	return o.ApplyT(func(v GetDatabasesConfigResult) interface{} { return v.Config }).(pulumi.AnyOutput)
 }
 
 func init() {

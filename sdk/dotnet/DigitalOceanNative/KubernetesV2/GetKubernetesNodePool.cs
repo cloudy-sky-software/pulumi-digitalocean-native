@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class GetKubernetesNodePool
     {
-        public static Task<GetKubernetesNodePoolResult> InvokeAsync(GetKubernetesNodePoolArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesNodePoolResult>("digitalocean-native:kubernetes/v2:getKubernetesNodePool", args ?? new GetKubernetesNodePoolArgs(), options.WithDefaults());
+        public static Task<Outputs.GetKubernetesNodePoolProperties> InvokeAsync(GetKubernetesNodePoolArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetKubernetesNodePoolProperties>("digitalocean-native:kubernetes/v2:getKubernetesNodePool", args ?? new GetKubernetesNodePoolArgs(), options.WithDefaults());
 
-        public static Output<GetKubernetesNodePoolResult> Invoke(GetKubernetesNodePoolInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolResult>("digitalocean-native:kubernetes/v2:getKubernetesNodePool", args ?? new GetKubernetesNodePoolInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetKubernetesNodePoolProperties> Invoke(GetKubernetesNodePoolInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetKubernetesNodePoolProperties>("digitalocean-native:kubernetes/v2:getKubernetesNodePool", args ?? new GetKubernetesNodePoolInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new GetKubernetesNodePoolInvokeArgs Empty => new GetKubernetesNodePoolInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetKubernetesNodePoolResult
-    {
-        public readonly Outputs.GetKubernetesNodePoolProperties Items;
-
-        [OutputConstructor]
-        private GetKubernetesNodePoolResult(Outputs.GetKubernetesNodePoolProperties items)
-        {
-            Items = items;
-        }
     }
 }

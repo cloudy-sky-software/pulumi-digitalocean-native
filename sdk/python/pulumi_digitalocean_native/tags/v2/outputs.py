@@ -12,8 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetTagProperties',
-    'ListTagsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -22,55 +20,6 @@ __all__ = [
     'Tags',
     'TagsResources',
 ]
-
-@pulumi.output_type
-class GetTagProperties(dict):
-    def __init__(__self__, *,
-                 tag: Optional['outputs.Tags'] = None):
-        """
-        :param 'Tags' tag: A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
-               Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-        """
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
-
-    @property
-    @pulumi.getter
-    def tag(self) -> Optional['outputs.Tags']:
-        """
-        A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
-        Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
-        """
-        return pulumi.get(self, "tag")
-
-
-@pulumi.output_type
-class ListTagsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 tags: Optional[Sequence['outputs.Tags']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.Tags']]:
-        return pulumi.get(self, "tags")
-
 
 @pulumi.output_type
 class MetaMeta(dict):

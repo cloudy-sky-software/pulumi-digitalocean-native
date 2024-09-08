@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
 {
     public static class ListFloatingIPsAction
     {
-        public static Task<ListFloatingIPsActionResult> InvokeAsync(ListFloatingIPsActionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFloatingIPsActionResult>("digitalocean-native:floating_ips/v2:listFloatingIPsAction", args ?? new ListFloatingIPsActionArgs(), options.WithDefaults());
+        public static Task<Outputs.ListFloatingIPsActionItems> InvokeAsync(ListFloatingIPsActionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListFloatingIPsActionItems>("digitalocean-native:floating_ips/v2:listFloatingIPsAction", args ?? new ListFloatingIPsActionArgs(), options.WithDefaults());
 
-        public static Output<ListFloatingIPsActionResult> Invoke(ListFloatingIPsActionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListFloatingIPsActionResult>("digitalocean-native:floating_ips/v2:listFloatingIPsAction", args ?? new ListFloatingIPsActionInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListFloatingIPsActionItems> Invoke(ListFloatingIPsActionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFloatingIPsActionItems>("digitalocean-native:floating_ips/v2:listFloatingIPsAction", args ?? new ListFloatingIPsActionInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
         {
         }
         public static new ListFloatingIPsActionInvokeArgs Empty => new ListFloatingIPsActionInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListFloatingIPsActionResult
-    {
-        public readonly Outputs.ListFloatingIPsActionItems Items;
-
-        [OutputConstructor]
-        private ListFloatingIPsActionResult(Outputs.ListFloatingIPsActionItems items)
-        {
-            Items = items;
-        }
     }
 }

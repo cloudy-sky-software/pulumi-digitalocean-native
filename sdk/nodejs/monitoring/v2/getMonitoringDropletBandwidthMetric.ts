@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getMonitoringDropletBandwidthMetric(args?: GetMonitoringDropletBandwidthMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringDropletBandwidthMetricResult> {
+export function getMonitoringDropletBandwidthMetric(args?: GetMonitoringDropletBandwidthMetricArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.Metrics> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function getMonitoringDropletBandwidthMetric(args?: GetMonitoringDropletB
 
 export interface GetMonitoringDropletBandwidthMetricArgs {
 }
-
-export interface GetMonitoringDropletBandwidthMetricResult {
-    readonly items: outputs.monitoring.v2.Metrics;
-}
-export function getMonitoringDropletBandwidthMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringDropletBandwidthMetricResult> {
+export function getMonitoringDropletBandwidthMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     return pulumi.output(getMonitoringDropletBandwidthMetric(opts))
 }

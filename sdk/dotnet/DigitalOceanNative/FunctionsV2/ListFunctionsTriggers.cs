@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
 {
     public static class ListFunctionsTriggers
     {
-        public static Task<ListFunctionsTriggersResult> InvokeAsync(ListFunctionsTriggersArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFunctionsTriggersResult>("digitalocean-native:functions/v2:listFunctionsTriggers", args ?? new ListFunctionsTriggersArgs(), options.WithDefaults());
+        public static Task<Outputs.ListFunctionsTriggersItems> InvokeAsync(ListFunctionsTriggersArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListFunctionsTriggersItems>("digitalocean-native:functions/v2:listFunctionsTriggers", args ?? new ListFunctionsTriggersArgs(), options.WithDefaults());
 
-        public static Output<ListFunctionsTriggersResult> Invoke(ListFunctionsTriggersInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListFunctionsTriggersResult>("digitalocean-native:functions/v2:listFunctionsTriggers", args ?? new ListFunctionsTriggersInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListFunctionsTriggersItems> Invoke(ListFunctionsTriggersInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFunctionsTriggersItems>("digitalocean-native:functions/v2:listFunctionsTriggers", args ?? new ListFunctionsTriggersInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
         {
         }
         public static new ListFunctionsTriggersInvokeArgs Empty => new ListFunctionsTriggersInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListFunctionsTriggersResult
-    {
-        public readonly Outputs.ListFunctionsTriggersItems Items;
-
-        [OutputConstructor]
-        private ListFunctionsTriggersResult(Outputs.ListFunctionsTriggersItems items)
-        {
-            Items = items;
-        }
     }
 }

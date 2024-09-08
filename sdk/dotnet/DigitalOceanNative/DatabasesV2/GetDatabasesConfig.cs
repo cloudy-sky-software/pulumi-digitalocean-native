@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class GetDatabasesConfig
     {
-        public static Task<GetDatabasesConfigResult> InvokeAsync(GetDatabasesConfigArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesConfigResult>("digitalocean-native:databases/v2:getDatabasesConfig", args ?? new GetDatabasesConfigArgs(), options.WithDefaults());
+        public static Task<Outputs.DatabaseConfig> InvokeAsync(GetDatabasesConfigArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.DatabaseConfig>("digitalocean-native:databases/v2:getDatabasesConfig", args ?? new GetDatabasesConfigArgs(), options.WithDefaults());
 
-        public static Output<GetDatabasesConfigResult> Invoke(GetDatabasesConfigInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesConfigResult>("digitalocean-native:databases/v2:getDatabasesConfig", args ?? new GetDatabasesConfigInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.DatabaseConfig> Invoke(GetDatabasesConfigInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.DatabaseConfig>("digitalocean-native:databases/v2:getDatabasesConfig", args ?? new GetDatabasesConfigInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new GetDatabasesConfigInvokeArgs Empty => new GetDatabasesConfigInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDatabasesConfigResult
-    {
-        public readonly Outputs.DatabaseConfig Items;
-
-        [OutputConstructor]
-        private GetDatabasesConfigResult(Outputs.DatabaseConfig items)
-        {
-            Items = items;
-        }
     }
 }

@@ -15,22 +15,22 @@ export type FunctionsTrigger = import("./functionsTrigger").FunctionsTrigger;
 export const FunctionsTrigger: typeof import("./functionsTrigger").FunctionsTrigger = null as any;
 utilities.lazyLoad(exports, ["FunctionsTrigger"], () => require("./functionsTrigger"));
 
-export { GetFunctionsNamespaceArgs, GetFunctionsNamespaceResult, GetFunctionsNamespaceOutputArgs } from "./getFunctionsNamespace";
+export { GetFunctionsNamespaceArgs, GetFunctionsNamespaceOutputArgs } from "./getFunctionsNamespace";
 export const getFunctionsNamespace: typeof import("./getFunctionsNamespace").getFunctionsNamespace = null as any;
 export const getFunctionsNamespaceOutput: typeof import("./getFunctionsNamespace").getFunctionsNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctionsNamespace","getFunctionsNamespaceOutput"], () => require("./getFunctionsNamespace"));
 
-export { GetFunctionsTriggerArgs, GetFunctionsTriggerResult, GetFunctionsTriggerOutputArgs } from "./getFunctionsTrigger";
+export { GetFunctionsTriggerArgs, GetFunctionsTriggerOutputArgs } from "./getFunctionsTrigger";
 export const getFunctionsTrigger: typeof import("./getFunctionsTrigger").getFunctionsTrigger = null as any;
 export const getFunctionsTriggerOutput: typeof import("./getFunctionsTrigger").getFunctionsTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctionsTrigger","getFunctionsTriggerOutput"], () => require("./getFunctionsTrigger"));
 
-export { ListFunctionsNamespacesArgs, ListFunctionsNamespacesResult } from "./listFunctionsNamespaces";
+export { ListFunctionsNamespacesArgs } from "./listFunctionsNamespaces";
 export const listFunctionsNamespaces: typeof import("./listFunctionsNamespaces").listFunctionsNamespaces = null as any;
 export const listFunctionsNamespacesOutput: typeof import("./listFunctionsNamespaces").listFunctionsNamespacesOutput = null as any;
 utilities.lazyLoad(exports, ["listFunctionsNamespaces","listFunctionsNamespacesOutput"], () => require("./listFunctionsNamespaces"));
 
-export { ListFunctionsTriggersArgs, ListFunctionsTriggersResult, ListFunctionsTriggersOutputArgs } from "./listFunctionsTriggers";
+export { ListFunctionsTriggersArgs, ListFunctionsTriggersOutputArgs } from "./listFunctionsTriggers";
 export const listFunctionsTriggers: typeof import("./listFunctionsTriggers").listFunctionsTriggers = null as any;
 export const listFunctionsTriggersOutput: typeof import("./listFunctionsTriggers").listFunctionsTriggersOutput = null as any;
 utilities.lazyLoad(exports, ["listFunctionsTriggers","listFunctionsTriggersOutput"], () => require("./listFunctionsTriggers"));

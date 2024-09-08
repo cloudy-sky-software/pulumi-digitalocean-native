@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletLoad5Metric
     {
-        public static Task<GetMonitoringDropletLoad5MetricResult> InvokeAsync(GetMonitoringDropletLoad5MetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletLoad5MetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", args ?? new GetMonitoringDropletLoad5MetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletLoad5MetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", args ?? new GetMonitoringDropletLoad5MetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletLoad5MetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletLoad5MetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletLoad5MetricArgs Empty => new GetMonitoringDropletLoad5MetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletLoad5MetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletLoad5MetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

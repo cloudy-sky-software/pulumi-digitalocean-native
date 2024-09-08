@@ -5,27 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetUptimeAlertArgs, GetUptimeAlertResult, GetUptimeAlertOutputArgs } from "./getUptimeAlert";
+export { GetUptimeAlertArgs, GetUptimeAlertOutputArgs } from "./getUptimeAlert";
 export const getUptimeAlert: typeof import("./getUptimeAlert").getUptimeAlert = null as any;
 export const getUptimeAlertOutput: typeof import("./getUptimeAlert").getUptimeAlertOutput = null as any;
 utilities.lazyLoad(exports, ["getUptimeAlert","getUptimeAlertOutput"], () => require("./getUptimeAlert"));
 
-export { GetUptimeCheckArgs, GetUptimeCheckResult, GetUptimeCheckOutputArgs } from "./getUptimeCheck";
+export { GetUptimeCheckArgs, GetUptimeCheckOutputArgs } from "./getUptimeCheck";
 export const getUptimeCheck: typeof import("./getUptimeCheck").getUptimeCheck = null as any;
 export const getUptimeCheckOutput: typeof import("./getUptimeCheck").getUptimeCheckOutput = null as any;
 utilities.lazyLoad(exports, ["getUptimeCheck","getUptimeCheckOutput"], () => require("./getUptimeCheck"));
 
-export { GetUptimeCheckStateArgs, GetUptimeCheckStateResult, GetUptimeCheckStateOutputArgs } from "./getUptimeCheckState";
+export { GetUptimeCheckStateArgs, GetUptimeCheckStateOutputArgs } from "./getUptimeCheckState";
 export const getUptimeCheckState: typeof import("./getUptimeCheckState").getUptimeCheckState = null as any;
 export const getUptimeCheckStateOutput: typeof import("./getUptimeCheckState").getUptimeCheckStateOutput = null as any;
 utilities.lazyLoad(exports, ["getUptimeCheckState","getUptimeCheckStateOutput"], () => require("./getUptimeCheckState"));
 
-export { ListUptimeAlertsArgs, ListUptimeAlertsResult, ListUptimeAlertsOutputArgs } from "./listUptimeAlerts";
+export { ListUptimeAlertsArgs, ListUptimeAlertsOutputArgs } from "./listUptimeAlerts";
 export const listUptimeAlerts: typeof import("./listUptimeAlerts").listUptimeAlerts = null as any;
 export const listUptimeAlertsOutput: typeof import("./listUptimeAlerts").listUptimeAlertsOutput = null as any;
 utilities.lazyLoad(exports, ["listUptimeAlerts","listUptimeAlertsOutput"], () => require("./listUptimeAlerts"));
 
-export { ListUptimeChecksArgs, ListUptimeChecksResult } from "./listUptimeChecks";
+export { ListUptimeChecksArgs } from "./listUptimeChecks";
 export const listUptimeChecks: typeof import("./listUptimeChecks").listUptimeChecks = null as any;
 export const listUptimeChecksOutput: typeof import("./listUptimeChecks").listUptimeChecksOutput = null as any;
 utilities.lazyLoad(exports, ["listUptimeChecks","listUptimeChecksOutput"], () => require("./listUptimeChecks"));

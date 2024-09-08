@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDroplets(args?: ListDropletsArgs, opts?: pulumi.InvokeOptions): Promise<ListDropletsResult> {
+export function listDroplets(args?: ListDropletsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.droplets.v2.ListDropletsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listDroplets(args?: ListDropletsArgs, opts?: pulumi.InvokeOption
 
 export interface ListDropletsArgs {
 }
-
-export interface ListDropletsResult {
-    readonly items: outputs.droplets.v2.ListDropletsItems;
-}
-export function listDropletsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsResult> {
+export function listDropletsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.ListDropletsItems> {
     return pulumi.output(listDroplets(opts))
 }

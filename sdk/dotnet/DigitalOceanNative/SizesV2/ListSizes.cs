@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SizesV2
 {
     public static class ListSizes
     {
-        public static Task<ListSizesResult> InvokeAsync(ListSizesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSizesResult>("digitalocean-native:sizes/v2:listSizes", args ?? new ListSizesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListSizesItems> InvokeAsync(ListSizesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListSizesItems>("digitalocean-native:sizes/v2:listSizes", args ?? new ListSizesArgs(), options.WithDefaults());
 
-        public static Output<ListSizesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListSizesResult>("digitalocean-native:sizes/v2:listSizes", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListSizesItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSizesItems>("digitalocean-native:sizes/v2:listSizes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SizesV2
         {
         }
         public static new ListSizesArgs Empty => new ListSizesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListSizesResult
-    {
-        public readonly Outputs.ListSizesItems Items;
-
-        [OutputConstructor]
-        private ListSizesResult(Outputs.ListSizesItems items)
-        {
-            Items = items;
-        }
     }
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getCdnEndpoint(args: GetCdnEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCdnEndpointResult> {
+export function getCdnEndpoint(args: GetCdnEndpointArgs, opts?: pulumi.InvokeOptions): Promise<outputs.cdn.v2.GetCdnEndpointProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:cdn/v2:getCdnEndpoint", {
@@ -21,11 +21,7 @@ export interface GetCdnEndpointArgs {
      */
     cdnId: string;
 }
-
-export interface GetCdnEndpointResult {
-    readonly items: outputs.cdn.v2.GetCdnEndpointProperties;
-}
-export function getCdnEndpointOutput(args: GetCdnEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCdnEndpointResult> {
+export function getCdnEndpointOutput(args: GetCdnEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.cdn.v2.GetCdnEndpointProperties> {
     return pulumi.output(args).apply((a: any) => getCdnEndpoint(a, opts))
 }
 

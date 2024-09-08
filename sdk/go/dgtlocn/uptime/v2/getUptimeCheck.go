@@ -27,7 +27,7 @@ type LookupUptimeCheckArgs struct {
 }
 
 type LookupUptimeCheckResult struct {
-	Items GetUptimeCheckProperties `pulumi:"items"`
+	Check *Check `pulumi:"check"`
 }
 
 // Defaults sets the appropriate defaults for LookupUptimeCheckResult
@@ -36,7 +36,7 @@ func (val *LookupUptimeCheckResult) Defaults() *LookupUptimeCheckResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Check = tmp.Check.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupUptimeCheckResultOutput) ToLookupUptimeCheckResultOutputWithContex
 	return o
 }
 
-func (o LookupUptimeCheckResultOutput) Items() GetUptimeCheckPropertiesOutput {
-	return o.ApplyT(func(v LookupUptimeCheckResult) GetUptimeCheckProperties { return v.Items }).(GetUptimeCheckPropertiesOutput)
+func (o LookupUptimeCheckResultOutput) Check() CheckPtrOutput {
+	return o.ApplyT(func(v LookupUptimeCheckResult) *Check { return v.Check }).(CheckPtrOutput)
 }
 
 func init() {

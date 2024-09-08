@@ -6,53 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListAppsRegionsResult',
-    'AwaitableListAppsRegionsResult',
+    'AppsListRegionsResponse',
+    'AwaitableAppsListRegionsResponse',
     'list_apps_regions',
     'list_apps_regions_output',
 ]
 
 @pulumi.output_type
-class ListAppsRegionsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppsListRegionsResponse:
+    def __init__(__self__, regions=None):
+        if regions and not isinstance(regions, list):
+            raise TypeError("Expected argument 'regions' to be a list")
+        pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AppsListRegionsResponse':
-        return pulumi.get(self, "items")
+    def regions(self) -> Optional[Sequence['outputs.AppsRegion']]:
+        return pulumi.get(self, "regions")
 
 
-class AwaitableListAppsRegionsResult(ListAppsRegionsResult):
+class AwaitableAppsListRegionsResponse(AppsListRegionsResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListAppsRegionsResult(
-            items=self.items)
+        return AppsListRegionsResponse(
+            regions=self.regions)
 
 
-def list_apps_regions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppsRegionsResult:
+def list_apps_regions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppsListRegionsResponse:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:listAppsRegions', __args__, opts=opts, typ=ListAppsRegionsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:listAppsRegions', __args__, opts=opts, typ=AppsListRegionsResponse).value
 
-    return AwaitableListAppsRegionsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppsListRegionsResponse(
+        regions=pulumi.get(__ret__, 'regions'))
 
 
 @_utilities.lift_output_func(list_apps_regions)
-def list_apps_regions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAppsRegionsResult]:
+def list_apps_regions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListRegionsResponse]:
     """
     Use this data source to access information about an existing resource.
     """

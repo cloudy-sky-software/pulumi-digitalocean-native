@@ -6,53 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListOneClicksResult',
-    'AwaitableListOneClicksResult',
+    'ListOneClicksProperties',
+    'AwaitableListOneClicksProperties',
     'list_one_clicks',
     'list_one_clicks_output',
 ]
 
 @pulumi.output_type
-class ListOneClicksResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListOneClicksProperties:
+    def __init__(__self__, _1_clicks=None):
+        if _1_clicks and not isinstance(_1_clicks, list):
+            raise TypeError("Expected argument '_1_clicks' to be a list")
+        pulumi.set(__self__, "_1_clicks", _1_clicks)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.ListOneClicksProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="_1Clicks")
+    def _1_clicks(self) -> Optional[Sequence['outputs.OneClicks']]:
+        return pulumi.get(self, "_1_clicks")
 
 
-class AwaitableListOneClicksResult(ListOneClicksResult):
+class AwaitableListOneClicksProperties(ListOneClicksProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListOneClicksResult(
-            items=self.items)
+        return ListOneClicksProperties(
+            _1_clicks=self._1_clicks)
 
 
-def list_one_clicks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOneClicksResult:
+def list_one_clicks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOneClicksProperties:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:1-clicks/v2:listOneClicks', __args__, opts=opts, typ=ListOneClicksResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:1-clicks/v2:listOneClicks', __args__, opts=opts, typ=ListOneClicksProperties).value
 
-    return AwaitableListOneClicksResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListOneClicksProperties(
+        _1_clicks=pulumi.get(__ret__, '_1_clicks'))
 
 
 @_utilities.lift_output_func(list_one_clicks)
-def list_one_clicks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOneClicksResult]:
+def list_one_clicks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOneClicksProperties]:
     """
     Use this data source to access information about an existing resource.
     """

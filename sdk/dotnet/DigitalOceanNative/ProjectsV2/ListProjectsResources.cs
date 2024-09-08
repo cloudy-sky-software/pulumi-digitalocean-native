@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
 {
     public static class ListProjectsResources
     {
-        public static Task<ListProjectsResourcesResult> InvokeAsync(ListProjectsResourcesArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListProjectsResourcesResult>("digitalocean-native:projects/v2:listProjectsResources", args ?? new ListProjectsResourcesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListProjectsResourcesItems> InvokeAsync(ListProjectsResourcesArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListProjectsResourcesItems>("digitalocean-native:projects/v2:listProjectsResources", args ?? new ListProjectsResourcesArgs(), options.WithDefaults());
 
-        public static Output<ListProjectsResourcesResult> Invoke(ListProjectsResourcesInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListProjectsResourcesResult>("digitalocean-native:projects/v2:listProjectsResources", args ?? new ListProjectsResourcesInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListProjectsResourcesItems> Invoke(ListProjectsResourcesInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListProjectsResourcesItems>("digitalocean-native:projects/v2:listProjectsResources", args ?? new ListProjectsResourcesInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
         {
         }
         public static new ListProjectsResourcesInvokeArgs Empty => new ListProjectsResourcesInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListProjectsResourcesResult
-    {
-        public readonly Outputs.ListProjectsResourcesItems Items;
-
-        [OutputConstructor]
-        private ListProjectsResourcesResult(Outputs.ListProjectsResourcesItems items)
-        {
-            Items = items;
-        }
     }
 }

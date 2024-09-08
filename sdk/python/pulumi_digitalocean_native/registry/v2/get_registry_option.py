@@ -6,54 +6,54 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetRegistryOptionResult',
-    'AwaitableGetRegistryOptionResult',
+    'GetRegistryOptionProperties',
+    'AwaitableGetRegistryOptionProperties',
     'get_registry_option',
     'get_registry_option_output',
 ]
 
 @pulumi.output_type
-class GetRegistryOptionResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetRegistryOptionProperties:
+    def __init__(__self__, options=None):
+        if options and not isinstance(options, dict):
+            raise TypeError("Expected argument 'options' to be a dict")
+        pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetRegistryOptionProperties':
-        return pulumi.get(self, "items")
+    def options(self) -> Optional['outputs.GetRegistryOptionPropertiesOptionsProperties']:
+        return pulumi.get(self, "options")
 
 
-class AwaitableGetRegistryOptionResult(GetRegistryOptionResult):
+class AwaitableGetRegistryOptionProperties(GetRegistryOptionProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetRegistryOptionResult(
-            items=self.items)
+        return GetRegistryOptionProperties(
+            options=self.options)
 
 
-def get_registry_option(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryOptionResult:
+def get_registry_option(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryOptionProperties:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:getRegistryOption', __args__, opts=opts, typ=GetRegistryOptionResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:getRegistryOption', __args__, opts=opts, typ=GetRegistryOptionProperties).value
 
-    return AwaitableGetRegistryOptionResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetRegistryOptionProperties(
+        options=pulumi.get(__ret__, 'options'))
 
 
 @_utilities.lift_output_func(get_registry_option)
-def get_registry_option_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryOptionResult]:
+def get_registry_option_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryOptionProperties]:
     """
     Use this data source to access information about an existing resource.
     """

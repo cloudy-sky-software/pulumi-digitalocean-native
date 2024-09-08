@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
 {
     public static class ListProjects
     {
-        public static Task<ListProjectsResult> InvokeAsync(ListProjectsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListProjectsResult>("digitalocean-native:projects/v2:listProjects", args ?? new ListProjectsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListProjectsItems> InvokeAsync(ListProjectsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListProjectsItems>("digitalocean-native:projects/v2:listProjects", args ?? new ListProjectsArgs(), options.WithDefaults());
 
-        public static Output<ListProjectsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListProjectsResult>("digitalocean-native:projects/v2:listProjects", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListProjectsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListProjectsItems>("digitalocean-native:projects/v2:listProjects", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
         {
         }
         public static new ListProjectsArgs Empty => new ListProjectsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListProjectsResult
-    {
-        public readonly Outputs.ListProjectsItems Items;
-
-        [OutputConstructor]
-        private ListProjectsResult(Outputs.ListProjectsItems items)
-        {
-            Items = items;
-        }
     }
 }

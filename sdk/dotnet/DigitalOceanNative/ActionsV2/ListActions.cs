@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ActionsV2
 {
     public static class ListActions
     {
-        public static Task<ListActionsResult> InvokeAsync(ListActionsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListActionsResult>("digitalocean-native:actions/v2:listActions", args ?? new ListActionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListActionsItems> InvokeAsync(ListActionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListActionsItems>("digitalocean-native:actions/v2:listActions", args ?? new ListActionsArgs(), options.WithDefaults());
 
-        public static Output<ListActionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListActionsResult>("digitalocean-native:actions/v2:listActions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListActionsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListActionsItems>("digitalocean-native:actions/v2:listActions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ActionsV2
         {
         }
         public static new ListActionsArgs Empty => new ListActionsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListActionsResult
-    {
-        public readonly Outputs.ListActionsItems Items;
-
-        [OutputConstructor]
-        private ListActionsResult(Outputs.ListActionsItems items)
-        {
-            Items = items;
-        }
     }
 }

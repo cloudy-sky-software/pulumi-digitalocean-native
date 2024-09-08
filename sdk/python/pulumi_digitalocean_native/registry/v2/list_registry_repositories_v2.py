@@ -6,41 +6,59 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListRegistryRepositoriesV2Result',
-    'AwaitableListRegistryRepositoriesV2Result',
+    'ListRegistryRepositoriesV2Items',
+    'AwaitableListRegistryRepositoriesV2Items',
     'list_registry_repositories_v2',
     'list_registry_repositories_v2_output',
 ]
 
 @pulumi.output_type
-class ListRegistryRepositoriesV2Result:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListRegistryRepositoriesV2Items:
+    def __init__(__self__, links=None, meta=None, repositories=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if repositories and not isinstance(repositories, list):
+            raise TypeError("Expected argument 'repositories' to be a list")
+        pulumi.set(__self__, "repositories", repositories)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegistryRepositoriesV2Items':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[Sequence['outputs.RepositoryV2']]:
+        return pulumi.get(self, "repositories")
 
 
-class AwaitableListRegistryRepositoriesV2Result(ListRegistryRepositoriesV2Result):
+class AwaitableListRegistryRepositoriesV2Items(ListRegistryRepositoriesV2Items):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListRegistryRepositoriesV2Result(
-            items=self.items)
+        return ListRegistryRepositoriesV2Items(
+            links=self.links,
+            meta=self.meta,
+            repositories=self.repositories)
 
 
 def list_registry_repositories_v2(registry_name: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryRepositoriesV2Result:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryRepositoriesV2Items:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +67,17 @@ def list_registry_repositories_v2(registry_name: Optional[str] = None,
     __args__ = dict()
     __args__['registryName'] = registry_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:listRegistryRepositoriesV2', __args__, opts=opts, typ=ListRegistryRepositoriesV2Result).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:listRegistryRepositoriesV2', __args__, opts=opts, typ=ListRegistryRepositoriesV2Items).value
 
-    return AwaitableListRegistryRepositoriesV2Result(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListRegistryRepositoriesV2Items(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        repositories=pulumi.get(__ret__, 'repositories'))
 
 
 @_utilities.lift_output_func(list_registry_repositories_v2)
 def list_registry_repositories_v2_output(registry_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoriesV2Result]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoriesV2Items]:
     """
     Use this data source to access information about an existing resource.
 

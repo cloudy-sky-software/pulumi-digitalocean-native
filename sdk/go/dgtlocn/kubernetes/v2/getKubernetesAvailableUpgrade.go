@@ -27,7 +27,7 @@ type GetKubernetesAvailableUpgradeArgs struct {
 }
 
 type GetKubernetesAvailableUpgradeResult struct {
-	Items GetKubernetesAvailableUpgradeProperties `pulumi:"items"`
+	AvailableUpgradeVersions []KubernetesVersion `pulumi:"availableUpgradeVersions"`
 }
 
 func GetKubernetesAvailableUpgradeOutput(ctx *pulumi.Context, args GetKubernetesAvailableUpgradeOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesAvailableUpgradeResultOutput {
@@ -66,8 +66,8 @@ func (o GetKubernetesAvailableUpgradeResultOutput) ToGetKubernetesAvailableUpgra
 	return o
 }
 
-func (o GetKubernetesAvailableUpgradeResultOutput) Items() GetKubernetesAvailableUpgradePropertiesOutput {
-	return o.ApplyT(func(v GetKubernetesAvailableUpgradeResult) GetKubernetesAvailableUpgradeProperties { return v.Items }).(GetKubernetesAvailableUpgradePropertiesOutput)
+func (o GetKubernetesAvailableUpgradeResultOutput) AvailableUpgradeVersions() KubernetesVersionArrayOutput {
+	return o.ApplyT(func(v GetKubernetesAvailableUpgradeResult) []KubernetesVersion { return v.AvailableUpgradeVersions }).(KubernetesVersionArrayOutput)
 }
 
 func init() {

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getKubernetesAvailableUpgrade(args: GetKubernetesAvailableUpgradeArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesAvailableUpgradeResult> {
+export function getKubernetesAvailableUpgrade(args: GetKubernetesAvailableUpgradeArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.GetKubernetesAvailableUpgradeProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", {
@@ -21,11 +21,7 @@ export interface GetKubernetesAvailableUpgradeArgs {
      */
     clusterId: string;
 }
-
-export interface GetKubernetesAvailableUpgradeResult {
-    readonly items: outputs.kubernetes.v2.GetKubernetesAvailableUpgradeProperties;
-}
-export function getKubernetesAvailableUpgradeOutput(args: GetKubernetesAvailableUpgradeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesAvailableUpgradeResult> {
+export function getKubernetesAvailableUpgradeOutput(args: GetKubernetesAvailableUpgradeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.GetKubernetesAvailableUpgradeProperties> {
     return pulumi.output(args).apply((a: any) => getKubernetesAvailableUpgrade(a, opts))
 }
 

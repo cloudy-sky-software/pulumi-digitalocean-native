@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listFunctionsNamespaces(args?: ListFunctionsNamespacesArgs, opts?: pulumi.InvokeOptions): Promise<ListFunctionsNamespacesResult> {
+export function listFunctionsNamespaces(args?: ListFunctionsNamespacesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.functions.v2.ListFunctionsNamespacesItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listFunctionsNamespaces(args?: ListFunctionsNamespacesArgs, opts
 
 export interface ListFunctionsNamespacesArgs {
 }
-
-export interface ListFunctionsNamespacesResult {
-    readonly items: outputs.functions.v2.ListFunctionsNamespacesItems;
-}
-export function listFunctionsNamespacesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListFunctionsNamespacesResult> {
+export function listFunctionsNamespacesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.ListFunctionsNamespacesItems> {
     return pulumi.output(listFunctionsNamespaces(opts))
 }

@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetFunctionsNamespaceResult',
-    'AwaitableGetFunctionsNamespaceResult',
+    'GetFunctionsNamespaceProperties',
+    'AwaitableGetFunctionsNamespaceProperties',
     'get_functions_namespace',
     'get_functions_namespace_output',
 ]
 
 @pulumi.output_type
-class GetFunctionsNamespaceResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetFunctionsNamespaceProperties:
+    def __init__(__self__, namespace=None):
+        if namespace and not isinstance(namespace, dict):
+            raise TypeError("Expected argument 'namespace' to be a dict")
+        pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetFunctionsNamespaceProperties':
-        return pulumi.get(self, "items")
+    def namespace(self) -> Optional['outputs.NamespaceInfo']:
+        return pulumi.get(self, "namespace")
 
 
-class AwaitableGetFunctionsNamespaceResult(GetFunctionsNamespaceResult):
+class AwaitableGetFunctionsNamespaceProperties(GetFunctionsNamespaceProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetFunctionsNamespaceResult(
-            items=self.items)
+        return GetFunctionsNamespaceProperties(
+            namespace=self.namespace)
 
 
 def get_functions_namespace(namespace_id: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsNamespaceResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsNamespaceProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_functions_namespace(namespace_id: Optional[str] = None,
     __args__ = dict()
     __args__['namespaceId'] = namespace_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:getFunctionsNamespace', __args__, opts=opts, typ=GetFunctionsNamespaceResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:getFunctionsNamespace', __args__, opts=opts, typ=GetFunctionsNamespaceProperties).value
 
-    return AwaitableGetFunctionsNamespaceResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetFunctionsNamespaceProperties(
+        namespace=pulumi.get(__ret__, 'namespace'))
 
 
 @_utilities.lift_output_func(get_functions_namespace)
 def get_functions_namespace_output(namespace_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsNamespaceResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsNamespaceProperties]:
     """
     Use this data source to access information about an existing resource.
 

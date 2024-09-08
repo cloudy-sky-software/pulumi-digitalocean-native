@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class GetKubernetesCredential
     {
-        public static Task<GetKubernetesCredentialResult> InvokeAsync(GetKubernetesCredentialArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesCredentialResult>("digitalocean-native:kubernetes/v2:getKubernetesCredential", args ?? new GetKubernetesCredentialArgs(), options.WithDefaults());
+        public static Task<Outputs.Credentials> InvokeAsync(GetKubernetesCredentialArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Credentials>("digitalocean-native:kubernetes/v2:getKubernetesCredential", args ?? new GetKubernetesCredentialArgs(), options.WithDefaults());
 
-        public static Output<GetKubernetesCredentialResult> Invoke(GetKubernetesCredentialInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesCredentialResult>("digitalocean-native:kubernetes/v2:getKubernetesCredential", args ?? new GetKubernetesCredentialInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.Credentials> Invoke(GetKubernetesCredentialInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Credentials>("digitalocean-native:kubernetes/v2:getKubernetesCredential", args ?? new GetKubernetesCredentialInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new GetKubernetesCredentialInvokeArgs Empty => new GetKubernetesCredentialInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetKubernetesCredentialResult
-    {
-        public readonly Outputs.Credentials Items;
-
-        [OutputConstructor]
-        private GetKubernetesCredentialResult(Outputs.Credentials items)
-        {
-            Items = items;
-        }
     }
 }

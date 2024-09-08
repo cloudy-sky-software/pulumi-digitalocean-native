@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetReservedIPResult',
-    'AwaitableGetReservedIPResult',
+    'GetReservedIPProperties',
+    'AwaitableGetReservedIPProperties',
     'get_reserved_ip',
     'get_reserved_ip_output',
 ]
 
 @pulumi.output_type
-class GetReservedIPResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetReservedIPProperties:
+    def __init__(__self__, reserved_ip=None):
+        if reserved_ip and not isinstance(reserved_ip, dict):
+            raise TypeError("Expected argument 'reserved_ip' to be a dict")
+        pulumi.set(__self__, "reserved_ip", reserved_ip)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.GetReservedIPProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="reservedIp")
+    def reserved_ip(self) -> Optional['outputs.ReservedIp']:
+        return pulumi.get(self, "reserved_ip")
 
 
-class AwaitableGetReservedIPResult(GetReservedIPResult):
+class AwaitableGetReservedIPProperties(GetReservedIPProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetReservedIPResult(
-            items=self.items)
+        return GetReservedIPProperties(
+            reserved_ip=self.reserved_ip)
 
 
 def get_reserved_ip(reserved_ip: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReservedIPResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReservedIPProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_reserved_ip(reserved_ip: Optional[str] = None,
     __args__ = dict()
     __args__['reservedIp'] = reserved_ip
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:reserved_ips/v2:getReservedIP', __args__, opts=opts, typ=GetReservedIPResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:reserved_ips/v2:getReservedIP', __args__, opts=opts, typ=GetReservedIPProperties).value
 
-    return AwaitableGetReservedIPResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetReservedIPProperties(
+        reserved_ip=pulumi.get(__ret__, 'reserved_ip'))
 
 
 @_utilities.lift_output_func(get_reserved_ip)
 def get_reserved_ip_output(reserved_ip: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedIPResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedIPProperties]:
     """
     Use this data source to access information about an existing resource.
 

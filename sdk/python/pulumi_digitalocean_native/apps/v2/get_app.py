@@ -6,42 +6,45 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetAppResult',
-    'AwaitableGetAppResult',
+    'AppResponse',
+    'AwaitableAppResponse',
     'get_app',
     'get_app_output',
 ]
 
 @pulumi.output_type
-class GetAppResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppResponse:
+    def __init__(__self__, app=None):
+        if app and not isinstance(app, dict):
+            raise TypeError("Expected argument 'app' to be a dict")
+        pulumi.set(__self__, "app", app)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AppResponse':
-        return pulumi.get(self, "items")
+    def app(self) -> Optional['outputs.App']:
+        """
+        An application's configuration and status.
+        """
+        return pulumi.get(self, "app")
 
 
-class AwaitableGetAppResult(GetAppResult):
+class AwaitableAppResponse(AppResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAppResult(
-            items=self.items)
+        return AppResponse(
+            app=self.app)
 
 
 def get_app(id: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +53,15 @@ def get_app(id: Optional[str] = None,
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getApp', __args__, opts=opts, typ=GetAppResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getApp', __args__, opts=opts, typ=AppResponse).value
 
-    return AwaitableGetAppResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppResponse(
+        app=pulumi.get(__ret__, 'app'))
 
 
 @_utilities.lift_output_func(get_app)
 def get_app_output(id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppResponse]:
     """
     Use this data source to access information about an existing resource.
 

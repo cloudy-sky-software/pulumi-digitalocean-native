@@ -15,7 +15,6 @@ __all__ = [
     'Action',
     'ActionRegionSlug',
     'AssociatedResource',
-    'AssociatedResourceStatus',
     'AssociatedResourceStatusResourcesProperties',
     'DestroyedAssociatedResource',
     'Droplet',
@@ -27,18 +26,8 @@ __all__ = [
     'FirewallPropertiesTags',
     'FirewallRulesInboundRulesItem',
     'FirewallRulesOutboundRulesItem',
-    'GetDropletActionProperties',
-    'GetDropletProperties',
     'Image',
     'Kernel',
-    'ListDropletActionsItems',
-    'ListDropletsAssociatedResourcesItems',
-    'ListDropletsBackupsItems',
-    'ListDropletsFirewallsItems',
-    'ListDropletsItems',
-    'ListDropletsKernelsItems',
-    'ListDropletsNeighborsItems',
-    'ListDropletsSnapshotsItems',
     'MetaMeta',
     'NetworkV4',
     'NetworkV6',
@@ -233,65 +222,6 @@ class AssociatedResource(dict):
         The name of the resource associated with the Droplet.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class AssociatedResourceStatus(dict):
-    """
-    An objects containing information about a resources scheduled for deletion.
-    """
-    def __init__(__self__, *,
-                 completed_at: Optional[str] = None,
-                 droplet: Optional['outputs.DestroyedAssociatedResource'] = None,
-                 failures: Optional[int] = None,
-                 resources: Optional['outputs.AssociatedResourceStatusResourcesProperties'] = None):
-        """
-        An objects containing information about a resources scheduled for deletion.
-        :param str completed_at: A time value given in ISO8601 combined date and time format indicating when the requested action was completed.
-        :param 'DestroyedAssociatedResource' droplet: An object containing information about a resource scheduled for deletion.
-        :param int failures: A count of the associated resources that failed to be destroyed, if any.
-        :param 'AssociatedResourceStatusResourcesProperties' resources: An object containing additional information about resource related to a Droplet requested to be destroyed.
-        """
-        if completed_at is not None:
-            pulumi.set(__self__, "completed_at", completed_at)
-        if droplet is not None:
-            pulumi.set(__self__, "droplet", droplet)
-        if failures is not None:
-            pulumi.set(__self__, "failures", failures)
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter(name="completedAt")
-    def completed_at(self) -> Optional[str]:
-        """
-        A time value given in ISO8601 combined date and time format indicating when the requested action was completed.
-        """
-        return pulumi.get(self, "completed_at")
-
-    @property
-    @pulumi.getter
-    def droplet(self) -> Optional['outputs.DestroyedAssociatedResource']:
-        """
-        An object containing information about a resource scheduled for deletion.
-        """
-        return pulumi.get(self, "droplet")
-
-    @property
-    @pulumi.getter
-    def failures(self) -> Optional[int]:
-        """
-        A count of the associated resources that failed to be destroyed, if any.
-        """
-        return pulumi.get(self, "failures")
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional['outputs.AssociatedResourceStatusResourcesProperties']:
-        """
-        An object containing additional information about resource related to a Droplet requested to be destroyed.
-        """
-        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type
@@ -974,32 +904,6 @@ class FirewallRulesOutboundRulesItem(dict):
 
 
 @pulumi.output_type
-class GetDropletActionProperties(dict):
-    def __init__(__self__, *,
-                 action: Optional['outputs.Action'] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional['outputs.Action']:
-        return pulumi.get(self, "action")
-
-
-@pulumi.output_type
-class GetDropletProperties(dict):
-    def __init__(__self__, *,
-                 droplet: Optional['outputs.Droplet'] = None):
-        if droplet is not None:
-            pulumi.set(__self__, "droplet", droplet)
-
-    @property
-    @pulumi.getter
-    def droplet(self) -> Optional['outputs.Droplet']:
-        return pulumi.get(self, "droplet")
-
-
-@pulumi.output_type
 class Image(dict):
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
@@ -1234,232 +1138,6 @@ class Kernel(dict):
         A standard kernel version string representing the version, patch, and release information.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class ListDropletActionsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 actions: Optional[Sequence['outputs.Action']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.Action']]:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDropletsAssociatedResourcesItems(dict):
-    def __init__(__self__, *,
-                 floating_ips: Optional[Sequence['outputs.AssociatedResource']] = None,
-                 reserved_ips: Optional[Sequence['outputs.AssociatedResource']] = None,
-                 snapshots: Optional[Sequence['outputs.AssociatedResource']] = None,
-                 volume_snapshots: Optional[Sequence['outputs.AssociatedResource']] = None,
-                 volumes: Optional[Sequence['outputs.AssociatedResource']] = None):
-        if floating_ips is not None:
-            pulumi.set(__self__, "floating_ips", floating_ips)
-        if reserved_ips is not None:
-            pulumi.set(__self__, "reserved_ips", reserved_ips)
-        if snapshots is not None:
-            pulumi.set(__self__, "snapshots", snapshots)
-        if volume_snapshots is not None:
-            pulumi.set(__self__, "volume_snapshots", volume_snapshots)
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter(name="floatingIps")
-    def floating_ips(self) -> Optional[Sequence['outputs.AssociatedResource']]:
-        return pulumi.get(self, "floating_ips")
-
-    @property
-    @pulumi.getter(name="reservedIps")
-    def reserved_ips(self) -> Optional[Sequence['outputs.AssociatedResource']]:
-        return pulumi.get(self, "reserved_ips")
-
-    @property
-    @pulumi.getter
-    def snapshots(self) -> Optional[Sequence['outputs.AssociatedResource']]:
-        return pulumi.get(self, "snapshots")
-
-    @property
-    @pulumi.getter(name="volumeSnapshots")
-    def volume_snapshots(self) -> Optional[Sequence['outputs.AssociatedResource']]:
-        return pulumi.get(self, "volume_snapshots")
-
-    @property
-    @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.AssociatedResource']]:
-        return pulumi.get(self, "volumes")
-
-
-@pulumi.output_type
-class ListDropletsBackupsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 backups: Optional[Sequence['outputs.DropletSnapshot']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if backups is not None:
-            pulumi.set(__self__, "backups", backups)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def backups(self) -> Optional[Sequence['outputs.DropletSnapshot']]:
-        return pulumi.get(self, "backups")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDropletsFirewallsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 firewalls: Optional[Sequence['outputs.Firewall']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if firewalls is not None:
-            pulumi.set(__self__, "firewalls", firewalls)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def firewalls(self) -> Optional[Sequence['outputs.Firewall']]:
-        return pulumi.get(self, "firewalls")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDropletsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 droplets: Optional[Sequence['outputs.Droplet']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if droplets is not None:
-            pulumi.set(__self__, "droplets", droplets)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def droplets(self) -> Optional[Sequence['outputs.Droplet']]:
-        return pulumi.get(self, "droplets")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDropletsKernelsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 kernels: Optional[Sequence['outputs.Kernel']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if kernels is not None:
-            pulumi.set(__self__, "kernels", kernels)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def kernels(self) -> Optional[Sequence['outputs.Kernel']]:
-        return pulumi.get(self, "kernels")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListDropletsNeighborsItems(dict):
-    def __init__(__self__, *,
-                 droplets: Optional[Sequence['outputs.Droplet']] = None):
-        if droplets is not None:
-            pulumi.set(__self__, "droplets", droplets)
-
-    @property
-    @pulumi.getter
-    def droplets(self) -> Optional[Sequence['outputs.Droplet']]:
-        return pulumi.get(self, "droplets")
-
-
-@pulumi.output_type
-class ListDropletsSnapshotsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 snapshots: Optional[Sequence['outputs.DropletSnapshot']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if snapshots is not None:
-            pulumi.set(__self__, "snapshots", snapshots)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def snapshots(self) -> Optional[Sequence['outputs.DropletSnapshot']]:
-        return pulumi.get(self, "snapshots")
 
 
 @pulumi.output_type

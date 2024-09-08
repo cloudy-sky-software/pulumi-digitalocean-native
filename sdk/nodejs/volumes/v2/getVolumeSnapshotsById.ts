@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getVolumeSnapshotsById(args: GetVolumeSnapshotsByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeSnapshotsByIdResult> {
+export function getVolumeSnapshotsById(args: GetVolumeSnapshotsByIdArgs, opts?: pulumi.InvokeOptions): Promise<outputs.volumes.v2.GetVolumeSnapshotsByIdProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:volumes/v2:getVolumeSnapshotsById", {
@@ -21,11 +21,7 @@ export interface GetVolumeSnapshotsByIdArgs {
      */
     snapshotId: string;
 }
-
-export interface GetVolumeSnapshotsByIdResult {
-    readonly items: outputs.volumes.v2.GetVolumeSnapshotsByIdProperties;
-}
-export function getVolumeSnapshotsByIdOutput(args: GetVolumeSnapshotsByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeSnapshotsByIdResult> {
+export function getVolumeSnapshotsByIdOutput(args: GetVolumeSnapshotsByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.GetVolumeSnapshotsByIdProperties> {
     return pulumi.output(args).apply((a: any) => getVolumeSnapshotsById(a, opts))
 }
 

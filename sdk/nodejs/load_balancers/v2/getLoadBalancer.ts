@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<outputs.load_balancers.v2.GetLoadBalancerProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:load_balancers/v2:getLoadBalancer", {
@@ -21,11 +21,7 @@ export interface GetLoadBalancerArgs {
      */
     lbId: string;
 }
-
-export interface GetLoadBalancerResult {
-    readonly items: outputs.load_balancers.v2.GetLoadBalancerProperties;
-}
-export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.load_balancers.v2.GetLoadBalancerProperties> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 

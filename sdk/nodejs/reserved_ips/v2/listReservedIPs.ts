@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listReservedIPs(args?: ListReservedIPsArgs, opts?: pulumi.InvokeOptions): Promise<ListReservedIPsResult> {
+export function listReservedIPs(args?: ListReservedIPsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.reserved_ips.v2.ListReservedIPsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listReservedIPs(args?: ListReservedIPsArgs, opts?: pulumi.Invoke
 
 export interface ListReservedIPsArgs {
 }
-
-export interface ListReservedIPsResult {
-    readonly items: outputs.reserved_ips.v2.ListReservedIPsItems;
-}
-export function listReservedIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListReservedIPsResult> {
+export function listReservedIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsItems> {
     return pulumi.output(listReservedIPs(opts))
 }

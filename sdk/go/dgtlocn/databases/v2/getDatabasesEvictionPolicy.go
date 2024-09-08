@@ -27,7 +27,15 @@ type LookupDatabasesEvictionPolicyArgs struct {
 }
 
 type LookupDatabasesEvictionPolicyResult struct {
-	Items GetDatabasesEvictionPolicyProperties `pulumi:"items"`
+	// A string specifying the desired eviction policy for the Redis cluster.
+	//
+	// - `noeviction`: Don't evict any data, returns error when memory limit is reached.
+	// - `allkeys_lru:` Evict any key, least recently used (LRU) first.
+	// - `allkeys_random`: Evict keys in a random order.
+	// - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
+	// - `volatile_random`: Evict keys with expiration only in a random order.
+	// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
+	EvictionPolicy GetDatabasesEvictionPolicyPropertiesEvictionPolicy `pulumi:"evictionPolicy"`
 }
 
 func LookupDatabasesEvictionPolicyOutput(ctx *pulumi.Context, args LookupDatabasesEvictionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesEvictionPolicyResultOutput {
@@ -66,8 +74,18 @@ func (o LookupDatabasesEvictionPolicyResultOutput) ToLookupDatabasesEvictionPoli
 	return o
 }
 
-func (o LookupDatabasesEvictionPolicyResultOutput) Items() GetDatabasesEvictionPolicyPropertiesOutput {
-	return o.ApplyT(func(v LookupDatabasesEvictionPolicyResult) GetDatabasesEvictionPolicyProperties { return v.Items }).(GetDatabasesEvictionPolicyPropertiesOutput)
+// A string specifying the desired eviction policy for the Redis cluster.
+//
+// - `noeviction`: Don't evict any data, returns error when memory limit is reached.
+// - `allkeys_lru:` Evict any key, least recently used (LRU) first.
+// - `allkeys_random`: Evict keys in a random order.
+// - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
+// - `volatile_random`: Evict keys with expiration only in a random order.
+// - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
+func (o LookupDatabasesEvictionPolicyResultOutput) EvictionPolicy() GetDatabasesEvictionPolicyPropertiesEvictionPolicyOutput {
+	return o.ApplyT(func(v LookupDatabasesEvictionPolicyResult) GetDatabasesEvictionPolicyPropertiesEvictionPolicy {
+		return v.EvictionPolicy
+	}).(GetDatabasesEvictionPolicyPropertiesEvictionPolicyOutput)
 }
 
 func init() {

@@ -12,20 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DockerCredentials',
     'DockerCredentialsAuthsProperties',
     'DockerCredentialsAuthsPropertiesRegistryDigitaloceanComProperties',
     'GarbageCollection',
-    'GetRegistryOptionProperties',
     'GetRegistryOptionPropertiesOptionsProperties',
     'GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem',
-    'GetRegistryProperties',
-    'GetRegistrySubscriptionProperties',
-    'ListRegistryGarbageCollectionsProperties',
-    'ListRegistryRepositoriesItems',
-    'ListRegistryRepositoriesV2Items',
-    'ListRegistryRepositoryManifestsItems',
-    'ListRegistryRepositoryTagsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -39,19 +30,6 @@ __all__ = [
     'Subscription',
     'SubscriptionTierBase',
 ]
-
-@pulumi.output_type
-class DockerCredentials(dict):
-    def __init__(__self__, *,
-                 auths: Optional['outputs.DockerCredentialsAuthsProperties'] = None):
-        if auths is not None:
-            pulumi.set(__self__, "auths", auths)
-
-    @property
-    @pulumi.getter
-    def auths(self) -> Optional['outputs.DockerCredentialsAuthsProperties']:
-        return pulumi.get(self, "auths")
-
 
 @pulumi.output_type
 class DockerCredentialsAuthsProperties(dict):
@@ -174,19 +152,6 @@ class GarbageCollection(dict):
         A string specifying the UUID of the garbage collection.
         """
         return pulumi.get(self, "uuid")
-
-
-@pulumi.output_type
-class GetRegistryOptionProperties(dict):
-    def __init__(__self__, *,
-                 options: Optional['outputs.GetRegistryOptionPropertiesOptionsProperties'] = None):
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional['outputs.GetRegistryOptionPropertiesOptionsProperties']:
-        return pulumi.get(self, "options")
 
 
 @pulumi.output_type
@@ -335,157 +300,6 @@ class GetRegistryOptionPropertiesOptionsPropertiesSubscriptionTiersItem(dict):
         The price paid in cents per GiB for additional storage beyond what is included in the subscription plan.
         """
         return pulumi.get(self, "storage_overage_price_in_cents")
-
-
-@pulumi.output_type
-class GetRegistryProperties(dict):
-    def __init__(__self__, *,
-                 registry: Optional['outputs.Registry'] = None):
-        if registry is not None:
-            pulumi.set(__self__, "registry", registry)
-
-    @property
-    @pulumi.getter
-    def registry(self) -> Optional['outputs.Registry']:
-        return pulumi.get(self, "registry")
-
-
-@pulumi.output_type
-class GetRegistrySubscriptionProperties(dict):
-    def __init__(__self__, *,
-                 subscription: Optional['outputs.Subscription'] = None):
-        if subscription is not None:
-            pulumi.set(__self__, "subscription", subscription)
-
-    @property
-    @pulumi.getter
-    def subscription(self) -> Optional['outputs.Subscription']:
-        return pulumi.get(self, "subscription")
-
-
-@pulumi.output_type
-class ListRegistryGarbageCollectionsProperties(dict):
-    def __init__(__self__, *,
-                 garbage_collections: Optional[Sequence['outputs.GarbageCollection']] = None):
-        if garbage_collections is not None:
-            pulumi.set(__self__, "garbage_collections", garbage_collections)
-
-    @property
-    @pulumi.getter(name="garbageCollections")
-    def garbage_collections(self) -> Optional[Sequence['outputs.GarbageCollection']]:
-        return pulumi.get(self, "garbage_collections")
-
-
-@pulumi.output_type
-class ListRegistryRepositoriesItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 repositories: Optional[Sequence['outputs.Repository']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def repositories(self) -> Optional[Sequence['outputs.Repository']]:
-        return pulumi.get(self, "repositories")
-
-
-@pulumi.output_type
-class ListRegistryRepositoriesV2Items(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 repositories: Optional[Sequence['outputs.RepositoryV2']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def repositories(self) -> Optional[Sequence['outputs.RepositoryV2']]:
-        return pulumi.get(self, "repositories")
-
-
-@pulumi.output_type
-class ListRegistryRepositoryManifestsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 manifests: Optional[Sequence['outputs.RepositoryManifest']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if manifests is not None:
-            pulumi.set(__self__, "manifests", manifests)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def manifests(self) -> Optional[Sequence['outputs.RepositoryManifest']]:
-        return pulumi.get(self, "manifests")
-
-
-@pulumi.output_type
-class ListRegistryRepositoryTagsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 tags: Optional[Sequence['outputs.RepositoryTag']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.RepositoryTag']]:
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

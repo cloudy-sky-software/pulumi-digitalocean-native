@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetKubernetesClusterUserResult',
-    'AwaitableGetKubernetesClusterUserResult',
+    'User',
+    'AwaitableUser',
     'get_kubernetes_cluster_user',
     'get_kubernetes_cluster_user_output',
 ]
 
 @pulumi.output_type
-class GetKubernetesClusterUserResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class User:
+    def __init__(__self__, kubernetes_cluster_user=None):
+        if kubernetes_cluster_user and not isinstance(kubernetes_cluster_user, dict):
+            raise TypeError("Expected argument 'kubernetes_cluster_user' to be a dict")
+        pulumi.set(__self__, "kubernetes_cluster_user", kubernetes_cluster_user)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.User':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="kubernetesClusterUser")
+    def kubernetes_cluster_user(self) -> Optional['outputs.UserKubernetesClusterUserProperties']:
+        return pulumi.get(self, "kubernetes_cluster_user")
 
 
-class AwaitableGetKubernetesClusterUserResult(GetKubernetesClusterUserResult):
+class AwaitableUser(User):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetKubernetesClusterUserResult(
-            items=self.items)
+        return User(
+            kubernetes_cluster_user=self.kubernetes_cluster_user)
 
 
 def get_kubernetes_cluster_user(cluster_id: Optional[str] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterUserResult:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableUser:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_kubernetes_cluster_user(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesClusterUser', __args__, opts=opts, typ=GetKubernetesClusterUserResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesClusterUser', __args__, opts=opts, typ=User).value
 
-    return AwaitableGetKubernetesClusterUserResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableUser(
+        kubernetes_cluster_user=pulumi.get(__ret__, 'kubernetes_cluster_user'))
 
 
 @_utilities.lift_output_func(get_kubernetes_cluster_user)
 def get_kubernetes_cluster_user_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterUserResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[User]:
     """
     Use this data source to access information about an existing resource.
 

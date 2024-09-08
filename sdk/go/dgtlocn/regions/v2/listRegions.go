@@ -25,7 +25,9 @@ type ListRegionsArgs struct {
 }
 
 type ListRegionsResult struct {
-	Items ListRegionsItems `pulumi:"items"`
+	Links   *PageLinks `pulumi:"links"`
+	Meta    MetaMeta   `pulumi:"meta"`
+	Regions []Region   `pulumi:"regions"`
 }
 
 func ListRegionsOutput(ctx *pulumi.Context, args ListRegionsOutputArgs, opts ...pulumi.InvokeOption) ListRegionsResultOutput {
@@ -62,8 +64,16 @@ func (o ListRegionsResultOutput) ToListRegionsResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListRegionsResultOutput) Items() ListRegionsItemsOutput {
-	return o.ApplyT(func(v ListRegionsResult) ListRegionsItems { return v.Items }).(ListRegionsItemsOutput)
+func (o ListRegionsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegionsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListRegionsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegionsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListRegionsResultOutput) Regions() RegionArrayOutput {
+	return o.ApplyT(func(v ListRegionsResult) []Region { return v.Regions }).(RegionArrayOutput)
 }
 
 func init() {

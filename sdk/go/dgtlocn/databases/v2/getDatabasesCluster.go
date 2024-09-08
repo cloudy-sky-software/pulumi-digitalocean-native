@@ -27,7 +27,7 @@ type LookupDatabasesClusterArgs struct {
 }
 
 type LookupDatabasesClusterResult struct {
-	Items GetDatabasesClusterProperties `pulumi:"items"`
+	Database DatabaseCluster `pulumi:"database"`
 }
 
 func LookupDatabasesClusterOutput(ctx *pulumi.Context, args LookupDatabasesClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesClusterResultOutput {
@@ -66,8 +66,8 @@ func (o LookupDatabasesClusterResultOutput) ToLookupDatabasesClusterResultOutput
 	return o
 }
 
-func (o LookupDatabasesClusterResultOutput) Items() GetDatabasesClusterPropertiesOutput {
-	return o.ApplyT(func(v LookupDatabasesClusterResult) GetDatabasesClusterProperties { return v.Items }).(GetDatabasesClusterPropertiesOutput)
+func (o LookupDatabasesClusterResultOutput) Database() DatabaseClusterOutput {
+	return o.ApplyT(func(v LookupDatabasesClusterResult) DatabaseCluster { return v.Database }).(DatabaseClusterOutput)
 }
 
 func init() {

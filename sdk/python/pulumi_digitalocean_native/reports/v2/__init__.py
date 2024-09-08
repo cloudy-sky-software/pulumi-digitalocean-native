@@ -6,4 +6,3 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from .list_droplets_neighbors_ids import *
-from . import outputs

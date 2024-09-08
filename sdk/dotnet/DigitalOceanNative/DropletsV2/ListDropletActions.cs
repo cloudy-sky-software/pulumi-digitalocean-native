@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class ListDropletActions
     {
-        public static Task<ListDropletActionsResult> InvokeAsync(ListDropletActionsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletActionsResult>("digitalocean-native:droplets/v2:listDropletActions", args ?? new ListDropletActionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDropletActionsItems> InvokeAsync(ListDropletActionsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDropletActionsItems>("digitalocean-native:droplets/v2:listDropletActions", args ?? new ListDropletActionsArgs(), options.WithDefaults());
 
-        public static Output<ListDropletActionsResult> Invoke(ListDropletActionsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletActionsResult>("digitalocean-native:droplets/v2:listDropletActions", args ?? new ListDropletActionsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDropletActionsItems> Invoke(ListDropletActionsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletActionsItems>("digitalocean-native:droplets/v2:listDropletActions", args ?? new ListDropletActionsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new ListDropletActionsInvokeArgs Empty => new ListDropletActionsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletActionsResult
-    {
-        public readonly Outputs.ListDropletActionsItems Items;
-
-        [OutputConstructor]
-        private ListDropletActionsResult(Outputs.ListDropletActionsItems items)
-        {
-            Items = items;
-        }
     }
 }

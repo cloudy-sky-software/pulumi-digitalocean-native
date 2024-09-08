@@ -25,7 +25,9 @@ type ListSizesArgs struct {
 }
 
 type ListSizesResult struct {
-	Items ListSizesItems `pulumi:"items"`
+	Links *PageLinks `pulumi:"links"`
+	Meta  MetaMeta   `pulumi:"meta"`
+	Sizes []Size     `pulumi:"sizes"`
 }
 
 func ListSizesOutput(ctx *pulumi.Context, args ListSizesOutputArgs, opts ...pulumi.InvokeOption) ListSizesResultOutput {
@@ -62,8 +64,16 @@ func (o ListSizesResultOutput) ToListSizesResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ListSizesResultOutput) Items() ListSizesItemsOutput {
-	return o.ApplyT(func(v ListSizesResult) ListSizesItems { return v.Items }).(ListSizesItemsOutput)
+func (o ListSizesResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListSizesResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListSizesResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListSizesResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListSizesResultOutput) Sizes() SizeArrayOutput {
+	return o.ApplyT(func(v ListSizesResult) []Size { return v.Sizes }).(SizeArrayOutput)
 }
 
 func init() {

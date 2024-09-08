@@ -25,7 +25,7 @@ type GetRegistryOptionArgs struct {
 }
 
 type GetRegistryOptionResult struct {
-	Items GetRegistryOptionProperties `pulumi:"items"`
+	Options *GetRegistryOptionPropertiesOptionsProperties `pulumi:"options"`
 }
 
 func GetRegistryOptionOutput(ctx *pulumi.Context, args GetRegistryOptionOutputArgs, opts ...pulumi.InvokeOption) GetRegistryOptionResultOutput {
@@ -62,8 +62,8 @@ func (o GetRegistryOptionResultOutput) ToGetRegistryOptionResultOutputWithContex
 	return o
 }
 
-func (o GetRegistryOptionResultOutput) Items() GetRegistryOptionPropertiesOutput {
-	return o.ApplyT(func(v GetRegistryOptionResult) GetRegistryOptionProperties { return v.Items }).(GetRegistryOptionPropertiesOutput)
+func (o GetRegistryOptionResultOutput) Options() GetRegistryOptionPropertiesOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v GetRegistryOptionResult) *GetRegistryOptionPropertiesOptionsProperties { return v.Options }).(GetRegistryOptionPropertiesOptionsPropertiesPtrOutput)
 }
 
 func init() {

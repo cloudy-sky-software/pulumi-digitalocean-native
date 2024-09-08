@@ -12,54 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetSnapshotProperties',
-    'ListSnapshotsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
     'Snapshots',
 ]
-
-@pulumi.output_type
-class GetSnapshotProperties(dict):
-    def __init__(__self__, *,
-                 snapshot: Optional['outputs.Snapshots'] = None):
-        if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
-
-    @property
-    @pulumi.getter
-    def snapshot(self) -> Optional['outputs.Snapshots']:
-        return pulumi.get(self, "snapshot")
-
-
-@pulumi.output_type
-class ListSnapshotsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 snapshots: Optional[Sequence['outputs.Snapshots']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if snapshots is not None:
-            pulumi.set(__self__, "snapshots", snapshots)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def snapshots(self) -> Optional[Sequence['outputs.Snapshots']]:
-        return pulumi.get(self, "snapshots")
-
 
 @pulumi.output_type
 class MetaMeta(dict):

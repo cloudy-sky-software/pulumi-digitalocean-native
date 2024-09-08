@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getMonitoringDropletMemoryTotalMetric(args?: GetMonitoringDropletMemoryTotalMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringDropletMemoryTotalMetricResult> {
+export function getMonitoringDropletMemoryTotalMetric(args?: GetMonitoringDropletMemoryTotalMetricArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.Metrics> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function getMonitoringDropletMemoryTotalMetric(args?: GetMonitoringDrople
 
 export interface GetMonitoringDropletMemoryTotalMetricArgs {
 }
-
-export interface GetMonitoringDropletMemoryTotalMetricResult {
-    readonly items: outputs.monitoring.v2.Metrics;
-}
-export function getMonitoringDropletMemoryTotalMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringDropletMemoryTotalMetricResult> {
+export function getMonitoringDropletMemoryTotalMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     return pulumi.output(getMonitoringDropletMemoryTotalMetric(opts))
 }

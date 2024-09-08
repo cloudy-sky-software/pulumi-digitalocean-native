@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class GetKubernetesAvailableUpgrade
     {
-        public static Task<GetKubernetesAvailableUpgradeResult> InvokeAsync(GetKubernetesAvailableUpgradeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesAvailableUpgradeResult>("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args ?? new GetKubernetesAvailableUpgradeArgs(), options.WithDefaults());
+        public static Task<Outputs.GetKubernetesAvailableUpgradeProperties> InvokeAsync(GetKubernetesAvailableUpgradeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetKubernetesAvailableUpgradeProperties>("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args ?? new GetKubernetesAvailableUpgradeArgs(), options.WithDefaults());
 
-        public static Output<GetKubernetesAvailableUpgradeResult> Invoke(GetKubernetesAvailableUpgradeInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesAvailableUpgradeResult>("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args ?? new GetKubernetesAvailableUpgradeInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetKubernetesAvailableUpgradeProperties> Invoke(GetKubernetesAvailableUpgradeInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetKubernetesAvailableUpgradeProperties>("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args ?? new GetKubernetesAvailableUpgradeInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new GetKubernetesAvailableUpgradeInvokeArgs Empty => new GetKubernetesAvailableUpgradeInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetKubernetesAvailableUpgradeResult
-    {
-        public readonly Outputs.GetKubernetesAvailableUpgradeProperties Items;
-
-        [OutputConstructor]
-        private GetKubernetesAvailableUpgradeResult(Outputs.GetKubernetesAvailableUpgradeProperties items)
-        {
-            Items = items;
-        }
     }
 }

@@ -13,10 +13,8 @@ from ._enums import *
 
 __all__ = [
     'ForwardingRule',
-    'GetLoadBalancerProperties',
     'HealthCheck',
     'LbFirewall',
-    'ListLoadBalancersItems',
     'LoadBalancer',
     'MetaMeta',
     'PageLinks',
@@ -128,19 +126,6 @@ class ForwardingRule(dict):
         A boolean value indicating whether SSL encrypted traffic will be passed through to the backend Droplets.
         """
         return pulumi.get(self, "tls_passthrough")
-
-
-@pulumi.output_type
-class GetLoadBalancerProperties(dict):
-    def __init__(__self__, *,
-                 load_balancer: Optional['outputs.LoadBalancer'] = None):
-        if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
-
-    @property
-    @pulumi.getter(name="loadBalancer")
-    def load_balancer(self) -> Optional['outputs.LoadBalancer']:
-        return pulumi.get(self, "load_balancer")
 
 
 @pulumi.output_type
@@ -308,34 +293,6 @@ class LbFirewall(dict):
         the rules for denying traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
         """
         return pulumi.get(self, "deny")
-
-
-@pulumi.output_type
-class ListLoadBalancersItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 load_balancers: Optional[Sequence['outputs.LoadBalancer']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[Sequence['outputs.LoadBalancer']]:
-        return pulumi.get(self, "load_balancers")
 
 
 @pulumi.output_type

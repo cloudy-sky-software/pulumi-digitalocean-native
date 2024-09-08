@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getDatabasesMigrationStatu(args: GetDatabasesMigrationStatuArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasesMigrationStatuResult> {
+export function getDatabasesMigrationStatu(args: GetDatabasesMigrationStatuArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.OnlineMigration> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:getDatabasesMigrationStatu", {
@@ -21,11 +21,7 @@ export interface GetDatabasesMigrationStatuArgs {
      */
     databaseClusterUuid: string;
 }
-
-export interface GetDatabasesMigrationStatuResult {
-    readonly items: outputs.databases.v2.OnlineMigration;
-}
-export function getDatabasesMigrationStatuOutput(args: GetDatabasesMigrationStatuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasesMigrationStatuResult> {
+export function getDatabasesMigrationStatuOutput(args: GetDatabasesMigrationStatuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.OnlineMigration> {
     return pulumi.output(args).apply((a: any) => getDatabasesMigrationStatu(a, opts))
 }
 

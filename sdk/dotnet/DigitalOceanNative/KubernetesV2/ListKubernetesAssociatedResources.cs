@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class ListKubernetesAssociatedResources
     {
-        public static Task<ListKubernetesAssociatedResourcesResult> InvokeAsync(ListKubernetesAssociatedResourcesArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListKubernetesAssociatedResourcesResult>("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args ?? new ListKubernetesAssociatedResourcesArgs(), options.WithDefaults());
+        public static Task<Outputs.AssociatedKubernetesResources> InvokeAsync(ListKubernetesAssociatedResourcesArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AssociatedKubernetesResources>("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args ?? new ListKubernetesAssociatedResourcesArgs(), options.WithDefaults());
 
-        public static Output<ListKubernetesAssociatedResourcesResult> Invoke(ListKubernetesAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListKubernetesAssociatedResourcesResult>("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args ?? new ListKubernetesAssociatedResourcesInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AssociatedKubernetesResources> Invoke(ListKubernetesAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AssociatedKubernetesResources>("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args ?? new ListKubernetesAssociatedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new ListKubernetesAssociatedResourcesInvokeArgs Empty => new ListKubernetesAssociatedResourcesInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListKubernetesAssociatedResourcesResult
-    {
-        public readonly Outputs.AssociatedKubernetesResources Items;
-
-        [OutputConstructor]
-        private ListKubernetesAssociatedResourcesResult(Outputs.AssociatedKubernetesResources items)
-        {
-            Items = items;
-        }
     }
 }

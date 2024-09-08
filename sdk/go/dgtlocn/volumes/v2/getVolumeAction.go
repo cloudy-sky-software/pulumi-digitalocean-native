@@ -29,7 +29,7 @@ type GetVolumeActionArgs struct {
 }
 
 type GetVolumeActionResult struct {
-	Items GetVolumeActionProperties `pulumi:"items"`
+	Action *VolumeAction `pulumi:"action"`
 }
 
 // Defaults sets the appropriate defaults for GetVolumeActionResult
@@ -38,7 +38,7 @@ func (val *GetVolumeActionResult) Defaults() *GetVolumeActionResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Action = tmp.Action.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o GetVolumeActionResultOutput) ToGetVolumeActionResultOutputWithContext(ct
 	return o
 }
 
-func (o GetVolumeActionResultOutput) Items() GetVolumeActionPropertiesOutput {
-	return o.ApplyT(func(v GetVolumeActionResult) GetVolumeActionProperties { return v.Items }).(GetVolumeActionPropertiesOutput)
+func (o GetVolumeActionResultOutput) Action() VolumeActionPtrOutput {
+	return o.ApplyT(func(v GetVolumeActionResult) *VolumeAction { return v.Action }).(VolumeActionPtrOutput)
 }
 
 func init() {

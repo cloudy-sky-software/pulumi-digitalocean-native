@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SnapshotsV2
 {
     public static class GetSnapshot
     {
-        public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("digitalocean-native:snapshots/v2:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
+        public static Task<Outputs.GetSnapshotProperties> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetSnapshotProperties>("digitalocean-native:snapshots/v2:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
-        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("digitalocean-native:snapshots/v2:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetSnapshotProperties> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetSnapshotProperties>("digitalocean-native:snapshots/v2:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SnapshotsV2
         {
         }
         public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetSnapshotResult
-    {
-        public readonly Outputs.GetSnapshotProperties Items;
-
-        [OutputConstructor]
-        private GetSnapshotResult(Outputs.GetSnapshotProperties items)
-        {
-            Items = items;
-        }
     }
 }

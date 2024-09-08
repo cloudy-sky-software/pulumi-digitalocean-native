@@ -6,41 +6,45 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetTagResult',
-    'AwaitableGetTagResult',
+    'GetTagProperties',
+    'AwaitableGetTagProperties',
     'get_tag',
     'get_tag_output',
 ]
 
 @pulumi.output_type
-class GetTagResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetTagProperties:
+    def __init__(__self__, tag=None):
+        if tag and not isinstance(tag, dict):
+            raise TypeError("Expected argument 'tag' to be a dict")
+        pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetTagProperties':
-        return pulumi.get(self, "items")
+    def tag(self) -> Optional['outputs.Tags']:
+        """
+        A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
+        Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
+        """
+        return pulumi.get(self, "tag")
 
 
-class AwaitableGetTagResult(GetTagResult):
+class AwaitableGetTagProperties(GetTagProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetTagResult(
-            items=self.items)
+        return GetTagProperties(
+            tag=self.tag)
 
 
 def get_tag(tag_id: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +53,15 @@ def get_tag(tag_id: Optional[str] = None,
     __args__ = dict()
     __args__['tagId'] = tag_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:tags/v2:getTag', __args__, opts=opts, typ=GetTagResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:tags/v2:getTag', __args__, opts=opts, typ=GetTagProperties).value
 
-    return AwaitableGetTagResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetTagProperties(
+        tag=pulumi.get(__ret__, 'tag'))
 
 
 @_utilities.lift_output_func(get_tag)
 def get_tag_output(tag_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagProperties]:
     """
     Use this data source to access information about an existing resource.
 

@@ -27,7 +27,7 @@ type GetUptimeCheckStateArgs struct {
 }
 
 type GetUptimeCheckStateResult struct {
-	Items GetUptimeCheckStateProperties `pulumi:"items"`
+	State *State `pulumi:"state"`
 }
 
 func GetUptimeCheckStateOutput(ctx *pulumi.Context, args GetUptimeCheckStateOutputArgs, opts ...pulumi.InvokeOption) GetUptimeCheckStateResultOutput {
@@ -66,8 +66,8 @@ func (o GetUptimeCheckStateResultOutput) ToGetUptimeCheckStateResultOutputWithCo
 	return o
 }
 
-func (o GetUptimeCheckStateResultOutput) Items() GetUptimeCheckStatePropertiesOutput {
-	return o.ApplyT(func(v GetUptimeCheckStateResult) GetUptimeCheckStateProperties { return v.Items }).(GetUptimeCheckStatePropertiesOutput)
+func (o GetUptimeCheckStateResultOutput) State() StatePtrOutput {
+	return o.ApplyT(func(v GetUptimeCheckStateResult) *State { return v.State }).(StatePtrOutput)
 }
 
 func init() {

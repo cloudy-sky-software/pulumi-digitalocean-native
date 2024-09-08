@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<outputs.certificates.v2.GetCertificateProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:certificates/v2:getCertificate", {
@@ -21,11 +21,7 @@ export interface GetCertificateArgs {
      */
     certificateId: string;
 }
-
-export interface GetCertificateResult {
-    readonly items: outputs.certificates.v2.GetCertificateProperties;
-}
-export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.certificates.v2.GetCertificateProperties> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 

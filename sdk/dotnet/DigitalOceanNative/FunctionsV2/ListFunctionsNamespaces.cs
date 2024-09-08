@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
 {
     public static class ListFunctionsNamespaces
     {
-        public static Task<ListFunctionsNamespacesResult> InvokeAsync(ListFunctionsNamespacesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListFunctionsNamespacesResult>("digitalocean-native:functions/v2:listFunctionsNamespaces", args ?? new ListFunctionsNamespacesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListFunctionsNamespacesItems> InvokeAsync(ListFunctionsNamespacesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListFunctionsNamespacesItems>("digitalocean-native:functions/v2:listFunctionsNamespaces", args ?? new ListFunctionsNamespacesArgs(), options.WithDefaults());
 
-        public static Output<ListFunctionsNamespacesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListFunctionsNamespacesResult>("digitalocean-native:functions/v2:listFunctionsNamespaces", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListFunctionsNamespacesItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFunctionsNamespacesItems>("digitalocean-native:functions/v2:listFunctionsNamespaces", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
         {
         }
         public static new ListFunctionsNamespacesArgs Empty => new ListFunctionsNamespacesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListFunctionsNamespacesResult
-    {
-        public readonly Outputs.ListFunctionsNamespacesItems Items;
-
-        [OutputConstructor]
-        private ListFunctionsNamespacesResult(Outputs.ListFunctionsNamespacesItems items)
-        {
-            Items = items;
-        }
     }
 }

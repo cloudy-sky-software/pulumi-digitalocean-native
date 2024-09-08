@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class GetDatabasesSqlMode
     {
-        public static Task<GetDatabasesSqlModeResult> InvokeAsync(GetDatabasesSqlModeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesSqlModeResult>("digitalocean-native:databases/v2:getDatabasesSqlMode", args ?? new GetDatabasesSqlModeArgs(), options.WithDefaults());
+        public static Task<Outputs.SqlMode> InvokeAsync(GetDatabasesSqlModeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.SqlMode>("digitalocean-native:databases/v2:getDatabasesSqlMode", args ?? new GetDatabasesSqlModeArgs(), options.WithDefaults());
 
-        public static Output<GetDatabasesSqlModeResult> Invoke(GetDatabasesSqlModeInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesSqlModeResult>("digitalocean-native:databases/v2:getDatabasesSqlMode", args ?? new GetDatabasesSqlModeInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.SqlMode> Invoke(GetDatabasesSqlModeInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.SqlMode>("digitalocean-native:databases/v2:getDatabasesSqlMode", args ?? new GetDatabasesSqlModeInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new GetDatabasesSqlModeInvokeArgs Empty => new GetDatabasesSqlModeInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDatabasesSqlModeResult
-    {
-        public readonly Outputs.SqlMode Items;
-
-        [OutputConstructor]
-        private GetDatabasesSqlModeResult(Outputs.SqlMode items)
-        {
-            Items = items;
-        }
     }
 }

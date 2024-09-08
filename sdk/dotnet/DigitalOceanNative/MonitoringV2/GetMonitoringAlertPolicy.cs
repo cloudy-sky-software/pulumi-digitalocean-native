@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringAlertPolicy
     {
-        public static Task<GetMonitoringAlertPolicyResult> InvokeAsync(GetMonitoringAlertPolicyArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringAlertPolicyResult>("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", args ?? new GetMonitoringAlertPolicyArgs(), options.WithDefaults());
+        public static Task<Outputs.GetMonitoringAlertPolicyProperties> InvokeAsync(GetMonitoringAlertPolicyArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetMonitoringAlertPolicyProperties>("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", args ?? new GetMonitoringAlertPolicyArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringAlertPolicyResult> Invoke(GetMonitoringAlertPolicyInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringAlertPolicyResult>("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", args ?? new GetMonitoringAlertPolicyInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetMonitoringAlertPolicyProperties> Invoke(GetMonitoringAlertPolicyInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetMonitoringAlertPolicyProperties>("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", args ?? new GetMonitoringAlertPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringAlertPolicyInvokeArgs Empty => new GetMonitoringAlertPolicyInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringAlertPolicyResult
-    {
-        public readonly Outputs.GetMonitoringAlertPolicyProperties Items;
-
-        [OutputConstructor]
-        private GetMonitoringAlertPolicyResult(Outputs.GetMonitoringAlertPolicyProperties items)
-        {
-            Items = items;
-        }
     }
 }

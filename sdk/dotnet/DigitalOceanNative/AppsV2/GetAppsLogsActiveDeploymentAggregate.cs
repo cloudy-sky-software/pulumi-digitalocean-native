@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsLogsActiveDeploymentAggregate
     {
-        public static Task<GetAppsLogsActiveDeploymentAggregateResult> InvokeAsync(GetAppsLogsActiveDeploymentAggregateArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsLogsActiveDeploymentAggregateResult>("digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate", args ?? new GetAppsLogsActiveDeploymentAggregateArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsGetLogsResponse> InvokeAsync(GetAppsLogsActiveDeploymentAggregateArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate", args ?? new GetAppsLogsActiveDeploymentAggregateArgs(), options.WithDefaults());
 
-        public static Output<GetAppsLogsActiveDeploymentAggregateResult> Invoke(GetAppsLogsActiveDeploymentAggregateInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsLogsActiveDeploymentAggregateResult>("digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate", args ?? new GetAppsLogsActiveDeploymentAggregateInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsGetLogsResponse> Invoke(GetAppsLogsActiveDeploymentAggregateInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate", args ?? new GetAppsLogsActiveDeploymentAggregateInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsLogsActiveDeploymentAggregateInvokeArgs Empty => new GetAppsLogsActiveDeploymentAggregateInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsLogsActiveDeploymentAggregateResult
-    {
-        public readonly Outputs.AppsGetLogsResponse Items;
-
-        [OutputConstructor]
-        private GetAppsLogsActiveDeploymentAggregateResult(Outputs.AppsGetLogsResponse items)
-        {
-            Items = items;
-        }
     }
 }

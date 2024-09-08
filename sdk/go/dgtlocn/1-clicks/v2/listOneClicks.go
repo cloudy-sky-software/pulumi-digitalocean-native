@@ -25,7 +25,7 @@ type ListOneClicksArgs struct {
 }
 
 type ListOneClicksResult struct {
-	Items ListOneClicksProperties `pulumi:"items"`
+	_1Clicks []OneClicks `pulumi:"_1Clicks"`
 }
 
 func ListOneClicksOutput(ctx *pulumi.Context, args ListOneClicksOutputArgs, opts ...pulumi.InvokeOption) ListOneClicksResultOutput {
@@ -62,8 +62,8 @@ func (o ListOneClicksResultOutput) ToListOneClicksResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListOneClicksResultOutput) Items() ListOneClicksPropertiesOutput {
-	return o.ApplyT(func(v ListOneClicksResult) ListOneClicksProperties { return v.Items }).(ListOneClicksPropertiesOutput)
+func (o ListOneClicksResultOutput) _1Clicks() OneClicksArrayOutput {
+	return o.ApplyT(func(v ListOneClicksResult) []OneClicks { return v._1Clicks }).(OneClicksArrayOutput)
 }
 
 func init() {

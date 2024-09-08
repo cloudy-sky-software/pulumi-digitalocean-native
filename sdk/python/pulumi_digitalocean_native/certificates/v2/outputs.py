@@ -13,8 +13,6 @@ from ._enums import *
 
 __all__ = [
     'Certificate',
-    'GetCertificateProperties',
-    'ListCertificatesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -144,47 +142,6 @@ class Certificate(dict):
         A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetCertificateProperties(dict):
-    def __init__(__self__, *,
-                 certificate: Optional['outputs.Certificate'] = None):
-        if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
-
-    @property
-    @pulumi.getter
-    def certificate(self) -> Optional['outputs.Certificate']:
-        return pulumi.get(self, "certificate")
-
-
-@pulumi.output_type
-class ListCertificatesItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 certificates: Optional[Sequence['outputs.Certificate']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def certificates(self) -> Optional[Sequence['outputs.Certificate']]:
-        return pulumi.get(self, "certificates")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

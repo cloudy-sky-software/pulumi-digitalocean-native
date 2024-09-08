@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VpcsV2
 {
     public static class ListVpcs
     {
-        public static Task<ListVpcsResult> InvokeAsync(ListVpcsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVpcsResult>("digitalocean-native:vpcs/v2:listVpcs", args ?? new ListVpcsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListVpcsItems> InvokeAsync(ListVpcsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListVpcsItems>("digitalocean-native:vpcs/v2:listVpcs", args ?? new ListVpcsArgs(), options.WithDefaults());
 
-        public static Output<ListVpcsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListVpcsResult>("digitalocean-native:vpcs/v2:listVpcs", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListVpcsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVpcsItems>("digitalocean-native:vpcs/v2:listVpcs", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VpcsV2
         {
         }
         public static new ListVpcsArgs Empty => new ListVpcsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListVpcsResult
-    {
-        public readonly Outputs.ListVpcsItems Items;
-
-        [OutputConstructor]
-        private ListVpcsResult(Outputs.ListVpcsItems items)
-        {
-            Items = items;
-        }
     }
 }

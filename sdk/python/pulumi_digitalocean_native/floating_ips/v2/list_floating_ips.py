@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListFloatingIPsResult',
-    'AwaitableListFloatingIPsResult',
+    'ListFloatingIPsItems',
+    'AwaitableListFloatingIPsItems',
     'list_floating_ips',
     'list_floating_ips_output',
 ]
 
 @pulumi.output_type
-class ListFloatingIPsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListFloatingIPsItems:
+    def __init__(__self__, floating_ips=None, links=None, meta=None):
+        if floating_ips and not isinstance(floating_ips, list):
+            raise TypeError("Expected argument 'floating_ips' to be a list")
+        pulumi.set(__self__, "floating_ips", floating_ips)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+
+    @property
+    @pulumi.getter(name="floatingIps")
+    def floating_ips(self) -> Optional[Sequence['outputs.FloatingIp']]:
+        return pulumi.get(self, "floating_ips")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFloatingIPsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListFloatingIPsResult(ListFloatingIPsResult):
+class AwaitableListFloatingIPsItems(ListFloatingIPsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListFloatingIPsResult(
-            items=self.items)
+        return ListFloatingIPsItems(
+            floating_ips=self.floating_ips,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_floating_ips(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFloatingIPsResult:
+def list_floating_ips(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFloatingIPsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:floating_ips/v2:listFloatingIPs', __args__, opts=opts, typ=ListFloatingIPsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:floating_ips/v2:listFloatingIPs', __args__, opts=opts, typ=ListFloatingIPsItems).value
 
-    return AwaitableListFloatingIPsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListFloatingIPsItems(
+        floating_ips=pulumi.get(__ret__, 'floating_ips'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_floating_ips)
-def list_floating_ips_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFloatingIPsResult]:
+def list_floating_ips_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFloatingIPsItems]:
     """
     Use this data source to access information about an existing resource.
     """

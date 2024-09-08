@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class ListDatabasesReplicas
     {
-        public static Task<ListDatabasesReplicasResult> InvokeAsync(ListDatabasesReplicasArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasesReplicasResult>("digitalocean-native:databases/v2:listDatabasesReplicas", args ?? new ListDatabasesReplicasArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDatabasesReplicasProperties> InvokeAsync(ListDatabasesReplicasArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDatabasesReplicasProperties>("digitalocean-native:databases/v2:listDatabasesReplicas", args ?? new ListDatabasesReplicasArgs(), options.WithDefaults());
 
-        public static Output<ListDatabasesReplicasResult> Invoke(ListDatabasesReplicasInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasesReplicasResult>("digitalocean-native:databases/v2:listDatabasesReplicas", args ?? new ListDatabasesReplicasInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDatabasesReplicasProperties> Invoke(ListDatabasesReplicasInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDatabasesReplicasProperties>("digitalocean-native:databases/v2:listDatabasesReplicas", args ?? new ListDatabasesReplicasInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new ListDatabasesReplicasInvokeArgs Empty => new ListDatabasesReplicasInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDatabasesReplicasResult
-    {
-        public readonly Outputs.ListDatabasesReplicasProperties Items;
-
-        [OutputConstructor]
-        private ListDatabasesReplicasResult(Outputs.ListDatabasesReplicasProperties items)
-        {
-            Items = items;
-        }
     }
 }

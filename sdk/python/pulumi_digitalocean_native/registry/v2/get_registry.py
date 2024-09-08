@@ -6,53 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetRegistryResult',
-    'AwaitableGetRegistryResult',
+    'GetRegistryProperties',
+    'AwaitableGetRegistryProperties',
     'get_registry',
     'get_registry_output',
 ]
 
 @pulumi.output_type
-class GetRegistryResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetRegistryProperties:
+    def __init__(__self__, registry=None):
+        if registry and not isinstance(registry, dict):
+            raise TypeError("Expected argument 'registry' to be a dict")
+        pulumi.set(__self__, "registry", registry)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetRegistryProperties':
-        return pulumi.get(self, "items")
+    def registry(self) -> Optional['outputs.Registry']:
+        return pulumi.get(self, "registry")
 
 
-class AwaitableGetRegistryResult(GetRegistryResult):
+class AwaitableGetRegistryProperties(GetRegistryProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetRegistryResult(
-            items=self.items)
+        return GetRegistryProperties(
+            registry=self.registry)
 
 
-def get_registry(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
+def get_registry(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryProperties:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:getRegistry', __args__, opts=opts, typ=GetRegistryResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:getRegistry', __args__, opts=opts, typ=GetRegistryProperties).value
 
-    return AwaitableGetRegistryResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetRegistryProperties(
+        registry=pulumi.get(__ret__, 'registry'))
 
 
 @_utilities.lift_output_func(get_registry)
-def get_registry_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
+def get_registry_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryProperties]:
     """
     Use this data source to access information about an existing resource.
     """

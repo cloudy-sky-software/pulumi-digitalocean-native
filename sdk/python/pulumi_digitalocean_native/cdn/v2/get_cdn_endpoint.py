@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetCdnEndpointResult',
-    'AwaitableGetCdnEndpointResult',
+    'GetCdnEndpointProperties',
+    'AwaitableGetCdnEndpointProperties',
     'get_cdn_endpoint',
     'get_cdn_endpoint_output',
 ]
 
 @pulumi.output_type
-class GetCdnEndpointResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetCdnEndpointProperties:
+    def __init__(__self__, endpoint=None):
+        if endpoint and not isinstance(endpoint, dict):
+            raise TypeError("Expected argument 'endpoint' to be a dict")
+        pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetCdnEndpointProperties':
-        return pulumi.get(self, "items")
+    def endpoint(self) -> Optional['outputs.CdnEndpoint']:
+        return pulumi.get(self, "endpoint")
 
 
-class AwaitableGetCdnEndpointResult(GetCdnEndpointResult):
+class AwaitableGetCdnEndpointProperties(GetCdnEndpointProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetCdnEndpointResult(
-            items=self.items)
+        return GetCdnEndpointProperties(
+            endpoint=self.endpoint)
 
 
 def get_cdn_endpoint(cdn_id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCdnEndpointResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCdnEndpointProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_cdn_endpoint(cdn_id: Optional[str] = None,
     __args__ = dict()
     __args__['cdnId'] = cdn_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:cdn/v2:getCdnEndpoint', __args__, opts=opts, typ=GetCdnEndpointResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:cdn/v2:getCdnEndpoint', __args__, opts=opts, typ=GetCdnEndpointProperties).value
 
-    return AwaitableGetCdnEndpointResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetCdnEndpointProperties(
+        endpoint=pulumi.get(__ret__, 'endpoint'))
 
 
 @_utilities.lift_output_func(get_cdn_endpoint)
 def get_cdn_endpoint_output(cdn_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCdnEndpointResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCdnEndpointProperties]:
     """
     Use this data source to access information about an existing resource.
 

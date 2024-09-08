@@ -6,53 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListFunctionsNamespacesResult',
-    'AwaitableListFunctionsNamespacesResult',
+    'ListFunctionsNamespacesItems',
+    'AwaitableListFunctionsNamespacesItems',
     'list_functions_namespaces',
     'list_functions_namespaces_output',
 ]
 
 @pulumi.output_type
-class ListFunctionsNamespacesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListFunctionsNamespacesItems:
+    def __init__(__self__, namespaces=None):
+        if namespaces and not isinstance(namespaces, list):
+            raise TypeError("Expected argument 'namespaces' to be a list")
+        pulumi.set(__self__, "namespaces", namespaces)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFunctionsNamespacesItems':
-        return pulumi.get(self, "items")
+    def namespaces(self) -> Optional[Sequence['outputs.NamespaceInfo']]:
+        return pulumi.get(self, "namespaces")
 
 
-class AwaitableListFunctionsNamespacesResult(ListFunctionsNamespacesResult):
+class AwaitableListFunctionsNamespacesItems(ListFunctionsNamespacesItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListFunctionsNamespacesResult(
-            items=self.items)
+        return ListFunctionsNamespacesItems(
+            namespaces=self.namespaces)
 
 
-def list_functions_namespaces(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFunctionsNamespacesResult:
+def list_functions_namespaces(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFunctionsNamespacesItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:listFunctionsNamespaces', __args__, opts=opts, typ=ListFunctionsNamespacesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:listFunctionsNamespaces', __args__, opts=opts, typ=ListFunctionsNamespacesItems).value
 
-    return AwaitableListFunctionsNamespacesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListFunctionsNamespacesItems(
+        namespaces=pulumi.get(__ret__, 'namespaces'))
 
 
 @_utilities.lift_output_func(list_functions_namespaces)
-def list_functions_namespaces_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFunctionsNamespacesResult]:
+def list_functions_namespaces_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFunctionsNamespacesItems]:
     """
     Use this data source to access information about an existing resource.
     """

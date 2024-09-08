@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listVpcs(args?: ListVpcsArgs, opts?: pulumi.InvokeOptions): Promise<ListVpcsResult> {
+export function listVpcs(args?: ListVpcsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.vpcs.v2.ListVpcsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listVpcs(args?: ListVpcsArgs, opts?: pulumi.InvokeOptions): Prom
 
 export interface ListVpcsArgs {
 }
-
-export interface ListVpcsResult {
-    readonly items: outputs.vpcs.v2.ListVpcsItems;
-}
-export function listVpcsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListVpcsResult> {
+export function listVpcsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsItems> {
     return pulumi.output(listVpcs(opts))
 }

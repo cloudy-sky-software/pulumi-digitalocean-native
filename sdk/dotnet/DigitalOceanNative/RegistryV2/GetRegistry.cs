@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class GetRegistry
     {
-        public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("digitalocean-native:registry/v2:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
+        public static Task<Outputs.GetRegistryProperties> InvokeAsync(GetRegistryArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetRegistryProperties>("digitalocean-native:registry/v2:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
-        public static Output<GetRegistryResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("digitalocean-native:registry/v2:getRegistry", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.GetRegistryProperties> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetRegistryProperties>("digitalocean-native:registry/v2:getRegistry", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new GetRegistryArgs Empty => new GetRegistryArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetRegistryResult
-    {
-        public readonly Outputs.GetRegistryProperties Items;
-
-        [OutputConstructor]
-        private GetRegistryResult(Outputs.GetRegistryProperties items)
-        {
-            Items = items;
-        }
     }
 }

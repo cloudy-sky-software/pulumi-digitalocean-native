@@ -25,7 +25,8 @@ type ListDatabasesOptionsArgs struct {
 }
 
 type ListDatabasesOptionsResult struct {
-	Items Options `pulumi:"items"`
+	Options             *OptionsOptionsProperties             `pulumi:"options"`
+	VersionAvailability *OptionsVersionAvailabilityProperties `pulumi:"versionAvailability"`
 }
 
 func ListDatabasesOptionsOutput(ctx *pulumi.Context, args ListDatabasesOptionsOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesOptionsResultOutput {
@@ -62,8 +63,12 @@ func (o ListDatabasesOptionsResultOutput) ToListDatabasesOptionsResultOutputWith
 	return o
 }
 
-func (o ListDatabasesOptionsResultOutput) Items() OptionsOutput {
-	return o.ApplyT(func(v ListDatabasesOptionsResult) Options { return v.Items }).(OptionsOutput)
+func (o ListDatabasesOptionsResultOutput) Options() OptionsOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v ListDatabasesOptionsResult) *OptionsOptionsProperties { return v.Options }).(OptionsOptionsPropertiesPtrOutput)
+}
+
+func (o ListDatabasesOptionsResultOutput) VersionAvailability() OptionsVersionAvailabilityPropertiesPtrOutput {
+	return o.ApplyT(func(v ListDatabasesOptionsResult) *OptionsVersionAvailabilityProperties { return v.VersionAvailability }).(OptionsVersionAvailabilityPropertiesPtrOutput)
 }
 
 func init() {

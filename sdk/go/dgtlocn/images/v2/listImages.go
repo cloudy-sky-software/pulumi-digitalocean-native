@@ -25,7 +25,9 @@ type ListImagesArgs struct {
 }
 
 type ListImagesResult struct {
-	Items ListImagesItems `pulumi:"items"`
+	Images []Image    `pulumi:"images"`
+	Links  *PageLinks `pulumi:"links"`
+	Meta   MetaMeta   `pulumi:"meta"`
 }
 
 func ListImagesOutput(ctx *pulumi.Context, args ListImagesOutputArgs, opts ...pulumi.InvokeOption) ListImagesResultOutput {
@@ -62,8 +64,16 @@ func (o ListImagesResultOutput) ToListImagesResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o ListImagesResultOutput) Items() ListImagesItemsOutput {
-	return o.ApplyT(func(v ListImagesResult) ListImagesItems { return v.Items }).(ListImagesItemsOutput)
+func (o ListImagesResultOutput) Images() ImageArrayOutput {
+	return o.ApplyT(func(v ListImagesResult) []Image { return v.Images }).(ImageArrayOutput)
+}
+
+func (o ListImagesResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListImagesResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListImagesResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListImagesResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

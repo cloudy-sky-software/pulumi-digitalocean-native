@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetUptimeAlertResult',
-    'AwaitableGetUptimeAlertResult',
+    'GetUptimeAlertProperties',
+    'AwaitableGetUptimeAlertProperties',
     'get_uptime_alert',
     'get_uptime_alert_output',
 ]
 
 @pulumi.output_type
-class GetUptimeAlertResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetUptimeAlertProperties:
+    def __init__(__self__, alert=None):
+        if alert and not isinstance(alert, dict):
+            raise TypeError("Expected argument 'alert' to be a dict")
+        pulumi.set(__self__, "alert", alert)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetUptimeAlertProperties':
-        return pulumi.get(self, "items")
+    def alert(self) -> Optional['outputs.Alert']:
+        return pulumi.get(self, "alert")
 
 
-class AwaitableGetUptimeAlertResult(GetUptimeAlertResult):
+class AwaitableGetUptimeAlertProperties(GetUptimeAlertProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetUptimeAlertResult(
-            items=self.items)
+        return GetUptimeAlertProperties(
+            alert=self.alert)
 
 
 def get_uptime_alert(alert_id: Optional[str] = None,
                      check_id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUptimeAlertResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUptimeAlertProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_uptime_alert(alert_id: Optional[str] = None,
     __args__['alertId'] = alert_id
     __args__['checkId'] = check_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:uptime/v2:getUptimeAlert', __args__, opts=opts, typ=GetUptimeAlertResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:uptime/v2:getUptimeAlert', __args__, opts=opts, typ=GetUptimeAlertProperties).value
 
-    return AwaitableGetUptimeAlertResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetUptimeAlertProperties(
+        alert=pulumi.get(__ret__, 'alert'))
 
 
 @_utilities.lift_output_func(get_uptime_alert)
 def get_uptime_alert_output(alert_id: Optional[pulumi.Input[str]] = None,
                             check_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeAlertResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeAlertProperties]:
     """
     Use this data source to access information about an existing resource.
 

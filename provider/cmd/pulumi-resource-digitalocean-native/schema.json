@@ -18222,27 +18222,13 @@
         "digitalocean-native:1-clicks/v2:listOneClicks": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:1-clicks/v2:ListOneClicksProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:1-clicks/v2:ListOneClicksProperties"
             }
         },
         "digitalocean-native:account/v2:getAccount": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:account/v2:GetAccountProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:account/v2:GetAccountProperties"
             }
         },
         "digitalocean-native:account/v2:getSshKey": {
@@ -18258,27 +18244,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:account/v2:GetSshKeyProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:account/v2:GetSshKeyProperties"
             }
         },
         "digitalocean-native:account/v2:listSshKeys": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:account/v2:ListSshKeysItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:account/v2:ListSshKeysItems"
             }
         },
         "digitalocean-native:actions/v2:getAction": {
@@ -18294,27 +18266,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:actions/v2:GetActionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:actions/v2:GetActionProperties"
             }
         },
         "digitalocean-native:actions/v2:listActions": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:actions/v2:ListActionsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:actions/v2:ListActionsItems"
             }
         },
         "digitalocean-native:apps/v2:getApp": {
@@ -18330,14 +18288,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsDeployment": {
@@ -18358,14 +18309,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsInstanceSize": {
@@ -18381,14 +18325,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetInstanceSizeResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsGetInstanceSizeResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsLog": {
@@ -18414,14 +18351,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsLogsActiveDeployment": {
@@ -18442,14 +18372,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate": {
@@ -18465,14 +18388,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsLogsAggregate": {
@@ -18493,14 +18409,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsGetLogsResponse"
             }
         },
         "digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily": {
@@ -18516,14 +18425,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppMetricsBandwidthUsage"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppMetricsBandwidthUsage"
             }
         },
         "digitalocean-native:apps/v2:getAppsTier": {
@@ -18539,27 +18441,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsGetTierResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsGetTierResponse"
             }
         },
         "digitalocean-native:apps/v2:listApps": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsResponse"
             }
         },
         "digitalocean-native:apps/v2:listAppsAlerts": {
@@ -18575,14 +18463,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsListAlertsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsListAlertsResponse"
             }
         },
         "digitalocean-native:apps/v2:listAppsDeployments": {
@@ -18598,53 +18479,25 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsDeploymentsResponse"
             }
         },
         "digitalocean-native:apps/v2:listAppsInstanceSizes": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsListInstanceSizesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsListInstanceSizesResponse"
             }
         },
         "digitalocean-native:apps/v2:listAppsRegions": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsListRegionsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsListRegionsResponse"
             }
         },
         "digitalocean-native:apps/v2:listAppsTiers": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:apps/v2:AppsListTiersResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:apps/v2:AppsListTiersResponse"
             }
         },
         "digitalocean-native:cdn/v2:getCdnEndpoint": {
@@ -18660,27 +18513,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:cdn/v2:GetCdnEndpointProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:cdn/v2:GetCdnEndpointProperties"
             }
         },
         "digitalocean-native:cdn/v2:listCdnEndpoints": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:cdn/v2:ListCdnEndpointsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:cdn/v2:ListCdnEndpointsItems"
             }
         },
         "digitalocean-native:certificates/v2:getCertificate": {
@@ -18696,66 +18535,31 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:certificates/v2:GetCertificateProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:certificates/v2:GetCertificateProperties"
             }
         },
         "digitalocean-native:certificates/v2:listCertificates": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:certificates/v2:ListCertificatesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:certificates/v2:ListCertificatesItems"
             }
         },
         "digitalocean-native:customers/v2:getBalance": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:Balance"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:customers/v2:Balance"
             }
         },
         "digitalocean-native:customers/v2:listBillingHistory": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:ListBillingHistoryItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:customers/v2:ListBillingHistoryItems"
             }
         },
         "digitalocean-native:customers/v2:listInvoices": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:customers/v2:ListInvoicesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:customers/v2:ListInvoicesItems"
             }
         },
         "digitalocean-native:databases/v2:getDatabase": {
@@ -18776,14 +18580,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabaseProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabaseProperties"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesCa": {
@@ -18799,14 +18596,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesCaProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesCaProperties"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesCluster": {
@@ -18822,14 +18612,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesClusterProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesClusterProperties"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesConfig": {
@@ -18845,14 +18628,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:DatabaseConfig"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:DatabaseConfig"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesConnectionPool": {
@@ -18873,14 +18649,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesConnectionPoolProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesConnectionPoolProperties"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesEvictionPolicy": {
@@ -18896,14 +18665,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesEvictionPolicyProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesEvictionPolicyProperties"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesMigrationStatu": {
@@ -18919,14 +18681,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:OnlineMigration"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:OnlineMigration"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesReplica": {
@@ -18947,14 +18702,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesReplicaProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesReplicaProperties"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesSqlMode": {
@@ -18970,14 +18718,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:SqlMode"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:SqlMode"
             }
         },
         "digitalocean-native:databases/v2:getDatabasesUser": {
@@ -18998,14 +18739,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesUserProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:GetDatabasesUserProperties"
             }
         },
         "digitalocean-native:databases/v2:listDatabases": {
@@ -19021,14 +18755,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesProperties"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesBackups": {
@@ -19044,27 +18771,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesBackupsProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesBackupsProperties"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesClusters": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesClustersProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesClustersProperties"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesConnectionPools": {
@@ -19080,14 +18793,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ConnectionPools"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ConnectionPools"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesFirewallRules": {
@@ -19103,27 +18809,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesFirewallRulesProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesFirewallRulesProperties"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesOptions": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:Options"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:Options"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesReplicas": {
@@ -19139,14 +18831,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesReplicasProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesReplicasProperties"
             }
         },
         "digitalocean-native:databases/v2:listDatabasesUsers": {
@@ -19162,14 +18847,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesUsersProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:databases/v2:ListDatabasesUsersProperties"
             }
         },
         "digitalocean-native:domains/v2:getDomain": {
@@ -19185,14 +18863,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:GetDomainProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:domains/v2:GetDomainProperties"
             }
         },
         "digitalocean-native:domains/v2:getDomainsRecord": {
@@ -19213,27 +18884,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:GetDomainsRecordProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:domains/v2:GetDomainsRecordProperties"
             }
         },
         "digitalocean-native:domains/v2:listDomains": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsItems"
             }
         },
         "digitalocean-native:domains/v2:listDomainsRecords": {
@@ -19249,14 +18906,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsRecordsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:domains/v2:ListDomainsRecordsItems"
             }
         },
         "digitalocean-native:droplets/v2:getDroplet": {
@@ -19272,14 +18922,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:GetDropletProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:GetDropletProperties"
             }
         },
         "digitalocean-native:droplets/v2:getDropletAction": {
@@ -19300,14 +18943,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:GetDropletActionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:GetDropletActionProperties"
             }
         },
         "digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu": {
@@ -19323,14 +18959,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResourceStatus"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:AssociatedResourceStatus"
             }
         },
         "digitalocean-native:droplets/v2:listDropletActions": {
@@ -19346,27 +18975,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletActionsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletActionsItems"
             }
         },
         "digitalocean-native:droplets/v2:listDroplets": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsItems"
             }
         },
         "digitalocean-native:droplets/v2:listDropletsAssociatedResources": {
@@ -19382,14 +18997,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsAssociatedResourcesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsAssociatedResourcesItems"
             }
         },
         "digitalocean-native:droplets/v2:listDropletsBackups": {
@@ -19405,14 +19013,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsBackupsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsBackupsItems"
             }
         },
         "digitalocean-native:droplets/v2:listDropletsFirewalls": {
@@ -19428,14 +19029,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsFirewallsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsFirewallsItems"
             }
         },
         "digitalocean-native:droplets/v2:listDropletsKernels": {
@@ -19451,14 +19045,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsKernelsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsKernelsItems"
             }
         },
         "digitalocean-native:droplets/v2:listDropletsNeighbors": {
@@ -19474,14 +19061,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsNeighborsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsNeighborsItems"
             }
         },
         "digitalocean-native:droplets/v2:listDropletsSnapshots": {
@@ -19497,14 +19077,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsSnapshotsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:droplets/v2:ListDropletsSnapshotsItems"
             }
         },
         "digitalocean-native:firewalls/v2:getFirewall": {
@@ -19520,27 +19093,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:GetFirewallProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:firewalls/v2:GetFirewallProperties"
             }
         },
         "digitalocean-native:firewalls/v2:listFirewalls": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:firewalls/v2:ListFirewallsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:firewalls/v2:ListFirewallsItems"
             }
         },
         "digitalocean-native:floating_ips/v2:getFloatingIP": {
@@ -19556,14 +19115,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:GetFloatingIPProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:floating_ips/v2:GetFloatingIPProperties"
             }
         },
         "digitalocean-native:floating_ips/v2:getFloatingIPsAction": {
@@ -19584,27 +19136,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:GetFloatingIPsActionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:floating_ips/v2:GetFloatingIPsActionProperties"
             }
         },
         "digitalocean-native:floating_ips/v2:listFloatingIPs": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsItems"
             }
         },
         "digitalocean-native:floating_ips/v2:listFloatingIPsAction": {
@@ -19620,14 +19158,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsActionItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:floating_ips/v2:ListFloatingIPsActionItems"
             }
         },
         "digitalocean-native:functions/v2:getFunctionsNamespace": {
@@ -19643,14 +19174,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:GetFunctionsNamespaceProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:functions/v2:GetFunctionsNamespaceProperties"
             }
         },
         "digitalocean-native:functions/v2:getFunctionsTrigger": {
@@ -19671,27 +19195,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:GetFunctionsTriggerProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:functions/v2:GetFunctionsTriggerProperties"
             }
         },
         "digitalocean-native:functions/v2:listFunctionsNamespaces": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsNamespacesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsNamespacesItems"
             }
         },
         "digitalocean-native:functions/v2:listFunctionsTriggers": {
@@ -19707,14 +19217,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsTriggersItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:functions/v2:ListFunctionsTriggersItems"
             }
         },
         "digitalocean-native:images/v2:getImage": {
@@ -19730,14 +19233,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:GetImageProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:images/v2:GetImageProperties"
             }
         },
         "digitalocean-native:images/v2:getImageAction": {
@@ -19758,14 +19254,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:Action"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:images/v2:Action"
             }
         },
         "digitalocean-native:images/v2:listImageActions": {
@@ -19781,27 +19270,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:ListImageActionsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:images/v2:ListImageActionsItems"
             }
         },
         "digitalocean-native:images/v2:listImages": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:images/v2:ListImagesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:images/v2:ListImagesItems"
             }
         },
         "digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade": {
@@ -19817,14 +19292,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:GetKubernetesAvailableUpgradeProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:GetKubernetesAvailableUpgradeProperties"
             }
         },
         "digitalocean-native:kubernetes/v2:getKubernetesCluster": {
@@ -19840,14 +19308,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:GetKubernetesClusterProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:GetKubernetesClusterProperties"
             }
         },
         "digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult": {
@@ -19863,14 +19324,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:ClusterlintResults"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:ClusterlintResults"
             }
         },
         "digitalocean-native:kubernetes/v2:getKubernetesClusterUser": {
@@ -19886,14 +19340,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:User"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:User"
             }
         },
         "digitalocean-native:kubernetes/v2:getKubernetesCredential": {
@@ -19909,14 +19356,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:Credentials"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:Credentials"
             }
         },
         "digitalocean-native:kubernetes/v2:getKubernetesNodePool": {
@@ -19937,14 +19377,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:GetKubernetesNodePoolProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:GetKubernetesNodePoolProperties"
             }
         },
         "digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources": {
@@ -19960,27 +19393,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:AssociatedKubernetesResources"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:AssociatedKubernetesResources"
             }
         },
         "digitalocean-native:kubernetes/v2:listKubernetesClusters": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:ListKubernetesClustersItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:ListKubernetesClustersItems"
             }
         },
         "digitalocean-native:kubernetes/v2:listKubernetesNodePools": {
@@ -19996,27 +19415,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:ListKubernetesNodePoolsProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:ListKubernetesNodePoolsProperties"
             }
         },
         "digitalocean-native:kubernetes/v2:listKubernetesOptions": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesOptions"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:kubernetes/v2:KubernetesOptions"
             }
         },
         "digitalocean-native:load_balancers/v2:getLoadBalancer": {
@@ -20032,27 +19437,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:load_balancers/v2:GetLoadBalancerProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:load_balancers/v2:GetLoadBalancerProperties"
             }
         },
         "digitalocean-native:load_balancers/v2:listLoadBalancers": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:load_balancers/v2:ListLoadBalancersItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:load_balancers/v2:ListLoadBalancersItems"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringAlertPolicy": {
@@ -20068,170 +19459,79 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:GetMonitoringAlertPolicyProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:GetMonitoringAlertPolicyProperties"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletLoad1Metric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:getMonitoringDropletMemoryTotalMetric": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:Metrics"
             }
         },
         "digitalocean-native:monitoring/v2:listMonitoringAlertPolicy": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:monitoring/v2:ListMonitoringAlertPolicyItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:monitoring/v2:ListMonitoringAlertPolicyItems"
             }
         },
         "digitalocean-native:projects/v2:getProject": {
@@ -20247,40 +19547,19 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:GetProjectProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:projects/v2:GetProjectProperties"
             }
         },
         "digitalocean-native:projects/v2:getProjectsDefault": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:GetProjectsDefaultProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:projects/v2:GetProjectsDefaultProperties"
             }
         },
         "digitalocean-native:projects/v2:listProjects": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsItems"
             }
         },
         "digitalocean-native:projects/v2:listProjectsResources": {
@@ -20296,92 +19575,43 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesItems"
             }
         },
         "digitalocean-native:projects/v2:listProjectsResourcesDefault": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesDefaultItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:projects/v2:ListProjectsResourcesDefaultItems"
             }
         },
         "digitalocean-native:regions/v2:listRegions": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:regions/v2:ListRegionsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:regions/v2:ListRegionsItems"
             }
         },
         "digitalocean-native:registry/v2:getRegistry": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:GetRegistryProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:GetRegistryProperties"
             }
         },
         "digitalocean-native:registry/v2:getRegistryDockerCredential": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:DockerCredentials"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:DockerCredentials"
             }
         },
         "digitalocean-native:registry/v2:getRegistryOption": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:GetRegistryOptionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:GetRegistryOptionProperties"
             }
         },
         "digitalocean-native:registry/v2:getRegistrySubscription": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:GetRegistrySubscriptionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:GetRegistrySubscriptionProperties"
             }
         },
         "digitalocean-native:registry/v2:listRegistryGarbageCollections": {
@@ -20397,14 +19627,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryGarbageCollectionsProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryGarbageCollectionsProperties"
             }
         },
         "digitalocean-native:registry/v2:listRegistryRepositories": {
@@ -20420,14 +19643,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesItems"
             }
         },
         "digitalocean-native:registry/v2:listRegistryRepositoriesV2": {
@@ -20443,14 +19659,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesV2Items"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoriesV2Items"
             }
         },
         "digitalocean-native:registry/v2:listRegistryRepositoryManifests": {
@@ -20471,14 +19680,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryManifestsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryManifestsItems"
             }
         },
         "digitalocean-native:registry/v2:listRegistryRepositoryTags": {
@@ -20499,27 +19701,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryTagsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:registry/v2:ListRegistryRepositoryTagsItems"
             }
         },
         "digitalocean-native:reports/v2:listDropletsNeighborsIds": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reports/v2:NeighborIds"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:reports/v2:NeighborIds"
             }
         },
         "digitalocean-native:reserved_ips/v2:getReservedIP": {
@@ -20535,14 +19723,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:GetReservedIPProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:reserved_ips/v2:GetReservedIPProperties"
             }
         },
         "digitalocean-native:reserved_ips/v2:getReservedIPsAction": {
@@ -20563,27 +19744,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:GetReservedIPsActionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:reserved_ips/v2:GetReservedIPsActionProperties"
             }
         },
         "digitalocean-native:reserved_ips/v2:listReservedIPs": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsItems"
             }
         },
         "digitalocean-native:reserved_ips/v2:listReservedIPsActions": {
@@ -20599,27 +19766,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsActionsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:reserved_ips/v2:ListReservedIPsActionsItems"
             }
         },
         "digitalocean-native:sizes/v2:listSizes": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:sizes/v2:ListSizesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:sizes/v2:ListSizesItems"
             }
         },
         "digitalocean-native:snapshots/v2:getSnapshot": {
@@ -20635,27 +19788,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:snapshots/v2:GetSnapshotProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:snapshots/v2:GetSnapshotProperties"
             }
         },
         "digitalocean-native:snapshots/v2:listSnapshots": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:snapshots/v2:ListSnapshotsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:snapshots/v2:ListSnapshotsItems"
             }
         },
         "digitalocean-native:tags/v2:getTag": {
@@ -20671,27 +19810,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:tags/v2:GetTagProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:tags/v2:GetTagProperties"
             }
         },
         "digitalocean-native:tags/v2:listTags": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:tags/v2:ListTagsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:tags/v2:ListTagsItems"
             }
         },
         "digitalocean-native:uptime/v2:getUptimeAlert": {
@@ -20712,14 +19837,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:GetUptimeAlertProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:uptime/v2:GetUptimeAlertProperties"
             }
         },
         "digitalocean-native:uptime/v2:getUptimeCheck": {
@@ -20735,14 +19853,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:GetUptimeCheckProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:uptime/v2:GetUptimeCheckProperties"
             }
         },
         "digitalocean-native:uptime/v2:getUptimeCheckState": {
@@ -20758,14 +19869,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:GetUptimeCheckStateProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:uptime/v2:GetUptimeCheckStateProperties"
             }
         },
         "digitalocean-native:uptime/v2:listUptimeAlerts": {
@@ -20781,27 +19885,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeAlertsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeAlertsItems"
             }
         },
         "digitalocean-native:uptime/v2:listUptimeChecks": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeChecksItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:uptime/v2:ListUptimeChecksItems"
             }
         },
         "digitalocean-native:volumes/v2:getVolume": {
@@ -20817,14 +19907,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:GetVolumeProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:volumes/v2:GetVolumeProperties"
             }
         },
         "digitalocean-native:volumes/v2:getVolumeAction": {
@@ -20845,14 +19928,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:GetVolumeActionProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:volumes/v2:GetVolumeActionProperties"
             }
         },
         "digitalocean-native:volumes/v2:getVolumeSnapshotsById": {
@@ -20868,14 +19944,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:GetVolumeSnapshotsByIdProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:volumes/v2:GetVolumeSnapshotsByIdProperties"
             }
         },
         "digitalocean-native:volumes/v2:listVolumeActions": {
@@ -20891,14 +19960,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeActionsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeActionsItems"
             }
         },
         "digitalocean-native:volumes/v2:listVolumeSnapshots": {
@@ -20914,27 +19976,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeSnapshotsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumeSnapshotsItems"
             }
         },
         "digitalocean-native:volumes/v2:listVolumes": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumesItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:volumes/v2:ListVolumesItems"
             }
         },
         "digitalocean-native:vpcs/v2:getVpc": {
@@ -20950,27 +19998,13 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:GetVpcProperties"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:vpcs/v2:GetVpcProperties"
             }
         },
         "digitalocean-native:vpcs/v2:listVpcs": {
             "inputs": {},
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsItems"
             }
         },
         "digitalocean-native:vpcs/v2:listVpcsMembers": {
@@ -20986,14 +20020,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsMembersItems"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/digitalocean-native:vpcs/v2:ListVpcsMembersItems"
             }
         }
     }

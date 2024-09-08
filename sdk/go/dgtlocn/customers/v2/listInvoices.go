@@ -25,7 +25,11 @@ type ListInvoicesArgs struct {
 }
 
 type ListInvoicesResult struct {
-	Items ListInvoicesItems `pulumi:"items"`
+	// The invoice preview.
+	InvoicePreview *InvoicePreview  `pulumi:"invoicePreview"`
+	Invoices       []InvoicePreview `pulumi:"invoices"`
+	Links          *PageLinks       `pulumi:"links"`
+	Meta           MetaMeta         `pulumi:"meta"`
 }
 
 func ListInvoicesOutput(ctx *pulumi.Context, args ListInvoicesOutputArgs, opts ...pulumi.InvokeOption) ListInvoicesResultOutput {
@@ -62,8 +66,21 @@ func (o ListInvoicesResultOutput) ToListInvoicesResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o ListInvoicesResultOutput) Items() ListInvoicesItemsOutput {
-	return o.ApplyT(func(v ListInvoicesResult) ListInvoicesItems { return v.Items }).(ListInvoicesItemsOutput)
+// The invoice preview.
+func (o ListInvoicesResultOutput) InvoicePreview() InvoicePreviewPtrOutput {
+	return o.ApplyT(func(v ListInvoicesResult) *InvoicePreview { return v.InvoicePreview }).(InvoicePreviewPtrOutput)
+}
+
+func (o ListInvoicesResultOutput) Invoices() InvoicePreviewArrayOutput {
+	return o.ApplyT(func(v ListInvoicesResult) []InvoicePreview { return v.Invoices }).(InvoicePreviewArrayOutput)
+}
+
+func (o ListInvoicesResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListInvoicesResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListInvoicesResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListInvoicesResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

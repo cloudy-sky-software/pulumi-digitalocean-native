@@ -25,7 +25,9 @@ type ListMonitoringAlertPolicyArgs struct {
 }
 
 type ListMonitoringAlertPolicyResult struct {
-	Items ListMonitoringAlertPolicyItems `pulumi:"items"`
+	Links    *PageLinks    `pulumi:"links"`
+	Meta     MetaMeta      `pulumi:"meta"`
+	Policies []AlertPolicy `pulumi:"policies"`
 }
 
 func ListMonitoringAlertPolicyOutput(ctx *pulumi.Context, args ListMonitoringAlertPolicyOutputArgs, opts ...pulumi.InvokeOption) ListMonitoringAlertPolicyResultOutput {
@@ -62,8 +64,16 @@ func (o ListMonitoringAlertPolicyResultOutput) ToListMonitoringAlertPolicyResult
 	return o
 }
 
-func (o ListMonitoringAlertPolicyResultOutput) Items() ListMonitoringAlertPolicyItemsOutput {
-	return o.ApplyT(func(v ListMonitoringAlertPolicyResult) ListMonitoringAlertPolicyItems { return v.Items }).(ListMonitoringAlertPolicyItemsOutput)
+func (o ListMonitoringAlertPolicyResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListMonitoringAlertPolicyResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListMonitoringAlertPolicyResultOutput) Policies() AlertPolicyArrayOutput {
+	return o.ApplyT(func(v ListMonitoringAlertPolicyResult) []AlertPolicy { return v.Policies }).(AlertPolicyArrayOutput)
 }
 
 func init() {

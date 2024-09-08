@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListDropletsResult',
-    'AwaitableListDropletsResult',
+    'ListDropletsItems',
+    'AwaitableListDropletsItems',
     'list_droplets',
     'list_droplets_output',
 ]
 
 @pulumi.output_type
-class ListDropletsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDropletsItems:
+    def __init__(__self__, droplets=None, links=None, meta=None):
+        if droplets and not isinstance(droplets, list):
+            raise TypeError("Expected argument 'droplets' to be a list")
+        pulumi.set(__self__, "droplets", droplets)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDropletsItems':
-        return pulumi.get(self, "items")
+    def droplets(self) -> Optional[Sequence['outputs.Droplet']]:
+        return pulumi.get(self, "droplets")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListDropletsResult(ListDropletsResult):
+class AwaitableListDropletsItems(ListDropletsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDropletsResult(
-            items=self.items)
+        return ListDropletsItems(
+            droplets=self.droplets,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_droplets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDropletsResult:
+def list_droplets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDropletsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:listDroplets', __args__, opts=opts, typ=ListDropletsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:listDroplets', __args__, opts=opts, typ=ListDropletsItems).value
 
-    return AwaitableListDropletsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDropletsItems(
+        droplets=pulumi.get(__ret__, 'droplets'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_droplets)
-def list_droplets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsResult]:
+def list_droplets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsItems]:
     """
     Use this data source to access information about an existing resource.
     """

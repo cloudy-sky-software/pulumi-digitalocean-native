@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletBandwidthMetric
     {
-        public static Task<GetMonitoringDropletBandwidthMetricResult> InvokeAsync(GetMonitoringDropletBandwidthMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletBandwidthMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", args ?? new GetMonitoringDropletBandwidthMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletBandwidthMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", args ?? new GetMonitoringDropletBandwidthMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletBandwidthMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletBandwidthMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletBandwidthMetricArgs Empty => new GetMonitoringDropletBandwidthMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletBandwidthMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletBandwidthMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

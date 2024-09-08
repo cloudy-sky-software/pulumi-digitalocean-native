@@ -27,7 +27,7 @@ type GetAppsTierArgs struct {
 }
 
 type GetAppsTierResult struct {
-	Items AppsGetTierResponse `pulumi:"items"`
+	Tier *AppsTier `pulumi:"tier"`
 }
 
 func GetAppsTierOutput(ctx *pulumi.Context, args GetAppsTierOutputArgs, opts ...pulumi.InvokeOption) GetAppsTierResultOutput {
@@ -66,8 +66,8 @@ func (o GetAppsTierResultOutput) ToGetAppsTierResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o GetAppsTierResultOutput) Items() AppsGetTierResponseOutput {
-	return o.ApplyT(func(v GetAppsTierResult) AppsGetTierResponse { return v.Items }).(AppsGetTierResponseOutput)
+func (o GetAppsTierResultOutput) Tier() AppsTierPtrOutput {
+	return o.ApplyT(func(v GetAppsTierResult) *AppsTier { return v.Tier }).(AppsTierPtrOutput)
 }
 
 func init() {

@@ -25,7 +25,10 @@ type ListBillingHistoryArgs struct {
 }
 
 type ListBillingHistoryResult struct {
-	Items ListBillingHistoryItems `pulumi:"items"`
+	BillingHistory []BillingHistory `pulumi:"billingHistory"`
+	Links          *PageLinks       `pulumi:"links"`
+	// Information about the response itself.
+	Meta MetaProperties `pulumi:"meta"`
 }
 
 func ListBillingHistoryOutput(ctx *pulumi.Context, args ListBillingHistoryOutputArgs, opts ...pulumi.InvokeOption) ListBillingHistoryResultOutput {
@@ -62,8 +65,17 @@ func (o ListBillingHistoryResultOutput) ToListBillingHistoryResultOutputWithCont
 	return o
 }
 
-func (o ListBillingHistoryResultOutput) Items() ListBillingHistoryItemsOutput {
-	return o.ApplyT(func(v ListBillingHistoryResult) ListBillingHistoryItems { return v.Items }).(ListBillingHistoryItemsOutput)
+func (o ListBillingHistoryResultOutput) BillingHistory() BillingHistoryArrayOutput {
+	return o.ApplyT(func(v ListBillingHistoryResult) []BillingHistory { return v.BillingHistory }).(BillingHistoryArrayOutput)
+}
+
+func (o ListBillingHistoryResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListBillingHistoryResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+// Information about the response itself.
+func (o ListBillingHistoryResultOutput) Meta() MetaPropertiesOutput {
+	return o.ApplyT(func(v ListBillingHistoryResult) MetaProperties { return v.Meta }).(MetaPropertiesOutput)
 }
 
 func init() {

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class GetDatabasesConnectionPool
     {
-        public static Task<GetDatabasesConnectionPoolResult> InvokeAsync(GetDatabasesConnectionPoolArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesConnectionPoolResult>("digitalocean-native:databases/v2:getDatabasesConnectionPool", args ?? new GetDatabasesConnectionPoolArgs(), options.WithDefaults());
+        public static Task<Outputs.GetDatabasesConnectionPoolProperties> InvokeAsync(GetDatabasesConnectionPoolArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetDatabasesConnectionPoolProperties>("digitalocean-native:databases/v2:getDatabasesConnectionPool", args ?? new GetDatabasesConnectionPoolArgs(), options.WithDefaults());
 
-        public static Output<GetDatabasesConnectionPoolResult> Invoke(GetDatabasesConnectionPoolInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesConnectionPoolResult>("digitalocean-native:databases/v2:getDatabasesConnectionPool", args ?? new GetDatabasesConnectionPoolInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetDatabasesConnectionPoolProperties> Invoke(GetDatabasesConnectionPoolInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDatabasesConnectionPoolProperties>("digitalocean-native:databases/v2:getDatabasesConnectionPool", args ?? new GetDatabasesConnectionPoolInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new GetDatabasesConnectionPoolInvokeArgs Empty => new GetDatabasesConnectionPoolInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDatabasesConnectionPoolResult
-    {
-        public readonly Outputs.GetDatabasesConnectionPoolProperties Items;
-
-        [OutputConstructor]
-        private GetDatabasesConnectionPoolResult(Outputs.GetDatabasesConnectionPoolProperties items)
-        {
-            Items = items;
-        }
     }
 }

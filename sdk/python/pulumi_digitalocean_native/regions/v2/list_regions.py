@@ -6,53 +6,73 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListRegionsResult',
-    'AwaitableListRegionsResult',
+    'ListRegionsItems',
+    'AwaitableListRegionsItems',
     'list_regions',
     'list_regions_output',
 ]
 
 @pulumi.output_type
-class ListRegionsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListRegionsItems:
+    def __init__(__self__, links=None, meta=None, regions=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if regions and not isinstance(regions, list):
+            raise TypeError("Expected argument 'regions' to be a list")
+        pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegionsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Sequence['outputs.Region']:
+        return pulumi.get(self, "regions")
 
 
-class AwaitableListRegionsResult(ListRegionsResult):
+class AwaitableListRegionsItems(ListRegionsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListRegionsResult(
-            items=self.items)
+        return ListRegionsItems(
+            links=self.links,
+            meta=self.meta,
+            regions=self.regions)
 
 
-def list_regions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegionsResult:
+def list_regions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegionsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:regions/v2:listRegions', __args__, opts=opts, typ=ListRegionsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:regions/v2:listRegions', __args__, opts=opts, typ=ListRegionsItems).value
 
-    return AwaitableListRegionsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListRegionsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        regions=pulumi.get(__ret__, 'regions'))
 
 
 @_utilities.lift_output_func(list_regions)
-def list_regions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegionsResult]:
+def list_regions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegionsItems]:
     """
     Use this data source to access information about an existing resource.
     """

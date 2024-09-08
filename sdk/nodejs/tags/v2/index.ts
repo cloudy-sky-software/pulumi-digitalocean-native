@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
+export { GetTagArgs, GetTagOutputArgs } from "./getTag";
 export const getTag: typeof import("./getTag").getTag = null as any;
 export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
 utilities.lazyLoad(exports, ["getTag","getTagOutput"], () => require("./getTag"));
 
-export { ListTagsArgs, ListTagsResult } from "./listTags";
+export { ListTagsArgs } from "./listTags";
 export const listTags: typeof import("./listTags").listTags = null as any;
 export const listTagsOutput: typeof import("./listTags").listTagsOutput = null as any;
 utilities.lazyLoad(exports, ["listTags","listTagsOutput"], () => require("./listTags"));

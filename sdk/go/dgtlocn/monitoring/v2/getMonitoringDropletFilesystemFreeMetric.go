@@ -25,7 +25,8 @@ type GetMonitoringDropletFilesystemFreeMetricArgs struct {
 }
 
 type GetMonitoringDropletFilesystemFreeMetricResult struct {
-	Items Metrics `pulumi:"items"`
+	Data   MetricsData   `pulumi:"data"`
+	Status MetricsStatus `pulumi:"status"`
 }
 
 func GetMonitoringDropletFilesystemFreeMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletFilesystemFreeMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletFilesystemFreeMetricResultOutput {
@@ -62,8 +63,12 @@ func (o GetMonitoringDropletFilesystemFreeMetricResultOutput) ToGetMonitoringDro
 	return o
 }
 
-func (o GetMonitoringDropletFilesystemFreeMetricResultOutput) Items() MetricsOutput {
-	return o.ApplyT(func(v GetMonitoringDropletFilesystemFreeMetricResult) Metrics { return v.Items }).(MetricsOutput)
+func (o GetMonitoringDropletFilesystemFreeMetricResultOutput) Data() MetricsDataOutput {
+	return o.ApplyT(func(v GetMonitoringDropletFilesystemFreeMetricResult) MetricsData { return v.Data }).(MetricsDataOutput)
+}
+
+func (o GetMonitoringDropletFilesystemFreeMetricResultOutput) Status() MetricsStatusOutput {
+	return o.ApplyT(func(v GetMonitoringDropletFilesystemFreeMetricResult) MetricsStatus { return v.Status }).(MetricsStatusOutput)
 }
 
 func init() {

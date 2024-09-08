@@ -26,8 +26,14 @@ type ListKubernetesAssociatedResourcesArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 }
 
+// An object containing the IDs of resources associated with a Kubernetes cluster.
 type ListKubernetesAssociatedResourcesResult struct {
-	Items AssociatedKubernetesResources `pulumi:"items"`
+	// A list of names and IDs for associated load balancers that can be destroyed along with the cluster.
+	LoadBalancers []AssociatedKubernetesResource `pulumi:"loadBalancers"`
+	// A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.
+	VolumeSnapshots []AssociatedKubernetesResource `pulumi:"volumeSnapshots"`
+	// A list of names and IDs for associated volumes that can be destroyed along with the cluster.
+	Volumes []AssociatedKubernetesResource `pulumi:"volumes"`
 }
 
 func ListKubernetesAssociatedResourcesOutput(ctx *pulumi.Context, args ListKubernetesAssociatedResourcesOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesAssociatedResourcesResultOutput {
@@ -52,6 +58,7 @@ func (ListKubernetesAssociatedResourcesOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListKubernetesAssociatedResourcesArgs)(nil)).Elem()
 }
 
+// An object containing the IDs of resources associated with a Kubernetes cluster.
 type ListKubernetesAssociatedResourcesResultOutput struct{ *pulumi.OutputState }
 
 func (ListKubernetesAssociatedResourcesResultOutput) ElementType() reflect.Type {
@@ -66,8 +73,21 @@ func (o ListKubernetesAssociatedResourcesResultOutput) ToListKubernetesAssociate
 	return o
 }
 
-func (o ListKubernetesAssociatedResourcesResultOutput) Items() AssociatedKubernetesResourcesOutput {
-	return o.ApplyT(func(v ListKubernetesAssociatedResourcesResult) AssociatedKubernetesResources { return v.Items }).(AssociatedKubernetesResourcesOutput)
+// A list of names and IDs for associated load balancers that can be destroyed along with the cluster.
+func (o ListKubernetesAssociatedResourcesResultOutput) LoadBalancers() AssociatedKubernetesResourceArrayOutput {
+	return o.ApplyT(func(v ListKubernetesAssociatedResourcesResult) []AssociatedKubernetesResource { return v.LoadBalancers }).(AssociatedKubernetesResourceArrayOutput)
+}
+
+// A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.
+func (o ListKubernetesAssociatedResourcesResultOutput) VolumeSnapshots() AssociatedKubernetesResourceArrayOutput {
+	return o.ApplyT(func(v ListKubernetesAssociatedResourcesResult) []AssociatedKubernetesResource {
+		return v.VolumeSnapshots
+	}).(AssociatedKubernetesResourceArrayOutput)
+}
+
+// A list of names and IDs for associated volumes that can be destroyed along with the cluster.
+func (o ListKubernetesAssociatedResourcesResultOutput) Volumes() AssociatedKubernetesResourceArrayOutput {
+	return o.ApplyT(func(v ListKubernetesAssociatedResourcesResult) []AssociatedKubernetesResource { return v.Volumes }).(AssociatedKubernetesResourceArrayOutput)
 }
 
 func init() {

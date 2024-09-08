@@ -75,92 +75,92 @@ export type DatabasesUser = import("./databasesUser").DatabasesUser;
 export const DatabasesUser: typeof import("./databasesUser").DatabasesUser = null as any;
 utilities.lazyLoad(exports, ["DatabasesUser"], () => require("./databasesUser"));
 
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export { GetDatabaseArgs, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
-export { GetDatabasesCaArgs, GetDatabasesCaResult, GetDatabasesCaOutputArgs } from "./getDatabasesCa";
+export { GetDatabasesCaArgs, GetDatabasesCaOutputArgs } from "./getDatabasesCa";
 export const getDatabasesCa: typeof import("./getDatabasesCa").getDatabasesCa = null as any;
 export const getDatabasesCaOutput: typeof import("./getDatabasesCa").getDatabasesCaOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesCa","getDatabasesCaOutput"], () => require("./getDatabasesCa"));
 
-export { GetDatabasesClusterArgs, GetDatabasesClusterResult, GetDatabasesClusterOutputArgs } from "./getDatabasesCluster";
+export { GetDatabasesClusterArgs, GetDatabasesClusterOutputArgs } from "./getDatabasesCluster";
 export const getDatabasesCluster: typeof import("./getDatabasesCluster").getDatabasesCluster = null as any;
 export const getDatabasesClusterOutput: typeof import("./getDatabasesCluster").getDatabasesClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesCluster","getDatabasesClusterOutput"], () => require("./getDatabasesCluster"));
 
-export { GetDatabasesConfigArgs, GetDatabasesConfigResult, GetDatabasesConfigOutputArgs } from "./getDatabasesConfig";
+export { GetDatabasesConfigArgs, GetDatabasesConfigOutputArgs } from "./getDatabasesConfig";
 export const getDatabasesConfig: typeof import("./getDatabasesConfig").getDatabasesConfig = null as any;
 export const getDatabasesConfigOutput: typeof import("./getDatabasesConfig").getDatabasesConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesConfig","getDatabasesConfigOutput"], () => require("./getDatabasesConfig"));
 
-export { GetDatabasesConnectionPoolArgs, GetDatabasesConnectionPoolResult, GetDatabasesConnectionPoolOutputArgs } from "./getDatabasesConnectionPool";
+export { GetDatabasesConnectionPoolArgs, GetDatabasesConnectionPoolOutputArgs } from "./getDatabasesConnectionPool";
 export const getDatabasesConnectionPool: typeof import("./getDatabasesConnectionPool").getDatabasesConnectionPool = null as any;
 export const getDatabasesConnectionPoolOutput: typeof import("./getDatabasesConnectionPool").getDatabasesConnectionPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesConnectionPool","getDatabasesConnectionPoolOutput"], () => require("./getDatabasesConnectionPool"));
 
-export { GetDatabasesEvictionPolicyArgs, GetDatabasesEvictionPolicyResult, GetDatabasesEvictionPolicyOutputArgs } from "./getDatabasesEvictionPolicy";
+export { GetDatabasesEvictionPolicyArgs, GetDatabasesEvictionPolicyOutputArgs } from "./getDatabasesEvictionPolicy";
 export const getDatabasesEvictionPolicy: typeof import("./getDatabasesEvictionPolicy").getDatabasesEvictionPolicy = null as any;
 export const getDatabasesEvictionPolicyOutput: typeof import("./getDatabasesEvictionPolicy").getDatabasesEvictionPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesEvictionPolicy","getDatabasesEvictionPolicyOutput"], () => require("./getDatabasesEvictionPolicy"));
 
-export { GetDatabasesMigrationStatuArgs, GetDatabasesMigrationStatuResult, GetDatabasesMigrationStatuOutputArgs } from "./getDatabasesMigrationStatu";
+export { GetDatabasesMigrationStatuArgs, GetDatabasesMigrationStatuOutputArgs } from "./getDatabasesMigrationStatu";
 export const getDatabasesMigrationStatu: typeof import("./getDatabasesMigrationStatu").getDatabasesMigrationStatu = null as any;
 export const getDatabasesMigrationStatuOutput: typeof import("./getDatabasesMigrationStatu").getDatabasesMigrationStatuOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesMigrationStatu","getDatabasesMigrationStatuOutput"], () => require("./getDatabasesMigrationStatu"));
 
-export { GetDatabasesReplicaArgs, GetDatabasesReplicaResult, GetDatabasesReplicaOutputArgs } from "./getDatabasesReplica";
+export { GetDatabasesReplicaArgs, GetDatabasesReplicaOutputArgs } from "./getDatabasesReplica";
 export const getDatabasesReplica: typeof import("./getDatabasesReplica").getDatabasesReplica = null as any;
 export const getDatabasesReplicaOutput: typeof import("./getDatabasesReplica").getDatabasesReplicaOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesReplica","getDatabasesReplicaOutput"], () => require("./getDatabasesReplica"));
 
-export { GetDatabasesSqlModeArgs, GetDatabasesSqlModeResult, GetDatabasesSqlModeOutputArgs } from "./getDatabasesSqlMode";
+export { GetDatabasesSqlModeArgs, GetDatabasesSqlModeOutputArgs } from "./getDatabasesSqlMode";
 export const getDatabasesSqlMode: typeof import("./getDatabasesSqlMode").getDatabasesSqlMode = null as any;
 export const getDatabasesSqlModeOutput: typeof import("./getDatabasesSqlMode").getDatabasesSqlModeOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesSqlMode","getDatabasesSqlModeOutput"], () => require("./getDatabasesSqlMode"));
 
-export { GetDatabasesUserArgs, GetDatabasesUserResult, GetDatabasesUserOutputArgs } from "./getDatabasesUser";
+export { GetDatabasesUserArgs, GetDatabasesUserOutputArgs } from "./getDatabasesUser";
 export const getDatabasesUser: typeof import("./getDatabasesUser").getDatabasesUser = null as any;
 export const getDatabasesUserOutput: typeof import("./getDatabasesUser").getDatabasesUserOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabasesUser","getDatabasesUserOutput"], () => require("./getDatabasesUser"));
 
-export { ListDatabasesArgs, ListDatabasesResult, ListDatabasesOutputArgs } from "./listDatabases";
+export { ListDatabasesArgs, ListDatabasesOutputArgs } from "./listDatabases";
 export const listDatabases: typeof import("./listDatabases").listDatabases = null as any;
 export const listDatabasesOutput: typeof import("./listDatabases").listDatabasesOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabases","listDatabasesOutput"], () => require("./listDatabases"));
 
-export { ListDatabasesBackupsArgs, ListDatabasesBackupsResult, ListDatabasesBackupsOutputArgs } from "./listDatabasesBackups";
+export { ListDatabasesBackupsArgs, ListDatabasesBackupsOutputArgs } from "./listDatabasesBackups";
 export const listDatabasesBackups: typeof import("./listDatabasesBackups").listDatabasesBackups = null as any;
 export const listDatabasesBackupsOutput: typeof import("./listDatabasesBackups").listDatabasesBackupsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesBackups","listDatabasesBackupsOutput"], () => require("./listDatabasesBackups"));
 
-export { ListDatabasesClustersArgs, ListDatabasesClustersResult } from "./listDatabasesClusters";
+export { ListDatabasesClustersArgs } from "./listDatabasesClusters";
 export const listDatabasesClusters: typeof import("./listDatabasesClusters").listDatabasesClusters = null as any;
 export const listDatabasesClustersOutput: typeof import("./listDatabasesClusters").listDatabasesClustersOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesClusters","listDatabasesClustersOutput"], () => require("./listDatabasesClusters"));
 
-export { ListDatabasesConnectionPoolsArgs, ListDatabasesConnectionPoolsResult, ListDatabasesConnectionPoolsOutputArgs } from "./listDatabasesConnectionPools";
+export { ListDatabasesConnectionPoolsArgs, ListDatabasesConnectionPoolsOutputArgs } from "./listDatabasesConnectionPools";
 export const listDatabasesConnectionPools: typeof import("./listDatabasesConnectionPools").listDatabasesConnectionPools = null as any;
 export const listDatabasesConnectionPoolsOutput: typeof import("./listDatabasesConnectionPools").listDatabasesConnectionPoolsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesConnectionPools","listDatabasesConnectionPoolsOutput"], () => require("./listDatabasesConnectionPools"));
 
-export { ListDatabasesFirewallRulesArgs, ListDatabasesFirewallRulesResult, ListDatabasesFirewallRulesOutputArgs } from "./listDatabasesFirewallRules";
+export { ListDatabasesFirewallRulesArgs, ListDatabasesFirewallRulesOutputArgs } from "./listDatabasesFirewallRules";
 export const listDatabasesFirewallRules: typeof import("./listDatabasesFirewallRules").listDatabasesFirewallRules = null as any;
 export const listDatabasesFirewallRulesOutput: typeof import("./listDatabasesFirewallRules").listDatabasesFirewallRulesOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesFirewallRules","listDatabasesFirewallRulesOutput"], () => require("./listDatabasesFirewallRules"));
 
-export { ListDatabasesOptionsArgs, ListDatabasesOptionsResult } from "./listDatabasesOptions";
+export { ListDatabasesOptionsArgs } from "./listDatabasesOptions";
 export const listDatabasesOptions: typeof import("./listDatabasesOptions").listDatabasesOptions = null as any;
 export const listDatabasesOptionsOutput: typeof import("./listDatabasesOptions").listDatabasesOptionsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesOptions","listDatabasesOptionsOutput"], () => require("./listDatabasesOptions"));
 
-export { ListDatabasesReplicasArgs, ListDatabasesReplicasResult, ListDatabasesReplicasOutputArgs } from "./listDatabasesReplicas";
+export { ListDatabasesReplicasArgs, ListDatabasesReplicasOutputArgs } from "./listDatabasesReplicas";
 export const listDatabasesReplicas: typeof import("./listDatabasesReplicas").listDatabasesReplicas = null as any;
 export const listDatabasesReplicasOutput: typeof import("./listDatabasesReplicas").listDatabasesReplicasOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesReplicas","listDatabasesReplicasOutput"], () => require("./listDatabasesReplicas"));
 
-export { ListDatabasesUsersArgs, ListDatabasesUsersResult, ListDatabasesUsersOutputArgs } from "./listDatabasesUsers";
+export { ListDatabasesUsersArgs, ListDatabasesUsersOutputArgs } from "./listDatabasesUsers";
 export const listDatabasesUsers: typeof import("./listDatabasesUsers").listDatabasesUsers = null as any;
 export const listDatabasesUsersOutput: typeof import("./listDatabasesUsers").listDatabasesUsersOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabasesUsers","listDatabasesUsersOutput"], () => require("./listDatabasesUsers"));

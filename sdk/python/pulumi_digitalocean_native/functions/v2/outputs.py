@@ -11,68 +11,12 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetFunctionsNamespaceProperties',
-    'GetFunctionsTriggerProperties',
-    'ListFunctionsNamespacesItems',
-    'ListFunctionsTriggersItems',
     'NamespaceInfo',
     'ScheduledDetails',
     'ScheduledDetailsBodyProperties',
     'TriggerInfo',
     'TriggerInfoScheduledRunsProperties',
 ]
-
-@pulumi.output_type
-class GetFunctionsNamespaceProperties(dict):
-    def __init__(__self__, *,
-                 namespace: Optional['outputs.NamespaceInfo'] = None):
-        if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> Optional['outputs.NamespaceInfo']:
-        return pulumi.get(self, "namespace")
-
-
-@pulumi.output_type
-class GetFunctionsTriggerProperties(dict):
-    def __init__(__self__, *,
-                 trigger: Optional['outputs.TriggerInfo'] = None):
-        if trigger is not None:
-            pulumi.set(__self__, "trigger", trigger)
-
-    @property
-    @pulumi.getter
-    def trigger(self) -> Optional['outputs.TriggerInfo']:
-        return pulumi.get(self, "trigger")
-
-
-@pulumi.output_type
-class ListFunctionsNamespacesItems(dict):
-    def __init__(__self__, *,
-                 namespaces: Optional[Sequence['outputs.NamespaceInfo']] = None):
-        if namespaces is not None:
-            pulumi.set(__self__, "namespaces", namespaces)
-
-    @property
-    @pulumi.getter
-    def namespaces(self) -> Optional[Sequence['outputs.NamespaceInfo']]:
-        return pulumi.get(self, "namespaces")
-
-
-@pulumi.output_type
-class ListFunctionsTriggersItems(dict):
-    def __init__(__self__, *,
-                 triggers: Optional[Sequence['outputs.TriggerInfo']] = None):
-        if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
-
-    @property
-    @pulumi.getter
-    def triggers(self) -> Optional[Sequence['outputs.TriggerInfo']]:
-        return pulumi.get(self, "triggers")
-
 
 @pulumi.output_type
 class NamespaceInfo(dict):

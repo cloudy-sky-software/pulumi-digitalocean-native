@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsDeployment
     {
-        public static Task<GetAppsDeploymentResult> InvokeAsync(GetAppsDeploymentArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsDeploymentResult>("digitalocean-native:apps/v2:getAppsDeployment", args ?? new GetAppsDeploymentArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsDeploymentResponse> InvokeAsync(GetAppsDeploymentArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsDeploymentResponse>("digitalocean-native:apps/v2:getAppsDeployment", args ?? new GetAppsDeploymentArgs(), options.WithDefaults());
 
-        public static Output<GetAppsDeploymentResult> Invoke(GetAppsDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsDeploymentResult>("digitalocean-native:apps/v2:getAppsDeployment", args ?? new GetAppsDeploymentInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsDeploymentResponse> Invoke(GetAppsDeploymentInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsDeploymentResponse>("digitalocean-native:apps/v2:getAppsDeployment", args ?? new GetAppsDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsDeploymentInvokeArgs Empty => new GetAppsDeploymentInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsDeploymentResult
-    {
-        public readonly Outputs.AppsDeploymentResponse Items;
-
-        [OutputConstructor]
-        private GetAppsDeploymentResult(Outputs.AppsDeploymentResponse items)
-        {
-            Items = items;
-        }
     }
 }

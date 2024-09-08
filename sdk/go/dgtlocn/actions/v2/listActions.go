@@ -25,7 +25,9 @@ type ListActionsArgs struct {
 }
 
 type ListActionsResult struct {
-	Items ListActionsItems `pulumi:"items"`
+	Actions []Action   `pulumi:"actions"`
+	Links   *PageLinks `pulumi:"links"`
+	Meta    MetaMeta   `pulumi:"meta"`
 }
 
 func ListActionsOutput(ctx *pulumi.Context, args ListActionsOutputArgs, opts ...pulumi.InvokeOption) ListActionsResultOutput {
@@ -62,8 +64,16 @@ func (o ListActionsResultOutput) ToListActionsResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListActionsResultOutput) Items() ListActionsItemsOutput {
-	return o.ApplyT(func(v ListActionsResult) ListActionsItems { return v.Items }).(ListActionsItemsOutput)
+func (o ListActionsResultOutput) Actions() ActionArrayOutput {
+	return o.ApplyT(func(v ListActionsResult) []Action { return v.Actions }).(ActionArrayOutput)
+}
+
+func (o ListActionsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListActionsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListActionsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListActionsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class GetDatabasesReplica
     {
-        public static Task<GetDatabasesReplicaResult> InvokeAsync(GetDatabasesReplicaArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesReplicaResult>("digitalocean-native:databases/v2:getDatabasesReplica", args ?? new GetDatabasesReplicaArgs(), options.WithDefaults());
+        public static Task<Outputs.GetDatabasesReplicaProperties> InvokeAsync(GetDatabasesReplicaArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetDatabasesReplicaProperties>("digitalocean-native:databases/v2:getDatabasesReplica", args ?? new GetDatabasesReplicaArgs(), options.WithDefaults());
 
-        public static Output<GetDatabasesReplicaResult> Invoke(GetDatabasesReplicaInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesReplicaResult>("digitalocean-native:databases/v2:getDatabasesReplica", args ?? new GetDatabasesReplicaInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetDatabasesReplicaProperties> Invoke(GetDatabasesReplicaInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDatabasesReplicaProperties>("digitalocean-native:databases/v2:getDatabasesReplica", args ?? new GetDatabasesReplicaInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new GetDatabasesReplicaInvokeArgs Empty => new GetDatabasesReplicaInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDatabasesReplicaResult
-    {
-        public readonly Outputs.GetDatabasesReplicaProperties Items;
-
-        [OutputConstructor]
-        private GetDatabasesReplicaResult(Outputs.GetDatabasesReplicaProperties items)
-        {
-            Items = items;
-        }
     }
 }

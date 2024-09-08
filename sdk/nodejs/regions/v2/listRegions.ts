@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listRegions(args?: ListRegionsArgs, opts?: pulumi.InvokeOptions): Promise<ListRegionsResult> {
+export function listRegions(args?: ListRegionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.regions.v2.ListRegionsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listRegions(args?: ListRegionsArgs, opts?: pulumi.InvokeOptions)
 
 export interface ListRegionsArgs {
 }
-
-export interface ListRegionsResult {
-    readonly items: outputs.regions.v2.ListRegionsItems;
-}
-export function listRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListRegionsResult> {
+export function listRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.regions.v2.ListRegionsItems> {
     return pulumi.output(listRegions(opts))
 }

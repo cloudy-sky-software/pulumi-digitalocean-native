@@ -29,7 +29,7 @@ type LookupUptimeAlertArgs struct {
 }
 
 type LookupUptimeAlertResult struct {
-	Items GetUptimeAlertProperties `pulumi:"items"`
+	Alert *Alert `pulumi:"alert"`
 }
 
 func LookupUptimeAlertOutput(ctx *pulumi.Context, args LookupUptimeAlertOutputArgs, opts ...pulumi.InvokeOption) LookupUptimeAlertResultOutput {
@@ -70,8 +70,8 @@ func (o LookupUptimeAlertResultOutput) ToLookupUptimeAlertResultOutputWithContex
 	return o
 }
 
-func (o LookupUptimeAlertResultOutput) Items() GetUptimeAlertPropertiesOutput {
-	return o.ApplyT(func(v LookupUptimeAlertResult) GetUptimeAlertProperties { return v.Items }).(GetUptimeAlertPropertiesOutput)
+func (o LookupUptimeAlertResultOutput) Alert() AlertPtrOutput {
+	return o.ApplyT(func(v LookupUptimeAlertResult) *Alert { return v.Alert }).(AlertPtrOutput)
 }
 
 func init() {

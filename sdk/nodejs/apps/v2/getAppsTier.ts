@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAppsTier(args: GetAppsTierArgs, opts?: pulumi.InvokeOptions): Promise<GetAppsTierResult> {
+export function getAppsTier(args: GetAppsTierArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetTierResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsTier", {
@@ -21,11 +21,7 @@ export interface GetAppsTierArgs {
      */
     slug: string;
 }
-
-export interface GetAppsTierResult {
-    readonly items: outputs.apps.v2.AppsGetTierResponse;
-}
-export function getAppsTierOutput(args: GetAppsTierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsTierResult> {
+export function getAppsTierOutput(args: GetAppsTierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetTierResponse> {
     return pulumi.output(args).apply((a: any) => getAppsTier(a, opts))
 }
 

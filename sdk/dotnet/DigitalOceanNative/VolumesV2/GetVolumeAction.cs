@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 {
     public static class GetVolumeAction
     {
-        public static Task<GetVolumeActionResult> InvokeAsync(GetVolumeActionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeActionResult>("digitalocean-native:volumes/v2:getVolumeAction", args ?? new GetVolumeActionArgs(), options.WithDefaults());
+        public static Task<Outputs.GetVolumeActionProperties> InvokeAsync(GetVolumeActionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetVolumeActionProperties>("digitalocean-native:volumes/v2:getVolumeAction", args ?? new GetVolumeActionArgs(), options.WithDefaults());
 
-        public static Output<GetVolumeActionResult> Invoke(GetVolumeActionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeActionResult>("digitalocean-native:volumes/v2:getVolumeAction", args ?? new GetVolumeActionInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetVolumeActionProperties> Invoke(GetVolumeActionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeActionProperties>("digitalocean-native:volumes/v2:getVolumeAction", args ?? new GetVolumeActionInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
         {
         }
         public static new GetVolumeActionInvokeArgs Empty => new GetVolumeActionInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetVolumeActionResult
-    {
-        public readonly Outputs.GetVolumeActionProperties Items;
-
-        [OutputConstructor]
-        private GetVolumeActionResult(Outputs.GetVolumeActionProperties items)
-        {
-            Items = items;
-        }
     }
 }

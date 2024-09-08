@@ -27,7 +27,8 @@ type LookupAppArgs struct {
 }
 
 type LookupAppResult struct {
-	Items AppResponse `pulumi:"items"`
+	// An application's configuration and status.
+	App *AppType `pulumi:"app"`
 }
 
 // Defaults sets the appropriate defaults for LookupAppResult
@@ -36,7 +37,7 @@ func (val *LookupAppResult) Defaults() *LookupAppResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.App = tmp.App.Defaults()
 
 	return &tmp
 }
@@ -77,8 +78,9 @@ func (o LookupAppResultOutput) ToLookupAppResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LookupAppResultOutput) Items() AppResponseOutput {
-	return o.ApplyT(func(v LookupAppResult) AppResponse { return v.Items }).(AppResponseOutput)
+// An application's configuration and status.
+func (o LookupAppResultOutput) App() AppTypePtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *AppType { return v.App }).(AppTypePtrOutput)
 }
 
 func init() {

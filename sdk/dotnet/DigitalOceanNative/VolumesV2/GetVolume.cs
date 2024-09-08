@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 {
     public static class GetVolume
     {
-        public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("digitalocean-native:volumes/v2:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+        public static Task<Outputs.GetVolumeProperties> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetVolumeProperties>("digitalocean-native:volumes/v2:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
-        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("digitalocean-native:volumes/v2:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetVolumeProperties> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeProperties>("digitalocean-native:volumes/v2:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
         {
         }
         public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetVolumeResult
-    {
-        public readonly Outputs.GetVolumeProperties Items;
-
-        [OutputConstructor]
-        private GetVolumeResult(Outputs.GetVolumeProperties items)
-        {
-            Items = items;
-        }
     }
 }

@@ -27,7 +27,7 @@ type LookupReservedIPArgs struct {
 }
 
 type LookupReservedIPResult struct {
-	Items GetReservedIPProperties `pulumi:"items"`
+	ReservedIp *ReservedIpType `pulumi:"reservedIp"`
 }
 
 // Defaults sets the appropriate defaults for LookupReservedIPResult
@@ -36,7 +36,7 @@ func (val *LookupReservedIPResult) Defaults() *LookupReservedIPResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.ReservedIp = tmp.ReservedIp.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupReservedIPResultOutput) ToLookupReservedIPResultOutputWithContext(
 	return o
 }
 
-func (o LookupReservedIPResultOutput) Items() GetReservedIPPropertiesOutput {
-	return o.ApplyT(func(v LookupReservedIPResult) GetReservedIPProperties { return v.Items }).(GetReservedIPPropertiesOutput)
+func (o LookupReservedIPResultOutput) ReservedIp() ReservedIpTypePtrOutput {
+	return o.ApplyT(func(v LookupReservedIPResult) *ReservedIpType { return v.ReservedIp }).(ReservedIpTypePtrOutput)
 }
 
 func init() {

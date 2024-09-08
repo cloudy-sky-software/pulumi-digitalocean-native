@@ -6,53 +6,86 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListInvoicesResult',
-    'AwaitableListInvoicesResult',
+    'ListInvoicesItems',
+    'AwaitableListInvoicesItems',
     'list_invoices',
     'list_invoices_output',
 ]
 
 @pulumi.output_type
-class ListInvoicesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListInvoicesItems:
+    def __init__(__self__, invoice_preview=None, invoices=None, links=None, meta=None):
+        if invoice_preview and not isinstance(invoice_preview, dict):
+            raise TypeError("Expected argument 'invoice_preview' to be a dict")
+        pulumi.set(__self__, "invoice_preview", invoice_preview)
+        if invoices and not isinstance(invoices, list):
+            raise TypeError("Expected argument 'invoices' to be a list")
+        pulumi.set(__self__, "invoices", invoices)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+
+    @property
+    @pulumi.getter(name="invoicePreview")
+    def invoice_preview(self) -> Optional['outputs.InvoicePreview']:
+        """
+        The invoice preview.
+        """
+        return pulumi.get(self, "invoice_preview")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListInvoicesItems':
-        return pulumi.get(self, "items")
+    def invoices(self) -> Optional[Sequence['outputs.InvoicePreview']]:
+        return pulumi.get(self, "invoices")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListInvoicesResult(ListInvoicesResult):
+class AwaitableListInvoicesItems(ListInvoicesItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListInvoicesResult(
-            items=self.items)
+        return ListInvoicesItems(
+            invoice_preview=self.invoice_preview,
+            invoices=self.invoices,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_invoices(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListInvoicesResult:
+def list_invoices(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListInvoicesItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:customers/v2:listInvoices', __args__, opts=opts, typ=ListInvoicesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:customers/v2:listInvoices', __args__, opts=opts, typ=ListInvoicesItems).value
 
-    return AwaitableListInvoicesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListInvoicesItems(
+        invoice_preview=pulumi.get(__ret__, 'invoice_preview'),
+        invoices=pulumi.get(__ret__, 'invoices'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_invoices)
-def list_invoices_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListInvoicesResult]:
+def list_invoices_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListInvoicesItems]:
     """
     Use this data source to access information about an existing resource.
     """

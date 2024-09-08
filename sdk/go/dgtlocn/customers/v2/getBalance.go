@@ -25,7 +25,14 @@ type GetBalanceArgs struct {
 }
 
 type GetBalanceResult struct {
-	Items Balance `pulumi:"items"`
+	// Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`.
+	AccountBalance *string `pulumi:"accountBalance"`
+	// The time at which balances were most recently generated.
+	GeneratedAt *string `pulumi:"generatedAt"`
+	// Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`.
+	MonthToDateBalance *string `pulumi:"monthToDateBalance"`
+	// Amount used in the current billing period as of the `generated_at` time.
+	MonthToDateUsage *string `pulumi:"monthToDateUsage"`
 }
 
 func GetBalanceOutput(ctx *pulumi.Context, args GetBalanceOutputArgs, opts ...pulumi.InvokeOption) GetBalanceResultOutput {
@@ -62,8 +69,24 @@ func (o GetBalanceResultOutput) ToGetBalanceResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetBalanceResultOutput) Items() BalanceOutput {
-	return o.ApplyT(func(v GetBalanceResult) Balance { return v.Items }).(BalanceOutput)
+// Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`.
+func (o GetBalanceResultOutput) AccountBalance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBalanceResult) *string { return v.AccountBalance }).(pulumi.StringPtrOutput)
+}
+
+// The time at which balances were most recently generated.
+func (o GetBalanceResultOutput) GeneratedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBalanceResult) *string { return v.GeneratedAt }).(pulumi.StringPtrOutput)
+}
+
+// Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`.
+func (o GetBalanceResultOutput) MonthToDateBalance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBalanceResult) *string { return v.MonthToDateBalance }).(pulumi.StringPtrOutput)
+}
+
+// Amount used in the current billing period as of the `generated_at` time.
+func (o GetBalanceResultOutput) MonthToDateUsage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBalanceResult) *string { return v.MonthToDateUsage }).(pulumi.StringPtrOutput)
 }
 
 func init() {

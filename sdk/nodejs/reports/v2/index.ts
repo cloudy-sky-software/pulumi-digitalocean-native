@@ -4,7 +4,7 @@
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ListDropletsNeighborsIdsArgs, ListDropletsNeighborsIdsResult } from "./listDropletsNeighborsIds";
+export { ListDropletsNeighborsIdsArgs } from "./listDropletsNeighborsIds";
 export const listDropletsNeighborsIds: typeof import("./listDropletsNeighborsIds").listDropletsNeighborsIds = null as any;
 export const listDropletsNeighborsIdsOutput: typeof import("./listDropletsNeighborsIds").listDropletsNeighborsIdsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsNeighborsIds","listDropletsNeighborsIdsOutput"], () => require("./listDropletsNeighborsIds"));

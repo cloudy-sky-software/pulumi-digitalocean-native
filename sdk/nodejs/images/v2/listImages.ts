@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listImages(args?: ListImagesArgs, opts?: pulumi.InvokeOptions): Promise<ListImagesResult> {
+export function listImages(args?: ListImagesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.images.v2.ListImagesItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listImages(args?: ListImagesArgs, opts?: pulumi.InvokeOptions): 
 
 export interface ListImagesArgs {
 }
-
-export interface ListImagesResult {
-    readonly items: outputs.images.v2.ListImagesItems;
-}
-export function listImagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListImagesResult> {
+export function listImagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.v2.ListImagesItems> {
     return pulumi.output(listImages(opts))
 }

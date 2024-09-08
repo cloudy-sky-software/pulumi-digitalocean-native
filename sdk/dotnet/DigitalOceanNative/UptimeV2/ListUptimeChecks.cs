@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
 {
     public static class ListUptimeChecks
     {
-        public static Task<ListUptimeChecksResult> InvokeAsync(ListUptimeChecksArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListUptimeChecksResult>("digitalocean-native:uptime/v2:listUptimeChecks", args ?? new ListUptimeChecksArgs(), options.WithDefaults());
+        public static Task<Outputs.ListUptimeChecksItems> InvokeAsync(ListUptimeChecksArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListUptimeChecksItems>("digitalocean-native:uptime/v2:listUptimeChecks", args ?? new ListUptimeChecksArgs(), options.WithDefaults());
 
-        public static Output<ListUptimeChecksResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListUptimeChecksResult>("digitalocean-native:uptime/v2:listUptimeChecks", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListUptimeChecksItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListUptimeChecksItems>("digitalocean-native:uptime/v2:listUptimeChecks", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
         {
         }
         public static new ListUptimeChecksArgs Empty => new ListUptimeChecksArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListUptimeChecksResult
-    {
-        public readonly Outputs.ListUptimeChecksItems Items;
-
-        [OutputConstructor]
-        private ListUptimeChecksResult(Outputs.ListUptimeChecksItems items)
-        {
-            Items = items;
-        }
     }
 }

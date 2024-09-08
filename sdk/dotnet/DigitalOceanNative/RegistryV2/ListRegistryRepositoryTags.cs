@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class ListRegistryRepositoryTags
     {
-        public static Task<ListRegistryRepositoryTagsResult> InvokeAsync(ListRegistryRepositoryTagsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryRepositoryTagsResult>("digitalocean-native:registry/v2:listRegistryRepositoryTags", args ?? new ListRegistryRepositoryTagsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListRegistryRepositoryTagsItems> InvokeAsync(ListRegistryRepositoryTagsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListRegistryRepositoryTagsItems>("digitalocean-native:registry/v2:listRegistryRepositoryTags", args ?? new ListRegistryRepositoryTagsArgs(), options.WithDefaults());
 
-        public static Output<ListRegistryRepositoryTagsResult> Invoke(ListRegistryRepositoryTagsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListRegistryRepositoryTagsResult>("digitalocean-native:registry/v2:listRegistryRepositoryTags", args ?? new ListRegistryRepositoryTagsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListRegistryRepositoryTagsItems> Invoke(ListRegistryRepositoryTagsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegistryRepositoryTagsItems>("digitalocean-native:registry/v2:listRegistryRepositoryTags", args ?? new ListRegistryRepositoryTagsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new ListRegistryRepositoryTagsInvokeArgs Empty => new ListRegistryRepositoryTagsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListRegistryRepositoryTagsResult
-    {
-        public readonly Outputs.ListRegistryRepositoryTagsItems Items;
-
-        [OutputConstructor]
-        private ListRegistryRepositoryTagsResult(Outputs.ListRegistryRepositoryTagsItems items)
-        {
-            Items = items;
-        }
     }
 }

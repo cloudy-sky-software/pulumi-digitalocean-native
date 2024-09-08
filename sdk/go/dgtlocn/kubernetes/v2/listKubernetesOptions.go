@@ -25,7 +25,7 @@ type ListKubernetesOptionsArgs struct {
 }
 
 type ListKubernetesOptionsResult struct {
-	Items KubernetesOptions `pulumi:"items"`
+	Options *KubernetesOptionsOptionsProperties `pulumi:"options"`
 }
 
 func ListKubernetesOptionsOutput(ctx *pulumi.Context, args ListKubernetesOptionsOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesOptionsResultOutput {
@@ -62,8 +62,8 @@ func (o ListKubernetesOptionsResultOutput) ToListKubernetesOptionsResultOutputWi
 	return o
 }
 
-func (o ListKubernetesOptionsResultOutput) Items() KubernetesOptionsOutput {
-	return o.ApplyT(func(v ListKubernetesOptionsResult) KubernetesOptions { return v.Items }).(KubernetesOptionsOutput)
+func (o ListKubernetesOptionsResultOutput) Options() KubernetesOptionsOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v ListKubernetesOptionsResult) *KubernetesOptionsOptionsProperties { return v.Options }).(KubernetesOptionsOptionsPropertiesPtrOutput)
 }
 
 func init() {

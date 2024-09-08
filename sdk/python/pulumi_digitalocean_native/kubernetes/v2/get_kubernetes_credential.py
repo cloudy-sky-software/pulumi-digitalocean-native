@@ -6,41 +6,115 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
-from . import outputs
 
 __all__ = [
-    'GetKubernetesCredentialResult',
-    'AwaitableGetKubernetesCredentialResult',
+    'Credentials',
+    'AwaitableCredentials',
     'get_kubernetes_credential',
     'get_kubernetes_credential_output',
 ]
 
 @pulumi.output_type
-class GetKubernetesCredentialResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class Credentials:
+    def __init__(__self__, certificate_authority_data=None, client_certificate_data=None, client_key_data=None, expires_at=None, server=None, token=None):
+        if certificate_authority_data and not isinstance(certificate_authority_data, str):
+            raise TypeError("Expected argument 'certificate_authority_data' to be a str")
+        pulumi.set(__self__, "certificate_authority_data", certificate_authority_data)
+        if client_certificate_data and not isinstance(client_certificate_data, str):
+            raise TypeError("Expected argument 'client_certificate_data' to be a str")
+        pulumi.set(__self__, "client_certificate_data", client_certificate_data)
+        if client_key_data and not isinstance(client_key_data, str):
+            raise TypeError("Expected argument 'client_key_data' to be a str")
+        pulumi.set(__self__, "client_key_data", client_key_data)
+        if expires_at and not isinstance(expires_at, str):
+            raise TypeError("Expected argument 'expires_at' to be a str")
+        pulumi.set(__self__, "expires_at", expires_at)
+        if server and not isinstance(server, str):
+            raise TypeError("Expected argument 'server' to be a str")
+        pulumi.set(__self__, "server", server)
+        if token and not isinstance(token, str):
+            raise TypeError("Expected argument 'token' to be a str")
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityData")
+    def certificate_authority_data(self) -> Optional[str]:
+        """
+        A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
+        """
+        return pulumi.get(self, "certificate_authority_data")
+
+    @property
+    @pulumi.getter(name="clientCertificateData")
+    def client_certificate_data(self) -> Optional[str]:
+        """
+        A base64 encoding of bytes representing the x509 client
+        certificate data for access the cluster. This is only returned for clusters
+        without support for token-based authentication.
+
+        Newly created Kubernetes clusters do not return credentials using
+        certificate-based authentication. For additional information,
+        [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
+        """
+        return pulumi.get(self, "client_certificate_data")
+
+    @property
+    @pulumi.getter(name="clientKeyData")
+    def client_key_data(self) -> Optional[str]:
+        """
+        A base64 encoding of bytes representing the x509 client key
+        data for access the cluster. This is only returned for clusters without
+        support for token-based authentication.
+
+        Newly created Kubernetes clusters do not return credentials using
+        certificate-based authentication. For additional information,
+        [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
+        """
+        return pulumi.get(self, "client_key_data")
+
+    @property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> Optional[str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the access token expires.
+        """
+        return pulumi.get(self, "expires_at")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.Credentials':
-        return pulumi.get(self, "items")
+    def server(self) -> Optional[str]:
+        """
+        The URL used to access the cluster API server.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[str]:
+        """
+        An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
+        """
+        return pulumi.get(self, "token")
 
 
-class AwaitableGetKubernetesCredentialResult(GetKubernetesCredentialResult):
+class AwaitableCredentials(Credentials):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetKubernetesCredentialResult(
-            items=self.items)
+        return Credentials(
+            certificate_authority_data=self.certificate_authority_data,
+            client_certificate_data=self.client_certificate_data,
+            client_key_data=self.client_key_data,
+            expires_at=self.expires_at,
+            server=self.server,
+            token=self.token)
 
 
 def get_kubernetes_credential(cluster_id: Optional[str] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesCredentialResult:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableCredentials:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +123,20 @@ def get_kubernetes_credential(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesCredential', __args__, opts=opts, typ=GetKubernetesCredentialResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesCredential', __args__, opts=opts, typ=Credentials).value
 
-    return AwaitableGetKubernetesCredentialResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableCredentials(
+        certificate_authority_data=pulumi.get(__ret__, 'certificate_authority_data'),
+        client_certificate_data=pulumi.get(__ret__, 'client_certificate_data'),
+        client_key_data=pulumi.get(__ret__, 'client_key_data'),
+        expires_at=pulumi.get(__ret__, 'expires_at'),
+        server=pulumi.get(__ret__, 'server'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_kubernetes_credential)
 def get_kubernetes_credential_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesCredentialResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Credentials]:
     """
     Use this data source to access information about an existing resource.
 

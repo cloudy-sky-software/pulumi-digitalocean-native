@@ -15,22 +15,22 @@ export type FloatingIP = import("./floatingIP").FloatingIP;
 export const FloatingIP: typeof import("./floatingIP").FloatingIP = null as any;
 utilities.lazyLoad(exports, ["FloatingIP"], () => require("./floatingIP"));
 
-export { GetFloatingIPArgs, GetFloatingIPResult, GetFloatingIPOutputArgs } from "./getFloatingIP";
+export { GetFloatingIPArgs, GetFloatingIPOutputArgs } from "./getFloatingIP";
 export const getFloatingIP: typeof import("./getFloatingIP").getFloatingIP = null as any;
 export const getFloatingIPOutput: typeof import("./getFloatingIP").getFloatingIPOutput = null as any;
 utilities.lazyLoad(exports, ["getFloatingIP","getFloatingIPOutput"], () => require("./getFloatingIP"));
 
-export { GetFloatingIPsActionArgs, GetFloatingIPsActionResult, GetFloatingIPsActionOutputArgs } from "./getFloatingIPsAction";
+export { GetFloatingIPsActionArgs, GetFloatingIPsActionOutputArgs } from "./getFloatingIPsAction";
 export const getFloatingIPsAction: typeof import("./getFloatingIPsAction").getFloatingIPsAction = null as any;
 export const getFloatingIPsActionOutput: typeof import("./getFloatingIPsAction").getFloatingIPsActionOutput = null as any;
 utilities.lazyLoad(exports, ["getFloatingIPsAction","getFloatingIPsActionOutput"], () => require("./getFloatingIPsAction"));
 
-export { ListFloatingIPsArgs, ListFloatingIPsResult } from "./listFloatingIPs";
+export { ListFloatingIPsArgs } from "./listFloatingIPs";
 export const listFloatingIPs: typeof import("./listFloatingIPs").listFloatingIPs = null as any;
 export const listFloatingIPsOutput: typeof import("./listFloatingIPs").listFloatingIPsOutput = null as any;
 utilities.lazyLoad(exports, ["listFloatingIPs","listFloatingIPsOutput"], () => require("./listFloatingIPs"));
 
-export { ListFloatingIPsActionArgs, ListFloatingIPsActionResult, ListFloatingIPsActionOutputArgs } from "./listFloatingIPsAction";
+export { ListFloatingIPsActionArgs, ListFloatingIPsActionOutputArgs } from "./listFloatingIPsAction";
 export const listFloatingIPsAction: typeof import("./listFloatingIPsAction").listFloatingIPsAction = null as any;
 export const listFloatingIPsActionOutput: typeof import("./listFloatingIPsAction").listFloatingIPsActionOutput = null as any;
 utilities.lazyLoad(exports, ["listFloatingIPsAction","listFloatingIPsActionOutput"], () => require("./listFloatingIPsAction"));

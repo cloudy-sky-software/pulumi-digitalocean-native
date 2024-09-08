@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CdnV2
 {
     public static class GetCdnEndpoint
     {
-        public static Task<GetCdnEndpointResult> InvokeAsync(GetCdnEndpointArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCdnEndpointResult>("digitalocean-native:cdn/v2:getCdnEndpoint", args ?? new GetCdnEndpointArgs(), options.WithDefaults());
+        public static Task<Outputs.GetCdnEndpointProperties> InvokeAsync(GetCdnEndpointArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetCdnEndpointProperties>("digitalocean-native:cdn/v2:getCdnEndpoint", args ?? new GetCdnEndpointArgs(), options.WithDefaults());
 
-        public static Output<GetCdnEndpointResult> Invoke(GetCdnEndpointInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCdnEndpointResult>("digitalocean-native:cdn/v2:getCdnEndpoint", args ?? new GetCdnEndpointInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetCdnEndpointProperties> Invoke(GetCdnEndpointInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetCdnEndpointProperties>("digitalocean-native:cdn/v2:getCdnEndpoint", args ?? new GetCdnEndpointInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CdnV2
         {
         }
         public static new GetCdnEndpointInvokeArgs Empty => new GetCdnEndpointInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetCdnEndpointResult
-    {
-        public readonly Outputs.GetCdnEndpointProperties Items;
-
-        [OutputConstructor]
-        private GetCdnEndpointResult(Outputs.GetCdnEndpointProperties items)
-        {
-            Items = items;
-        }
     }
 }

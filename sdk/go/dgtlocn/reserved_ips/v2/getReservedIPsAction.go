@@ -29,7 +29,7 @@ type GetReservedIPsActionArgs struct {
 }
 
 type GetReservedIPsActionResult struct {
-	Items GetReservedIPsActionProperties `pulumi:"items"`
+	Action *GetReservedIPsActionPropertiesAction `pulumi:"action"`
 }
 
 // Defaults sets the appropriate defaults for GetReservedIPsActionResult
@@ -38,7 +38,7 @@ func (val *GetReservedIPsActionResult) Defaults() *GetReservedIPsActionResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Action = tmp.Action.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o GetReservedIPsActionResultOutput) ToGetReservedIPsActionResultOutputWith
 	return o
 }
 
-func (o GetReservedIPsActionResultOutput) Items() GetReservedIPsActionPropertiesOutput {
-	return o.ApplyT(func(v GetReservedIPsActionResult) GetReservedIPsActionProperties { return v.Items }).(GetReservedIPsActionPropertiesOutput)
+func (o GetReservedIPsActionResultOutput) Action() GetReservedIPsActionPropertiesActionPtrOutput {
+	return o.ApplyT(func(v GetReservedIPsActionResult) *GetReservedIPsActionPropertiesAction { return v.Action }).(GetReservedIPsActionPropertiesActionPtrOutput)
 }
 
 func init() {

@@ -6,53 +6,73 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListVpcsResult',
-    'AwaitableListVpcsResult',
+    'ListVpcsItems',
+    'AwaitableListVpcsItems',
     'list_vpcs',
     'list_vpcs_output',
 ]
 
 @pulumi.output_type
-class ListVpcsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListVpcsItems:
+    def __init__(__self__, links=None, meta=None, vpcs=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if vpcs and not isinstance(vpcs, list):
+            raise TypeError("Expected argument 'vpcs' to be a list")
+        pulumi.set(__self__, "vpcs", vpcs)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListVpcsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def vpcs(self) -> Optional[Sequence['outputs.Vpc']]:
+        return pulumi.get(self, "vpcs")
 
 
-class AwaitableListVpcsResult(ListVpcsResult):
+class AwaitableListVpcsItems(ListVpcsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListVpcsResult(
-            items=self.items)
+        return ListVpcsItems(
+            links=self.links,
+            meta=self.meta,
+            vpcs=self.vpcs)
 
 
-def list_vpcs(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVpcsResult:
+def list_vpcs(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVpcsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:vpcs/v2:listVpcs', __args__, opts=opts, typ=ListVpcsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:vpcs/v2:listVpcs', __args__, opts=opts, typ=ListVpcsItems).value
 
-    return AwaitableListVpcsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListVpcsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        vpcs=pulumi.get(__ret__, 'vpcs'))
 
 
 @_utilities.lift_output_func(list_vpcs)
-def list_vpcs_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVpcsResult]:
+def list_vpcs_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVpcsItems]:
     """
     Use this data source to access information about an existing resource.
     """

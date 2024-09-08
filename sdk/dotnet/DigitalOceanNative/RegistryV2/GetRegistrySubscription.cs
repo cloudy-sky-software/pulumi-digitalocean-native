@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class GetRegistrySubscription
     {
-        public static Task<GetRegistrySubscriptionResult> InvokeAsync(GetRegistrySubscriptionArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrySubscriptionResult>("digitalocean-native:registry/v2:getRegistrySubscription", args ?? new GetRegistrySubscriptionArgs(), options.WithDefaults());
+        public static Task<Outputs.GetRegistrySubscriptionProperties> InvokeAsync(GetRegistrySubscriptionArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetRegistrySubscriptionProperties>("digitalocean-native:registry/v2:getRegistrySubscription", args ?? new GetRegistrySubscriptionArgs(), options.WithDefaults());
 
-        public static Output<GetRegistrySubscriptionResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrySubscriptionResult>("digitalocean-native:registry/v2:getRegistrySubscription", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.GetRegistrySubscriptionProperties> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetRegistrySubscriptionProperties>("digitalocean-native:registry/v2:getRegistrySubscription", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new GetRegistrySubscriptionArgs Empty => new GetRegistrySubscriptionArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetRegistrySubscriptionResult
-    {
-        public readonly Outputs.GetRegistrySubscriptionProperties Items;
-
-        [OutputConstructor]
-        private GetRegistrySubscriptionResult(Outputs.GetRegistrySubscriptionProperties items)
-        {
-            Items = items;
-        }
     }
 }

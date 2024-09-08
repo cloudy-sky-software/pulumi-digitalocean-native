@@ -27,7 +27,7 @@ type ListDatabasesArgs struct {
 }
 
 type ListDatabasesResult struct {
-	Items ListDatabasesProperties `pulumi:"items"`
+	Dbs []DatabaseType `pulumi:"dbs"`
 }
 
 func ListDatabasesOutput(ctx *pulumi.Context, args ListDatabasesOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesResultOutput {
@@ -66,8 +66,8 @@ func (o ListDatabasesResultOutput) ToListDatabasesResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListDatabasesResultOutput) Items() ListDatabasesPropertiesOutput {
-	return o.ApplyT(func(v ListDatabasesResult) ListDatabasesProperties { return v.Items }).(ListDatabasesPropertiesOutput)
+func (o ListDatabasesResultOutput) Dbs() DatabaseTypeArrayOutput {
+	return o.ApplyT(func(v ListDatabasesResult) []DatabaseType { return v.Dbs }).(DatabaseTypeArrayOutput)
 }
 
 func init() {

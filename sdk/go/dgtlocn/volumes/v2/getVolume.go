@@ -27,7 +27,7 @@ type GetVolumeArgs struct {
 }
 
 type GetVolumeResult struct {
-	Items GetVolumeProperties `pulumi:"items"`
+	Volume *VolumeFull `pulumi:"volume"`
 }
 
 func GetVolumeOutput(ctx *pulumi.Context, args GetVolumeOutputArgs, opts ...pulumi.InvokeOption) GetVolumeResultOutput {
@@ -66,8 +66,8 @@ func (o GetVolumeResultOutput) ToGetVolumeResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GetVolumeResultOutput) Items() GetVolumePropertiesOutput {
-	return o.ApplyT(func(v GetVolumeResult) GetVolumeProperties { return v.Items }).(GetVolumePropertiesOutput)
+func (o GetVolumeResultOutput) Volume() VolumeFullPtrOutput {
+	return o.ApplyT(func(v GetVolumeResult) *VolumeFull { return v.Volume }).(VolumeFullPtrOutput)
 }
 
 func init() {

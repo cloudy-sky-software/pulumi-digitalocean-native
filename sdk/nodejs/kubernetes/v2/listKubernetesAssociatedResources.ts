@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listKubernetesAssociatedResources(args: ListKubernetesAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListKubernetesAssociatedResourcesResult> {
+export function listKubernetesAssociatedResources(args: ListKubernetesAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.AssociatedKubernetesResources> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", {
@@ -21,11 +21,7 @@ export interface ListKubernetesAssociatedResourcesArgs {
      */
     clusterId: string;
 }
-
-export interface ListKubernetesAssociatedResourcesResult {
-    readonly items: outputs.kubernetes.v2.AssociatedKubernetesResources;
-}
-export function listKubernetesAssociatedResourcesOutput(args: ListKubernetesAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKubernetesAssociatedResourcesResult> {
+export function listKubernetesAssociatedResourcesOutput(args: ListKubernetesAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.AssociatedKubernetesResources> {
     return pulumi.output(args).apply((a: any) => listKubernetesAssociatedResources(a, opts))
 }
 

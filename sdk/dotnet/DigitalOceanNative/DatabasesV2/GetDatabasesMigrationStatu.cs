@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class GetDatabasesMigrationStatu
     {
-        public static Task<GetDatabasesMigrationStatuResult> InvokeAsync(GetDatabasesMigrationStatuArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesMigrationStatuResult>("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args ?? new GetDatabasesMigrationStatuArgs(), options.WithDefaults());
+        public static Task<Outputs.OnlineMigration> InvokeAsync(GetDatabasesMigrationStatuArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.OnlineMigration>("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args ?? new GetDatabasesMigrationStatuArgs(), options.WithDefaults());
 
-        public static Output<GetDatabasesMigrationStatuResult> Invoke(GetDatabasesMigrationStatuInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesMigrationStatuResult>("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args ?? new GetDatabasesMigrationStatuInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.OnlineMigration> Invoke(GetDatabasesMigrationStatuInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.OnlineMigration>("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args ?? new GetDatabasesMigrationStatuInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new GetDatabasesMigrationStatuInvokeArgs Empty => new GetDatabasesMigrationStatuInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDatabasesMigrationStatuResult
-    {
-        public readonly Outputs.OnlineMigration Items;
-
-        [OutputConstructor]
-        private GetDatabasesMigrationStatuResult(Outputs.OnlineMigration items)
-        {
-            Items = items;
-        }
     }
 }

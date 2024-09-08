@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getMonitoringAlertPolicy(args: GetMonitoringAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringAlertPolicyResult> {
+export function getMonitoringAlertPolicy(args: GetMonitoringAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.GetMonitoringAlertPolicyProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", {
@@ -21,11 +21,7 @@ export interface GetMonitoringAlertPolicyArgs {
      */
     alertUuid: string;
 }
-
-export interface GetMonitoringAlertPolicyResult {
-    readonly items: outputs.monitoring.v2.GetMonitoringAlertPolicyProperties;
-}
-export function getMonitoringAlertPolicyOutput(args: GetMonitoringAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringAlertPolicyResult> {
+export function getMonitoringAlertPolicyOutput(args: GetMonitoringAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.GetMonitoringAlertPolicyProperties> {
     return pulumi.output(args).apply((a: any) => getMonitoringAlertPolicy(a, opts))
 }
 

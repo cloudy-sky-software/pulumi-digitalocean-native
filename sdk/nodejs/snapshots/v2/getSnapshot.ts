@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<outputs.snapshots.v2.GetSnapshotProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:snapshots/v2:getSnapshot", {
@@ -21,11 +21,7 @@ export interface GetSnapshotArgs {
      */
     snapshotId: string;
 }
-
-export interface GetSnapshotResult {
-    readonly items: outputs.snapshots.v2.GetSnapshotProperties;
-}
-export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.v2.GetSnapshotProperties> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }
 

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class ListRegistryRepositoryManifests
     {
-        public static Task<ListRegistryRepositoryManifestsResult> InvokeAsync(ListRegistryRepositoryManifestsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryRepositoryManifestsResult>("digitalocean-native:registry/v2:listRegistryRepositoryManifests", args ?? new ListRegistryRepositoryManifestsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListRegistryRepositoryManifestsItems> InvokeAsync(ListRegistryRepositoryManifestsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListRegistryRepositoryManifestsItems>("digitalocean-native:registry/v2:listRegistryRepositoryManifests", args ?? new ListRegistryRepositoryManifestsArgs(), options.WithDefaults());
 
-        public static Output<ListRegistryRepositoryManifestsResult> Invoke(ListRegistryRepositoryManifestsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListRegistryRepositoryManifestsResult>("digitalocean-native:registry/v2:listRegistryRepositoryManifests", args ?? new ListRegistryRepositoryManifestsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListRegistryRepositoryManifestsItems> Invoke(ListRegistryRepositoryManifestsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegistryRepositoryManifestsItems>("digitalocean-native:registry/v2:listRegistryRepositoryManifests", args ?? new ListRegistryRepositoryManifestsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new ListRegistryRepositoryManifestsInvokeArgs Empty => new ListRegistryRepositoryManifestsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListRegistryRepositoryManifestsResult
-    {
-        public readonly Outputs.ListRegistryRepositoryManifestsItems Items;
-
-        [OutputConstructor]
-        private ListRegistryRepositoryManifestsResult(Outputs.ListRegistryRepositoryManifestsItems items)
-        {
-            Items = items;
-        }
     }
 }

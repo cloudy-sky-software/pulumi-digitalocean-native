@@ -25,7 +25,9 @@ type ListVpcsArgs struct {
 }
 
 type ListVpcsResult struct {
-	Items ListVpcsItems `pulumi:"items"`
+	Links *PageLinks `pulumi:"links"`
+	Meta  MetaMeta   `pulumi:"meta"`
+	Vpcs  []VpcType  `pulumi:"vpcs"`
 }
 
 func ListVpcsOutput(ctx *pulumi.Context, args ListVpcsOutputArgs, opts ...pulumi.InvokeOption) ListVpcsResultOutput {
@@ -62,8 +64,16 @@ func (o ListVpcsResultOutput) ToListVpcsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ListVpcsResultOutput) Items() ListVpcsItemsOutput {
-	return o.ApplyT(func(v ListVpcsResult) ListVpcsItems { return v.Items }).(ListVpcsItemsOutput)
+func (o ListVpcsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVpcsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListVpcsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVpcsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListVpcsResultOutput) Vpcs() VpcTypeArrayOutput {
+	return o.ApplyT(func(v ListVpcsResult) []VpcType { return v.Vpcs }).(VpcTypeArrayOutput)
 }
 
 func init() {

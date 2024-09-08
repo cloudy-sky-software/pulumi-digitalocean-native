@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export { GetLoadBalancerArgs, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
 utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
 
-export { ListLoadBalancersArgs, ListLoadBalancersResult } from "./listLoadBalancers";
+export { ListLoadBalancersArgs } from "./listLoadBalancers";
 export const listLoadBalancers: typeof import("./listLoadBalancers").listLoadBalancers = null as any;
 export const listLoadBalancersOutput: typeof import("./listLoadBalancers").listLoadBalancersOutput = null as any;
 utilities.lazyLoad(exports, ["listLoadBalancers","listLoadBalancersOutput"], () => require("./listLoadBalancers"));

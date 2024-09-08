@@ -25,7 +25,7 @@ type ListAppsTiersArgs struct {
 }
 
 type ListAppsTiersResult struct {
-	Items AppsListTiersResponse `pulumi:"items"`
+	Tiers []AppsTier `pulumi:"tiers"`
 }
 
 func ListAppsTiersOutput(ctx *pulumi.Context, args ListAppsTiersOutputArgs, opts ...pulumi.InvokeOption) ListAppsTiersResultOutput {
@@ -62,8 +62,8 @@ func (o ListAppsTiersResultOutput) ToListAppsTiersResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListAppsTiersResultOutput) Items() AppsListTiersResponseOutput {
-	return o.ApplyT(func(v ListAppsTiersResult) AppsListTiersResponse { return v.Items }).(AppsListTiersResponseOutput)
+func (o ListAppsTiersResultOutput) Tiers() AppsTierArrayOutput {
+	return o.ApplyT(func(v ListAppsTiersResult) []AppsTier { return v.Tiers }).(AppsTierArrayOutput)
 }
 
 func init() {

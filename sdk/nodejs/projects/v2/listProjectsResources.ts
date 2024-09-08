@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listProjectsResources(args: ListProjectsResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListProjectsResourcesResult> {
+export function listProjectsResources(args: ListProjectsResourcesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.projects.v2.ListProjectsResourcesItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:projects/v2:listProjectsResources", {
@@ -21,11 +21,7 @@ export interface ListProjectsResourcesArgs {
      */
     projectId: string;
 }
-
-export interface ListProjectsResourcesResult {
-    readonly items: outputs.projects.v2.ListProjectsResourcesItems;
-}
-export function listProjectsResourcesOutput(args: ListProjectsResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProjectsResourcesResult> {
+export function listProjectsResourcesOutput(args: ListProjectsResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.ListProjectsResourcesItems> {
     return pulumi.output(args).apply((a: any) => listProjectsResources(a, opts))
 }
 

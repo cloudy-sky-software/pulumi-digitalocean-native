@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDatabasesConnectionPoolResult',
-    'AwaitableGetDatabasesConnectionPoolResult',
+    'GetDatabasesConnectionPoolProperties',
+    'AwaitableGetDatabasesConnectionPoolProperties',
     'get_databases_connection_pool',
     'get_databases_connection_pool_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesConnectionPoolResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetDatabasesConnectionPoolProperties:
+    def __init__(__self__, pool=None):
+        if pool and not isinstance(pool, dict):
+            raise TypeError("Expected argument 'pool' to be a dict")
+        pulumi.set(__self__, "pool", pool)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetDatabasesConnectionPoolProperties':
-        return pulumi.get(self, "items")
+    def pool(self) -> 'outputs.ConnectionPool':
+        return pulumi.get(self, "pool")
 
 
-class AwaitableGetDatabasesConnectionPoolResult(GetDatabasesConnectionPoolResult):
+class AwaitableGetDatabasesConnectionPoolProperties(GetDatabasesConnectionPoolProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesConnectionPoolResult(
-            items=self.items)
+        return GetDatabasesConnectionPoolProperties(
+            pool=self.pool)
 
 
 def get_databases_connection_pool(database_cluster_uuid: Optional[str] = None,
                                   pool_name: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesConnectionPoolResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesConnectionPoolProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +52,16 @@ def get_databases_connection_pool(database_cluster_uuid: Optional[str] = None,
     __args__['databaseClusterUuid'] = database_cluster_uuid
     __args__['poolName'] = pool_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesConnectionPool', __args__, opts=opts, typ=GetDatabasesConnectionPoolResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesConnectionPool', __args__, opts=opts, typ=GetDatabasesConnectionPoolProperties).value
 
-    return AwaitableGetDatabasesConnectionPoolResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetDatabasesConnectionPoolProperties(
+        pool=pulumi.get(__ret__, 'pool'))
 
 
 @_utilities.lift_output_func(get_databases_connection_pool)
 def get_databases_connection_pool_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                          pool_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesConnectionPoolResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesConnectionPoolProperties]:
     """
     Use this data source to access information about an existing resource.
 

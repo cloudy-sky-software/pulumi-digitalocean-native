@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListDropletsNeighborsResult',
-    'AwaitableListDropletsNeighborsResult',
+    'ListDropletsNeighborsItems',
+    'AwaitableListDropletsNeighborsItems',
     'list_droplets_neighbors',
     'list_droplets_neighbors_output',
 ]
 
 @pulumi.output_type
-class ListDropletsNeighborsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDropletsNeighborsItems:
+    def __init__(__self__, droplets=None):
+        if droplets and not isinstance(droplets, list):
+            raise TypeError("Expected argument 'droplets' to be a list")
+        pulumi.set(__self__, "droplets", droplets)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDropletsNeighborsItems':
-        return pulumi.get(self, "items")
+    def droplets(self) -> Optional[Sequence['outputs.Droplet']]:
+        return pulumi.get(self, "droplets")
 
 
-class AwaitableListDropletsNeighborsResult(ListDropletsNeighborsResult):
+class AwaitableListDropletsNeighborsItems(ListDropletsNeighborsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDropletsNeighborsResult(
-            items=self.items)
+        return ListDropletsNeighborsItems(
+            droplets=self.droplets)
 
 
 def list_droplets_neighbors(droplet_id: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDropletsNeighborsResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDropletsNeighborsItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def list_droplets_neighbors(droplet_id: Optional[str] = None,
     __args__ = dict()
     __args__['dropletId'] = droplet_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:listDropletsNeighbors', __args__, opts=opts, typ=ListDropletsNeighborsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:listDropletsNeighbors', __args__, opts=opts, typ=ListDropletsNeighborsItems).value
 
-    return AwaitableListDropletsNeighborsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDropletsNeighborsItems(
+        droplets=pulumi.get(__ret__, 'droplets'))
 
 
 @_utilities.lift_output_func(list_droplets_neighbors)
 def list_droplets_neighbors_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsNeighborsResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsNeighborsItems]:
     """
     Use this data source to access information about an existing resource.
 

@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetMonitoringAlertPolicyResult',
-    'AwaitableGetMonitoringAlertPolicyResult',
+    'GetMonitoringAlertPolicyProperties',
+    'AwaitableGetMonitoringAlertPolicyProperties',
     'get_monitoring_alert_policy',
     'get_monitoring_alert_policy_output',
 ]
 
 @pulumi.output_type
-class GetMonitoringAlertPolicyResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetMonitoringAlertPolicyProperties:
+    def __init__(__self__, policy=None):
+        if policy and not isinstance(policy, dict):
+            raise TypeError("Expected argument 'policy' to be a dict")
+        pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetMonitoringAlertPolicyProperties':
-        return pulumi.get(self, "items")
+    def policy(self) -> Optional['outputs.AlertPolicy']:
+        return pulumi.get(self, "policy")
 
 
-class AwaitableGetMonitoringAlertPolicyResult(GetMonitoringAlertPolicyResult):
+class AwaitableGetMonitoringAlertPolicyProperties(GetMonitoringAlertPolicyProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetMonitoringAlertPolicyResult(
-            items=self.items)
+        return GetMonitoringAlertPolicyProperties(
+            policy=self.policy)
 
 
 def get_monitoring_alert_policy(alert_uuid: Optional[str] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringAlertPolicyResult:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringAlertPolicyProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_monitoring_alert_policy(alert_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['alertUuid'] = alert_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:monitoring/v2:getMonitoringAlertPolicy', __args__, opts=opts, typ=GetMonitoringAlertPolicyResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:monitoring/v2:getMonitoringAlertPolicy', __args__, opts=opts, typ=GetMonitoringAlertPolicyProperties).value
 
-    return AwaitableGetMonitoringAlertPolicyResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetMonitoringAlertPolicyProperties(
+        policy=pulumi.get(__ret__, 'policy'))
 
 
 @_utilities.lift_output_func(get_monitoring_alert_policy)
 def get_monitoring_alert_policy_output(alert_uuid: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringAlertPolicyResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringAlertPolicyProperties]:
     """
     Use this data source to access information about an existing resource.
 

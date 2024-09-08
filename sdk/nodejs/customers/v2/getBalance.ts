@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getBalance(args?: GetBalanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBalanceResult> {
+export function getBalance(args?: GetBalanceArgs, opts?: pulumi.InvokeOptions): Promise<outputs.customers.v2.Balance> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function getBalance(args?: GetBalanceArgs, opts?: pulumi.InvokeOptions): 
 
 export interface GetBalanceArgs {
 }
-
-export interface GetBalanceResult {
-    readonly items: outputs.customers.v2.Balance;
-}
-export function getBalanceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetBalanceResult> {
+export function getBalanceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.Balance> {
     return pulumi.output(getBalance(opts))
 }

@@ -14,10 +14,7 @@ from ._enums import *
 __all__ = [
     'Action',
     'ActionRegionSlug',
-    'GetImageProperties',
     'Image',
-    'ListImageActionsItems',
-    'ListImagesItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -138,18 +135,6 @@ class Action(dict):
 class ActionRegionSlug(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class GetImageProperties(dict):
-    def __init__(__self__, *,
-                 image: 'outputs.Image'):
-        pulumi.set(__self__, "image", image)
-
-    @property
-    @pulumi.getter
-    def image(self) -> 'outputs.Image':
-        return pulumi.get(self, "image")
 
 
 @pulumi.output_type
@@ -352,61 +337,6 @@ class Image(dict):
         Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes).
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ListImageActionsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 actions: Optional[Sequence['outputs.Action']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.Action']]:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListImagesItems(dict):
-    def __init__(__self__, *,
-                 images: Sequence['outputs.Image'],
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "images", images)
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def images(self) -> Sequence['outputs.Image']:
-        return pulumi.get(self, "images")
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

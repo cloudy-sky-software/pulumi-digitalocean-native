@@ -25,7 +25,9 @@ type ListProjectsArgs struct {
 }
 
 type ListProjectsResult struct {
-	Items ListProjectsItems `pulumi:"items"`
+	Links    *PageLinks    `pulumi:"links"`
+	Meta     MetaMeta      `pulumi:"meta"`
+	Projects []ProjectType `pulumi:"projects"`
 }
 
 func ListProjectsOutput(ctx *pulumi.Context, args ListProjectsOutputArgs, opts ...pulumi.InvokeOption) ListProjectsResultOutput {
@@ -62,8 +64,16 @@ func (o ListProjectsResultOutput) ToListProjectsResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o ListProjectsResultOutput) Items() ListProjectsItemsOutput {
-	return o.ApplyT(func(v ListProjectsResult) ListProjectsItems { return v.Items }).(ListProjectsItemsOutput)
+func (o ListProjectsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListProjectsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListProjectsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListProjectsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListProjectsResultOutput) Projects() ProjectTypeArrayOutput {
+	return o.ApplyT(func(v ListProjectsResult) []ProjectType { return v.Projects }).(ProjectTypeArrayOutput)
 }
 
 func init() {

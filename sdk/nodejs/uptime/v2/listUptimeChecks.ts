@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listUptimeChecks(args?: ListUptimeChecksArgs, opts?: pulumi.InvokeOptions): Promise<ListUptimeChecksResult> {
+export function listUptimeChecks(args?: ListUptimeChecksArgs, opts?: pulumi.InvokeOptions): Promise<outputs.uptime.v2.ListUptimeChecksItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listUptimeChecks(args?: ListUptimeChecksArgs, opts?: pulumi.Invo
 
 export interface ListUptimeChecksArgs {
 }
-
-export interface ListUptimeChecksResult {
-    readonly items: outputs.uptime.v2.ListUptimeChecksItems;
-}
-export function listUptimeChecksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListUptimeChecksResult> {
+export function listUptimeChecksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.ListUptimeChecksItems> {
     return pulumi.output(listUptimeChecks(opts))
 }

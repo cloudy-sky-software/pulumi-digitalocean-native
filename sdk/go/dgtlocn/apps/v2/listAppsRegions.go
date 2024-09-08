@@ -25,7 +25,7 @@ type ListAppsRegionsArgs struct {
 }
 
 type ListAppsRegionsResult struct {
-	Items AppsListRegionsResponse `pulumi:"items"`
+	Regions []AppsRegion `pulumi:"regions"`
 }
 
 func ListAppsRegionsOutput(ctx *pulumi.Context, args ListAppsRegionsOutputArgs, opts ...pulumi.InvokeOption) ListAppsRegionsResultOutput {
@@ -62,8 +62,8 @@ func (o ListAppsRegionsResultOutput) ToListAppsRegionsResultOutputWithContext(ct
 	return o
 }
 
-func (o ListAppsRegionsResultOutput) Items() AppsListRegionsResponseOutput {
-	return o.ApplyT(func(v ListAppsRegionsResult) AppsListRegionsResponse { return v.Items }).(AppsListRegionsResponseOutput)
+func (o ListAppsRegionsResultOutput) Regions() AppsRegionArrayOutput {
+	return o.ApplyT(func(v ListAppsRegionsResult) []AppsRegion { return v.Regions }).(AppsRegionArrayOutput)
 }
 
 func init() {

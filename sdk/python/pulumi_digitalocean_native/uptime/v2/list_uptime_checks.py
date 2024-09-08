@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListUptimeChecksResult',
-    'AwaitableListUptimeChecksResult',
+    'ListUptimeChecksItems',
+    'AwaitableListUptimeChecksItems',
     'list_uptime_checks',
     'list_uptime_checks_output',
 ]
 
 @pulumi.output_type
-class ListUptimeChecksResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListUptimeChecksItems:
+    def __init__(__self__, checks=None, links=None, meta=None):
+        if checks and not isinstance(checks, list):
+            raise TypeError("Expected argument 'checks' to be a list")
+        pulumi.set(__self__, "checks", checks)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListUptimeChecksItems':
-        return pulumi.get(self, "items")
+    def checks(self) -> Optional[Sequence['outputs.Check']]:
+        return pulumi.get(self, "checks")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListUptimeChecksResult(ListUptimeChecksResult):
+class AwaitableListUptimeChecksItems(ListUptimeChecksItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListUptimeChecksResult(
-            items=self.items)
+        return ListUptimeChecksItems(
+            checks=self.checks,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_uptime_checks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListUptimeChecksResult:
+def list_uptime_checks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListUptimeChecksItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:uptime/v2:listUptimeChecks', __args__, opts=opts, typ=ListUptimeChecksResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:uptime/v2:listUptimeChecks', __args__, opts=opts, typ=ListUptimeChecksItems).value
 
-    return AwaitableListUptimeChecksResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListUptimeChecksItems(
+        checks=pulumi.get(__ret__, 'checks'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_uptime_checks)
-def list_uptime_checks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUptimeChecksResult]:
+def list_uptime_checks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUptimeChecksItems]:
     """
     Use this data source to access information about an existing resource.
     """

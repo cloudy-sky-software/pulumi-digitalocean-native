@@ -27,7 +27,8 @@ type LookupDatabasesSqlModeArgs struct {
 }
 
 type LookupDatabasesSqlModeResult struct {
-	Items SqlMode `pulumi:"items"`
+	// A string specifying the configured SQL modes for the MySQL cluster.
+	SqlMode string `pulumi:"sqlMode"`
 }
 
 func LookupDatabasesSqlModeOutput(ctx *pulumi.Context, args LookupDatabasesSqlModeOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesSqlModeResultOutput {
@@ -66,8 +67,9 @@ func (o LookupDatabasesSqlModeResultOutput) ToLookupDatabasesSqlModeResultOutput
 	return o
 }
 
-func (o LookupDatabasesSqlModeResultOutput) Items() SqlModeOutput {
-	return o.ApplyT(func(v LookupDatabasesSqlModeResult) SqlMode { return v.Items }).(SqlModeOutput)
+// A string specifying the configured SQL modes for the MySQL cluster.
+func (o LookupDatabasesSqlModeResultOutput) SqlMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabasesSqlModeResult) string { return v.SqlMode }).(pulumi.StringOutput)
 }
 
 func init() {

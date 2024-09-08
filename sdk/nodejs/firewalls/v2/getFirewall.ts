@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
+export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<outputs.firewalls.v2.GetFirewallProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:firewalls/v2:getFirewall", {
@@ -21,11 +21,7 @@ export interface GetFirewallArgs {
      */
     firewallId: string;
 }
-
-export interface GetFirewallResult {
-    readonly items: outputs.firewalls.v2.GetFirewallProperties;
-}
-export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
+export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.firewalls.v2.GetFirewallProperties> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))
 }
 

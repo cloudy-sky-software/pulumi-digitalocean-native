@@ -29,7 +29,7 @@ type GetDropletActionArgs struct {
 }
 
 type GetDropletActionResult struct {
-	Items GetDropletActionProperties `pulumi:"items"`
+	Action *Action `pulumi:"action"`
 }
 
 // Defaults sets the appropriate defaults for GetDropletActionResult
@@ -38,7 +38,7 @@ func (val *GetDropletActionResult) Defaults() *GetDropletActionResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Action = tmp.Action.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o GetDropletActionResultOutput) ToGetDropletActionResultOutputWithContext(
 	return o
 }
 
-func (o GetDropletActionResultOutput) Items() GetDropletActionPropertiesOutput {
-	return o.ApplyT(func(v GetDropletActionResult) GetDropletActionProperties { return v.Items }).(GetDropletActionPropertiesOutput)
+func (o GetDropletActionResultOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v GetDropletActionResult) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 func init() {

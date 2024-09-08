@@ -25,7 +25,7 @@ type GetAccountArgs struct {
 }
 
 type GetAccountResult struct {
-	Items GetAccountProperties `pulumi:"items"`
+	Account *Account `pulumi:"account"`
 }
 
 // Defaults sets the appropriate defaults for GetAccountResult
@@ -34,7 +34,7 @@ func (val *GetAccountResult) Defaults() *GetAccountResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Account = tmp.Account.Defaults()
 
 	return &tmp
 }
@@ -73,8 +73,8 @@ func (o GetAccountResultOutput) ToGetAccountResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetAccountResultOutput) Items() GetAccountPropertiesOutput {
-	return o.ApplyT(func(v GetAccountResult) GetAccountProperties { return v.Items }).(GetAccountPropertiesOutput)
+func (o GetAccountResultOutput) Account() AccountPtrOutput {
+	return o.ApplyT(func(v GetAccountResult) *Account { return v.Account }).(AccountPtrOutput)
 }
 
 func init() {

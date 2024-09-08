@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listRegistryRepositories(args: ListRegistryRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryRepositoriesResult> {
+export function listRegistryRepositories(args: ListRegistryRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.ListRegistryRepositoriesItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:registry/v2:listRegistryRepositories", {
@@ -21,11 +21,7 @@ export interface ListRegistryRepositoriesArgs {
      */
     registryName: string;
 }
-
-export interface ListRegistryRepositoriesResult {
-    readonly items: outputs.registry.v2.ListRegistryRepositoriesItems;
-}
-export function listRegistryRepositoriesOutput(args: ListRegistryRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryRepositoriesResult> {
+export function listRegistryRepositoriesOutput(args: ListRegistryRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryRepositoriesItems> {
     return pulumi.output(args).apply((a: any) => listRegistryRepositories(a, opts))
 }
 

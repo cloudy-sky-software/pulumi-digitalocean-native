@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDomainResult',
-    'AwaitableGetDomainResult',
+    'GetDomainProperties',
+    'AwaitableGetDomainProperties',
     'get_domain',
     'get_domain_output',
 ]
 
 @pulumi.output_type
-class GetDomainResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetDomainProperties:
+    def __init__(__self__, domain=None):
+        if domain and not isinstance(domain, dict):
+            raise TypeError("Expected argument 'domain' to be a dict")
+        pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetDomainProperties':
-        return pulumi.get(self, "items")
+    def domain(self) -> Optional['outputs.Domain']:
+        return pulumi.get(self, "domain")
 
 
-class AwaitableGetDomainResult(GetDomainResult):
+class AwaitableGetDomainProperties(GetDomainProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDomainResult(
-            items=self.items)
+        return GetDomainProperties(
+            domain=self.domain)
 
 
 def get_domain(domain_name: Optional[str] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_domain(domain_name: Optional[str] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:domains/v2:getDomain', __args__, opts=opts, typ=GetDomainResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:domains/v2:getDomain', __args__, opts=opts, typ=GetDomainProperties).value
 
-    return AwaitableGetDomainResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetDomainProperties(
+        domain=pulumi.get(__ret__, 'domain'))
 
 
 @_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainProperties]:
     """
     Use this data source to access information about an existing resource.
 

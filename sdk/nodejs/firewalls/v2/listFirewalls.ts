@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listFirewalls(args?: ListFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallsResult> {
+export function listFirewalls(args?: ListFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.firewalls.v2.ListFirewallsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listFirewalls(args?: ListFirewallsArgs, opts?: pulumi.InvokeOpti
 
 export interface ListFirewallsArgs {
 }
-
-export interface ListFirewallsResult {
-    readonly items: outputs.firewalls.v2.ListFirewallsItems;
-}
-export function listFirewallsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallsResult> {
+export function listFirewallsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.firewalls.v2.ListFirewallsItems> {
     return pulumi.output(listFirewalls(opts))
 }

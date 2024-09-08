@@ -10,22 +10,22 @@ export type Assign = import("./assign").Assign;
 export const Assign: typeof import("./assign").Assign = null as any;
 utilities.lazyLoad(exports, ["Assign"], () => require("./assign"));
 
-export { GetReservedIPArgs, GetReservedIPResult, GetReservedIPOutputArgs } from "./getReservedIP";
+export { GetReservedIPArgs, GetReservedIPOutputArgs } from "./getReservedIP";
 export const getReservedIP: typeof import("./getReservedIP").getReservedIP = null as any;
 export const getReservedIPOutput: typeof import("./getReservedIP").getReservedIPOutput = null as any;
 utilities.lazyLoad(exports, ["getReservedIP","getReservedIPOutput"], () => require("./getReservedIP"));
 
-export { GetReservedIPsActionArgs, GetReservedIPsActionResult, GetReservedIPsActionOutputArgs } from "./getReservedIPsAction";
+export { GetReservedIPsActionArgs, GetReservedIPsActionOutputArgs } from "./getReservedIPsAction";
 export const getReservedIPsAction: typeof import("./getReservedIPsAction").getReservedIPsAction = null as any;
 export const getReservedIPsActionOutput: typeof import("./getReservedIPsAction").getReservedIPsActionOutput = null as any;
 utilities.lazyLoad(exports, ["getReservedIPsAction","getReservedIPsActionOutput"], () => require("./getReservedIPsAction"));
 
-export { ListReservedIPsArgs, ListReservedIPsResult } from "./listReservedIPs";
+export { ListReservedIPsArgs } from "./listReservedIPs";
 export const listReservedIPs: typeof import("./listReservedIPs").listReservedIPs = null as any;
 export const listReservedIPsOutput: typeof import("./listReservedIPs").listReservedIPsOutput = null as any;
 utilities.lazyLoad(exports, ["listReservedIPs","listReservedIPsOutput"], () => require("./listReservedIPs"));
 
-export { ListReservedIPsActionsArgs, ListReservedIPsActionsResult, ListReservedIPsActionsOutputArgs } from "./listReservedIPsActions";
+export { ListReservedIPsActionsArgs, ListReservedIPsActionsOutputArgs } from "./listReservedIPsActions";
 export const listReservedIPsActions: typeof import("./listReservedIPsActions").listReservedIPsActions = null as any;
 export const listReservedIPsActionsOutput: typeof import("./listReservedIPsActions").listReservedIPsActionsOutput = null as any;
 utilities.lazyLoad(exports, ["listReservedIPsActions","listReservedIPsActionsOutput"], () => require("./listReservedIPsActions"));

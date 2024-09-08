@@ -27,7 +27,12 @@ type GetDatabasesMigrationStatuArgs struct {
 }
 
 type GetDatabasesMigrationStatuResult struct {
-	Items OnlineMigration `pulumi:"items"`
+	// The time the migration was initiated, in ISO 8601 format.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ID of the most recent migration.
+	Id *string `pulumi:"id"`
+	// The current status of the migration.
+	Status *OnlineMigrationStatus `pulumi:"status"`
 }
 
 func GetDatabasesMigrationStatuOutput(ctx *pulumi.Context, args GetDatabasesMigrationStatuOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesMigrationStatuResultOutput {
@@ -66,8 +71,19 @@ func (o GetDatabasesMigrationStatuResultOutput) ToGetDatabasesMigrationStatuResu
 	return o
 }
 
-func (o GetDatabasesMigrationStatuResultOutput) Items() OnlineMigrationOutput {
-	return o.ApplyT(func(v GetDatabasesMigrationStatuResult) OnlineMigration { return v.Items }).(OnlineMigrationOutput)
+// The time the migration was initiated, in ISO 8601 format.
+func (o GetDatabasesMigrationStatuResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatabasesMigrationStatuResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the most recent migration.
+func (o GetDatabasesMigrationStatuResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatabasesMigrationStatuResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the migration.
+func (o GetDatabasesMigrationStatuResultOutput) Status() OnlineMigrationStatusPtrOutput {
+	return o.ApplyT(func(v GetDatabasesMigrationStatuResult) *OnlineMigrationStatus { return v.Status }).(OnlineMigrationStatusPtrOutput)
 }
 
 func init() {

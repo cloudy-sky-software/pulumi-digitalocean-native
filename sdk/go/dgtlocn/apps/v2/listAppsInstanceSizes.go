@@ -25,7 +25,8 @@ type ListAppsInstanceSizesArgs struct {
 }
 
 type ListAppsInstanceSizesResult struct {
-	Items AppsListInstanceSizesResponse `pulumi:"items"`
+	DiscountPercent *float64           `pulumi:"discountPercent"`
+	InstanceSizes   []AppsInstanceSize `pulumi:"instanceSizes"`
 }
 
 func ListAppsInstanceSizesOutput(ctx *pulumi.Context, args ListAppsInstanceSizesOutputArgs, opts ...pulumi.InvokeOption) ListAppsInstanceSizesResultOutput {
@@ -62,8 +63,12 @@ func (o ListAppsInstanceSizesResultOutput) ToListAppsInstanceSizesResultOutputWi
 	return o
 }
 
-func (o ListAppsInstanceSizesResultOutput) Items() AppsListInstanceSizesResponseOutput {
-	return o.ApplyT(func(v ListAppsInstanceSizesResult) AppsListInstanceSizesResponse { return v.Items }).(AppsListInstanceSizesResponseOutput)
+func (o ListAppsInstanceSizesResultOutput) DiscountPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ListAppsInstanceSizesResult) *float64 { return v.DiscountPercent }).(pulumi.Float64PtrOutput)
+}
+
+func (o ListAppsInstanceSizesResultOutput) InstanceSizes() AppsInstanceSizeArrayOutput {
+	return o.ApplyT(func(v ListAppsInstanceSizesResult) []AppsInstanceSize { return v.InstanceSizes }).(AppsInstanceSizeArrayOutput)
 }
 
 func init() {

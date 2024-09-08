@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listAppsInstanceSizes(args?: ListAppsInstanceSizesArgs, opts?: pulumi.InvokeOptions): Promise<ListAppsInstanceSizesResult> {
+export function listAppsInstanceSizes(args?: ListAppsInstanceSizesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsListInstanceSizesResponse> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listAppsInstanceSizes(args?: ListAppsInstanceSizesArgs, opts?: p
 
 export interface ListAppsInstanceSizesArgs {
 }
-
-export interface ListAppsInstanceSizesResult {
-    readonly items: outputs.apps.v2.AppsListInstanceSizesResponse;
-}
-export function listAppsInstanceSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListAppsInstanceSizesResult> {
+export function listAppsInstanceSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListInstanceSizesResponse> {
     return pulumi.output(listAppsInstanceSizes(opts))
 }

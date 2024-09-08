@@ -14,9 +14,6 @@ from ._enums import *
 __all__ = [
     'Account',
     'AccountTeamProperties',
-    'GetAccountProperties',
-    'GetSshKeyProperties',
-    'ListSshKeysItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -168,60 +165,6 @@ class AccountTeamProperties(dict):
         The unique universal identifier for the current team.
         """
         return pulumi.get(self, "uuid")
-
-
-@pulumi.output_type
-class GetAccountProperties(dict):
-    def __init__(__self__, *,
-                 account: Optional['outputs.Account'] = None):
-        if account is not None:
-            pulumi.set(__self__, "account", account)
-
-    @property
-    @pulumi.getter
-    def account(self) -> Optional['outputs.Account']:
-        return pulumi.get(self, "account")
-
-
-@pulumi.output_type
-class GetSshKeyProperties(dict):
-    def __init__(__self__, *,
-                 ssh_key: Optional['outputs.SshKeys'] = None):
-        if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
-
-    @property
-    @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> Optional['outputs.SshKeys']:
-        return pulumi.get(self, "ssh_key")
-
-
-@pulumi.output_type
-class ListSshKeysItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 ssh_keys: Optional[Sequence['outputs.SshKeys']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[Sequence['outputs.SshKeys']]:
-        return pulumi.get(self, "ssh_keys")
 
 
 @pulumi.output_type

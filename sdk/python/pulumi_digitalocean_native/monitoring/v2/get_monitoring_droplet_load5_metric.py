@@ -6,54 +6,64 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetMonitoringDropletLoad5MetricResult',
-    'AwaitableGetMonitoringDropletLoad5MetricResult',
+    'Metrics',
+    'AwaitableMetrics',
     'get_monitoring_droplet_load5_metric',
     'get_monitoring_droplet_load5_metric_output',
 ]
 
 @pulumi.output_type
-class GetMonitoringDropletLoad5MetricResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class Metrics:
+    def __init__(__self__, data=None, status=None):
+        if data and not isinstance(data, dict):
+            raise TypeError("Expected argument 'data' to be a dict")
+        pulumi.set(__self__, "data", data)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.Metrics':
-        return pulumi.get(self, "items")
+    def data(self) -> 'outputs.MetricsData':
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'MetricsStatus':
+        return pulumi.get(self, "status")
 
 
-class AwaitableGetMonitoringDropletLoad5MetricResult(GetMonitoringDropletLoad5MetricResult):
+class AwaitableMetrics(Metrics):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetMonitoringDropletLoad5MetricResult(
-            items=self.items)
+        return Metrics(
+            data=self.data,
+            status=self.status)
 
 
-def get_monitoring_droplet_load5_metric(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringDropletLoad5MetricResult:
+def get_monitoring_droplet_load5_metric(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableMetrics:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric', __args__, opts=opts, typ=GetMonitoringDropletLoad5MetricResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric', __args__, opts=opts, typ=Metrics).value
 
-    return AwaitableGetMonitoringDropletLoad5MetricResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableMetrics(
+        data=pulumi.get(__ret__, 'data'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_monitoring_droplet_load5_metric)
-def get_monitoring_droplet_load5_metric_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringDropletLoad5MetricResult]:
+def get_monitoring_droplet_load5_metric_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Metrics]:
     """
     Use this data source to access information about an existing resource.
     """

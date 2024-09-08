@@ -27,7 +27,9 @@ type ListVolumeSnapshotsArgs struct {
 }
 
 type ListVolumeSnapshotsResult struct {
-	Items ListVolumeSnapshotsItems `pulumi:"items"`
+	Links     *PageLinks  `pulumi:"links"`
+	Meta      MetaMeta    `pulumi:"meta"`
+	Snapshots []Snapshots `pulumi:"snapshots"`
 }
 
 func ListVolumeSnapshotsOutput(ctx *pulumi.Context, args ListVolumeSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListVolumeSnapshotsResultOutput {
@@ -66,8 +68,16 @@ func (o ListVolumeSnapshotsResultOutput) ToListVolumeSnapshotsResultOutputWithCo
 	return o
 }
 
-func (o ListVolumeSnapshotsResultOutput) Items() ListVolumeSnapshotsItemsOutput {
-	return o.ApplyT(func(v ListVolumeSnapshotsResult) ListVolumeSnapshotsItems { return v.Items }).(ListVolumeSnapshotsItemsOutput)
+func (o ListVolumeSnapshotsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListVolumeSnapshotsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListVolumeSnapshotsResultOutput) Snapshots() SnapshotsArrayOutput {
+	return o.ApplyT(func(v ListVolumeSnapshotsResult) []Snapshots { return v.Snapshots }).(SnapshotsArrayOutput)
 }
 
 func init() {

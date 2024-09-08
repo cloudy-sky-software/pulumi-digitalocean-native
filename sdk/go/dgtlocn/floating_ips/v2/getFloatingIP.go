@@ -27,7 +27,7 @@ type LookupFloatingIPArgs struct {
 }
 
 type LookupFloatingIPResult struct {
-	Items GetFloatingIPProperties `pulumi:"items"`
+	FloatingIp *FloatingIpType `pulumi:"floatingIp"`
 }
 
 // Defaults sets the appropriate defaults for LookupFloatingIPResult
@@ -36,7 +36,7 @@ func (val *LookupFloatingIPResult) Defaults() *LookupFloatingIPResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.FloatingIp = tmp.FloatingIp.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupFloatingIPResultOutput) ToLookupFloatingIPResultOutputWithContext(
 	return o
 }
 
-func (o LookupFloatingIPResultOutput) Items() GetFloatingIPPropertiesOutput {
-	return o.ApplyT(func(v LookupFloatingIPResult) GetFloatingIPProperties { return v.Items }).(GetFloatingIPPropertiesOutput)
+func (o LookupFloatingIPResultOutput) FloatingIp() FloatingIpTypePtrOutput {
+	return o.ApplyT(func(v LookupFloatingIPResult) *FloatingIpType { return v.FloatingIp }).(FloatingIpTypePtrOutput)
 }
 
 func init() {

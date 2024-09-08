@@ -18,14 +18,12 @@ __all__ = [
     'ConnectionPool',
     'ConnectionPoolConnection',
     'ConnectionPoolPrivateConnection',
-    'ConnectionPools',
     'Database',
     'DatabaseBackup',
     'DatabaseCluster',
     'DatabaseClusterConnection',
     'DatabaseClusterMaintenanceWindow',
     'DatabaseClusterPrivateConnection',
-    'DatabaseConfig',
     'DatabaseLayoutOption',
     'DatabaseReplica',
     'DatabaseReplicaConnection',
@@ -33,23 +31,8 @@ __all__ = [
     'DatabaseUser',
     'DatabaseVersionAvailability',
     'FirewallRule',
-    'GetDatabaseProperties',
-    'GetDatabasesCaProperties',
-    'GetDatabasesClusterProperties',
-    'GetDatabasesConnectionPoolProperties',
-    'GetDatabasesEvictionPolicyProperties',
-    'GetDatabasesReplicaProperties',
-    'GetDatabasesUserProperties',
-    'ListDatabasesBackupsProperties',
-    'ListDatabasesClustersProperties',
-    'ListDatabasesFirewallRulesProperties',
-    'ListDatabasesProperties',
-    'ListDatabasesReplicasProperties',
-    'ListDatabasesUsersProperties',
     'Mysql',
     'MysqlSettings',
-    'OnlineMigration',
-    'Options',
     'OptionsOptionsProperties',
     'OptionsOptionsPropertiesMongodb',
     'OptionsOptionsPropertiesMysql',
@@ -61,7 +44,6 @@ __all__ = [
     'PrivateConnection',
     'Redis',
     'SourceProperties',
-    'SqlMode',
     'Timescaledb',
 ]
 
@@ -479,25 +461,6 @@ class ConnectionPoolPrivateConnection(dict):
         The default user for the database.
         """
         return pulumi.get(self, "user")
-
-
-@pulumi.output_type
-class ConnectionPools(dict):
-    def __init__(__self__, *,
-                 pools: Optional[Sequence['outputs.ConnectionPool']] = None):
-        """
-        :param Sequence['ConnectionPool'] pools: An array of connection pool objects.
-        """
-        if pools is not None:
-            pulumi.set(__self__, "pools", pools)
-
-    @property
-    @pulumi.getter
-    def pools(self) -> Optional[Sequence['outputs.ConnectionPool']]:
-        """
-        An array of connection pool objects.
-        """
-        return pulumi.get(self, "pools")
 
 
 @pulumi.output_type
@@ -1072,19 +1035,6 @@ class DatabaseClusterPrivateConnection(dict):
 
 
 @pulumi.output_type
-class DatabaseConfig(dict):
-    def __init__(__self__, *,
-                 config: Optional[Any] = None):
-        if config is not None:
-            pulumi.set(__self__, "config", config)
-
-    @property
-    @pulumi.getter
-    def config(self) -> Optional[Any]:
-        return pulumi.get(self, "config")
-
-
-@pulumi.output_type
 class DatabaseLayoutOption(dict):
     def __init__(__self__, *,
                  num_nodes: Optional[int] = None,
@@ -1629,188 +1579,6 @@ class FirewallRule(dict):
 
 
 @pulumi.output_type
-class GetDatabaseProperties(dict):
-    def __init__(__self__, *,
-                 db: 'outputs.Database'):
-        pulumi.set(__self__, "db", db)
-
-    @property
-    @pulumi.getter
-    def db(self) -> 'outputs.Database':
-        return pulumi.get(self, "db")
-
-
-@pulumi.output_type
-class GetDatabasesCaProperties(dict):
-    def __init__(__self__, *,
-                 ca: 'outputs.Ca'):
-        pulumi.set(__self__, "ca", ca)
-
-    @property
-    @pulumi.getter
-    def ca(self) -> 'outputs.Ca':
-        return pulumi.get(self, "ca")
-
-
-@pulumi.output_type
-class GetDatabasesClusterProperties(dict):
-    def __init__(__self__, *,
-                 database: 'outputs.DatabaseCluster'):
-        pulumi.set(__self__, "database", database)
-
-    @property
-    @pulumi.getter
-    def database(self) -> 'outputs.DatabaseCluster':
-        return pulumi.get(self, "database")
-
-
-@pulumi.output_type
-class GetDatabasesConnectionPoolProperties(dict):
-    def __init__(__self__, *,
-                 pool: 'outputs.ConnectionPool'):
-        pulumi.set(__self__, "pool", pool)
-
-    @property
-    @pulumi.getter
-    def pool(self) -> 'outputs.ConnectionPool':
-        return pulumi.get(self, "pool")
-
-
-@pulumi.output_type
-class GetDatabasesEvictionPolicyProperties(dict):
-    def __init__(__self__, *,
-                 eviction_policy: 'GetDatabasesEvictionPolicyPropertiesEvictionPolicy'):
-        """
-        :param 'GetDatabasesEvictionPolicyPropertiesEvictionPolicy' eviction_policy: A string specifying the desired eviction policy for the Redis cluster.
-               
-               - `noeviction`: Don't evict any data, returns error when memory limit is reached.
-               - `allkeys_lru:` Evict any key, least recently used (LRU) first.
-               - `allkeys_random`: Evict keys in a random order.
-               - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
-               - `volatile_random`: Evict keys with expiration only in a random order.
-               - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-        """
-        pulumi.set(__self__, "eviction_policy", eviction_policy)
-
-    @property
-    @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> 'GetDatabasesEvictionPolicyPropertiesEvictionPolicy':
-        """
-        A string specifying the desired eviction policy for the Redis cluster.
-
-        - `noeviction`: Don't evict any data, returns error when memory limit is reached.
-        - `allkeys_lru:` Evict any key, least recently used (LRU) first.
-        - `allkeys_random`: Evict keys in a random order.
-        - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.
-        - `volatile_random`: Evict keys with expiration only in a random order.
-        - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-        """
-        return pulumi.get(self, "eviction_policy")
-
-
-@pulumi.output_type
-class GetDatabasesReplicaProperties(dict):
-    def __init__(__self__, *,
-                 replica: Optional['outputs.DatabaseReplica'] = None):
-        if replica is not None:
-            pulumi.set(__self__, "replica", replica)
-
-    @property
-    @pulumi.getter
-    def replica(self) -> Optional['outputs.DatabaseReplica']:
-        return pulumi.get(self, "replica")
-
-
-@pulumi.output_type
-class GetDatabasesUserProperties(dict):
-    def __init__(__self__, *,
-                 user: 'outputs.DatabaseUser'):
-        pulumi.set(__self__, "user", user)
-
-    @property
-    @pulumi.getter
-    def user(self) -> 'outputs.DatabaseUser':
-        return pulumi.get(self, "user")
-
-
-@pulumi.output_type
-class ListDatabasesBackupsProperties(dict):
-    def __init__(__self__, *,
-                 backups: Sequence['outputs.Backup']):
-        pulumi.set(__self__, "backups", backups)
-
-    @property
-    @pulumi.getter
-    def backups(self) -> Sequence['outputs.Backup']:
-        return pulumi.get(self, "backups")
-
-
-@pulumi.output_type
-class ListDatabasesClustersProperties(dict):
-    def __init__(__self__, *,
-                 databases: Optional[Sequence['outputs.DatabaseCluster']] = None):
-        if databases is not None:
-            pulumi.set(__self__, "databases", databases)
-
-    @property
-    @pulumi.getter
-    def databases(self) -> Optional[Sequence['outputs.DatabaseCluster']]:
-        return pulumi.get(self, "databases")
-
-
-@pulumi.output_type
-class ListDatabasesFirewallRulesProperties(dict):
-    def __init__(__self__, *,
-                 rules: Optional[Sequence['outputs.FirewallRule']] = None):
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.FirewallRule']]:
-        return pulumi.get(self, "rules")
-
-
-@pulumi.output_type
-class ListDatabasesProperties(dict):
-    def __init__(__self__, *,
-                 dbs: Optional[Sequence['outputs.Database']] = None):
-        if dbs is not None:
-            pulumi.set(__self__, "dbs", dbs)
-
-    @property
-    @pulumi.getter
-    def dbs(self) -> Optional[Sequence['outputs.Database']]:
-        return pulumi.get(self, "dbs")
-
-
-@pulumi.output_type
-class ListDatabasesReplicasProperties(dict):
-    def __init__(__self__, *,
-                 replicas: Optional[Sequence['outputs.DatabaseReplica']] = None):
-        if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
-
-    @property
-    @pulumi.getter
-    def replicas(self) -> Optional[Sequence['outputs.DatabaseReplica']]:
-        return pulumi.get(self, "replicas")
-
-
-@pulumi.output_type
-class ListDatabasesUsersProperties(dict):
-    def __init__(__self__, *,
-                 users: Optional[Sequence['outputs.DatabaseUser']] = None):
-        if users is not None:
-            pulumi.set(__self__, "users", users)
-
-    @property
-    @pulumi.getter
-    def users(self) -> Optional[Sequence['outputs.DatabaseUser']]:
-        return pulumi.get(self, "users")
-
-
-@pulumi.output_type
 class Mysql(dict):
     def __init__(__self__, *,
                  backup_hour: Optional[int] = None,
@@ -2192,70 +1960,6 @@ class MysqlSettings(dict):
         default is `caching_sha2_password`.
         """
         return pulumi.get(self, "auth_plugin")
-
-
-@pulumi.output_type
-class OnlineMigration(dict):
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 id: Optional[str] = None,
-                 status: Optional['OnlineMigrationStatus'] = None):
-        """
-        :param str created_at: The time the migration was initiated, in ISO 8601 format.
-        :param str id: The ID of the most recent migration.
-        :param 'OnlineMigrationStatus' status: The current status of the migration.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The time the migration was initiated, in ISO 8601 format.
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The ID of the most recent migration.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional['OnlineMigrationStatus']:
-        """
-        The current status of the migration.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class Options(dict):
-    def __init__(__self__, *,
-                 options: Optional['outputs.OptionsOptionsProperties'] = None,
-                 version_availability: Optional['outputs.OptionsVersionAvailabilityProperties'] = None):
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-        if version_availability is not None:
-            pulumi.set(__self__, "version_availability", version_availability)
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional['outputs.OptionsOptionsProperties']:
-        return pulumi.get(self, "options")
-
-    @property
-    @pulumi.getter(name="versionAvailability")
-    def version_availability(self) -> Optional['outputs.OptionsVersionAvailabilityProperties']:
-        return pulumi.get(self, "version_availability")
 
 
 @pulumi.output_type
@@ -3623,24 +3327,6 @@ class SourceProperties(dict):
         The default user for the database.
         """
         return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class SqlMode(dict):
-    def __init__(__self__, *,
-                 sql_mode: str):
-        """
-        :param str sql_mode: A string specifying the configured SQL modes for the MySQL cluster.
-        """
-        pulumi.set(__self__, "sql_mode", sql_mode)
-
-    @property
-    @pulumi.getter(name="sqlMode")
-    def sql_mode(self) -> str:
-        """
-        A string specifying the configured SQL modes for the MySQL cluster.
-        """
-        return pulumi.get(self, "sql_mode")
 
 
 @pulumi.output_type

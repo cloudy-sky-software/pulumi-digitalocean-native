@@ -6,42 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
-from . import outputs
 
 __all__ = [
-    'GetAppsLogsAggregateResult',
-    'AwaitableGetAppsLogsAggregateResult',
+    'AppsGetLogsResponse',
+    'AwaitableAppsGetLogsResponse',
     'get_apps_logs_aggregate',
     'get_apps_logs_aggregate_output',
 ]
 
 @pulumi.output_type
-class GetAppsLogsAggregateResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppsGetLogsResponse:
+    def __init__(__self__, historic_urls=None, live_url=None):
+        if historic_urls and not isinstance(historic_urls, list):
+            raise TypeError("Expected argument 'historic_urls' to be a list")
+        pulumi.set(__self__, "historic_urls", historic_urls)
+        if live_url and not isinstance(live_url, str):
+            raise TypeError("Expected argument 'live_url' to be a str")
+        pulumi.set(__self__, "live_url", live_url)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.AppsGetLogsResponse':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="historicUrls")
+    def historic_urls(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "historic_urls")
+
+    @property
+    @pulumi.getter(name="liveUrl")
+    def live_url(self) -> Optional[str]:
+        """
+        A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.
+        """
+        return pulumi.get(self, "live_url")
 
 
-class AwaitableGetAppsLogsAggregateResult(GetAppsLogsAggregateResult):
+class AwaitableAppsGetLogsResponse(AppsGetLogsResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAppsLogsAggregateResult(
-            items=self.items)
+        return AppsGetLogsResponse(
+            historic_urls=self.historic_urls,
+            live_url=self.live_url)
 
 
 def get_apps_logs_aggregate(app_id: Optional[str] = None,
                             deployment_id: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppsLogsAggregateResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppsGetLogsResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +63,17 @@ def get_apps_logs_aggregate(app_id: Optional[str] = None,
     __args__['appId'] = app_id
     __args__['deploymentId'] = deployment_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsLogsAggregate', __args__, opts=opts, typ=GetAppsLogsAggregateResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsLogsAggregate', __args__, opts=opts, typ=AppsGetLogsResponse).value
 
-    return AwaitableGetAppsLogsAggregateResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppsGetLogsResponse(
+        historic_urls=pulumi.get(__ret__, 'historic_urls'),
+        live_url=pulumi.get(__ret__, 'live_url'))
 
 
 @_utilities.lift_output_func(get_apps_logs_aggregate)
 def get_apps_logs_aggregate_output(app_id: Optional[pulumi.Input[str]] = None,
                                    deployment_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppsLogsAggregateResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetLogsResponse]:
     """
     Use this data source to access information about an existing resource.
 

@@ -32,7 +32,7 @@ type GetImageArgs struct {
 }
 
 type GetImageResult struct {
-	Items GetImageProperties `pulumi:"items"`
+	Image Image `pulumi:"image"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -76,8 +76,8 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o GetImageResultOutput) Items() GetImagePropertiesOutput {
-	return o.ApplyT(func(v GetImageResult) GetImageProperties { return v.Items }).(GetImagePropertiesOutput)
+func (o GetImageResultOutput) Image() ImageOutput {
+	return o.ApplyT(func(v GetImageResult) Image { return v.Image }).(ImageOutput)
 }
 
 func init() {

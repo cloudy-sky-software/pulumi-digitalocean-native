@@ -27,7 +27,9 @@ type ListDropletsKernelsArgs struct {
 }
 
 type ListDropletsKernelsResult struct {
-	Items ListDropletsKernelsItems `pulumi:"items"`
+	Kernels []Kernel   `pulumi:"kernels"`
+	Links   *PageLinks `pulumi:"links"`
+	Meta    MetaMeta   `pulumi:"meta"`
 }
 
 func ListDropletsKernelsOutput(ctx *pulumi.Context, args ListDropletsKernelsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsKernelsResultOutput {
@@ -66,8 +68,16 @@ func (o ListDropletsKernelsResultOutput) ToListDropletsKernelsResultOutputWithCo
 	return o
 }
 
-func (o ListDropletsKernelsResultOutput) Items() ListDropletsKernelsItemsOutput {
-	return o.ApplyT(func(v ListDropletsKernelsResult) ListDropletsKernelsItems { return v.Items }).(ListDropletsKernelsItemsOutput)
+func (o ListDropletsKernelsResultOutput) Kernels() KernelArrayOutput {
+	return o.ApplyT(func(v ListDropletsKernelsResult) []Kernel { return v.Kernels }).(KernelArrayOutput)
+}
+
+func (o ListDropletsKernelsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDropletsKernelsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListDropletsKernelsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDropletsKernelsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

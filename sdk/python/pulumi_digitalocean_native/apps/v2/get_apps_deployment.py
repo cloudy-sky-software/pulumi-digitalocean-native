@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetAppsDeploymentResult',
-    'AwaitableGetAppsDeploymentResult',
+    'AppsDeploymentResponse',
+    'AwaitableAppsDeploymentResponse',
     'get_apps_deployment',
     'get_apps_deployment_output',
 ]
 
 @pulumi.output_type
-class GetAppsDeploymentResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppsDeploymentResponse:
+    def __init__(__self__, deployment=None):
+        if deployment and not isinstance(deployment, dict):
+            raise TypeError("Expected argument 'deployment' to be a dict")
+        pulumi.set(__self__, "deployment", deployment)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AppsDeploymentResponse':
-        return pulumi.get(self, "items")
+    def deployment(self) -> Optional['outputs.AppsDeployment']:
+        return pulumi.get(self, "deployment")
 
 
-class AwaitableGetAppsDeploymentResult(GetAppsDeploymentResult):
+class AwaitableAppsDeploymentResponse(AppsDeploymentResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAppsDeploymentResult(
-            items=self.items)
+        return AppsDeploymentResponse(
+            deployment=self.deployment)
 
 
 def get_apps_deployment(app_id: Optional[str] = None,
                         deployment_id: Optional[str] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppsDeploymentResult:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppsDeploymentResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_apps_deployment(app_id: Optional[str] = None,
     __args__['appId'] = app_id
     __args__['deploymentId'] = deployment_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsDeployment', __args__, opts=opts, typ=GetAppsDeploymentResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsDeployment', __args__, opts=opts, typ=AppsDeploymentResponse).value
 
-    return AwaitableGetAppsDeploymentResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppsDeploymentResponse(
+        deployment=pulumi.get(__ret__, 'deployment'))
 
 
 @_utilities.lift_output_func(get_apps_deployment)
 def get_apps_deployment_output(app_id: Optional[pulumi.Input[str]] = None,
                                deployment_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppsDeploymentResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsDeploymentResponse]:
     """
     Use this data source to access information about an existing resource.
 

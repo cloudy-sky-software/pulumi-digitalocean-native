@@ -25,7 +25,9 @@ type ListSshKeysArgs struct {
 }
 
 type ListSshKeysResult struct {
-	Items ListSshKeysItems `pulumi:"items"`
+	Links   *PageLinks `pulumi:"links"`
+	Meta    MetaMeta   `pulumi:"meta"`
+	SshKeys []SshKeys  `pulumi:"sshKeys"`
 }
 
 func ListSshKeysOutput(ctx *pulumi.Context, args ListSshKeysOutputArgs, opts ...pulumi.InvokeOption) ListSshKeysResultOutput {
@@ -62,8 +64,16 @@ func (o ListSshKeysResultOutput) ToListSshKeysResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListSshKeysResultOutput) Items() ListSshKeysItemsOutput {
-	return o.ApplyT(func(v ListSshKeysResult) ListSshKeysItems { return v.Items }).(ListSshKeysItemsOutput)
+func (o ListSshKeysResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListSshKeysResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListSshKeysResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListSshKeysResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListSshKeysResultOutput) SshKeys() SshKeysArrayOutput {
+	return o.ApplyT(func(v ListSshKeysResult) []SshKeys { return v.SshKeys }).(SshKeysArrayOutput)
 }
 
 func init() {

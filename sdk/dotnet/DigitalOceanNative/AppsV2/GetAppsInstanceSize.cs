@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsInstanceSize
     {
-        public static Task<GetAppsInstanceSizeResult> InvokeAsync(GetAppsInstanceSizeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsInstanceSizeResult>("digitalocean-native:apps/v2:getAppsInstanceSize", args ?? new GetAppsInstanceSizeArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsGetInstanceSizeResponse> InvokeAsync(GetAppsInstanceSizeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsGetInstanceSizeResponse>("digitalocean-native:apps/v2:getAppsInstanceSize", args ?? new GetAppsInstanceSizeArgs(), options.WithDefaults());
 
-        public static Output<GetAppsInstanceSizeResult> Invoke(GetAppsInstanceSizeInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsInstanceSizeResult>("digitalocean-native:apps/v2:getAppsInstanceSize", args ?? new GetAppsInstanceSizeInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsGetInstanceSizeResponse> Invoke(GetAppsInstanceSizeInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetInstanceSizeResponse>("digitalocean-native:apps/v2:getAppsInstanceSize", args ?? new GetAppsInstanceSizeInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsInstanceSizeInvokeArgs Empty => new GetAppsInstanceSizeInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsInstanceSizeResult
-    {
-        public readonly Outputs.AppsGetInstanceSizeResponse Items;
-
-        [OutputConstructor]
-        private GetAppsInstanceSizeResult(Outputs.AppsGetInstanceSizeResponse items)
-        {
-            Items = items;
-        }
     }
 }

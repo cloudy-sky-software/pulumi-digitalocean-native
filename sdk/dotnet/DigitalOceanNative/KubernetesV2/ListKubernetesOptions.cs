@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class ListKubernetesOptions
     {
-        public static Task<ListKubernetesOptionsResult> InvokeAsync(ListKubernetesOptionsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListKubernetesOptionsResult>("digitalocean-native:kubernetes/v2:listKubernetesOptions", args ?? new ListKubernetesOptionsArgs(), options.WithDefaults());
+        public static Task<Outputs.KubernetesOptions> InvokeAsync(ListKubernetesOptionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.KubernetesOptions>("digitalocean-native:kubernetes/v2:listKubernetesOptions", args ?? new ListKubernetesOptionsArgs(), options.WithDefaults());
 
-        public static Output<ListKubernetesOptionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListKubernetesOptionsResult>("digitalocean-native:kubernetes/v2:listKubernetesOptions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.KubernetesOptions> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.KubernetesOptions>("digitalocean-native:kubernetes/v2:listKubernetesOptions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new ListKubernetesOptionsArgs Empty => new ListKubernetesOptionsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListKubernetesOptionsResult
-    {
-        public readonly Outputs.KubernetesOptions Items;
-
-        [OutputConstructor]
-        private ListKubernetesOptionsResult(Outputs.KubernetesOptions items)
-        {
-            Items = items;
-        }
     }
 }

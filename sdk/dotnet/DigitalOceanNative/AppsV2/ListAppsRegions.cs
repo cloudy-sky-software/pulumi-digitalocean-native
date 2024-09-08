@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class ListAppsRegions
     {
-        public static Task<ListAppsRegionsResult> InvokeAsync(ListAppsRegionsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAppsRegionsResult>("digitalocean-native:apps/v2:listAppsRegions", args ?? new ListAppsRegionsArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsListRegionsResponse> InvokeAsync(ListAppsRegionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsListRegionsResponse>("digitalocean-native:apps/v2:listAppsRegions", args ?? new ListAppsRegionsArgs(), options.WithDefaults());
 
-        public static Output<ListAppsRegionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListAppsRegionsResult>("digitalocean-native:apps/v2:listAppsRegions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.AppsListRegionsResponse> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsListRegionsResponse>("digitalocean-native:apps/v2:listAppsRegions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new ListAppsRegionsArgs Empty => new ListAppsRegionsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListAppsRegionsResult
-    {
-        public readonly Outputs.AppsListRegionsResponse Items;
-
-        [OutputConstructor]
-        private ListAppsRegionsResult(Outputs.AppsListRegionsResponse items)
-        {
-            Items = items;
-        }
     }
 }

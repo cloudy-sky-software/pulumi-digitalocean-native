@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
 {
     public static class GetDomain
     {
-        public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("digitalocean-native:domains/v2:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+        public static Task<Outputs.GetDomainProperties> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetDomainProperties>("digitalocean-native:domains/v2:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
-        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("digitalocean-native:domains/v2:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetDomainProperties> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDomainProperties>("digitalocean-native:domains/v2:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
         {
         }
         public static new GetDomainInvokeArgs Empty => new GetDomainInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDomainResult
-    {
-        public readonly Outputs.GetDomainProperties Items;
-
-        [OutputConstructor]
-        private GetDomainResult(Outputs.GetDomainProperties items)
-        {
-            Items = items;
-        }
     }
 }

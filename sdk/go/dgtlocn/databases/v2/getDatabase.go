@@ -29,7 +29,7 @@ type LookupDatabaseArgs struct {
 }
 
 type LookupDatabaseResult struct {
-	Items GetDatabaseProperties `pulumi:"items"`
+	Db DatabaseType `pulumi:"db"`
 }
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
@@ -70,8 +70,8 @@ func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupDatabaseResultOutput) Items() GetDatabasePropertiesOutput {
-	return o.ApplyT(func(v LookupDatabaseResult) GetDatabaseProperties { return v.Items }).(GetDatabasePropertiesOutput)
+func (o LookupDatabaseResultOutput) Db() DatabaseTypeOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) DatabaseType { return v.Db }).(DatabaseTypeOutput)
 }
 
 func init() {

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class ListDropletsAssociatedResources
     {
-        public static Task<ListDropletsAssociatedResourcesResult> InvokeAsync(ListDropletsAssociatedResourcesArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletsAssociatedResourcesResult>("digitalocean-native:droplets/v2:listDropletsAssociatedResources", args ?? new ListDropletsAssociatedResourcesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDropletsAssociatedResourcesItems> InvokeAsync(ListDropletsAssociatedResourcesArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDropletsAssociatedResourcesItems>("digitalocean-native:droplets/v2:listDropletsAssociatedResources", args ?? new ListDropletsAssociatedResourcesArgs(), options.WithDefaults());
 
-        public static Output<ListDropletsAssociatedResourcesResult> Invoke(ListDropletsAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletsAssociatedResourcesResult>("digitalocean-native:droplets/v2:listDropletsAssociatedResources", args ?? new ListDropletsAssociatedResourcesInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDropletsAssociatedResourcesItems> Invoke(ListDropletsAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsAssociatedResourcesItems>("digitalocean-native:droplets/v2:listDropletsAssociatedResources", args ?? new ListDropletsAssociatedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new ListDropletsAssociatedResourcesInvokeArgs Empty => new ListDropletsAssociatedResourcesInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletsAssociatedResourcesResult
-    {
-        public readonly Outputs.ListDropletsAssociatedResourcesItems Items;
-
-        [OutputConstructor]
-        private ListDropletsAssociatedResourcesResult(Outputs.ListDropletsAssociatedResourcesItems items)
-        {
-            Items = items;
-        }
     }
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDatabasesFirewallRules(args: ListDatabasesFirewallRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasesFirewallRulesResult> {
+export function listDatabasesFirewallRules(args: ListDatabasesFirewallRulesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.ListDatabasesFirewallRulesProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:listDatabasesFirewallRules", {
@@ -21,11 +21,7 @@ export interface ListDatabasesFirewallRulesArgs {
      */
     databaseClusterUuid: string;
 }
-
-export interface ListDatabasesFirewallRulesResult {
-    readonly items: outputs.databases.v2.ListDatabasesFirewallRulesProperties;
-}
-export function listDatabasesFirewallRulesOutput(args: ListDatabasesFirewallRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasesFirewallRulesResult> {
+export function listDatabasesFirewallRulesOutput(args: ListDatabasesFirewallRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesFirewallRulesProperties> {
     return pulumi.output(args).apply((a: any) => listDatabasesFirewallRules(a, opts))
 }
 

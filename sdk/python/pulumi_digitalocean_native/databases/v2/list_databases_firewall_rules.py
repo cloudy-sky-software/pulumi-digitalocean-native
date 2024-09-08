@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListDatabasesFirewallRulesResult',
-    'AwaitableListDatabasesFirewallRulesResult',
+    'ListDatabasesFirewallRulesProperties',
+    'AwaitableListDatabasesFirewallRulesProperties',
     'list_databases_firewall_rules',
     'list_databases_firewall_rules_output',
 ]
 
 @pulumi.output_type
-class ListDatabasesFirewallRulesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDatabasesFirewallRulesProperties:
+    def __init__(__self__, rules=None):
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDatabasesFirewallRulesProperties':
-        return pulumi.get(self, "items")
+    def rules(self) -> Optional[Sequence['outputs.FirewallRule']]:
+        return pulumi.get(self, "rules")
 
 
-class AwaitableListDatabasesFirewallRulesResult(ListDatabasesFirewallRulesResult):
+class AwaitableListDatabasesFirewallRulesProperties(ListDatabasesFirewallRulesProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDatabasesFirewallRulesResult(
-            items=self.items)
+        return ListDatabasesFirewallRulesProperties(
+            rules=self.rules)
 
 
 def list_databases_firewall_rules(database_cluster_uuid: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasesFirewallRulesResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasesFirewallRulesProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def list_databases_firewall_rules(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabasesFirewallRules', __args__, opts=opts, typ=ListDatabasesFirewallRulesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabasesFirewallRules', __args__, opts=opts, typ=ListDatabasesFirewallRulesProperties).value
 
-    return AwaitableListDatabasesFirewallRulesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDatabasesFirewallRulesProperties(
+        rules=pulumi.get(__ret__, 'rules'))
 
 
 @_utilities.lift_output_func(list_databases_firewall_rules)
 def list_databases_firewall_rules_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesFirewallRulesResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesFirewallRulesProperties]:
     """
     Use this data source to access information about an existing resource.
 

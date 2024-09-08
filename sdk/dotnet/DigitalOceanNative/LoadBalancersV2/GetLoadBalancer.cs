@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.LoadBalancersV2
 {
     public static class GetLoadBalancer
     {
-        public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("digitalocean-native:load_balancers/v2:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
+        public static Task<Outputs.GetLoadBalancerProperties> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetLoadBalancerProperties>("digitalocean-native:load_balancers/v2:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
-        public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("digitalocean-native:load_balancers/v2:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetLoadBalancerProperties> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetLoadBalancerProperties>("digitalocean-native:load_balancers/v2:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.LoadBalancersV2
         {
         }
         public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetLoadBalancerResult
-    {
-        public readonly Outputs.GetLoadBalancerProperties Items;
-
-        [OutputConstructor]
-        private GetLoadBalancerResult(Outputs.GetLoadBalancerProperties items)
-        {
-            Items = items;
-        }
     }
 }

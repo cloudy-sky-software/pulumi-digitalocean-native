@@ -6,53 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListKubernetesOptionsResult',
-    'AwaitableListKubernetesOptionsResult',
+    'KubernetesOptions',
+    'AwaitableKubernetesOptions',
     'list_kubernetes_options',
     'list_kubernetes_options_output',
 ]
 
 @pulumi.output_type
-class ListKubernetesOptionsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class KubernetesOptions:
+    def __init__(__self__, options=None):
+        if options and not isinstance(options, dict):
+            raise TypeError("Expected argument 'options' to be a dict")
+        pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.KubernetesOptions':
-        return pulumi.get(self, "items")
+    def options(self) -> Optional['outputs.KubernetesOptionsOptionsProperties']:
+        return pulumi.get(self, "options")
 
 
-class AwaitableListKubernetesOptionsResult(ListKubernetesOptionsResult):
+class AwaitableKubernetesOptions(KubernetesOptions):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListKubernetesOptionsResult(
-            items=self.items)
+        return KubernetesOptions(
+            options=self.options)
 
 
-def list_kubernetes_options(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKubernetesOptionsResult:
+def list_kubernetes_options(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableKubernetesOptions:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesOptions', __args__, opts=opts, typ=ListKubernetesOptionsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesOptions', __args__, opts=opts, typ=KubernetesOptions).value
 
-    return AwaitableListKubernetesOptionsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableKubernetesOptions(
+        options=pulumi.get(__ret__, 'options'))
 
 
 @_utilities.lift_output_func(list_kubernetes_options)
-def list_kubernetes_options_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesOptionsResult]:
+def list_kubernetes_options_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[KubernetesOptions]:
     """
     Use this data source to access information about an existing resource.
     """

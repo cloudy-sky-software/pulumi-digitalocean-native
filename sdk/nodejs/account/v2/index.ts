@@ -5,17 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetAccountArgs, GetAccountResult } from "./getAccount";
+export { GetAccountArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
-export { GetSshKeyArgs, GetSshKeyResult, GetSshKeyOutputArgs } from "./getSshKey";
+export { GetSshKeyArgs, GetSshKeyOutputArgs } from "./getSshKey";
 export const getSshKey: typeof import("./getSshKey").getSshKey = null as any;
 export const getSshKeyOutput: typeof import("./getSshKey").getSshKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getSshKey","getSshKeyOutput"], () => require("./getSshKey"));
 
-export { ListSshKeysArgs, ListSshKeysResult } from "./listSshKeys";
+export { ListSshKeysArgs } from "./listSshKeys";
 export const listSshKeys: typeof import("./listSshKeys").listSshKeys = null as any;
 export const listSshKeysOutput: typeof import("./listSshKeys").listSshKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listSshKeys","listSshKeysOutput"], () => require("./listSshKeys"));

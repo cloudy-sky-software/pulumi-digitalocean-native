@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
 {
     public static class ListReservedIPsActions
     {
-        public static Task<ListReservedIPsActionsResult> InvokeAsync(ListReservedIPsActionsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListReservedIPsActionsResult>("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args ?? new ListReservedIPsActionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListReservedIPsActionsItems> InvokeAsync(ListReservedIPsActionsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListReservedIPsActionsItems>("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args ?? new ListReservedIPsActionsArgs(), options.WithDefaults());
 
-        public static Output<ListReservedIPsActionsResult> Invoke(ListReservedIPsActionsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListReservedIPsActionsResult>("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args ?? new ListReservedIPsActionsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListReservedIPsActionsItems> Invoke(ListReservedIPsActionsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListReservedIPsActionsItems>("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args ?? new ListReservedIPsActionsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
         {
         }
         public static new ListReservedIPsActionsInvokeArgs Empty => new ListReservedIPsActionsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListReservedIPsActionsResult
-    {
-        public readonly Outputs.ListReservedIPsActionsItems Items;
-
-        [OutputConstructor]
-        private ListReservedIPsActionsResult(Outputs.ListReservedIPsActionsItems items)
-        {
-            Items = items;
-        }
     }
 }

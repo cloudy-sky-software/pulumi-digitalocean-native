@@ -27,7 +27,9 @@ type ListFloatingIPsActionArgs struct {
 }
 
 type ListFloatingIPsActionResult struct {
-	Items ListFloatingIPsActionItems `pulumi:"items"`
+	Actions []Action   `pulumi:"actions"`
+	Links   *PageLinks `pulumi:"links"`
+	Meta    MetaMeta   `pulumi:"meta"`
 }
 
 func ListFloatingIPsActionOutput(ctx *pulumi.Context, args ListFloatingIPsActionOutputArgs, opts ...pulumi.InvokeOption) ListFloatingIPsActionResultOutput {
@@ -66,8 +68,16 @@ func (o ListFloatingIPsActionResultOutput) ToListFloatingIPsActionResultOutputWi
 	return o
 }
 
-func (o ListFloatingIPsActionResultOutput) Items() ListFloatingIPsActionItemsOutput {
-	return o.ApplyT(func(v ListFloatingIPsActionResult) ListFloatingIPsActionItems { return v.Items }).(ListFloatingIPsActionItemsOutput)
+func (o ListFloatingIPsActionResultOutput) Actions() ActionArrayOutput {
+	return o.ApplyT(func(v ListFloatingIPsActionResult) []Action { return v.Actions }).(ActionArrayOutput)
+}
+
+func (o ListFloatingIPsActionResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListFloatingIPsActionResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListFloatingIPsActionResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListFloatingIPsActionResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletMemoryAvailableMetric
     {
-        public static Task<GetMonitoringDropletMemoryAvailableMetricResult> InvokeAsync(GetMonitoringDropletMemoryAvailableMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletMemoryAvailableMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric", args ?? new GetMonitoringDropletMemoryAvailableMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletMemoryAvailableMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric", args ?? new GetMonitoringDropletMemoryAvailableMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletMemoryAvailableMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletMemoryAvailableMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletMemoryAvailableMetricArgs Empty => new GetMonitoringDropletMemoryAvailableMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletMemoryAvailableMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletMemoryAvailableMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

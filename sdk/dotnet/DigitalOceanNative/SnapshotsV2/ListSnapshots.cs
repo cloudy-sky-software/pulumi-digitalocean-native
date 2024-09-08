@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SnapshotsV2
 {
     public static class ListSnapshots
     {
-        public static Task<ListSnapshotsResult> InvokeAsync(ListSnapshotsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSnapshotsResult>("digitalocean-native:snapshots/v2:listSnapshots", args ?? new ListSnapshotsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListSnapshotsItems> InvokeAsync(ListSnapshotsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListSnapshotsItems>("digitalocean-native:snapshots/v2:listSnapshots", args ?? new ListSnapshotsArgs(), options.WithDefaults());
 
-        public static Output<ListSnapshotsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListSnapshotsResult>("digitalocean-native:snapshots/v2:listSnapshots", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListSnapshotsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSnapshotsItems>("digitalocean-native:snapshots/v2:listSnapshots", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SnapshotsV2
         {
         }
         public static new ListSnapshotsArgs Empty => new ListSnapshotsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListSnapshotsResult
-    {
-        public readonly Outputs.ListSnapshotsItems Items;
-
-        [OutputConstructor]
-        private ListSnapshotsResult(Outputs.ListSnapshotsItems items)
-        {
-            Items = items;
-        }
     }
 }

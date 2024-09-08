@@ -27,7 +27,7 @@ type LookupLoadBalancerArgs struct {
 }
 
 type LookupLoadBalancerResult struct {
-	Items GetLoadBalancerProperties `pulumi:"items"`
+	LoadBalancer *LoadBalancerType `pulumi:"loadBalancer"`
 }
 
 // Defaults sets the appropriate defaults for LookupLoadBalancerResult
@@ -36,7 +36,7 @@ func (val *LookupLoadBalancerResult) Defaults() *LookupLoadBalancerResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.LoadBalancer = tmp.LoadBalancer.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithCont
 	return o
 }
 
-func (o LookupLoadBalancerResultOutput) Items() GetLoadBalancerPropertiesOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerProperties { return v.Items }).(GetLoadBalancerPropertiesOutput)
+func (o LookupLoadBalancerResultOutput) LoadBalancer() LoadBalancerTypePtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *LoadBalancerType { return v.LoadBalancer }).(LoadBalancerTypePtrOutput)
 }
 
 func init() {

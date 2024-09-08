@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAppsLogsActiveDeployment(args: GetAppsLogsActiveDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppsLogsActiveDeploymentResult> {
+export function getAppsLogsActiveDeployment(args: GetAppsLogsActiveDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetLogsResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", {
@@ -26,11 +26,7 @@ export interface GetAppsLogsActiveDeploymentArgs {
      */
     componentName: string;
 }
-
-export interface GetAppsLogsActiveDeploymentResult {
-    readonly items: outputs.apps.v2.AppsGetLogsResponse;
-}
-export function getAppsLogsActiveDeploymentOutput(args: GetAppsLogsActiveDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsLogsActiveDeploymentResult> {
+export function getAppsLogsActiveDeploymentOutput(args: GetAppsLogsActiveDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
     return pulumi.output(args).apply((a: any) => getAppsLogsActiveDeployment(a, opts))
 }
 

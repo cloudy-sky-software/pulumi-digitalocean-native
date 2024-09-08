@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
 {
     public static class GetUptimeCheck
     {
-        public static Task<GetUptimeCheckResult> InvokeAsync(GetUptimeCheckArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUptimeCheckResult>("digitalocean-native:uptime/v2:getUptimeCheck", args ?? new GetUptimeCheckArgs(), options.WithDefaults());
+        public static Task<Outputs.GetUptimeCheckProperties> InvokeAsync(GetUptimeCheckArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetUptimeCheckProperties>("digitalocean-native:uptime/v2:getUptimeCheck", args ?? new GetUptimeCheckArgs(), options.WithDefaults());
 
-        public static Output<GetUptimeCheckResult> Invoke(GetUptimeCheckInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetUptimeCheckResult>("digitalocean-native:uptime/v2:getUptimeCheck", args ?? new GetUptimeCheckInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetUptimeCheckProperties> Invoke(GetUptimeCheckInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetUptimeCheckProperties>("digitalocean-native:uptime/v2:getUptimeCheck", args ?? new GetUptimeCheckInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
         {
         }
         public static new GetUptimeCheckInvokeArgs Empty => new GetUptimeCheckInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetUptimeCheckResult
-    {
-        public readonly Outputs.GetUptimeCheckProperties Items;
-
-        [OutputConstructor]
-        private GetUptimeCheckResult(Outputs.GetUptimeCheckProperties items)
-        {
-            Items = items;
-        }
     }
 }

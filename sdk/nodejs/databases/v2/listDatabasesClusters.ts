@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDatabasesClusters(args?: ListDatabasesClustersArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasesClustersResult> {
+export function listDatabasesClusters(args?: ListDatabasesClustersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.ListDatabasesClustersProperties> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listDatabasesClusters(args?: ListDatabasesClustersArgs, opts?: p
 
 export interface ListDatabasesClustersArgs {
 }
-
-export interface ListDatabasesClustersResult {
-    readonly items: outputs.databases.v2.ListDatabasesClustersProperties;
-}
-export function listDatabasesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasesClustersResult> {
+export function listDatabasesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesClustersProperties> {
     return pulumi.output(listDatabasesClusters(opts))
 }

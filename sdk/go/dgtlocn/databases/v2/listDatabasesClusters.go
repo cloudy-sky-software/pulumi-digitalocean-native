@@ -25,7 +25,7 @@ type ListDatabasesClustersArgs struct {
 }
 
 type ListDatabasesClustersResult struct {
-	Items ListDatabasesClustersProperties `pulumi:"items"`
+	Databases []DatabaseCluster `pulumi:"databases"`
 }
 
 func ListDatabasesClustersOutput(ctx *pulumi.Context, args ListDatabasesClustersOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesClustersResultOutput {
@@ -62,8 +62,8 @@ func (o ListDatabasesClustersResultOutput) ToListDatabasesClustersResultOutputWi
 	return o
 }
 
-func (o ListDatabasesClustersResultOutput) Items() ListDatabasesClustersPropertiesOutput {
-	return o.ApplyT(func(v ListDatabasesClustersResult) ListDatabasesClustersProperties { return v.Items }).(ListDatabasesClustersPropertiesOutput)
+func (o ListDatabasesClustersResultOutput) Databases() DatabaseClusterArrayOutput {
+	return o.ApplyT(func(v ListDatabasesClustersResult) []DatabaseCluster { return v.Databases }).(DatabaseClusterArrayOutput)
 }
 
 func init() {

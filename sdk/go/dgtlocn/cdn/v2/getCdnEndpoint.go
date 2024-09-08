@@ -27,7 +27,7 @@ type LookupCdnEndpointArgs struct {
 }
 
 type LookupCdnEndpointResult struct {
-	Items GetCdnEndpointProperties `pulumi:"items"`
+	Endpoint *CdnEndpointType `pulumi:"endpoint"`
 }
 
 // Defaults sets the appropriate defaults for LookupCdnEndpointResult
@@ -36,7 +36,7 @@ func (val *LookupCdnEndpointResult) Defaults() *LookupCdnEndpointResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Endpoint = tmp.Endpoint.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupCdnEndpointResultOutput) ToLookupCdnEndpointResultOutputWithContex
 	return o
 }
 
-func (o LookupCdnEndpointResultOutput) Items() GetCdnEndpointPropertiesOutput {
-	return o.ApplyT(func(v LookupCdnEndpointResult) GetCdnEndpointProperties { return v.Items }).(GetCdnEndpointPropertiesOutput)
+func (o LookupCdnEndpointResultOutput) Endpoint() CdnEndpointTypePtrOutput {
+	return o.ApplyT(func(v LookupCdnEndpointResult) *CdnEndpointType { return v.Endpoint }).(CdnEndpointTypePtrOutput)
 }
 
 func init() {

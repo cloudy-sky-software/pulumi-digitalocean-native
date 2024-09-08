@@ -20,14 +20,10 @@ __all__ = [
     'DropletNextBackupWindowProperties',
     'FloatingIp',
     'FloatingIpRegion',
-    'GetFloatingIPProperties',
-    'GetFloatingIPsActionProperties',
     'GetFloatingIPsActionPropertiesAction',
     'Image',
     'Kernel',
     'LinksProperties',
-    'ListFloatingIPsActionItems',
-    'ListFloatingIPsItems',
     'MetaMeta',
     'NetworkV4',
     'NetworkV6',
@@ -706,32 +702,6 @@ class FloatingIpRegion(dict):
 
 
 @pulumi.output_type
-class GetFloatingIPProperties(dict):
-    def __init__(__self__, *,
-                 floating_ip: Optional['outputs.FloatingIp'] = None):
-        if floating_ip is not None:
-            pulumi.set(__self__, "floating_ip", floating_ip)
-
-    @property
-    @pulumi.getter(name="floatingIp")
-    def floating_ip(self) -> Optional['outputs.FloatingIp']:
-        return pulumi.get(self, "floating_ip")
-
-
-@pulumi.output_type
-class GetFloatingIPsActionProperties(dict):
-    def __init__(__self__, *,
-                 action: Optional['outputs.GetFloatingIPsActionPropertiesAction'] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional['outputs.GetFloatingIPsActionPropertiesAction']:
-        return pulumi.get(self, "action")
-
-
-@pulumi.output_type
 class GetFloatingIPsActionPropertiesAction(dict):
     def __init__(__self__, *,
                  completed_at: Optional[str] = None,
@@ -1131,62 +1101,6 @@ class LinksProperties(dict):
     @pulumi.getter
     def droplets(self) -> Optional[Sequence['outputs.ActionLink']]:
         return pulumi.get(self, "droplets")
-
-
-@pulumi.output_type
-class ListFloatingIPsActionItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 actions: Optional[Sequence['outputs.Action']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.Action']]:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListFloatingIPsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 floating_ips: Optional[Sequence['outputs.FloatingIp']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if floating_ips is not None:
-            pulumi.set(__self__, "floating_ips", floating_ips)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter(name="floatingIps")
-    def floating_ips(self) -> Optional[Sequence['outputs.FloatingIp']]:
-        return pulumi.get(self, "floating_ips")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

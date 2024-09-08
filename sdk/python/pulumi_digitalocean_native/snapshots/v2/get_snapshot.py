@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetSnapshotResult',
-    'AwaitableGetSnapshotResult',
+    'GetSnapshotProperties',
+    'AwaitableGetSnapshotProperties',
     'get_snapshot',
     'get_snapshot_output',
 ]
 
 @pulumi.output_type
-class GetSnapshotResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetSnapshotProperties:
+    def __init__(__self__, snapshot=None):
+        if snapshot and not isinstance(snapshot, dict):
+            raise TypeError("Expected argument 'snapshot' to be a dict")
+        pulumi.set(__self__, "snapshot", snapshot)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetSnapshotProperties':
-        return pulumi.get(self, "items")
+    def snapshot(self) -> Optional['outputs.Snapshots']:
+        return pulumi.get(self, "snapshot")
 
 
-class AwaitableGetSnapshotResult(GetSnapshotResult):
+class AwaitableGetSnapshotProperties(GetSnapshotProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSnapshotResult(
-            items=self.items)
+        return GetSnapshotProperties(
+            snapshot=self.snapshot)
 
 
 def get_snapshot(snapshot_id: Optional[str] = None,
-                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_snapshot(snapshot_id: Optional[str] = None,
     __args__ = dict()
     __args__['snapshotId'] = snapshot_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:snapshots/v2:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:snapshots/v2:getSnapshot', __args__, opts=opts, typ=GetSnapshotProperties).value
 
-    return AwaitableGetSnapshotResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetSnapshotProperties(
+        snapshot=pulumi.get(__ret__, 'snapshot'))
 
 
 @_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(snapshot_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotProperties]:
     """
     Use this data source to access information about an existing resource.
 

@@ -29,7 +29,9 @@ type ListRegistryRepositoryTagsArgs struct {
 }
 
 type ListRegistryRepositoryTagsResult struct {
-	Items ListRegistryRepositoryTagsItems `pulumi:"items"`
+	Links *PageLinks      `pulumi:"links"`
+	Meta  MetaMeta        `pulumi:"meta"`
+	Tags  []RepositoryTag `pulumi:"tags"`
 }
 
 func ListRegistryRepositoryTagsOutput(ctx *pulumi.Context, args ListRegistryRepositoryTagsOutputArgs, opts ...pulumi.InvokeOption) ListRegistryRepositoryTagsResultOutput {
@@ -70,8 +72,16 @@ func (o ListRegistryRepositoryTagsResultOutput) ToListRegistryRepositoryTagsResu
 	return o
 }
 
-func (o ListRegistryRepositoryTagsResultOutput) Items() ListRegistryRepositoryTagsItemsOutput {
-	return o.ApplyT(func(v ListRegistryRepositoryTagsResult) ListRegistryRepositoryTagsItems { return v.Items }).(ListRegistryRepositoryTagsItemsOutput)
+func (o ListRegistryRepositoryTagsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListRegistryRepositoryTagsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListRegistryRepositoryTagsResultOutput) Tags() RepositoryTagArrayOutput {
+	return o.ApplyT(func(v ListRegistryRepositoryTagsResult) []RepositoryTag { return v.Tags }).(RepositoryTagArrayOutput)
 }
 
 func init() {
