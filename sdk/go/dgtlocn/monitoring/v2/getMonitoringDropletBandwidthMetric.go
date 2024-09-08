@@ -25,7 +25,8 @@ type GetMonitoringDropletBandwidthMetricArgs struct {
 }
 
 type GetMonitoringDropletBandwidthMetricResult struct {
-	Items Metrics `pulumi:"items"`
+	Data   MetricsData   `pulumi:"data"`
+	Status MetricsStatus `pulumi:"status"`
 }
 
 func GetMonitoringDropletBandwidthMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletBandwidthMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletBandwidthMetricResultOutput {
@@ -62,8 +63,12 @@ func (o GetMonitoringDropletBandwidthMetricResultOutput) ToGetMonitoringDropletB
 	return o
 }
 
-func (o GetMonitoringDropletBandwidthMetricResultOutput) Items() MetricsOutput {
-	return o.ApplyT(func(v GetMonitoringDropletBandwidthMetricResult) Metrics { return v.Items }).(MetricsOutput)
+func (o GetMonitoringDropletBandwidthMetricResultOutput) Data() MetricsDataOutput {
+	return o.ApplyT(func(v GetMonitoringDropletBandwidthMetricResult) MetricsData { return v.Data }).(MetricsDataOutput)
+}
+
+func (o GetMonitoringDropletBandwidthMetricResultOutput) Status() MetricsStatusOutput {
+	return o.ApplyT(func(v GetMonitoringDropletBandwidthMetricResult) MetricsStatus { return v.Status }).(MetricsStatusOutput)
 }
 
 func init() {

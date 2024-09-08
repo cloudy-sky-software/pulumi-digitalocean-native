@@ -6,53 +6,76 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListVolumesResult',
-    'AwaitableListVolumesResult',
+    'ListVolumesItems',
+    'AwaitableListVolumesItems',
     'list_volumes',
     'list_volumes_output',
 ]
 
 @pulumi.output_type
-class ListVolumesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListVolumesItems:
+    def __init__(__self__, links=None, meta=None, volumes=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if volumes and not isinstance(volumes, list):
+            raise TypeError("Expected argument 'volumes' to be a list")
+        pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListVolumesItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Sequence['outputs.VolumeFull']:
+        """
+        Array of volumes.
+        """
+        return pulumi.get(self, "volumes")
 
 
-class AwaitableListVolumesResult(ListVolumesResult):
+class AwaitableListVolumesItems(ListVolumesItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListVolumesResult(
-            items=self.items)
+        return ListVolumesItems(
+            links=self.links,
+            meta=self.meta,
+            volumes=self.volumes)
 
 
-def list_volumes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVolumesResult:
+def list_volumes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVolumesItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:volumes/v2:listVolumes', __args__, opts=opts, typ=ListVolumesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:volumes/v2:listVolumes', __args__, opts=opts, typ=ListVolumesItems).value
 
-    return AwaitableListVolumesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListVolumesItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        volumes=pulumi.get(__ret__, 'volumes'))
 
 
 @_utilities.lift_output_func(list_volumes)
-def list_volumes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumesResult]:
+def list_volumes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumesItems]:
     """
     Use this data source to access information about an existing resource.
     """

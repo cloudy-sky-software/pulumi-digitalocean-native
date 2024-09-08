@@ -25,7 +25,9 @@ type ListReservedIPsArgs struct {
 }
 
 type ListReservedIPsResult struct {
-	Items ListReservedIPsItems `pulumi:"items"`
+	Links       *PageLinks       `pulumi:"links"`
+	Meta        MetaMeta         `pulumi:"meta"`
+	ReservedIps []ReservedIpType `pulumi:"reservedIps"`
 }
 
 func ListReservedIPsOutput(ctx *pulumi.Context, args ListReservedIPsOutputArgs, opts ...pulumi.InvokeOption) ListReservedIPsResultOutput {
@@ -62,8 +64,16 @@ func (o ListReservedIPsResultOutput) ToListReservedIPsResultOutputWithContext(ct
 	return o
 }
 
-func (o ListReservedIPsResultOutput) Items() ListReservedIPsItemsOutput {
-	return o.ApplyT(func(v ListReservedIPsResult) ListReservedIPsItems { return v.Items }).(ListReservedIPsItemsOutput)
+func (o ListReservedIPsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListReservedIPsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListReservedIPsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListReservedIPsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListReservedIPsResultOutput) ReservedIps() ReservedIpTypeArrayOutput {
+	return o.ApplyT(func(v ListReservedIPsResult) []ReservedIpType { return v.ReservedIps }).(ReservedIpTypeArrayOutput)
 }
 
 func init() {

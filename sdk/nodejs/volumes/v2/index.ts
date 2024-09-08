@@ -20,32 +20,32 @@ export type Ext4 = import("./ext4").Ext4;
 export const Ext4: typeof import("./ext4").Ext4 = null as any;
 utilities.lazyLoad(exports, ["Ext4"], () => require("./ext4"));
 
-export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export { GetVolumeArgs, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
-export { GetVolumeActionArgs, GetVolumeActionResult, GetVolumeActionOutputArgs } from "./getVolumeAction";
+export { GetVolumeActionArgs, GetVolumeActionOutputArgs } from "./getVolumeAction";
 export const getVolumeAction: typeof import("./getVolumeAction").getVolumeAction = null as any;
 export const getVolumeActionOutput: typeof import("./getVolumeAction").getVolumeActionOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeAction","getVolumeActionOutput"], () => require("./getVolumeAction"));
 
-export { GetVolumeSnapshotsByIdArgs, GetVolumeSnapshotsByIdResult, GetVolumeSnapshotsByIdOutputArgs } from "./getVolumeSnapshotsById";
+export { GetVolumeSnapshotsByIdArgs, GetVolumeSnapshotsByIdOutputArgs } from "./getVolumeSnapshotsById";
 export const getVolumeSnapshotsById: typeof import("./getVolumeSnapshotsById").getVolumeSnapshotsById = null as any;
 export const getVolumeSnapshotsByIdOutput: typeof import("./getVolumeSnapshotsById").getVolumeSnapshotsByIdOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeSnapshotsById","getVolumeSnapshotsByIdOutput"], () => require("./getVolumeSnapshotsById"));
 
-export { ListVolumeActionsArgs, ListVolumeActionsResult, ListVolumeActionsOutputArgs } from "./listVolumeActions";
+export { ListVolumeActionsArgs, ListVolumeActionsOutputArgs } from "./listVolumeActions";
 export const listVolumeActions: typeof import("./listVolumeActions").listVolumeActions = null as any;
 export const listVolumeActionsOutput: typeof import("./listVolumeActions").listVolumeActionsOutput = null as any;
 utilities.lazyLoad(exports, ["listVolumeActions","listVolumeActionsOutput"], () => require("./listVolumeActions"));
 
-export { ListVolumeSnapshotsArgs, ListVolumeSnapshotsResult, ListVolumeSnapshotsOutputArgs } from "./listVolumeSnapshots";
+export { ListVolumeSnapshotsArgs, ListVolumeSnapshotsOutputArgs } from "./listVolumeSnapshots";
 export const listVolumeSnapshots: typeof import("./listVolumeSnapshots").listVolumeSnapshots = null as any;
 export const listVolumeSnapshotsOutput: typeof import("./listVolumeSnapshots").listVolumeSnapshotsOutput = null as any;
 utilities.lazyLoad(exports, ["listVolumeSnapshots","listVolumeSnapshotsOutput"], () => require("./listVolumeSnapshots"));
 
-export { ListVolumesArgs, ListVolumesResult } from "./listVolumes";
+export { ListVolumesArgs } from "./listVolumes";
 export const listVolumes: typeof import("./listVolumes").listVolumes = null as any;
 export const listVolumesOutput: typeof import("./listVolumes").listVolumesOutput = null as any;
 utilities.lazyLoad(exports, ["listVolumes","listVolumesOutput"], () => require("./listVolumes"));

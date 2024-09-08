@@ -10,12 +10,12 @@ export type CdnEndpoint = import("./cdnEndpoint").CdnEndpoint;
 export const CdnEndpoint: typeof import("./cdnEndpoint").CdnEndpoint = null as any;
 utilities.lazyLoad(exports, ["CdnEndpoint"], () => require("./cdnEndpoint"));
 
-export { GetCdnEndpointArgs, GetCdnEndpointResult, GetCdnEndpointOutputArgs } from "./getCdnEndpoint";
+export { GetCdnEndpointArgs, GetCdnEndpointOutputArgs } from "./getCdnEndpoint";
 export const getCdnEndpoint: typeof import("./getCdnEndpoint").getCdnEndpoint = null as any;
 export const getCdnEndpointOutput: typeof import("./getCdnEndpoint").getCdnEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getCdnEndpoint","getCdnEndpointOutput"], () => require("./getCdnEndpoint"));
 
-export { ListCdnEndpointsArgs, ListCdnEndpointsResult } from "./listCdnEndpoints";
+export { ListCdnEndpointsArgs } from "./listCdnEndpoints";
 export const listCdnEndpoints: typeof import("./listCdnEndpoints").listCdnEndpoints = null as any;
 export const listCdnEndpointsOutput: typeof import("./listCdnEndpoints").listCdnEndpointsOutput = null as any;
 utilities.lazyLoad(exports, ["listCdnEndpoints","listCdnEndpointsOutput"], () => require("./listCdnEndpoints"));

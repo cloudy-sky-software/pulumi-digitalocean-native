@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
 {
     public static class GetAccount
     {
-        public static Task<GetAccountResult> InvokeAsync(GetAccountArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("digitalocean-native:account/v2:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+        public static Task<Outputs.GetAccountProperties> InvokeAsync(GetAccountArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetAccountProperties>("digitalocean-native:account/v2:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
-        public static Output<GetAccountResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("digitalocean-native:account/v2:getAccount", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.GetAccountProperties> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetAccountProperties>("digitalocean-native:account/v2:getAccount", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
         {
         }
         public static new GetAccountArgs Empty => new GetAccountArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAccountResult
-    {
-        public readonly Outputs.GetAccountProperties Items;
-
-        [OutputConstructor]
-        private GetAccountResult(Outputs.GetAccountProperties items)
-        {
-            Items = items;
-        }
     }
 }

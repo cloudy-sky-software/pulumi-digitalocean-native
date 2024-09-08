@@ -27,7 +27,9 @@ type ListAppsDeploymentsArgs struct {
 }
 
 type ListAppsDeploymentsResult struct {
-	Items AppsDeploymentsResponse `pulumi:"items"`
+	Deployments []AppsDeploymentType `pulumi:"deployments"`
+	Links       *PageLinks           `pulumi:"links"`
+	Meta        MetaMeta             `pulumi:"meta"`
 }
 
 func ListAppsDeploymentsOutput(ctx *pulumi.Context, args ListAppsDeploymentsOutputArgs, opts ...pulumi.InvokeOption) ListAppsDeploymentsResultOutput {
@@ -66,8 +68,16 @@ func (o ListAppsDeploymentsResultOutput) ToListAppsDeploymentsResultOutputWithCo
 	return o
 }
 
-func (o ListAppsDeploymentsResultOutput) Items() AppsDeploymentsResponseOutput {
-	return o.ApplyT(func(v ListAppsDeploymentsResult) AppsDeploymentsResponse { return v.Items }).(AppsDeploymentsResponseOutput)
+func (o ListAppsDeploymentsResultOutput) Deployments() AppsDeploymentTypeArrayOutput {
+	return o.ApplyT(func(v ListAppsDeploymentsResult) []AppsDeploymentType { return v.Deployments }).(AppsDeploymentTypeArrayOutput)
+}
+
+func (o ListAppsDeploymentsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListAppsDeploymentsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListAppsDeploymentsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListAppsDeploymentsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

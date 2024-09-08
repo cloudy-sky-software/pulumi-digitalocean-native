@@ -6,54 +6,54 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetAccountResult',
-    'AwaitableGetAccountResult',
+    'GetAccountProperties',
+    'AwaitableGetAccountProperties',
     'get_account',
     'get_account_output',
 ]
 
 @pulumi.output_type
-class GetAccountResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetAccountProperties:
+    def __init__(__self__, account=None):
+        if account and not isinstance(account, dict):
+            raise TypeError("Expected argument 'account' to be a dict")
+        pulumi.set(__self__, "account", account)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetAccountProperties':
-        return pulumi.get(self, "items")
+    def account(self) -> Optional['outputs.Account']:
+        return pulumi.get(self, "account")
 
 
-class AwaitableGetAccountResult(GetAccountResult):
+class AwaitableGetAccountProperties(GetAccountProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAccountResult(
-            items=self.items)
+        return GetAccountProperties(
+            account=self.account)
 
 
-def get_account(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
+def get_account(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountProperties:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:account/v2:getAccount', __args__, opts=opts, typ=GetAccountResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:account/v2:getAccount', __args__, opts=opts, typ=GetAccountProperties).value
 
-    return AwaitableGetAccountResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetAccountProperties(
+        account=pulumi.get(__ret__, 'account'))
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+def get_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountProperties]:
     """
     Use this data source to access information about an existing resource.
     """

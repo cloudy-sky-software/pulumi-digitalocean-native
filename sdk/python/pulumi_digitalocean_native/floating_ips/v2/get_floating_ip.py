@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetFloatingIPResult',
-    'AwaitableGetFloatingIPResult',
+    'GetFloatingIPProperties',
+    'AwaitableGetFloatingIPProperties',
     'get_floating_ip',
     'get_floating_ip_output',
 ]
 
 @pulumi.output_type
-class GetFloatingIPResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetFloatingIPProperties:
+    def __init__(__self__, floating_ip=None):
+        if floating_ip and not isinstance(floating_ip, dict):
+            raise TypeError("Expected argument 'floating_ip' to be a dict")
+        pulumi.set(__self__, "floating_ip", floating_ip)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.GetFloatingIPProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="floatingIp")
+    def floating_ip(self) -> Optional['outputs.FloatingIp']:
+        return pulumi.get(self, "floating_ip")
 
 
-class AwaitableGetFloatingIPResult(GetFloatingIPResult):
+class AwaitableGetFloatingIPProperties(GetFloatingIPProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetFloatingIPResult(
-            items=self.items)
+        return GetFloatingIPProperties(
+            floating_ip=self.floating_ip)
 
 
 def get_floating_ip(floating_ip: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFloatingIPResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFloatingIPProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_floating_ip(floating_ip: Optional[str] = None,
     __args__ = dict()
     __args__['floatingIp'] = floating_ip
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:floating_ips/v2:getFloatingIP', __args__, opts=opts, typ=GetFloatingIPResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:floating_ips/v2:getFloatingIP', __args__, opts=opts, typ=GetFloatingIPProperties).value
 
-    return AwaitableGetFloatingIPResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetFloatingIPProperties(
+        floating_ip=pulumi.get(__ret__, 'floating_ip'))
 
 
 @_utilities.lift_output_func(get_floating_ip)
 def get_floating_ip_output(floating_ip: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFloatingIPResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFloatingIPProperties]:
     """
     Use this data source to access information about an existing resource.
 

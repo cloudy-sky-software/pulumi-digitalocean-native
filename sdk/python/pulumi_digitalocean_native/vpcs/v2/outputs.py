@@ -11,84 +11,12 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVpcProperties',
-    'ListVpcsItems',
-    'ListVpcsMembersItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
     'Vpc',
     'VpcMember',
 ]
-
-@pulumi.output_type
-class GetVpcProperties(dict):
-    def __init__(__self__, *,
-                 vpc: Optional['outputs.Vpc'] = None):
-        if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
-
-    @property
-    @pulumi.getter
-    def vpc(self) -> Optional['outputs.Vpc']:
-        return pulumi.get(self, "vpc")
-
-
-@pulumi.output_type
-class ListVpcsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 vpcs: Optional[Sequence['outputs.Vpc']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if vpcs is not None:
-            pulumi.set(__self__, "vpcs", vpcs)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def vpcs(self) -> Optional[Sequence['outputs.Vpc']]:
-        return pulumi.get(self, "vpcs")
-
-
-@pulumi.output_type
-class ListVpcsMembersItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 links: Optional['outputs.PageLinks'] = None,
-                 members: Optional[Sequence['outputs.VpcMember']] = None):
-        pulumi.set(__self__, "meta", meta)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-        if members is not None:
-            pulumi.set(__self__, "members", members)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-    @property
-    @pulumi.getter
-    def members(self) -> Optional[Sequence['outputs.VpcMember']]:
-        return pulumi.get(self, "members")
-
 
 @pulumi.output_type
 class MetaMeta(dict):

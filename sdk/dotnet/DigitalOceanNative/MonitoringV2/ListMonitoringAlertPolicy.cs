@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class ListMonitoringAlertPolicy
     {
-        public static Task<ListMonitoringAlertPolicyResult> InvokeAsync(ListMonitoringAlertPolicyArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitoringAlertPolicyResult>("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", args ?? new ListMonitoringAlertPolicyArgs(), options.WithDefaults());
+        public static Task<Outputs.ListMonitoringAlertPolicyItems> InvokeAsync(ListMonitoringAlertPolicyArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListMonitoringAlertPolicyItems>("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", args ?? new ListMonitoringAlertPolicyArgs(), options.WithDefaults());
 
-        public static Output<ListMonitoringAlertPolicyResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListMonitoringAlertPolicyResult>("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListMonitoringAlertPolicyItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListMonitoringAlertPolicyItems>("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new ListMonitoringAlertPolicyArgs Empty => new ListMonitoringAlertPolicyArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListMonitoringAlertPolicyResult
-    {
-        public readonly Outputs.ListMonitoringAlertPolicyItems Items;
-
-        [OutputConstructor]
-        private ListMonitoringAlertPolicyResult(Outputs.ListMonitoringAlertPolicyItems items)
-        {
-            Items = items;
-        }
     }
 }

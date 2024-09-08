@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class ListAppsInstanceSizes
     {
-        public static Task<ListAppsInstanceSizesResult> InvokeAsync(ListAppsInstanceSizesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListAppsInstanceSizesResult>("digitalocean-native:apps/v2:listAppsInstanceSizes", args ?? new ListAppsInstanceSizesArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsListInstanceSizesResponse> InvokeAsync(ListAppsInstanceSizesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsListInstanceSizesResponse>("digitalocean-native:apps/v2:listAppsInstanceSizes", args ?? new ListAppsInstanceSizesArgs(), options.WithDefaults());
 
-        public static Output<ListAppsInstanceSizesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListAppsInstanceSizesResult>("digitalocean-native:apps/v2:listAppsInstanceSizes", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.AppsListInstanceSizesResponse> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsListInstanceSizesResponse>("digitalocean-native:apps/v2:listAppsInstanceSizes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new ListAppsInstanceSizesArgs Empty => new ListAppsInstanceSizesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListAppsInstanceSizesResult
-    {
-        public readonly Outputs.AppsListInstanceSizesResponse Items;
-
-        [OutputConstructor]
-        private ListAppsInstanceSizesResult(Outputs.AppsListInstanceSizesResponse items)
-        {
-            Items = items;
-        }
     }
 }

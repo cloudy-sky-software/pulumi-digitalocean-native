@@ -25,7 +25,9 @@ type ListCdnEndpointsArgs struct {
 }
 
 type ListCdnEndpointsResult struct {
-	Items ListCdnEndpointsItems `pulumi:"items"`
+	Endpoints []CdnEndpointType `pulumi:"endpoints"`
+	Links     *PageLinks        `pulumi:"links"`
+	Meta      MetaMeta          `pulumi:"meta"`
 }
 
 func ListCdnEndpointsOutput(ctx *pulumi.Context, args ListCdnEndpointsOutputArgs, opts ...pulumi.InvokeOption) ListCdnEndpointsResultOutput {
@@ -62,8 +64,16 @@ func (o ListCdnEndpointsResultOutput) ToListCdnEndpointsResultOutputWithContext(
 	return o
 }
 
-func (o ListCdnEndpointsResultOutput) Items() ListCdnEndpointsItemsOutput {
-	return o.ApplyT(func(v ListCdnEndpointsResult) ListCdnEndpointsItems { return v.Items }).(ListCdnEndpointsItemsOutput)
+func (o ListCdnEndpointsResultOutput) Endpoints() CdnEndpointTypeArrayOutput {
+	return o.ApplyT(func(v ListCdnEndpointsResult) []CdnEndpointType { return v.Endpoints }).(CdnEndpointTypeArrayOutput)
+}
+
+func (o ListCdnEndpointsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListCdnEndpointsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListCdnEndpointsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListCdnEndpointsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

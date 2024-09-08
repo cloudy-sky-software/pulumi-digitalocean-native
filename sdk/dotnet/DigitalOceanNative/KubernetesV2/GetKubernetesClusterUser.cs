@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class GetKubernetesClusterUser
     {
-        public static Task<GetKubernetesClusterUserResult> InvokeAsync(GetKubernetesClusterUserArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterUserResult>("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", args ?? new GetKubernetesClusterUserArgs(), options.WithDefaults());
+        public static Task<Outputs.User> InvokeAsync(GetKubernetesClusterUserArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.User>("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", args ?? new GetKubernetesClusterUserArgs(), options.WithDefaults());
 
-        public static Output<GetKubernetesClusterUserResult> Invoke(GetKubernetesClusterUserInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterUserResult>("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", args ?? new GetKubernetesClusterUserInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.User> Invoke(GetKubernetesClusterUserInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.User>("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", args ?? new GetKubernetesClusterUserInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new GetKubernetesClusterUserInvokeArgs Empty => new GetKubernetesClusterUserInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetKubernetesClusterUserResult
-    {
-        public readonly Outputs.User Items;
-
-        [OutputConstructor]
-        private GetKubernetesClusterUserResult(Outputs.User items)
-        {
-            Items = items;
-        }
     }
 }

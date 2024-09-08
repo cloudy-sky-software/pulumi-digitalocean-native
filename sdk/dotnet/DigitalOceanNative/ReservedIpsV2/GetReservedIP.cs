@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
 {
     public static class GetReservedIP
     {
-        public static Task<GetReservedIPResult> InvokeAsync(GetReservedIPArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReservedIPResult>("digitalocean-native:reserved_ips/v2:getReservedIP", args ?? new GetReservedIPArgs(), options.WithDefaults());
+        public static Task<Outputs.GetReservedIPProperties> InvokeAsync(GetReservedIPArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetReservedIPProperties>("digitalocean-native:reserved_ips/v2:getReservedIP", args ?? new GetReservedIPArgs(), options.WithDefaults());
 
-        public static Output<GetReservedIPResult> Invoke(GetReservedIPInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetReservedIPResult>("digitalocean-native:reserved_ips/v2:getReservedIP", args ?? new GetReservedIPInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetReservedIPProperties> Invoke(GetReservedIPInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetReservedIPProperties>("digitalocean-native:reserved_ips/v2:getReservedIP", args ?? new GetReservedIPInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
         {
         }
         public static new GetReservedIPInvokeArgs Empty => new GetReservedIPInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetReservedIPResult
-    {
-        public readonly Outputs.GetReservedIPProperties Items;
-
-        [OutputConstructor]
-        private GetReservedIPResult(Outputs.GetReservedIPProperties items)
-        {
-            Items = items;
-        }
     }
 }

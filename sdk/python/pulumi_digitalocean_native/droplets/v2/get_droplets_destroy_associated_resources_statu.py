@@ -6,41 +6,83 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetDropletsDestroyAssociatedResourcesStatuResult',
-    'AwaitableGetDropletsDestroyAssociatedResourcesStatuResult',
+    'AssociatedResourceStatus',
+    'AwaitableAssociatedResourceStatus',
     'get_droplets_destroy_associated_resources_statu',
     'get_droplets_destroy_associated_resources_statu_output',
 ]
 
 @pulumi.output_type
-class GetDropletsDestroyAssociatedResourcesStatuResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AssociatedResourceStatus:
+    """
+    An objects containing information about a resources scheduled for deletion.
+    """
+    def __init__(__self__, completed_at=None, droplet=None, failures=None, resources=None):
+        if completed_at and not isinstance(completed_at, str):
+            raise TypeError("Expected argument 'completed_at' to be a str")
+        pulumi.set(__self__, "completed_at", completed_at)
+        if droplet and not isinstance(droplet, dict):
+            raise TypeError("Expected argument 'droplet' to be a dict")
+        pulumi.set(__self__, "droplet", droplet)
+        if failures and not isinstance(failures, int):
+            raise TypeError("Expected argument 'failures' to be a int")
+        pulumi.set(__self__, "failures", failures)
+        if resources and not isinstance(resources, dict):
+            raise TypeError("Expected argument 'resources' to be a dict")
+        pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="completedAt")
+    def completed_at(self) -> Optional[str]:
+        """
+        A time value given in ISO8601 combined date and time format indicating when the requested action was completed.
+        """
+        return pulumi.get(self, "completed_at")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AssociatedResourceStatus':
-        return pulumi.get(self, "items")
+    def droplet(self) -> Optional['outputs.DestroyedAssociatedResource']:
+        """
+        An object containing information about a resource scheduled for deletion.
+        """
+        return pulumi.get(self, "droplet")
+
+    @property
+    @pulumi.getter
+    def failures(self) -> Optional[int]:
+        """
+        A count of the associated resources that failed to be destroyed, if any.
+        """
+        return pulumi.get(self, "failures")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.AssociatedResourceStatusResourcesProperties']:
+        """
+        An object containing additional information about resource related to a Droplet requested to be destroyed.
+        """
+        return pulumi.get(self, "resources")
 
 
-class AwaitableGetDropletsDestroyAssociatedResourcesStatuResult(GetDropletsDestroyAssociatedResourcesStatuResult):
+class AwaitableAssociatedResourceStatus(AssociatedResourceStatus):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDropletsDestroyAssociatedResourcesStatuResult(
-            items=self.items)
+        return AssociatedResourceStatus(
+            completed_at=self.completed_at,
+            droplet=self.droplet,
+            failures=self.failures,
+            resources=self.resources)
 
 
 def get_droplets_destroy_associated_resources_statu(droplet_id: Optional[str] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDropletsDestroyAssociatedResourcesStatuResult:
+                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAssociatedResourceStatus:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +91,18 @@ def get_droplets_destroy_associated_resources_statu(droplet_id: Optional[str] = 
     __args__ = dict()
     __args__['dropletId'] = droplet_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu', __args__, opts=opts, typ=GetDropletsDestroyAssociatedResourcesStatuResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu', __args__, opts=opts, typ=AssociatedResourceStatus).value
 
-    return AwaitableGetDropletsDestroyAssociatedResourcesStatuResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAssociatedResourceStatus(
+        completed_at=pulumi.get(__ret__, 'completed_at'),
+        droplet=pulumi.get(__ret__, 'droplet'),
+        failures=pulumi.get(__ret__, 'failures'),
+        resources=pulumi.get(__ret__, 'resources'))
 
 
 @_utilities.lift_output_func(get_droplets_destroy_associated_resources_statu)
 def get_droplets_destroy_associated_resources_statu_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDropletsDestroyAssociatedResourcesStatuResult]:
+                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AssociatedResourceStatus]:
     """
     Use this data source to access information about an existing resource.
 

@@ -12,71 +12,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'Balance',
     'BillingHistory',
     'InvoicePreview',
-    'ListBillingHistoryItems',
-    'ListInvoicesItems',
     'MetaMeta',
     'MetaProperties',
     'PageLinks',
     'PageLinksPagesProperties',
 ]
-
-@pulumi.output_type
-class Balance(dict):
-    def __init__(__self__, *,
-                 account_balance: Optional[str] = None,
-                 generated_at: Optional[str] = None,
-                 month_to_date_balance: Optional[str] = None,
-                 month_to_date_usage: Optional[str] = None):
-        """
-        :param str account_balance: Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`.
-        :param str generated_at: The time at which balances were most recently generated.
-        :param str month_to_date_balance: Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`.
-        :param str month_to_date_usage: Amount used in the current billing period as of the `generated_at` time.
-        """
-        if account_balance is not None:
-            pulumi.set(__self__, "account_balance", account_balance)
-        if generated_at is not None:
-            pulumi.set(__self__, "generated_at", generated_at)
-        if month_to_date_balance is not None:
-            pulumi.set(__self__, "month_to_date_balance", month_to_date_balance)
-        if month_to_date_usage is not None:
-            pulumi.set(__self__, "month_to_date_usage", month_to_date_usage)
-
-    @property
-    @pulumi.getter(name="accountBalance")
-    def account_balance(self) -> Optional[str]:
-        """
-        Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`.
-        """
-        return pulumi.get(self, "account_balance")
-
-    @property
-    @pulumi.getter(name="generatedAt")
-    def generated_at(self) -> Optional[str]:
-        """
-        The time at which balances were most recently generated.
-        """
-        return pulumi.get(self, "generated_at")
-
-    @property
-    @pulumi.getter(name="monthToDateBalance")
-    def month_to_date_balance(self) -> Optional[str]:
-        """
-        Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`.
-        """
-        return pulumi.get(self, "month_to_date_balance")
-
-    @property
-    @pulumi.getter(name="monthToDateUsage")
-    def month_to_date_usage(self) -> Optional[str]:
-        """
-        Amount used in the current billing period as of the `generated_at` time.
-        """
-        return pulumi.get(self, "month_to_date_usage")
-
 
 @pulumi.output_type
 class BillingHistory(dict):
@@ -214,82 +156,6 @@ class InvoicePreview(dict):
         Time the invoice was last updated.  This is only included with the invoice preview.
         """
         return pulumi.get(self, "updated_at")
-
-
-@pulumi.output_type
-class ListBillingHistoryItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaProperties',
-                 billing_history: Optional[Sequence['outputs.BillingHistory']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        """
-        :param 'MetaProperties' meta: Information about the response itself.
-        """
-        pulumi.set(__self__, "meta", meta)
-        if billing_history is not None:
-            pulumi.set(__self__, "billing_history", billing_history)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaProperties':
-        """
-        Information about the response itself.
-        """
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter(name="billingHistory")
-    def billing_history(self) -> Optional[Sequence['outputs.BillingHistory']]:
-        return pulumi.get(self, "billing_history")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListInvoicesItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 invoice_preview: Optional['outputs.InvoicePreview'] = None,
-                 invoices: Optional[Sequence['outputs.InvoicePreview']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        """
-        :param 'InvoicePreview' invoice_preview: The invoice preview.
-        """
-        pulumi.set(__self__, "meta", meta)
-        if invoice_preview is not None:
-            pulumi.set(__self__, "invoice_preview", invoice_preview)
-        if invoices is not None:
-            pulumi.set(__self__, "invoices", invoices)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter(name="invoicePreview")
-    def invoice_preview(self) -> Optional['outputs.InvoicePreview']:
-        """
-        The invoice preview.
-        """
-        return pulumi.get(self, "invoice_preview")
-
-    @property
-    @pulumi.getter
-    def invoices(self) -> Optional[Sequence['outputs.InvoicePreview']]:
-        return pulumi.get(self, "invoices")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
+export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<outputs.tags.v2.GetTagProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:tags/v2:getTag", {
@@ -21,11 +21,7 @@ export interface GetTagArgs {
      */
     tagId: string;
 }
-
-export interface GetTagResult {
-    readonly items: outputs.tags.v2.GetTagProperties;
-}
-export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
+export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.tags.v2.GetTagProperties> {
     return pulumi.output(args).apply((a: any) => getTag(a, opts))
 }
 

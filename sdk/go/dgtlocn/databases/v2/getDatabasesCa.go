@@ -27,7 +27,7 @@ type GetDatabasesCaArgs struct {
 }
 
 type GetDatabasesCaResult struct {
-	Items GetDatabasesCaProperties `pulumi:"items"`
+	Ca Ca `pulumi:"ca"`
 }
 
 func GetDatabasesCaOutput(ctx *pulumi.Context, args GetDatabasesCaOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesCaResultOutput {
@@ -66,8 +66,8 @@ func (o GetDatabasesCaResultOutput) ToGetDatabasesCaResultOutputWithContext(ctx 
 	return o
 }
 
-func (o GetDatabasesCaResultOutput) Items() GetDatabasesCaPropertiesOutput {
-	return o.ApplyT(func(v GetDatabasesCaResult) GetDatabasesCaProperties { return v.Items }).(GetDatabasesCaPropertiesOutput)
+func (o GetDatabasesCaResultOutput) Ca() CaOutput {
+	return o.ApplyT(func(v GetDatabasesCaResult) Ca { return v.Ca }).(CaOutput)
 }
 
 func init() {

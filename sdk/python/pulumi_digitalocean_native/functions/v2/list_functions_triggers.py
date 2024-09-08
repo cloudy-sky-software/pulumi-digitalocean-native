@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListFunctionsTriggersResult',
-    'AwaitableListFunctionsTriggersResult',
+    'ListFunctionsTriggersItems',
+    'AwaitableListFunctionsTriggersItems',
     'list_functions_triggers',
     'list_functions_triggers_output',
 ]
 
 @pulumi.output_type
-class ListFunctionsTriggersResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListFunctionsTriggersItems:
+    def __init__(__self__, triggers=None):
+        if triggers and not isinstance(triggers, list):
+            raise TypeError("Expected argument 'triggers' to be a list")
+        pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListFunctionsTriggersItems':
-        return pulumi.get(self, "items")
+    def triggers(self) -> Optional[Sequence['outputs.TriggerInfo']]:
+        return pulumi.get(self, "triggers")
 
 
-class AwaitableListFunctionsTriggersResult(ListFunctionsTriggersResult):
+class AwaitableListFunctionsTriggersItems(ListFunctionsTriggersItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListFunctionsTriggersResult(
-            items=self.items)
+        return ListFunctionsTriggersItems(
+            triggers=self.triggers)
 
 
 def list_functions_triggers(namespace_id: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFunctionsTriggersResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFunctionsTriggersItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def list_functions_triggers(namespace_id: Optional[str] = None,
     __args__ = dict()
     __args__['namespaceId'] = namespace_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:listFunctionsTriggers', __args__, opts=opts, typ=ListFunctionsTriggersResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:listFunctionsTriggers', __args__, opts=opts, typ=ListFunctionsTriggersItems).value
 
-    return AwaitableListFunctionsTriggersResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListFunctionsTriggersItems(
+        triggers=pulumi.get(__ret__, 'triggers'))
 
 
 @_utilities.lift_output_func(list_functions_triggers)
 def list_functions_triggers_output(namespace_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFunctionsTriggersResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFunctionsTriggersItems]:
     """
     Use this data source to access information about an existing resource.
 

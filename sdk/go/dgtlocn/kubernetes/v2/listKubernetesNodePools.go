@@ -27,7 +27,7 @@ type ListKubernetesNodePoolsArgs struct {
 }
 
 type ListKubernetesNodePoolsResult struct {
-	Items ListKubernetesNodePoolsProperties `pulumi:"items"`
+	NodePools []KubernetesNodePoolType `pulumi:"nodePools"`
 }
 
 func ListKubernetesNodePoolsOutput(ctx *pulumi.Context, args ListKubernetesNodePoolsOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesNodePoolsResultOutput {
@@ -66,8 +66,8 @@ func (o ListKubernetesNodePoolsResultOutput) ToListKubernetesNodePoolsResultOutp
 	return o
 }
 
-func (o ListKubernetesNodePoolsResultOutput) Items() ListKubernetesNodePoolsPropertiesOutput {
-	return o.ApplyT(func(v ListKubernetesNodePoolsResult) ListKubernetesNodePoolsProperties { return v.Items }).(ListKubernetesNodePoolsPropertiesOutput)
+func (o ListKubernetesNodePoolsResultOutput) NodePools() KubernetesNodePoolTypeArrayOutput {
+	return o.ApplyT(func(v ListKubernetesNodePoolsResult) []KubernetesNodePoolType { return v.NodePools }).(KubernetesNodePoolTypeArrayOutput)
 }
 
 func init() {

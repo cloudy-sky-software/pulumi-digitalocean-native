@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletLoad15Metric
     {
-        public static Task<GetMonitoringDropletLoad15MetricResult> InvokeAsync(GetMonitoringDropletLoad15MetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletLoad15MetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", args ?? new GetMonitoringDropletLoad15MetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletLoad15MetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", args ?? new GetMonitoringDropletLoad15MetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletLoad15MetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletLoad15MetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletLoad15MetricArgs Empty => new GetMonitoringDropletLoad15MetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletLoad15MetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletLoad15MetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

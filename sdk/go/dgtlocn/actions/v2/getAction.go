@@ -27,7 +27,7 @@ type GetActionArgs struct {
 }
 
 type GetActionResult struct {
-	Items GetActionProperties `pulumi:"items"`
+	Action *Action `pulumi:"action"`
 }
 
 // Defaults sets the appropriate defaults for GetActionResult
@@ -36,7 +36,7 @@ func (val *GetActionResult) Defaults() *GetActionResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Action = tmp.Action.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o GetActionResultOutput) ToGetActionResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GetActionResultOutput) Items() GetActionPropertiesOutput {
-	return o.ApplyT(func(v GetActionResult) GetActionProperties { return v.Items }).(GetActionPropertiesOutput)
+func (o GetActionResultOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v GetActionResult) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 func init() {

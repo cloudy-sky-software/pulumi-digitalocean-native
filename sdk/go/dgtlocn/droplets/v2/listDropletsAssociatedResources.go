@@ -27,7 +27,11 @@ type ListDropletsAssociatedResourcesArgs struct {
 }
 
 type ListDropletsAssociatedResourcesResult struct {
-	Items ListDropletsAssociatedResourcesItems `pulumi:"items"`
+	FloatingIps     []AssociatedResource `pulumi:"floatingIps"`
+	ReservedIps     []AssociatedResource `pulumi:"reservedIps"`
+	Snapshots       []AssociatedResource `pulumi:"snapshots"`
+	VolumeSnapshots []AssociatedResource `pulumi:"volumeSnapshots"`
+	Volumes         []AssociatedResource `pulumi:"volumes"`
 }
 
 func ListDropletsAssociatedResourcesOutput(ctx *pulumi.Context, args ListDropletsAssociatedResourcesOutputArgs, opts ...pulumi.InvokeOption) ListDropletsAssociatedResourcesResultOutput {
@@ -66,8 +70,24 @@ func (o ListDropletsAssociatedResourcesResultOutput) ToListDropletsAssociatedRes
 	return o
 }
 
-func (o ListDropletsAssociatedResourcesResultOutput) Items() ListDropletsAssociatedResourcesItemsOutput {
-	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) ListDropletsAssociatedResourcesItems { return v.Items }).(ListDropletsAssociatedResourcesItemsOutput)
+func (o ListDropletsAssociatedResourcesResultOutput) FloatingIps() AssociatedResourceArrayOutput {
+	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) []AssociatedResource { return v.FloatingIps }).(AssociatedResourceArrayOutput)
+}
+
+func (o ListDropletsAssociatedResourcesResultOutput) ReservedIps() AssociatedResourceArrayOutput {
+	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) []AssociatedResource { return v.ReservedIps }).(AssociatedResourceArrayOutput)
+}
+
+func (o ListDropletsAssociatedResourcesResultOutput) Snapshots() AssociatedResourceArrayOutput {
+	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) []AssociatedResource { return v.Snapshots }).(AssociatedResourceArrayOutput)
+}
+
+func (o ListDropletsAssociatedResourcesResultOutput) VolumeSnapshots() AssociatedResourceArrayOutput {
+	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) []AssociatedResource { return v.VolumeSnapshots }).(AssociatedResourceArrayOutput)
+}
+
+func (o ListDropletsAssociatedResourcesResultOutput) Volumes() AssociatedResourceArrayOutput {
+	return o.ApplyT(func(v ListDropletsAssociatedResourcesResult) []AssociatedResource { return v.Volumes }).(AssociatedResourceArrayOutput)
 }
 
 func init() {

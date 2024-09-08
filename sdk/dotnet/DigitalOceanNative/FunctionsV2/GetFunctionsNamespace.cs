@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
 {
     public static class GetFunctionsNamespace
     {
-        public static Task<GetFunctionsNamespaceResult> InvokeAsync(GetFunctionsNamespaceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsNamespaceResult>("digitalocean-native:functions/v2:getFunctionsNamespace", args ?? new GetFunctionsNamespaceArgs(), options.WithDefaults());
+        public static Task<Outputs.GetFunctionsNamespaceProperties> InvokeAsync(GetFunctionsNamespaceArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetFunctionsNamespaceProperties>("digitalocean-native:functions/v2:getFunctionsNamespace", args ?? new GetFunctionsNamespaceArgs(), options.WithDefaults());
 
-        public static Output<GetFunctionsNamespaceResult> Invoke(GetFunctionsNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsNamespaceResult>("digitalocean-native:functions/v2:getFunctionsNamespace", args ?? new GetFunctionsNamespaceInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetFunctionsNamespaceProperties> Invoke(GetFunctionsNamespaceInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFunctionsNamespaceProperties>("digitalocean-native:functions/v2:getFunctionsNamespace", args ?? new GetFunctionsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
         {
         }
         public static new GetFunctionsNamespaceInvokeArgs Empty => new GetFunctionsNamespaceInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetFunctionsNamespaceResult
-    {
-        public readonly Outputs.GetFunctionsNamespaceProperties Items;
-
-        [OutputConstructor]
-        private GetFunctionsNamespaceResult(Outputs.GetFunctionsNamespaceProperties items)
-        {
-            Items = items;
-        }
     }
 }

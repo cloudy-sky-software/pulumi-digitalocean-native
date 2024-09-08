@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetCertificateResult',
-    'AwaitableGetCertificateResult',
+    'GetCertificateProperties',
+    'AwaitableGetCertificateProperties',
     'get_certificate',
     'get_certificate_output',
 ]
 
 @pulumi.output_type
-class GetCertificateResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetCertificateProperties:
+    def __init__(__self__, certificate=None):
+        if certificate and not isinstance(certificate, dict):
+            raise TypeError("Expected argument 'certificate' to be a dict")
+        pulumi.set(__self__, "certificate", certificate)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetCertificateProperties':
-        return pulumi.get(self, "items")
+    def certificate(self) -> Optional['outputs.Certificate']:
+        return pulumi.get(self, "certificate")
 
 
-class AwaitableGetCertificateResult(GetCertificateResult):
+class AwaitableGetCertificateProperties(GetCertificateProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetCertificateResult(
-            items=self.items)
+        return GetCertificateProperties(
+            certificate=self.certificate)
 
 
 def get_certificate(certificate_id: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_certificate(certificate_id: Optional[str] = None,
     __args__ = dict()
     __args__['certificateId'] = certificate_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:certificates/v2:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:certificates/v2:getCertificate', __args__, opts=opts, typ=GetCertificateProperties).value
 
-    return AwaitableGetCertificateResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetCertificateProperties(
+        certificate=pulumi.get(__ret__, 'certificate'))
 
 
 @_utilities.lift_output_func(get_certificate)
 def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateProperties]:
     """
     Use this data source to access information about an existing resource.
 

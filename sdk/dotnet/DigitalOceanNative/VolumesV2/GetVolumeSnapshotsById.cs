@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 {
     public static class GetVolumeSnapshotsById
     {
-        public static Task<GetVolumeSnapshotsByIdResult> InvokeAsync(GetVolumeSnapshotsByIdArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeSnapshotsByIdResult>("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args ?? new GetVolumeSnapshotsByIdArgs(), options.WithDefaults());
+        public static Task<Outputs.GetVolumeSnapshotsByIdProperties> InvokeAsync(GetVolumeSnapshotsByIdArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetVolumeSnapshotsByIdProperties>("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args ?? new GetVolumeSnapshotsByIdArgs(), options.WithDefaults());
 
-        public static Output<GetVolumeSnapshotsByIdResult> Invoke(GetVolumeSnapshotsByIdInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotsByIdResult>("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args ?? new GetVolumeSnapshotsByIdInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetVolumeSnapshotsByIdProperties> Invoke(GetVolumeSnapshotsByIdInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeSnapshotsByIdProperties>("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args ?? new GetVolumeSnapshotsByIdInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
         {
         }
         public static new GetVolumeSnapshotsByIdInvokeArgs Empty => new GetVolumeSnapshotsByIdInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetVolumeSnapshotsByIdResult
-    {
-        public readonly Outputs.GetVolumeSnapshotsByIdProperties Items;
-
-        [OutputConstructor]
-        private GetVolumeSnapshotsByIdResult(Outputs.GetVolumeSnapshotsByIdProperties items)
-        {
-            Items = items;
-        }
     }
 }

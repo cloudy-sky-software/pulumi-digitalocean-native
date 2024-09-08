@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listFloatingIPs(args?: ListFloatingIPsArgs, opts?: pulumi.InvokeOptions): Promise<ListFloatingIPsResult> {
+export function listFloatingIPs(args?: ListFloatingIPsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.floating_ips.v2.ListFloatingIPsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listFloatingIPs(args?: ListFloatingIPsArgs, opts?: pulumi.Invoke
 
 export interface ListFloatingIPsArgs {
 }
-
-export interface ListFloatingIPsResult {
-    readonly items: outputs.floating_ips.v2.ListFloatingIPsItems;
-}
-export function listFloatingIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListFloatingIPsResult> {
+export function listFloatingIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsItems> {
     return pulumi.output(listFloatingIPs(opts))
 }

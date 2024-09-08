@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 {
     public static class ListVolumes
     {
-        public static Task<ListVolumesResult> InvokeAsync(ListVolumesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumesResult>("digitalocean-native:volumes/v2:listVolumes", args ?? new ListVolumesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListVolumesItems> InvokeAsync(ListVolumesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListVolumesItems>("digitalocean-native:volumes/v2:listVolumes", args ?? new ListVolumesArgs(), options.WithDefaults());
 
-        public static Output<ListVolumesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListVolumesResult>("digitalocean-native:volumes/v2:listVolumes", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListVolumesItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVolumesItems>("digitalocean-native:volumes/v2:listVolumes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
         {
         }
         public static new ListVolumesArgs Empty => new ListVolumesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListVolumesResult
-    {
-        public readonly Outputs.ListVolumesItems Items;
-
-        [OutputConstructor]
-        private ListVolumesResult(Outputs.ListVolumesItems items)
-        {
-            Items = items;
-        }
     }
 }

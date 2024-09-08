@@ -40,77 +40,77 @@ export type AppsValidateRollback = import("./appsValidateRollback").AppsValidate
 export const AppsValidateRollback: typeof import("./appsValidateRollback").AppsValidateRollback = null as any;
 utilities.lazyLoad(exports, ["AppsValidateRollback"], () => require("./appsValidateRollback"));
 
-export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export { GetAppArgs, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
 utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
 
-export { GetAppsDeploymentArgs, GetAppsDeploymentResult, GetAppsDeploymentOutputArgs } from "./getAppsDeployment";
+export { GetAppsDeploymentArgs, GetAppsDeploymentOutputArgs } from "./getAppsDeployment";
 export const getAppsDeployment: typeof import("./getAppsDeployment").getAppsDeployment = null as any;
 export const getAppsDeploymentOutput: typeof import("./getAppsDeployment").getAppsDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsDeployment","getAppsDeploymentOutput"], () => require("./getAppsDeployment"));
 
-export { GetAppsInstanceSizeArgs, GetAppsInstanceSizeResult, GetAppsInstanceSizeOutputArgs } from "./getAppsInstanceSize";
+export { GetAppsInstanceSizeArgs, GetAppsInstanceSizeOutputArgs } from "./getAppsInstanceSize";
 export const getAppsInstanceSize: typeof import("./getAppsInstanceSize").getAppsInstanceSize = null as any;
 export const getAppsInstanceSizeOutput: typeof import("./getAppsInstanceSize").getAppsInstanceSizeOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsInstanceSize","getAppsInstanceSizeOutput"], () => require("./getAppsInstanceSize"));
 
-export { GetAppsLogArgs, GetAppsLogResult, GetAppsLogOutputArgs } from "./getAppsLog";
+export { GetAppsLogArgs, GetAppsLogOutputArgs } from "./getAppsLog";
 export const getAppsLog: typeof import("./getAppsLog").getAppsLog = null as any;
 export const getAppsLogOutput: typeof import("./getAppsLog").getAppsLogOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsLog","getAppsLogOutput"], () => require("./getAppsLog"));
 
-export { GetAppsLogsActiveDeploymentArgs, GetAppsLogsActiveDeploymentResult, GetAppsLogsActiveDeploymentOutputArgs } from "./getAppsLogsActiveDeployment";
+export { GetAppsLogsActiveDeploymentArgs, GetAppsLogsActiveDeploymentOutputArgs } from "./getAppsLogsActiveDeployment";
 export const getAppsLogsActiveDeployment: typeof import("./getAppsLogsActiveDeployment").getAppsLogsActiveDeployment = null as any;
 export const getAppsLogsActiveDeploymentOutput: typeof import("./getAppsLogsActiveDeployment").getAppsLogsActiveDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsLogsActiveDeployment","getAppsLogsActiveDeploymentOutput"], () => require("./getAppsLogsActiveDeployment"));
 
-export { GetAppsLogsActiveDeploymentAggregateArgs, GetAppsLogsActiveDeploymentAggregateResult, GetAppsLogsActiveDeploymentAggregateOutputArgs } from "./getAppsLogsActiveDeploymentAggregate";
+export { GetAppsLogsActiveDeploymentAggregateArgs, GetAppsLogsActiveDeploymentAggregateOutputArgs } from "./getAppsLogsActiveDeploymentAggregate";
 export const getAppsLogsActiveDeploymentAggregate: typeof import("./getAppsLogsActiveDeploymentAggregate").getAppsLogsActiveDeploymentAggregate = null as any;
 export const getAppsLogsActiveDeploymentAggregateOutput: typeof import("./getAppsLogsActiveDeploymentAggregate").getAppsLogsActiveDeploymentAggregateOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsLogsActiveDeploymentAggregate","getAppsLogsActiveDeploymentAggregateOutput"], () => require("./getAppsLogsActiveDeploymentAggregate"));
 
-export { GetAppsLogsAggregateArgs, GetAppsLogsAggregateResult, GetAppsLogsAggregateOutputArgs } from "./getAppsLogsAggregate";
+export { GetAppsLogsAggregateArgs, GetAppsLogsAggregateOutputArgs } from "./getAppsLogsAggregate";
 export const getAppsLogsAggregate: typeof import("./getAppsLogsAggregate").getAppsLogsAggregate = null as any;
 export const getAppsLogsAggregateOutput: typeof import("./getAppsLogsAggregate").getAppsLogsAggregateOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsLogsAggregate","getAppsLogsAggregateOutput"], () => require("./getAppsLogsAggregate"));
 
-export { GetAppsMetricsBandwidthDailyArgs, GetAppsMetricsBandwidthDailyResult, GetAppsMetricsBandwidthDailyOutputArgs } from "./getAppsMetricsBandwidthDaily";
+export { GetAppsMetricsBandwidthDailyArgs, GetAppsMetricsBandwidthDailyOutputArgs } from "./getAppsMetricsBandwidthDaily";
 export const getAppsMetricsBandwidthDaily: typeof import("./getAppsMetricsBandwidthDaily").getAppsMetricsBandwidthDaily = null as any;
 export const getAppsMetricsBandwidthDailyOutput: typeof import("./getAppsMetricsBandwidthDaily").getAppsMetricsBandwidthDailyOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsMetricsBandwidthDaily","getAppsMetricsBandwidthDailyOutput"], () => require("./getAppsMetricsBandwidthDaily"));
 
-export { GetAppsTierArgs, GetAppsTierResult, GetAppsTierOutputArgs } from "./getAppsTier";
+export { GetAppsTierArgs, GetAppsTierOutputArgs } from "./getAppsTier";
 export const getAppsTier: typeof import("./getAppsTier").getAppsTier = null as any;
 export const getAppsTierOutput: typeof import("./getAppsTier").getAppsTierOutput = null as any;
 utilities.lazyLoad(exports, ["getAppsTier","getAppsTierOutput"], () => require("./getAppsTier"));
 
-export { ListAppsArgs, ListAppsResult } from "./listApps";
+export { ListAppsArgs } from "./listApps";
 export const listApps: typeof import("./listApps").listApps = null as any;
 export const listAppsOutput: typeof import("./listApps").listAppsOutput = null as any;
 utilities.lazyLoad(exports, ["listApps","listAppsOutput"], () => require("./listApps"));
 
-export { ListAppsAlertsArgs, ListAppsAlertsResult, ListAppsAlertsOutputArgs } from "./listAppsAlerts";
+export { ListAppsAlertsArgs, ListAppsAlertsOutputArgs } from "./listAppsAlerts";
 export const listAppsAlerts: typeof import("./listAppsAlerts").listAppsAlerts = null as any;
 export const listAppsAlertsOutput: typeof import("./listAppsAlerts").listAppsAlertsOutput = null as any;
 utilities.lazyLoad(exports, ["listAppsAlerts","listAppsAlertsOutput"], () => require("./listAppsAlerts"));
 
-export { ListAppsDeploymentsArgs, ListAppsDeploymentsResult, ListAppsDeploymentsOutputArgs } from "./listAppsDeployments";
+export { ListAppsDeploymentsArgs, ListAppsDeploymentsOutputArgs } from "./listAppsDeployments";
 export const listAppsDeployments: typeof import("./listAppsDeployments").listAppsDeployments = null as any;
 export const listAppsDeploymentsOutput: typeof import("./listAppsDeployments").listAppsDeploymentsOutput = null as any;
 utilities.lazyLoad(exports, ["listAppsDeployments","listAppsDeploymentsOutput"], () => require("./listAppsDeployments"));
 
-export { ListAppsInstanceSizesArgs, ListAppsInstanceSizesResult } from "./listAppsInstanceSizes";
+export { ListAppsInstanceSizesArgs } from "./listAppsInstanceSizes";
 export const listAppsInstanceSizes: typeof import("./listAppsInstanceSizes").listAppsInstanceSizes = null as any;
 export const listAppsInstanceSizesOutput: typeof import("./listAppsInstanceSizes").listAppsInstanceSizesOutput = null as any;
 utilities.lazyLoad(exports, ["listAppsInstanceSizes","listAppsInstanceSizesOutput"], () => require("./listAppsInstanceSizes"));
 
-export { ListAppsRegionsArgs, ListAppsRegionsResult } from "./listAppsRegions";
+export { ListAppsRegionsArgs } from "./listAppsRegions";
 export const listAppsRegions: typeof import("./listAppsRegions").listAppsRegions = null as any;
 export const listAppsRegionsOutput: typeof import("./listAppsRegions").listAppsRegionsOutput = null as any;
 utilities.lazyLoad(exports, ["listAppsRegions","listAppsRegionsOutput"], () => require("./listAppsRegions"));
 
-export { ListAppsTiersArgs, ListAppsTiersResult } from "./listAppsTiers";
+export { ListAppsTiersArgs } from "./listAppsTiers";
 export const listAppsTiers: typeof import("./listAppsTiers").listAppsTiers = null as any;
 export const listAppsTiersOutput: typeof import("./listAppsTiers").listAppsTiersOutput = null as any;
 utilities.lazyLoad(exports, ["listAppsTiers","listAppsTiersOutput"], () => require("./listAppsTiers"));

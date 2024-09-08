@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
 {
     public static class ListDomains
     {
-        public static Task<ListDomainsResult> InvokeAsync(ListDomainsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainsResult>("digitalocean-native:domains/v2:listDomains", args ?? new ListDomainsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDomainsItems> InvokeAsync(ListDomainsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDomainsItems>("digitalocean-native:domains/v2:listDomains", args ?? new ListDomainsArgs(), options.WithDefaults());
 
-        public static Output<ListDomainsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDomainsResult>("digitalocean-native:domains/v2:listDomains", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListDomainsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDomainsItems>("digitalocean-native:domains/v2:listDomains", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
         {
         }
         public static new ListDomainsArgs Empty => new ListDomainsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDomainsResult
-    {
-        public readonly Outputs.ListDomainsItems Items;
-
-        [OutputConstructor]
-        private ListDomainsResult(Outputs.ListDomainsItems items)
-        {
-            Items = items;
-        }
     }
 }

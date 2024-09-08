@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListReservedIPsResult',
-    'AwaitableListReservedIPsResult',
+    'ListReservedIPsItems',
+    'AwaitableListReservedIPsItems',
     'list_reserved_ips',
     'list_reserved_ips_output',
 ]
 
 @pulumi.output_type
-class ListReservedIPsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListReservedIPsItems:
+    def __init__(__self__, links=None, meta=None, reserved_ips=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if reserved_ips and not isinstance(reserved_ips, list):
+            raise TypeError("Expected argument 'reserved_ips' to be a list")
+        pulumi.set(__self__, "reserved_ips", reserved_ips)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListReservedIPsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter(name="reservedIps")
+    def reserved_ips(self) -> Optional[Sequence['outputs.ReservedIp']]:
+        return pulumi.get(self, "reserved_ips")
 
 
-class AwaitableListReservedIPsResult(ListReservedIPsResult):
+class AwaitableListReservedIPsItems(ListReservedIPsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListReservedIPsResult(
-            items=self.items)
+        return ListReservedIPsItems(
+            links=self.links,
+            meta=self.meta,
+            reserved_ips=self.reserved_ips)
 
 
-def list_reserved_ips(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListReservedIPsResult:
+def list_reserved_ips(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListReservedIPsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:reserved_ips/v2:listReservedIPs', __args__, opts=opts, typ=ListReservedIPsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:reserved_ips/v2:listReservedIPs', __args__, opts=opts, typ=ListReservedIPsItems).value
 
-    return AwaitableListReservedIPsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListReservedIPsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        reserved_ips=pulumi.get(__ret__, 'reserved_ips'))
 
 
 @_utilities.lift_output_func(list_reserved_ips)
-def list_reserved_ips_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListReservedIPsResult]:
+def list_reserved_ips_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListReservedIPsItems]:
     """
     Use this data source to access information about an existing resource.
     """

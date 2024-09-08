@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListCertificatesResult',
-    'AwaitableListCertificatesResult',
+    'ListCertificatesItems',
+    'AwaitableListCertificatesItems',
     'list_certificates',
     'list_certificates_output',
 ]
 
 @pulumi.output_type
-class ListCertificatesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListCertificatesItems:
+    def __init__(__self__, certificates=None, links=None, meta=None):
+        if certificates and not isinstance(certificates, list):
+            raise TypeError("Expected argument 'certificates' to be a list")
+        pulumi.set(__self__, "certificates", certificates)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListCertificatesItems':
-        return pulumi.get(self, "items")
+    def certificates(self) -> Optional[Sequence['outputs.Certificate']]:
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListCertificatesResult(ListCertificatesResult):
+class AwaitableListCertificatesItems(ListCertificatesItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListCertificatesResult(
-            items=self.items)
+        return ListCertificatesItems(
+            certificates=self.certificates,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_certificates(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCertificatesResult:
+def list_certificates(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCertificatesItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:certificates/v2:listCertificates', __args__, opts=opts, typ=ListCertificatesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:certificates/v2:listCertificates', __args__, opts=opts, typ=ListCertificatesItems).value
 
-    return AwaitableListCertificatesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListCertificatesItems(
+        certificates=pulumi.get(__ret__, 'certificates'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_certificates)
-def list_certificates_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCertificatesResult]:
+def list_certificates_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCertificatesItems]:
     """
     Use this data source to access information about an existing resource.
     """

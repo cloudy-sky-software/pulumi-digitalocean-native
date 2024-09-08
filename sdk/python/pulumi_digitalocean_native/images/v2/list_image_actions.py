@@ -6,42 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListImageActionsResult',
-    'AwaitableListImageActionsResult',
+    'ListImageActionsItems',
+    'AwaitableListImageActionsItems',
     'list_image_actions',
     'list_image_actions_output',
 ]
 
 @pulumi.output_type
-class ListImageActionsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListImageActionsItems:
+    def __init__(__self__, actions=None, links=None, meta=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        pulumi.set(__self__, "actions", actions)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListImageActionsItems':
-        return pulumi.get(self, "items")
+    def actions(self) -> Optional[Sequence['outputs.Action']]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListImageActionsResult(ListImageActionsResult):
+class AwaitableListImageActionsItems(ListImageActionsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListImageActionsResult(
-            items=self.items)
+        return ListImageActionsItems(
+            actions=self.actions,
+            links=self.links,
+            meta=self.meta)
 
 
 def list_image_actions(image_id: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListImageActionsResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListImageActionsItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +68,17 @@ def list_image_actions(image_id: Optional[str] = None,
     __args__ = dict()
     __args__['imageId'] = image_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:images/v2:listImageActions', __args__, opts=opts, typ=ListImageActionsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:images/v2:listImageActions', __args__, opts=opts, typ=ListImageActionsItems).value
 
-    return AwaitableListImageActionsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListImageActionsItems(
+        actions=pulumi.get(__ret__, 'actions'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_image_actions)
 def list_image_actions_output(image_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImageActionsResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImageActionsItems]:
     """
     Use this data source to access information about an existing resource.
 

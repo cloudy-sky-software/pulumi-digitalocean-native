@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListCdnEndpointsResult',
-    'AwaitableListCdnEndpointsResult',
+    'ListCdnEndpointsItems',
+    'AwaitableListCdnEndpointsItems',
     'list_cdn_endpoints',
     'list_cdn_endpoints_output',
 ]
 
 @pulumi.output_type
-class ListCdnEndpointsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListCdnEndpointsItems:
+    def __init__(__self__, endpoints=None, links=None, meta=None):
+        if endpoints and not isinstance(endpoints, list):
+            raise TypeError("Expected argument 'endpoints' to be a list")
+        pulumi.set(__self__, "endpoints", endpoints)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListCdnEndpointsItems':
-        return pulumi.get(self, "items")
+    def endpoints(self) -> Optional[Sequence['outputs.CdnEndpoint']]:
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListCdnEndpointsResult(ListCdnEndpointsResult):
+class AwaitableListCdnEndpointsItems(ListCdnEndpointsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListCdnEndpointsResult(
-            items=self.items)
+        return ListCdnEndpointsItems(
+            endpoints=self.endpoints,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_cdn_endpoints(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCdnEndpointsResult:
+def list_cdn_endpoints(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCdnEndpointsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:cdn/v2:listCdnEndpoints', __args__, opts=opts, typ=ListCdnEndpointsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:cdn/v2:listCdnEndpoints', __args__, opts=opts, typ=ListCdnEndpointsItems).value
 
-    return AwaitableListCdnEndpointsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListCdnEndpointsItems(
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_cdn_endpoints)
-def list_cdn_endpoints_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCdnEndpointsResult]:
+def list_cdn_endpoints_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCdnEndpointsItems]:
     """
     Use this data source to access information about an existing resource.
     """

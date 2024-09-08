@@ -25,7 +25,8 @@ type GetMonitoringDropletLoad5MetricArgs struct {
 }
 
 type GetMonitoringDropletLoad5MetricResult struct {
-	Items Metrics `pulumi:"items"`
+	Data   MetricsData   `pulumi:"data"`
+	Status MetricsStatus `pulumi:"status"`
 }
 
 func GetMonitoringDropletLoad5MetricOutput(ctx *pulumi.Context, args GetMonitoringDropletLoad5MetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletLoad5MetricResultOutput {
@@ -62,8 +63,12 @@ func (o GetMonitoringDropletLoad5MetricResultOutput) ToGetMonitoringDropletLoad5
 	return o
 }
 
-func (o GetMonitoringDropletLoad5MetricResultOutput) Items() MetricsOutput {
-	return o.ApplyT(func(v GetMonitoringDropletLoad5MetricResult) Metrics { return v.Items }).(MetricsOutput)
+func (o GetMonitoringDropletLoad5MetricResultOutput) Data() MetricsDataOutput {
+	return o.ApplyT(func(v GetMonitoringDropletLoad5MetricResult) MetricsData { return v.Data }).(MetricsDataOutput)
+}
+
+func (o GetMonitoringDropletLoad5MetricResultOutput) Status() MetricsStatusOutput {
+	return o.ApplyT(func(v GetMonitoringDropletLoad5MetricResult) MetricsStatus { return v.Status }).(MetricsStatusOutput)
 }
 
 func init() {

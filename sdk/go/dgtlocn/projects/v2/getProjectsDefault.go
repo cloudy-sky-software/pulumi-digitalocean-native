@@ -25,7 +25,7 @@ type LookupProjectsDefaultArgs struct {
 }
 
 type LookupProjectsDefaultResult struct {
-	Items GetProjectsDefaultProperties `pulumi:"items"`
+	Project *ProjectType `pulumi:"project"`
 }
 
 func LookupProjectsDefaultOutput(ctx *pulumi.Context, args LookupProjectsDefaultOutputArgs, opts ...pulumi.InvokeOption) LookupProjectsDefaultResultOutput {
@@ -62,8 +62,8 @@ func (o LookupProjectsDefaultResultOutput) ToLookupProjectsDefaultResultOutputWi
 	return o
 }
 
-func (o LookupProjectsDefaultResultOutput) Items() GetProjectsDefaultPropertiesOutput {
-	return o.ApplyT(func(v LookupProjectsDefaultResult) GetProjectsDefaultProperties { return v.Items }).(GetProjectsDefaultPropertiesOutput)
+func (o LookupProjectsDefaultResultOutput) Project() ProjectTypePtrOutput {
+	return o.ApplyT(func(v LookupProjectsDefaultResult) *ProjectType { return v.Project }).(ProjectTypePtrOutput)
 }
 
 func init() {

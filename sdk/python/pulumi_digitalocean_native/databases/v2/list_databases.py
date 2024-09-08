@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListDatabasesResult',
-    'AwaitableListDatabasesResult',
+    'ListDatabasesProperties',
+    'AwaitableListDatabasesProperties',
     'list_databases',
     'list_databases_output',
 ]
 
 @pulumi.output_type
-class ListDatabasesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDatabasesProperties:
+    def __init__(__self__, dbs=None):
+        if dbs and not isinstance(dbs, list):
+            raise TypeError("Expected argument 'dbs' to be a list")
+        pulumi.set(__self__, "dbs", dbs)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDatabasesProperties':
-        return pulumi.get(self, "items")
+    def dbs(self) -> Optional[Sequence['outputs.Database']]:
+        return pulumi.get(self, "dbs")
 
 
-class AwaitableListDatabasesResult(ListDatabasesResult):
+class AwaitableListDatabasesProperties(ListDatabasesProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDatabasesResult(
-            items=self.items)
+        return ListDatabasesProperties(
+            dbs=self.dbs)
 
 
 def list_databases(database_cluster_uuid: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasesResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasesProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def list_databases(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabases', __args__, opts=opts, typ=ListDatabasesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabases', __args__, opts=opts, typ=ListDatabasesProperties).value
 
-    return AwaitableListDatabasesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDatabasesProperties(
+        dbs=pulumi.get(__ret__, 'dbs'))
 
 
 @_utilities.lift_output_func(list_databases)
 def list_databases_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesProperties]:
     """
     Use this data source to access information about an existing resource.
 

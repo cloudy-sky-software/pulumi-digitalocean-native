@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class ListDroplets
     {
-        public static Task<ListDropletsResult> InvokeAsync(ListDropletsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletsResult>("digitalocean-native:droplets/v2:listDroplets", args ?? new ListDropletsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDropletsItems> InvokeAsync(ListDropletsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDropletsItems>("digitalocean-native:droplets/v2:listDroplets", args ?? new ListDropletsArgs(), options.WithDefaults());
 
-        public static Output<ListDropletsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletsResult>("digitalocean-native:droplets/v2:listDroplets", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListDropletsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsItems>("digitalocean-native:droplets/v2:listDroplets", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new ListDropletsArgs Empty => new ListDropletsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletsResult
-    {
-        public readonly Outputs.ListDropletsItems Items;
-
-        [OutputConstructor]
-        private ListDropletsResult(Outputs.ListDropletsItems items)
-        {
-            Items = items;
-        }
     }
 }

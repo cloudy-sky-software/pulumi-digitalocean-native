@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDatabasesClusterResult',
-    'AwaitableGetDatabasesClusterResult',
+    'GetDatabasesClusterProperties',
+    'AwaitableGetDatabasesClusterProperties',
     'get_databases_cluster',
     'get_databases_cluster_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesClusterResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetDatabasesClusterProperties:
+    def __init__(__self__, database=None):
+        if database and not isinstance(database, dict):
+            raise TypeError("Expected argument 'database' to be a dict")
+        pulumi.set(__self__, "database", database)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetDatabasesClusterProperties':
-        return pulumi.get(self, "items")
+    def database(self) -> 'outputs.DatabaseCluster':
+        return pulumi.get(self, "database")
 
 
-class AwaitableGetDatabasesClusterResult(GetDatabasesClusterResult):
+class AwaitableGetDatabasesClusterProperties(GetDatabasesClusterProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesClusterResult(
-            items=self.items)
+        return GetDatabasesClusterProperties(
+            database=self.database)
 
 
 def get_databases_cluster(database_cluster_uuid: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesClusterResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesClusterProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_databases_cluster(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesCluster', __args__, opts=opts, typ=GetDatabasesClusterResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesCluster', __args__, opts=opts, typ=GetDatabasesClusterProperties).value
 
-    return AwaitableGetDatabasesClusterResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetDatabasesClusterProperties(
+        database=pulumi.get(__ret__, 'database'))
 
 
 @_utilities.lift_output_func(get_databases_cluster)
 def get_databases_cluster_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesClusterResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesClusterProperties]:
     """
     Use this data source to access information about an existing resource.
 

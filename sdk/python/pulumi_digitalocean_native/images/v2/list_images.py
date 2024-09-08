@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListImagesResult',
-    'AwaitableListImagesResult',
+    'ListImagesItems',
+    'AwaitableListImagesItems',
     'list_images',
     'list_images_output',
 ]
 
 @pulumi.output_type
-class ListImagesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListImagesItems:
+    def __init__(__self__, images=None, links=None, meta=None):
+        if images and not isinstance(images, list):
+            raise TypeError("Expected argument 'images' to be a list")
+        pulumi.set(__self__, "images", images)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListImagesItems':
-        return pulumi.get(self, "items")
+    def images(self) -> Sequence['outputs.Image']:
+        return pulumi.get(self, "images")
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListImagesResult(ListImagesResult):
+class AwaitableListImagesItems(ListImagesItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListImagesResult(
-            items=self.items)
+        return ListImagesItems(
+            images=self.images,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_images(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListImagesResult:
+def list_images(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListImagesItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:images/v2:listImages', __args__, opts=opts, typ=ListImagesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:images/v2:listImages', __args__, opts=opts, typ=ListImagesItems).value
 
-    return AwaitableListImagesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListImagesItems(
+        images=pulumi.get(__ret__, 'images'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_images)
-def list_images_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImagesResult]:
+def list_images_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImagesItems]:
     """
     Use this data source to access information about an existing resource.
     """

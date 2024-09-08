@@ -27,7 +27,7 @@ type LookupFunctionsNamespaceArgs struct {
 }
 
 type LookupFunctionsNamespaceResult struct {
-	Items GetFunctionsNamespaceProperties `pulumi:"items"`
+	Namespace *NamespaceInfo `pulumi:"namespace"`
 }
 
 func LookupFunctionsNamespaceOutput(ctx *pulumi.Context, args LookupFunctionsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionsNamespaceResultOutput {
@@ -66,8 +66,8 @@ func (o LookupFunctionsNamespaceResultOutput) ToLookupFunctionsNamespaceResultOu
 	return o
 }
 
-func (o LookupFunctionsNamespaceResultOutput) Items() GetFunctionsNamespacePropertiesOutput {
-	return o.ApplyT(func(v LookupFunctionsNamespaceResult) GetFunctionsNamespaceProperties { return v.Items }).(GetFunctionsNamespacePropertiesOutput)
+func (o LookupFunctionsNamespaceResultOutput) Namespace() NamespaceInfoPtrOutput {
+	return o.ApplyT(func(v LookupFunctionsNamespaceResult) *NamespaceInfo { return v.Namespace }).(NamespaceInfoPtrOutput)
 }
 
 func init() {

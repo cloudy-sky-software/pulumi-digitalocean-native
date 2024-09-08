@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
 {
     public static class ListInvoices
     {
-        public static Task<ListInvoicesResult> InvokeAsync(ListInvoicesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListInvoicesResult>("digitalocean-native:customers/v2:listInvoices", args ?? new ListInvoicesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListInvoicesItems> InvokeAsync(ListInvoicesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListInvoicesItems>("digitalocean-native:customers/v2:listInvoices", args ?? new ListInvoicesArgs(), options.WithDefaults());
 
-        public static Output<ListInvoicesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListInvoicesResult>("digitalocean-native:customers/v2:listInvoices", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListInvoicesItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListInvoicesItems>("digitalocean-native:customers/v2:listInvoices", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
         {
         }
         public static new ListInvoicesArgs Empty => new ListInvoicesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListInvoicesResult
-    {
-        public readonly Outputs.ListInvoicesItems Items;
-
-        [OutputConstructor]
-        private ListInvoicesResult(Outputs.ListInvoicesItems items)
-        {
-            Items = items;
-        }
     }
 }

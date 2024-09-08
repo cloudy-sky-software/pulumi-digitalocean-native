@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetAppsTierResult',
-    'AwaitableGetAppsTierResult',
+    'AppsGetTierResponse',
+    'AwaitableAppsGetTierResponse',
     'get_apps_tier',
     'get_apps_tier_output',
 ]
 
 @pulumi.output_type
-class GetAppsTierResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppsGetTierResponse:
+    def __init__(__self__, tier=None):
+        if tier and not isinstance(tier, dict):
+            raise TypeError("Expected argument 'tier' to be a dict")
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AppsGetTierResponse':
-        return pulumi.get(self, "items")
+    def tier(self) -> Optional['outputs.AppsTier']:
+        return pulumi.get(self, "tier")
 
 
-class AwaitableGetAppsTierResult(GetAppsTierResult):
+class AwaitableAppsGetTierResponse(AppsGetTierResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAppsTierResult(
-            items=self.items)
+        return AppsGetTierResponse(
+            tier=self.tier)
 
 
 def get_apps_tier(slug: Optional[str] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppsTierResult:
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppsGetTierResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_apps_tier(slug: Optional[str] = None,
     __args__ = dict()
     __args__['slug'] = slug
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsTier', __args__, opts=opts, typ=GetAppsTierResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsTier', __args__, opts=opts, typ=AppsGetTierResponse).value
 
-    return AwaitableGetAppsTierResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppsGetTierResponse(
+        tier=pulumi.get(__ret__, 'tier'))
 
 
 @_utilities.lift_output_func(get_apps_tier)
 def get_apps_tier_output(slug: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppsTierResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetTierResponse]:
     """
     Use this data source to access information about an existing resource.
 

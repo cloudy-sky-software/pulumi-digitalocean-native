@@ -13,8 +13,6 @@ from ._enums import *
 
 __all__ = [
     'CdnEndpoint',
-    'GetCdnEndpointProperties',
-    'ListCdnEndpointsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -131,47 +129,6 @@ class CdnEndpoint(dict):
         The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
         """
         return pulumi.get(self, "ttl")
-
-
-@pulumi.output_type
-class GetCdnEndpointProperties(dict):
-    def __init__(__self__, *,
-                 endpoint: Optional['outputs.CdnEndpoint'] = None):
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional['outputs.CdnEndpoint']:
-        return pulumi.get(self, "endpoint")
-
-
-@pulumi.output_type
-class ListCdnEndpointsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 endpoints: Optional[Sequence['outputs.CdnEndpoint']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def endpoints(self) -> Optional[Sequence['outputs.CdnEndpoint']]:
-        return pulumi.get(self, "endpoints")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

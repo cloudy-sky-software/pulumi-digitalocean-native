@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListKubernetesClustersResult',
-    'AwaitableListKubernetesClustersResult',
+    'ListKubernetesClustersItems',
+    'AwaitableListKubernetesClustersItems',
     'list_kubernetes_clusters',
     'list_kubernetes_clusters_output',
 ]
 
 @pulumi.output_type
-class ListKubernetesClustersResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListKubernetesClustersItems:
+    def __init__(__self__, kubernetes_clusters=None, links=None, meta=None):
+        if kubernetes_clusters and not isinstance(kubernetes_clusters, list):
+            raise TypeError("Expected argument 'kubernetes_clusters' to be a list")
+        pulumi.set(__self__, "kubernetes_clusters", kubernetes_clusters)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+
+    @property
+    @pulumi.getter(name="kubernetesClusters")
+    def kubernetes_clusters(self) -> Optional[Sequence['outputs.Cluster']]:
+        return pulumi.get(self, "kubernetes_clusters")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListKubernetesClustersItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListKubernetesClustersResult(ListKubernetesClustersResult):
+class AwaitableListKubernetesClustersItems(ListKubernetesClustersItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListKubernetesClustersResult(
-            items=self.items)
+        return ListKubernetesClustersItems(
+            kubernetes_clusters=self.kubernetes_clusters,
+            links=self.links,
+            meta=self.meta)
 
 
-def list_kubernetes_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKubernetesClustersResult:
+def list_kubernetes_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListKubernetesClustersItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesClusters', __args__, opts=opts, typ=ListKubernetesClustersResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:listKubernetesClusters', __args__, opts=opts, typ=ListKubernetesClustersItems).value
 
-    return AwaitableListKubernetesClustersResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListKubernetesClustersItems(
+        kubernetes_clusters=pulumi.get(__ret__, 'kubernetes_clusters'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_kubernetes_clusters)
-def list_kubernetes_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesClustersResult]:
+def list_kubernetes_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesClustersItems]:
     """
     Use this data source to access information about an existing resource.
     """

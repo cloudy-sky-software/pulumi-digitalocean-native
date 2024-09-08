@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
 {
     public static class ListUptimeAlerts
     {
-        public static Task<ListUptimeAlertsResult> InvokeAsync(ListUptimeAlertsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListUptimeAlertsResult>("digitalocean-native:uptime/v2:listUptimeAlerts", args ?? new ListUptimeAlertsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListUptimeAlertsItems> InvokeAsync(ListUptimeAlertsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListUptimeAlertsItems>("digitalocean-native:uptime/v2:listUptimeAlerts", args ?? new ListUptimeAlertsArgs(), options.WithDefaults());
 
-        public static Output<ListUptimeAlertsResult> Invoke(ListUptimeAlertsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListUptimeAlertsResult>("digitalocean-native:uptime/v2:listUptimeAlerts", args ?? new ListUptimeAlertsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListUptimeAlertsItems> Invoke(ListUptimeAlertsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListUptimeAlertsItems>("digitalocean-native:uptime/v2:listUptimeAlerts", args ?? new ListUptimeAlertsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
         {
         }
         public static new ListUptimeAlertsInvokeArgs Empty => new ListUptimeAlertsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListUptimeAlertsResult
-    {
-        public readonly Outputs.ListUptimeAlertsItems Items;
-
-        [OutputConstructor]
-        private ListUptimeAlertsResult(Outputs.ListUptimeAlertsItems items)
-        {
-            Items = items;
-        }
     }
 }

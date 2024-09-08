@@ -6,42 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListProjectsResourcesResult',
-    'AwaitableListProjectsResourcesResult',
+    'ListProjectsResourcesItems',
+    'AwaitableListProjectsResourcesItems',
     'list_projects_resources',
     'list_projects_resources_output',
 ]
 
 @pulumi.output_type
-class ListProjectsResourcesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListProjectsResourcesItems:
+    def __init__(__self__, links=None, meta=None, resources=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if resources and not isinstance(resources, list):
+            raise TypeError("Expected argument 'resources' to be a list")
+        pulumi.set(__self__, "resources", resources)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListProjectsResourcesItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence['outputs.Resource']]:
+        return pulumi.get(self, "resources")
 
 
-class AwaitableListProjectsResourcesResult(ListProjectsResourcesResult):
+class AwaitableListProjectsResourcesItems(ListProjectsResourcesItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListProjectsResourcesResult(
-            items=self.items)
+        return ListProjectsResourcesItems(
+            links=self.links,
+            meta=self.meta,
+            resources=self.resources)
 
 
 def list_projects_resources(project_id: Optional[str] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProjectsResourcesResult:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProjectsResourcesItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +68,17 @@ def list_projects_resources(project_id: Optional[str] = None,
     __args__ = dict()
     __args__['projectId'] = project_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:projects/v2:listProjectsResources', __args__, opts=opts, typ=ListProjectsResourcesResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:projects/v2:listProjectsResources', __args__, opts=opts, typ=ListProjectsResourcesItems).value
 
-    return AwaitableListProjectsResourcesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListProjectsResourcesItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        resources=pulumi.get(__ret__, 'resources'))
 
 
 @_utilities.lift_output_func(list_projects_resources)
 def list_projects_resources_output(project_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsResourcesResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsResourcesItems]:
     """
     Use this data source to access information about an existing resource.
 

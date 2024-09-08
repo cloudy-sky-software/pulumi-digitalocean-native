@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletMemoryTotalMetric
     {
-        public static Task<GetMonitoringDropletMemoryTotalMetricResult> InvokeAsync(GetMonitoringDropletMemoryTotalMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletMemoryTotalMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryTotalMetric", args ?? new GetMonitoringDropletMemoryTotalMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletMemoryTotalMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryTotalMetric", args ?? new GetMonitoringDropletMemoryTotalMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletMemoryTotalMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletMemoryTotalMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryTotalMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryTotalMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletMemoryTotalMetricArgs Empty => new GetMonitoringDropletMemoryTotalMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletMemoryTotalMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletMemoryTotalMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

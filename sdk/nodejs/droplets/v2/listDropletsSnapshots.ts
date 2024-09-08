@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDropletsSnapshots(args: ListDropletsSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<ListDropletsSnapshotsResult> {
+export function listDropletsSnapshots(args: ListDropletsSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.droplets.v2.ListDropletsSnapshotsItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:droplets/v2:listDropletsSnapshots", {
@@ -21,11 +21,7 @@ export interface ListDropletsSnapshotsArgs {
      */
     dropletId: string;
 }
-
-export interface ListDropletsSnapshotsResult {
-    readonly items: outputs.droplets.v2.ListDropletsSnapshotsItems;
-}
-export function listDropletsSnapshotsOutput(args: ListDropletsSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDropletsSnapshotsResult> {
+export function listDropletsSnapshotsOutput(args: ListDropletsSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.ListDropletsSnapshotsItems> {
     return pulumi.output(args).apply((a: any) => listDropletsSnapshots(a, opts))
 }
 

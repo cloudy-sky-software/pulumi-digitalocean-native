@@ -6,41 +6,44 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListDatabasesConnectionPoolsResult',
-    'AwaitableListDatabasesConnectionPoolsResult',
+    'ConnectionPools',
+    'AwaitableConnectionPools',
     'list_databases_connection_pools',
     'list_databases_connection_pools_output',
 ]
 
 @pulumi.output_type
-class ListDatabasesConnectionPoolsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ConnectionPools:
+    def __init__(__self__, pools=None):
+        if pools and not isinstance(pools, list):
+            raise TypeError("Expected argument 'pools' to be a list")
+        pulumi.set(__self__, "pools", pools)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ConnectionPools':
-        return pulumi.get(self, "items")
+    def pools(self) -> Optional[Sequence['outputs.ConnectionPool']]:
+        """
+        An array of connection pool objects.
+        """
+        return pulumi.get(self, "pools")
 
 
-class AwaitableListDatabasesConnectionPoolsResult(ListDatabasesConnectionPoolsResult):
+class AwaitableConnectionPools(ConnectionPools):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDatabasesConnectionPoolsResult(
-            items=self.items)
+        return ConnectionPools(
+            pools=self.pools)
 
 
 def list_databases_connection_pools(database_cluster_uuid: Optional[str] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasesConnectionPoolsResult:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableConnectionPools:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +52,15 @@ def list_databases_connection_pools(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabasesConnectionPools', __args__, opts=opts, typ=ListDatabasesConnectionPoolsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabasesConnectionPools', __args__, opts=opts, typ=ConnectionPools).value
 
-    return AwaitableListDatabasesConnectionPoolsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableConnectionPools(
+        pools=pulumi.get(__ret__, 'pools'))
 
 
 @_utilities.lift_output_func(list_databases_connection_pools)
 def list_databases_connection_pools_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesConnectionPoolsResult]:
+                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ConnectionPools]:
     """
     Use this data source to access information about an existing resource.
 

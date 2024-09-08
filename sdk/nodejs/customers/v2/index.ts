@@ -4,17 +4,17 @@
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetBalanceArgs, GetBalanceResult } from "./getBalance";
+export { GetBalanceArgs } from "./getBalance";
 export const getBalance: typeof import("./getBalance").getBalance = null as any;
 export const getBalanceOutput: typeof import("./getBalance").getBalanceOutput = null as any;
 utilities.lazyLoad(exports, ["getBalance","getBalanceOutput"], () => require("./getBalance"));
 
-export { ListBillingHistoryArgs, ListBillingHistoryResult } from "./listBillingHistory";
+export { ListBillingHistoryArgs } from "./listBillingHistory";
 export const listBillingHistory: typeof import("./listBillingHistory").listBillingHistory = null as any;
 export const listBillingHistoryOutput: typeof import("./listBillingHistory").listBillingHistoryOutput = null as any;
 utilities.lazyLoad(exports, ["listBillingHistory","listBillingHistoryOutput"], () => require("./listBillingHistory"));
 
-export { ListInvoicesArgs, ListInvoicesResult } from "./listInvoices";
+export { ListInvoicesArgs } from "./listInvoices";
 export const listInvoices: typeof import("./listInvoices").listInvoices = null as any;
 export const listInvoicesOutput: typeof import("./listInvoices").listInvoicesOutput = null as any;
 utilities.lazyLoad(exports, ["listInvoices","listInvoicesOutput"], () => require("./listInvoices"));

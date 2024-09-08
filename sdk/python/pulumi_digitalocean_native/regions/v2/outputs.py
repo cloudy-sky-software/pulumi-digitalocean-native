@@ -11,39 +11,11 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListRegionsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
     'Region',
 ]
-
-@pulumi.output_type
-class ListRegionsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 regions: Sequence['outputs.Region'],
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        pulumi.set(__self__, "regions", regions)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def regions(self) -> Sequence['outputs.Region']:
-        return pulumi.get(self, "regions")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
 
 @pulumi.output_type
 class MetaMeta(dict):

@@ -15,22 +15,22 @@ export type DomainsRecord = import("./domainsRecord").DomainsRecord;
 export const DomainsRecord: typeof import("./domainsRecord").DomainsRecord = null as any;
 utilities.lazyLoad(exports, ["DomainsRecord"], () => require("./domainsRecord"));
 
-export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export { GetDomainArgs, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
-export { GetDomainsRecordArgs, GetDomainsRecordResult, GetDomainsRecordOutputArgs } from "./getDomainsRecord";
+export { GetDomainsRecordArgs, GetDomainsRecordOutputArgs } from "./getDomainsRecord";
 export const getDomainsRecord: typeof import("./getDomainsRecord").getDomainsRecord = null as any;
 export const getDomainsRecordOutput: typeof import("./getDomainsRecord").getDomainsRecordOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainsRecord","getDomainsRecordOutput"], () => require("./getDomainsRecord"));
 
-export { ListDomainsArgs, ListDomainsResult } from "./listDomains";
+export { ListDomainsArgs } from "./listDomains";
 export const listDomains: typeof import("./listDomains").listDomains = null as any;
 export const listDomainsOutput: typeof import("./listDomains").listDomainsOutput = null as any;
 utilities.lazyLoad(exports, ["listDomains","listDomainsOutput"], () => require("./listDomains"));
 
-export { ListDomainsRecordsArgs, ListDomainsRecordsResult, ListDomainsRecordsOutputArgs } from "./listDomainsRecords";
+export { ListDomainsRecordsArgs, ListDomainsRecordsOutputArgs } from "./listDomainsRecords";
 export const listDomainsRecords: typeof import("./listDomainsRecords").listDomainsRecords = null as any;
 export const listDomainsRecordsOutput: typeof import("./listDomainsRecords").listDomainsRecordsOutput = null as any;
 utilities.lazyLoad(exports, ["listDomainsRecords","listDomainsRecordsOutput"], () => require("./listDomainsRecords"));

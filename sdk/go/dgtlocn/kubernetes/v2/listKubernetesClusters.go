@@ -25,7 +25,9 @@ type ListKubernetesClustersArgs struct {
 }
 
 type ListKubernetesClustersResult struct {
-	Items ListKubernetesClustersItems `pulumi:"items"`
+	KubernetesClusters []Cluster  `pulumi:"kubernetesClusters"`
+	Links              *PageLinks `pulumi:"links"`
+	Meta               MetaMeta   `pulumi:"meta"`
 }
 
 func ListKubernetesClustersOutput(ctx *pulumi.Context, args ListKubernetesClustersOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesClustersResultOutput {
@@ -62,8 +64,16 @@ func (o ListKubernetesClustersResultOutput) ToListKubernetesClustersResultOutput
 	return o
 }
 
-func (o ListKubernetesClustersResultOutput) Items() ListKubernetesClustersItemsOutput {
-	return o.ApplyT(func(v ListKubernetesClustersResult) ListKubernetesClustersItems { return v.Items }).(ListKubernetesClustersItemsOutput)
+func (o ListKubernetesClustersResultOutput) KubernetesClusters() ClusterArrayOutput {
+	return o.ApplyT(func(v ListKubernetesClustersResult) []Cluster { return v.KubernetesClusters }).(ClusterArrayOutput)
+}
+
+func (o ListKubernetesClustersResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListKubernetesClustersResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListKubernetesClustersResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListKubernetesClustersResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

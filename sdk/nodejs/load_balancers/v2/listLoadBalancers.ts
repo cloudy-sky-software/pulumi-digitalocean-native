@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listLoadBalancers(args?: ListLoadBalancersArgs, opts?: pulumi.InvokeOptions): Promise<ListLoadBalancersResult> {
+export function listLoadBalancers(args?: ListLoadBalancersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.load_balancers.v2.ListLoadBalancersItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listLoadBalancers(args?: ListLoadBalancersArgs, opts?: pulumi.In
 
 export interface ListLoadBalancersArgs {
 }
-
-export interface ListLoadBalancersResult {
-    readonly items: outputs.load_balancers.v2.ListLoadBalancersItems;
-}
-export function listLoadBalancersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListLoadBalancersResult> {
+export function listLoadBalancersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.load_balancers.v2.ListLoadBalancersItems> {
     return pulumi.output(listLoadBalancers(opts))
 }

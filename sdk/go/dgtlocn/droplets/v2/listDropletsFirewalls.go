@@ -27,7 +27,9 @@ type ListDropletsFirewallsArgs struct {
 }
 
 type ListDropletsFirewallsResult struct {
-	Items ListDropletsFirewallsItems `pulumi:"items"`
+	Firewalls []Firewall `pulumi:"firewalls"`
+	Links     *PageLinks `pulumi:"links"`
+	Meta      MetaMeta   `pulumi:"meta"`
 }
 
 func ListDropletsFirewallsOutput(ctx *pulumi.Context, args ListDropletsFirewallsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsFirewallsResultOutput {
@@ -66,8 +68,16 @@ func (o ListDropletsFirewallsResultOutput) ToListDropletsFirewallsResultOutputWi
 	return o
 }
 
-func (o ListDropletsFirewallsResultOutput) Items() ListDropletsFirewallsItemsOutput {
-	return o.ApplyT(func(v ListDropletsFirewallsResult) ListDropletsFirewallsItems { return v.Items }).(ListDropletsFirewallsItemsOutput)
+func (o ListDropletsFirewallsResultOutput) Firewalls() FirewallArrayOutput {
+	return o.ApplyT(func(v ListDropletsFirewallsResult) []Firewall { return v.Firewalls }).(FirewallArrayOutput)
+}
+
+func (o ListDropletsFirewallsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDropletsFirewallsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListDropletsFirewallsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDropletsFirewallsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

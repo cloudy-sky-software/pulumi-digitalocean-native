@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAppsInstanceSize(args: GetAppsInstanceSizeArgs, opts?: pulumi.InvokeOptions): Promise<GetAppsInstanceSizeResult> {
+export function getAppsInstanceSize(args: GetAppsInstanceSizeArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetInstanceSizeResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsInstanceSize", {
@@ -21,11 +21,7 @@ export interface GetAppsInstanceSizeArgs {
      */
     slug: string;
 }
-
-export interface GetAppsInstanceSizeResult {
-    readonly items: outputs.apps.v2.AppsGetInstanceSizeResponse;
-}
-export function getAppsInstanceSizeOutput(args: GetAppsInstanceSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsInstanceSizeResult> {
+export function getAppsInstanceSizeOutput(args: GetAppsInstanceSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetInstanceSizeResponse> {
     return pulumi.output(args).apply((a: any) => getAppsInstanceSize(a, opts))
 }
 

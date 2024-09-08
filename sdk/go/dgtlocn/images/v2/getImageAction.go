@@ -29,7 +29,22 @@ type GetImageActionArgs struct {
 }
 
 type GetImageActionResult struct {
-	Items Action `pulumi:"items"`
+	// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+	CompletedAt *string `pulumi:"completedAt"`
+	// A unique numeric ID that can be used to identify and reference an action.
+	Id         *int              `pulumi:"id"`
+	Region     *Region           `pulumi:"region"`
+	RegionSlug *ActionRegionSlug `pulumi:"regionSlug"`
+	// A unique identifier for the resource that the action is associated with.
+	ResourceId *int `pulumi:"resourceId"`
+	// The type of resource that the action is associated with.
+	ResourceType *string `pulumi:"resourceType"`
+	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+	StartedAt *string `pulumi:"startedAt"`
+	// The current status of the action. This can be "in-progress", "completed", or "errored".
+	Status *ActionStatus `pulumi:"status"`
+	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+	Type *string `pulumi:"type"`
 }
 
 // Defaults sets the appropriate defaults for GetImageActionResult
@@ -38,8 +53,10 @@ func (val *GetImageActionResult) Defaults() *GetImageActionResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
-
+	if tmp.Status == nil {
+		status_ := ActionStatus("in-progress")
+		tmp.Status = &status_
+	}
 	return &tmp
 }
 
@@ -81,8 +98,67 @@ func (o GetImageActionResultOutput) ToGetImageActionResultOutputWithContext(ctx 
 	return o
 }
 
-func (o GetImageActionResultOutput) Items() ActionOutput {
-	return o.ApplyT(func(v GetImageActionResult) Action { return v.Items }).(ActionOutput)
+// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+func (o GetImageActionResultOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
+}
+
+// A unique numeric ID that can be used to identify and reference an action.
+func (o GetImageActionResultOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o GetImageActionResultOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *Region { return v.Region }).(RegionPtrOutput)
+}
+
+func (o GetImageActionResultOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *ActionRegionSlug { return v.RegionSlug }).(ActionRegionSlugPtrOutput)
+}
+
+// A unique identifier for the resource that the action is associated with.
+func (o GetImageActionResultOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *int { return v.ResourceId }).(pulumi.IntPtrOutput)
+}
+
+// The type of resource that the action is associated with.
+func (o GetImageActionResultOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+func (o GetImageActionResultOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the action. This can be "in-progress", "completed", or "errored".
+func (o GetImageActionResultOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
+}
+
+// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+func (o GetImageActionResultOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImageActionResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GetImageActionResultArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageActionResultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageActionResult)(nil)).Elem()
+}
+
+func (o GetImageActionResultArrayOutput) ToGetImageActionResultArrayOutput() GetImageActionResultArrayOutput {
+	return o
+}
+
+func (o GetImageActionResultArrayOutput) ToGetImageActionResultArrayOutputWithContext(ctx context.Context) GetImageActionResultArrayOutput {
+	return o
+}
+
+func (o GetImageActionResultArrayOutput) Index(i pulumi.IntInput) GetImageActionResultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageActionResult {
+		return vs[0].([]GetImageActionResult)[vs[1].(int)]
+	}).(GetImageActionResultOutput)
 }
 
 func init() {

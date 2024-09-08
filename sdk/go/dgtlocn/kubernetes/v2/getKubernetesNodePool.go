@@ -29,7 +29,7 @@ type LookupKubernetesNodePoolArgs struct {
 }
 
 type LookupKubernetesNodePoolResult struct {
-	Items GetKubernetesNodePoolProperties `pulumi:"items"`
+	NodePool *KubernetesNodePoolType `pulumi:"nodePool"`
 }
 
 func LookupKubernetesNodePoolOutput(ctx *pulumi.Context, args LookupKubernetesNodePoolOutputArgs, opts ...pulumi.InvokeOption) LookupKubernetesNodePoolResultOutput {
@@ -70,8 +70,8 @@ func (o LookupKubernetesNodePoolResultOutput) ToLookupKubernetesNodePoolResultOu
 	return o
 }
 
-func (o LookupKubernetesNodePoolResultOutput) Items() GetKubernetesNodePoolPropertiesOutput {
-	return o.ApplyT(func(v LookupKubernetesNodePoolResult) GetKubernetesNodePoolProperties { return v.Items }).(GetKubernetesNodePoolPropertiesOutput)
+func (o LookupKubernetesNodePoolResultOutput) NodePool() KubernetesNodePoolTypePtrOutput {
+	return o.ApplyT(func(v LookupKubernetesNodePoolResult) *KubernetesNodePoolType { return v.NodePool }).(KubernetesNodePoolTypePtrOutput)
 }
 
 func init() {

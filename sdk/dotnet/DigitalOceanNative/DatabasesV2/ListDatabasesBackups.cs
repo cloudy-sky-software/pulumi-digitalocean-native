@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class ListDatabasesBackups
     {
-        public static Task<ListDatabasesBackupsResult> InvokeAsync(ListDatabasesBackupsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasesBackupsResult>("digitalocean-native:databases/v2:listDatabasesBackups", args ?? new ListDatabasesBackupsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDatabasesBackupsProperties> InvokeAsync(ListDatabasesBackupsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDatabasesBackupsProperties>("digitalocean-native:databases/v2:listDatabasesBackups", args ?? new ListDatabasesBackupsArgs(), options.WithDefaults());
 
-        public static Output<ListDatabasesBackupsResult> Invoke(ListDatabasesBackupsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasesBackupsResult>("digitalocean-native:databases/v2:listDatabasesBackups", args ?? new ListDatabasesBackupsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDatabasesBackupsProperties> Invoke(ListDatabasesBackupsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDatabasesBackupsProperties>("digitalocean-native:databases/v2:listDatabasesBackups", args ?? new ListDatabasesBackupsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new ListDatabasesBackupsInvokeArgs Empty => new ListDatabasesBackupsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDatabasesBackupsResult
-    {
-        public readonly Outputs.ListDatabasesBackupsProperties Items;
-
-        [OutputConstructor]
-        private ListDatabasesBackupsResult(Outputs.ListDatabasesBackupsProperties items)
-        {
-            Items = items;
-        }
     }
 }

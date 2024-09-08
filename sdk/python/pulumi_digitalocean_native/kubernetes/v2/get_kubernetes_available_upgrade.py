@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetKubernetesAvailableUpgradeResult',
-    'AwaitableGetKubernetesAvailableUpgradeResult',
+    'GetKubernetesAvailableUpgradeProperties',
+    'AwaitableGetKubernetesAvailableUpgradeProperties',
     'get_kubernetes_available_upgrade',
     'get_kubernetes_available_upgrade_output',
 ]
 
 @pulumi.output_type
-class GetKubernetesAvailableUpgradeResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetKubernetesAvailableUpgradeProperties:
+    def __init__(__self__, available_upgrade_versions=None):
+        if available_upgrade_versions and not isinstance(available_upgrade_versions, list):
+            raise TypeError("Expected argument 'available_upgrade_versions' to be a list")
+        pulumi.set(__self__, "available_upgrade_versions", available_upgrade_versions)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.GetKubernetesAvailableUpgradeProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="availableUpgradeVersions")
+    def available_upgrade_versions(self) -> Optional[Sequence['outputs.KubernetesVersion']]:
+        return pulumi.get(self, "available_upgrade_versions")
 
 
-class AwaitableGetKubernetesAvailableUpgradeResult(GetKubernetesAvailableUpgradeResult):
+class AwaitableGetKubernetesAvailableUpgradeProperties(GetKubernetesAvailableUpgradeProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetKubernetesAvailableUpgradeResult(
-            items=self.items)
+        return GetKubernetesAvailableUpgradeProperties(
+            available_upgrade_versions=self.available_upgrade_versions)
 
 
 def get_kubernetes_available_upgrade(cluster_id: Optional[str] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesAvailableUpgradeResult:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesAvailableUpgradeProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_kubernetes_available_upgrade(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade', __args__, opts=opts, typ=GetKubernetesAvailableUpgradeResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade', __args__, opts=opts, typ=GetKubernetesAvailableUpgradeProperties).value
 
-    return AwaitableGetKubernetesAvailableUpgradeResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetKubernetesAvailableUpgradeProperties(
+        available_upgrade_versions=pulumi.get(__ret__, 'available_upgrade_versions'))
 
 
 @_utilities.lift_output_func(get_kubernetes_available_upgrade)
 def get_kubernetes_available_upgrade_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesAvailableUpgradeResult]:
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesAvailableUpgradeProperties]:
     """
     Use this data source to access information about an existing resource.
 

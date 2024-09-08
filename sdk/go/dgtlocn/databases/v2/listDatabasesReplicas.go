@@ -27,7 +27,7 @@ type ListDatabasesReplicasArgs struct {
 }
 
 type ListDatabasesReplicasResult struct {
-	Items ListDatabasesReplicasProperties `pulumi:"items"`
+	Replicas []DatabaseReplica `pulumi:"replicas"`
 }
 
 func ListDatabasesReplicasOutput(ctx *pulumi.Context, args ListDatabasesReplicasOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesReplicasResultOutput {
@@ -66,8 +66,8 @@ func (o ListDatabasesReplicasResultOutput) ToListDatabasesReplicasResultOutputWi
 	return o
 }
 
-func (o ListDatabasesReplicasResultOutput) Items() ListDatabasesReplicasPropertiesOutput {
-	return o.ApplyT(func(v ListDatabasesReplicasResult) ListDatabasesReplicasProperties { return v.Items }).(ListDatabasesReplicasPropertiesOutput)
+func (o ListDatabasesReplicasResultOutput) Replicas() DatabaseReplicaArrayOutput {
+	return o.ApplyT(func(v ListDatabasesReplicasResult) []DatabaseReplica { return v.Replicas }).(DatabaseReplicaArrayOutput)
 }
 
 func init() {

@@ -6,53 +6,63 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListDatabasesOptionsResult',
-    'AwaitableListDatabasesOptionsResult',
+    'Options',
+    'AwaitableOptions',
     'list_databases_options',
     'list_databases_options_output',
 ]
 
 @pulumi.output_type
-class ListDatabasesOptionsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class Options:
+    def __init__(__self__, options=None, version_availability=None):
+        if options and not isinstance(options, dict):
+            raise TypeError("Expected argument 'options' to be a dict")
+        pulumi.set(__self__, "options", options)
+        if version_availability and not isinstance(version_availability, dict):
+            raise TypeError("Expected argument 'version_availability' to be a dict")
+        pulumi.set(__self__, "version_availability", version_availability)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.Options':
-        return pulumi.get(self, "items")
+    def options(self) -> Optional['outputs.OptionsOptionsProperties']:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="versionAvailability")
+    def version_availability(self) -> Optional['outputs.OptionsVersionAvailabilityProperties']:
+        return pulumi.get(self, "version_availability")
 
 
-class AwaitableListDatabasesOptionsResult(ListDatabasesOptionsResult):
+class AwaitableOptions(Options):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDatabasesOptionsResult(
-            items=self.items)
+        return Options(
+            options=self.options,
+            version_availability=self.version_availability)
 
 
-def list_databases_options(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabasesOptionsResult:
+def list_databases_options(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableOptions:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabasesOptions', __args__, opts=opts, typ=ListDatabasesOptionsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:listDatabasesOptions', __args__, opts=opts, typ=Options).value
 
-    return AwaitableListDatabasesOptionsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableOptions(
+        options=pulumi.get(__ret__, 'options'),
+        version_availability=pulumi.get(__ret__, 'version_availability'))
 
 
 @_utilities.lift_output_func(list_databases_options)
-def list_databases_options_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesOptionsResult]:
+def list_databases_options_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Options]:
     """
     Use this data source to access information about an existing resource.
     """

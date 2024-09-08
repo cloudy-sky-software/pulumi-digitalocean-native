@@ -27,7 +27,7 @@ type ListDatabasesFirewallRulesArgs struct {
 }
 
 type ListDatabasesFirewallRulesResult struct {
-	Items ListDatabasesFirewallRulesProperties `pulumi:"items"`
+	Rules []FirewallRule `pulumi:"rules"`
 }
 
 func ListDatabasesFirewallRulesOutput(ctx *pulumi.Context, args ListDatabasesFirewallRulesOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesFirewallRulesResultOutput {
@@ -66,8 +66,8 @@ func (o ListDatabasesFirewallRulesResultOutput) ToListDatabasesFirewallRulesResu
 	return o
 }
 
-func (o ListDatabasesFirewallRulesResultOutput) Items() ListDatabasesFirewallRulesPropertiesOutput {
-	return o.ApplyT(func(v ListDatabasesFirewallRulesResult) ListDatabasesFirewallRulesProperties { return v.Items }).(ListDatabasesFirewallRulesPropertiesOutput)
+func (o ListDatabasesFirewallRulesResultOutput) Rules() FirewallRuleArrayOutput {
+	return o.ApplyT(func(v ListDatabasesFirewallRulesResult) []FirewallRule { return v.Rules }).(FirewallRuleArrayOutput)
 }
 
 func init() {

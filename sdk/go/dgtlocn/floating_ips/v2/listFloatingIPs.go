@@ -25,7 +25,9 @@ type ListFloatingIPsArgs struct {
 }
 
 type ListFloatingIPsResult struct {
-	Items ListFloatingIPsItems `pulumi:"items"`
+	FloatingIps []FloatingIpType `pulumi:"floatingIps"`
+	Links       *PageLinks       `pulumi:"links"`
+	Meta        MetaMeta         `pulumi:"meta"`
 }
 
 func ListFloatingIPsOutput(ctx *pulumi.Context, args ListFloatingIPsOutputArgs, opts ...pulumi.InvokeOption) ListFloatingIPsResultOutput {
@@ -62,8 +64,16 @@ func (o ListFloatingIPsResultOutput) ToListFloatingIPsResultOutputWithContext(ct
 	return o
 }
 
-func (o ListFloatingIPsResultOutput) Items() ListFloatingIPsItemsOutput {
-	return o.ApplyT(func(v ListFloatingIPsResult) ListFloatingIPsItems { return v.Items }).(ListFloatingIPsItemsOutput)
+func (o ListFloatingIPsResultOutput) FloatingIps() FloatingIpTypeArrayOutput {
+	return o.ApplyT(func(v ListFloatingIPsResult) []FloatingIpType { return v.FloatingIps }).(FloatingIpTypeArrayOutput)
+}
+
+func (o ListFloatingIPsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListFloatingIPsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListFloatingIPsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListFloatingIPsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

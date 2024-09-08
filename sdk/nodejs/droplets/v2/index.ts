@@ -30,57 +30,57 @@ export type EnableIpv6 = import("./enableIpv6").EnableIpv6;
 export const EnableIpv6: typeof import("./enableIpv6").EnableIpv6 = null as any;
 utilities.lazyLoad(exports, ["EnableIpv6"], () => require("./enableIpv6"));
 
-export { GetDropletArgs, GetDropletResult, GetDropletOutputArgs } from "./getDroplet";
+export { GetDropletArgs, GetDropletOutputArgs } from "./getDroplet";
 export const getDroplet: typeof import("./getDroplet").getDroplet = null as any;
 export const getDropletOutput: typeof import("./getDroplet").getDropletOutput = null as any;
 utilities.lazyLoad(exports, ["getDroplet","getDropletOutput"], () => require("./getDroplet"));
 
-export { GetDropletActionArgs, GetDropletActionResult, GetDropletActionOutputArgs } from "./getDropletAction";
+export { GetDropletActionArgs, GetDropletActionOutputArgs } from "./getDropletAction";
 export const getDropletAction: typeof import("./getDropletAction").getDropletAction = null as any;
 export const getDropletActionOutput: typeof import("./getDropletAction").getDropletActionOutput = null as any;
 utilities.lazyLoad(exports, ["getDropletAction","getDropletActionOutput"], () => require("./getDropletAction"));
 
-export { GetDropletsDestroyAssociatedResourcesStatuArgs, GetDropletsDestroyAssociatedResourcesStatuResult, GetDropletsDestroyAssociatedResourcesStatuOutputArgs } from "./getDropletsDestroyAssociatedResourcesStatu";
+export { GetDropletsDestroyAssociatedResourcesStatuArgs, GetDropletsDestroyAssociatedResourcesStatuOutputArgs } from "./getDropletsDestroyAssociatedResourcesStatu";
 export const getDropletsDestroyAssociatedResourcesStatu: typeof import("./getDropletsDestroyAssociatedResourcesStatu").getDropletsDestroyAssociatedResourcesStatu = null as any;
 export const getDropletsDestroyAssociatedResourcesStatuOutput: typeof import("./getDropletsDestroyAssociatedResourcesStatu").getDropletsDestroyAssociatedResourcesStatuOutput = null as any;
 utilities.lazyLoad(exports, ["getDropletsDestroyAssociatedResourcesStatu","getDropletsDestroyAssociatedResourcesStatuOutput"], () => require("./getDropletsDestroyAssociatedResourcesStatu"));
 
-export { ListDropletActionsArgs, ListDropletActionsResult, ListDropletActionsOutputArgs } from "./listDropletActions";
+export { ListDropletActionsArgs, ListDropletActionsOutputArgs } from "./listDropletActions";
 export const listDropletActions: typeof import("./listDropletActions").listDropletActions = null as any;
 export const listDropletActionsOutput: typeof import("./listDropletActions").listDropletActionsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletActions","listDropletActionsOutput"], () => require("./listDropletActions"));
 
-export { ListDropletsArgs, ListDropletsResult } from "./listDroplets";
+export { ListDropletsArgs } from "./listDroplets";
 export const listDroplets: typeof import("./listDroplets").listDroplets = null as any;
 export const listDropletsOutput: typeof import("./listDroplets").listDropletsOutput = null as any;
 utilities.lazyLoad(exports, ["listDroplets","listDropletsOutput"], () => require("./listDroplets"));
 
-export { ListDropletsAssociatedResourcesArgs, ListDropletsAssociatedResourcesResult, ListDropletsAssociatedResourcesOutputArgs } from "./listDropletsAssociatedResources";
+export { ListDropletsAssociatedResourcesArgs, ListDropletsAssociatedResourcesOutputArgs } from "./listDropletsAssociatedResources";
 export const listDropletsAssociatedResources: typeof import("./listDropletsAssociatedResources").listDropletsAssociatedResources = null as any;
 export const listDropletsAssociatedResourcesOutput: typeof import("./listDropletsAssociatedResources").listDropletsAssociatedResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsAssociatedResources","listDropletsAssociatedResourcesOutput"], () => require("./listDropletsAssociatedResources"));
 
-export { ListDropletsBackupsArgs, ListDropletsBackupsResult, ListDropletsBackupsOutputArgs } from "./listDropletsBackups";
+export { ListDropletsBackupsArgs, ListDropletsBackupsOutputArgs } from "./listDropletsBackups";
 export const listDropletsBackups: typeof import("./listDropletsBackups").listDropletsBackups = null as any;
 export const listDropletsBackupsOutput: typeof import("./listDropletsBackups").listDropletsBackupsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsBackups","listDropletsBackupsOutput"], () => require("./listDropletsBackups"));
 
-export { ListDropletsFirewallsArgs, ListDropletsFirewallsResult, ListDropletsFirewallsOutputArgs } from "./listDropletsFirewalls";
+export { ListDropletsFirewallsArgs, ListDropletsFirewallsOutputArgs } from "./listDropletsFirewalls";
 export const listDropletsFirewalls: typeof import("./listDropletsFirewalls").listDropletsFirewalls = null as any;
 export const listDropletsFirewallsOutput: typeof import("./listDropletsFirewalls").listDropletsFirewallsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsFirewalls","listDropletsFirewallsOutput"], () => require("./listDropletsFirewalls"));
 
-export { ListDropletsKernelsArgs, ListDropletsKernelsResult, ListDropletsKernelsOutputArgs } from "./listDropletsKernels";
+export { ListDropletsKernelsArgs, ListDropletsKernelsOutputArgs } from "./listDropletsKernels";
 export const listDropletsKernels: typeof import("./listDropletsKernels").listDropletsKernels = null as any;
 export const listDropletsKernelsOutput: typeof import("./listDropletsKernels").listDropletsKernelsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsKernels","listDropletsKernelsOutput"], () => require("./listDropletsKernels"));
 
-export { ListDropletsNeighborsArgs, ListDropletsNeighborsResult, ListDropletsNeighborsOutputArgs } from "./listDropletsNeighbors";
+export { ListDropletsNeighborsArgs, ListDropletsNeighborsOutputArgs } from "./listDropletsNeighbors";
 export const listDropletsNeighbors: typeof import("./listDropletsNeighbors").listDropletsNeighbors = null as any;
 export const listDropletsNeighborsOutput: typeof import("./listDropletsNeighbors").listDropletsNeighborsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsNeighbors","listDropletsNeighborsOutput"], () => require("./listDropletsNeighbors"));
 
-export { ListDropletsSnapshotsArgs, ListDropletsSnapshotsResult, ListDropletsSnapshotsOutputArgs } from "./listDropletsSnapshots";
+export { ListDropletsSnapshotsArgs, ListDropletsSnapshotsOutputArgs } from "./listDropletsSnapshots";
 export const listDropletsSnapshots: typeof import("./listDropletsSnapshots").listDropletsSnapshots = null as any;
 export const listDropletsSnapshotsOutput: typeof import("./listDropletsSnapshots").listDropletsSnapshotsOutput = null as any;
 utilities.lazyLoad(exports, ["listDropletsSnapshots","listDropletsSnapshotsOutput"], () => require("./listDropletsSnapshots"));

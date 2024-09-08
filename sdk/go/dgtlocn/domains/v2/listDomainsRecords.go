@@ -27,7 +27,9 @@ type ListDomainsRecordsArgs struct {
 }
 
 type ListDomainsRecordsResult struct {
-	Items ListDomainsRecordsItems `pulumi:"items"`
+	DomainRecords []DomainRecord `pulumi:"domainRecords"`
+	Links         *PageLinks     `pulumi:"links"`
+	Meta          MetaMeta       `pulumi:"meta"`
 }
 
 func ListDomainsRecordsOutput(ctx *pulumi.Context, args ListDomainsRecordsOutputArgs, opts ...pulumi.InvokeOption) ListDomainsRecordsResultOutput {
@@ -66,8 +68,16 @@ func (o ListDomainsRecordsResultOutput) ToListDomainsRecordsResultOutputWithCont
 	return o
 }
 
-func (o ListDomainsRecordsResultOutput) Items() ListDomainsRecordsItemsOutput {
-	return o.ApplyT(func(v ListDomainsRecordsResult) ListDomainsRecordsItems { return v.Items }).(ListDomainsRecordsItemsOutput)
+func (o ListDomainsRecordsResultOutput) DomainRecords() DomainRecordArrayOutput {
+	return o.ApplyT(func(v ListDomainsRecordsResult) []DomainRecord { return v.DomainRecords }).(DomainRecordArrayOutput)
+}
+
+func (o ListDomainsRecordsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDomainsRecordsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListDomainsRecordsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDomainsRecordsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

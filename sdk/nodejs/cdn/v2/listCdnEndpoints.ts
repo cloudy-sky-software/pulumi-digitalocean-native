@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listCdnEndpoints(args?: ListCdnEndpointsArgs, opts?: pulumi.InvokeOptions): Promise<ListCdnEndpointsResult> {
+export function listCdnEndpoints(args?: ListCdnEndpointsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.cdn.v2.ListCdnEndpointsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listCdnEndpoints(args?: ListCdnEndpointsArgs, opts?: pulumi.Invo
 
 export interface ListCdnEndpointsArgs {
 }
-
-export interface ListCdnEndpointsResult {
-    readonly items: outputs.cdn.v2.ListCdnEndpointsItems;
-}
-export function listCdnEndpointsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListCdnEndpointsResult> {
+export function listCdnEndpointsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.cdn.v2.ListCdnEndpointsItems> {
     return pulumi.output(listCdnEndpoints(opts))
 }

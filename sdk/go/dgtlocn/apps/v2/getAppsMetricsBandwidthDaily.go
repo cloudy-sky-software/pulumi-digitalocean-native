@@ -27,7 +27,10 @@ type GetAppsMetricsBandwidthDailyArgs struct {
 }
 
 type GetAppsMetricsBandwidthDailyResult struct {
-	Items AppMetricsBandwidthUsage `pulumi:"items"`
+	// A list of bandwidth usage details by app.
+	AppBandwidthUsage []AppMetricsBandwidthUsageDetails `pulumi:"appBandwidthUsage"`
+	// The date for the metrics data.
+	Date *string `pulumi:"date"`
 }
 
 func GetAppsMetricsBandwidthDailyOutput(ctx *pulumi.Context, args GetAppsMetricsBandwidthDailyOutputArgs, opts ...pulumi.InvokeOption) GetAppsMetricsBandwidthDailyResultOutput {
@@ -66,8 +69,16 @@ func (o GetAppsMetricsBandwidthDailyResultOutput) ToGetAppsMetricsBandwidthDaily
 	return o
 }
 
-func (o GetAppsMetricsBandwidthDailyResultOutput) Items() AppMetricsBandwidthUsageOutput {
-	return o.ApplyT(func(v GetAppsMetricsBandwidthDailyResult) AppMetricsBandwidthUsage { return v.Items }).(AppMetricsBandwidthUsageOutput)
+// A list of bandwidth usage details by app.
+func (o GetAppsMetricsBandwidthDailyResultOutput) AppBandwidthUsage() AppMetricsBandwidthUsageDetailsArrayOutput {
+	return o.ApplyT(func(v GetAppsMetricsBandwidthDailyResult) []AppMetricsBandwidthUsageDetails {
+		return v.AppBandwidthUsage
+	}).(AppMetricsBandwidthUsageDetailsArrayOutput)
+}
+
+// The date for the metrics data.
+func (o GetAppsMetricsBandwidthDailyResultOutput) Date() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppsMetricsBandwidthDailyResult) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
 func init() {

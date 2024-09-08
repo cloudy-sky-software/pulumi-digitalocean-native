@@ -25,7 +25,7 @@ type LookupRegistryArgs struct {
 }
 
 type LookupRegistryResult struct {
-	Items GetRegistryProperties `pulumi:"items"`
+	Registry *RegistryType `pulumi:"registry"`
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
@@ -62,8 +62,8 @@ func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupRegistryResultOutput) Items() GetRegistryPropertiesOutput {
-	return o.ApplyT(func(v LookupRegistryResult) GetRegistryProperties { return v.Items }).(GetRegistryPropertiesOutput)
+func (o LookupRegistryResultOutput) Registry() RegistryTypePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *RegistryType { return v.Registry }).(RegistryTypePtrOutput)
 }
 
 func init() {

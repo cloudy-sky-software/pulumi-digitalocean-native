@@ -25,7 +25,10 @@ type ListVolumesArgs struct {
 }
 
 type ListVolumesResult struct {
-	Items ListVolumesItems `pulumi:"items"`
+	Links *PageLinks `pulumi:"links"`
+	Meta  MetaMeta   `pulumi:"meta"`
+	// Array of volumes.
+	Volumes []VolumeFull `pulumi:"volumes"`
 }
 
 func ListVolumesOutput(ctx *pulumi.Context, args ListVolumesOutputArgs, opts ...pulumi.InvokeOption) ListVolumesResultOutput {
@@ -62,8 +65,17 @@ func (o ListVolumesResultOutput) ToListVolumesResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListVolumesResultOutput) Items() ListVolumesItemsOutput {
-	return o.ApplyT(func(v ListVolumesResult) ListVolumesItems { return v.Items }).(ListVolumesItemsOutput)
+func (o ListVolumesResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListVolumesResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListVolumesResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListVolumesResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+// Array of volumes.
+func (o ListVolumesResultOutput) Volumes() VolumeFullArrayOutput {
+	return o.ApplyT(func(v ListVolumesResult) []VolumeFull { return v.Volumes }).(VolumeFullArrayOutput)
 }
 
 func init() {

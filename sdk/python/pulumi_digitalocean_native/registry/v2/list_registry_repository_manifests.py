@@ -6,42 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListRegistryRepositoryManifestsResult',
-    'AwaitableListRegistryRepositoryManifestsResult',
+    'ListRegistryRepositoryManifestsItems',
+    'AwaitableListRegistryRepositoryManifestsItems',
     'list_registry_repository_manifests',
     'list_registry_repository_manifests_output',
 ]
 
 @pulumi.output_type
-class ListRegistryRepositoryManifestsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListRegistryRepositoryManifestsItems:
+    def __init__(__self__, links=None, manifests=None, meta=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if manifests and not isinstance(manifests, list):
+            raise TypeError("Expected argument 'manifests' to be a list")
+        pulumi.set(__self__, "manifests", manifests)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegistryRepositoryManifestsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def manifests(self) -> Optional[Sequence['outputs.RepositoryManifest']]:
+        return pulumi.get(self, "manifests")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListRegistryRepositoryManifestsResult(ListRegistryRepositoryManifestsResult):
+class AwaitableListRegistryRepositoryManifestsItems(ListRegistryRepositoryManifestsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListRegistryRepositoryManifestsResult(
-            items=self.items)
+        return ListRegistryRepositoryManifestsItems(
+            links=self.links,
+            manifests=self.manifests,
+            meta=self.meta)
 
 
 def list_registry_repository_manifests(registry_name: Optional[str] = None,
                                        repository_name: Optional[str] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryRepositoryManifestsResult:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryRepositoryManifestsItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +70,18 @@ def list_registry_repository_manifests(registry_name: Optional[str] = None,
     __args__['registryName'] = registry_name
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:listRegistryRepositoryManifests', __args__, opts=opts, typ=ListRegistryRepositoryManifestsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:listRegistryRepositoryManifests', __args__, opts=opts, typ=ListRegistryRepositoryManifestsItems).value
 
-    return AwaitableListRegistryRepositoryManifestsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListRegistryRepositoryManifestsItems(
+        links=pulumi.get(__ret__, 'links'),
+        manifests=pulumi.get(__ret__, 'manifests'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_registry_repository_manifests)
 def list_registry_repository_manifests_output(registry_name: Optional[pulumi.Input[str]] = None,
                                               repository_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryManifestsResult]:
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryManifestsItems]:
     """
     Use this data source to access information about an existing resource.
 

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
 {
     public static class ListBillingHistory
     {
-        public static Task<ListBillingHistoryResult> InvokeAsync(ListBillingHistoryArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListBillingHistoryResult>("digitalocean-native:customers/v2:listBillingHistory", args ?? new ListBillingHistoryArgs(), options.WithDefaults());
+        public static Task<Outputs.ListBillingHistoryItems> InvokeAsync(ListBillingHistoryArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListBillingHistoryItems>("digitalocean-native:customers/v2:listBillingHistory", args ?? new ListBillingHistoryArgs(), options.WithDefaults());
 
-        public static Output<ListBillingHistoryResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListBillingHistoryResult>("digitalocean-native:customers/v2:listBillingHistory", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListBillingHistoryItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListBillingHistoryItems>("digitalocean-native:customers/v2:listBillingHistory", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
         {
         }
         public static new ListBillingHistoryArgs Empty => new ListBillingHistoryArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListBillingHistoryResult
-    {
-        public readonly Outputs.ListBillingHistoryItems Items;
-
-        [OutputConstructor]
-        private ListBillingHistoryResult(Outputs.ListBillingHistoryItems items)
-        {
-            Items = items;
-        }
     }
 }

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
 {
     public static class ListDomainsRecords
     {
-        public static Task<ListDomainsRecordsResult> InvokeAsync(ListDomainsRecordsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainsRecordsResult>("digitalocean-native:domains/v2:listDomainsRecords", args ?? new ListDomainsRecordsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDomainsRecordsItems> InvokeAsync(ListDomainsRecordsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDomainsRecordsItems>("digitalocean-native:domains/v2:listDomainsRecords", args ?? new ListDomainsRecordsArgs(), options.WithDefaults());
 
-        public static Output<ListDomainsRecordsResult> Invoke(ListDomainsRecordsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDomainsRecordsResult>("digitalocean-native:domains/v2:listDomainsRecords", args ?? new ListDomainsRecordsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDomainsRecordsItems> Invoke(ListDomainsRecordsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDomainsRecordsItems>("digitalocean-native:domains/v2:listDomainsRecords", args ?? new ListDomainsRecordsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
         {
         }
         public static new ListDomainsRecordsInvokeArgs Empty => new ListDomainsRecordsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDomainsRecordsResult
-    {
-        public readonly Outputs.ListDomainsRecordsItems Items;
-
-        [OutputConstructor]
-        private ListDomainsRecordsResult(Outputs.ListDomainsRecordsItems items)
-        {
-            Items = items;
-        }
     }
 }

@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetFirewallResult',
-    'AwaitableGetFirewallResult',
+    'GetFirewallProperties',
+    'AwaitableGetFirewallProperties',
     'get_firewall',
     'get_firewall_output',
 ]
 
 @pulumi.output_type
-class GetFirewallResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetFirewallProperties:
+    def __init__(__self__, firewall=None):
+        if firewall and not isinstance(firewall, dict):
+            raise TypeError("Expected argument 'firewall' to be a dict")
+        pulumi.set(__self__, "firewall", firewall)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetFirewallProperties':
-        return pulumi.get(self, "items")
+    def firewall(self) -> Optional['outputs.Firewall']:
+        return pulumi.get(self, "firewall")
 
 
-class AwaitableGetFirewallResult(GetFirewallResult):
+class AwaitableGetFirewallProperties(GetFirewallProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetFirewallResult(
-            items=self.items)
+        return GetFirewallProperties(
+            firewall=self.firewall)
 
 
 def get_firewall(firewall_id: Optional[str] = None,
-                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_firewall(firewall_id: Optional[str] = None,
     __args__ = dict()
     __args__['firewallId'] = firewall_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:firewalls/v2:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:firewalls/v2:getFirewall', __args__, opts=opts, typ=GetFirewallProperties).value
 
-    return AwaitableGetFirewallResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetFirewallProperties(
+        firewall=pulumi.get(__ret__, 'firewall'))
 
 
 @_utilities.lift_output_func(get_firewall)
 def get_firewall_output(firewall_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallProperties]:
     """
     Use this data source to access information about an existing resource.
 

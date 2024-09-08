@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetSshKeyResult',
-    'AwaitableGetSshKeyResult',
+    'GetSshKeyProperties',
+    'AwaitableGetSshKeyProperties',
     'get_ssh_key',
     'get_ssh_key_output',
 ]
 
 @pulumi.output_type
-class GetSshKeyResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetSshKeyProperties:
+    def __init__(__self__, ssh_key=None):
+        if ssh_key and not isinstance(ssh_key, dict):
+            raise TypeError("Expected argument 'ssh_key' to be a dict")
+        pulumi.set(__self__, "ssh_key", ssh_key)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.GetSshKeyProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="sshKey")
+    def ssh_key(self) -> Optional['outputs.SshKeys']:
+        return pulumi.get(self, "ssh_key")
 
 
-class AwaitableGetSshKeyResult(GetSshKeyResult):
+class AwaitableGetSshKeyProperties(GetSshKeyProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSshKeyResult(
-            items=self.items)
+        return GetSshKeyProperties(
+            ssh_key=self.ssh_key)
 
 
 def get_ssh_key(ssh_key_identifier: Optional[str] = None,
-                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeyResult:
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshKeyProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_ssh_key(ssh_key_identifier: Optional[str] = None,
     __args__ = dict()
     __args__['sshKeyIdentifier'] = ssh_key_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:account/v2:getSshKey', __args__, opts=opts, typ=GetSshKeyResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:account/v2:getSshKey', __args__, opts=opts, typ=GetSshKeyProperties).value
 
-    return AwaitableGetSshKeyResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetSshKeyProperties(
+        ssh_key=pulumi.get(__ret__, 'ssh_key'))
 
 
 @_utilities.lift_output_func(get_ssh_key)
 def get_ssh_key_output(ssh_key_identifier: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyProperties]:
     """
     Use this data source to access information about an existing resource.
 

@@ -26,8 +26,16 @@ type GetDropletsDestroyAssociatedResourcesStatuArgs struct {
 	DropletId string `pulumi:"dropletId"`
 }
 
+// An objects containing information about a resources scheduled for deletion.
 type GetDropletsDestroyAssociatedResourcesStatuResult struct {
-	Items AssociatedResourceStatus `pulumi:"items"`
+	// A time value given in ISO8601 combined date and time format indicating when the requested action was completed.
+	CompletedAt *string `pulumi:"completedAt"`
+	// An object containing information about a resource scheduled for deletion.
+	Droplet *DestroyedAssociatedResource `pulumi:"droplet"`
+	// A count of the associated resources that failed to be destroyed, if any.
+	Failures *int `pulumi:"failures"`
+	// An object containing additional information about resource related to a Droplet requested to be destroyed.
+	Resources *AssociatedResourceStatusResourcesProperties `pulumi:"resources"`
 }
 
 func GetDropletsDestroyAssociatedResourcesStatuOutput(ctx *pulumi.Context, args GetDropletsDestroyAssociatedResourcesStatuOutputArgs, opts ...pulumi.InvokeOption) GetDropletsDestroyAssociatedResourcesStatuResultOutput {
@@ -52,6 +60,7 @@ func (GetDropletsDestroyAssociatedResourcesStatuOutputArgs) ElementType() reflec
 	return reflect.TypeOf((*GetDropletsDestroyAssociatedResourcesStatuArgs)(nil)).Elem()
 }
 
+// An objects containing information about a resources scheduled for deletion.
 type GetDropletsDestroyAssociatedResourcesStatuResultOutput struct{ *pulumi.OutputState }
 
 func (GetDropletsDestroyAssociatedResourcesStatuResultOutput) ElementType() reflect.Type {
@@ -66,8 +75,28 @@ func (o GetDropletsDestroyAssociatedResourcesStatuResultOutput) ToGetDropletsDes
 	return o
 }
 
-func (o GetDropletsDestroyAssociatedResourcesStatuResultOutput) Items() AssociatedResourceStatusOutput {
-	return o.ApplyT(func(v GetDropletsDestroyAssociatedResourcesStatuResult) AssociatedResourceStatus { return v.Items }).(AssociatedResourceStatusOutput)
+// A time value given in ISO8601 combined date and time format indicating when the requested action was completed.
+func (o GetDropletsDestroyAssociatedResourcesStatuResultOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDropletsDestroyAssociatedResourcesStatuResult) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
+}
+
+// An object containing information about a resource scheduled for deletion.
+func (o GetDropletsDestroyAssociatedResourcesStatuResultOutput) Droplet() DestroyedAssociatedResourcePtrOutput {
+	return o.ApplyT(func(v GetDropletsDestroyAssociatedResourcesStatuResult) *DestroyedAssociatedResource {
+		return v.Droplet
+	}).(DestroyedAssociatedResourcePtrOutput)
+}
+
+// A count of the associated resources that failed to be destroyed, if any.
+func (o GetDropletsDestroyAssociatedResourcesStatuResultOutput) Failures() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDropletsDestroyAssociatedResourcesStatuResult) *int { return v.Failures }).(pulumi.IntPtrOutput)
+}
+
+// An object containing additional information about resource related to a Droplet requested to be destroyed.
+func (o GetDropletsDestroyAssociatedResourcesStatuResultOutput) Resources() AssociatedResourceStatusResourcesPropertiesPtrOutput {
+	return o.ApplyT(func(v GetDropletsDestroyAssociatedResourcesStatuResult) *AssociatedResourceStatusResourcesProperties {
+		return v.Resources
+	}).(AssociatedResourceStatusResourcesPropertiesPtrOutput)
 }
 
 func init() {

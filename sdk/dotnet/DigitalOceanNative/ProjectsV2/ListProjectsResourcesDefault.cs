@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
 {
     public static class ListProjectsResourcesDefault
     {
-        public static Task<ListProjectsResourcesDefaultResult> InvokeAsync(ListProjectsResourcesDefaultArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListProjectsResourcesDefaultResult>("digitalocean-native:projects/v2:listProjectsResourcesDefault", args ?? new ListProjectsResourcesDefaultArgs(), options.WithDefaults());
+        public static Task<Outputs.ListProjectsResourcesDefaultItems> InvokeAsync(ListProjectsResourcesDefaultArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListProjectsResourcesDefaultItems>("digitalocean-native:projects/v2:listProjectsResourcesDefault", args ?? new ListProjectsResourcesDefaultArgs(), options.WithDefaults());
 
-        public static Output<ListProjectsResourcesDefaultResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListProjectsResourcesDefaultResult>("digitalocean-native:projects/v2:listProjectsResourcesDefault", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListProjectsResourcesDefaultItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListProjectsResourcesDefaultItems>("digitalocean-native:projects/v2:listProjectsResourcesDefault", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
         {
         }
         public static new ListProjectsResourcesDefaultArgs Empty => new ListProjectsResourcesDefaultArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListProjectsResourcesDefaultResult
-    {
-        public readonly Outputs.ListProjectsResourcesDefaultItems Items;
-
-        [OutputConstructor]
-        private ListProjectsResourcesDefaultResult(Outputs.ListProjectsResourcesDefaultItems items)
-        {
-            Items = items;
-        }
     }
 }

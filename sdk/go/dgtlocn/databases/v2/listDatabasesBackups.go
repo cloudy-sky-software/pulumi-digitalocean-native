@@ -27,7 +27,7 @@ type ListDatabasesBackupsArgs struct {
 }
 
 type ListDatabasesBackupsResult struct {
-	Items ListDatabasesBackupsProperties `pulumi:"items"`
+	Backups []Backup `pulumi:"backups"`
 }
 
 func ListDatabasesBackupsOutput(ctx *pulumi.Context, args ListDatabasesBackupsOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesBackupsResultOutput {
@@ -66,8 +66,8 @@ func (o ListDatabasesBackupsResultOutput) ToListDatabasesBackupsResultOutputWith
 	return o
 }
 
-func (o ListDatabasesBackupsResultOutput) Items() ListDatabasesBackupsPropertiesOutput {
-	return o.ApplyT(func(v ListDatabasesBackupsResult) ListDatabasesBackupsProperties { return v.Items }).(ListDatabasesBackupsPropertiesOutput)
+func (o ListDatabasesBackupsResultOutput) Backups() BackupArrayOutput {
+	return o.ApplyT(func(v ListDatabasesBackupsResult) []Backup { return v.Backups }).(BackupArrayOutput)
 }
 
 func init() {

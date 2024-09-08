@@ -27,7 +27,30 @@ type GetKubernetesCredentialArgs struct {
 }
 
 type GetKubernetesCredentialResult struct {
-	Items Credentials `pulumi:"items"`
+	// A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
+	CertificateAuthorityData *string `pulumi:"certificateAuthorityData"`
+	// A base64 encoding of bytes representing the x509 client
+	// certificate data for access the cluster. This is only returned for clusters
+	// without support for token-based authentication.
+	//
+	// Newly created Kubernetes clusters do not return credentials using
+	// certificate-based authentication. For additional information,
+	// [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
+	ClientCertificateData *string `pulumi:"clientCertificateData"`
+	// A base64 encoding of bytes representing the x509 client key
+	// data for access the cluster. This is only returned for clusters without
+	// support for token-based authentication.
+	//
+	// Newly created Kubernetes clusters do not return credentials using
+	// certificate-based authentication. For additional information,
+	// [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
+	ClientKeyData *string `pulumi:"clientKeyData"`
+	// A time value given in ISO8601 combined date and time format that represents when the access token expires.
+	ExpiresAt *string `pulumi:"expiresAt"`
+	// The URL used to access the cluster API server.
+	Server *string `pulumi:"server"`
+	// An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
+	Token *string `pulumi:"token"`
 }
 
 func GetKubernetesCredentialOutput(ctx *pulumi.Context, args GetKubernetesCredentialOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesCredentialResultOutput {
@@ -66,8 +89,46 @@ func (o GetKubernetesCredentialResultOutput) ToGetKubernetesCredentialResultOutp
 	return o
 }
 
-func (o GetKubernetesCredentialResultOutput) Items() CredentialsOutput {
-	return o.ApplyT(func(v GetKubernetesCredentialResult) Credentials { return v.Items }).(CredentialsOutput)
+// A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
+func (o GetKubernetesCredentialResultOutput) CertificateAuthorityData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesCredentialResult) *string { return v.CertificateAuthorityData }).(pulumi.StringPtrOutput)
+}
+
+// A base64 encoding of bytes representing the x509 client
+// certificate data for access the cluster. This is only returned for clusters
+// without support for token-based authentication.
+//
+// Newly created Kubernetes clusters do not return credentials using
+// certificate-based authentication. For additional information,
+// [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
+func (o GetKubernetesCredentialResultOutput) ClientCertificateData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesCredentialResult) *string { return v.ClientCertificateData }).(pulumi.StringPtrOutput)
+}
+
+// A base64 encoding of bytes representing the x509 client key
+// data for access the cluster. This is only returned for clusters without
+// support for token-based authentication.
+//
+// Newly created Kubernetes clusters do not return credentials using
+// certificate-based authentication. For additional information,
+// [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
+func (o GetKubernetesCredentialResultOutput) ClientKeyData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesCredentialResult) *string { return v.ClientKeyData }).(pulumi.StringPtrOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the access token expires.
+func (o GetKubernetesCredentialResultOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesCredentialResult) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
+}
+
+// The URL used to access the cluster API server.
+func (o GetKubernetesCredentialResultOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesCredentialResult) *string { return v.Server }).(pulumi.StringPtrOutput)
+}
+
+// An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
+func (o GetKubernetesCredentialResultOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesCredentialResult) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
 func init() {

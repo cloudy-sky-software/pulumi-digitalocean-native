@@ -6,41 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
-from . import outputs
 
 __all__ = [
-    'GetDatabasesSqlModeResult',
-    'AwaitableGetDatabasesSqlModeResult',
+    'SqlMode',
+    'AwaitableSqlMode',
     'get_databases_sql_mode',
     'get_databases_sql_mode_output',
 ]
 
 @pulumi.output_type
-class GetDatabasesSqlModeResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class SqlMode:
+    def __init__(__self__, sql_mode=None):
+        if sql_mode and not isinstance(sql_mode, str):
+            raise TypeError("Expected argument 'sql_mode' to be a str")
+        pulumi.set(__self__, "sql_mode", sql_mode)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.SqlMode':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="sqlMode")
+    def sql_mode(self) -> str:
+        """
+        A string specifying the configured SQL modes for the MySQL cluster.
+        """
+        return pulumi.get(self, "sql_mode")
 
 
-class AwaitableGetDatabasesSqlModeResult(GetDatabasesSqlModeResult):
+class AwaitableSqlMode(SqlMode):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDatabasesSqlModeResult(
-            items=self.items)
+        return SqlMode(
+            sql_mode=self.sql_mode)
 
 
 def get_databases_sql_mode(database_cluster_uuid: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesSqlModeResult:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableSqlMode:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +51,15 @@ def get_databases_sql_mode(database_cluster_uuid: Optional[str] = None,
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesSqlMode', __args__, opts=opts, typ=GetDatabasesSqlModeResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:databases/v2:getDatabasesSqlMode', __args__, opts=opts, typ=SqlMode).value
 
-    return AwaitableGetDatabasesSqlModeResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableSqlMode(
+        sql_mode=pulumi.get(__ret__, 'sql_mode'))
 
 
 @_utilities.lift_output_func(get_databases_sql_mode)
 def get_databases_sql_mode_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesSqlModeResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[SqlMode]:
     """
     Use this data source to access information about an existing resource.
 

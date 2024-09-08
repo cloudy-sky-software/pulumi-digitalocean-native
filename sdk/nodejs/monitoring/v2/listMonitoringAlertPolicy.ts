@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listMonitoringAlertPolicy(args?: ListMonitoringAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitoringAlertPolicyResult> {
+export function listMonitoringAlertPolicy(args?: ListMonitoringAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.ListMonitoringAlertPolicyItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listMonitoringAlertPolicy(args?: ListMonitoringAlertPolicyArgs, 
 
 export interface ListMonitoringAlertPolicyArgs {
 }
-
-export interface ListMonitoringAlertPolicyResult {
-    readonly items: outputs.monitoring.v2.ListMonitoringAlertPolicyItems;
-}
-export function listMonitoringAlertPolicyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitoringAlertPolicyResult> {
+export function listMonitoringAlertPolicyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.ListMonitoringAlertPolicyItems> {
     return pulumi.output(listMonitoringAlertPolicy(opts))
 }

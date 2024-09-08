@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class ListDatabasesUsers
     {
-        public static Task<ListDatabasesUsersResult> InvokeAsync(ListDatabasesUsersArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasesUsersResult>("digitalocean-native:databases/v2:listDatabasesUsers", args ?? new ListDatabasesUsersArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDatabasesUsersProperties> InvokeAsync(ListDatabasesUsersArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDatabasesUsersProperties>("digitalocean-native:databases/v2:listDatabasesUsers", args ?? new ListDatabasesUsersArgs(), options.WithDefaults());
 
-        public static Output<ListDatabasesUsersResult> Invoke(ListDatabasesUsersInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasesUsersResult>("digitalocean-native:databases/v2:listDatabasesUsers", args ?? new ListDatabasesUsersInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDatabasesUsersProperties> Invoke(ListDatabasesUsersInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDatabasesUsersProperties>("digitalocean-native:databases/v2:listDatabasesUsers", args ?? new ListDatabasesUsersInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new ListDatabasesUsersInvokeArgs Empty => new ListDatabasesUsersInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDatabasesUsersResult
-    {
-        public readonly Outputs.ListDatabasesUsersProperties Items;
-
-        [OutputConstructor]
-        private ListDatabasesUsersResult(Outputs.ListDatabasesUsersProperties items)
-        {
-            Items = items;
-        }
     }
 }

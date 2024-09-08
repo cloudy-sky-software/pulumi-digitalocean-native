@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ListOneClicksArgs, ListOneClicksResult } from "./listOneClicks";
+export { ListOneClicksArgs } from "./listOneClicks";
 export const listOneClicks: typeof import("./listOneClicks").listOneClicks = null as any;
 export const listOneClicksOutput: typeof import("./listOneClicks").listOneClicksOutput = null as any;
 utilities.lazyLoad(exports, ["listOneClicks","listOneClicksOutput"], () => require("./listOneClicks"));

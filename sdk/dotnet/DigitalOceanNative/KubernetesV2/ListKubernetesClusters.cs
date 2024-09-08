@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class ListKubernetesClusters
     {
-        public static Task<ListKubernetesClustersResult> InvokeAsync(ListKubernetesClustersArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListKubernetesClustersResult>("digitalocean-native:kubernetes/v2:listKubernetesClusters", args ?? new ListKubernetesClustersArgs(), options.WithDefaults());
+        public static Task<Outputs.ListKubernetesClustersItems> InvokeAsync(ListKubernetesClustersArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListKubernetesClustersItems>("digitalocean-native:kubernetes/v2:listKubernetesClusters", args ?? new ListKubernetesClustersArgs(), options.WithDefaults());
 
-        public static Output<ListKubernetesClustersResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListKubernetesClustersResult>("digitalocean-native:kubernetes/v2:listKubernetesClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListKubernetesClustersItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListKubernetesClustersItems>("digitalocean-native:kubernetes/v2:listKubernetesClusters", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new ListKubernetesClustersArgs Empty => new ListKubernetesClustersArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListKubernetesClustersResult
-    {
-        public readonly Outputs.ListKubernetesClustersItems Items;
-
-        [OutputConstructor]
-        private ListKubernetesClustersResult(Outputs.ListKubernetesClustersItems items)
-        {
-            Items = items;
-        }
     }
 }

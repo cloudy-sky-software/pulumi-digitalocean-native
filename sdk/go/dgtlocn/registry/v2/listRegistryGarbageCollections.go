@@ -27,7 +27,7 @@ type ListRegistryGarbageCollectionsArgs struct {
 }
 
 type ListRegistryGarbageCollectionsResult struct {
-	Items ListRegistryGarbageCollectionsProperties `pulumi:"items"`
+	GarbageCollections []GarbageCollection `pulumi:"garbageCollections"`
 }
 
 func ListRegistryGarbageCollectionsOutput(ctx *pulumi.Context, args ListRegistryGarbageCollectionsOutputArgs, opts ...pulumi.InvokeOption) ListRegistryGarbageCollectionsResultOutput {
@@ -66,8 +66,8 @@ func (o ListRegistryGarbageCollectionsResultOutput) ToListRegistryGarbageCollect
 	return o
 }
 
-func (o ListRegistryGarbageCollectionsResultOutput) Items() ListRegistryGarbageCollectionsPropertiesOutput {
-	return o.ApplyT(func(v ListRegistryGarbageCollectionsResult) ListRegistryGarbageCollectionsProperties { return v.Items }).(ListRegistryGarbageCollectionsPropertiesOutput)
+func (o ListRegistryGarbageCollectionsResultOutput) GarbageCollections() GarbageCollectionArrayOutput {
+	return o.ApplyT(func(v ListRegistryGarbageCollectionsResult) []GarbageCollection { return v.GarbageCollections }).(GarbageCollectionArrayOutput)
 }
 
 func init() {

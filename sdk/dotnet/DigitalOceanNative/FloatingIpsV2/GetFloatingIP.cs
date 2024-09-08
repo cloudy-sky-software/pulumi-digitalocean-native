@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
 {
     public static class GetFloatingIP
     {
-        public static Task<GetFloatingIPResult> InvokeAsync(GetFloatingIPArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIPResult>("digitalocean-native:floating_ips/v2:getFloatingIP", args ?? new GetFloatingIPArgs(), options.WithDefaults());
+        public static Task<Outputs.GetFloatingIPProperties> InvokeAsync(GetFloatingIPArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetFloatingIPProperties>("digitalocean-native:floating_ips/v2:getFloatingIP", args ?? new GetFloatingIPArgs(), options.WithDefaults());
 
-        public static Output<GetFloatingIPResult> Invoke(GetFloatingIPInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFloatingIPResult>("digitalocean-native:floating_ips/v2:getFloatingIP", args ?? new GetFloatingIPInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetFloatingIPProperties> Invoke(GetFloatingIPInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFloatingIPProperties>("digitalocean-native:floating_ips/v2:getFloatingIP", args ?? new GetFloatingIPInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
         {
         }
         public static new GetFloatingIPInvokeArgs Empty => new GetFloatingIPInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetFloatingIPResult
-    {
-        public readonly Outputs.GetFloatingIPProperties Items;
-
-        [OutputConstructor]
-        private GetFloatingIPResult(Outputs.GetFloatingIPProperties items)
-        {
-            Items = items;
-        }
     }
 }

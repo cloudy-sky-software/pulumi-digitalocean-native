@@ -25,7 +25,7 @@ type ListFunctionsNamespacesArgs struct {
 }
 
 type ListFunctionsNamespacesResult struct {
-	Items ListFunctionsNamespacesItems `pulumi:"items"`
+	Namespaces []NamespaceInfo `pulumi:"namespaces"`
 }
 
 func ListFunctionsNamespacesOutput(ctx *pulumi.Context, args ListFunctionsNamespacesOutputArgs, opts ...pulumi.InvokeOption) ListFunctionsNamespacesResultOutput {
@@ -62,8 +62,8 @@ func (o ListFunctionsNamespacesResultOutput) ToListFunctionsNamespacesResultOutp
 	return o
 }
 
-func (o ListFunctionsNamespacesResultOutput) Items() ListFunctionsNamespacesItemsOutput {
-	return o.ApplyT(func(v ListFunctionsNamespacesResult) ListFunctionsNamespacesItems { return v.Items }).(ListFunctionsNamespacesItemsOutput)
+func (o ListFunctionsNamespacesResultOutput) Namespaces() NamespaceInfoArrayOutput {
+	return o.ApplyT(func(v ListFunctionsNamespacesResult) []NamespaceInfo { return v.Namespaces }).(NamespaceInfoArrayOutput)
 }
 
 func init() {

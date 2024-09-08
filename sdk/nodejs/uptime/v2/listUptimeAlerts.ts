@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listUptimeAlerts(args: ListUptimeAlertsArgs, opts?: pulumi.InvokeOptions): Promise<ListUptimeAlertsResult> {
+export function listUptimeAlerts(args: ListUptimeAlertsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.uptime.v2.ListUptimeAlertsItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:uptime/v2:listUptimeAlerts", {
@@ -21,11 +21,7 @@ export interface ListUptimeAlertsArgs {
      */
     checkId: string;
 }
-
-export interface ListUptimeAlertsResult {
-    readonly items: outputs.uptime.v2.ListUptimeAlertsItems;
-}
-export function listUptimeAlertsOutput(args: ListUptimeAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUptimeAlertsResult> {
+export function listUptimeAlertsOutput(args: ListUptimeAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.ListUptimeAlertsItems> {
     return pulumi.output(args).apply((a: any) => listUptimeAlerts(a, opts))
 }
 

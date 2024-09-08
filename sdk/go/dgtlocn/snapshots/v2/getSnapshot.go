@@ -27,7 +27,7 @@ type GetSnapshotArgs struct {
 }
 
 type GetSnapshotResult struct {
-	Items GetSnapshotProperties `pulumi:"items"`
+	Snapshot *Snapshots `pulumi:"snapshot"`
 }
 
 func GetSnapshotOutput(ctx *pulumi.Context, args GetSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetSnapshotResultOutput {
@@ -66,8 +66,8 @@ func (o GetSnapshotResultOutput) ToGetSnapshotResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o GetSnapshotResultOutput) Items() GetSnapshotPropertiesOutput {
-	return o.ApplyT(func(v GetSnapshotResult) GetSnapshotProperties { return v.Items }).(GetSnapshotPropertiesOutput)
+func (o GetSnapshotResultOutput) Snapshot() SnapshotsPtrOutput {
+	return o.ApplyT(func(v GetSnapshotResult) *Snapshots { return v.Snapshot }).(SnapshotsPtrOutput)
 }
 
 func init() {

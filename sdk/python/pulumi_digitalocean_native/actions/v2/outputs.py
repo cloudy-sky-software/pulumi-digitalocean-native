@@ -14,8 +14,6 @@ from ._enums import *
 __all__ = [
     'Action',
     'ActionRegionSlug',
-    'GetActionProperties',
-    'ListActionsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -135,47 +133,6 @@ class Action(dict):
 class ActionRegionSlug(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class GetActionProperties(dict):
-    def __init__(__self__, *,
-                 action: Optional['outputs.Action'] = None):
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional['outputs.Action']:
-        return pulumi.get(self, "action")
-
-
-@pulumi.output_type
-class ListActionsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 actions: Optional[Sequence['outputs.Action']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.Action']]:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

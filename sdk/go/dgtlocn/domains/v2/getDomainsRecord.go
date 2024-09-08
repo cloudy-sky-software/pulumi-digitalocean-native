@@ -29,7 +29,7 @@ type LookupDomainsRecordArgs struct {
 }
 
 type LookupDomainsRecordResult struct {
-	Items GetDomainsRecordProperties `pulumi:"items"`
+	DomainRecord *DomainRecord `pulumi:"domainRecord"`
 }
 
 func LookupDomainsRecordOutput(ctx *pulumi.Context, args LookupDomainsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupDomainsRecordResultOutput {
@@ -70,8 +70,8 @@ func (o LookupDomainsRecordResultOutput) ToLookupDomainsRecordResultOutputWithCo
 	return o
 }
 
-func (o LookupDomainsRecordResultOutput) Items() GetDomainsRecordPropertiesOutput {
-	return o.ApplyT(func(v LookupDomainsRecordResult) GetDomainsRecordProperties { return v.Items }).(GetDomainsRecordPropertiesOutput)
+func (o LookupDomainsRecordResultOutput) DomainRecord() DomainRecordPtrOutput {
+	return o.ApplyT(func(v LookupDomainsRecordResult) *DomainRecord { return v.DomainRecord }).(DomainRecordPtrOutput)
 }
 
 func init() {

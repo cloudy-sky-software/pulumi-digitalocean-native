@@ -6,53 +6,73 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListTagsResult',
-    'AwaitableListTagsResult',
+    'ListTagsItems',
+    'AwaitableListTagsItems',
     'list_tags',
     'list_tags_output',
 ]
 
 @pulumi.output_type
-class ListTagsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListTagsItems:
+    def __init__(__self__, links=None, meta=None, tags=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListTagsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.Tags']]:
+        return pulumi.get(self, "tags")
 
 
-class AwaitableListTagsResult(ListTagsResult):
+class AwaitableListTagsItems(ListTagsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListTagsResult(
-            items=self.items)
+        return ListTagsItems(
+            links=self.links,
+            meta=self.meta,
+            tags=self.tags)
 
 
-def list_tags(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTagsResult:
+def list_tags(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTagsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:tags/v2:listTags', __args__, opts=opts, typ=ListTagsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:tags/v2:listTags', __args__, opts=opts, typ=ListTagsItems).value
 
-    return AwaitableListTagsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListTagsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(list_tags)
-def list_tags_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTagsResult]:
+def list_tags_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTagsItems]:
     """
     Use this data source to access information about an existing resource.
     """

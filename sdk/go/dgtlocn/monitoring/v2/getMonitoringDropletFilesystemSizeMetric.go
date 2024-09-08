@@ -25,7 +25,8 @@ type GetMonitoringDropletFilesystemSizeMetricArgs struct {
 }
 
 type GetMonitoringDropletFilesystemSizeMetricResult struct {
-	Items Metrics `pulumi:"items"`
+	Data   MetricsData   `pulumi:"data"`
+	Status MetricsStatus `pulumi:"status"`
 }
 
 func GetMonitoringDropletFilesystemSizeMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletFilesystemSizeMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletFilesystemSizeMetricResultOutput {
@@ -62,8 +63,12 @@ func (o GetMonitoringDropletFilesystemSizeMetricResultOutput) ToGetMonitoringDro
 	return o
 }
 
-func (o GetMonitoringDropletFilesystemSizeMetricResultOutput) Items() MetricsOutput {
-	return o.ApplyT(func(v GetMonitoringDropletFilesystemSizeMetricResult) Metrics { return v.Items }).(MetricsOutput)
+func (o GetMonitoringDropletFilesystemSizeMetricResultOutput) Data() MetricsDataOutput {
+	return o.ApplyT(func(v GetMonitoringDropletFilesystemSizeMetricResult) MetricsData { return v.Data }).(MetricsDataOutput)
+}
+
+func (o GetMonitoringDropletFilesystemSizeMetricResultOutput) Status() MetricsStatusOutput {
+	return o.ApplyT(func(v GetMonitoringDropletFilesystemSizeMetricResult) MetricsStatus { return v.Status }).(MetricsStatusOutput)
 }
 
 func init() {

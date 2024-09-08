@@ -27,7 +27,8 @@ type ListDatabasesConnectionPoolsArgs struct {
 }
 
 type ListDatabasesConnectionPoolsResult struct {
-	Items ConnectionPools `pulumi:"items"`
+	// An array of connection pool objects.
+	Pools []ConnectionPool `pulumi:"pools"`
 }
 
 func ListDatabasesConnectionPoolsOutput(ctx *pulumi.Context, args ListDatabasesConnectionPoolsOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesConnectionPoolsResultOutput {
@@ -66,8 +67,9 @@ func (o ListDatabasesConnectionPoolsResultOutput) ToListDatabasesConnectionPools
 	return o
 }
 
-func (o ListDatabasesConnectionPoolsResultOutput) Items() ConnectionPoolsOutput {
-	return o.ApplyT(func(v ListDatabasesConnectionPoolsResult) ConnectionPools { return v.Items }).(ConnectionPoolsOutput)
+// An array of connection pool objects.
+func (o ListDatabasesConnectionPoolsResultOutput) Pools() ConnectionPoolArrayOutput {
+	return o.ApplyT(func(v ListDatabasesConnectionPoolsResult) []ConnectionPool { return v.Pools }).(ConnectionPoolArrayOutput)
 }
 
 func init() {

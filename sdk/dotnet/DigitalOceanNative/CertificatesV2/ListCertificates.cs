@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2
 {
     public static class ListCertificates
     {
-        public static Task<ListCertificatesResult> InvokeAsync(ListCertificatesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListCertificatesResult>("digitalocean-native:certificates/v2:listCertificates", args ?? new ListCertificatesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListCertificatesItems> InvokeAsync(ListCertificatesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListCertificatesItems>("digitalocean-native:certificates/v2:listCertificates", args ?? new ListCertificatesArgs(), options.WithDefaults());
 
-        public static Output<ListCertificatesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListCertificatesResult>("digitalocean-native:certificates/v2:listCertificates", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListCertificatesItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListCertificatesItems>("digitalocean-native:certificates/v2:listCertificates", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2
         {
         }
         public static new ListCertificatesArgs Empty => new ListCertificatesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListCertificatesResult
-    {
-        public readonly Outputs.ListCertificatesItems Items;
-
-        [OutputConstructor]
-        private ListCertificatesResult(Outputs.ListCertificatesItems items)
-        {
-            Items = items;
-        }
     }
 }

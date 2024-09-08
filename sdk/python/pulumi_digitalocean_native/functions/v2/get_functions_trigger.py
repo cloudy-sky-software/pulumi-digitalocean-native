@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetFunctionsTriggerResult',
-    'AwaitableGetFunctionsTriggerResult',
+    'GetFunctionsTriggerProperties',
+    'AwaitableGetFunctionsTriggerProperties',
     'get_functions_trigger',
     'get_functions_trigger_output',
 ]
 
 @pulumi.output_type
-class GetFunctionsTriggerResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetFunctionsTriggerProperties:
+    def __init__(__self__, trigger=None):
+        if trigger and not isinstance(trigger, dict):
+            raise TypeError("Expected argument 'trigger' to be a dict")
+        pulumi.set(__self__, "trigger", trigger)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetFunctionsTriggerProperties':
-        return pulumi.get(self, "items")
+    def trigger(self) -> Optional['outputs.TriggerInfo']:
+        return pulumi.get(self, "trigger")
 
 
-class AwaitableGetFunctionsTriggerResult(GetFunctionsTriggerResult):
+class AwaitableGetFunctionsTriggerProperties(GetFunctionsTriggerProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetFunctionsTriggerResult(
-            items=self.items)
+        return GetFunctionsTriggerProperties(
+            trigger=self.trigger)
 
 
 def get_functions_trigger(namespace_id: Optional[str] = None,
                           trigger_name: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsTriggerResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsTriggerProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +52,16 @@ def get_functions_trigger(namespace_id: Optional[str] = None,
     __args__['namespaceId'] = namespace_id
     __args__['triggerName'] = trigger_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:getFunctionsTrigger', __args__, opts=opts, typ=GetFunctionsTriggerResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:functions/v2:getFunctionsTrigger', __args__, opts=opts, typ=GetFunctionsTriggerProperties).value
 
-    return AwaitableGetFunctionsTriggerResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetFunctionsTriggerProperties(
+        trigger=pulumi.get(__ret__, 'trigger'))
 
 
 @_utilities.lift_output_func(get_functions_trigger)
 def get_functions_trigger_output(namespace_id: Optional[pulumi.Input[str]] = None,
                                  trigger_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsTriggerResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsTriggerProperties]:
     """
     Use this data source to access information about an existing resource.
 

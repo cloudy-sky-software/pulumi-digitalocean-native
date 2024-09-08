@@ -4,7 +4,7 @@
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ListSizesArgs, ListSizesResult } from "./listSizes";
+export { ListSizesArgs } from "./listSizes";
 export const listSizes: typeof import("./listSizes").listSizes = null as any;
 export const listSizesOutput: typeof import("./listSizes").listSizesOutput = null as any;
 utilities.lazyLoad(exports, ["listSizes","listSizesOutput"], () => require("./listSizes"));

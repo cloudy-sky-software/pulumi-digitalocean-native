@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetDropletResult',
-    'AwaitableGetDropletResult',
+    'GetDropletProperties',
+    'AwaitableGetDropletProperties',
     'get_droplet',
     'get_droplet_output',
 ]
 
 @pulumi.output_type
-class GetDropletResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetDropletProperties:
+    def __init__(__self__, droplet=None):
+        if droplet and not isinstance(droplet, dict):
+            raise TypeError("Expected argument 'droplet' to be a dict")
+        pulumi.set(__self__, "droplet", droplet)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetDropletProperties':
-        return pulumi.get(self, "items")
+    def droplet(self) -> Optional['outputs.Droplet']:
+        return pulumi.get(self, "droplet")
 
 
-class AwaitableGetDropletResult(GetDropletResult):
+class AwaitableGetDropletProperties(GetDropletProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetDropletResult(
-            items=self.items)
+        return GetDropletProperties(
+            droplet=self.droplet)
 
 
 def get_droplet(droplet_id: Optional[str] = None,
-                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDropletResult:
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDropletProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_droplet(droplet_id: Optional[str] = None,
     __args__ = dict()
     __args__['dropletId'] = droplet_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:getDroplet', __args__, opts=opts, typ=GetDropletResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:droplets/v2:getDroplet', __args__, opts=opts, typ=GetDropletProperties).value
 
-    return AwaitableGetDropletResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetDropletProperties(
+        droplet=pulumi.get(__ret__, 'droplet'))
 
 
 @_utilities.lift_output_func(get_droplet)
 def get_droplet_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDropletResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDropletProperties]:
     """
     Use this data source to access information about an existing resource.
 

@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetImageResult',
-    'AwaitableGetImageResult',
+    'GetImageProperties',
+    'AwaitableGetImageProperties',
     'get_image',
     'get_image_output',
 ]
 
 @pulumi.output_type
-class GetImageResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetImageProperties:
+    def __init__(__self__, image=None):
+        if image and not isinstance(image, dict):
+            raise TypeError("Expected argument 'image' to be a dict")
+        pulumi.set(__self__, "image", image)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetImageProperties':
-        return pulumi.get(self, "items")
+    def image(self) -> 'outputs.Image':
+        return pulumi.get(self, "image")
 
 
-class AwaitableGetImageResult(GetImageResult):
+class AwaitableGetImageProperties(GetImageProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetImageResult(
-            items=self.items)
+        return GetImageProperties(
+            image=self.image)
 
 
 def get_image(image_id: Optional[str] = None,
-              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -55,15 +55,15 @@ def get_image(image_id: Optional[str] = None,
     __args__ = dict()
     __args__['imageId'] = image_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:images/v2:getImage', __args__, opts=opts, typ=GetImageResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:images/v2:getImage', __args__, opts=opts, typ=GetImageProperties).value
 
-    return AwaitableGetImageResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetImageProperties(
+        image=pulumi.get(__ret__, 'image'))
 
 
 @_utilities.lift_output_func(get_image)
 def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageProperties]:
     """
     Use this data source to access information about an existing resource.
 

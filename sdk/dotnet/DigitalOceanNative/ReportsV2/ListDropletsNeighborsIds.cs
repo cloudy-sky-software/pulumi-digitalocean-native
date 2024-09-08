@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReportsV2
 {
     public static class ListDropletsNeighborsIds
     {
-        public static Task<ListDropletsNeighborsIdsResult> InvokeAsync(ListDropletsNeighborsIdsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletsNeighborsIdsResult>("digitalocean-native:reports/v2:listDropletsNeighborsIds", args ?? new ListDropletsNeighborsIdsArgs(), options.WithDefaults());
+        public static Task<Outputs.NeighborIds> InvokeAsync(ListDropletsNeighborsIdsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.NeighborIds>("digitalocean-native:reports/v2:listDropletsNeighborsIds", args ?? new ListDropletsNeighborsIdsArgs(), options.WithDefaults());
 
-        public static Output<ListDropletsNeighborsIdsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletsNeighborsIdsResult>("digitalocean-native:reports/v2:listDropletsNeighborsIds", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.NeighborIds> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.NeighborIds>("digitalocean-native:reports/v2:listDropletsNeighborsIds", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReportsV2
         {
         }
         public static new ListDropletsNeighborsIdsArgs Empty => new ListDropletsNeighborsIdsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletsNeighborsIdsResult
-    {
-        public readonly Outputs.NeighborIds Items;
-
-        [OutputConstructor]
-        private ListDropletsNeighborsIdsResult(Outputs.NeighborIds items)
-        {
-            Items = items;
-        }
     }
 }

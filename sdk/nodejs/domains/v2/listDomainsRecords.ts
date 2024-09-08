@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listDomainsRecords(args: ListDomainsRecordsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainsRecordsResult> {
+export function listDomainsRecords(args: ListDomainsRecordsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.domains.v2.ListDomainsRecordsItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:domains/v2:listDomainsRecords", {
@@ -21,11 +21,7 @@ export interface ListDomainsRecordsArgs {
      */
     domainName: string;
 }
-
-export interface ListDomainsRecordsResult {
-    readonly items: outputs.domains.v2.ListDomainsRecordsItems;
-}
-export function listDomainsRecordsOutput(args: ListDomainsRecordsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainsRecordsResult> {
+export function listDomainsRecordsOutput(args: ListDomainsRecordsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.domains.v2.ListDomainsRecordsItems> {
     return pulumi.output(args).apply((a: any) => listDomainsRecords(a, opts))
 }
 

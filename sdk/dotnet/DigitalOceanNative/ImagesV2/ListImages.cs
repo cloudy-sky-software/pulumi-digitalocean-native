@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2
 {
     public static class ListImages
     {
-        public static Task<ListImagesResult> InvokeAsync(ListImagesArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListImagesResult>("digitalocean-native:images/v2:listImages", args ?? new ListImagesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListImagesItems> InvokeAsync(ListImagesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListImagesItems>("digitalocean-native:images/v2:listImages", args ?? new ListImagesArgs(), options.WithDefaults());
 
-        public static Output<ListImagesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListImagesResult>("digitalocean-native:images/v2:listImages", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListImagesItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListImagesItems>("digitalocean-native:images/v2:listImages", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2
         {
         }
         public static new ListImagesArgs Empty => new ListImagesArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListImagesResult
-    {
-        public readonly Outputs.ListImagesItems Items;
-
-        [OutputConstructor]
-        private ListImagesResult(Outputs.ListImagesItems items)
-        {
-            Items = items;
-        }
     }
 }

@@ -27,7 +27,7 @@ type GetVolumeSnapshotsByIdArgs struct {
 }
 
 type GetVolumeSnapshotsByIdResult struct {
-	Items GetVolumeSnapshotsByIdProperties `pulumi:"items"`
+	Snapshot *Snapshots `pulumi:"snapshot"`
 }
 
 func GetVolumeSnapshotsByIdOutput(ctx *pulumi.Context, args GetVolumeSnapshotsByIdOutputArgs, opts ...pulumi.InvokeOption) GetVolumeSnapshotsByIdResultOutput {
@@ -66,8 +66,8 @@ func (o GetVolumeSnapshotsByIdResultOutput) ToGetVolumeSnapshotsByIdResultOutput
 	return o
 }
 
-func (o GetVolumeSnapshotsByIdResultOutput) Items() GetVolumeSnapshotsByIdPropertiesOutput {
-	return o.ApplyT(func(v GetVolumeSnapshotsByIdResult) GetVolumeSnapshotsByIdProperties { return v.Items }).(GetVolumeSnapshotsByIdPropertiesOutput)
+func (o GetVolumeSnapshotsByIdResultOutput) Snapshot() SnapshotsPtrOutput {
+	return o.ApplyT(func(v GetVolumeSnapshotsByIdResult) *Snapshots { return v.Snapshot }).(SnapshotsPtrOutput)
 }
 
 func init() {

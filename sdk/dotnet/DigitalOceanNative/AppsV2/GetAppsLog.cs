@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsLog
     {
-        public static Task<GetAppsLogResult> InvokeAsync(GetAppsLogArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsLogResult>("digitalocean-native:apps/v2:getAppsLog", args ?? new GetAppsLogArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsGetLogsResponse> InvokeAsync(GetAppsLogArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLog", args ?? new GetAppsLogArgs(), options.WithDefaults());
 
-        public static Output<GetAppsLogResult> Invoke(GetAppsLogInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsLogResult>("digitalocean-native:apps/v2:getAppsLog", args ?? new GetAppsLogInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsGetLogsResponse> Invoke(GetAppsLogInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLog", args ?? new GetAppsLogInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -70,18 +70,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsLogInvokeArgs Empty => new GetAppsLogInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsLogResult
-    {
-        public readonly Outputs.AppsGetLogsResponse Items;
-
-        [OutputConstructor]
-        private GetAppsLogResult(Outputs.AppsGetLogsResponse items)
-        {
-            Items = items;
-        }
     }
 }

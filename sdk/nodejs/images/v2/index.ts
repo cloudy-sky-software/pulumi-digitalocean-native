@@ -10,12 +10,12 @@ export type Convert = import("./convert").Convert;
 export const Convert: typeof import("./convert").Convert = null as any;
 utilities.lazyLoad(exports, ["Convert"], () => require("./convert"));
 
-export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export { GetImageArgs, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
 utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
-export { GetImageActionArgs, GetImageActionResult, GetImageActionOutputArgs } from "./getImageAction";
+export { GetImageActionArgs, GetImageActionOutputArgs } from "./getImageAction";
 export const getImageAction: typeof import("./getImageAction").getImageAction = null as any;
 export const getImageActionOutput: typeof import("./getImageAction").getImageActionOutput = null as any;
 utilities.lazyLoad(exports, ["getImageAction","getImageActionOutput"], () => require("./getImageAction"));
@@ -25,12 +25,12 @@ export type ImagesCustom = import("./imagesCustom").ImagesCustom;
 export const ImagesCustom: typeof import("./imagesCustom").ImagesCustom = null as any;
 utilities.lazyLoad(exports, ["ImagesCustom"], () => require("./imagesCustom"));
 
-export { ListImageActionsArgs, ListImageActionsResult, ListImageActionsOutputArgs } from "./listImageActions";
+export { ListImageActionsArgs, ListImageActionsOutputArgs } from "./listImageActions";
 export const listImageActions: typeof import("./listImageActions").listImageActions = null as any;
 export const listImageActionsOutput: typeof import("./listImageActions").listImageActionsOutput = null as any;
 utilities.lazyLoad(exports, ["listImageActions","listImageActionsOutput"], () => require("./listImageActions"));
 
-export { ListImagesArgs, ListImagesResult } from "./listImages";
+export { ListImagesArgs } from "./listImages";
 export const listImages: typeof import("./listImages").listImages = null as any;
 export const listImagesOutput: typeof import("./listImages").listImagesOutput = null as any;
 utilities.lazyLoad(exports, ["listImages","listImagesOutput"], () => require("./listImages"));

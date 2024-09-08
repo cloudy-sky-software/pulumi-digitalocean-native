@@ -27,7 +27,7 @@ type LookupCertificateArgs struct {
 }
 
 type LookupCertificateResult struct {
-	Items GetCertificateProperties `pulumi:"items"`
+	Certificate *CertificateType `pulumi:"certificate"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -66,8 +66,8 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-func (o LookupCertificateResultOutput) Items() GetCertificatePropertiesOutput {
-	return o.ApplyT(func(v LookupCertificateResult) GetCertificateProperties { return v.Items }).(GetCertificatePropertiesOutput)
+func (o LookupCertificateResultOutput) Certificate() CertificateTypePtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *CertificateType { return v.Certificate }).(CertificateTypePtrOutput)
 }
 
 func init() {

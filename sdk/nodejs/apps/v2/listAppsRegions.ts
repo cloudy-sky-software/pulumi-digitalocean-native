@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listAppsRegions(args?: ListAppsRegionsArgs, opts?: pulumi.InvokeOptions): Promise<ListAppsRegionsResult> {
+export function listAppsRegions(args?: ListAppsRegionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsListRegionsResponse> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listAppsRegions(args?: ListAppsRegionsArgs, opts?: pulumi.Invoke
 
 export interface ListAppsRegionsArgs {
 }
-
-export interface ListAppsRegionsResult {
-    readonly items: outputs.apps.v2.AppsListRegionsResponse;
-}
-export function listAppsRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListAppsRegionsResult> {
+export function listAppsRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListRegionsResponse> {
     return pulumi.output(listAppsRegions(opts))
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listSshKeys(args?: ListSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSshKeysResult> {
+export function listSshKeys(args?: ListSshKeysArgs, opts?: pulumi.InvokeOptions): Promise<outputs.account.v2.ListSshKeysItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listSshKeys(args?: ListSshKeysArgs, opts?: pulumi.InvokeOptions)
 
 export interface ListSshKeysArgs {
 }
-
-export interface ListSshKeysResult {
-    readonly items: outputs.account.v2.ListSshKeysItems;
-}
-export function listSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListSshKeysResult> {
+export function listSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.ListSshKeysItems> {
     return pulumi.output(listSshKeys(opts))
 }

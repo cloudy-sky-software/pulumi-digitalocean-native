@@ -27,7 +27,7 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
-	Items GetDomainProperties `pulumi:"items"`
+	Domain *DomainType `pulumi:"domain"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -66,8 +66,8 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupDomainResultOutput) Items() GetDomainPropertiesOutput {
-	return o.ApplyT(func(v LookupDomainResult) GetDomainProperties { return v.Items }).(GetDomainPropertiesOutput)
+func (o LookupDomainResultOutput) Domain() DomainTypePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainType { return v.Domain }).(DomainTypePtrOutput)
 }
 
 func init() {

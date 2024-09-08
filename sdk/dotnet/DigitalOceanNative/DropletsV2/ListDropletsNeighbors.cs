@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class ListDropletsNeighbors
     {
-        public static Task<ListDropletsNeighborsResult> InvokeAsync(ListDropletsNeighborsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletsNeighborsResult>("digitalocean-native:droplets/v2:listDropletsNeighbors", args ?? new ListDropletsNeighborsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDropletsNeighborsItems> InvokeAsync(ListDropletsNeighborsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDropletsNeighborsItems>("digitalocean-native:droplets/v2:listDropletsNeighbors", args ?? new ListDropletsNeighborsArgs(), options.WithDefaults());
 
-        public static Output<ListDropletsNeighborsResult> Invoke(ListDropletsNeighborsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletsNeighborsResult>("digitalocean-native:droplets/v2:listDropletsNeighbors", args ?? new ListDropletsNeighborsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDropletsNeighborsItems> Invoke(ListDropletsNeighborsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsNeighborsItems>("digitalocean-native:droplets/v2:listDropletsNeighbors", args ?? new ListDropletsNeighborsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new ListDropletsNeighborsInvokeArgs Empty => new ListDropletsNeighborsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletsNeighborsResult
-    {
-        public readonly Outputs.ListDropletsNeighborsItems Items;
-
-        [OutputConstructor]
-        private ListDropletsNeighborsResult(Outputs.ListDropletsNeighborsItems items)
-        {
-            Items = items;
-        }
     }
 }

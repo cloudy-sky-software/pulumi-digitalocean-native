@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListAppsAlertsResult',
-    'AwaitableListAppsAlertsResult',
+    'AppsListAlertsResponse',
+    'AwaitableAppsListAlertsResponse',
     'list_apps_alerts',
     'list_apps_alerts_output',
 ]
 
 @pulumi.output_type
-class ListAppsAlertsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppsListAlertsResponse:
+    def __init__(__self__, alerts=None):
+        if alerts and not isinstance(alerts, list):
+            raise TypeError("Expected argument 'alerts' to be a list")
+        pulumi.set(__self__, "alerts", alerts)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AppsListAlertsResponse':
-        return pulumi.get(self, "items")
+    def alerts(self) -> Optional[Sequence['outputs.AppAlert']]:
+        return pulumi.get(self, "alerts")
 
 
-class AwaitableListAppsAlertsResult(ListAppsAlertsResult):
+class AwaitableAppsListAlertsResponse(AppsListAlertsResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListAppsAlertsResult(
-            items=self.items)
+        return AppsListAlertsResponse(
+            alerts=self.alerts)
 
 
 def list_apps_alerts(app_id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAppsAlertsResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppsListAlertsResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def list_apps_alerts(app_id: Optional[str] = None,
     __args__ = dict()
     __args__['appId'] = app_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:listAppsAlerts', __args__, opts=opts, typ=ListAppsAlertsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:listAppsAlerts', __args__, opts=opts, typ=AppsListAlertsResponse).value
 
-    return AwaitableListAppsAlertsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppsListAlertsResponse(
+        alerts=pulumi.get(__ret__, 'alerts'))
 
 
 @_utilities.lift_output_func(list_apps_alerts)
 def list_apps_alerts_output(app_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAppsAlertsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListAlertsResponse]:
     """
     Use this data source to access information about an existing resource.
 

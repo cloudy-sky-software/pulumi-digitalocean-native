@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getVolumeAction(args: GetVolumeActionArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeActionResult> {
+export function getVolumeAction(args: GetVolumeActionArgs, opts?: pulumi.InvokeOptions): Promise<outputs.volumes.v2.GetVolumeActionProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:volumes/v2:getVolumeAction", {
@@ -26,11 +26,7 @@ export interface GetVolumeActionArgs {
      */
     volumeId: string;
 }
-
-export interface GetVolumeActionResult {
-    readonly items: outputs.volumes.v2.GetVolumeActionProperties;
-}
-export function getVolumeActionOutput(args: GetVolumeActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeActionResult> {
+export function getVolumeActionOutput(args: GetVolumeActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.GetVolumeActionProperties> {
     return pulumi.output(args).apply((a: any) => getVolumeAction(a, opts))
 }
 

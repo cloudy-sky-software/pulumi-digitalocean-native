@@ -29,7 +29,7 @@ type LookupDatabasesReplicaArgs struct {
 }
 
 type LookupDatabasesReplicaResult struct {
-	Items GetDatabasesReplicaProperties `pulumi:"items"`
+	Replica *DatabaseReplica `pulumi:"replica"`
 }
 
 func LookupDatabasesReplicaOutput(ctx *pulumi.Context, args LookupDatabasesReplicaOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesReplicaResultOutput {
@@ -70,8 +70,8 @@ func (o LookupDatabasesReplicaResultOutput) ToLookupDatabasesReplicaResultOutput
 	return o
 }
 
-func (o LookupDatabasesReplicaResultOutput) Items() GetDatabasesReplicaPropertiesOutput {
-	return o.ApplyT(func(v LookupDatabasesReplicaResult) GetDatabasesReplicaProperties { return v.Items }).(GetDatabasesReplicaPropertiesOutput)
+func (o LookupDatabasesReplicaResultOutput) Replica() DatabaseReplicaPtrOutput {
+	return o.ApplyT(func(v LookupDatabasesReplicaResult) *DatabaseReplica { return v.Replica }).(DatabaseReplicaPtrOutput)
 }
 
 func init() {

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getRegistryDockerCredential(args?: GetRegistryDockerCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryDockerCredentialResult> {
+export function getRegistryDockerCredential(args?: GetRegistryDockerCredentialArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.DockerCredentials> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function getRegistryDockerCredential(args?: GetRegistryDockerCredentialAr
 
 export interface GetRegistryDockerCredentialArgs {
 }
-
-export interface GetRegistryDockerCredentialResult {
-    readonly items: outputs.registry.v2.DockerCredentials;
-}
-export function getRegistryDockerCredentialOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryDockerCredentialResult> {
+export function getRegistryDockerCredentialOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.DockerCredentials> {
     return pulumi.output(getRegistryDockerCredential(opts))
 }

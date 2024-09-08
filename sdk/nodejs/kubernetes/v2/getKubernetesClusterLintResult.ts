@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getKubernetesClusterLintResult(args: GetKubernetesClusterLintResultArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterLintResultResult> {
+export function getKubernetesClusterLintResult(args: GetKubernetesClusterLintResultArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.ClusterlintResults> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", {
@@ -21,11 +21,7 @@ export interface GetKubernetesClusterLintResultArgs {
      */
     clusterId: string;
 }
-
-export interface GetKubernetesClusterLintResultResult {
-    readonly items: outputs.kubernetes.v2.ClusterlintResults;
-}
-export function getKubernetesClusterLintResultOutput(args: GetKubernetesClusterLintResultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterLintResultResult> {
+export function getKubernetesClusterLintResultOutput(args: GetKubernetesClusterLintResultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.ClusterlintResults> {
     return pulumi.output(args).apply((a: any) => getKubernetesClusterLintResult(a, opts))
 }
 

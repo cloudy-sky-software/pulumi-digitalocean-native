@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsMetricsBandwidthDaily
     {
-        public static Task<GetAppsMetricsBandwidthDailyResult> InvokeAsync(GetAppsMetricsBandwidthDailyArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsMetricsBandwidthDailyResult>("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args ?? new GetAppsMetricsBandwidthDailyArgs(), options.WithDefaults());
+        public static Task<Outputs.AppMetricsBandwidthUsage> InvokeAsync(GetAppsMetricsBandwidthDailyArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppMetricsBandwidthUsage>("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args ?? new GetAppsMetricsBandwidthDailyArgs(), options.WithDefaults());
 
-        public static Output<GetAppsMetricsBandwidthDailyResult> Invoke(GetAppsMetricsBandwidthDailyInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsMetricsBandwidthDailyResult>("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args ?? new GetAppsMetricsBandwidthDailyInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppMetricsBandwidthUsage> Invoke(GetAppsMetricsBandwidthDailyInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppMetricsBandwidthUsage>("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args ?? new GetAppsMetricsBandwidthDailyInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsMetricsBandwidthDailyInvokeArgs Empty => new GetAppsMetricsBandwidthDailyInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsMetricsBandwidthDailyResult
-    {
-        public readonly Outputs.AppMetricsBandwidthUsage Items;
-
-        [OutputConstructor]
-        private GetAppsMetricsBandwidthDailyResult(Outputs.AppMetricsBandwidthUsage items)
-        {
-            Items = items;
-        }
     }
 }

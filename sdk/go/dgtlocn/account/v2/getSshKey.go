@@ -27,7 +27,7 @@ type LookupSshKeyArgs struct {
 }
 
 type LookupSshKeyResult struct {
-	Items GetSshKeyProperties `pulumi:"items"`
+	SshKey *SshKeys `pulumi:"sshKey"`
 }
 
 func LookupSshKeyOutput(ctx *pulumi.Context, args LookupSshKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSshKeyResultOutput {
@@ -66,8 +66,8 @@ func (o LookupSshKeyResultOutput) ToLookupSshKeyResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupSshKeyResultOutput) Items() GetSshKeyPropertiesOutput {
-	return o.ApplyT(func(v LookupSshKeyResult) GetSshKeyProperties { return v.Items }).(GetSshKeyPropertiesOutput)
+func (o LookupSshKeyResultOutput) SshKey() SshKeysPtrOutput {
+	return o.ApplyT(func(v LookupSshKeyResult) *SshKeys { return v.SshKey }).(SshKeysPtrOutput)
 }
 
 func init() {

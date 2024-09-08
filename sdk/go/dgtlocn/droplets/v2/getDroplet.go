@@ -27,7 +27,7 @@ type LookupDropletArgs struct {
 }
 
 type LookupDropletResult struct {
-	Items GetDropletProperties `pulumi:"items"`
+	Droplet *DropletType `pulumi:"droplet"`
 }
 
 // Defaults sets the appropriate defaults for LookupDropletResult
@@ -36,7 +36,7 @@ func (val *LookupDropletResult) Defaults() *LookupDropletResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Droplet = tmp.Droplet.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o LookupDropletResultOutput) ToLookupDropletResultOutputWithContext(ctx co
 	return o
 }
 
-func (o LookupDropletResultOutput) Items() GetDropletPropertiesOutput {
-	return o.ApplyT(func(v LookupDropletResult) GetDropletProperties { return v.Items }).(GetDropletPropertiesOutput)
+func (o LookupDropletResultOutput) Droplet() DropletTypePtrOutput {
+	return o.ApplyT(func(v LookupDropletResult) *DropletType { return v.Droplet }).(DropletTypePtrOutput)
 }
 
 func init() {

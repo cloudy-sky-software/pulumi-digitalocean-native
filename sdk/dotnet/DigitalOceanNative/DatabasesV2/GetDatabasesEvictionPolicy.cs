@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class GetDatabasesEvictionPolicy
     {
-        public static Task<GetDatabasesEvictionPolicyResult> InvokeAsync(GetDatabasesEvictionPolicyArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesEvictionPolicyResult>("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args ?? new GetDatabasesEvictionPolicyArgs(), options.WithDefaults());
+        public static Task<Outputs.GetDatabasesEvictionPolicyProperties> InvokeAsync(GetDatabasesEvictionPolicyArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetDatabasesEvictionPolicyProperties>("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args ?? new GetDatabasesEvictionPolicyArgs(), options.WithDefaults());
 
-        public static Output<GetDatabasesEvictionPolicyResult> Invoke(GetDatabasesEvictionPolicyInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesEvictionPolicyResult>("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args ?? new GetDatabasesEvictionPolicyInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetDatabasesEvictionPolicyProperties> Invoke(GetDatabasesEvictionPolicyInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDatabasesEvictionPolicyProperties>("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args ?? new GetDatabasesEvictionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new GetDatabasesEvictionPolicyInvokeArgs Empty => new GetDatabasesEvictionPolicyInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDatabasesEvictionPolicyResult
-    {
-        public readonly Outputs.GetDatabasesEvictionPolicyProperties Items;
-
-        [OutputConstructor]
-        private GetDatabasesEvictionPolicyResult(Outputs.GetDatabasesEvictionPolicyProperties items)
-        {
-            Items = items;
-        }
     }
 }

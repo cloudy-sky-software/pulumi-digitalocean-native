@@ -14,10 +14,7 @@ from ._enums import *
 __all__ = [
     'AlertPolicy',
     'Alerts',
-    'GetMonitoringAlertPolicyProperties',
-    'ListMonitoringAlertPolicyItems',
     'MetaMeta',
-    'Metrics',
     'MetricsData',
     'MetricsResult',
     'PageLinks',
@@ -130,46 +127,6 @@ class Alerts(dict):
 
 
 @pulumi.output_type
-class GetMonitoringAlertPolicyProperties(dict):
-    def __init__(__self__, *,
-                 policy: Optional['outputs.AlertPolicy'] = None):
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-
-    @property
-    @pulumi.getter
-    def policy(self) -> Optional['outputs.AlertPolicy']:
-        return pulumi.get(self, "policy")
-
-
-@pulumi.output_type
-class ListMonitoringAlertPolicyItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 policies: Sequence['outputs.AlertPolicy'],
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        pulumi.set(__self__, "policies", policies)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def policies(self) -> Sequence['outputs.AlertPolicy']:
-        return pulumi.get(self, "policies")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
 class MetaMeta(dict):
     def __init__(__self__, *,
                  total: Optional[int] = None):
@@ -186,25 +143,6 @@ class MetaMeta(dict):
         Number of objects returned by the request.
         """
         return pulumi.get(self, "total")
-
-
-@pulumi.output_type
-class Metrics(dict):
-    def __init__(__self__, *,
-                 data: 'outputs.MetricsData',
-                 status: 'MetricsStatus'):
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def data(self) -> 'outputs.MetricsData':
-        return pulumi.get(self, "data")
-
-    @property
-    @pulumi.getter
-    def status(self) -> 'MetricsStatus':
-        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

@@ -6,41 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetVpcResult',
-    'AwaitableGetVpcResult',
+    'GetVpcProperties',
+    'AwaitableGetVpcProperties',
     'get_vpc',
     'get_vpc_output',
 ]
 
 @pulumi.output_type
-class GetVpcResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetVpcProperties:
+    def __init__(__self__, vpc=None):
+        if vpc and not isinstance(vpc, dict):
+            raise TypeError("Expected argument 'vpc' to be a dict")
+        pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetVpcProperties':
-        return pulumi.get(self, "items")
+    def vpc(self) -> Optional['outputs.Vpc']:
+        return pulumi.get(self, "vpc")
 
 
-class AwaitableGetVpcResult(GetVpcResult):
+class AwaitableGetVpcProperties(GetVpcProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVpcResult(
-            items=self.items)
+        return GetVpcProperties(
+            vpc=self.vpc)
 
 
 def get_vpc(vpc_id: Optional[str] = None,
-            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcResult:
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +49,15 @@ def get_vpc(vpc_id: Optional[str] = None,
     __args__ = dict()
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:vpcs/v2:getVpc', __args__, opts=opts, typ=GetVpcResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:vpcs/v2:getVpc', __args__, opts=opts, typ=GetVpcProperties).value
 
-    return AwaitableGetVpcResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetVpcProperties(
+        vpc=pulumi.get(__ret__, 'vpc'))
 
 
 @_utilities.lift_output_func(get_vpc)
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcProperties]:
     """
     Use this data source to access information about an existing resource.
 

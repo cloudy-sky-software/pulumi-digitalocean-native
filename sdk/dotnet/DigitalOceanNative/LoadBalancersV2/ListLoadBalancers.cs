@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.LoadBalancersV2
 {
     public static class ListLoadBalancers
     {
-        public static Task<ListLoadBalancersResult> InvokeAsync(ListLoadBalancersArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListLoadBalancersResult>("digitalocean-native:load_balancers/v2:listLoadBalancers", args ?? new ListLoadBalancersArgs(), options.WithDefaults());
+        public static Task<Outputs.ListLoadBalancersItems> InvokeAsync(ListLoadBalancersArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListLoadBalancersItems>("digitalocean-native:load_balancers/v2:listLoadBalancers", args ?? new ListLoadBalancersArgs(), options.WithDefaults());
 
-        public static Output<ListLoadBalancersResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListLoadBalancersResult>("digitalocean-native:load_balancers/v2:listLoadBalancers", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListLoadBalancersItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListLoadBalancersItems>("digitalocean-native:load_balancers/v2:listLoadBalancers", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.LoadBalancersV2
         {
         }
         public static new ListLoadBalancersArgs Empty => new ListLoadBalancersArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListLoadBalancersResult
-    {
-        public readonly Outputs.ListLoadBalancersItems Items;
-
-        [OutputConstructor]
-        private ListLoadBalancersResult(Outputs.ListLoadBalancersItems items)
-        {
-            Items = items;
-        }
     }
 }

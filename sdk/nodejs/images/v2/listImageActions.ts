@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listImageActions(args: ListImageActionsArgs, opts?: pulumi.InvokeOptions): Promise<ListImageActionsResult> {
+export function listImageActions(args: ListImageActionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.images.v2.ListImageActionsItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:images/v2:listImageActions", {
@@ -21,11 +21,7 @@ export interface ListImageActionsArgs {
      */
     imageId: string;
 }
-
-export interface ListImageActionsResult {
-    readonly items: outputs.images.v2.ListImageActionsItems;
-}
-export function listImageActionsOutput(args: ListImageActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListImageActionsResult> {
+export function listImageActionsOutput(args: ListImageActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.v2.ListImageActionsItems> {
     return pulumi.output(args).apply((a: any) => listImageActions(a, opts))
 }
 

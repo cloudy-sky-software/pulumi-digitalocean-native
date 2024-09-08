@@ -5,27 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export { GetProjectArgs, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
-export { GetProjectsDefaultArgs, GetProjectsDefaultResult } from "./getProjectsDefault";
+export { GetProjectsDefaultArgs } from "./getProjectsDefault";
 export const getProjectsDefault: typeof import("./getProjectsDefault").getProjectsDefault = null as any;
 export const getProjectsDefaultOutput: typeof import("./getProjectsDefault").getProjectsDefaultOutput = null as any;
 utilities.lazyLoad(exports, ["getProjectsDefault","getProjectsDefaultOutput"], () => require("./getProjectsDefault"));
 
-export { ListProjectsArgs, ListProjectsResult } from "./listProjects";
+export { ListProjectsArgs } from "./listProjects";
 export const listProjects: typeof import("./listProjects").listProjects = null as any;
 export const listProjectsOutput: typeof import("./listProjects").listProjectsOutput = null as any;
 utilities.lazyLoad(exports, ["listProjects","listProjectsOutput"], () => require("./listProjects"));
 
-export { ListProjectsResourcesArgs, ListProjectsResourcesResult, ListProjectsResourcesOutputArgs } from "./listProjectsResources";
+export { ListProjectsResourcesArgs, ListProjectsResourcesOutputArgs } from "./listProjectsResources";
 export const listProjectsResources: typeof import("./listProjectsResources").listProjectsResources = null as any;
 export const listProjectsResourcesOutput: typeof import("./listProjectsResources").listProjectsResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["listProjectsResources","listProjectsResourcesOutput"], () => require("./listProjectsResources"));
 
-export { ListProjectsResourcesDefaultArgs, ListProjectsResourcesDefaultResult } from "./listProjectsResourcesDefault";
+export { ListProjectsResourcesDefaultArgs } from "./listProjectsResourcesDefault";
 export const listProjectsResourcesDefault: typeof import("./listProjectsResourcesDefault").listProjectsResourcesDefault = null as any;
 export const listProjectsResourcesDefaultOutput: typeof import("./listProjectsResourcesDefault").listProjectsResourcesDefaultOutput = null as any;
 utilities.lazyLoad(exports, ["listProjectsResourcesDefault","listProjectsResourcesDefaultOutput"], () => require("./listProjectsResourcesDefault"));

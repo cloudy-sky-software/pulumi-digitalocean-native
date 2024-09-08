@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetProjectResult',
-    'AwaitableGetProjectResult',
+    'GetProjectProperties',
+    'AwaitableGetProjectProperties',
     'get_project',
     'get_project_output',
 ]
 
 @pulumi.output_type
-class GetProjectResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetProjectProperties:
+    def __init__(__self__, project=None):
+        if project and not isinstance(project, dict):
+            raise TypeError("Expected argument 'project' to be a dict")
+        pulumi.set(__self__, "project", project)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetProjectProperties':
-        return pulumi.get(self, "items")
+    def project(self) -> Optional['outputs.Project']:
+        return pulumi.get(self, "project")
 
 
-class AwaitableGetProjectResult(GetProjectResult):
+class AwaitableGetProjectProperties(GetProjectProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetProjectResult(
-            items=self.items)
+        return GetProjectProperties(
+            project=self.project)
 
 
 def get_project(project_id: Optional[str] = None,
-                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_project(project_id: Optional[str] = None,
     __args__ = dict()
     __args__['projectId'] = project_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:projects/v2:getProject', __args__, opts=opts, typ=GetProjectResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:projects/v2:getProject', __args__, opts=opts, typ=GetProjectProperties).value
 
-    return AwaitableGetProjectResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetProjectProperties(
+        project=pulumi.get(__ret__, 'project'))
 
 
 @_utilities.lift_output_func(get_project)
 def get_project_output(project_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectProperties]:
     """
     Use this data source to access information about an existing resource.
 

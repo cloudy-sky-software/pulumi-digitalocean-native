@@ -27,7 +27,7 @@ type ListAppsAlertsArgs struct {
 }
 
 type ListAppsAlertsResult struct {
-	Items AppsListAlertsResponse `pulumi:"items"`
+	Alerts []AppAlert `pulumi:"alerts"`
 }
 
 func ListAppsAlertsOutput(ctx *pulumi.Context, args ListAppsAlertsOutputArgs, opts ...pulumi.InvokeOption) ListAppsAlertsResultOutput {
@@ -66,8 +66,8 @@ func (o ListAppsAlertsResultOutput) ToListAppsAlertsResultOutputWithContext(ctx 
 	return o
 }
 
-func (o ListAppsAlertsResultOutput) Items() AppsListAlertsResponseOutput {
-	return o.ApplyT(func(v ListAppsAlertsResult) AppsListAlertsResponse { return v.Items }).(AppsListAlertsResponseOutput)
+func (o ListAppsAlertsResultOutput) Alerts() AppAlertArrayOutput {
+	return o.ApplyT(func(v ListAppsAlertsResult) []AppAlert { return v.Alerts }).(AppAlertArrayOutput)
 }
 
 func init() {

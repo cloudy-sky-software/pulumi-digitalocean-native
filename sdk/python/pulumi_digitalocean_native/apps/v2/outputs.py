@@ -34,11 +34,9 @@ __all__ = [
     'AppLogDestinationDefinition',
     'AppLogDestinationLogtailSpec',
     'AppLogDestinationPapertrailSpec',
-    'AppMetricsBandwidthUsage',
     'AppMetricsBandwidthUsageDetails',
     'AppPendingDeployment',
     'AppPinnedDeployment',
-    'AppResponse',
     'AppRollbackValidationCondition',
     'AppRouteSpec',
     'AppServiceSpec',
@@ -54,27 +52,17 @@ __all__ = [
     'AppsDeploymentProgress',
     'AppsDeploymentProgressStep',
     'AppsDeploymentProgressStepReason',
-    'AppsDeploymentResponse',
     'AppsDeploymentService',
     'AppsDeploymentStaticSite',
     'AppsDeploymentWorker',
-    'AppsDeploymentsResponse',
     'AppsDomain',
     'AppsDomainProgress',
-    'AppsGetInstanceSizeResponse',
-    'AppsGetLogsResponse',
-    'AppsGetTierResponse',
     'AppsGitSourceSpec',
     'AppsGithubSourceSpec',
     'AppsGitlabSourceSpec',
     'AppsImageSourceSpec',
     'AppsInstanceSize',
-    'AppsListAlertsResponse',
-    'AppsListInstanceSizesResponse',
-    'AppsListRegionsResponse',
-    'AppsListTiersResponse',
     'AppsRegion',
-    'AppsResponse',
     'AppsStringMatch',
     'AppsTier',
     'Error',
@@ -1551,37 +1539,6 @@ class AppLogDestinationPapertrailSpec(dict):
 
 
 @pulumi.output_type
-class AppMetricsBandwidthUsage(dict):
-    def __init__(__self__, *,
-                 app_bandwidth_usage: Optional[Sequence['outputs.AppMetricsBandwidthUsageDetails']] = None,
-                 date: Optional[str] = None):
-        """
-        :param Sequence['AppMetricsBandwidthUsageDetails'] app_bandwidth_usage: A list of bandwidth usage details by app.
-        :param str date: The date for the metrics data.
-        """
-        if app_bandwidth_usage is not None:
-            pulumi.set(__self__, "app_bandwidth_usage", app_bandwidth_usage)
-        if date is not None:
-            pulumi.set(__self__, "date", date)
-
-    @property
-    @pulumi.getter(name="appBandwidthUsage")
-    def app_bandwidth_usage(self) -> Optional[Sequence['outputs.AppMetricsBandwidthUsageDetails']]:
-        """
-        A list of bandwidth usage details by app.
-        """
-        return pulumi.get(self, "app_bandwidth_usage")
-
-    @property
-    @pulumi.getter
-    def date(self) -> Optional[str]:
-        """
-        The date for the metrics data.
-        """
-        return pulumi.get(self, "date")
-
-
-@pulumi.output_type
 class AppMetricsBandwidthUsageDetails(dict):
     """
     Bandwidth usage for an app.
@@ -1953,25 +1910,6 @@ class AppPinnedDeployment(dict):
     @pulumi.getter
     def workers(self) -> Optional[Sequence['outputs.AppsDeploymentWorker']]:
         return pulumi.get(self, "workers")
-
-
-@pulumi.output_type
-class AppResponse(dict):
-    def __init__(__self__, *,
-                 app: Optional['outputs.App'] = None):
-        """
-        :param 'App' app: An application's configuration and status.
-        """
-        if app is not None:
-            pulumi.set(__self__, "app", app)
-
-    @property
-    @pulumi.getter
-    def app(self) -> Optional['outputs.App']:
-        """
-        An application's configuration and status.
-        """
-        return pulumi.get(self, "app")
 
 
 @pulumi.output_type
@@ -3670,19 +3608,6 @@ class AppsDeploymentProgressStepReason(dict):
 
 
 @pulumi.output_type
-class AppsDeploymentResponse(dict):
-    def __init__(__self__, *,
-                 deployment: Optional['outputs.AppsDeployment'] = None):
-        if deployment is not None:
-            pulumi.set(__self__, "deployment", deployment)
-
-    @property
-    @pulumi.getter
-    def deployment(self) -> Optional['outputs.AppsDeployment']:
-        return pulumi.get(self, "deployment")
-
-
-@pulumi.output_type
 class AppsDeploymentService(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3797,34 +3722,6 @@ class AppsDeploymentWorker(dict):
 
 
 @pulumi.output_type
-class AppsDeploymentsResponse(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 deployments: Optional[Sequence['outputs.AppsDeployment']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if deployments is not None:
-            pulumi.set(__self__, "deployments", deployments)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def deployments(self) -> Optional[Sequence['outputs.AppsDeployment']]:
-        return pulumi.get(self, "deployments")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
 class AppsDomain(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3917,59 +3814,6 @@ class AppsDomainProgress(dict):
     @pulumi.getter
     def steps(self) -> Optional[Sequence[Any]]:
         return pulumi.get(self, "steps")
-
-
-@pulumi.output_type
-class AppsGetInstanceSizeResponse(dict):
-    def __init__(__self__, *,
-                 instance_size: Optional['outputs.AppsInstanceSize'] = None):
-        if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
-
-    @property
-    @pulumi.getter(name="instanceSize")
-    def instance_size(self) -> Optional['outputs.AppsInstanceSize']:
-        return pulumi.get(self, "instance_size")
-
-
-@pulumi.output_type
-class AppsGetLogsResponse(dict):
-    def __init__(__self__, *,
-                 historic_urls: Optional[Sequence[str]] = None,
-                 live_url: Optional[str] = None):
-        """
-        :param str live_url: A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.
-        """
-        if historic_urls is not None:
-            pulumi.set(__self__, "historic_urls", historic_urls)
-        if live_url is not None:
-            pulumi.set(__self__, "live_url", live_url)
-
-    @property
-    @pulumi.getter(name="historicUrls")
-    def historic_urls(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "historic_urls")
-
-    @property
-    @pulumi.getter(name="liveUrl")
-    def live_url(self) -> Optional[str]:
-        """
-        A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.
-        """
-        return pulumi.get(self, "live_url")
-
-
-@pulumi.output_type
-class AppsGetTierResponse(dict):
-    def __init__(__self__, *,
-                 tier: Optional['outputs.AppsTier'] = None):
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
-
-    @property
-    @pulumi.getter
-    def tier(self) -> Optional['outputs.AppsTier']:
-        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type
@@ -4304,66 +4148,6 @@ class AppsInstanceSize(dict):
 
 
 @pulumi.output_type
-class AppsListAlertsResponse(dict):
-    def __init__(__self__, *,
-                 alerts: Optional[Sequence['outputs.AppAlert']] = None):
-        if alerts is not None:
-            pulumi.set(__self__, "alerts", alerts)
-
-    @property
-    @pulumi.getter
-    def alerts(self) -> Optional[Sequence['outputs.AppAlert']]:
-        return pulumi.get(self, "alerts")
-
-
-@pulumi.output_type
-class AppsListInstanceSizesResponse(dict):
-    def __init__(__self__, *,
-                 discount_percent: Optional[float] = None,
-                 instance_sizes: Optional[Sequence['outputs.AppsInstanceSize']] = None):
-        if discount_percent is not None:
-            pulumi.set(__self__, "discount_percent", discount_percent)
-        if instance_sizes is not None:
-            pulumi.set(__self__, "instance_sizes", instance_sizes)
-
-    @property
-    @pulumi.getter(name="discountPercent")
-    def discount_percent(self) -> Optional[float]:
-        return pulumi.get(self, "discount_percent")
-
-    @property
-    @pulumi.getter(name="instanceSizes")
-    def instance_sizes(self) -> Optional[Sequence['outputs.AppsInstanceSize']]:
-        return pulumi.get(self, "instance_sizes")
-
-
-@pulumi.output_type
-class AppsListRegionsResponse(dict):
-    def __init__(__self__, *,
-                 regions: Optional[Sequence['outputs.AppsRegion']] = None):
-        if regions is not None:
-            pulumi.set(__self__, "regions", regions)
-
-    @property
-    @pulumi.getter
-    def regions(self) -> Optional[Sequence['outputs.AppsRegion']]:
-        return pulumi.get(self, "regions")
-
-
-@pulumi.output_type
-class AppsListTiersResponse(dict):
-    def __init__(__self__, *,
-                 tiers: Optional[Sequence['outputs.AppsTier']] = None):
-        if tiers is not None:
-            pulumi.set(__self__, "tiers", tiers)
-
-    @property
-    @pulumi.getter
-    def tiers(self) -> Optional[Sequence['outputs.AppsTier']]:
-        return pulumi.get(self, "tiers")
-
-
-@pulumi.output_type
 class AppsRegion(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4453,34 +4237,6 @@ class AppsRegion(dict):
     @pulumi.getter
     def slug(self) -> Optional[str]:
         return pulumi.get(self, "slug")
-
-
-@pulumi.output_type
-class AppsResponse(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 apps: Optional[Sequence['outputs.App']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if apps is not None:
-            pulumi.set(__self__, "apps", apps)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def apps(self) -> Optional[Sequence['outputs.App']]:
-        return pulumi.get(self, "apps")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

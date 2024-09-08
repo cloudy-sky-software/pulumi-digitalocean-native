@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VpcsV2
 {
     public static class GetVpc
     {
-        public static Task<GetVpcResult> InvokeAsync(GetVpcArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("digitalocean-native:vpcs/v2:getVpc", args ?? new GetVpcArgs(), options.WithDefaults());
+        public static Task<Outputs.GetVpcProperties> InvokeAsync(GetVpcArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetVpcProperties>("digitalocean-native:vpcs/v2:getVpc", args ?? new GetVpcArgs(), options.WithDefaults());
 
-        public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVpcResult>("digitalocean-native:vpcs/v2:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetVpcProperties> Invoke(GetVpcInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVpcProperties>("digitalocean-native:vpcs/v2:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VpcsV2
         {
         }
         public static new GetVpcInvokeArgs Empty => new GetVpcInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetVpcResult
-    {
-        public readonly Outputs.GetVpcProperties Items;
-
-        [OutputConstructor]
-        private GetVpcResult(Outputs.GetVpcProperties items)
-        {
-            Items = items;
-        }
     }
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listSizes(args?: ListSizesArgs, opts?: pulumi.InvokeOptions): Promise<ListSizesResult> {
+export function listSizes(args?: ListSizesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.sizes.v2.ListSizesItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listSizes(args?: ListSizesArgs, opts?: pulumi.InvokeOptions): Pr
 
 export interface ListSizesArgs {
 }
-
-export interface ListSizesResult {
-    readonly items: outputs.sizes.v2.ListSizesItems;
-}
-export function listSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListSizesResult> {
+export function listSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.sizes.v2.ListSizesItems> {
     return pulumi.output(listSizes(opts))
 }

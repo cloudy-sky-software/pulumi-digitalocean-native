@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAppsLog(args: GetAppsLogArgs, opts?: pulumi.InvokeOptions): Promise<GetAppsLogResult> {
+export function getAppsLog(args: GetAppsLogArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetLogsResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsLog", {
@@ -31,11 +31,7 @@ export interface GetAppsLogArgs {
      */
     deploymentId: string;
 }
-
-export interface GetAppsLogResult {
-    readonly items: outputs.apps.v2.AppsGetLogsResponse;
-}
-export function getAppsLogOutput(args: GetAppsLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppsLogResult> {
+export function getAppsLogOutput(args: GetAppsLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
     return pulumi.output(args).apply((a: any) => getAppsLog(a, opts))
 }
 

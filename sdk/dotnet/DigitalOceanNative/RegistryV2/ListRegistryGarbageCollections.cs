@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class ListRegistryGarbageCollections
     {
-        public static Task<ListRegistryGarbageCollectionsResult> InvokeAsync(ListRegistryGarbageCollectionsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryGarbageCollectionsResult>("digitalocean-native:registry/v2:listRegistryGarbageCollections", args ?? new ListRegistryGarbageCollectionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListRegistryGarbageCollectionsProperties> InvokeAsync(ListRegistryGarbageCollectionsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListRegistryGarbageCollectionsProperties>("digitalocean-native:registry/v2:listRegistryGarbageCollections", args ?? new ListRegistryGarbageCollectionsArgs(), options.WithDefaults());
 
-        public static Output<ListRegistryGarbageCollectionsResult> Invoke(ListRegistryGarbageCollectionsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListRegistryGarbageCollectionsResult>("digitalocean-native:registry/v2:listRegistryGarbageCollections", args ?? new ListRegistryGarbageCollectionsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListRegistryGarbageCollectionsProperties> Invoke(ListRegistryGarbageCollectionsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegistryGarbageCollectionsProperties>("digitalocean-native:registry/v2:listRegistryGarbageCollections", args ?? new ListRegistryGarbageCollectionsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new ListRegistryGarbageCollectionsInvokeArgs Empty => new ListRegistryGarbageCollectionsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListRegistryGarbageCollectionsResult
-    {
-        public readonly Outputs.ListRegistryGarbageCollectionsProperties Items;
-
-        [OutputConstructor]
-        private ListRegistryGarbageCollectionsResult(Outputs.ListRegistryGarbageCollectionsProperties items)
-        {
-            Items = items;
-        }
     }
 }

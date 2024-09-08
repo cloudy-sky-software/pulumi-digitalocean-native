@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetUptimeCheckResult',
-    'AwaitableGetUptimeCheckResult',
+    'GetUptimeCheckProperties',
+    'AwaitableGetUptimeCheckProperties',
     'get_uptime_check',
     'get_uptime_check_output',
 ]
 
 @pulumi.output_type
-class GetUptimeCheckResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetUptimeCheckProperties:
+    def __init__(__self__, check=None):
+        if check and not isinstance(check, dict):
+            raise TypeError("Expected argument 'check' to be a dict")
+        pulumi.set(__self__, "check", check)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetUptimeCheckProperties':
-        return pulumi.get(self, "items")
+    def check(self) -> Optional['outputs.Check']:
+        return pulumi.get(self, "check")
 
 
-class AwaitableGetUptimeCheckResult(GetUptimeCheckResult):
+class AwaitableGetUptimeCheckProperties(GetUptimeCheckProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetUptimeCheckResult(
-            items=self.items)
+        return GetUptimeCheckProperties(
+            check=self.check)
 
 
 def get_uptime_check(check_id: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUptimeCheckResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUptimeCheckProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_uptime_check(check_id: Optional[str] = None,
     __args__ = dict()
     __args__['checkId'] = check_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:uptime/v2:getUptimeCheck', __args__, opts=opts, typ=GetUptimeCheckResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:uptime/v2:getUptimeCheck', __args__, opts=opts, typ=GetUptimeCheckProperties).value
 
-    return AwaitableGetUptimeCheckResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetUptimeCheckProperties(
+        check=pulumi.get(__ret__, 'check'))
 
 
 @_utilities.lift_output_func(get_uptime_check)
 def get_uptime_check_output(check_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeCheckResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeCheckProperties]:
     """
     Use this data source to access information about an existing resource.
 

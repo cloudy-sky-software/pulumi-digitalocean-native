@@ -29,7 +29,7 @@ type GetFloatingIPsActionArgs struct {
 }
 
 type GetFloatingIPsActionResult struct {
-	Items GetFloatingIPsActionProperties `pulumi:"items"`
+	Action *GetFloatingIPsActionPropertiesAction `pulumi:"action"`
 }
 
 // Defaults sets the appropriate defaults for GetFloatingIPsActionResult
@@ -38,7 +38,7 @@ func (val *GetFloatingIPsActionResult) Defaults() *GetFloatingIPsActionResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Action = tmp.Action.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o GetFloatingIPsActionResultOutput) ToGetFloatingIPsActionResultOutputWith
 	return o
 }
 
-func (o GetFloatingIPsActionResultOutput) Items() GetFloatingIPsActionPropertiesOutput {
-	return o.ApplyT(func(v GetFloatingIPsActionResult) GetFloatingIPsActionProperties { return v.Items }).(GetFloatingIPsActionPropertiesOutput)
+func (o GetFloatingIPsActionResultOutput) Action() GetFloatingIPsActionPropertiesActionPtrOutput {
+	return o.ApplyT(func(v GetFloatingIPsActionResult) *GetFloatingIPsActionPropertiesAction { return v.Action }).(GetFloatingIPsActionPropertiesActionPtrOutput)
 }
 
 func init() {

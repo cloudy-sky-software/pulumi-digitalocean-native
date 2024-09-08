@@ -6,41 +6,59 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListDomainsRecordsResult',
-    'AwaitableListDomainsRecordsResult',
+    'ListDomainsRecordsItems',
+    'AwaitableListDomainsRecordsItems',
     'list_domains_records',
     'list_domains_records_output',
 ]
 
 @pulumi.output_type
-class ListDomainsRecordsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListDomainsRecordsItems:
+    def __init__(__self__, domain_records=None, links=None, meta=None):
+        if domain_records and not isinstance(domain_records, list):
+            raise TypeError("Expected argument 'domain_records' to be a list")
+        pulumi.set(__self__, "domain_records", domain_records)
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+
+    @property
+    @pulumi.getter(name="domainRecords")
+    def domain_records(self) -> Optional[Sequence['outputs.DomainRecord']]:
+        return pulumi.get(self, "domain_records")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListDomainsRecordsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
 
 
-class AwaitableListDomainsRecordsResult(ListDomainsRecordsResult):
+class AwaitableListDomainsRecordsItems(ListDomainsRecordsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListDomainsRecordsResult(
-            items=self.items)
+        return ListDomainsRecordsItems(
+            domain_records=self.domain_records,
+            links=self.links,
+            meta=self.meta)
 
 
 def list_domains_records(domain_name: Optional[str] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainsRecordsResult:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainsRecordsItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +67,17 @@ def list_domains_records(domain_name: Optional[str] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:domains/v2:listDomainsRecords', __args__, opts=opts, typ=ListDomainsRecordsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:domains/v2:listDomainsRecords', __args__, opts=opts, typ=ListDomainsRecordsItems).value
 
-    return AwaitableListDomainsRecordsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListDomainsRecordsItems(
+        domain_records=pulumi.get(__ret__, 'domain_records'),
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'))
 
 
 @_utilities.lift_output_func(list_domains_records)
 def list_domains_records_output(domain_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainsRecordsResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainsRecordsItems]:
     """
     Use this data source to access information about an existing resource.
 

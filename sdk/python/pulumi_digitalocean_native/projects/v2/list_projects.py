@@ -6,54 +6,74 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListProjectsResult',
-    'AwaitableListProjectsResult',
+    'ListProjectsItems',
+    'AwaitableListProjectsItems',
     'list_projects',
     'list_projects_output',
 ]
 
 @pulumi.output_type
-class ListProjectsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListProjectsItems:
+    def __init__(__self__, links=None, meta=None, projects=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if projects and not isinstance(projects, list):
+            raise TypeError("Expected argument 'projects' to be a list")
+        pulumi.set(__self__, "projects", projects)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListProjectsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def projects(self) -> Optional[Sequence['outputs.Project']]:
+        return pulumi.get(self, "projects")
 
 
-class AwaitableListProjectsResult(ListProjectsResult):
+class AwaitableListProjectsItems(ListProjectsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListProjectsResult(
-            items=self.items)
+        return ListProjectsItems(
+            links=self.links,
+            meta=self.meta,
+            projects=self.projects)
 
 
-def list_projects(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProjectsResult:
+def list_projects(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProjectsItems:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:projects/v2:listProjects', __args__, opts=opts, typ=ListProjectsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:projects/v2:listProjects', __args__, opts=opts, typ=ListProjectsItems).value
 
-    return AwaitableListProjectsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListProjectsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        projects=pulumi.get(__ret__, 'projects'))
 
 
 @_utilities.lift_output_func(list_projects)
-def list_projects_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsResult]:
+def list_projects_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsItems]:
     """
     Use this data source to access information about an existing resource.
     """

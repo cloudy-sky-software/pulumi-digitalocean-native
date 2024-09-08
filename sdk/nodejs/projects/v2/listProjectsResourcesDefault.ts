@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listProjectsResourcesDefault(args?: ListProjectsResourcesDefaultArgs, opts?: pulumi.InvokeOptions): Promise<ListProjectsResourcesDefaultResult> {
+export function listProjectsResourcesDefault(args?: ListProjectsResourcesDefaultArgs, opts?: pulumi.InvokeOptions): Promise<outputs.projects.v2.ListProjectsResourcesDefaultItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listProjectsResourcesDefault(args?: ListProjectsResourcesDefault
 
 export interface ListProjectsResourcesDefaultArgs {
 }
-
-export interface ListProjectsResourcesDefaultResult {
-    readonly items: outputs.projects.v2.ListProjectsResourcesDefaultItems;
-}
-export function listProjectsResourcesDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListProjectsResourcesDefaultResult> {
+export function listProjectsResourcesDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.ListProjectsResourcesDefaultItems> {
     return pulumi.output(listProjectsResourcesDefault(opts))
 }

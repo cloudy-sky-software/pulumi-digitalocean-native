@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getKubernetesNodePool(args: GetKubernetesNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesNodePoolResult> {
+export function getKubernetesNodePool(args: GetKubernetesNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.GetKubernetesNodePoolProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:kubernetes/v2:getKubernetesNodePool", {
@@ -26,11 +26,7 @@ export interface GetKubernetesNodePoolArgs {
      */
     nodePoolId: string;
 }
-
-export interface GetKubernetesNodePoolResult {
-    readonly items: outputs.kubernetes.v2.GetKubernetesNodePoolProperties;
-}
-export function getKubernetesNodePoolOutput(args: GetKubernetesNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesNodePoolResult> {
+export function getKubernetesNodePoolOutput(args: GetKubernetesNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.GetKubernetesNodePoolProperties> {
     return pulumi.output(args).apply((a: any) => getKubernetesNodePool(a, opts))
 }
 

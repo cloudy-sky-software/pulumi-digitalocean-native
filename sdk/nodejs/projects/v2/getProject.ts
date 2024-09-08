@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<outputs.projects.v2.GetProjectProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:projects/v2:getProject", {
@@ -21,11 +21,7 @@ export interface GetProjectArgs {
      */
     projectId: string;
 }
-
-export interface GetProjectResult {
-    readonly items: outputs.projects.v2.GetProjectProperties;
-}
-export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.GetProjectProperties> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 

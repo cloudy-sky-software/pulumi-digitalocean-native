@@ -4,7 +4,7 @@
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ListRegionsArgs, ListRegionsResult } from "./listRegions";
+export { ListRegionsArgs } from "./listRegions";
 export const listRegions: typeof import("./listRegions").listRegions = null as any;
 export const listRegionsOutput: typeof import("./listRegions").listRegionsOutput = null as any;
 utilities.lazyLoad(exports, ["listRegions","listRegionsOutput"], () => require("./listRegions"));

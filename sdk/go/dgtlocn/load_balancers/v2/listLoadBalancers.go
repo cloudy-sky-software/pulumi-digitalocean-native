@@ -25,7 +25,9 @@ type ListLoadBalancersArgs struct {
 }
 
 type ListLoadBalancersResult struct {
-	Items ListLoadBalancersItems `pulumi:"items"`
+	Links         *PageLinks         `pulumi:"links"`
+	LoadBalancers []LoadBalancerType `pulumi:"loadBalancers"`
+	Meta          MetaMeta           `pulumi:"meta"`
 }
 
 func ListLoadBalancersOutput(ctx *pulumi.Context, args ListLoadBalancersOutputArgs, opts ...pulumi.InvokeOption) ListLoadBalancersResultOutput {
@@ -62,8 +64,16 @@ func (o ListLoadBalancersResultOutput) ToListLoadBalancersResultOutputWithContex
 	return o
 }
 
-func (o ListLoadBalancersResultOutput) Items() ListLoadBalancersItemsOutput {
-	return o.ApplyT(func(v ListLoadBalancersResult) ListLoadBalancersItems { return v.Items }).(ListLoadBalancersItemsOutput)
+func (o ListLoadBalancersResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListLoadBalancersResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListLoadBalancersResultOutput) LoadBalancers() LoadBalancerTypeArrayOutput {
+	return o.ApplyT(func(v ListLoadBalancersResult) []LoadBalancerType { return v.LoadBalancers }).(LoadBalancerTypeArrayOutput)
+}
+
+func (o ListLoadBalancersResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListLoadBalancersResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

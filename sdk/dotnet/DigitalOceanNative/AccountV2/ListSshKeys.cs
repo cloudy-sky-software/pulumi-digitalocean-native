@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
 {
     public static class ListSshKeys
     {
-        public static Task<ListSshKeysResult> InvokeAsync(ListSshKeysArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSshKeysResult>("digitalocean-native:account/v2:listSshKeys", args ?? new ListSshKeysArgs(), options.WithDefaults());
+        public static Task<Outputs.ListSshKeysItems> InvokeAsync(ListSshKeysArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListSshKeysItems>("digitalocean-native:account/v2:listSshKeys", args ?? new ListSshKeysArgs(), options.WithDefaults());
 
-        public static Output<ListSshKeysResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListSshKeysResult>("digitalocean-native:account/v2:listSshKeys", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListSshKeysItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSshKeysItems>("digitalocean-native:account/v2:listSshKeys", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
         {
         }
         public static new ListSshKeysArgs Empty => new ListSshKeysArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListSshKeysResult
-    {
-        public readonly Outputs.ListSshKeysItems Items;
-
-        [OutputConstructor]
-        private ListSshKeysResult(Outputs.ListSshKeysItems items)
-        {
-            Items = items;
-        }
     }
 }

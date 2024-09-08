@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 {
     public static class GetAppsLogsAggregate
     {
-        public static Task<GetAppsLogsAggregateResult> InvokeAsync(GetAppsLogsAggregateArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppsLogsAggregateResult>("digitalocean-native:apps/v2:getAppsLogsAggregate", args ?? new GetAppsLogsAggregateArgs(), options.WithDefaults());
+        public static Task<Outputs.AppsGetLogsResponse> InvokeAsync(GetAppsLogsAggregateArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsAggregate", args ?? new GetAppsLogsAggregateArgs(), options.WithDefaults());
 
-        public static Output<GetAppsLogsAggregateResult> Invoke(GetAppsLogsAggregateInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAppsLogsAggregateResult>("digitalocean-native:apps/v2:getAppsLogsAggregate", args ?? new GetAppsLogsAggregateInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.AppsGetLogsResponse> Invoke(GetAppsLogsAggregateInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsAggregate", args ?? new GetAppsLogsAggregateInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         {
         }
         public static new GetAppsLogsAggregateInvokeArgs Empty => new GetAppsLogsAggregateInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetAppsLogsAggregateResult
-    {
-        public readonly Outputs.AppsGetLogsResponse Items;
-
-        [OutputConstructor]
-        private GetAppsLogsAggregateResult(Outputs.AppsGetLogsResponse items)
-        {
-            Items = items;
-        }
     }
 }

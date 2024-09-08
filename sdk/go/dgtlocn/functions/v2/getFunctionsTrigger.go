@@ -29,7 +29,7 @@ type LookupFunctionsTriggerArgs struct {
 }
 
 type LookupFunctionsTriggerResult struct {
-	Items GetFunctionsTriggerProperties `pulumi:"items"`
+	Trigger *TriggerInfo `pulumi:"trigger"`
 }
 
 func LookupFunctionsTriggerOutput(ctx *pulumi.Context, args LookupFunctionsTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionsTriggerResultOutput {
@@ -70,8 +70,8 @@ func (o LookupFunctionsTriggerResultOutput) ToLookupFunctionsTriggerResultOutput
 	return o
 }
 
-func (o LookupFunctionsTriggerResultOutput) Items() GetFunctionsTriggerPropertiesOutput {
-	return o.ApplyT(func(v LookupFunctionsTriggerResult) GetFunctionsTriggerProperties { return v.Items }).(GetFunctionsTriggerPropertiesOutput)
+func (o LookupFunctionsTriggerResultOutput) Trigger() TriggerInfoPtrOutput {
+	return o.ApplyT(func(v LookupFunctionsTriggerResult) *TriggerInfo { return v.Trigger }).(TriggerInfoPtrOutput)
 }
 
 func init() {

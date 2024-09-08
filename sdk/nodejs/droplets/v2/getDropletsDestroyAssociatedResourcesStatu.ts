@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getDropletsDestroyAssociatedResourcesStatu(args: GetDropletsDestroyAssociatedResourcesStatuArgs, opts?: pulumi.InvokeOptions): Promise<GetDropletsDestroyAssociatedResourcesStatuResult> {
+export function getDropletsDestroyAssociatedResourcesStatu(args: GetDropletsDestroyAssociatedResourcesStatuArgs, opts?: pulumi.InvokeOptions): Promise<outputs.droplets.v2.AssociatedResourceStatus> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", {
@@ -21,11 +21,7 @@ export interface GetDropletsDestroyAssociatedResourcesStatuArgs {
      */
     dropletId: string;
 }
-
-export interface GetDropletsDestroyAssociatedResourcesStatuResult {
-    readonly items: outputs.droplets.v2.AssociatedResourceStatus;
-}
-export function getDropletsDestroyAssociatedResourcesStatuOutput(args: GetDropletsDestroyAssociatedResourcesStatuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDropletsDestroyAssociatedResourcesStatuResult> {
+export function getDropletsDestroyAssociatedResourcesStatuOutput(args: GetDropletsDestroyAssociatedResourcesStatuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.AssociatedResourceStatus> {
     return pulumi.output(args).apply((a: any) => getDropletsDestroyAssociatedResourcesStatu(a, opts))
 }
 

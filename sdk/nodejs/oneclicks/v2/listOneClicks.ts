@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listOneClicks(args?: ListOneClicksArgs, opts?: pulumi.InvokeOptions): Promise<ListOneClicksResult> {
+export function listOneClicks(args?: ListOneClicksArgs, opts?: pulumi.InvokeOptions): Promise<outputs.oneclicks.v2.ListOneClicksProperties> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listOneClicks(args?: ListOneClicksArgs, opts?: pulumi.InvokeOpti
 
 export interface ListOneClicksArgs {
 }
-
-export interface ListOneClicksResult {
-    readonly items: outputs.oneclicks.v2.ListOneClicksProperties;
-}
-export function listOneClicksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListOneClicksResult> {
+export function listOneClicksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.oneclicks.v2.ListOneClicksProperties> {
     return pulumi.output(listOneClicks(opts))
 }

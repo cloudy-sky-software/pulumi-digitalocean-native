@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 {
     public static class ListRegistryRepositoriesV2
     {
-        public static Task<ListRegistryRepositoriesV2Result> InvokeAsync(ListRegistryRepositoriesV2Args args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListRegistryRepositoriesV2Result>("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args ?? new ListRegistryRepositoriesV2Args(), options.WithDefaults());
+        public static Task<Outputs.ListRegistryRepositoriesV2Items> InvokeAsync(ListRegistryRepositoriesV2Args args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListRegistryRepositoriesV2Items>("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args ?? new ListRegistryRepositoriesV2Args(), options.WithDefaults());
 
-        public static Output<ListRegistryRepositoriesV2Result> Invoke(ListRegistryRepositoriesV2InvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListRegistryRepositoriesV2Result>("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args ?? new ListRegistryRepositoriesV2InvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListRegistryRepositoriesV2Items> Invoke(ListRegistryRepositoriesV2InvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegistryRepositoriesV2Items>("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args ?? new ListRegistryRepositoriesV2InvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
         {
         }
         public static new ListRegistryRepositoriesV2InvokeArgs Empty => new ListRegistryRepositoriesV2InvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListRegistryRepositoriesV2Result
-    {
-        public readonly Outputs.ListRegistryRepositoriesV2Items Items;
-
-        [OutputConstructor]
-        private ListRegistryRepositoriesV2Result(Outputs.ListRegistryRepositoriesV2Items items)
-        {
-            Items = items;
-        }
     }
 }

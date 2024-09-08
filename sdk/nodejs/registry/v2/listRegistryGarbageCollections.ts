@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listRegistryGarbageCollections(args: ListRegistryGarbageCollectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryGarbageCollectionsResult> {
+export function listRegistryGarbageCollections(args: ListRegistryGarbageCollectionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.ListRegistryGarbageCollectionsProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:registry/v2:listRegistryGarbageCollections", {
@@ -21,11 +21,7 @@ export interface ListRegistryGarbageCollectionsArgs {
      */
     registryName: string;
 }
-
-export interface ListRegistryGarbageCollectionsResult {
-    readonly items: outputs.registry.v2.ListRegistryGarbageCollectionsProperties;
-}
-export function listRegistryGarbageCollectionsOutput(args: ListRegistryGarbageCollectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryGarbageCollectionsResult> {
+export function listRegistryGarbageCollectionsOutput(args: ListRegistryGarbageCollectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryGarbageCollectionsProperties> {
     return pulumi.output(args).apply((a: any) => listRegistryGarbageCollections(a, opts))
 }
 

@@ -25,7 +25,9 @@ type ListTagsArgs struct {
 }
 
 type ListTagsResult struct {
-	Items ListTagsItems `pulumi:"items"`
+	Links *PageLinks `pulumi:"links"`
+	Meta  MetaMeta   `pulumi:"meta"`
+	Tags  []Tags     `pulumi:"tags"`
 }
 
 func ListTagsOutput(ctx *pulumi.Context, args ListTagsOutputArgs, opts ...pulumi.InvokeOption) ListTagsResultOutput {
@@ -62,8 +64,16 @@ func (o ListTagsResultOutput) ToListTagsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ListTagsResultOutput) Items() ListTagsItemsOutput {
-	return o.ApplyT(func(v ListTagsResult) ListTagsItems { return v.Items }).(ListTagsItemsOutput)
+func (o ListTagsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListTagsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListTagsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListTagsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListTagsResultOutput) Tags() TagsArrayOutput {
+	return o.ApplyT(func(v ListTagsResult) []Tags { return v.Tags }).(TagsArrayOutput)
 }
 
 func init() {

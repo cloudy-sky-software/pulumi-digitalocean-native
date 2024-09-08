@@ -6,53 +6,53 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetRegistrySubscriptionResult',
-    'AwaitableGetRegistrySubscriptionResult',
+    'GetRegistrySubscriptionProperties',
+    'AwaitableGetRegistrySubscriptionProperties',
     'get_registry_subscription',
     'get_registry_subscription_output',
 ]
 
 @pulumi.output_type
-class GetRegistrySubscriptionResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetRegistrySubscriptionProperties:
+    def __init__(__self__, subscription=None):
+        if subscription and not isinstance(subscription, dict):
+            raise TypeError("Expected argument 'subscription' to be a dict")
+        pulumi.set(__self__, "subscription", subscription)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetRegistrySubscriptionProperties':
-        return pulumi.get(self, "items")
+    def subscription(self) -> Optional['outputs.Subscription']:
+        return pulumi.get(self, "subscription")
 
 
-class AwaitableGetRegistrySubscriptionResult(GetRegistrySubscriptionResult):
+class AwaitableGetRegistrySubscriptionProperties(GetRegistrySubscriptionProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetRegistrySubscriptionResult(
-            items=self.items)
+        return GetRegistrySubscriptionProperties(
+            subscription=self.subscription)
 
 
-def get_registry_subscription(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrySubscriptionResult:
+def get_registry_subscription(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrySubscriptionProperties:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:getRegistrySubscription', __args__, opts=opts, typ=GetRegistrySubscriptionResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:getRegistrySubscription', __args__, opts=opts, typ=GetRegistrySubscriptionProperties).value
 
-    return AwaitableGetRegistrySubscriptionResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetRegistrySubscriptionProperties(
+        subscription=pulumi.get(__ret__, 'subscription'))
 
 
 @_utilities.lift_output_func(get_registry_subscription)
-def get_registry_subscription_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrySubscriptionResult]:
+def get_registry_subscription_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrySubscriptionProperties]:
     """
     Use this data source to access information about an existing resource.
     """

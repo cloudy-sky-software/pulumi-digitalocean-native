@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<outputs.account.v2.GetAccountProperties> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): 
 
 export interface GetAccountArgs {
 }
-
-export interface GetAccountResult {
-    readonly items: outputs.account.v2.GetAccountProperties;
-}
-export function getAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.GetAccountProperties> {
     return pulumi.output(getAccount(opts))
 }

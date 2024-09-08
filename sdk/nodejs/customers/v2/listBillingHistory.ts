@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listBillingHistory(args?: ListBillingHistoryArgs, opts?: pulumi.InvokeOptions): Promise<ListBillingHistoryResult> {
+export function listBillingHistory(args?: ListBillingHistoryArgs, opts?: pulumi.InvokeOptions): Promise<outputs.customers.v2.ListBillingHistoryItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listBillingHistory(args?: ListBillingHistoryArgs, opts?: pulumi.
 
 export interface ListBillingHistoryArgs {
 }
-
-export interface ListBillingHistoryResult {
-    readonly items: outputs.customers.v2.ListBillingHistoryItems;
-}
-export function listBillingHistoryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingHistoryResult> {
+export function listBillingHistoryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.ListBillingHistoryItems> {
     return pulumi.output(listBillingHistory(opts))
 }

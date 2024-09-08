@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletMemoryCachedMetric
     {
-        public static Task<GetMonitoringDropletMemoryCachedMetricResult> InvokeAsync(GetMonitoringDropletMemoryCachedMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletMemoryCachedMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", args ?? new GetMonitoringDropletMemoryCachedMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletMemoryCachedMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", args ?? new GetMonitoringDropletMemoryCachedMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletMemoryCachedMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletMemoryCachedMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletMemoryCachedMetricArgs Empty => new GetMonitoringDropletMemoryCachedMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletMemoryCachedMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletMemoryCachedMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

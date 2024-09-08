@@ -27,7 +27,9 @@ type ListDropletsBackupsArgs struct {
 }
 
 type ListDropletsBackupsResult struct {
-	Items ListDropletsBackupsItems `pulumi:"items"`
+	Backups []DropletSnapshot `pulumi:"backups"`
+	Links   *PageLinks        `pulumi:"links"`
+	Meta    MetaMeta          `pulumi:"meta"`
 }
 
 func ListDropletsBackupsOutput(ctx *pulumi.Context, args ListDropletsBackupsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsBackupsResultOutput {
@@ -66,8 +68,16 @@ func (o ListDropletsBackupsResultOutput) ToListDropletsBackupsResultOutputWithCo
 	return o
 }
 
-func (o ListDropletsBackupsResultOutput) Items() ListDropletsBackupsItemsOutput {
-	return o.ApplyT(func(v ListDropletsBackupsResult) ListDropletsBackupsItems { return v.Items }).(ListDropletsBackupsItemsOutput)
+func (o ListDropletsBackupsResultOutput) Backups() DropletSnapshotArrayOutput {
+	return o.ApplyT(func(v ListDropletsBackupsResult) []DropletSnapshot { return v.Backups }).(DropletSnapshotArrayOutput)
+}
+
+func (o ListDropletsBackupsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDropletsBackupsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListDropletsBackupsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDropletsBackupsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

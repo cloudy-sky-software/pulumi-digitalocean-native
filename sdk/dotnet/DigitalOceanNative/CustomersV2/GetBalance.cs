@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
 {
     public static class GetBalance
     {
-        public static Task<GetBalanceResult> InvokeAsync(GetBalanceArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBalanceResult>("digitalocean-native:customers/v2:getBalance", args ?? new GetBalanceArgs(), options.WithDefaults());
+        public static Task<Outputs.Balance> InvokeAsync(GetBalanceArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Balance>("digitalocean-native:customers/v2:getBalance", args ?? new GetBalanceArgs(), options.WithDefaults());
 
-        public static Output<GetBalanceResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetBalanceResult>("digitalocean-native:customers/v2:getBalance", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Balance> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Balance>("digitalocean-native:customers/v2:getBalance", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
         {
         }
         public static new GetBalanceArgs Empty => new GetBalanceArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetBalanceResult
-    {
-        public readonly Outputs.Balance Items;
-
-        [OutputConstructor]
-        private GetBalanceResult(Outputs.Balance items)
-        {
-            Items = items;
-        }
     }
 }

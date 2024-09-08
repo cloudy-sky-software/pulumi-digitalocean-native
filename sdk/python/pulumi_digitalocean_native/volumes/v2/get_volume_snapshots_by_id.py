@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetVolumeSnapshotsByIdResult',
-    'AwaitableGetVolumeSnapshotsByIdResult',
+    'GetVolumeSnapshotsByIdProperties',
+    'AwaitableGetVolumeSnapshotsByIdProperties',
     'get_volume_snapshots_by_id',
     'get_volume_snapshots_by_id_output',
 ]
 
 @pulumi.output_type
-class GetVolumeSnapshotsByIdResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetVolumeSnapshotsByIdProperties:
+    def __init__(__self__, snapshot=None):
+        if snapshot and not isinstance(snapshot, dict):
+            raise TypeError("Expected argument 'snapshot' to be a dict")
+        pulumi.set(__self__, "snapshot", snapshot)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetVolumeSnapshotsByIdProperties':
-        return pulumi.get(self, "items")
+    def snapshot(self) -> Optional['outputs.Snapshots']:
+        return pulumi.get(self, "snapshot")
 
 
-class AwaitableGetVolumeSnapshotsByIdResult(GetVolumeSnapshotsByIdResult):
+class AwaitableGetVolumeSnapshotsByIdProperties(GetVolumeSnapshotsByIdProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVolumeSnapshotsByIdResult(
-            items=self.items)
+        return GetVolumeSnapshotsByIdProperties(
+            snapshot=self.snapshot)
 
 
 def get_volume_snapshots_by_id(snapshot_id: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeSnapshotsByIdResult:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeSnapshotsByIdProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_volume_snapshots_by_id(snapshot_id: Optional[str] = None,
     __args__ = dict()
     __args__['snapshotId'] = snapshot_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:volumes/v2:getVolumeSnapshotsById', __args__, opts=opts, typ=GetVolumeSnapshotsByIdResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:volumes/v2:getVolumeSnapshotsById', __args__, opts=opts, typ=GetVolumeSnapshotsByIdProperties).value
 
-    return AwaitableGetVolumeSnapshotsByIdResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetVolumeSnapshotsByIdProperties(
+        snapshot=pulumi.get(__ret__, 'snapshot'))
 
 
 @_utilities.lift_output_func(get_volume_snapshots_by_id)
 def get_volume_snapshots_by_id_output(snapshot_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeSnapshotsByIdResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeSnapshotsByIdProperties]:
     """
     Use this data source to access information about an existing resource.
 

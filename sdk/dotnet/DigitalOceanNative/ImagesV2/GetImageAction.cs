@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2
 {
     public static class GetImageAction
     {
-        public static Task<GetImageActionResult> InvokeAsync(GetImageActionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageActionResult>("digitalocean-native:images/v2:getImageAction", args ?? new GetImageActionArgs(), options.WithDefaults());
+        public static Task<Outputs.Action> InvokeAsync(GetImageActionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Action>("digitalocean-native:images/v2:getImageAction", args ?? new GetImageActionArgs(), options.WithDefaults());
 
-        public static Output<GetImageActionResult> Invoke(GetImageActionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetImageActionResult>("digitalocean-native:images/v2:getImageAction", args ?? new GetImageActionInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.Action> Invoke(GetImageActionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Action>("digitalocean-native:images/v2:getImageAction", args ?? new GetImageActionInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2
         {
         }
         public static new GetImageActionInvokeArgs Empty => new GetImageActionInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetImageActionResult
-    {
-        public readonly Outputs.Action Items;
-
-        [OutputConstructor]
-        private GetImageActionResult(Outputs.Action items)
-        {
-            Items = items;
-        }
     }
 }

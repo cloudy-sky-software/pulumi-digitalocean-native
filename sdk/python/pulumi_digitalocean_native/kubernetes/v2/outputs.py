@@ -13,25 +13,16 @@ from ._enums import *
 
 __all__ = [
     'AssociatedKubernetesResource',
-    'AssociatedKubernetesResources',
     'Cluster',
     'ClusterStatusProperties',
-    'ClusterlintResults',
     'ClusterlintResultsDiagnosticsItemProperties',
     'ClusterlintResultsDiagnosticsItemPropertiesObjectProperties',
-    'Credentials',
-    'GetKubernetesAvailableUpgradeProperties',
-    'GetKubernetesClusterProperties',
-    'GetKubernetesNodePoolProperties',
     'KubernetesNodePool',
     'KubernetesNodePoolTaint',
-    'KubernetesOptions',
     'KubernetesOptionsOptionsProperties',
     'KubernetesRegion',
     'KubernetesSize',
     'KubernetesVersion',
-    'ListKubernetesClustersItems',
-    'ListKubernetesNodePoolsProperties',
     'MaintenancePolicy',
     'MetaMeta',
     'Node',
@@ -39,7 +30,6 @@ __all__ = [
     'PageLinks',
     'PageLinksPagesProperties',
     'StatusProperties',
-    'User',
     'UserKubernetesClusterUserProperties',
 ]
 
@@ -72,53 +62,6 @@ class AssociatedKubernetesResource(dict):
         The name of a resource associated with a Kubernetes cluster.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class AssociatedKubernetesResources(dict):
-    """
-    An object containing the IDs of resources associated with a Kubernetes cluster.
-    """
-    def __init__(__self__, *,
-                 load_balancers: Optional[Sequence['outputs.AssociatedKubernetesResource']] = None,
-                 volume_snapshots: Optional[Sequence['outputs.AssociatedKubernetesResource']] = None,
-                 volumes: Optional[Sequence['outputs.AssociatedKubernetesResource']] = None):
-        """
-        An object containing the IDs of resources associated with a Kubernetes cluster.
-        :param Sequence['AssociatedKubernetesResource'] load_balancers: A list of names and IDs for associated load balancers that can be destroyed along with the cluster.
-        :param Sequence['AssociatedKubernetesResource'] volume_snapshots: A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.
-        :param Sequence['AssociatedKubernetesResource'] volumes: A list of names and IDs for associated volumes that can be destroyed along with the cluster.
-        """
-        if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
-        if volume_snapshots is not None:
-            pulumi.set(__self__, "volume_snapshots", volume_snapshots)
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[Sequence['outputs.AssociatedKubernetesResource']]:
-        """
-        A list of names and IDs for associated load balancers that can be destroyed along with the cluster.
-        """
-        return pulumi.get(self, "load_balancers")
-
-    @property
-    @pulumi.getter(name="volumeSnapshots")
-    def volume_snapshots(self) -> Optional[Sequence['outputs.AssociatedKubernetesResource']]:
-        """
-        A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.
-        """
-        return pulumi.get(self, "volume_snapshots")
-
-    @property
-    @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.AssociatedKubernetesResource']]:
-        """
-        A list of names and IDs for associated volumes that can be destroyed along with the cluster.
-        """
-        return pulumi.get(self, "volumes")
 
 
 @pulumi.output_type
@@ -429,61 +372,6 @@ class ClusterStatusProperties(dict):
 
 
 @pulumi.output_type
-class ClusterlintResults(dict):
-    def __init__(__self__, *,
-                 completed_at: Optional[str] = None,
-                 diagnostics: Optional[Sequence['outputs.ClusterlintResultsDiagnosticsItemProperties']] = None,
-                 requested_at: Optional[str] = None,
-                 run_id: Optional[str] = None):
-        """
-        :param str completed_at: A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed.
-        :param Sequence['ClusterlintResultsDiagnosticsItemProperties'] diagnostics: An array of diagnostics reporting potential problems for the given cluster.
-        :param str requested_at: A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made.
-        :param str run_id: Id of the clusterlint run that can be used later to fetch the diagnostics.
-        """
-        if completed_at is not None:
-            pulumi.set(__self__, "completed_at", completed_at)
-        if diagnostics is not None:
-            pulumi.set(__self__, "diagnostics", diagnostics)
-        if requested_at is not None:
-            pulumi.set(__self__, "requested_at", requested_at)
-        if run_id is not None:
-            pulumi.set(__self__, "run_id", run_id)
-
-    @property
-    @pulumi.getter(name="completedAt")
-    def completed_at(self) -> Optional[str]:
-        """
-        A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed.
-        """
-        return pulumi.get(self, "completed_at")
-
-    @property
-    @pulumi.getter
-    def diagnostics(self) -> Optional[Sequence['outputs.ClusterlintResultsDiagnosticsItemProperties']]:
-        """
-        An array of diagnostics reporting potential problems for the given cluster.
-        """
-        return pulumi.get(self, "diagnostics")
-
-    @property
-    @pulumi.getter(name="requestedAt")
-    def requested_at(self) -> Optional[str]:
-        """
-        A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made.
-        """
-        return pulumi.get(self, "requested_at")
-
-    @property
-    @pulumi.getter(name="runId")
-    def run_id(self) -> Optional[str]:
-        """
-        Id of the clusterlint run that can be used later to fetch the diagnostics.
-        """
-        return pulumi.get(self, "run_id")
-
-
-@pulumi.output_type
 class ClusterlintResultsDiagnosticsItemProperties(dict):
     def __init__(__self__, *,
                  check_name: Optional[str] = None,
@@ -583,148 +471,6 @@ class ClusterlintResultsDiagnosticsItemPropertiesObjectProperties(dict):
         The namespace the object resides in the cluster.
         """
         return pulumi.get(self, "namespace")
-
-
-@pulumi.output_type
-class Credentials(dict):
-    def __init__(__self__, *,
-                 certificate_authority_data: Optional[str] = None,
-                 client_certificate_data: Optional[str] = None,
-                 client_key_data: Optional[str] = None,
-                 expires_at: Optional[str] = None,
-                 server: Optional[str] = None,
-                 token: Optional[str] = None):
-        """
-        :param str certificate_authority_data: A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
-        :param str client_certificate_data: A base64 encoding of bytes representing the x509 client
-               certificate data for access the cluster. This is only returned for clusters
-               without support for token-based authentication.
-               
-               Newly created Kubernetes clusters do not return credentials using
-               certificate-based authentication. For additional information,
-               [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
-        :param str client_key_data: A base64 encoding of bytes representing the x509 client key
-               data for access the cluster. This is only returned for clusters without
-               support for token-based authentication.
-               
-               Newly created Kubernetes clusters do not return credentials using
-               certificate-based authentication. For additional information,
-               [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
-        :param str expires_at: A time value given in ISO8601 combined date and time format that represents when the access token expires.
-        :param str server: The URL used to access the cluster API server.
-        :param str token: An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
-        """
-        if certificate_authority_data is not None:
-            pulumi.set(__self__, "certificate_authority_data", certificate_authority_data)
-        if client_certificate_data is not None:
-            pulumi.set(__self__, "client_certificate_data", client_certificate_data)
-        if client_key_data is not None:
-            pulumi.set(__self__, "client_key_data", client_key_data)
-        if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
-        if server is not None:
-            pulumi.set(__self__, "server", server)
-        if token is not None:
-            pulumi.set(__self__, "token", token)
-
-    @property
-    @pulumi.getter(name="certificateAuthorityData")
-    def certificate_authority_data(self) -> Optional[str]:
-        """
-        A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
-        """
-        return pulumi.get(self, "certificate_authority_data")
-
-    @property
-    @pulumi.getter(name="clientCertificateData")
-    def client_certificate_data(self) -> Optional[str]:
-        """
-        A base64 encoding of bytes representing the x509 client
-        certificate data for access the cluster. This is only returned for clusters
-        without support for token-based authentication.
-
-        Newly created Kubernetes clusters do not return credentials using
-        certificate-based authentication. For additional information,
-        [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
-        """
-        return pulumi.get(self, "client_certificate_data")
-
-    @property
-    @pulumi.getter(name="clientKeyData")
-    def client_key_data(self) -> Optional[str]:
-        """
-        A base64 encoding of bytes representing the x509 client key
-        data for access the cluster. This is only returned for clusters without
-        support for token-based authentication.
-
-        Newly created Kubernetes clusters do not return credentials using
-        certificate-based authentication. For additional information,
-        [see here](https://www.digitalocean.com/docs/kubernetes/how-to/connect-to-cluster/#authenticate).
-        """
-        return pulumi.get(self, "client_key_data")
-
-    @property
-    @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[str]:
-        """
-        A time value given in ISO8601 combined date and time format that represents when the access token expires.
-        """
-        return pulumi.get(self, "expires_at")
-
-    @property
-    @pulumi.getter
-    def server(self) -> Optional[str]:
-        """
-        The URL used to access the cluster API server.
-        """
-        return pulumi.get(self, "server")
-
-    @property
-    @pulumi.getter
-    def token(self) -> Optional[str]:
-        """
-        An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
-        """
-        return pulumi.get(self, "token")
-
-
-@pulumi.output_type
-class GetKubernetesAvailableUpgradeProperties(dict):
-    def __init__(__self__, *,
-                 available_upgrade_versions: Optional[Sequence['outputs.KubernetesVersion']] = None):
-        if available_upgrade_versions is not None:
-            pulumi.set(__self__, "available_upgrade_versions", available_upgrade_versions)
-
-    @property
-    @pulumi.getter(name="availableUpgradeVersions")
-    def available_upgrade_versions(self) -> Optional[Sequence['outputs.KubernetesVersion']]:
-        return pulumi.get(self, "available_upgrade_versions")
-
-
-@pulumi.output_type
-class GetKubernetesClusterProperties(dict):
-    def __init__(__self__, *,
-                 kubernetes_cluster: Optional['outputs.Cluster'] = None):
-        if kubernetes_cluster is not None:
-            pulumi.set(__self__, "kubernetes_cluster", kubernetes_cluster)
-
-    @property
-    @pulumi.getter(name="kubernetesCluster")
-    def kubernetes_cluster(self) -> Optional['outputs.Cluster']:
-        return pulumi.get(self, "kubernetes_cluster")
-
-
-@pulumi.output_type
-class GetKubernetesNodePoolProperties(dict):
-    def __init__(__self__, *,
-                 node_pool: Optional['outputs.KubernetesNodePool'] = None):
-        if node_pool is not None:
-            pulumi.set(__self__, "node_pool", node_pool)
-
-    @property
-    @pulumi.getter(name="nodePool")
-    def node_pool(self) -> Optional['outputs.KubernetesNodePool']:
-        return pulumi.get(self, "node_pool")
 
 
 @pulumi.output_type
@@ -931,19 +677,6 @@ class KubernetesNodePoolTaint(dict):
 
 
 @pulumi.output_type
-class KubernetesOptions(dict):
-    def __init__(__self__, *,
-                 options: Optional['outputs.KubernetesOptionsOptionsProperties'] = None):
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional['outputs.KubernetesOptionsOptionsProperties']:
-        return pulumi.get(self, "options")
-
-
-@pulumi.output_type
 class KubernetesOptionsOptionsProperties(dict):
     def __init__(__self__, *,
                  regions: Optional[Sequence['outputs.KubernetesRegion']] = None,
@@ -1075,47 +808,6 @@ class KubernetesVersion(dict):
         The features available with the version of Kubernetes provided by a given slug.
         """
         return pulumi.get(self, "supported_features")
-
-
-@pulumi.output_type
-class ListKubernetesClustersItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 kubernetes_clusters: Optional[Sequence['outputs.Cluster']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if kubernetes_clusters is not None:
-            pulumi.set(__self__, "kubernetes_clusters", kubernetes_clusters)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter(name="kubernetesClusters")
-    def kubernetes_clusters(self) -> Optional[Sequence['outputs.Cluster']]:
-        return pulumi.get(self, "kubernetes_clusters")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListKubernetesNodePoolsProperties(dict):
-    def __init__(__self__, *,
-                 node_pools: Optional[Sequence['outputs.KubernetesNodePool']] = None):
-        if node_pools is not None:
-            pulumi.set(__self__, "node_pools", node_pools)
-
-    @property
-    @pulumi.getter(name="nodePools")
-    def node_pools(self) -> Optional[Sequence['outputs.KubernetesNodePool']]:
-        return pulumi.get(self, "node_pools")
 
 
 @pulumi.output_type
@@ -1407,19 +1099,6 @@ class StatusProperties(dict):
         A string indicating the current status of the cluster.
         """
         return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class User(dict):
-    def __init__(__self__, *,
-                 kubernetes_cluster_user: Optional['outputs.UserKubernetesClusterUserProperties'] = None):
-        if kubernetes_cluster_user is not None:
-            pulumi.set(__self__, "kubernetes_cluster_user", kubernetes_cluster_user)
-
-    @property
-    @pulumi.getter(name="kubernetesClusterUser")
-    def kubernetes_cluster_user(self) -> Optional['outputs.UserKubernetesClusterUserProperties']:
-        return pulumi.get(self, "kubernetes_cluster_user")
 
 
 @pulumi.output_type

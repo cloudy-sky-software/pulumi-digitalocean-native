@@ -25,7 +25,7 @@ type GetRegistrySubscriptionArgs struct {
 }
 
 type GetRegistrySubscriptionResult struct {
-	Items GetRegistrySubscriptionProperties `pulumi:"items"`
+	Subscription *Subscription `pulumi:"subscription"`
 }
 
 func GetRegistrySubscriptionOutput(ctx *pulumi.Context, args GetRegistrySubscriptionOutputArgs, opts ...pulumi.InvokeOption) GetRegistrySubscriptionResultOutput {
@@ -62,8 +62,8 @@ func (o GetRegistrySubscriptionResultOutput) ToGetRegistrySubscriptionResultOutp
 	return o
 }
 
-func (o GetRegistrySubscriptionResultOutput) Items() GetRegistrySubscriptionPropertiesOutput {
-	return o.ApplyT(func(v GetRegistrySubscriptionResult) GetRegistrySubscriptionProperties { return v.Items }).(GetRegistrySubscriptionPropertiesOutput)
+func (o GetRegistrySubscriptionResultOutput) Subscription() SubscriptionPtrOutput {
+	return o.ApplyT(func(v GetRegistrySubscriptionResult) *Subscription { return v.Subscription }).(SubscriptionPtrOutput)
 }
 
 func init() {

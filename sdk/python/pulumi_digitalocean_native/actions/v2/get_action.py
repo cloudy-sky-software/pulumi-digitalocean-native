@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetActionResult',
-    'AwaitableGetActionResult',
+    'GetActionProperties',
+    'AwaitableGetActionProperties',
     'get_action',
     'get_action_output',
 ]
 
 @pulumi.output_type
-class GetActionResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetActionProperties:
+    def __init__(__self__, action=None):
+        if action and not isinstance(action, dict):
+            raise TypeError("Expected argument 'action' to be a dict")
+        pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.GetActionProperties':
-        return pulumi.get(self, "items")
+    def action(self) -> Optional['outputs.Action']:
+        return pulumi.get(self, "action")
 
 
-class AwaitableGetActionResult(GetActionResult):
+class AwaitableGetActionProperties(GetActionProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetActionResult(
-            items=self.items)
+        return GetActionProperties(
+            action=self.action)
 
 
 def get_action(action_id: Optional[str] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionResult:
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_action(action_id: Optional[str] = None,
     __args__ = dict()
     __args__['actionId'] = action_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:actions/v2:getAction', __args__, opts=opts, typ=GetActionResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:actions/v2:getAction', __args__, opts=opts, typ=GetActionProperties).value
 
-    return AwaitableGetActionResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetActionProperties(
+        action=pulumi.get(__ret__, 'action'))
 
 
 @_utilities.lift_output_func(get_action)
 def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionProperties]:
     """
     Use this data source to access information about an existing resource.
 

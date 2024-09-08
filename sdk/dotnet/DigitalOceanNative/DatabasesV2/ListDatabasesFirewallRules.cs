@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class ListDatabasesFirewallRules
     {
-        public static Task<ListDatabasesFirewallRulesResult> InvokeAsync(ListDatabasesFirewallRulesArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasesFirewallRulesResult>("digitalocean-native:databases/v2:listDatabasesFirewallRules", args ?? new ListDatabasesFirewallRulesArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDatabasesFirewallRulesProperties> InvokeAsync(ListDatabasesFirewallRulesArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDatabasesFirewallRulesProperties>("digitalocean-native:databases/v2:listDatabasesFirewallRules", args ?? new ListDatabasesFirewallRulesArgs(), options.WithDefaults());
 
-        public static Output<ListDatabasesFirewallRulesResult> Invoke(ListDatabasesFirewallRulesInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasesFirewallRulesResult>("digitalocean-native:databases/v2:listDatabasesFirewallRules", args ?? new ListDatabasesFirewallRulesInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDatabasesFirewallRulesProperties> Invoke(ListDatabasesFirewallRulesInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDatabasesFirewallRulesProperties>("digitalocean-native:databases/v2:listDatabasesFirewallRules", args ?? new ListDatabasesFirewallRulesInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new ListDatabasesFirewallRulesInvokeArgs Empty => new ListDatabasesFirewallRulesInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDatabasesFirewallRulesResult
-    {
-        public readonly Outputs.ListDatabasesFirewallRulesProperties Items;
-
-        [OutputConstructor]
-        private ListDatabasesFirewallRulesResult(Outputs.ListDatabasesFirewallRulesProperties items)
-        {
-            Items = items;
-        }
     }
 }

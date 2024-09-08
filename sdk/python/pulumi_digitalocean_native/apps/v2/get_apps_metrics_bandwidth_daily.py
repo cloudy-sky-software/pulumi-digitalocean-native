@@ -6,41 +6,56 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'GetAppsMetricsBandwidthDailyResult',
-    'AwaitableGetAppsMetricsBandwidthDailyResult',
+    'AppMetricsBandwidthUsage',
+    'AwaitableAppMetricsBandwidthUsage',
     'get_apps_metrics_bandwidth_daily',
     'get_apps_metrics_bandwidth_daily_output',
 ]
 
 @pulumi.output_type
-class GetAppsMetricsBandwidthDailyResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class AppMetricsBandwidthUsage:
+    def __init__(__self__, app_bandwidth_usage=None, date=None):
+        if app_bandwidth_usage and not isinstance(app_bandwidth_usage, list):
+            raise TypeError("Expected argument 'app_bandwidth_usage' to be a list")
+        pulumi.set(__self__, "app_bandwidth_usage", app_bandwidth_usage)
+        if date and not isinstance(date, str):
+            raise TypeError("Expected argument 'date' to be a str")
+        pulumi.set(__self__, "date", date)
+
+    @property
+    @pulumi.getter(name="appBandwidthUsage")
+    def app_bandwidth_usage(self) -> Optional[Sequence['outputs.AppMetricsBandwidthUsageDetails']]:
+        """
+        A list of bandwidth usage details by app.
+        """
+        return pulumi.get(self, "app_bandwidth_usage")
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.AppMetricsBandwidthUsage':
-        return pulumi.get(self, "items")
+    def date(self) -> Optional[str]:
+        """
+        The date for the metrics data.
+        """
+        return pulumi.get(self, "date")
 
 
-class AwaitableGetAppsMetricsBandwidthDailyResult(GetAppsMetricsBandwidthDailyResult):
+class AwaitableAppMetricsBandwidthUsage(AppMetricsBandwidthUsage):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetAppsMetricsBandwidthDailyResult(
-            items=self.items)
+        return AppMetricsBandwidthUsage(
+            app_bandwidth_usage=self.app_bandwidth_usage,
+            date=self.date)
 
 
 def get_apps_metrics_bandwidth_daily(app_id: Optional[str] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppsMetricsBandwidthDailyResult:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAppMetricsBandwidthUsage:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +64,16 @@ def get_apps_metrics_bandwidth_daily(app_id: Optional[str] = None,
     __args__ = dict()
     __args__['appId'] = app_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily', __args__, opts=opts, typ=GetAppsMetricsBandwidthDailyResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily', __args__, opts=opts, typ=AppMetricsBandwidthUsage).value
 
-    return AwaitableGetAppsMetricsBandwidthDailyResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableAppMetricsBandwidthUsage(
+        app_bandwidth_usage=pulumi.get(__ret__, 'app_bandwidth_usage'),
+        date=pulumi.get(__ret__, 'date'))
 
 
 @_utilities.lift_output_func(get_apps_metrics_bandwidth_daily)
 def get_apps_metrics_bandwidth_daily_output(app_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppsMetricsBandwidthDailyResult]:
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppMetricsBandwidthUsage]:
     """
     Use this data source to access information about an existing resource.
 

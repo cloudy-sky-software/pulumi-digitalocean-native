@@ -25,7 +25,9 @@ type ListAppsArgs struct {
 }
 
 type ListAppsResult struct {
-	Items AppsResponse `pulumi:"items"`
+	Apps  []AppType  `pulumi:"apps"`
+	Links *PageLinks `pulumi:"links"`
+	Meta  MetaMeta   `pulumi:"meta"`
 }
 
 func ListAppsOutput(ctx *pulumi.Context, args ListAppsOutputArgs, opts ...pulumi.InvokeOption) ListAppsResultOutput {
@@ -62,8 +64,16 @@ func (o ListAppsResultOutput) ToListAppsResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ListAppsResultOutput) Items() AppsResponseOutput {
-	return o.ApplyT(func(v ListAppsResult) AppsResponse { return v.Items }).(AppsResponseOutput)
+func (o ListAppsResultOutput) Apps() AppTypeArrayOutput {
+	return o.ApplyT(func(v ListAppsResult) []AppType { return v.Apps }).(AppTypeArrayOutput)
+}
+
+func (o ListAppsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListAppsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListAppsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListAppsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

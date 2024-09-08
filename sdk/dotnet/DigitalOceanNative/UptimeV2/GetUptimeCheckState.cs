@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
 {
     public static class GetUptimeCheckState
     {
-        public static Task<GetUptimeCheckStateResult> InvokeAsync(GetUptimeCheckStateArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUptimeCheckStateResult>("digitalocean-native:uptime/v2:getUptimeCheckState", args ?? new GetUptimeCheckStateArgs(), options.WithDefaults());
+        public static Task<Outputs.GetUptimeCheckStateProperties> InvokeAsync(GetUptimeCheckStateArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetUptimeCheckStateProperties>("digitalocean-native:uptime/v2:getUptimeCheckState", args ?? new GetUptimeCheckStateArgs(), options.WithDefaults());
 
-        public static Output<GetUptimeCheckStateResult> Invoke(GetUptimeCheckStateInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetUptimeCheckStateResult>("digitalocean-native:uptime/v2:getUptimeCheckState", args ?? new GetUptimeCheckStateInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetUptimeCheckStateProperties> Invoke(GetUptimeCheckStateInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetUptimeCheckStateProperties>("digitalocean-native:uptime/v2:getUptimeCheckState", args ?? new GetUptimeCheckStateInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
         {
         }
         public static new GetUptimeCheckStateInvokeArgs Empty => new GetUptimeCheckStateInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetUptimeCheckStateResult
-    {
-        public readonly Outputs.GetUptimeCheckStateProperties Items;
-
-        [OutputConstructor]
-        private GetUptimeCheckStateResult(Outputs.GetUptimeCheckStateProperties items)
-        {
-            Items = items;
-        }
     }
 }

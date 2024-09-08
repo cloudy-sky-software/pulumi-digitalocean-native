@@ -25,7 +25,9 @@ type ListSnapshotsArgs struct {
 }
 
 type ListSnapshotsResult struct {
-	Items ListSnapshotsItems `pulumi:"items"`
+	Links     *PageLinks  `pulumi:"links"`
+	Meta      MetaMeta    `pulumi:"meta"`
+	Snapshots []Snapshots `pulumi:"snapshots"`
 }
 
 func ListSnapshotsOutput(ctx *pulumi.Context, args ListSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListSnapshotsResultOutput {
@@ -62,8 +64,16 @@ func (o ListSnapshotsResultOutput) ToListSnapshotsResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListSnapshotsResultOutput) Items() ListSnapshotsItemsOutput {
-	return o.ApplyT(func(v ListSnapshotsResult) ListSnapshotsItems { return v.Items }).(ListSnapshotsItemsOutput)
+func (o ListSnapshotsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListSnapshotsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListSnapshotsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListSnapshotsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
+}
+
+func (o ListSnapshotsResultOutput) Snapshots() SnapshotsArrayOutput {
+	return o.ApplyT(func(v ListSnapshotsResult) []Snapshots { return v.Snapshots }).(SnapshotsArrayOutput)
 }
 
 func init() {

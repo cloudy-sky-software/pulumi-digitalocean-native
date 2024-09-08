@@ -5,17 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
+export { GetVpcArgs, GetVpcOutputArgs } from "./getVpc";
 export const getVpc: typeof import("./getVpc").getVpc = null as any;
 export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
 utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
 
-export { ListVpcsArgs, ListVpcsResult } from "./listVpcs";
+export { ListVpcsArgs } from "./listVpcs";
 export const listVpcs: typeof import("./listVpcs").listVpcs = null as any;
 export const listVpcsOutput: typeof import("./listVpcs").listVpcsOutput = null as any;
 utilities.lazyLoad(exports, ["listVpcs","listVpcsOutput"], () => require("./listVpcs"));
 
-export { ListVpcsMembersArgs, ListVpcsMembersResult, ListVpcsMembersOutputArgs } from "./listVpcsMembers";
+export { ListVpcsMembersArgs, ListVpcsMembersOutputArgs } from "./listVpcsMembers";
 export const listVpcsMembers: typeof import("./listVpcsMembers").listVpcsMembers = null as any;
 export const listVpcsMembersOutput: typeof import("./listVpcsMembers").listVpcsMembersOutput = null as any;
 utilities.lazyLoad(exports, ["listVpcsMembers","listVpcsMembersOutput"], () => require("./listVpcsMembers"));

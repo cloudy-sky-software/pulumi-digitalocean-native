@@ -25,7 +25,9 @@ type ListCertificatesArgs struct {
 }
 
 type ListCertificatesResult struct {
-	Items ListCertificatesItems `pulumi:"items"`
+	Certificates []CertificateType `pulumi:"certificates"`
+	Links        *PageLinks        `pulumi:"links"`
+	Meta         MetaMeta          `pulumi:"meta"`
 }
 
 func ListCertificatesOutput(ctx *pulumi.Context, args ListCertificatesOutputArgs, opts ...pulumi.InvokeOption) ListCertificatesResultOutput {
@@ -62,8 +64,16 @@ func (o ListCertificatesResultOutput) ToListCertificatesResultOutputWithContext(
 	return o
 }
 
-func (o ListCertificatesResultOutput) Items() ListCertificatesItemsOutput {
-	return o.ApplyT(func(v ListCertificatesResult) ListCertificatesItems { return v.Items }).(ListCertificatesItemsOutput)
+func (o ListCertificatesResultOutput) Certificates() CertificateTypeArrayOutput {
+	return o.ApplyT(func(v ListCertificatesResult) []CertificateType { return v.Certificates }).(CertificateTypeArrayOutput)
+}
+
+func (o ListCertificatesResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListCertificatesResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListCertificatesResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListCertificatesResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function getFunctionsNamespace(args: GetFunctionsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionsNamespaceResult> {
+export function getFunctionsNamespace(args: GetFunctionsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<outputs.functions.v2.GetFunctionsNamespaceProperties> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:functions/v2:getFunctionsNamespace", {
@@ -21,11 +21,7 @@ export interface GetFunctionsNamespaceArgs {
      */
     namespaceId: string;
 }
-
-export interface GetFunctionsNamespaceResult {
-    readonly items: outputs.functions.v2.GetFunctionsNamespaceProperties;
-}
-export function getFunctionsNamespaceOutput(args: GetFunctionsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionsNamespaceResult> {
+export function getFunctionsNamespaceOutput(args: GetFunctionsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.GetFunctionsNamespaceProperties> {
     return pulumi.output(args).apply((a: any) => getFunctionsNamespace(a, opts))
 }
 

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class GetDroplet
     {
-        public static Task<GetDropletResult> InvokeAsync(GetDropletArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDropletResult>("digitalocean-native:droplets/v2:getDroplet", args ?? new GetDropletArgs(), options.WithDefaults());
+        public static Task<Outputs.GetDropletProperties> InvokeAsync(GetDropletArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetDropletProperties>("digitalocean-native:droplets/v2:getDroplet", args ?? new GetDropletArgs(), options.WithDefaults());
 
-        public static Output<GetDropletResult> Invoke(GetDropletInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDropletResult>("digitalocean-native:droplets/v2:getDroplet", args ?? new GetDropletInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetDropletProperties> Invoke(GetDropletInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDropletProperties>("digitalocean-native:droplets/v2:getDroplet", args ?? new GetDropletInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new GetDropletInvokeArgs Empty => new GetDropletInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDropletResult
-    {
-        public readonly Outputs.GetDropletProperties Items;
-
-        [OutputConstructor]
-        private GetDropletResult(Outputs.GetDropletProperties items)
-        {
-            Items = items;
-        }
     }
 }

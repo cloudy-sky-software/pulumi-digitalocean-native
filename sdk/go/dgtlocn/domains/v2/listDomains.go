@@ -25,7 +25,10 @@ type ListDomainsArgs struct {
 }
 
 type ListDomainsResult struct {
-	Items ListDomainsItems `pulumi:"items"`
+	// Array of volumes.
+	Domains []DomainType `pulumi:"domains"`
+	Links   *PageLinks   `pulumi:"links"`
+	Meta    MetaMeta     `pulumi:"meta"`
 }
 
 func ListDomainsOutput(ctx *pulumi.Context, args ListDomainsOutputArgs, opts ...pulumi.InvokeOption) ListDomainsResultOutput {
@@ -62,8 +65,17 @@ func (o ListDomainsResultOutput) ToListDomainsResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o ListDomainsResultOutput) Items() ListDomainsItemsOutput {
-	return o.ApplyT(func(v ListDomainsResult) ListDomainsItems { return v.Items }).(ListDomainsItemsOutput)
+// Array of volumes.
+func (o ListDomainsResultOutput) Domains() DomainTypeArrayOutput {
+	return o.ApplyT(func(v ListDomainsResult) []DomainType { return v.Domains }).(DomainTypeArrayOutput)
+}
+
+func (o ListDomainsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListDomainsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListDomainsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListDomainsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

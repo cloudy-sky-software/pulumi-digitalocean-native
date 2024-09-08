@@ -27,7 +27,7 @@ type LookupVpcArgs struct {
 }
 
 type LookupVpcResult struct {
-	Items GetVpcProperties `pulumi:"items"`
+	Vpc *VpcType `pulumi:"vpc"`
 }
 
 func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
@@ -66,8 +66,8 @@ func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LookupVpcResultOutput) Items() GetVpcPropertiesOutput {
-	return o.ApplyT(func(v LookupVpcResult) GetVpcProperties { return v.Items }).(GetVpcPropertiesOutput)
+func (o LookupVpcResultOutput) Vpc() VpcTypePtrOutput {
+	return o.ApplyT(func(v LookupVpcResult) *VpcType { return v.Vpc }).(VpcTypePtrOutput)
 }
 
 func init() {

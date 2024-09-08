@@ -25,7 +25,7 @@ type GetRegistryDockerCredentialArgs struct {
 }
 
 type GetRegistryDockerCredentialResult struct {
-	Items DockerCredentials `pulumi:"items"`
+	Auths *DockerCredentialsAuthsProperties `pulumi:"auths"`
 }
 
 func GetRegistryDockerCredentialOutput(ctx *pulumi.Context, args GetRegistryDockerCredentialOutputArgs, opts ...pulumi.InvokeOption) GetRegistryDockerCredentialResultOutput {
@@ -62,8 +62,8 @@ func (o GetRegistryDockerCredentialResultOutput) ToGetRegistryDockerCredentialRe
 	return o
 }
 
-func (o GetRegistryDockerCredentialResultOutput) Items() DockerCredentialsOutput {
-	return o.ApplyT(func(v GetRegistryDockerCredentialResult) DockerCredentials { return v.Items }).(DockerCredentialsOutput)
+func (o GetRegistryDockerCredentialResultOutput) Auths() DockerCredentialsAuthsPropertiesPtrOutput {
+	return o.ApplyT(func(v GetRegistryDockerCredentialResult) *DockerCredentialsAuthsProperties { return v.Auths }).(DockerCredentialsAuthsPropertiesPtrOutput)
 }
 
 func init() {

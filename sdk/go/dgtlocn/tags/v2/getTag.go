@@ -27,7 +27,9 @@ type LookupTagArgs struct {
 }
 
 type LookupTagResult struct {
-	Items GetTagProperties `pulumi:"items"`
+	// A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
+	// Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
+	Tag *Tags `pulumi:"tag"`
 }
 
 func LookupTagOutput(ctx *pulumi.Context, args LookupTagOutputArgs, opts ...pulumi.InvokeOption) LookupTagResultOutput {
@@ -66,8 +68,10 @@ func (o LookupTagResultOutput) ToLookupTagResultOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LookupTagResultOutput) Items() GetTagPropertiesOutput {
-	return o.ApplyT(func(v LookupTagResult) GetTagProperties { return v.Items }).(GetTagPropertiesOutput)
+// A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
+// Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
+func (o LookupTagResultOutput) Tag() TagsPtrOutput {
+	return o.ApplyT(func(v LookupTagResult) *Tags { return v.Tag }).(TagsPtrOutput)
 }
 
 func init() {

@@ -27,7 +27,14 @@ type GetKubernetesClusterLintResultArgs struct {
 }
 
 type GetKubernetesClusterLintResultResult struct {
-	Items ClusterlintResults `pulumi:"items"`
+	// A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed.
+	CompletedAt *string `pulumi:"completedAt"`
+	// An array of diagnostics reporting potential problems for the given cluster.
+	Diagnostics []ClusterlintResultsDiagnosticsItemProperties `pulumi:"diagnostics"`
+	// A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made.
+	RequestedAt *string `pulumi:"requestedAt"`
+	// Id of the clusterlint run that can be used later to fetch the diagnostics.
+	RunId *string `pulumi:"runId"`
 }
 
 func GetKubernetesClusterLintResultOutput(ctx *pulumi.Context, args GetKubernetesClusterLintResultOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesClusterLintResultResultOutput {
@@ -66,8 +73,26 @@ func (o GetKubernetesClusterLintResultResultOutput) ToGetKubernetesClusterLintRe
 	return o
 }
 
-func (o GetKubernetesClusterLintResultResultOutput) Items() ClusterlintResultsOutput {
-	return o.ApplyT(func(v GetKubernetesClusterLintResultResult) ClusterlintResults { return v.Items }).(ClusterlintResultsOutput)
+// A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed.
+func (o GetKubernetesClusterLintResultResultOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesClusterLintResultResult) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
+}
+
+// An array of diagnostics reporting potential problems for the given cluster.
+func (o GetKubernetesClusterLintResultResultOutput) Diagnostics() ClusterlintResultsDiagnosticsItemPropertiesArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterLintResultResult) []ClusterlintResultsDiagnosticsItemProperties {
+		return v.Diagnostics
+	}).(ClusterlintResultsDiagnosticsItemPropertiesArrayOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made.
+func (o GetKubernetesClusterLintResultResultOutput) RequestedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesClusterLintResultResult) *string { return v.RequestedAt }).(pulumi.StringPtrOutput)
+}
+
+// Id of the clusterlint run that can be used later to fetch the diagnostics.
+func (o GetKubernetesClusterLintResultResultOutput) RunId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetKubernetesClusterLintResultResult) *string { return v.RunId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

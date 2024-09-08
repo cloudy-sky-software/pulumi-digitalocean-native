@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class ListDatabasesOptions
     {
-        public static Task<ListDatabasesOptionsResult> InvokeAsync(ListDatabasesOptionsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasesOptionsResult>("digitalocean-native:databases/v2:listDatabasesOptions", args ?? new ListDatabasesOptionsArgs(), options.WithDefaults());
+        public static Task<Outputs.Options> InvokeAsync(ListDatabasesOptionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Options>("digitalocean-native:databases/v2:listDatabasesOptions", args ?? new ListDatabasesOptionsArgs(), options.WithDefaults());
 
-        public static Output<ListDatabasesOptionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasesOptionsResult>("digitalocean-native:databases/v2:listDatabasesOptions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Options> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Options>("digitalocean-native:databases/v2:listDatabasesOptions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new ListDatabasesOptionsArgs Empty => new ListDatabasesOptionsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDatabasesOptionsResult
-    {
-        public readonly Outputs.Options Items;
-
-        [OutputConstructor]
-        private ListDatabasesOptionsResult(Outputs.Options items)
-        {
-            Items = items;
-        }
     }
 }

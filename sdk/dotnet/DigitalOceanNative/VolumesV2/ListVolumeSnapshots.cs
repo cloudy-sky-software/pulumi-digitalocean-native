@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 {
     public static class ListVolumeSnapshots
     {
-        public static Task<ListVolumeSnapshotsResult> InvokeAsync(ListVolumeSnapshotsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumeSnapshotsResult>("digitalocean-native:volumes/v2:listVolumeSnapshots", args ?? new ListVolumeSnapshotsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListVolumeSnapshotsItems> InvokeAsync(ListVolumeSnapshotsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListVolumeSnapshotsItems>("digitalocean-native:volumes/v2:listVolumeSnapshots", args ?? new ListVolumeSnapshotsArgs(), options.WithDefaults());
 
-        public static Output<ListVolumeSnapshotsResult> Invoke(ListVolumeSnapshotsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListVolumeSnapshotsResult>("digitalocean-native:volumes/v2:listVolumeSnapshots", args ?? new ListVolumeSnapshotsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListVolumeSnapshotsItems> Invoke(ListVolumeSnapshotsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVolumeSnapshotsItems>("digitalocean-native:volumes/v2:listVolumeSnapshots", args ?? new ListVolumeSnapshotsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
         {
         }
         public static new ListVolumeSnapshotsInvokeArgs Empty => new ListVolumeSnapshotsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListVolumeSnapshotsResult
-    {
-        public readonly Outputs.ListVolumeSnapshotsItems Items;
-
-        [OutputConstructor]
-        private ListVolumeSnapshotsResult(Outputs.ListVolumeSnapshotsItems items)
-        {
-            Items = items;
-        }
     }
 }

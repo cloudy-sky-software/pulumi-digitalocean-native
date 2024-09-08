@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class ListKubernetesNodePools
     {
-        public static Task<ListKubernetesNodePoolsResult> InvokeAsync(ListKubernetesNodePoolsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListKubernetesNodePoolsResult>("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args ?? new ListKubernetesNodePoolsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListKubernetesNodePoolsProperties> InvokeAsync(ListKubernetesNodePoolsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListKubernetesNodePoolsProperties>("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args ?? new ListKubernetesNodePoolsArgs(), options.WithDefaults());
 
-        public static Output<ListKubernetesNodePoolsResult> Invoke(ListKubernetesNodePoolsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListKubernetesNodePoolsResult>("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args ?? new ListKubernetesNodePoolsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListKubernetesNodePoolsProperties> Invoke(ListKubernetesNodePoolsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListKubernetesNodePoolsProperties>("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args ?? new ListKubernetesNodePoolsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new ListKubernetesNodePoolsInvokeArgs Empty => new ListKubernetesNodePoolsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListKubernetesNodePoolsResult
-    {
-        public readonly Outputs.ListKubernetesNodePoolsProperties Items;
-
-        [OutputConstructor]
-        private ListKubernetesNodePoolsResult(Outputs.ListKubernetesNodePoolsProperties items)
-        {
-            Items = items;
-        }
     }
 }

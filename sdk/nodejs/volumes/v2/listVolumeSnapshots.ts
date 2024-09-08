@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listVolumeSnapshots(args: ListVolumeSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeSnapshotsResult> {
+export function listVolumeSnapshots(args: ListVolumeSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.volumes.v2.ListVolumeSnapshotsItems> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:volumes/v2:listVolumeSnapshots", {
@@ -21,11 +21,7 @@ export interface ListVolumeSnapshotsArgs {
      */
     volumeId: string;
 }
-
-export interface ListVolumeSnapshotsResult {
-    readonly items: outputs.volumes.v2.ListVolumeSnapshotsItems;
-}
-export function listVolumeSnapshotsOutput(args: ListVolumeSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeSnapshotsResult> {
+export function listVolumeSnapshotsOutput(args: ListVolumeSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.ListVolumeSnapshotsItems> {
     return pulumi.output(args).apply((a: any) => listVolumeSnapshots(a, opts))
 }
 

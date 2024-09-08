@@ -17,8 +17,6 @@ __all__ = [
     'FirewallPropertiesTags',
     'FirewallRulesInboundRulesItem',
     'FirewallRulesOutboundRulesItem',
-    'GetFirewallProperties',
-    'ListFirewallsItems',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -261,47 +259,6 @@ class FirewallRulesOutboundRulesItem(dict):
         The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
         """
         return pulumi.get(self, "protocol")
-
-
-@pulumi.output_type
-class GetFirewallProperties(dict):
-    def __init__(__self__, *,
-                 firewall: Optional['outputs.Firewall'] = None):
-        if firewall is not None:
-            pulumi.set(__self__, "firewall", firewall)
-
-    @property
-    @pulumi.getter
-    def firewall(self) -> Optional['outputs.Firewall']:
-        return pulumi.get(self, "firewall")
-
-
-@pulumi.output_type
-class ListFirewallsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 firewalls: Optional[Sequence['outputs.Firewall']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if firewalls is not None:
-            pulumi.set(__self__, "firewalls", firewalls)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def firewalls(self) -> Optional[Sequence['outputs.Firewall']]:
-        return pulumi.get(self, "firewalls")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class GetKubernetesClusterLintResult
     {
-        public static Task<GetKubernetesClusterLintResultResult> InvokeAsync(GetKubernetesClusterLintResultArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterLintResultResult>("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args ?? new GetKubernetesClusterLintResultArgs(), options.WithDefaults());
+        public static Task<Outputs.ClusterlintResults> InvokeAsync(GetKubernetesClusterLintResultArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ClusterlintResults>("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args ?? new GetKubernetesClusterLintResultArgs(), options.WithDefaults());
 
-        public static Output<GetKubernetesClusterLintResultResult> Invoke(GetKubernetesClusterLintResultInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterLintResultResult>("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args ?? new GetKubernetesClusterLintResultInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ClusterlintResults> Invoke(GetKubernetesClusterLintResultInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ClusterlintResults>("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args ?? new GetKubernetesClusterLintResultInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new GetKubernetesClusterLintResultInvokeArgs Empty => new GetKubernetesClusterLintResultInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetKubernetesClusterLintResultResult
-    {
-        public readonly Outputs.ClusterlintResults Items;
-
-        [OutputConstructor]
-        private GetKubernetesClusterLintResultResult(Outputs.ClusterlintResults items)
-        {
-            Items = items;
-        }
     }
 }

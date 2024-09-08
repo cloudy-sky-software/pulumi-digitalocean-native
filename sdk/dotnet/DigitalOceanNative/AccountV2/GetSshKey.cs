@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
 {
     public static class GetSshKey
     {
-        public static Task<GetSshKeyResult> InvokeAsync(GetSshKeyArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshKeyResult>("digitalocean-native:account/v2:getSshKey", args ?? new GetSshKeyArgs(), options.WithDefaults());
+        public static Task<Outputs.GetSshKeyProperties> InvokeAsync(GetSshKeyArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetSshKeyProperties>("digitalocean-native:account/v2:getSshKey", args ?? new GetSshKeyArgs(), options.WithDefaults());
 
-        public static Output<GetSshKeyResult> Invoke(GetSshKeyInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSshKeyResult>("digitalocean-native:account/v2:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetSshKeyProperties> Invoke(GetSshKeyInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetSshKeyProperties>("digitalocean-native:account/v2:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
         {
         }
         public static new GetSshKeyInvokeArgs Empty => new GetSshKeyInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetSshKeyResult
-    {
-        public readonly Outputs.GetSshKeyProperties Items;
-
-        [OutputConstructor]
-        private GetSshKeyResult(Outputs.GetSshKeyProperties items)
-        {
-            Items = items;
-        }
     }
 }

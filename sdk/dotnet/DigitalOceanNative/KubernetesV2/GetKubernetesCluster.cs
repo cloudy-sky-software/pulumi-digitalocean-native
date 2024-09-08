@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 {
     public static class GetKubernetesCluster
     {
-        public static Task<GetKubernetesClusterResult> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("digitalocean-native:kubernetes/v2:getKubernetesCluster", args ?? new GetKubernetesClusterArgs(), options.WithDefaults());
+        public static Task<Outputs.GetKubernetesClusterProperties> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetKubernetesClusterProperties>("digitalocean-native:kubernetes/v2:getKubernetesCluster", args ?? new GetKubernetesClusterArgs(), options.WithDefaults());
 
-        public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("digitalocean-native:kubernetes/v2:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetKubernetesClusterProperties> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetKubernetesClusterProperties>("digitalocean-native:kubernetes/v2:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
         {
         }
         public static new GetKubernetesClusterInvokeArgs Empty => new GetKubernetesClusterInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetKubernetesClusterResult
-    {
-        public readonly Outputs.GetKubernetesClusterProperties Items;
-
-        [OutputConstructor]
-        private GetKubernetesClusterResult(Outputs.GetKubernetesClusterProperties items)
-        {
-            Items = items;
-        }
     }
 }

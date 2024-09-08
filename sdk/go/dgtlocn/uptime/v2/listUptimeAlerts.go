@@ -27,7 +27,9 @@ type ListUptimeAlertsArgs struct {
 }
 
 type ListUptimeAlertsResult struct {
-	Items ListUptimeAlertsItems `pulumi:"items"`
+	Alerts []Alert    `pulumi:"alerts"`
+	Links  *PageLinks `pulumi:"links"`
+	Meta   MetaMeta   `pulumi:"meta"`
 }
 
 func ListUptimeAlertsOutput(ctx *pulumi.Context, args ListUptimeAlertsOutputArgs, opts ...pulumi.InvokeOption) ListUptimeAlertsResultOutput {
@@ -66,8 +68,16 @@ func (o ListUptimeAlertsResultOutput) ToListUptimeAlertsResultOutputWithContext(
 	return o
 }
 
-func (o ListUptimeAlertsResultOutput) Items() ListUptimeAlertsItemsOutput {
-	return o.ApplyT(func(v ListUptimeAlertsResult) ListUptimeAlertsItems { return v.Items }).(ListUptimeAlertsItemsOutput)
+func (o ListUptimeAlertsResultOutput) Alerts() AlertArrayOutput {
+	return o.ApplyT(func(v ListUptimeAlertsResult) []Alert { return v.Alerts }).(AlertArrayOutput)
+}
+
+func (o ListUptimeAlertsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListUptimeAlertsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListUptimeAlertsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListUptimeAlertsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

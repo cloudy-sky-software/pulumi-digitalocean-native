@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listCertificates(args?: ListCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<ListCertificatesResult> {
+export function listCertificates(args?: ListCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.certificates.v2.ListCertificatesItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listCertificates(args?: ListCertificatesArgs, opts?: pulumi.Invo
 
 export interface ListCertificatesArgs {
 }
-
-export interface ListCertificatesResult {
-    readonly items: outputs.certificates.v2.ListCertificatesItems;
-}
-export function listCertificatesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListCertificatesResult> {
+export function listCertificatesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.certificates.v2.ListCertificatesItems> {
     return pulumi.output(listCertificates(opts))
 }

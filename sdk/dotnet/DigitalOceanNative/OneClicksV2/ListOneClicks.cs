@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.OneClicksV2
 {
     public static class ListOneClicks
     {
-        public static Task<ListOneClicksResult> InvokeAsync(ListOneClicksArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListOneClicksResult>("digitalocean-native:1-clicks/v2:listOneClicks", args ?? new ListOneClicksArgs(), options.WithDefaults());
+        public static Task<Outputs.ListOneClicksProperties> InvokeAsync(ListOneClicksArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListOneClicksProperties>("digitalocean-native:1-clicks/v2:listOneClicks", args ?? new ListOneClicksArgs(), options.WithDefaults());
 
-        public static Output<ListOneClicksResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListOneClicksResult>("digitalocean-native:1-clicks/v2:listOneClicks", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListOneClicksProperties> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListOneClicksProperties>("digitalocean-native:1-clicks/v2:listOneClicks", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.OneClicksV2
         {
         }
         public static new ListOneClicksArgs Empty => new ListOneClicksArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListOneClicksResult
-    {
-        public readonly Outputs.ListOneClicksProperties Items;
-
-        [OutputConstructor]
-        private ListOneClicksResult(Outputs.ListOneClicksProperties items)
-        {
-            Items = items;
-        }
     }
 }

@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listTags(args?: ListTagsArgs, opts?: pulumi.InvokeOptions): Promise<ListTagsResult> {
+export function listTags(args?: ListTagsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.tags.v2.ListTagsItems> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listTags(args?: ListTagsArgs, opts?: pulumi.InvokeOptions): Prom
 
 export interface ListTagsArgs {
 }
-
-export interface ListTagsResult {
-    readonly items: outputs.tags.v2.ListTagsItems;
-}
-export function listTagsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListTagsResult> {
+export function listTagsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.tags.v2.ListTagsItems> {
     return pulumi.output(listTags(opts))
 }

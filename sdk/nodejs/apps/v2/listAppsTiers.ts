@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
-export function listAppsTiers(args?: ListAppsTiersArgs, opts?: pulumi.InvokeOptions): Promise<ListAppsTiersResult> {
+export function listAppsTiers(args?: ListAppsTiersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsListTiersResponse> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -17,10 +17,6 @@ export function listAppsTiers(args?: ListAppsTiersArgs, opts?: pulumi.InvokeOpti
 
 export interface ListAppsTiersArgs {
 }
-
-export interface ListAppsTiersResult {
-    readonly items: outputs.apps.v2.AppsListTiersResponse;
-}
-export function listAppsTiersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListAppsTiersResult> {
+export function listAppsTiersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListTiersResponse> {
     return pulumi.output(listAppsTiers(opts))
 }

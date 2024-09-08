@@ -4,12 +4,12 @@
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export { GetSnapshotArgs, GetSnapshotOutputArgs } from "./getSnapshot";
 export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
 export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 
-export { ListSnapshotsArgs, ListSnapshotsResult } from "./listSnapshots";
+export { ListSnapshotsArgs } from "./listSnapshots";
 export const listSnapshots: typeof import("./listSnapshots").listSnapshots = null as any;
 export const listSnapshotsOutput: typeof import("./listSnapshots").listSnapshotsOutput = null as any;
 utilities.lazyLoad(exports, ["listSnapshots","listSnapshotsOutput"], () => require("./listSnapshots"));

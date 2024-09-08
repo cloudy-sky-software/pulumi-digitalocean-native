@@ -6,53 +6,94 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
-from . import outputs
 
 __all__ = [
-    'GetBalanceResult',
-    'AwaitableGetBalanceResult',
+    'Balance',
+    'AwaitableBalance',
     'get_balance',
     'get_balance_output',
 ]
 
 @pulumi.output_type
-class GetBalanceResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class Balance:
+    def __init__(__self__, account_balance=None, generated_at=None, month_to_date_balance=None, month_to_date_usage=None):
+        if account_balance and not isinstance(account_balance, str):
+            raise TypeError("Expected argument 'account_balance' to be a str")
+        pulumi.set(__self__, "account_balance", account_balance)
+        if generated_at and not isinstance(generated_at, str):
+            raise TypeError("Expected argument 'generated_at' to be a str")
+        pulumi.set(__self__, "generated_at", generated_at)
+        if month_to_date_balance and not isinstance(month_to_date_balance, str):
+            raise TypeError("Expected argument 'month_to_date_balance' to be a str")
+        pulumi.set(__self__, "month_to_date_balance", month_to_date_balance)
+        if month_to_date_usage and not isinstance(month_to_date_usage, str):
+            raise TypeError("Expected argument 'month_to_date_usage' to be a str")
+        pulumi.set(__self__, "month_to_date_usage", month_to_date_usage)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.Balance':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="accountBalance")
+    def account_balance(self) -> Optional[str]:
+        """
+        Current balance of the customer's most recent billing activity.  Does not reflect `month_to_date_usage`.
+        """
+        return pulumi.get(self, "account_balance")
+
+    @property
+    @pulumi.getter(name="generatedAt")
+    def generated_at(self) -> Optional[str]:
+        """
+        The time at which balances were most recently generated.
+        """
+        return pulumi.get(self, "generated_at")
+
+    @property
+    @pulumi.getter(name="monthToDateBalance")
+    def month_to_date_balance(self) -> Optional[str]:
+        """
+        Balance as of the `generated_at` time.  This value includes the `account_balance` and `month_to_date_usage`.
+        """
+        return pulumi.get(self, "month_to_date_balance")
+
+    @property
+    @pulumi.getter(name="monthToDateUsage")
+    def month_to_date_usage(self) -> Optional[str]:
+        """
+        Amount used in the current billing period as of the `generated_at` time.
+        """
+        return pulumi.get(self, "month_to_date_usage")
 
 
-class AwaitableGetBalanceResult(GetBalanceResult):
+class AwaitableBalance(Balance):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetBalanceResult(
-            items=self.items)
+        return Balance(
+            account_balance=self.account_balance,
+            generated_at=self.generated_at,
+            month_to_date_balance=self.month_to_date_balance,
+            month_to_date_usage=self.month_to_date_usage)
 
 
-def get_balance(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBalanceResult:
+def get_balance(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableBalance:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:customers/v2:getBalance', __args__, opts=opts, typ=GetBalanceResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:customers/v2:getBalance', __args__, opts=opts, typ=Balance).value
 
-    return AwaitableGetBalanceResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableBalance(
+        account_balance=pulumi.get(__ret__, 'account_balance'),
+        generated_at=pulumi.get(__ret__, 'generated_at'),
+        month_to_date_balance=pulumi.get(__ret__, 'month_to_date_balance'),
+        month_to_date_usage=pulumi.get(__ret__, 'month_to_date_usage'))
 
 
 @_utilities.lift_output_func(get_balance)
-def get_balance_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBalanceResult]:
+def get_balance_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Balance]:
     """
     Use this data source to access information about an existing resource.
     """

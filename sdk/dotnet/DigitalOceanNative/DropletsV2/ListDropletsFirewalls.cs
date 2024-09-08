@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 {
     public static class ListDropletsFirewalls
     {
-        public static Task<ListDropletsFirewallsResult> InvokeAsync(ListDropletsFirewallsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDropletsFirewallsResult>("digitalocean-native:droplets/v2:listDropletsFirewalls", args ?? new ListDropletsFirewallsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListDropletsFirewallsItems> InvokeAsync(ListDropletsFirewallsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListDropletsFirewallsItems>("digitalocean-native:droplets/v2:listDropletsFirewalls", args ?? new ListDropletsFirewallsArgs(), options.WithDefaults());
 
-        public static Output<ListDropletsFirewallsResult> Invoke(ListDropletsFirewallsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDropletsFirewallsResult>("digitalocean-native:droplets/v2:listDropletsFirewalls", args ?? new ListDropletsFirewallsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ListDropletsFirewallsItems> Invoke(ListDropletsFirewallsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsFirewallsItems>("digitalocean-native:droplets/v2:listDropletsFirewalls", args ?? new ListDropletsFirewallsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
         {
         }
         public static new ListDropletsFirewallsInvokeArgs Empty => new ListDropletsFirewallsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDropletsFirewallsResult
-    {
-        public readonly Outputs.ListDropletsFirewallsItems Items;
-
-        [OutputConstructor]
-        private ListDropletsFirewallsResult(Outputs.ListDropletsFirewallsItems items)
-        {
-            Items = items;
-        }
     }
 }

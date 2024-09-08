@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 {
     public static class ListDatabasesConnectionPools
     {
-        public static Task<ListDatabasesConnectionPoolsResult> InvokeAsync(ListDatabasesConnectionPoolsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabasesConnectionPoolsResult>("digitalocean-native:databases/v2:listDatabasesConnectionPools", args ?? new ListDatabasesConnectionPoolsArgs(), options.WithDefaults());
+        public static Task<Outputs.ConnectionPools> InvokeAsync(ListDatabasesConnectionPoolsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ConnectionPools>("digitalocean-native:databases/v2:listDatabasesConnectionPools", args ?? new ListDatabasesConnectionPoolsArgs(), options.WithDefaults());
 
-        public static Output<ListDatabasesConnectionPoolsResult> Invoke(ListDatabasesConnectionPoolsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasesConnectionPoolsResult>("digitalocean-native:databases/v2:listDatabasesConnectionPools", args ?? new ListDatabasesConnectionPoolsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ConnectionPools> Invoke(ListDatabasesConnectionPoolsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ConnectionPools>("digitalocean-native:databases/v2:listDatabasesConnectionPools", args ?? new ListDatabasesConnectionPoolsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -46,18 +46,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
         {
         }
         public static new ListDatabasesConnectionPoolsInvokeArgs Empty => new ListDatabasesConnectionPoolsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListDatabasesConnectionPoolsResult
-    {
-        public readonly Outputs.ConnectionPools Items;
-
-        [OutputConstructor]
-        private ListDatabasesConnectionPoolsResult(Outputs.ConnectionPools items)
-        {
-            Items = items;
-        }
     }
 }

@@ -25,7 +25,9 @@ type ListFirewallsArgs struct {
 }
 
 type ListFirewallsResult struct {
-	Items ListFirewallsItems `pulumi:"items"`
+	Firewalls []FirewallType `pulumi:"firewalls"`
+	Links     *PageLinks     `pulumi:"links"`
+	Meta      MetaMeta       `pulumi:"meta"`
 }
 
 func ListFirewallsOutput(ctx *pulumi.Context, args ListFirewallsOutputArgs, opts ...pulumi.InvokeOption) ListFirewallsResultOutput {
@@ -62,8 +64,16 @@ func (o ListFirewallsResultOutput) ToListFirewallsResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListFirewallsResultOutput) Items() ListFirewallsItemsOutput {
-	return o.ApplyT(func(v ListFirewallsResult) ListFirewallsItems { return v.Items }).(ListFirewallsItemsOutput)
+func (o ListFirewallsResultOutput) Firewalls() FirewallTypeArrayOutput {
+	return o.ApplyT(func(v ListFirewallsResult) []FirewallType { return v.Firewalls }).(FirewallTypeArrayOutput)
+}
+
+func (o ListFirewallsResultOutput) Links() PageLinksPtrOutput {
+	return o.ApplyT(func(v ListFirewallsResult) *PageLinks { return v.Links }).(PageLinksPtrOutput)
+}
+
+func (o ListFirewallsResultOutput) Meta() MetaMetaOutput {
+	return o.ApplyT(func(v ListFirewallsResult) MetaMeta { return v.Meta }).(MetaMetaOutput)
 }
 
 func init() {

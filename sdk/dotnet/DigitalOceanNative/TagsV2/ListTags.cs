@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.TagsV2
 {
     public static class ListTags
     {
-        public static Task<ListTagsResult> InvokeAsync(ListTagsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListTagsResult>("digitalocean-native:tags/v2:listTags", args ?? new ListTagsArgs(), options.WithDefaults());
+        public static Task<Outputs.ListTagsItems> InvokeAsync(ListTagsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ListTagsItems>("digitalocean-native:tags/v2:listTags", args ?? new ListTagsArgs(), options.WithDefaults());
 
-        public static Output<ListTagsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListTagsResult>("digitalocean-native:tags/v2:listTags", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.ListTagsItems> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListTagsItems>("digitalocean-native:tags/v2:listTags", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.TagsV2
         {
         }
         public static new ListTagsArgs Empty => new ListTagsArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListTagsResult
-    {
-        public readonly Outputs.ListTagsItems Items;
-
-        [OutputConstructor]
-        private ListTagsResult(Outputs.ListTagsItems items)
-        {
-            Items = items;
-        }
     }
 }

@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
 {
     public static class GetFloatingIPsAction
     {
-        public static Task<GetFloatingIPsActionResult> InvokeAsync(GetFloatingIPsActionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFloatingIPsActionResult>("digitalocean-native:floating_ips/v2:getFloatingIPsAction", args ?? new GetFloatingIPsActionArgs(), options.WithDefaults());
+        public static Task<Outputs.GetFloatingIPsActionProperties> InvokeAsync(GetFloatingIPsActionArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.GetFloatingIPsActionProperties>("digitalocean-native:floating_ips/v2:getFloatingIPsAction", args ?? new GetFloatingIPsActionArgs(), options.WithDefaults());
 
-        public static Output<GetFloatingIPsActionResult> Invoke(GetFloatingIPsActionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFloatingIPsActionResult>("digitalocean-native:floating_ips/v2:getFloatingIPsAction", args ?? new GetFloatingIPsActionInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.GetFloatingIPsActionProperties> Invoke(GetFloatingIPsActionInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFloatingIPsActionProperties>("digitalocean-native:floating_ips/v2:getFloatingIPsAction", args ?? new GetFloatingIPsActionInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -58,18 +58,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
         {
         }
         public static new GetFloatingIPsActionInvokeArgs Empty => new GetFloatingIPsActionInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetFloatingIPsActionResult
-    {
-        public readonly Outputs.GetFloatingIPsActionProperties Items;
-
-        [OutputConstructor]
-        private GetFloatingIPsActionResult(Outputs.GetFloatingIPsActionProperties items)
-        {
-            Items = items;
-        }
     }
 }

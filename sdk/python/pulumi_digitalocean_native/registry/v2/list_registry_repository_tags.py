@@ -6,42 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 
 __all__ = [
-    'ListRegistryRepositoryTagsResult',
-    'AwaitableListRegistryRepositoryTagsResult',
+    'ListRegistryRepositoryTagsItems',
+    'AwaitableListRegistryRepositoryTagsItems',
     'list_registry_repository_tags',
     'list_registry_repository_tags_output',
 ]
 
 @pulumi.output_type
-class ListRegistryRepositoryTagsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ListRegistryRepositoryTagsItems:
+    def __init__(__self__, links=None, meta=None, tags=None):
+        if links and not isinstance(links, dict):
+            raise TypeError("Expected argument 'links' to be a dict")
+        pulumi.set(__self__, "links", links)
+        if meta and not isinstance(meta, dict):
+            raise TypeError("Expected argument 'meta' to be a dict")
+        pulumi.set(__self__, "meta", meta)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ListRegistryRepositoryTagsItems':
-        return pulumi.get(self, "items")
+    def links(self) -> Optional['outputs.PageLinks']:
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def meta(self) -> 'outputs.MetaMeta':
+        return pulumi.get(self, "meta")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.RepositoryTag']]:
+        return pulumi.get(self, "tags")
 
 
-class AwaitableListRegistryRepositoryTagsResult(ListRegistryRepositoryTagsResult):
+class AwaitableListRegistryRepositoryTagsItems(ListRegistryRepositoryTagsItems):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListRegistryRepositoryTagsResult(
-            items=self.items)
+        return ListRegistryRepositoryTagsItems(
+            links=self.links,
+            meta=self.meta,
+            tags=self.tags)
 
 
 def list_registry_repository_tags(registry_name: Optional[str] = None,
                                   repository_name: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryRepositoryTagsResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRegistryRepositoryTagsItems:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +70,18 @@ def list_registry_repository_tags(registry_name: Optional[str] = None,
     __args__['registryName'] = registry_name
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:listRegistryRepositoryTags', __args__, opts=opts, typ=ListRegistryRepositoryTagsResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:registry/v2:listRegistryRepositoryTags', __args__, opts=opts, typ=ListRegistryRepositoryTagsItems).value
 
-    return AwaitableListRegistryRepositoryTagsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableListRegistryRepositoryTagsItems(
+        links=pulumi.get(__ret__, 'links'),
+        meta=pulumi.get(__ret__, 'meta'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(list_registry_repository_tags)
 def list_registry_repository_tags_output(registry_name: Optional[pulumi.Input[str]] = None,
                                          repository_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryTagsResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryTagsItems]:
     """
     Use this data source to access information about an existing resource.
 

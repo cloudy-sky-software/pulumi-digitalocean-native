@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from ... import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetKubernetesClusterResult',
-    'AwaitableGetKubernetesClusterResult',
+    'GetKubernetesClusterProperties',
+    'AwaitableGetKubernetesClusterProperties',
     'get_kubernetes_cluster',
     'get_kubernetes_cluster_output',
 ]
 
 @pulumi.output_type
-class GetKubernetesClusterResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class GetKubernetesClusterProperties:
+    def __init__(__self__, kubernetes_cluster=None):
+        if kubernetes_cluster and not isinstance(kubernetes_cluster, dict):
+            raise TypeError("Expected argument 'kubernetes_cluster' to be a dict")
+        pulumi.set(__self__, "kubernetes_cluster", kubernetes_cluster)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.GetKubernetesClusterProperties':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="kubernetesCluster")
+    def kubernetes_cluster(self) -> Optional['outputs.Cluster']:
+        return pulumi.get(self, "kubernetes_cluster")
 
 
-class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
+class AwaitableGetKubernetesClusterProperties(GetKubernetesClusterProperties):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetKubernetesClusterResult(
-            items=self.items)
+        return GetKubernetesClusterProperties(
+            kubernetes_cluster=self.kubernetes_cluster)
 
 
 def get_kubernetes_cluster(cluster_id: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterResult:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterProperties:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_kubernetes_cluster(cluster_id: Optional[str] = None,
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterResult).value
+    __ret__ = pulumi.runtime.invoke('digitalocean-native:kubernetes/v2:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterProperties).value
 
-    return AwaitableGetKubernetesClusterResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableGetKubernetesClusterProperties(
+        kubernetes_cluster=pulumi.get(__ret__, 'kubernetes_cluster'))
 
 
 @_utilities.lift_output_func(get_kubernetes_cluster)
 def get_kubernetes_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterProperties]:
     """
     Use this data source to access information about an existing resource.
 

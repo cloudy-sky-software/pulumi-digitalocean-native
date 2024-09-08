@@ -14,11 +14,6 @@ from ._enums import *
 __all__ = [
     'Alert',
     'Check',
-    'GetUptimeAlertProperties',
-    'GetUptimeCheckProperties',
-    'GetUptimeCheckStateProperties',
-    'ListUptimeAlertsItems',
-    'ListUptimeChecksItems',
     'MetaMeta',
     'Notification',
     'NotificationSlackItemProperties',
@@ -200,101 +195,6 @@ class Check(dict):
         The type of health check to perform.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetUptimeAlertProperties(dict):
-    def __init__(__self__, *,
-                 alert: Optional['outputs.Alert'] = None):
-        if alert is not None:
-            pulumi.set(__self__, "alert", alert)
-
-    @property
-    @pulumi.getter
-    def alert(self) -> Optional['outputs.Alert']:
-        return pulumi.get(self, "alert")
-
-
-@pulumi.output_type
-class GetUptimeCheckProperties(dict):
-    def __init__(__self__, *,
-                 check: Optional['outputs.Check'] = None):
-        if check is not None:
-            pulumi.set(__self__, "check", check)
-
-    @property
-    @pulumi.getter
-    def check(self) -> Optional['outputs.Check']:
-        return pulumi.get(self, "check")
-
-
-@pulumi.output_type
-class GetUptimeCheckStateProperties(dict):
-    def __init__(__self__, *,
-                 state: Optional['outputs.State'] = None):
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional['outputs.State']:
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class ListUptimeAlertsItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 alerts: Optional[Sequence['outputs.Alert']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if alerts is not None:
-            pulumi.set(__self__, "alerts", alerts)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def alerts(self) -> Optional[Sequence['outputs.Alert']]:
-        return pulumi.get(self, "alerts")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
-
-
-@pulumi.output_type
-class ListUptimeChecksItems(dict):
-    def __init__(__self__, *,
-                 meta: 'outputs.MetaMeta',
-                 checks: Optional[Sequence['outputs.Check']] = None,
-                 links: Optional['outputs.PageLinks'] = None):
-        pulumi.set(__self__, "meta", meta)
-        if checks is not None:
-            pulumi.set(__self__, "checks", checks)
-        if links is not None:
-            pulumi.set(__self__, "links", links)
-
-    @property
-    @pulumi.getter
-    def meta(self) -> 'outputs.MetaMeta':
-        return pulumi.get(self, "meta")
-
-    @property
-    @pulumi.getter
-    def checks(self) -> Optional[Sequence['outputs.Check']]:
-        return pulumi.get(self, "checks")
-
-    @property
-    @pulumi.getter
-    def links(self) -> Optional['outputs.PageLinks']:
-        return pulumi.get(self, "links")
 
 
 @pulumi.output_type

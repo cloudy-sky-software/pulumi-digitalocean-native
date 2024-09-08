@@ -12,11 +12,11 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 {
     public static class GetMonitoringDropletMemoryFreeMetric
     {
-        public static Task<GetMonitoringDropletMemoryFreeMetricResult> InvokeAsync(GetMonitoringDropletMemoryFreeMetricArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringDropletMemoryFreeMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetric", args ?? new GetMonitoringDropletMemoryFreeMetricArgs(), options.WithDefaults());
+        public static Task<Outputs.Metrics> InvokeAsync(GetMonitoringDropletMemoryFreeMetricArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetric", args ?? new GetMonitoringDropletMemoryFreeMetricArgs(), options.WithDefaults());
 
-        public static Output<GetMonitoringDropletMemoryFreeMetricResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringDropletMemoryFreeMetricResult>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetric", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -26,18 +26,5 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
         {
         }
         public static new GetMonitoringDropletMemoryFreeMetricArgs Empty => new GetMonitoringDropletMemoryFreeMetricArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetMonitoringDropletMemoryFreeMetricResult
-    {
-        public readonly Outputs.Metrics Items;
-
-        [OutputConstructor]
-        private GetMonitoringDropletMemoryFreeMetricResult(Outputs.Metrics items)
-        {
-            Items = items;
-        }
     }
 }

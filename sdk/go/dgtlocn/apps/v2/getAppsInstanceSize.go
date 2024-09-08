@@ -27,7 +27,7 @@ type GetAppsInstanceSizeArgs struct {
 }
 
 type GetAppsInstanceSizeResult struct {
-	Items AppsGetInstanceSizeResponse `pulumi:"items"`
+	InstanceSize *AppsInstanceSize `pulumi:"instanceSize"`
 }
 
 // Defaults sets the appropriate defaults for GetAppsInstanceSizeResult
@@ -36,7 +36,7 @@ func (val *GetAppsInstanceSizeResult) Defaults() *GetAppsInstanceSizeResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.InstanceSize = tmp.InstanceSize.Defaults()
 
 	return &tmp
 }
@@ -77,8 +77,8 @@ func (o GetAppsInstanceSizeResultOutput) ToGetAppsInstanceSizeResultOutputWithCo
 	return o
 }
 
-func (o GetAppsInstanceSizeResultOutput) Items() AppsGetInstanceSizeResponseOutput {
-	return o.ApplyT(func(v GetAppsInstanceSizeResult) AppsGetInstanceSizeResponse { return v.Items }).(AppsGetInstanceSizeResponseOutput)
+func (o GetAppsInstanceSizeResultOutput) InstanceSize() AppsInstanceSizePtrOutput {
+	return o.ApplyT(func(v GetAppsInstanceSizeResult) *AppsInstanceSize { return v.InstanceSize }).(AppsInstanceSizePtrOutput)
 }
 
 func init() {
