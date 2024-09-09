@@ -54,8 +54,8 @@ func (p *digitalOceanProvider) OnPreInvoke(_ context.Context, _ *pulumirpc.Invok
 	return nil
 }
 
-func (p *digitalOceanProvider) OnPostInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
-	return outputs.(map[string]interface{}), nil
+func (p *digitalOceanProvider) OnPostInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, _ interface{}) (map[string]interface{}, error) {
+	return nil, nil
 }
 
 // OnConfigure is called by the provider framework when Pulumi calls Configure on
