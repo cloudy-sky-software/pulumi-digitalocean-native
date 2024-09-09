@@ -1,4 +1,4 @@
-## 0.0.7
+## 0.0.7, 0.0.8
 
 Remove unnecessary envelope properties from `get*` and `list*` functions.
 
