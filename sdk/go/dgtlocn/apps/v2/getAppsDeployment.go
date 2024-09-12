@@ -45,14 +45,20 @@ func (val *LookupAppsDeploymentResult) Defaults() *LookupAppsDeploymentResult {
 
 func LookupAppsDeploymentOutput(ctx *pulumi.Context, args LookupAppsDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupAppsDeploymentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAppsDeploymentResult, error) {
+		ApplyT(func(v interface{}) (LookupAppsDeploymentResultOutput, error) {
 			args := v.(LookupAppsDeploymentArgs)
-			r, err := LookupAppsDeployment(ctx, &args, opts...)
-			var s LookupAppsDeploymentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAppsDeploymentResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsDeployment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAppsDeploymentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAppsDeploymentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAppsDeploymentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAppsDeploymentResultOutput)
 }
 

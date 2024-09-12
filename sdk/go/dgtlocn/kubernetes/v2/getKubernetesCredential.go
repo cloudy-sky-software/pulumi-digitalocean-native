@@ -55,14 +55,20 @@ type GetKubernetesCredentialResult struct {
 
 func GetKubernetesCredentialOutput(ctx *pulumi.Context, args GetKubernetesCredentialOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesCredentialResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetKubernetesCredentialResult, error) {
+		ApplyT(func(v interface{}) (GetKubernetesCredentialResultOutput, error) {
 			args := v.(GetKubernetesCredentialArgs)
-			r, err := GetKubernetesCredential(ctx, &args, opts...)
-			var s GetKubernetesCredentialResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetKubernetesCredentialResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:getKubernetesCredential", args, &rv, "", opts...)
+			if err != nil {
+				return GetKubernetesCredentialResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetKubernetesCredentialResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetKubernetesCredentialResultOutput), nil
+			}
+			return output, nil
 		}).(GetKubernetesCredentialResultOutput)
 }
 

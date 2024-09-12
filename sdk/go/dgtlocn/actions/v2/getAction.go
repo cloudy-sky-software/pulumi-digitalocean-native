@@ -43,14 +43,20 @@ func (val *GetActionResult) Defaults() *GetActionResult {
 
 func GetActionOutput(ctx *pulumi.Context, args GetActionOutputArgs, opts ...pulumi.InvokeOption) GetActionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetActionResult, error) {
+		ApplyT(func(v interface{}) (GetActionResultOutput, error) {
 			args := v.(GetActionArgs)
-			r, err := GetAction(ctx, &args, opts...)
-			var s GetActionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetActionResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:actions/v2:getAction", args, &rv, "", opts...)
+			if err != nil {
+				return GetActionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetActionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetActionResultOutput), nil
+			}
+			return output, nil
 		}).(GetActionResultOutput)
 }
 

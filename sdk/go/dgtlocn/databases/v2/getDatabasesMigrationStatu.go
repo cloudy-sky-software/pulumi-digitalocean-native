@@ -37,14 +37,20 @@ type GetDatabasesMigrationStatuResult struct {
 
 func GetDatabasesMigrationStatuOutput(ctx *pulumi.Context, args GetDatabasesMigrationStatuOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesMigrationStatuResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDatabasesMigrationStatuResult, error) {
+		ApplyT(func(v interface{}) (GetDatabasesMigrationStatuResultOutput, error) {
 			args := v.(GetDatabasesMigrationStatuArgs)
-			r, err := GetDatabasesMigrationStatu(ctx, &args, opts...)
-			var s GetDatabasesMigrationStatuResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDatabasesMigrationStatuResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args, &rv, "", opts...)
+			if err != nil {
+				return GetDatabasesMigrationStatuResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDatabasesMigrationStatuResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDatabasesMigrationStatuResultOutput), nil
+			}
+			return output, nil
 		}).(GetDatabasesMigrationStatuResultOutput)
 }
 

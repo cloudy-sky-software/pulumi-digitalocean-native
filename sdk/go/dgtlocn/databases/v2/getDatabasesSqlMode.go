@@ -33,14 +33,20 @@ type LookupDatabasesSqlModeResult struct {
 
 func LookupDatabasesSqlModeOutput(ctx *pulumi.Context, args LookupDatabasesSqlModeOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesSqlModeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDatabasesSqlModeResult, error) {
+		ApplyT(func(v interface{}) (LookupDatabasesSqlModeResultOutput, error) {
 			args := v.(LookupDatabasesSqlModeArgs)
-			r, err := LookupDatabasesSqlMode(ctx, &args, opts...)
-			var s LookupDatabasesSqlModeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDatabasesSqlModeResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesSqlMode", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDatabasesSqlModeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDatabasesSqlModeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDatabasesSqlModeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDatabasesSqlModeResultOutput)
 }
 

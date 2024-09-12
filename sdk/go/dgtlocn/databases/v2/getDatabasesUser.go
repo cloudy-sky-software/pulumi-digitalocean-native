@@ -34,14 +34,20 @@ type LookupDatabasesUserResult struct {
 
 func LookupDatabasesUserOutput(ctx *pulumi.Context, args LookupDatabasesUserOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesUserResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDatabasesUserResult, error) {
+		ApplyT(func(v interface{}) (LookupDatabasesUserResultOutput, error) {
 			args := v.(LookupDatabasesUserArgs)
-			r, err := LookupDatabasesUser(ctx, &args, opts...)
-			var s LookupDatabasesUserResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDatabasesUserResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesUser", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDatabasesUserResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDatabasesUserResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDatabasesUserResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDatabasesUserResultOutput)
 }
 

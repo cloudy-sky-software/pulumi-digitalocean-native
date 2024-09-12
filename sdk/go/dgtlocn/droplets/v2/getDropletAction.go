@@ -45,14 +45,20 @@ func (val *GetDropletActionResult) Defaults() *GetDropletActionResult {
 
 func GetDropletActionOutput(ctx *pulumi.Context, args GetDropletActionOutputArgs, opts ...pulumi.InvokeOption) GetDropletActionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDropletActionResult, error) {
+		ApplyT(func(v interface{}) (GetDropletActionResultOutput, error) {
 			args := v.(GetDropletActionArgs)
-			r, err := GetDropletAction(ctx, &args, opts...)
-			var s GetDropletActionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDropletActionResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:getDropletAction", args, &rv, "", opts...)
+			if err != nil {
+				return GetDropletActionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDropletActionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDropletActionResultOutput), nil
+			}
+			return output, nil
 		}).(GetDropletActionResultOutput)
 }
 

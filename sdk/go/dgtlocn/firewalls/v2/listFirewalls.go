@@ -32,14 +32,20 @@ type ListFirewallsResult struct {
 
 func ListFirewallsOutput(ctx *pulumi.Context, args ListFirewallsOutputArgs, opts ...pulumi.InvokeOption) ListFirewallsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListFirewallsResult, error) {
+		ApplyT(func(v interface{}) (ListFirewallsResultOutput, error) {
 			args := v.(ListFirewallsArgs)
-			r, err := ListFirewalls(ctx, &args, opts...)
-			var s ListFirewallsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListFirewallsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:firewalls/v2:listFirewalls", args, &rv, "", opts...)
+			if err != nil {
+				return ListFirewallsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListFirewallsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListFirewallsResultOutput), nil
+			}
+			return output, nil
 		}).(ListFirewallsResultOutput)
 }
 

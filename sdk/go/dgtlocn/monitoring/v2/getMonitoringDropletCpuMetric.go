@@ -31,14 +31,20 @@ type GetMonitoringDropletCpuMetricResult struct {
 
 func GetMonitoringDropletCpuMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletCpuMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletCpuMetricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMonitoringDropletCpuMetricResult, error) {
+		ApplyT(func(v interface{}) (GetMonitoringDropletCpuMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletCpuMetricArgs)
-			r, err := GetMonitoringDropletCpuMetric(ctx, &args, opts...)
-			var s GetMonitoringDropletCpuMetricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMonitoringDropletCpuMetricResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric", args, &rv, "", opts...)
+			if err != nil {
+				return GetMonitoringDropletCpuMetricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMonitoringDropletCpuMetricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMonitoringDropletCpuMetricResultOutput), nil
+			}
+			return output, nil
 		}).(GetMonitoringDropletCpuMetricResultOutput)
 }
 

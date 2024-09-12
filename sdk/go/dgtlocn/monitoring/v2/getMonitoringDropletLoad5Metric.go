@@ -31,14 +31,20 @@ type GetMonitoringDropletLoad5MetricResult struct {
 
 func GetMonitoringDropletLoad5MetricOutput(ctx *pulumi.Context, args GetMonitoringDropletLoad5MetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletLoad5MetricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMonitoringDropletLoad5MetricResult, error) {
+		ApplyT(func(v interface{}) (GetMonitoringDropletLoad5MetricResultOutput, error) {
 			args := v.(GetMonitoringDropletLoad5MetricArgs)
-			r, err := GetMonitoringDropletLoad5Metric(ctx, &args, opts...)
-			var s GetMonitoringDropletLoad5MetricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMonitoringDropletLoad5MetricResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", args, &rv, "", opts...)
+			if err != nil {
+				return GetMonitoringDropletLoad5MetricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMonitoringDropletLoad5MetricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMonitoringDropletLoad5MetricResultOutput), nil
+			}
+			return output, nil
 		}).(GetMonitoringDropletLoad5MetricResultOutput)
 }
 

@@ -34,14 +34,20 @@ type ListVolumeSnapshotsResult struct {
 
 func ListVolumeSnapshotsOutput(ctx *pulumi.Context, args ListVolumeSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListVolumeSnapshotsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListVolumeSnapshotsResult, error) {
+		ApplyT(func(v interface{}) (ListVolumeSnapshotsResultOutput, error) {
 			args := v.(ListVolumeSnapshotsArgs)
-			r, err := ListVolumeSnapshots(ctx, &args, opts...)
-			var s ListVolumeSnapshotsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListVolumeSnapshotsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:volumes/v2:listVolumeSnapshots", args, &rv, "", opts...)
+			if err != nil {
+				return ListVolumeSnapshotsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListVolumeSnapshotsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListVolumeSnapshotsResultOutput), nil
+			}
+			return output, nil
 		}).(ListVolumeSnapshotsResultOutput)
 }
 

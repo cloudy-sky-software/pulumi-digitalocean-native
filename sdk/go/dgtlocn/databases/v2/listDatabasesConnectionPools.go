@@ -33,14 +33,20 @@ type ListDatabasesConnectionPoolsResult struct {
 
 func ListDatabasesConnectionPoolsOutput(ctx *pulumi.Context, args ListDatabasesConnectionPoolsOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesConnectionPoolsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDatabasesConnectionPoolsResult, error) {
+		ApplyT(func(v interface{}) (ListDatabasesConnectionPoolsResultOutput, error) {
 			args := v.(ListDatabasesConnectionPoolsArgs)
-			r, err := ListDatabasesConnectionPools(ctx, &args, opts...)
-			var s ListDatabasesConnectionPoolsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDatabasesConnectionPoolsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:listDatabasesConnectionPools", args, &rv, "", opts...)
+			if err != nil {
+				return ListDatabasesConnectionPoolsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDatabasesConnectionPoolsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDatabasesConnectionPoolsResultOutput), nil
+			}
+			return output, nil
 		}).(ListDatabasesConnectionPoolsResultOutput)
 }
 

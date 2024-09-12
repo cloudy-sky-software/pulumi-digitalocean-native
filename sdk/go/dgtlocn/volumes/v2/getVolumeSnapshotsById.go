@@ -32,14 +32,20 @@ type GetVolumeSnapshotsByIdResult struct {
 
 func GetVolumeSnapshotsByIdOutput(ctx *pulumi.Context, args GetVolumeSnapshotsByIdOutputArgs, opts ...pulumi.InvokeOption) GetVolumeSnapshotsByIdResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVolumeSnapshotsByIdResult, error) {
+		ApplyT(func(v interface{}) (GetVolumeSnapshotsByIdResultOutput, error) {
 			args := v.(GetVolumeSnapshotsByIdArgs)
-			r, err := GetVolumeSnapshotsById(ctx, &args, opts...)
-			var s GetVolumeSnapshotsByIdResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVolumeSnapshotsByIdResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args, &rv, "", opts...)
+			if err != nil {
+				return GetVolumeSnapshotsByIdResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVolumeSnapshotsByIdResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVolumeSnapshotsByIdResultOutput), nil
+			}
+			return output, nil
 		}).(GetVolumeSnapshotsByIdResultOutput)
 }
 

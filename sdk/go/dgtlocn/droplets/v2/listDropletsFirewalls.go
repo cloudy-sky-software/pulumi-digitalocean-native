@@ -34,14 +34,20 @@ type ListDropletsFirewallsResult struct {
 
 func ListDropletsFirewallsOutput(ctx *pulumi.Context, args ListDropletsFirewallsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsFirewallsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDropletsFirewallsResult, error) {
+		ApplyT(func(v interface{}) (ListDropletsFirewallsResultOutput, error) {
 			args := v.(ListDropletsFirewallsArgs)
-			r, err := ListDropletsFirewalls(ctx, &args, opts...)
-			var s ListDropletsFirewallsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDropletsFirewallsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:listDropletsFirewalls", args, &rv, "", opts...)
+			if err != nil {
+				return ListDropletsFirewallsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDropletsFirewallsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDropletsFirewallsResultOutput), nil
+			}
+			return output, nil
 		}).(ListDropletsFirewallsResultOutput)
 }
 

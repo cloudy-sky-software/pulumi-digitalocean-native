@@ -31,14 +31,20 @@ type GetMonitoringDropletBandwidthMetricResult struct {
 
 func GetMonitoringDropletBandwidthMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletBandwidthMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletBandwidthMetricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMonitoringDropletBandwidthMetricResult, error) {
+		ApplyT(func(v interface{}) (GetMonitoringDropletBandwidthMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletBandwidthMetricArgs)
-			r, err := GetMonitoringDropletBandwidthMetric(ctx, &args, opts...)
-			var s GetMonitoringDropletBandwidthMetricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMonitoringDropletBandwidthMetricResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", args, &rv, "", opts...)
+			if err != nil {
+				return GetMonitoringDropletBandwidthMetricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMonitoringDropletBandwidthMetricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMonitoringDropletBandwidthMetricResultOutput), nil
+			}
+			return output, nil
 		}).(GetMonitoringDropletBandwidthMetricResultOutput)
 }
 

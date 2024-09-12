@@ -37,14 +37,20 @@ type GetBalanceResult struct {
 
 func GetBalanceOutput(ctx *pulumi.Context, args GetBalanceOutputArgs, opts ...pulumi.InvokeOption) GetBalanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetBalanceResult, error) {
+		ApplyT(func(v interface{}) (GetBalanceResultOutput, error) {
 			args := v.(GetBalanceArgs)
-			r, err := GetBalance(ctx, &args, opts...)
-			var s GetBalanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetBalanceResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:customers/v2:getBalance", args, &rv, "", opts...)
+			if err != nil {
+				return GetBalanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetBalanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetBalanceResultOutput), nil
+			}
+			return output, nil
 		}).(GetBalanceResultOutput)
 }
 

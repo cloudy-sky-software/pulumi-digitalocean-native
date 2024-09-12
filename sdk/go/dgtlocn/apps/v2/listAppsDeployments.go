@@ -34,14 +34,20 @@ type ListAppsDeploymentsResult struct {
 
 func ListAppsDeploymentsOutput(ctx *pulumi.Context, args ListAppsDeploymentsOutputArgs, opts ...pulumi.InvokeOption) ListAppsDeploymentsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListAppsDeploymentsResult, error) {
+		ApplyT(func(v interface{}) (ListAppsDeploymentsResultOutput, error) {
 			args := v.(ListAppsDeploymentsArgs)
-			r, err := ListAppsDeployments(ctx, &args, opts...)
-			var s ListAppsDeploymentsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListAppsDeploymentsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:listAppsDeployments", args, &rv, "", opts...)
+			if err != nil {
+				return ListAppsDeploymentsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListAppsDeploymentsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListAppsDeploymentsResultOutput), nil
+			}
+			return output, nil
 		}).(ListAppsDeploymentsResultOutput)
 }
 

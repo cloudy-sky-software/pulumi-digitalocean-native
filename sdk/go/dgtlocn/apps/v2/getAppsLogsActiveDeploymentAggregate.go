@@ -34,14 +34,20 @@ type GetAppsLogsActiveDeploymentAggregateResult struct {
 
 func GetAppsLogsActiveDeploymentAggregateOutput(ctx *pulumi.Context, args GetAppsLogsActiveDeploymentAggregateOutputArgs, opts ...pulumi.InvokeOption) GetAppsLogsActiveDeploymentAggregateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppsLogsActiveDeploymentAggregateResult, error) {
+		ApplyT(func(v interface{}) (GetAppsLogsActiveDeploymentAggregateResultOutput, error) {
 			args := v.(GetAppsLogsActiveDeploymentAggregateArgs)
-			r, err := GetAppsLogsActiveDeploymentAggregate(ctx, &args, opts...)
-			var s GetAppsLogsActiveDeploymentAggregateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppsLogsActiveDeploymentAggregateResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppsLogsActiveDeploymentAggregateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppsLogsActiveDeploymentAggregateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppsLogsActiveDeploymentAggregateResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppsLogsActiveDeploymentAggregateResultOutput)
 }
 

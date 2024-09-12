@@ -30,14 +30,20 @@ type ListKubernetesOptionsResult struct {
 
 func ListKubernetesOptionsOutput(ctx *pulumi.Context, args ListKubernetesOptionsOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesOptionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListKubernetesOptionsResult, error) {
+		ApplyT(func(v interface{}) (ListKubernetesOptionsResultOutput, error) {
 			args := v.(ListKubernetesOptionsArgs)
-			r, err := ListKubernetesOptions(ctx, &args, opts...)
-			var s ListKubernetesOptionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListKubernetesOptionsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:listKubernetesOptions", args, &rv, "", opts...)
+			if err != nil {
+				return ListKubernetesOptionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListKubernetesOptionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListKubernetesOptionsResultOutput), nil
+			}
+			return output, nil
 		}).(ListKubernetesOptionsResultOutput)
 }
 

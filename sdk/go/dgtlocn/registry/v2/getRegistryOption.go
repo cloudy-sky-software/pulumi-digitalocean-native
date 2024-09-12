@@ -30,14 +30,20 @@ type GetRegistryOptionResult struct {
 
 func GetRegistryOptionOutput(ctx *pulumi.Context, args GetRegistryOptionOutputArgs, opts ...pulumi.InvokeOption) GetRegistryOptionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRegistryOptionResult, error) {
+		ApplyT(func(v interface{}) (GetRegistryOptionResultOutput, error) {
 			args := v.(GetRegistryOptionArgs)
-			r, err := GetRegistryOption(ctx, &args, opts...)
-			var s GetRegistryOptionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRegistryOptionResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:getRegistryOption", args, &rv, "", opts...)
+			if err != nil {
+				return GetRegistryOptionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRegistryOptionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRegistryOptionResultOutput), nil
+			}
+			return output, nil
 		}).(GetRegistryOptionResultOutput)
 }
 

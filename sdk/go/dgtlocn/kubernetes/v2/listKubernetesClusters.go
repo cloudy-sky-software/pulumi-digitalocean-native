@@ -32,14 +32,20 @@ type ListKubernetesClustersResult struct {
 
 func ListKubernetesClustersOutput(ctx *pulumi.Context, args ListKubernetesClustersOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesClustersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListKubernetesClustersResult, error) {
+		ApplyT(func(v interface{}) (ListKubernetesClustersResultOutput, error) {
 			args := v.(ListKubernetesClustersArgs)
-			r, err := ListKubernetesClusters(ctx, &args, opts...)
-			var s ListKubernetesClustersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListKubernetesClustersResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:listKubernetesClusters", args, &rv, "", opts...)
+			if err != nil {
+				return ListKubernetesClustersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListKubernetesClustersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListKubernetesClustersResultOutput), nil
+			}
+			return output, nil
 		}).(ListKubernetesClustersResultOutput)
 }
 

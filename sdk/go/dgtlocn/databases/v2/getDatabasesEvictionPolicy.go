@@ -40,14 +40,20 @@ type LookupDatabasesEvictionPolicyResult struct {
 
 func LookupDatabasesEvictionPolicyOutput(ctx *pulumi.Context, args LookupDatabasesEvictionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesEvictionPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDatabasesEvictionPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupDatabasesEvictionPolicyResultOutput, error) {
 			args := v.(LookupDatabasesEvictionPolicyArgs)
-			r, err := LookupDatabasesEvictionPolicy(ctx, &args, opts...)
-			var s LookupDatabasesEvictionPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDatabasesEvictionPolicyResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDatabasesEvictionPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDatabasesEvictionPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDatabasesEvictionPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDatabasesEvictionPolicyResultOutput)
 }
 

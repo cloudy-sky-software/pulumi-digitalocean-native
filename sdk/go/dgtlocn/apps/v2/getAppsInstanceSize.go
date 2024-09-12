@@ -43,14 +43,20 @@ func (val *GetAppsInstanceSizeResult) Defaults() *GetAppsInstanceSizeResult {
 
 func GetAppsInstanceSizeOutput(ctx *pulumi.Context, args GetAppsInstanceSizeOutputArgs, opts ...pulumi.InvokeOption) GetAppsInstanceSizeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppsInstanceSizeResult, error) {
+		ApplyT(func(v interface{}) (GetAppsInstanceSizeResultOutput, error) {
 			args := v.(GetAppsInstanceSizeArgs)
-			r, err := GetAppsInstanceSize(ctx, &args, opts...)
-			var s GetAppsInstanceSizeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppsInstanceSizeResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsInstanceSize", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppsInstanceSizeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppsInstanceSizeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppsInstanceSizeResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppsInstanceSizeResultOutput)
 }
 

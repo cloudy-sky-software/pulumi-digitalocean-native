@@ -32,14 +32,20 @@ type ListSshKeysResult struct {
 
 func ListSshKeysOutput(ctx *pulumi.Context, args ListSshKeysOutputArgs, opts ...pulumi.InvokeOption) ListSshKeysResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListSshKeysResult, error) {
+		ApplyT(func(v interface{}) (ListSshKeysResultOutput, error) {
 			args := v.(ListSshKeysArgs)
-			r, err := ListSshKeys(ctx, &args, opts...)
-			var s ListSshKeysResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListSshKeysResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:account/v2:listSshKeys", args, &rv, "", opts...)
+			if err != nil {
+				return ListSshKeysResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListSshKeysResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListSshKeysResultOutput), nil
+			}
+			return output, nil
 		}).(ListSshKeysResultOutput)
 }
 
