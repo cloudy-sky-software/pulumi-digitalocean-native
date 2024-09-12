@@ -32,14 +32,20 @@ type ListVpcsResult struct {
 
 func ListVpcsOutput(ctx *pulumi.Context, args ListVpcsOutputArgs, opts ...pulumi.InvokeOption) ListVpcsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListVpcsResult, error) {
+		ApplyT(func(v interface{}) (ListVpcsResultOutput, error) {
 			args := v.(ListVpcsArgs)
-			r, err := ListVpcs(ctx, &args, opts...)
-			var s ListVpcsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListVpcsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:vpcs/v2:listVpcs", args, &rv, "", opts...)
+			if err != nil {
+				return ListVpcsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListVpcsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListVpcsResultOutput), nil
+			}
+			return output, nil
 		}).(ListVpcsResultOutput)
 }
 

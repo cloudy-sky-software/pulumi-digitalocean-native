@@ -32,14 +32,20 @@ type ListKubernetesNodePoolsResult struct {
 
 func ListKubernetesNodePoolsOutput(ctx *pulumi.Context, args ListKubernetesNodePoolsOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesNodePoolsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListKubernetesNodePoolsResult, error) {
+		ApplyT(func(v interface{}) (ListKubernetesNodePoolsResultOutput, error) {
 			args := v.(ListKubernetesNodePoolsArgs)
-			r, err := ListKubernetesNodePools(ctx, &args, opts...)
-			var s ListKubernetesNodePoolsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListKubernetesNodePoolsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args, &rv, "", opts...)
+			if err != nil {
+				return ListKubernetesNodePoolsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListKubernetesNodePoolsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListKubernetesNodePoolsResultOutput), nil
+			}
+			return output, nil
 		}).(ListKubernetesNodePoolsResultOutput)
 }
 

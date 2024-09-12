@@ -32,14 +32,20 @@ type ListImagesResult struct {
 
 func ListImagesOutput(ctx *pulumi.Context, args ListImagesOutputArgs, opts ...pulumi.InvokeOption) ListImagesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListImagesResult, error) {
+		ApplyT(func(v interface{}) (ListImagesResultOutput, error) {
 			args := v.(ListImagesArgs)
-			r, err := ListImages(ctx, &args, opts...)
-			var s ListImagesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListImagesResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:images/v2:listImages", args, &rv, "", opts...)
+			if err != nil {
+				return ListImagesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListImagesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListImagesResultOutput), nil
+			}
+			return output, nil
 		}).(ListImagesResultOutput)
 }
 

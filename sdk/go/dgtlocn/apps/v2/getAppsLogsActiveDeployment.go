@@ -36,14 +36,20 @@ type GetAppsLogsActiveDeploymentResult struct {
 
 func GetAppsLogsActiveDeploymentOutput(ctx *pulumi.Context, args GetAppsLogsActiveDeploymentOutputArgs, opts ...pulumi.InvokeOption) GetAppsLogsActiveDeploymentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppsLogsActiveDeploymentResult, error) {
+		ApplyT(func(v interface{}) (GetAppsLogsActiveDeploymentResultOutput, error) {
 			args := v.(GetAppsLogsActiveDeploymentArgs)
-			r, err := GetAppsLogsActiveDeployment(ctx, &args, opts...)
-			var s GetAppsLogsActiveDeploymentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppsLogsActiveDeploymentResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppsLogsActiveDeploymentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppsLogsActiveDeploymentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppsLogsActiveDeploymentResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppsLogsActiveDeploymentResultOutput)
 }
 

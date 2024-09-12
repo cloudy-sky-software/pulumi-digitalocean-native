@@ -31,14 +31,20 @@ type ListAppsInstanceSizesResult struct {
 
 func ListAppsInstanceSizesOutput(ctx *pulumi.Context, args ListAppsInstanceSizesOutputArgs, opts ...pulumi.InvokeOption) ListAppsInstanceSizesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListAppsInstanceSizesResult, error) {
+		ApplyT(func(v interface{}) (ListAppsInstanceSizesResultOutput, error) {
 			args := v.(ListAppsInstanceSizesArgs)
-			r, err := ListAppsInstanceSizes(ctx, &args, opts...)
-			var s ListAppsInstanceSizesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListAppsInstanceSizesResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:listAppsInstanceSizes", args, &rv, "", opts...)
+			if err != nil {
+				return ListAppsInstanceSizesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListAppsInstanceSizesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListAppsInstanceSizesResultOutput), nil
+			}
+			return output, nil
 		}).(ListAppsInstanceSizesResultOutput)
 }
 

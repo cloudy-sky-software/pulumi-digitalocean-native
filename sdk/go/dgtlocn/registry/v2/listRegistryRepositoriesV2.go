@@ -34,14 +34,20 @@ type ListRegistryRepositoriesV2Result struct {
 
 func ListRegistryRepositoriesV2Output(ctx *pulumi.Context, args ListRegistryRepositoriesV2OutputArgs, opts ...pulumi.InvokeOption) ListRegistryRepositoriesV2ResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListRegistryRepositoriesV2Result, error) {
+		ApplyT(func(v interface{}) (ListRegistryRepositoriesV2ResultOutput, error) {
 			args := v.(ListRegistryRepositoriesV2Args)
-			r, err := ListRegistryRepositoriesV2(ctx, &args, opts...)
-			var s ListRegistryRepositoriesV2Result
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListRegistryRepositoriesV2Result
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args, &rv, "", opts...)
+			if err != nil {
+				return ListRegistryRepositoriesV2ResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListRegistryRepositoriesV2ResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListRegistryRepositoriesV2ResultOutput), nil
+			}
+			return output, nil
 		}).(ListRegistryRepositoriesV2ResultOutput)
 }
 

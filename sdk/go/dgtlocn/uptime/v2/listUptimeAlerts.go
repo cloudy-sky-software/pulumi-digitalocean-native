@@ -34,14 +34,20 @@ type ListUptimeAlertsResult struct {
 
 func ListUptimeAlertsOutput(ctx *pulumi.Context, args ListUptimeAlertsOutputArgs, opts ...pulumi.InvokeOption) ListUptimeAlertsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListUptimeAlertsResult, error) {
+		ApplyT(func(v interface{}) (ListUptimeAlertsResultOutput, error) {
 			args := v.(ListUptimeAlertsArgs)
-			r, err := ListUptimeAlerts(ctx, &args, opts...)
-			var s ListUptimeAlertsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListUptimeAlertsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:uptime/v2:listUptimeAlerts", args, &rv, "", opts...)
+			if err != nil {
+				return ListUptimeAlertsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListUptimeAlertsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListUptimeAlertsResultOutput), nil
+			}
+			return output, nil
 		}).(ListUptimeAlertsResultOutput)
 }
 

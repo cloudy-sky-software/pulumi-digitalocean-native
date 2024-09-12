@@ -31,14 +31,20 @@ type ListDropletsNeighborsIdsResult struct {
 
 func ListDropletsNeighborsIdsOutput(ctx *pulumi.Context, args ListDropletsNeighborsIdsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsNeighborsIdsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDropletsNeighborsIdsResult, error) {
+		ApplyT(func(v interface{}) (ListDropletsNeighborsIdsResultOutput, error) {
 			args := v.(ListDropletsNeighborsIdsArgs)
-			r, err := ListDropletsNeighborsIds(ctx, &args, opts...)
-			var s ListDropletsNeighborsIdsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDropletsNeighborsIdsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:reports/v2:listDropletsNeighborsIds", args, &rv, "", opts...)
+			if err != nil {
+				return ListDropletsNeighborsIdsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDropletsNeighborsIdsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDropletsNeighborsIdsResultOutput), nil
+			}
+			return output, nil
 		}).(ListDropletsNeighborsIdsResultOutput)
 }
 

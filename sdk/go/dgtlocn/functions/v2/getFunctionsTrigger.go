@@ -34,14 +34,20 @@ type LookupFunctionsTriggerResult struct {
 
 func LookupFunctionsTriggerOutput(ctx *pulumi.Context, args LookupFunctionsTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionsTriggerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFunctionsTriggerResult, error) {
+		ApplyT(func(v interface{}) (LookupFunctionsTriggerResultOutput, error) {
 			args := v.(LookupFunctionsTriggerArgs)
-			r, err := LookupFunctionsTrigger(ctx, &args, opts...)
-			var s LookupFunctionsTriggerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFunctionsTriggerResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:functions/v2:getFunctionsTrigger", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFunctionsTriggerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFunctionsTriggerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFunctionsTriggerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFunctionsTriggerResultOutput)
 }
 

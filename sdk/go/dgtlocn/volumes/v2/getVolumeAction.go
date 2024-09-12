@@ -45,14 +45,20 @@ func (val *GetVolumeActionResult) Defaults() *GetVolumeActionResult {
 
 func GetVolumeActionOutput(ctx *pulumi.Context, args GetVolumeActionOutputArgs, opts ...pulumi.InvokeOption) GetVolumeActionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVolumeActionResult, error) {
+		ApplyT(func(v interface{}) (GetVolumeActionResultOutput, error) {
 			args := v.(GetVolumeActionArgs)
-			r, err := GetVolumeAction(ctx, &args, opts...)
-			var s GetVolumeActionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVolumeActionResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:volumes/v2:getVolumeAction", args, &rv, "", opts...)
+			if err != nil {
+				return GetVolumeActionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVolumeActionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVolumeActionResultOutput), nil
+			}
+			return output, nil
 		}).(GetVolumeActionResultOutput)
 }
 

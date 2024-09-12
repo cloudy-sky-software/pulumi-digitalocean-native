@@ -45,14 +45,20 @@ func (val *GetReservedIPsActionResult) Defaults() *GetReservedIPsActionResult {
 
 func GetReservedIPsActionOutput(ctx *pulumi.Context, args GetReservedIPsActionOutputArgs, opts ...pulumi.InvokeOption) GetReservedIPsActionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetReservedIPsActionResult, error) {
+		ApplyT(func(v interface{}) (GetReservedIPsActionResultOutput, error) {
 			args := v.(GetReservedIPsActionArgs)
-			r, err := GetReservedIPsAction(ctx, &args, opts...)
-			var s GetReservedIPsActionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetReservedIPsActionResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args, &rv, "", opts...)
+			if err != nil {
+				return GetReservedIPsActionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetReservedIPsActionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetReservedIPsActionResultOutput), nil
+			}
+			return output, nil
 		}).(GetReservedIPsActionResultOutput)
 }
 

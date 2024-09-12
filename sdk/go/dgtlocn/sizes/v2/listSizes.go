@@ -32,14 +32,20 @@ type ListSizesResult struct {
 
 func ListSizesOutput(ctx *pulumi.Context, args ListSizesOutputArgs, opts ...pulumi.InvokeOption) ListSizesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListSizesResult, error) {
+		ApplyT(func(v interface{}) (ListSizesResultOutput, error) {
 			args := v.(ListSizesArgs)
-			r, err := ListSizes(ctx, &args, opts...)
-			var s ListSizesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListSizesResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:sizes/v2:listSizes", args, &rv, "", opts...)
+			if err != nil {
+				return ListSizesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListSizesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListSizesResultOutput), nil
+			}
+			return output, nil
 		}).(ListSizesResultOutput)
 }
 

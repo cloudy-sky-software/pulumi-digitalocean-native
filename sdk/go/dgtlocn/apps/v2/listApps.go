@@ -32,14 +32,20 @@ type ListAppsResult struct {
 
 func ListAppsOutput(ctx *pulumi.Context, args ListAppsOutputArgs, opts ...pulumi.InvokeOption) ListAppsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListAppsResult, error) {
+		ApplyT(func(v interface{}) (ListAppsResultOutput, error) {
 			args := v.(ListAppsArgs)
-			r, err := ListApps(ctx, &args, opts...)
-			var s ListAppsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListAppsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:listApps", args, &rv, "", opts...)
+			if err != nil {
+				return ListAppsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListAppsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListAppsResultOutput), nil
+			}
+			return output, nil
 		}).(ListAppsResultOutput)
 }
 

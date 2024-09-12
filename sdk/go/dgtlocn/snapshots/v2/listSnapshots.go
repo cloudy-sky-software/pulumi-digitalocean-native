@@ -32,14 +32,20 @@ type ListSnapshotsResult struct {
 
 func ListSnapshotsOutput(ctx *pulumi.Context, args ListSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListSnapshotsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListSnapshotsResult, error) {
+		ApplyT(func(v interface{}) (ListSnapshotsResultOutput, error) {
 			args := v.(ListSnapshotsArgs)
-			r, err := ListSnapshots(ctx, &args, opts...)
-			var s ListSnapshotsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListSnapshotsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:snapshots/v2:listSnapshots", args, &rv, "", opts...)
+			if err != nil {
+				return ListSnapshotsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListSnapshotsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListSnapshotsResultOutput), nil
+			}
+			return output, nil
 		}).(ListSnapshotsResultOutput)
 }
 

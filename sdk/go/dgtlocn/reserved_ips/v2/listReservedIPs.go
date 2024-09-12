@@ -32,14 +32,20 @@ type ListReservedIPsResult struct {
 
 func ListReservedIPsOutput(ctx *pulumi.Context, args ListReservedIPsOutputArgs, opts ...pulumi.InvokeOption) ListReservedIPsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListReservedIPsResult, error) {
+		ApplyT(func(v interface{}) (ListReservedIPsResultOutput, error) {
 			args := v.(ListReservedIPsArgs)
-			r, err := ListReservedIPs(ctx, &args, opts...)
-			var s ListReservedIPsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListReservedIPsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:reserved_ips/v2:listReservedIPs", args, &rv, "", opts...)
+			if err != nil {
+				return ListReservedIPsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListReservedIPsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListReservedIPsResultOutput), nil
+			}
+			return output, nil
 		}).(ListReservedIPsResultOutput)
 }
 

@@ -31,14 +31,20 @@ type GetMonitoringDropletMemoryAvailableMetricResult struct {
 
 func GetMonitoringDropletMemoryAvailableMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletMemoryAvailableMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletMemoryAvailableMetricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMonitoringDropletMemoryAvailableMetricResult, error) {
+		ApplyT(func(v interface{}) (GetMonitoringDropletMemoryAvailableMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletMemoryAvailableMetricArgs)
-			r, err := GetMonitoringDropletMemoryAvailableMetric(ctx, &args, opts...)
-			var s GetMonitoringDropletMemoryAvailableMetricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMonitoringDropletMemoryAvailableMetricResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric", args, &rv, "", opts...)
+			if err != nil {
+				return GetMonitoringDropletMemoryAvailableMetricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMonitoringDropletMemoryAvailableMetricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMonitoringDropletMemoryAvailableMetricResultOutput), nil
+			}
+			return output, nil
 		}).(GetMonitoringDropletMemoryAvailableMetricResultOutput)
 }
 

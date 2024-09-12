@@ -34,14 +34,20 @@ type ListDropletsSnapshotsResult struct {
 
 func ListDropletsSnapshotsOutput(ctx *pulumi.Context, args ListDropletsSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsSnapshotsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDropletsSnapshotsResult, error) {
+		ApplyT(func(v interface{}) (ListDropletsSnapshotsResultOutput, error) {
 			args := v.(ListDropletsSnapshotsArgs)
-			r, err := ListDropletsSnapshots(ctx, &args, opts...)
-			var s ListDropletsSnapshotsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDropletsSnapshotsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:listDropletsSnapshots", args, &rv, "", opts...)
+			if err != nil {
+				return ListDropletsSnapshotsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDropletsSnapshotsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDropletsSnapshotsResultOutput), nil
+			}
+			return output, nil
 		}).(ListDropletsSnapshotsResultOutput)
 }
 

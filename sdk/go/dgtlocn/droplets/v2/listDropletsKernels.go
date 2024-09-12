@@ -34,14 +34,20 @@ type ListDropletsKernelsResult struct {
 
 func ListDropletsKernelsOutput(ctx *pulumi.Context, args ListDropletsKernelsOutputArgs, opts ...pulumi.InvokeOption) ListDropletsKernelsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDropletsKernelsResult, error) {
+		ApplyT(func(v interface{}) (ListDropletsKernelsResultOutput, error) {
 			args := v.(ListDropletsKernelsArgs)
-			r, err := ListDropletsKernels(ctx, &args, opts...)
-			var s ListDropletsKernelsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDropletsKernelsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:listDropletsKernels", args, &rv, "", opts...)
+			if err != nil {
+				return ListDropletsKernelsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDropletsKernelsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDropletsKernelsResultOutput), nil
+			}
+			return output, nil
 		}).(ListDropletsKernelsResultOutput)
 }
 

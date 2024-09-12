@@ -32,14 +32,20 @@ type ListCertificatesResult struct {
 
 func ListCertificatesOutput(ctx *pulumi.Context, args ListCertificatesOutputArgs, opts ...pulumi.InvokeOption) ListCertificatesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListCertificatesResult, error) {
+		ApplyT(func(v interface{}) (ListCertificatesResultOutput, error) {
 			args := v.(ListCertificatesArgs)
-			r, err := ListCertificates(ctx, &args, opts...)
-			var s ListCertificatesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListCertificatesResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:certificates/v2:listCertificates", args, &rv, "", opts...)
+			if err != nil {
+				return ListCertificatesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListCertificatesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListCertificatesResultOutput), nil
+			}
+			return output, nil
 		}).(ListCertificatesResultOutput)
 }
 

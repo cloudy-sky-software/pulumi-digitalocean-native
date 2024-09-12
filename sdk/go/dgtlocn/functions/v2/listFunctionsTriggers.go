@@ -32,14 +32,20 @@ type ListFunctionsTriggersResult struct {
 
 func ListFunctionsTriggersOutput(ctx *pulumi.Context, args ListFunctionsTriggersOutputArgs, opts ...pulumi.InvokeOption) ListFunctionsTriggersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListFunctionsTriggersResult, error) {
+		ApplyT(func(v interface{}) (ListFunctionsTriggersResultOutput, error) {
 			args := v.(ListFunctionsTriggersArgs)
-			r, err := ListFunctionsTriggers(ctx, &args, opts...)
-			var s ListFunctionsTriggersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListFunctionsTriggersResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:functions/v2:listFunctionsTriggers", args, &rv, "", opts...)
+			if err != nil {
+				return ListFunctionsTriggersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListFunctionsTriggersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListFunctionsTriggersResultOutput), nil
+			}
+			return output, nil
 		}).(ListFunctionsTriggersResultOutput)
 }
 

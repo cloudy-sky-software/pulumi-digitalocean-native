@@ -40,14 +40,20 @@ type GetDropletsDestroyAssociatedResourcesStatuResult struct {
 
 func GetDropletsDestroyAssociatedResourcesStatuOutput(ctx *pulumi.Context, args GetDropletsDestroyAssociatedResourcesStatuOutputArgs, opts ...pulumi.InvokeOption) GetDropletsDestroyAssociatedResourcesStatuResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDropletsDestroyAssociatedResourcesStatuResult, error) {
+		ApplyT(func(v interface{}) (GetDropletsDestroyAssociatedResourcesStatuResultOutput, error) {
 			args := v.(GetDropletsDestroyAssociatedResourcesStatuArgs)
-			r, err := GetDropletsDestroyAssociatedResourcesStatu(ctx, &args, opts...)
-			var s GetDropletsDestroyAssociatedResourcesStatuResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDropletsDestroyAssociatedResourcesStatuResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args, &rv, "", opts...)
+			if err != nil {
+				return GetDropletsDestroyAssociatedResourcesStatuResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDropletsDestroyAssociatedResourcesStatuResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDropletsDestroyAssociatedResourcesStatuResultOutput), nil
+			}
+			return output, nil
 		}).(GetDropletsDestroyAssociatedResourcesStatuResultOutput)
 }
 

@@ -31,14 +31,20 @@ type GetMonitoringDropletFilesystemFreeMetricResult struct {
 
 func GetMonitoringDropletFilesystemFreeMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletFilesystemFreeMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletFilesystemFreeMetricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMonitoringDropletFilesystemFreeMetricResult, error) {
+		ApplyT(func(v interface{}) (GetMonitoringDropletFilesystemFreeMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletFilesystemFreeMetricArgs)
-			r, err := GetMonitoringDropletFilesystemFreeMetric(ctx, &args, opts...)
-			var s GetMonitoringDropletFilesystemFreeMetricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMonitoringDropletFilesystemFreeMetricResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetric", args, &rv, "", opts...)
+			if err != nil {
+				return GetMonitoringDropletFilesystemFreeMetricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMonitoringDropletFilesystemFreeMetricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMonitoringDropletFilesystemFreeMetricResultOutput), nil
+			}
+			return output, nil
 		}).(GetMonitoringDropletFilesystemFreeMetricResultOutput)
 }
 

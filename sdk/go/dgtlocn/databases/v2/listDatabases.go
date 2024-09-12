@@ -32,14 +32,20 @@ type ListDatabasesResult struct {
 
 func ListDatabasesOutput(ctx *pulumi.Context, args ListDatabasesOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDatabasesResult, error) {
+		ApplyT(func(v interface{}) (ListDatabasesResultOutput, error) {
 			args := v.(ListDatabasesArgs)
-			r, err := ListDatabases(ctx, &args, opts...)
-			var s ListDatabasesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDatabasesResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:listDatabases", args, &rv, "", opts...)
+			if err != nil {
+				return ListDatabasesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDatabasesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDatabasesResultOutput), nil
+			}
+			return output, nil
 		}).(ListDatabasesResultOutput)
 }
 

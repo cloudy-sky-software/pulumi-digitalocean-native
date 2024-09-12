@@ -32,14 +32,20 @@ type ListMonitoringAlertPolicyResult struct {
 
 func ListMonitoringAlertPolicyOutput(ctx *pulumi.Context, args ListMonitoringAlertPolicyOutputArgs, opts ...pulumi.InvokeOption) ListMonitoringAlertPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListMonitoringAlertPolicyResult, error) {
+		ApplyT(func(v interface{}) (ListMonitoringAlertPolicyResultOutput, error) {
 			args := v.(ListMonitoringAlertPolicyArgs)
-			r, err := ListMonitoringAlertPolicy(ctx, &args, opts...)
-			var s ListMonitoringAlertPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListMonitoringAlertPolicyResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return ListMonitoringAlertPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListMonitoringAlertPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListMonitoringAlertPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(ListMonitoringAlertPolicyResultOutput)
 }
 

@@ -30,14 +30,20 @@ type ListFunctionsNamespacesResult struct {
 
 func ListFunctionsNamespacesOutput(ctx *pulumi.Context, args ListFunctionsNamespacesOutputArgs, opts ...pulumi.InvokeOption) ListFunctionsNamespacesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListFunctionsNamespacesResult, error) {
+		ApplyT(func(v interface{}) (ListFunctionsNamespacesResultOutput, error) {
 			args := v.(ListFunctionsNamespacesArgs)
-			r, err := ListFunctionsNamespaces(ctx, &args, opts...)
-			var s ListFunctionsNamespacesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListFunctionsNamespacesResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:functions/v2:listFunctionsNamespaces", args, &rv, "", opts...)
+			if err != nil {
+				return ListFunctionsNamespacesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListFunctionsNamespacesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListFunctionsNamespacesResultOutput), nil
+			}
+			return output, nil
 		}).(ListFunctionsNamespacesResultOutput)
 }
 

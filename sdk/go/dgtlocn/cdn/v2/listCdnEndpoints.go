@@ -32,14 +32,20 @@ type ListCdnEndpointsResult struct {
 
 func ListCdnEndpointsOutput(ctx *pulumi.Context, args ListCdnEndpointsOutputArgs, opts ...pulumi.InvokeOption) ListCdnEndpointsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListCdnEndpointsResult, error) {
+		ApplyT(func(v interface{}) (ListCdnEndpointsResultOutput, error) {
 			args := v.(ListCdnEndpointsArgs)
-			r, err := ListCdnEndpoints(ctx, &args, opts...)
-			var s ListCdnEndpointsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListCdnEndpointsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:cdn/v2:listCdnEndpoints", args, &rv, "", opts...)
+			if err != nil {
+				return ListCdnEndpointsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListCdnEndpointsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListCdnEndpointsResultOutput), nil
+			}
+			return output, nil
 		}).(ListCdnEndpointsResultOutput)
 }
 

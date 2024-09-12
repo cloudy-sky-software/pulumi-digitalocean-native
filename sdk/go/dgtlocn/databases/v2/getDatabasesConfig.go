@@ -32,14 +32,20 @@ type GetDatabasesConfigResult struct {
 
 func GetDatabasesConfigOutput(ctx *pulumi.Context, args GetDatabasesConfigOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDatabasesConfigResult, error) {
+		ApplyT(func(v interface{}) (GetDatabasesConfigResultOutput, error) {
 			args := v.(GetDatabasesConfigArgs)
-			r, err := GetDatabasesConfig(ctx, &args, opts...)
-			var s GetDatabasesConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDatabasesConfigResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesConfig", args, &rv, "", opts...)
+			if err != nil {
+				return GetDatabasesConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDatabasesConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDatabasesConfigResultOutput), nil
+			}
+			return output, nil
 		}).(GetDatabasesConfigResultOutput)
 }
 

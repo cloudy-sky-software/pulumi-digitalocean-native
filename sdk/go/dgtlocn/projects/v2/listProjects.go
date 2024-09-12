@@ -32,14 +32,20 @@ type ListProjectsResult struct {
 
 func ListProjectsOutput(ctx *pulumi.Context, args ListProjectsOutputArgs, opts ...pulumi.InvokeOption) ListProjectsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListProjectsResult, error) {
+		ApplyT(func(v interface{}) (ListProjectsResultOutput, error) {
 			args := v.(ListProjectsArgs)
-			r, err := ListProjects(ctx, &args, opts...)
-			var s ListProjectsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListProjectsResult
+			secret, err := ctx.InvokePackageRaw("digitalocean-native:projects/v2:listProjects", args, &rv, "", opts...)
+			if err != nil {
+				return ListProjectsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListProjectsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListProjectsResultOutput), nil
+			}
+			return output, nil
 		}).(ListProjectsResultOutput)
 }
 
