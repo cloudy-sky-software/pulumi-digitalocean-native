@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getDatabasesEvictionPolicy(args: GetDatabasesEvictionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.GetDatabasesEvictionPolicyProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", {
         "databaseClusterUuid": args.databaseClusterUuid,
@@ -22,7 +21,10 @@ export interface GetDatabasesEvictionPolicyArgs {
     databaseClusterUuid: string;
 }
 export function getDatabasesEvictionPolicyOutput(args: GetDatabasesEvictionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.GetDatabasesEvictionPolicyProperties> {
-    return pulumi.output(args).apply((a: any) => getDatabasesEvictionPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", {
+        "databaseClusterUuid": args.databaseClusterUuid,
+    }, opts);
 }
 
 export interface GetDatabasesEvictionPolicyOutputArgs {

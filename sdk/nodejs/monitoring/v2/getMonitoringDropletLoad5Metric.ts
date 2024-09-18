@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getMonitoringDropletLoad5Metric(args?: GetMonitoringDropletLoad5MetricArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.Metrics> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", {
     }, opts);
@@ -18,5 +17,8 @@ export function getMonitoringDropletLoad5Metric(args?: GetMonitoringDropletLoad5
 export interface GetMonitoringDropletLoad5MetricArgs {
 }
 export function getMonitoringDropletLoad5MetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
-    return pulumi.output(getMonitoringDropletLoad5Metric(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletLoad5Metric", {
+    }, opts);
 }
+

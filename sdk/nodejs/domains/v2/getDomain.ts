@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<outputs.domains.v2.GetDomainProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:domains/v2:getDomain", {
         "domainName": args.domainName,
@@ -22,7 +21,10 @@ export interface GetDomainArgs {
     domainName: string;
 }
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.domains.v2.GetDomainProperties> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:domains/v2:getDomain", {
+        "domainName": args.domainName,
+    }, opts);
 }
 
 export interface GetDomainOutputArgs {

@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listSizes(args?: ListSizesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.sizes.v2.ListSizesItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:sizes/v2:listSizes", {
     }, opts);
@@ -18,5 +17,8 @@ export function listSizes(args?: ListSizesArgs, opts?: pulumi.InvokeOptions): Pr
 export interface ListSizesArgs {
 }
 export function listSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.sizes.v2.ListSizesItems> {
-    return pulumi.output(listSizes(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:sizes/v2:listSizes", {
+    }, opts);
 }
+

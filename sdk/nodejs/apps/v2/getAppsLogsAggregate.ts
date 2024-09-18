@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getAppsLogsAggregate(args: GetAppsLogsAggregateArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetLogsResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsLogsAggregate", {
         "appId": args.appId,
@@ -27,7 +26,11 @@ export interface GetAppsLogsAggregateArgs {
     deploymentId: string;
 }
 export function getAppsLogsAggregateOutput(args: GetAppsLogsAggregateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
-    return pulumi.output(args).apply((a: any) => getAppsLogsAggregate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsLogsAggregate", {
+        "appId": args.appId,
+        "deploymentId": args.deploymentId,
+    }, opts);
 }
 
 export interface GetAppsLogsAggregateOutputArgs {

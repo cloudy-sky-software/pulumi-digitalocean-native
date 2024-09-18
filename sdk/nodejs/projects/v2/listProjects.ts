@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listProjects(args?: ListProjectsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.projects.v2.ListProjectsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:projects/v2:listProjects", {
     }, opts);
@@ -18,5 +17,8 @@ export function listProjects(args?: ListProjectsArgs, opts?: pulumi.InvokeOption
 export interface ListProjectsArgs {
 }
 export function listProjectsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.ListProjectsItems> {
-    return pulumi.output(listProjects(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:projects/v2:listProjects", {
+    }, opts);
 }
+

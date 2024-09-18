@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getMonitoringAlertPolicy(args: GetMonitoringAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.GetMonitoringAlertPolicyProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", {
         "alertUuid": args.alertUuid,
@@ -22,7 +21,10 @@ export interface GetMonitoringAlertPolicyArgs {
     alertUuid: string;
 }
 export function getMonitoringAlertPolicyOutput(args: GetMonitoringAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.GetMonitoringAlertPolicyProperties> {
-    return pulumi.output(args).apply((a: any) => getMonitoringAlertPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", {
+        "alertUuid": args.alertUuid,
+    }, opts);
 }
 
 export interface GetMonitoringAlertPolicyOutputArgs {

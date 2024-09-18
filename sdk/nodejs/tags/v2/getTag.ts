@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<outputs.tags.v2.GetTagProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:tags/v2:getTag", {
         "tagId": args.tagId,
@@ -22,7 +21,10 @@ export interface GetTagArgs {
     tagId: string;
 }
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.tags.v2.GetTagProperties> {
-    return pulumi.output(args).apply((a: any) => getTag(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:tags/v2:getTag", {
+        "tagId": args.tagId,
+    }, opts);
 }
 
 export interface GetTagOutputArgs {

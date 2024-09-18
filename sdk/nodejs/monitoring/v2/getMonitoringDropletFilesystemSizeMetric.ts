@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getMonitoringDropletFilesystemSizeMetric(args?: GetMonitoringDropletFilesystemSizeMetricArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.Metrics> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", {
     }, opts);
@@ -18,5 +17,8 @@ export function getMonitoringDropletFilesystemSizeMetric(args?: GetMonitoringDro
 export interface GetMonitoringDropletFilesystemSizeMetricArgs {
 }
 export function getMonitoringDropletFilesystemSizeMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
-    return pulumi.output(getMonitoringDropletFilesystemSizeMetric(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", {
+    }, opts);
 }
+

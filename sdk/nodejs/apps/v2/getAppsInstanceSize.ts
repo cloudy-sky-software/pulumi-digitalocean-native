@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getAppsInstanceSize(args: GetAppsInstanceSizeArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetInstanceSizeResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsInstanceSize", {
         "slug": args.slug,
@@ -22,7 +21,10 @@ export interface GetAppsInstanceSizeArgs {
     slug: string;
 }
 export function getAppsInstanceSizeOutput(args: GetAppsInstanceSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetInstanceSizeResponse> {
-    return pulumi.output(args).apply((a: any) => getAppsInstanceSize(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsInstanceSize", {
+        "slug": args.slug,
+    }, opts);
 }
 
 export interface GetAppsInstanceSizeOutputArgs {

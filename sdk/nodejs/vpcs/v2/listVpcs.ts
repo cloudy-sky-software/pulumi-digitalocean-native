@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listVpcs(args?: ListVpcsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.vpcs.v2.ListVpcsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:vpcs/v2:listVpcs", {
     }, opts);
@@ -18,5 +17,8 @@ export function listVpcs(args?: ListVpcsArgs, opts?: pulumi.InvokeOptions): Prom
 export interface ListVpcsArgs {
 }
 export function listVpcsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsItems> {
-    return pulumi.output(listVpcs(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:vpcs/v2:listVpcs", {
+    }, opts);
 }
+

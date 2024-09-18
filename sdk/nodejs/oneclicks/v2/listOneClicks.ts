@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listOneClicks(args?: ListOneClicksArgs, opts?: pulumi.InvokeOptions): Promise<outputs.oneclicks.v2.ListOneClicksProperties> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:1-clicks/v2:listOneClicks", {
     }, opts);
@@ -18,5 +17,8 @@ export function listOneClicks(args?: ListOneClicksArgs, opts?: pulumi.InvokeOpti
 export interface ListOneClicksArgs {
 }
 export function listOneClicksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.oneclicks.v2.ListOneClicksProperties> {
-    return pulumi.output(listOneClicks(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:1-clicks/v2:listOneClicks", {
+    }, opts);
 }
+

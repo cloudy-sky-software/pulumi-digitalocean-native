@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getDatabasesCa(args: GetDatabasesCaArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.GetDatabasesCaProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:getDatabasesCa", {
         "databaseClusterUuid": args.databaseClusterUuid,
@@ -22,7 +21,10 @@ export interface GetDatabasesCaArgs {
     databaseClusterUuid: string;
 }
 export function getDatabasesCaOutput(args: GetDatabasesCaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.GetDatabasesCaProperties> {
-    return pulumi.output(args).apply((a: any) => getDatabasesCa(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesCa", {
+        "databaseClusterUuid": args.databaseClusterUuid,
+    }, opts);
 }
 
 export interface GetDatabasesCaOutputArgs {

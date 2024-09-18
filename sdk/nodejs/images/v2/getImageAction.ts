@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getImageAction(args: GetImageActionArgs, opts?: pulumi.InvokeOptions): Promise<outputs.images.v2.Action> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:images/v2:getImageAction", {
         "actionId": args.actionId,
@@ -27,7 +26,11 @@ export interface GetImageActionArgs {
     imageId: string;
 }
 export function getImageActionOutput(args: GetImageActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.v2.Action> {
-    return pulumi.output(args).apply((a: any) => getImageAction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:images/v2:getImageAction", {
+        "actionId": args.actionId,
+        "imageId": args.imageId,
+    }, opts);
 }
 
 export interface GetImageActionOutputArgs {

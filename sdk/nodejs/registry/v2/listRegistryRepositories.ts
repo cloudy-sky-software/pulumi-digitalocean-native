@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listRegistryRepositories(args: ListRegistryRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.ListRegistryRepositoriesItems> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:registry/v2:listRegistryRepositories", {
         "registryName": args.registryName,
@@ -22,7 +21,10 @@ export interface ListRegistryRepositoriesArgs {
     registryName: string;
 }
 export function listRegistryRepositoriesOutput(args: ListRegistryRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryRepositoriesItems> {
-    return pulumi.output(args).apply((a: any) => listRegistryRepositories(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:listRegistryRepositories", {
+        "registryName": args.registryName,
+    }, opts);
 }
 
 export interface ListRegistryRepositoriesOutputArgs {

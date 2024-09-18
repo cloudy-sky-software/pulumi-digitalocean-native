@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listMonitoringAlertPolicy(args?: ListMonitoringAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.ListMonitoringAlertPolicyItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", {
     }, opts);
@@ -18,5 +17,8 @@ export function listMonitoringAlertPolicy(args?: ListMonitoringAlertPolicyArgs, 
 export interface ListMonitoringAlertPolicyArgs {
 }
 export function listMonitoringAlertPolicyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.ListMonitoringAlertPolicyItems> {
-    return pulumi.output(listMonitoringAlertPolicy(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", {
+    }, opts);
 }
+

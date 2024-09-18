@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getVpc(args: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<outputs.vpcs.v2.GetVpcProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:vpcs/v2:getVpc", {
         "vpcId": args.vpcId,
@@ -22,7 +21,10 @@ export interface GetVpcArgs {
     vpcId: string;
 }
 export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.GetVpcProperties> {
-    return pulumi.output(args).apply((a: any) => getVpc(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:vpcs/v2:getVpc", {
+        "vpcId": args.vpcId,
+    }, opts);
 }
 
 export interface GetVpcOutputArgs {

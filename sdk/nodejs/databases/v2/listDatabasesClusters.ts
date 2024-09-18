@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listDatabasesClusters(args?: ListDatabasesClustersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.ListDatabasesClustersProperties> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:listDatabasesClusters", {
     }, opts);
@@ -18,5 +17,8 @@ export function listDatabasesClusters(args?: ListDatabasesClustersArgs, opts?: p
 export interface ListDatabasesClustersArgs {
 }
 export function listDatabasesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesClustersProperties> {
-    return pulumi.output(listDatabasesClusters(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:listDatabasesClusters", {
+    }, opts);
 }
+

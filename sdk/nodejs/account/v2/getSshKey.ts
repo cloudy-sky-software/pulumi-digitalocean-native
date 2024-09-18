@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getSshKey(args: GetSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<outputs.account.v2.GetSshKeyProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:account/v2:getSshKey", {
         "sshKeyIdentifier": args.sshKeyIdentifier,
@@ -22,7 +21,10 @@ export interface GetSshKeyArgs {
     sshKeyIdentifier: string;
 }
 export function getSshKeyOutput(args: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.GetSshKeyProperties> {
-    return pulumi.output(args).apply((a: any) => getSshKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:account/v2:getSshKey", {
+        "sshKeyIdentifier": args.sshKeyIdentifier,
+    }, opts);
 }
 
 export interface GetSshKeyOutputArgs {

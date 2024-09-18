@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<outputs.account.v2.GetAccountProperties> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:account/v2:getAccount", {
     }, opts);
@@ -18,5 +17,8 @@ export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): 
 export interface GetAccountArgs {
 }
 export function getAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.GetAccountProperties> {
-    return pulumi.output(getAccount(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:account/v2:getAccount", {
+    }, opts);
 }
+

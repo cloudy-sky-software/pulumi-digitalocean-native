@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listFunctionsNamespaces(args?: ListFunctionsNamespacesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.functions.v2.ListFunctionsNamespacesItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:functions/v2:listFunctionsNamespaces", {
     }, opts);
@@ -18,5 +17,8 @@ export function listFunctionsNamespaces(args?: ListFunctionsNamespacesArgs, opts
 export interface ListFunctionsNamespacesArgs {
 }
 export function listFunctionsNamespacesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.ListFunctionsNamespacesItems> {
-    return pulumi.output(listFunctionsNamespaces(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:functions/v2:listFunctionsNamespaces", {
+    }, opts);
 }
+

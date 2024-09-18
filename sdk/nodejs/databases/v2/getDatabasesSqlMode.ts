@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getDatabasesSqlMode(args: GetDatabasesSqlModeArgs, opts?: pulumi.InvokeOptions): Promise<outputs.databases.v2.SqlMode> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:databases/v2:getDatabasesSqlMode", {
         "databaseClusterUuid": args.databaseClusterUuid,
@@ -22,7 +21,10 @@ export interface GetDatabasesSqlModeArgs {
     databaseClusterUuid: string;
 }
 export function getDatabasesSqlModeOutput(args: GetDatabasesSqlModeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.SqlMode> {
-    return pulumi.output(args).apply((a: any) => getDatabasesSqlMode(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesSqlMode", {
+        "databaseClusterUuid": args.databaseClusterUuid,
+    }, opts);
 }
 
 export interface GetDatabasesSqlModeOutputArgs {

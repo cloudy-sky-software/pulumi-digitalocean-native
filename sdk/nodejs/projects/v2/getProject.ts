@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<outputs.projects.v2.GetProjectProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:projects/v2:getProject", {
         "projectId": args.projectId,
@@ -22,7 +21,10 @@ export interface GetProjectArgs {
     projectId: string;
 }
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.GetProjectProperties> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:projects/v2:getProject", {
+        "projectId": args.projectId,
+    }, opts);
 }
 
 export interface GetProjectOutputArgs {
