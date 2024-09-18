@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listFunctionsTriggers(args: ListFunctionsTriggersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.functions.v2.ListFunctionsTriggersItems> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:functions/v2:listFunctionsTriggers", {
         "namespaceId": args.namespaceId,
@@ -22,7 +21,10 @@ export interface ListFunctionsTriggersArgs {
     namespaceId: string;
 }
 export function listFunctionsTriggersOutput(args: ListFunctionsTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.ListFunctionsTriggersItems> {
-    return pulumi.output(args).apply((a: any) => listFunctionsTriggers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:functions/v2:listFunctionsTriggers", {
+        "namespaceId": args.namespaceId,
+    }, opts);
 }
 
 export interface ListFunctionsTriggersOutputArgs {

@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listAppsTiers(args?: ListAppsTiersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsListTiersResponse> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:listAppsTiers", {
     }, opts);
@@ -18,5 +17,8 @@ export function listAppsTiers(args?: ListAppsTiersArgs, opts?: pulumi.InvokeOpti
 export interface ListAppsTiersArgs {
 }
 export function listAppsTiersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListTiersResponse> {
-    return pulumi.output(listAppsTiers(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsTiers", {
+    }, opts);
 }
+

@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getRegistrySubscription(args?: GetRegistrySubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.GetRegistrySubscriptionProperties> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:registry/v2:getRegistrySubscription", {
     }, opts);
@@ -18,5 +17,8 @@ export function getRegistrySubscription(args?: GetRegistrySubscriptionArgs, opts
 export interface GetRegistrySubscriptionArgs {
 }
 export function getRegistrySubscriptionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.GetRegistrySubscriptionProperties> {
-    return pulumi.output(getRegistrySubscription(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:getRegistrySubscription", {
+    }, opts);
 }
+

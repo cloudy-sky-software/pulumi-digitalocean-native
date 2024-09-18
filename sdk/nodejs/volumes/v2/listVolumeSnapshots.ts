@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listVolumeSnapshots(args: ListVolumeSnapshotsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.volumes.v2.ListVolumeSnapshotsItems> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:volumes/v2:listVolumeSnapshots", {
         "volumeId": args.volumeId,
@@ -22,7 +21,10 @@ export interface ListVolumeSnapshotsArgs {
     volumeId: string;
 }
 export function listVolumeSnapshotsOutput(args: ListVolumeSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.ListVolumeSnapshotsItems> {
-    return pulumi.output(args).apply((a: any) => listVolumeSnapshots(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:volumes/v2:listVolumeSnapshots", {
+        "volumeId": args.volumeId,
+    }, opts);
 }
 
 export interface ListVolumeSnapshotsOutputArgs {

@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listTags(args?: ListTagsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.tags.v2.ListTagsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:tags/v2:listTags", {
     }, opts);
@@ -18,5 +17,8 @@ export function listTags(args?: ListTagsArgs, opts?: pulumi.InvokeOptions): Prom
 export interface ListTagsArgs {
 }
 export function listTagsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.tags.v2.ListTagsItems> {
-    return pulumi.output(listTags(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:tags/v2:listTags", {
+    }, opts);
 }
+

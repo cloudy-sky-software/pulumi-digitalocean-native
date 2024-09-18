@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listAppsInstanceSizes(args?: ListAppsInstanceSizesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsListInstanceSizesResponse> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:listAppsInstanceSizes", {
     }, opts);
@@ -18,5 +17,8 @@ export function listAppsInstanceSizes(args?: ListAppsInstanceSizesArgs, opts?: p
 export interface ListAppsInstanceSizesArgs {
 }
 export function listAppsInstanceSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListInstanceSizesResponse> {
-    return pulumi.output(listAppsInstanceSizes(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsInstanceSizes", {
+    }, opts);
 }
+

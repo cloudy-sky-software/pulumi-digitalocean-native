@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getKubernetesCredential(args: GetKubernetesCredentialArgs, opts?: pulumi.InvokeOptions): Promise<outputs.kubernetes.v2.Credentials> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:kubernetes/v2:getKubernetesCredential", {
         "clusterId": args.clusterId,
@@ -22,7 +21,10 @@ export interface GetKubernetesCredentialArgs {
     clusterId: string;
 }
 export function getKubernetesCredentialOutput(args: GetKubernetesCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.Credentials> {
-    return pulumi.output(args).apply((a: any) => getKubernetesCredential(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:getKubernetesCredential", {
+        "clusterId": args.clusterId,
+    }, opts);
 }
 
 export interface GetKubernetesCredentialOutputArgs {

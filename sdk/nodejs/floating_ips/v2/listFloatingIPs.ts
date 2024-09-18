@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listFloatingIPs(args?: ListFloatingIPsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.floating_ips.v2.ListFloatingIPsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:floating_ips/v2:listFloatingIPs", {
     }, opts);
@@ -18,5 +17,8 @@ export function listFloatingIPs(args?: ListFloatingIPsArgs, opts?: pulumi.Invoke
 export interface ListFloatingIPsArgs {
 }
 export function listFloatingIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsItems> {
-    return pulumi.output(listFloatingIPs(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:floating_ips/v2:listFloatingIPs", {
+    }, opts);
 }
+

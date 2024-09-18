@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getRegistryDockerCredential(args?: GetRegistryDockerCredentialArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.DockerCredentials> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:registry/v2:getRegistryDockerCredential", {
     }, opts);
@@ -18,5 +17,8 @@ export function getRegistryDockerCredential(args?: GetRegistryDockerCredentialAr
 export interface GetRegistryDockerCredentialArgs {
 }
 export function getRegistryDockerCredentialOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.DockerCredentials> {
-    return pulumi.output(getRegistryDockerCredential(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:getRegistryDockerCredential", {
+    }, opts);
 }
+

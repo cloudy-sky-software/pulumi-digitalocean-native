@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<outputs.certificates.v2.GetCertificateProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:certificates/v2:getCertificate", {
         "certificateId": args.certificateId,
@@ -22,7 +21,10 @@ export interface GetCertificateArgs {
     certificateId: string;
 }
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.certificates.v2.GetCertificateProperties> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:certificates/v2:getCertificate", {
+        "certificateId": args.certificateId,
+    }, opts);
 }
 
 export interface GetCertificateOutputArgs {

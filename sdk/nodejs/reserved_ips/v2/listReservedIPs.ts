@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listReservedIPs(args?: ListReservedIPsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.reserved_ips.v2.ListReservedIPsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:reserved_ips/v2:listReservedIPs", {
     }, opts);
@@ -18,5 +17,8 @@ export function listReservedIPs(args?: ListReservedIPsArgs, opts?: pulumi.Invoke
 export interface ListReservedIPsArgs {
 }
 export function listReservedIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsItems> {
-    return pulumi.output(listReservedIPs(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:reserved_ips/v2:listReservedIPs", {
+    }, opts);
 }
+

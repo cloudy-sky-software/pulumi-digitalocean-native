@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listBillingHistory(args?: ListBillingHistoryArgs, opts?: pulumi.InvokeOptions): Promise<outputs.customers.v2.ListBillingHistoryItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:customers/v2:listBillingHistory", {
     }, opts);
@@ -18,5 +17,8 @@ export function listBillingHistory(args?: ListBillingHistoryArgs, opts?: pulumi.
 export interface ListBillingHistoryArgs {
 }
 export function listBillingHistoryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.ListBillingHistoryItems> {
-    return pulumi.output(listBillingHistory(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:customers/v2:listBillingHistory", {
+    }, opts);
 }
+

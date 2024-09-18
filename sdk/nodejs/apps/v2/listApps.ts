@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listApps(args?: ListAppsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsResponse> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:listApps", {
     }, opts);
@@ -18,5 +17,8 @@ export function listApps(args?: ListAppsArgs, opts?: pulumi.InvokeOptions): Prom
 export interface ListAppsArgs {
 }
 export function listAppsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsResponse> {
-    return pulumi.output(listApps(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listApps", {
+    }, opts);
 }
+

@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getUptimeCheckState(args: GetUptimeCheckStateArgs, opts?: pulumi.InvokeOptions): Promise<outputs.uptime.v2.GetUptimeCheckStateProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:uptime/v2:getUptimeCheckState", {
         "checkId": args.checkId,
@@ -22,7 +21,10 @@ export interface GetUptimeCheckStateArgs {
     checkId: string;
 }
 export function getUptimeCheckStateOutput(args: GetUptimeCheckStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.GetUptimeCheckStateProperties> {
-    return pulumi.output(args).apply((a: any) => getUptimeCheckState(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:uptime/v2:getUptimeCheckState", {
+        "checkId": args.checkId,
+    }, opts);
 }
 
 export interface GetUptimeCheckStateOutputArgs {

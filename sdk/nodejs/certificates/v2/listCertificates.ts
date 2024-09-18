@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listCertificates(args?: ListCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.certificates.v2.ListCertificatesItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:certificates/v2:listCertificates", {
     }, opts);
@@ -18,5 +17,8 @@ export function listCertificates(args?: ListCertificatesArgs, opts?: pulumi.Invo
 export interface ListCertificatesArgs {
 }
 export function listCertificatesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.certificates.v2.ListCertificatesItems> {
-    return pulumi.output(listCertificates(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:certificates/v2:listCertificates", {
+    }, opts);
 }
+

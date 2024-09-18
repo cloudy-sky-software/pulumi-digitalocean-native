@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listAppsRegions(args?: ListAppsRegionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsListRegionsResponse> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:listAppsRegions", {
     }, opts);
@@ -18,5 +17,8 @@ export function listAppsRegions(args?: ListAppsRegionsArgs, opts?: pulumi.Invoke
 export interface ListAppsRegionsArgs {
 }
 export function listAppsRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListRegionsResponse> {
-    return pulumi.output(listAppsRegions(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsRegions", {
+    }, opts);
 }
+

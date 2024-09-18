@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getBalance(args?: GetBalanceArgs, opts?: pulumi.InvokeOptions): Promise<outputs.customers.v2.Balance> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:customers/v2:getBalance", {
     }, opts);
@@ -18,5 +17,8 @@ export function getBalance(args?: GetBalanceArgs, opts?: pulumi.InvokeOptions): 
 export interface GetBalanceArgs {
 }
 export function getBalanceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.Balance> {
-    return pulumi.output(getBalance(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:customers/v2:getBalance", {
+    }, opts);
 }
+

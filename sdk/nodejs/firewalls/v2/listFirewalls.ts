@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listFirewalls(args?: ListFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.firewalls.v2.ListFirewallsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:firewalls/v2:listFirewalls", {
     }, opts);
@@ -18,5 +17,8 @@ export function listFirewalls(args?: ListFirewallsArgs, opts?: pulumi.InvokeOpti
 export interface ListFirewallsArgs {
 }
 export function listFirewallsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.firewalls.v2.ListFirewallsItems> {
-    return pulumi.output(listFirewalls(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:firewalls/v2:listFirewalls", {
+    }, opts);
 }
+

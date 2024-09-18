@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listReservedIPsActions(args: ListReservedIPsActionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.reserved_ips.v2.ListReservedIPsActionsItems> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:reserved_ips/v2:listReservedIPsActions", {
         "reservedIp": args.reservedIp,
@@ -22,7 +21,10 @@ export interface ListReservedIPsActionsArgs {
     reservedIp: string;
 }
 export function listReservedIPsActionsOutput(args: ListReservedIPsActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsActionsItems> {
-    return pulumi.output(args).apply((a: any) => listReservedIPsActions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:reserved_ips/v2:listReservedIPsActions", {
+        "reservedIp": args.reservedIp,
+    }, opts);
 }
 
 export interface ListReservedIPsActionsOutputArgs {

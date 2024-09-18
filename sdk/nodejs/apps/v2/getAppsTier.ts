@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getAppsTier(args: GetAppsTierArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsGetTierResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:getAppsTier", {
         "slug": args.slug,
@@ -22,7 +21,10 @@ export interface GetAppsTierArgs {
     slug: string;
 }
 export function getAppsTierOutput(args: GetAppsTierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetTierResponse> {
-    return pulumi.output(args).apply((a: any) => getAppsTier(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsTier", {
+        "slug": args.slug,
+    }, opts);
 }
 
 export interface GetAppsTierOutputArgs {

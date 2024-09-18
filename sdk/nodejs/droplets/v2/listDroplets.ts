@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listDroplets(args?: ListDropletsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.droplets.v2.ListDropletsItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:droplets/v2:listDroplets", {
     }, opts);
@@ -18,5 +17,8 @@ export function listDroplets(args?: ListDropletsArgs, opts?: pulumi.InvokeOption
 export interface ListDropletsArgs {
 }
 export function listDropletsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.ListDropletsItems> {
-    return pulumi.output(listDroplets(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:droplets/v2:listDroplets", {
+    }, opts);
 }
+

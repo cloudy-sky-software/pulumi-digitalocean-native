@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listRegistryGarbageCollections(args: ListRegistryGarbageCollectionsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.registry.v2.ListRegistryGarbageCollectionsProperties> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:registry/v2:listRegistryGarbageCollections", {
         "registryName": args.registryName,
@@ -22,7 +21,10 @@ export interface ListRegistryGarbageCollectionsArgs {
     registryName: string;
 }
 export function listRegistryGarbageCollectionsOutput(args: ListRegistryGarbageCollectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryGarbageCollectionsProperties> {
-    return pulumi.output(args).apply((a: any) => listRegistryGarbageCollections(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:listRegistryGarbageCollections", {
+        "registryName": args.registryName,
+    }, opts);
 }
 
 export interface ListRegistryGarbageCollectionsOutputArgs {

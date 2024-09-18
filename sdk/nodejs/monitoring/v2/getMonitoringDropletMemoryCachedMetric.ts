@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getMonitoringDropletMemoryCachedMetric(args?: GetMonitoringDropletMemoryCachedMetricArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.Metrics> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", {
     }, opts);
@@ -18,5 +17,8 @@ export function getMonitoringDropletMemoryCachedMetric(args?: GetMonitoringDropl
 export interface GetMonitoringDropletMemoryCachedMetricArgs {
 }
 export function getMonitoringDropletMemoryCachedMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
-    return pulumi.output(getMonitoringDropletMemoryCachedMetric(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", {
+    }, opts);
 }
+

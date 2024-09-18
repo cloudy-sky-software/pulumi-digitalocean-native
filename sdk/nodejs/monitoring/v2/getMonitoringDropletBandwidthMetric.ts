@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function getMonitoringDropletBandwidthMetric(args?: GetMonitoringDropletBandwidthMetricArgs, opts?: pulumi.InvokeOptions): Promise<outputs.monitoring.v2.Metrics> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", {
     }, opts);
@@ -18,5 +17,8 @@ export function getMonitoringDropletBandwidthMetric(args?: GetMonitoringDropletB
 export interface GetMonitoringDropletBandwidthMetricArgs {
 }
 export function getMonitoringDropletBandwidthMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
-    return pulumi.output(getMonitoringDropletBandwidthMetric(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", {
+    }, opts);
 }
+

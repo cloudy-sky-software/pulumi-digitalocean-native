@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listFloatingIPsAction(args: ListFloatingIPsActionArgs, opts?: pulumi.InvokeOptions): Promise<outputs.floating_ips.v2.ListFloatingIPsActionItems> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:floating_ips/v2:listFloatingIPsAction", {
         "floatingIp": args.floatingIp,
@@ -22,7 +21,10 @@ export interface ListFloatingIPsActionArgs {
     floatingIp: string;
 }
 export function listFloatingIPsActionOutput(args: ListFloatingIPsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsActionItems> {
-    return pulumi.output(args).apply((a: any) => listFloatingIPsAction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:floating_ips/v2:listFloatingIPsAction", {
+        "floatingIp": args.floatingIp,
+    }, opts);
 }
 
 export interface ListFloatingIPsActionOutputArgs {

@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listAppsDeployments(args: ListAppsDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.apps.v2.AppsDeploymentsResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:apps/v2:listAppsDeployments", {
         "appId": args.appId,
@@ -22,7 +21,10 @@ export interface ListAppsDeploymentsArgs {
     appId: string;
 }
 export function listAppsDeploymentsOutput(args: ListAppsDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsDeploymentsResponse> {
-    return pulumi.output(args).apply((a: any) => listAppsDeployments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsDeployments", {
+        "appId": args.appId,
+    }, opts);
 }
 
 export interface ListAppsDeploymentsOutputArgs {

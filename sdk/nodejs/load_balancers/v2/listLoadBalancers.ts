@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
 
 export function listLoadBalancers(args?: ListLoadBalancersArgs, opts?: pulumi.InvokeOptions): Promise<outputs.load_balancers.v2.ListLoadBalancersItems> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("digitalocean-native:load_balancers/v2:listLoadBalancers", {
     }, opts);
@@ -18,5 +17,8 @@ export function listLoadBalancers(args?: ListLoadBalancersArgs, opts?: pulumi.In
 export interface ListLoadBalancersArgs {
 }
 export function listLoadBalancersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.load_balancers.v2.ListLoadBalancersItems> {
-    return pulumi.output(listLoadBalancers(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("digitalocean-native:load_balancers/v2:listLoadBalancers", {
+    }, opts);
 }
+
