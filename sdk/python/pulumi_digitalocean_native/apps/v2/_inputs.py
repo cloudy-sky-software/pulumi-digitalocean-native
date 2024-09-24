@@ -4,43 +4,86 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'AppAlertSlackWebhookArgs',
+    'AppAlertSlackWebhookArgsDict',
     'AppAlertSpecArgs',
+    'AppAlertSpecArgsDict',
     'AppDatabaseSpecArgs',
+    'AppDatabaseSpecArgsDict',
     'AppDomainSpecArgs',
+    'AppDomainSpecArgsDict',
     'AppFunctionsSpecArgs',
+    'AppFunctionsSpecArgsDict',
     'AppIngressSpecRuleMatchArgs',
+    'AppIngressSpecRuleMatchArgsDict',
     'AppIngressSpecRuleRoutingComponentArgs',
+    'AppIngressSpecRuleRoutingComponentArgsDict',
     'AppIngressSpecRuleRoutingRedirectArgs',
+    'AppIngressSpecRuleRoutingRedirectArgsDict',
     'AppIngressSpecRuleStringMatchArgs',
+    'AppIngressSpecRuleStringMatchArgsDict',
     'AppIngressSpecRuleArgs',
+    'AppIngressSpecRuleArgsDict',
     'AppIngressSpecArgs',
+    'AppIngressSpecArgsDict',
     'AppJobSpecArgs',
+    'AppJobSpecArgsDict',
     'AppLogDestinationDatadogSpecArgs',
+    'AppLogDestinationDatadogSpecArgsDict',
     'AppLogDestinationDefinitionArgs',
+    'AppLogDestinationDefinitionArgsDict',
     'AppLogDestinationLogtailSpecArgs',
+    'AppLogDestinationLogtailSpecArgsDict',
     'AppLogDestinationPapertrailSpecArgs',
+    'AppLogDestinationPapertrailSpecArgsDict',
     'AppRouteSpecArgs',
+    'AppRouteSpecArgsDict',
     'AppServiceSpecHealthCheckArgs',
+    'AppServiceSpecHealthCheckArgsDict',
     'AppServiceSpecArgs',
+    'AppServiceSpecArgsDict',
     'AppSpecArgs',
+    'AppSpecArgsDict',
     'AppStaticSiteSpecArgs',
+    'AppStaticSiteSpecArgsDict',
     'AppVariableDefinitionArgs',
+    'AppVariableDefinitionArgsDict',
     'AppWorkerSpecArgs',
+    'AppWorkerSpecArgsDict',
     'AppsCorsPolicyArgs',
+    'AppsCorsPolicyArgsDict',
     'AppsGitSourceSpecArgs',
+    'AppsGitSourceSpecArgsDict',
     'AppsGithubSourceSpecArgs',
+    'AppsGithubSourceSpecArgsDict',
     'AppsGitlabSourceSpecArgs',
+    'AppsGitlabSourceSpecArgsDict',
     'AppsImageSourceSpecArgs',
+    'AppsImageSourceSpecArgsDict',
     'AppsStringMatchArgs',
+    'AppsStringMatchArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppAlertSlackWebhookArgsDict(TypedDict):
+        channel: NotRequired[pulumi.Input[str]]
+        url: NotRequired[pulumi.Input[str]]
+elif False:
+    AppAlertSlackWebhookArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAlertSlackWebhookArgs:
@@ -70,6 +113,22 @@ class AppAlertSlackWebhookArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class AppAlertSpecArgsDict(TypedDict):
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the alert disabled?
+        """
+        operator: NotRequired[pulumi.Input['AppAlertSpecOperator']]
+        rule: NotRequired[pulumi.Input['AppAlertSpecRule']]
+        value: NotRequired[pulumi.Input[float]]
+        """
+        Threshold value for alert
+        """
+        window: NotRequired[pulumi.Input['AppAlertSpecWindow']]
+elif False:
+    AppAlertSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAlertSpecArgs:
@@ -151,6 +210,41 @@ class AppAlertSpecArgs:
     def window(self, value: Optional[pulumi.Input['AppAlertSpecWindow']]):
         pulumi.set(self, "window", value)
 
+
+if not MYPY:
+    class AppDatabaseSpecArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name. Must be unique across all components within the same app.
+        """
+        cluster_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the underlying DigitalOcean DBaaS cluster. This is required for production databases. For dev databases, if cluster_name is not set, a new cluster will be provisioned.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the MySQL or PostgreSQL database to configure.
+        """
+        db_user: NotRequired[pulumi.Input[str]]
+        """
+        The name of the MySQL or PostgreSQL user to configure.
+        """
+        engine: NotRequired[pulumi.Input['AppDatabaseSpecEngine']]
+        """
+        - MYSQL: MySQL
+        - PG: PostgreSQL
+        - REDIS: Redis
+        """
+        production: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this is a production or dev database.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the database engine
+        """
+elif False:
+    AppDatabaseSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppDatabaseSpecArgs:
@@ -276,6 +370,38 @@ class AppDatabaseSpecArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class AppDomainSpecArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        """
+        The hostname for the domain
+        """
+        minimum_tls_version: NotRequired[pulumi.Input['AppDomainSpecMinimumTlsVersion']]
+        """
+        The minimum version of TLS a client application can use to access resources for the domain.  Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
+        """
+        type: NotRequired[pulumi.Input['AppDomainSpecType']]
+        """
+        - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app
+        - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary.
+        - ALIAS: A non-primary domain
+        """
+        wildcard: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the domain includes all sub-domains, in addition to the given domain
+        """
+        zone: NotRequired[pulumi.Input[str]]
+        """
+        Optional. If the domain uses DigitalOcean DNS and you would like App
+        Platform to automatically manage it for you, set this to the name of the
+        domain on your account.
+
+        For example, If the domain you are adding is `app.domain.com`, the zone
+        could be `domain.com`.
+        """
+elif False:
+    AppDomainSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppDomainSpecArgs:
     def __init__(__self__, *,
@@ -377,6 +503,33 @@ class AppDomainSpecArgs:
     def zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zone", value)
 
+
+if not MYPY:
+    class AppFunctionsSpecArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name. Must be unique across all components within the same app.
+        """
+        alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppAlertSpecArgsDict']]]]
+        cors: NotRequired[pulumi.Input['AppsCorsPolicyArgsDict']]
+        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgsDict']]]]
+        """
+        A list of environment variables made available to the component.
+        """
+        git: NotRequired[pulumi.Input['AppsGitSourceSpecArgsDict']]
+        github: NotRequired[pulumi.Input['AppsGithubSourceSpecArgsDict']]
+        gitlab: NotRequired[pulumi.Input['AppsGitlabSourceSpecArgsDict']]
+        log_destinations: NotRequired[pulumi.Input['AppLogDestinationDefinitionArgsDict']]
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppRouteSpecArgsDict']]]]
+        """
+        A list of HTTP routes that should be routed to this component.
+        """
+        source_dir: NotRequired[pulumi.Input[str]]
+        """
+        An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
+        """
+elif False:
+    AppFunctionsSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppFunctionsSpecArgs:
@@ -520,6 +673,18 @@ class AppFunctionsSpecArgs:
         pulumi.set(self, "source_dir", value)
 
 
+if not MYPY:
+    class AppIngressSpecRuleMatchArgsDict(TypedDict):
+        """
+        The match configuration for the rule.
+        """
+        path: pulumi.Input['AppIngressSpecRuleStringMatchArgsDict']
+        """
+        The path to match on.
+        """
+elif False:
+    AppIngressSpecRuleMatchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppIngressSpecRuleMatchArgs:
     def __init__(__self__, *,
@@ -542,6 +707,26 @@ class AppIngressSpecRuleMatchArgs:
     def path(self, value: pulumi.Input['AppIngressSpecRuleStringMatchArgs']):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class AppIngressSpecRuleRoutingComponentArgsDict(TypedDict):
+        """
+        The component to route to. Only one of `component` or `redirect` may be set.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the component to route to.
+        """
+        preserve_path_prefix: NotRequired[pulumi.Input[str]]
+        """
+        An optional flag to preserve the path that is forwarded to the backend service. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If this value is `true`, the path will remain `/api/list`. Note: this is not applicable for Functions Components and is mutually exclusive with `rewrite`.
+        """
+        rewrite: NotRequired[pulumi.Input[str]]
+        """
+        An optional field that will rewrite the path of the component to be what is specified here. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If you specified the rewrite to be `/v1/`, requests to `/api/list` would be rewritten to `/v1/list`. Note: this is mutually exclusive with `preserve_path_prefix`.
+        """
+elif False:
+    AppIngressSpecRuleRoutingComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppIngressSpecRuleRoutingComponentArgs:
@@ -597,6 +782,34 @@ class AppIngressSpecRuleRoutingComponentArgs:
     def rewrite(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rewrite", value)
 
+
+if not MYPY:
+    class AppIngressSpecRuleRoutingRedirectArgsDict(TypedDict):
+        """
+        The redirect configuration for the rule. Only one of `component` or `redirect` may be set.
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        The authority/host to redirect to. This can be a hostname or IP address. Note: use `port` to set the port.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port to redirect to.
+        """
+        redirect_code: NotRequired[pulumi.Input[int]]
+        """
+        The redirect code to use. Defaults to `302`. Supported values are 300, 301, 302, 303, 304, 307, 308.
+        """
+        scheme: NotRequired[pulumi.Input[str]]
+        """
+        The scheme to redirect to. Supported values are `http` or `https`. Default: `https`.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        An optional URI path to redirect to. Note: if this is specified the whole URI of the original request will be overwritten to this value, irrespective of the original request URI being matched.
+        """
+elif False:
+    AppIngressSpecRuleRoutingRedirectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppIngressSpecRuleRoutingRedirectArgs:
@@ -686,6 +899,18 @@ class AppIngressSpecRuleRoutingRedirectArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class AppIngressSpecRuleStringMatchArgsDict(TypedDict):
+        """
+        The path to match on.
+        """
+        prefix: pulumi.Input[str]
+        """
+        Prefix-based match. For example, `/api` will match `/api`, `/api/`, and any nested paths such as `/api/v1/endpoint`.
+        """
+elif False:
+    AppIngressSpecRuleStringMatchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppIngressSpecRuleStringMatchArgs:
     def __init__(__self__, *,
@@ -708,6 +933,24 @@ class AppIngressSpecRuleStringMatchArgs:
     def prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "prefix", value)
 
+
+if not MYPY:
+    class AppIngressSpecRuleArgsDict(TypedDict):
+        component: NotRequired[pulumi.Input['AppIngressSpecRuleRoutingComponentArgsDict']]
+        """
+        The component to route to. Only one of `component` or `redirect` may be set.
+        """
+        cors: NotRequired[pulumi.Input['AppsCorsPolicyArgsDict']]
+        match: NotRequired[pulumi.Input['AppIngressSpecRuleMatchArgsDict']]
+        """
+        The match configuration for the rule.
+        """
+        redirect: NotRequired[pulumi.Input['AppIngressSpecRuleRoutingRedirectArgsDict']]
+        """
+        The redirect configuration for the rule. Only one of `component` or `redirect` may be set.
+        """
+elif False:
+    AppIngressSpecRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppIngressSpecRuleArgs:
@@ -776,6 +1019,18 @@ class AppIngressSpecRuleArgs:
         pulumi.set(self, "redirect", value)
 
 
+if not MYPY:
+    class AppIngressSpecArgsDict(TypedDict):
+        """
+        Specification for app ingress configurations.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressSpecRuleArgsDict']]]]
+        """
+        Rules for configuring HTTP ingress for component routes, CORS, rewrites, and redirects.
+        """
+elif False:
+    AppIngressSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppIngressSpecArgs:
     def __init__(__self__, *,
@@ -799,6 +1054,59 @@ class AppIngressSpecArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppIngressSpecRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AppJobSpecArgsDict(TypedDict):
+        build_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional build command to run while building this component from source.
+        """
+        dockerfile_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks.
+        """
+        environment_slug: NotRequired[pulumi.Input[str]]
+        """
+        An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
+        """
+        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgsDict']]]]
+        """
+        A list of environment variables made available to the component.
+        """
+        git: NotRequired[pulumi.Input['AppsGitSourceSpecArgsDict']]
+        github: NotRequired[pulumi.Input['AppsGithubSourceSpecArgsDict']]
+        gitlab: NotRequired[pulumi.Input['AppsGitlabSourceSpecArgsDict']]
+        image: NotRequired[pulumi.Input['AppsImageSourceSpecArgsDict']]
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The amount of instances that this component should be scaled to. Default: 1
+        """
+        instance_size_slug: NotRequired[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]
+        """
+        The instance size to use for this component. Default: `basic-xxs`
+        """
+        kind: NotRequired[pulumi.Input['AppJobSpecPropertiesKind']]
+        """
+        - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind.
+        - PRE_DEPLOY: Indicates a job that runs before an app deployment.
+        - POST_DEPLOY: Indicates a job that runs after an app deployment.
+        - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
+        """
+        log_destinations: NotRequired[pulumi.Input['AppLogDestinationDefinitionArgsDict']]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name. Must be unique across all components within the same app.
+        """
+        run_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional run command to override the component's default.
+        """
+        source_dir: NotRequired[pulumi.Input[str]]
+        """
+        An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
+        """
+elif False:
+    AppJobSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppJobSpecArgs:
@@ -1039,6 +1347,22 @@ class AppJobSpecArgs:
         pulumi.set(self, "source_dir", value)
 
 
+if not MYPY:
+    class AppLogDestinationDatadogSpecArgsDict(TypedDict):
+        """
+        DataDog configuration.
+        """
+        api_key: pulumi.Input[str]
+        """
+        Datadog API key.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Datadog HTTP log intake endpoint.
+        """
+elif False:
+    AppLogDestinationDatadogSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppLogDestinationDatadogSpecArgs:
     def __init__(__self__, *,
@@ -1077,6 +1401,24 @@ class AppLogDestinationDatadogSpecArgs:
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
 
+
+if not MYPY:
+    class AppLogDestinationDefinitionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        datadog: NotRequired[pulumi.Input['AppLogDestinationDatadogSpecArgsDict']]
+        """
+        DataDog configuration.
+        """
+        logtail: NotRequired[pulumi.Input['AppLogDestinationLogtailSpecArgsDict']]
+        """
+        Logtail configuration.
+        """
+        papertrail: NotRequired[pulumi.Input['AppLogDestinationPapertrailSpecArgsDict']]
+        """
+        Papertrail configuration.
+        """
+elif False:
+    AppLogDestinationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppLogDestinationDefinitionArgs:
@@ -1144,6 +1486,18 @@ class AppLogDestinationDefinitionArgs:
         pulumi.set(self, "papertrail", value)
 
 
+if not MYPY:
+    class AppLogDestinationLogtailSpecArgsDict(TypedDict):
+        """
+        Logtail configuration.
+        """
+        token: NotRequired[pulumi.Input[str]]
+        """
+        Logtail token.
+        """
+elif False:
+    AppLogDestinationLogtailSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppLogDestinationLogtailSpecArgs:
     def __init__(__self__, *,
@@ -1168,6 +1522,18 @@ class AppLogDestinationLogtailSpecArgs:
         pulumi.set(self, "token", value)
 
 
+if not MYPY:
+    class AppLogDestinationPapertrailSpecArgsDict(TypedDict):
+        """
+        Papertrail configuration.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        Papertrail syslog endpoint.
+        """
+elif False:
+    AppLogDestinationPapertrailSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppLogDestinationPapertrailSpecArgs:
     def __init__(__self__, *,
@@ -1190,6 +1556,19 @@ class AppLogDestinationPapertrailSpecArgs:
     def endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint", value)
 
+
+if not MYPY:
+    class AppRouteSpecArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        """
+        An HTTP path prefix. Paths must start with / and must be unique across all components within an app.
+        """
+        preserve_path_prefix: NotRequired[pulumi.Input[bool]]
+        """
+        An optional flag to preserve the path that is forwarded to the backend service. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If this value is `true`, the path will remain `/api/list`.
+        """
+elif False:
+    AppRouteSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppRouteSpecArgs:
@@ -1229,6 +1608,39 @@ class AppRouteSpecArgs:
     def preserve_path_prefix(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preserve_path_prefix", value)
 
+
+if not MYPY:
+    class AppServiceSpecHealthCheckArgsDict(TypedDict):
+        failure_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of failed health checks before considered unhealthy.
+        """
+        http_path: NotRequired[pulumi.Input[str]]
+        """
+        The route path used for the HTTP health check ping. If not set, the HTTP health check will be disabled and a TCP health check used instead.
+        """
+        initial_delay_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to wait before beginning health checks.
+        """
+        period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to wait between health checks.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the health check will be performed. If not set, the health check will be performed on the component's http_port.
+        """
+        success_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of successful health checks before considered healthy.
+        """
+        timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds after which the check times out.
+        """
+elif False:
+    AppServiceSpecHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceSpecHealthCheckArgs:
@@ -1348,6 +1760,67 @@ class AppServiceSpecHealthCheckArgs:
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
+
+if not MYPY:
+    class AppServiceSpecArgsDict(TypedDict):
+        build_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional build command to run while building this component from source.
+        """
+        cors: NotRequired[pulumi.Input['AppsCorsPolicyArgsDict']]
+        dockerfile_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks.
+        """
+        environment_slug: NotRequired[pulumi.Input[str]]
+        """
+        An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
+        """
+        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgsDict']]]]
+        """
+        A list of environment variables made available to the component.
+        """
+        git: NotRequired[pulumi.Input['AppsGitSourceSpecArgsDict']]
+        github: NotRequired[pulumi.Input['AppsGithubSourceSpecArgsDict']]
+        gitlab: NotRequired[pulumi.Input['AppsGitlabSourceSpecArgsDict']]
+        health_check: NotRequired[pulumi.Input['AppServiceSpecHealthCheckArgsDict']]
+        http_port: NotRequired[pulumi.Input[int]]
+        """
+        The internal port on which this service's run command will listen. Default: 8080
+        If there is not an environment variable with the name `PORT`, one will be automatically added with its value set to the value of this field.
+        """
+        image: NotRequired[pulumi.Input['AppsImageSourceSpecArgsDict']]
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The amount of instances that this component should be scaled to. Default: 1
+        """
+        instance_size_slug: NotRequired[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]
+        """
+        The instance size to use for this component. Default: `basic-xxs`
+        """
+        internal_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        The ports on which this service will listen for internal traffic.
+        """
+        log_destinations: NotRequired[pulumi.Input['AppLogDestinationDefinitionArgsDict']]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name. Must be unique across all components within the same app.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppRouteSpecArgsDict']]]]
+        """
+        A list of HTTP routes that should be routed to this component.
+        """
+        run_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional run command to override the component's default.
+        """
+        source_dir: NotRequired[pulumi.Input[str]]
+        """
+        An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
+        """
+elif False:
+    AppServiceSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceSpecArgs:
@@ -1638,6 +2111,55 @@ class AppServiceSpecArgs:
         pulumi.set(self, "source_dir", value)
 
 
+if not MYPY:
+    class AppSpecArgsDict(TypedDict):
+        """
+        The desired configuration of an application.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the app. Must be unique across all apps in the same account.
+        """
+        databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppDatabaseSpecArgsDict']]]]
+        """
+        Database instances which can provide persistence to workloads within the
+        application.
+        """
+        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppDomainSpecArgsDict']]]]
+        """
+        A set of hostnames where the application will be available.
+        """
+        functions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppFunctionsSpecArgsDict']]]]
+        """
+        Workloads which expose publicly-accessible HTTP services via Functions Components.
+        """
+        ingress: NotRequired[pulumi.Input['AppIngressSpecArgsDict']]
+        """
+        Specification for app ingress configurations.
+        """
+        jobs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppJobSpecArgsDict']]]]
+        """
+        Pre and post deployment workloads which do not expose publicly-accessible HTTP routes.
+        """
+        region: NotRequired[pulumi.Input['AppSpecRegion']]
+        """
+        The slug form of the geographical origin of the app. Default: `nearest available`
+        """
+        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppServiceSpecArgsDict']]]]
+        """
+        Workloads which expose publicly-accessible HTTP services.
+        """
+        static_sites: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppStaticSiteSpecArgsDict']]]]
+        """
+        Content which can be rendered to static web assets.
+        """
+        workers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppWorkerSpecArgsDict']]]]
+        """
+        Workloads which do not expose publicly-accessible HTTP services.
+        """
+elif False:
+    AppSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppSpecArgs:
     def __init__(__self__, *,
@@ -1806,6 +2328,65 @@ class AppSpecArgs:
     def workers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppWorkerSpecArgs']]]]):
         pulumi.set(self, "workers", value)
 
+
+if not MYPY:
+    class AppStaticSiteSpecArgsDict(TypedDict):
+        build_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional build command to run while building this component from source.
+        """
+        catchall_document: NotRequired[pulumi.Input[str]]
+        """
+        The name of the document to use as the fallback for any requests to documents that are not found when serving this static site. Only 1 of `catchall_document` or `error_document` can be set.
+        """
+        cors: NotRequired[pulumi.Input['AppsCorsPolicyArgsDict']]
+        dockerfile_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks.
+        """
+        environment_slug: NotRequired[pulumi.Input[str]]
+        """
+        An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
+        """
+        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgsDict']]]]
+        """
+        A list of environment variables made available to the component.
+        """
+        error_document: NotRequired[pulumi.Input[str]]
+        """
+        The name of the error document to use when serving this static site. Default: 404.html. If no such file exists within the built assets, App Platform will supply one.
+        """
+        git: NotRequired[pulumi.Input['AppsGitSourceSpecArgsDict']]
+        github: NotRequired[pulumi.Input['AppsGithubSourceSpecArgsDict']]
+        gitlab: NotRequired[pulumi.Input['AppsGitlabSourceSpecArgsDict']]
+        image: NotRequired[pulumi.Input['AppsImageSourceSpecArgsDict']]
+        index_document: NotRequired[pulumi.Input[str]]
+        """
+        The name of the index document to use when serving this static site. Default: index.html
+        """
+        log_destinations: NotRequired[pulumi.Input['AppLogDestinationDefinitionArgsDict']]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name. Must be unique across all components within the same app.
+        """
+        output_dir: NotRequired[pulumi.Input[str]]
+        """
+        An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`, `build`.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppRouteSpecArgsDict']]]]
+        """
+        A list of HTTP routes that should be routed to this component.
+        """
+        run_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional run command to override the component's default.
+        """
+        source_dir: NotRequired[pulumi.Input[str]]
+        """
+        An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
+        """
+elif False:
+    AppStaticSiteSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppStaticSiteSpecArgs:
@@ -2082,6 +2663,30 @@ class AppStaticSiteSpecArgs:
         pulumi.set(self, "source_dir", value)
 
 
+if not MYPY:
+    class AppVariableDefinitionArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The variable name
+        """
+        scope: NotRequired[pulumi.Input['AppVariableDefinitionScope']]
+        """
+        - RUN_TIME: Made available only at run-time
+        - BUILD_TIME: Made available only at build-time
+        - RUN_AND_BUILD_TIME: Made available at both build and run-time
+        """
+        type: NotRequired[pulumi.Input['AppVariableDefinitionType']]
+        """
+        - GENERAL: A plain-text environment variable
+        - SECRET: A secret encrypted environment variable
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value. If the type is `SECRET`, the value will be encrypted on first submission. On following submissions, the encrypted value should be used.
+        """
+elif False:
+    AppVariableDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppVariableDefinitionArgs:
     def __init__(__self__, *,
@@ -2161,6 +2766,52 @@ class AppVariableDefinitionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AppWorkerSpecArgsDict(TypedDict):
+        build_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional build command to run while building this component from source.
+        """
+        dockerfile_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks.
+        """
+        environment_slug: NotRequired[pulumi.Input[str]]
+        """
+        An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://www.digitalocean.com/docs/app-platform/).
+        """
+        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppVariableDefinitionArgsDict']]]]
+        """
+        A list of environment variables made available to the component.
+        """
+        git: NotRequired[pulumi.Input['AppsGitSourceSpecArgsDict']]
+        github: NotRequired[pulumi.Input['AppsGithubSourceSpecArgsDict']]
+        gitlab: NotRequired[pulumi.Input['AppsGitlabSourceSpecArgsDict']]
+        image: NotRequired[pulumi.Input['AppsImageSourceSpecArgsDict']]
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The amount of instances that this component should be scaled to. Default: 1
+        """
+        instance_size_slug: NotRequired[pulumi.Input['AppComponentInstanceBaseInstanceSizeSlug']]
+        """
+        The instance size to use for this component. Default: `basic-xxs`
+        """
+        log_destinations: NotRequired[pulumi.Input['AppLogDestinationDefinitionArgsDict']]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name. Must be unique across all components within the same app.
+        """
+        run_command: NotRequired[pulumi.Input[str]]
+        """
+        An optional run command to override the component's default.
+        """
+        source_dir: NotRequired[pulumi.Input[str]]
+        """
+        An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
+        """
+elif False:
+    AppWorkerSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppWorkerSpecArgs:
@@ -2377,6 +3028,35 @@ class AppWorkerSpecArgs:
         pulumi.set(self, "source_dir", value)
 
 
+if not MYPY:
+    class AppsCorsPolicyArgsDict(TypedDict):
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is include. This configures the `Access-Control-Allow-Credentials` header.
+        """
+        allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of allowed HTTP request headers. This configures the `Access-Control-Allow-Headers` header.
+        """
+        allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of allowed HTTP methods. This configures the `Access-Control-Allow-Methods` header.
+        """
+        allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppsStringMatchArgsDict']]]]
+        """
+        The set of allowed CORS origins.
+        """
+        expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of HTTP response headers that browsers are allowed to access. This configures the `Access-Control-Expose-Headers` header.
+        """
+        max_age: NotRequired[pulumi.Input[str]]
+        """
+        An optional duration specifying how long browsers can cache the results of a preflight request. This configures the `Access-Control-Max-Age` header.
+        """
+elif False:
+    AppsCorsPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppsCorsPolicyArgs:
     def __init__(__self__, *,
@@ -2480,6 +3160,19 @@ class AppsCorsPolicyArgs:
         pulumi.set(self, "max_age", value)
 
 
+if not MYPY:
+    class AppsGitSourceSpecArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The name of the branch to use
+        """
+        repo_clone_url: NotRequired[pulumi.Input[str]]
+        """
+        The clone URL of the repo. Example: `https://github.com/digitalocean/sample-golang.git`
+        """
+elif False:
+    AppsGitSourceSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppsGitSourceSpecArgs:
     def __init__(__self__, *,
@@ -2518,6 +3211,23 @@ class AppsGitSourceSpecArgs:
     def repo_clone_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repo_clone_url", value)
 
+
+if not MYPY:
+    class AppsGithubSourceSpecArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The name of the branch to use
+        """
+        deploy_on_push: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to automatically deploy new commits made to the repo
+        """
+        repo: NotRequired[pulumi.Input[str]]
+        """
+        The name of the repo in the format owner/repo. Example: `digitalocean/sample-golang`
+        """
+elif False:
+    AppsGithubSourceSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppsGithubSourceSpecArgs:
@@ -2574,6 +3284,23 @@ class AppsGithubSourceSpecArgs:
         pulumi.set(self, "repo", value)
 
 
+if not MYPY:
+    class AppsGitlabSourceSpecArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The name of the branch to use
+        """
+        deploy_on_push: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to automatically deploy new commits made to the repo
+        """
+        repo: NotRequired[pulumi.Input[str]]
+        """
+        The name of the repo in the format owner/repo. Example: `digitalocean/sample-golang`
+        """
+elif False:
+    AppsGitlabSourceSpecArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppsGitlabSourceSpecArgs:
     def __init__(__self__, *,
@@ -2628,6 +3355,28 @@ class AppsGitlabSourceSpecArgs:
     def repo(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repo", value)
 
+
+if not MYPY:
+    class AppsImageSourceSpecArgsDict(TypedDict):
+        registry: NotRequired[pulumi.Input[str]]
+        """
+        The registry name. Must be left empty for the `DOCR` registry type.
+        """
+        registry_type: NotRequired[pulumi.Input['AppsImageSourceSpecRegistryType']]
+        """
+        - DOCKER_HUB: The DockerHub container registry type.
+        - DOCR: The DigitalOcean container registry type.
+        """
+        repository: NotRequired[pulumi.Input[str]]
+        """
+        The repository name.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The repository tag. Defaults to `latest` if not provided.
+        """
+elif False:
+    AppsImageSourceSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppsImageSourceSpecArgs:
@@ -2703,6 +3452,23 @@ class AppsImageSourceSpecArgs:
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
 
+
+if not MYPY:
+    class AppsStringMatchArgsDict(TypedDict):
+        exact: NotRequired[pulumi.Input[str]]
+        """
+        Exact string match. Only 1 of `exact`, `prefix`, or `regex` must be set.
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix-based match. Only 1 of `exact`, `prefix`, or `regex` must be set.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        RE2 style regex-based match. Only 1 of `exact`, `prefix`, or `regex` must be set. For more information about RE2 syntax, see: https://github.com/google/re2/wiki/Syntax
+        """
+elif False:
+    AppsStringMatchArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppsStringMatchArgs:

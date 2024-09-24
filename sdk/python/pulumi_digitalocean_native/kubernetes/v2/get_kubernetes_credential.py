@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
@@ -132,9 +137,6 @@ def get_kubernetes_credential(cluster_id: Optional[str] = None,
         expires_at=pulumi.get(__ret__, 'expires_at'),
         server=pulumi.get(__ret__, 'server'),
         token=pulumi.get(__ret__, 'token'))
-
-
-@_utilities.lift_output_func(get_kubernetes_credential)
 def get_kubernetes_credential_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Credentials]:
     """
@@ -142,4 +144,14 @@ def get_kubernetes_credential_output(cluster_id: Optional[pulumi.Input[str]] = N
 
     :param str cluster_id: A unique ID that can be used to reference a Kubernetes cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesCredential', __args__, opts=opts, typ=Credentials)
+    return __ret__.apply(lambda __response__: Credentials(
+        certificate_authority_data=pulumi.get(__response__, 'certificate_authority_data'),
+        client_certificate_data=pulumi.get(__response__, 'client_certificate_data'),
+        client_key_data=pulumi.get(__response__, 'client_key_data'),
+        expires_at=pulumi.get(__response__, 'expires_at'),
+        server=pulumi.get(__response__, 'server'),
+        token=pulumi.get(__response__, 'token')))

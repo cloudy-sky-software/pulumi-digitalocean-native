@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,9 +62,6 @@ def get_kubernetes_node_pool(cluster_id: Optional[str] = None,
 
     return AwaitableGetKubernetesNodePoolProperties(
         node_pool=pulumi.get(__ret__, 'node_pool'))
-
-
-@_utilities.lift_output_func(get_kubernetes_node_pool)
 def get_kubernetes_node_pool_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                     node_pool_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesNodePoolProperties]:
@@ -69,4 +71,10 @@ def get_kubernetes_node_pool_output(cluster_id: Optional[pulumi.Input[str]] = No
     :param str cluster_id: A unique ID that can be used to reference a Kubernetes cluster.
     :param str node_pool_id: A unique ID that can be used to reference a Kubernetes node pool.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    __args__['nodePoolId'] = node_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesNodePool', __args__, opts=opts, typ=GetKubernetesNodePoolProperties)
+    return __ret__.apply(lambda __response__: GetKubernetesNodePoolProperties(
+        node_pool=pulumi.get(__response__, 'node_pool')))

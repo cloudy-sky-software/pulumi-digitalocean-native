@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def list_databases_replicas(database_cluster_uuid: Optional[str] = None,
 
     return AwaitableListDatabasesReplicasProperties(
         replicas=pulumi.get(__ret__, 'replicas'))
-
-
-@_utilities.lift_output_func(list_databases_replicas)
 def list_databases_replicas_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesReplicasProperties]:
     """
@@ -64,4 +66,9 @@ def list_databases_replicas_output(database_cluster_uuid: Optional[pulumi.Input[
 
     :param str database_cluster_uuid: A unique identifier for a database cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseClusterUuid'] = database_cluster_uuid
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:listDatabasesReplicas', __args__, opts=opts, typ=ListDatabasesReplicasProperties)
+    return __ret__.apply(lambda __response__: ListDatabasesReplicasProperties(
+        replicas=pulumi.get(__response__, 'replicas')))

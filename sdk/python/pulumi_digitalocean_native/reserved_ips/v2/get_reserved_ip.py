@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def get_reserved_ip(reserved_ip: Optional[str] = None,
 
     return AwaitableGetReservedIPProperties(
         reserved_ip=pulumi.get(__ret__, 'reserved_ip'))
-
-
-@_utilities.lift_output_func(get_reserved_ip)
 def get_reserved_ip_output(reserved_ip: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedIPProperties]:
     """
@@ -64,4 +66,9 @@ def get_reserved_ip_output(reserved_ip: Optional[pulumi.Input[str]] = None,
 
     :param str reserved_ip: A reserved IP address.
     """
-    ...
+    __args__ = dict()
+    __args__['reservedIp'] = reserved_ip
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:reserved_ips/v2:getReservedIP', __args__, opts=opts, typ=GetReservedIPProperties)
+    return __ret__.apply(lambda __response__: GetReservedIPProperties(
+        reserved_ip=pulumi.get(__response__, 'reserved_ip')))

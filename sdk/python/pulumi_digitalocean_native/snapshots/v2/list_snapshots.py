@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -70,11 +75,14 @@ def list_snapshots(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableList
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         snapshots=pulumi.get(__ret__, 'snapshots'))
-
-
-@_utilities.lift_output_func(list_snapshots)
 def list_snapshots_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSnapshotsItems]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:snapshots/v2:listSnapshots', __args__, opts=opts, typ=ListSnapshotsItems)
+    return __ret__.apply(lambda __response__: ListSnapshotsItems(
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta'),
+        snapshots=pulumi.get(__response__, 'snapshots')))

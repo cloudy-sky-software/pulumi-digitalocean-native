@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,9 +62,6 @@ def get_uptime_alert(alert_id: Optional[str] = None,
 
     return AwaitableGetUptimeAlertProperties(
         alert=pulumi.get(__ret__, 'alert'))
-
-
-@_utilities.lift_output_func(get_uptime_alert)
 def get_uptime_alert_output(alert_id: Optional[pulumi.Input[str]] = None,
                             check_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeAlertProperties]:
@@ -69,4 +71,10 @@ def get_uptime_alert_output(alert_id: Optional[pulumi.Input[str]] = None,
     :param str alert_id: A unique identifier for an alert.
     :param str check_id: A unique identifier for a check.
     """
-    ...
+    __args__ = dict()
+    __args__['alertId'] = alert_id
+    __args__['checkId'] = check_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:getUptimeAlert', __args__, opts=opts, typ=GetUptimeAlertProperties)
+    return __ret__.apply(lambda __response__: GetUptimeAlertProperties(
+        alert=pulumi.get(__response__, 'alert')))

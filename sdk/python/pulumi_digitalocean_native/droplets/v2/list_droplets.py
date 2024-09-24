@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -70,11 +75,14 @@ def list_droplets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListD
         droplets=pulumi.get(__ret__, 'droplets'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-
-
-@_utilities.lift_output_func(list_droplets)
 def list_droplets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsItems]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:listDroplets', __args__, opts=opts, typ=ListDropletsItems)
+    return __ret__.apply(lambda __response__: ListDropletsItems(
+        droplets=pulumi.get(__response__, 'droplets'),
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta')))

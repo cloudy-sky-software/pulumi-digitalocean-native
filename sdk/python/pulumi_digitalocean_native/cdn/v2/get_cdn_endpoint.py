@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def get_cdn_endpoint(cdn_id: Optional[str] = None,
 
     return AwaitableGetCdnEndpointProperties(
         endpoint=pulumi.get(__ret__, 'endpoint'))
-
-
-@_utilities.lift_output_func(get_cdn_endpoint)
 def get_cdn_endpoint_output(cdn_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCdnEndpointProperties]:
     """
@@ -64,4 +66,9 @@ def get_cdn_endpoint_output(cdn_id: Optional[pulumi.Input[str]] = None,
 
     :param str cdn_id: A unique identifier for a CDN endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['cdnId'] = cdn_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:cdn/v2:getCdnEndpoint', __args__, opts=opts, typ=GetCdnEndpointProperties)
+    return __ret__.apply(lambda __response__: GetCdnEndpointProperties(
+        endpoint=pulumi.get(__response__, 'endpoint')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,11 +55,12 @@ def list_databases_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
 
     return AwaitableListDatabasesClustersProperties(
         databases=pulumi.get(__ret__, 'databases'))
-
-
-@_utilities.lift_output_func(list_databases_clusters)
 def list_databases_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesClustersProperties]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:listDatabasesClusters', __args__, opts=opts, typ=ListDatabasesClustersProperties)
+    return __ret__.apply(lambda __response__: ListDatabasesClustersProperties(
+        databases=pulumi.get(__response__, 'databases')))

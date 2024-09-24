@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -57,9 +62,6 @@ def get_tag(tag_id: Optional[str] = None,
 
     return AwaitableGetTagProperties(
         tag=pulumi.get(__ret__, 'tag'))
-
-
-@_utilities.lift_output_func(get_tag)
 def get_tag_output(tag_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagProperties]:
     """
@@ -67,4 +69,9 @@ def get_tag_output(tag_id: Optional[pulumi.Input[str]] = None,
 
     :param str tag_id: The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag.
     """
-    ...
+    __args__ = dict()
+    __args__['tagId'] = tag_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:tags/v2:getTag', __args__, opts=opts, typ=GetTagProperties)
+    return __ret__.apply(lambda __response__: GetTagProperties(
+        tag=pulumi.get(__response__, 'tag')))

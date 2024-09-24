@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -49,11 +54,12 @@ def list_one_clicks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableLis
 
     return AwaitableListOneClicksProperties(
         _1_clicks=pulumi.get(__ret__, '_1_clicks'))
-
-
-@_utilities.lift_output_func(list_one_clicks)
 def list_one_clicks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOneClicksProperties]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:1-clicks/v2:listOneClicks', __args__, opts=opts, typ=ListOneClicksProperties)
+    return __ret__.apply(lambda __response__: ListOneClicksProperties(
+        _1_clicks=pulumi.get(__response__, '_1_clicks')))

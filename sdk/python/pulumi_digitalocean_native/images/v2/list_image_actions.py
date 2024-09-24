@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,9 +79,6 @@ def list_image_actions(image_id: Optional[str] = None,
         actions=pulumi.get(__ret__, 'actions'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-
-
-@_utilities.lift_output_func(list_image_actions)
 def list_image_actions_output(image_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImageActionsItems]:
     """
@@ -84,4 +86,11 @@ def list_image_actions_output(image_id: Optional[pulumi.Input[str]] = None,
 
     :param str image_id: A unique number that can be used to identify and reference a specific image.
     """
-    ...
+    __args__ = dict()
+    __args__['imageId'] = image_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:images/v2:listImageActions', __args__, opts=opts, typ=ListImageActionsItems)
+    return __ret__.apply(lambda __response__: ListImageActionsItems(
+        actions=pulumi.get(__response__, 'actions'),
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta')))

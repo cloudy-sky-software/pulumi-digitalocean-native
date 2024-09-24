@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
@@ -63,9 +68,6 @@ def get_databases_eviction_policy(database_cluster_uuid: Optional[str] = None,
 
     return AwaitableGetDatabasesEvictionPolicyProperties(
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'))
-
-
-@_utilities.lift_output_func(get_databases_eviction_policy)
 def get_databases_eviction_policy_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesEvictionPolicyProperties]:
     """
@@ -73,4 +75,9 @@ def get_databases_eviction_policy_output(database_cluster_uuid: Optional[pulumi.
 
     :param str database_cluster_uuid: A unique identifier for a database cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseClusterUuid'] = database_cluster_uuid
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesEvictionPolicy', __args__, opts=opts, typ=GetDatabasesEvictionPolicyProperties)
+    return __ret__.apply(lambda __response__: GetDatabasesEvictionPolicyProperties(
+        eviction_policy=pulumi.get(__response__, 'eviction_policy')))

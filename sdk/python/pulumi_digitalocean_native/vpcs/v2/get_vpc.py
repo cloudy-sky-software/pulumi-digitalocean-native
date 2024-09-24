@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -53,9 +58,6 @@ def get_vpc(vpc_id: Optional[str] = None,
 
     return AwaitableGetVpcProperties(
         vpc=pulumi.get(__ret__, 'vpc'))
-
-
-@_utilities.lift_output_func(get_vpc)
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcProperties]:
     """
@@ -63,4 +65,9 @@ def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
 
     :param str vpc_id: A unique identifier for a VPC.
     """
-    ...
+    __args__ = dict()
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:vpcs/v2:getVpc', __args__, opts=opts, typ=GetVpcProperties)
+    return __ret__.apply(lambda __response__: GetVpcProperties(
+        vpc=pulumi.get(__response__, 'vpc')))

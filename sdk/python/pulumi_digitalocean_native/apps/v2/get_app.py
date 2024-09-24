@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,9 +62,6 @@ def get_app(id: Optional[str] = None,
 
     return AwaitableAppResponse(
         app=pulumi.get(__ret__, 'app'))
-
-
-@_utilities.lift_output_func(get_app)
 def get_app_output(id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppResponse]:
     """
@@ -67,4 +69,9 @@ def get_app_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the app
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getApp', __args__, opts=opts, typ=AppResponse)
+    return __ret__.apply(lambda __response__: AppResponse(
+        app=pulumi.get(__response__, 'app')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -53,9 +58,6 @@ def get_ssh_key(ssh_key_identifier: Optional[str] = None,
 
     return AwaitableGetSshKeyProperties(
         ssh_key=pulumi.get(__ret__, 'ssh_key'))
-
-
-@_utilities.lift_output_func(get_ssh_key)
 def get_ssh_key_output(ssh_key_identifier: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyProperties]:
     """
@@ -63,4 +65,9 @@ def get_ssh_key_output(ssh_key_identifier: Optional[pulumi.Input[str]] = None,
 
     :param str ssh_key_identifier: Either the ID or the fingerprint of an existing SSH key.
     """
-    ...
+    __args__ = dict()
+    __args__['sshKeyIdentifier'] = ssh_key_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:account/v2:getSshKey', __args__, opts=opts, typ=GetSshKeyProperties)
+    return __ret__.apply(lambda __response__: GetSshKeyProperties(
+        ssh_key=pulumi.get(__response__, 'ssh_key')))

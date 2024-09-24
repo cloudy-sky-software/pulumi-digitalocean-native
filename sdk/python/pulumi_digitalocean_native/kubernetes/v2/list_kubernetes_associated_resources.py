@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -85,9 +90,6 @@ def list_kubernetes_associated_resources(cluster_id: Optional[str] = None,
         load_balancers=pulumi.get(__ret__, 'load_balancers'),
         volume_snapshots=pulumi.get(__ret__, 'volume_snapshots'),
         volumes=pulumi.get(__ret__, 'volumes'))
-
-
-@_utilities.lift_output_func(list_kubernetes_associated_resources)
 def list_kubernetes_associated_resources_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AssociatedKubernetesResources]:
     """
@@ -95,4 +97,11 @@ def list_kubernetes_associated_resources_output(cluster_id: Optional[pulumi.Inpu
 
     :param str cluster_id: A unique ID that can be used to reference a Kubernetes cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources', __args__, opts=opts, typ=AssociatedKubernetesResources)
+    return __ret__.apply(lambda __response__: AssociatedKubernetesResources(
+        load_balancers=pulumi.get(__response__, 'load_balancers'),
+        volume_snapshots=pulumi.get(__response__, 'volume_snapshots'),
+        volumes=pulumi.get(__response__, 'volumes')))

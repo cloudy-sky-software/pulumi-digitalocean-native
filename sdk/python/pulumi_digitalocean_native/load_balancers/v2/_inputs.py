@@ -4,18 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ForwardingRuleArgs',
+    'ForwardingRuleArgsDict',
     'HealthCheckArgs',
+    'HealthCheckArgsDict',
     'LbFirewallArgs',
+    'LbFirewallArgsDict',
     'StickySessionsArgs',
+    'StickySessionsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ForwardingRuleArgsDict(TypedDict):
+        """
+        An object specifying a forwarding rule for a load balancer.
+        """
+        entry_port: pulumi.Input[int]
+        """
+        An integer representing the port on which the load balancer instance will listen.
+        """
+        entry_protocol: pulumi.Input['ForwardingRuleEntryProtocol']
+        """
+        The protocol used for traffic to the load balancer. The possible values are: `http`, `https`, `http2`, `http3`, `tcp`, or `udp`. If you set the  `entry_protocol` to `udp`, the `target_protocol` must be set to `udp`.  When using UDP, the load balancer requires that you set up a health  check with a port that uses TCP, HTTP, or HTTPS to work properly.
+        """
+        target_port: pulumi.Input[int]
+        """
+        An integer representing the port on the backend Droplets to which the load balancer will send traffic.
+        """
+        target_protocol: pulumi.Input['ForwardingRuleTargetProtocol']
+        """
+        The protocol used for traffic from the load balancer to the backend Droplets. The possible values are: `http`, `https`, `http2`, `tcp`, or `udp`. If you set the `target_protocol` to `udp`, the `entry_protocol` must be set to  `udp`. When using UDP, the load balancer requires that you set up a health  check with a port that uses TCP, HTTP, or HTTPS to work properly.
+        """
+        certificate_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the TLS certificate used for SSL termination if enabled.
+        """
+        tls_passthrough: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating whether SSL encrypted traffic will be passed through to the backend Droplets.
+        """
+elif False:
+    ForwardingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ForwardingRuleArgs:
@@ -116,6 +159,42 @@ class ForwardingRuleArgs:
     def tls_passthrough(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "tls_passthrough", value)
 
+
+if not MYPY:
+    class HealthCheckArgsDict(TypedDict):
+        """
+        An object specifying health check settings for the load balancer.
+        """
+        check_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds between between two consecutive health checks.
+        """
+        healthy_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of times a health check must pass for a backend Droplet to be marked "healthy" and be re-added to the pool.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path on the backend Droplets to which the load balancer instance will send a request.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        An integer representing the port on the backend Droplets on which the health check will attempt a connection.
+        """
+        protocol: NotRequired[pulumi.Input['HealthCheckProtocol']]
+        """
+        The protocol used for health checks sent to the backend Droplets. The possible values are `http`, `https`, or `tcp`.
+        """
+        response_timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds the load balancer instance will wait for a response until marking a health check as failed.
+        """
+        unhealthy_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of times a health check must fail for a backend Droplet to be marked "unhealthy" and be removed from the pool.
+        """
+elif False:
+    HealthCheckArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HealthCheckArgs:
@@ -251,6 +330,22 @@ class HealthCheckArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
+if not MYPY:
+    class LbFirewallArgsDict(TypedDict):
+        """
+        An object specifying allow and deny rules to control traffic to the load balancer.
+        """
+        allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        the rules for allowing traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+        """
+        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        the rules for denying traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
+        """
+elif False:
+    LbFirewallArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LbFirewallArgs:
     def __init__(__self__, *,
@@ -290,6 +385,26 @@ class LbFirewallArgs:
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "deny", value)
 
+
+if not MYPY:
+    class StickySessionsArgsDict(TypedDict):
+        """
+        An object specifying sticky sessions settings for the load balancer.
+        """
+        cookie_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the cookie sent to the client. This attribute is only returned when using `cookies` for the sticky sessions type.
+        """
+        cookie_ttl_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds until the cookie set by the load balancer expires. This attribute is only returned when using `cookies` for the sticky sessions type.
+        """
+        type: NotRequired[pulumi.Input['StickySessionsType']]
+        """
+        An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
+        """
+elif False:
+    StickySessionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StickySessionsArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -69,9 +74,6 @@ def get_apps_metrics_bandwidth_daily(app_id: Optional[str] = None,
     return AwaitableAppMetricsBandwidthUsage(
         app_bandwidth_usage=pulumi.get(__ret__, 'app_bandwidth_usage'),
         date=pulumi.get(__ret__, 'date'))
-
-
-@_utilities.lift_output_func(get_apps_metrics_bandwidth_daily)
 def get_apps_metrics_bandwidth_daily_output(app_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppMetricsBandwidthUsage]:
     """
@@ -79,4 +81,10 @@ def get_apps_metrics_bandwidth_daily_output(app_id: Optional[pulumi.Input[str]] 
 
     :param str app_id: The app ID
     """
-    ...
+    __args__ = dict()
+    __args__['appId'] = app_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily', __args__, opts=opts, typ=AppMetricsBandwidthUsage)
+    return __ret__.apply(lambda __response__: AppMetricsBandwidthUsage(
+        app_bandwidth_usage=pulumi.get(__response__, 'app_bandwidth_usage'),
+        date=pulumi.get(__response__, 'date')))

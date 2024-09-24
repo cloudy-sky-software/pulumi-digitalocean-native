@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -73,9 +78,6 @@ def list_registry_repositories(registry_name: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         repositories=pulumi.get(__ret__, 'repositories'))
-
-
-@_utilities.lift_output_func(list_registry_repositories)
 def list_registry_repositories_output(registry_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoriesItems]:
     """
@@ -83,4 +85,11 @@ def list_registry_repositories_output(registry_name: Optional[pulumi.Input[str]]
 
     :param str registry_name: The name of a container registry.
     """
-    ...
+    __args__ = dict()
+    __args__['registryName'] = registry_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryRepositories', __args__, opts=opts, typ=ListRegistryRepositoriesItems)
+    return __ret__.apply(lambda __response__: ListRegistryRepositoriesItems(
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta'),
+        repositories=pulumi.get(__response__, 'repositories')))

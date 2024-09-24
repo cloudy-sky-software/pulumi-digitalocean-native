@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -56,9 +61,6 @@ def get_domains_record(domain_name: Optional[str] = None,
 
     return AwaitableGetDomainsRecordProperties(
         domain_record=pulumi.get(__ret__, 'domain_record'))
-
-
-@_utilities.lift_output_func(get_domains_record)
 def get_domains_record_output(domain_name: Optional[pulumi.Input[str]] = None,
                               domain_record_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainsRecordProperties]:
@@ -68,4 +70,10 @@ def get_domains_record_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: The name of the domain itself.
     :param str domain_record_id: The unique identifier of the domain record.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['domainRecordId'] = domain_record_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:domains/v2:getDomainsRecord', __args__, opts=opts, typ=GetDomainsRecordProperties)
+    return __ret__.apply(lambda __response__: GetDomainsRecordProperties(
+        domain_record=pulumi.get(__response__, 'domain_record')))

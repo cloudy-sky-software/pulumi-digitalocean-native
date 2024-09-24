@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def list_apps_alerts(app_id: Optional[str] = None,
 
     return AwaitableAppsListAlertsResponse(
         alerts=pulumi.get(__ret__, 'alerts'))
-
-
-@_utilities.lift_output_func(list_apps_alerts)
 def list_apps_alerts_output(app_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListAlertsResponse]:
     """
@@ -64,4 +66,9 @@ def list_apps_alerts_output(app_id: Optional[pulumi.Input[str]] = None,
 
     :param str app_id: The app ID
     """
-    ...
+    __args__ = dict()
+    __args__['appId'] = app_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:listAppsAlerts', __args__, opts=opts, typ=AppsListAlertsResponse)
+    return __ret__.apply(lambda __response__: AppsListAlertsResponse(
+        alerts=pulumi.get(__response__, 'alerts')))

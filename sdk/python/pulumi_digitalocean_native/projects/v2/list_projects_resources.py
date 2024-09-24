@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,9 +79,6 @@ def list_projects_resources(project_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         resources=pulumi.get(__ret__, 'resources'))
-
-
-@_utilities.lift_output_func(list_projects_resources)
 def list_projects_resources_output(project_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsResourcesItems]:
     """
@@ -84,4 +86,11 @@ def list_projects_resources_output(project_id: Optional[pulumi.Input[str]] = Non
 
     :param str project_id: A unique identifier for a project.
     """
-    ...
+    __args__ = dict()
+    __args__['projectId'] = project_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:projects/v2:listProjectsResources', __args__, opts=opts, typ=ListProjectsResourcesItems)
+    return __ret__.apply(lambda __response__: ListProjectsResourcesItems(
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta'),
+        resources=pulumi.get(__response__, 'resources')))
