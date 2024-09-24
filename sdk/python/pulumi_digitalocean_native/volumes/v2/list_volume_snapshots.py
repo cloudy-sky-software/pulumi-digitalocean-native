@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,9 +79,6 @@ def list_volume_snapshots(volume_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         snapshots=pulumi.get(__ret__, 'snapshots'))
-
-
-@_utilities.lift_output_func(list_volume_snapshots)
 def list_volume_snapshots_output(volume_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumeSnapshotsItems]:
     """
@@ -84,4 +86,11 @@ def list_volume_snapshots_output(volume_id: Optional[pulumi.Input[str]] = None,
 
     :param str volume_id: The ID of the block storage volume.
     """
-    ...
+    __args__ = dict()
+    __args__['volumeId'] = volume_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:volumes/v2:listVolumeSnapshots', __args__, opts=opts, typ=ListVolumeSnapshotsItems)
+    return __ret__.apply(lambda __response__: ListVolumeSnapshotsItems(
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta'),
+        snapshots=pulumi.get(__response__, 'snapshots')))

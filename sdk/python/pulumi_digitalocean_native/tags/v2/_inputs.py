@@ -4,15 +4,36 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ResourcesItemPropertiesArgs',
+    'ResourcesItemPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ResourcesItemPropertiesArgsDict(TypedDict):
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of a resource.
+        """
+        resource_type: NotRequired[pulumi.Input['ResourcesItemPropertiesResourceType']]
+        """
+        The type of the resource.
+        """
+elif False:
+    ResourcesItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourcesItemPropertiesArgs:

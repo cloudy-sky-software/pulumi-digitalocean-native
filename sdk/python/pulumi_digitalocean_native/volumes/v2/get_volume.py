@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -53,9 +58,6 @@ def get_volume(volume_id: Optional[str] = None,
 
     return AwaitableGetVolumeProperties(
         volume=pulumi.get(__ret__, 'volume'))
-
-
-@_utilities.lift_output_func(get_volume)
 def get_volume_output(volume_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeProperties]:
     """
@@ -63,4 +65,9 @@ def get_volume_output(volume_id: Optional[pulumi.Input[str]] = None,
 
     :param str volume_id: The ID of the block storage volume.
     """
-    ...
+    __args__ = dict()
+    __args__['volumeId'] = volume_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:volumes/v2:getVolume', __args__, opts=opts, typ=GetVolumeProperties)
+    return __ret__.apply(lambda __response__: GetVolumeProperties(
+        volume=pulumi.get(__response__, 'volume')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
@@ -68,9 +73,6 @@ def get_apps_logs_active_deployment(app_id: Optional[str] = None,
     return AwaitableAppsGetLogsResponse(
         historic_urls=pulumi.get(__ret__, 'historic_urls'),
         live_url=pulumi.get(__ret__, 'live_url'))
-
-
-@_utilities.lift_output_func(get_apps_logs_active_deployment)
 def get_apps_logs_active_deployment_output(app_id: Optional[pulumi.Input[str]] = None,
                                            component_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetLogsResponse]:
@@ -80,4 +82,11 @@ def get_apps_logs_active_deployment_output(app_id: Optional[pulumi.Input[str]] =
     :param str app_id: The app ID
     :param str component_name: An optional component name. If set, logs will be limited to this component only.
     """
-    ...
+    __args__ = dict()
+    __args__['appId'] = app_id
+    __args__['componentName'] = component_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsLogsActiveDeployment', __args__, opts=opts, typ=AppsGetLogsResponse)
+    return __ret__.apply(lambda __response__: AppsGetLogsResponse(
+        historic_urls=pulumi.get(__response__, 'historic_urls'),
+        live_url=pulumi.get(__response__, 'live_url')))

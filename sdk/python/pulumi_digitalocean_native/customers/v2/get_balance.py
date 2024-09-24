@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
@@ -90,11 +95,15 @@ def get_balance(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableBalance
         generated_at=pulumi.get(__ret__, 'generated_at'),
         month_to_date_balance=pulumi.get(__ret__, 'month_to_date_balance'),
         month_to_date_usage=pulumi.get(__ret__, 'month_to_date_usage'))
-
-
-@_utilities.lift_output_func(get_balance)
 def get_balance_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Balance]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:customers/v2:getBalance', __args__, opts=opts, typ=Balance)
+    return __ret__.apply(lambda __response__: Balance(
+        account_balance=pulumi.get(__response__, 'account_balance'),
+        generated_at=pulumi.get(__response__, 'generated_at'),
+        month_to_date_balance=pulumi.get(__response__, 'month_to_date_balance'),
+        month_to_date_usage=pulumi.get(__response__, 'month_to_date_usage')))

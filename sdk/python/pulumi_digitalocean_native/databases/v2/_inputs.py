@@ -4,26 +4,78 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'ConnectionArgs',
+    'ConnectionArgsDict',
     'DatabaseBackupArgs',
+    'DatabaseBackupArgsDict',
     'DatabaseClusterConnectionArgs',
+    'DatabaseClusterConnectionArgsDict',
     'DatabaseClusterMaintenanceWindowArgs',
+    'DatabaseClusterMaintenanceWindowArgsDict',
     'DatabaseClusterPrivateConnectionArgs',
+    'DatabaseClusterPrivateConnectionArgsDict',
     'DatabaseReplicaConnectionArgs',
+    'DatabaseReplicaConnectionArgsDict',
     'DatabaseReplicaPrivateConnectionArgs',
+    'DatabaseReplicaPrivateConnectionArgsDict',
     'DatabaseUserArgs',
+    'DatabaseUserArgsDict',
     'FirewallRuleArgs',
+    'FirewallRuleArgsDict',
     'MysqlSettingsArgs',
+    'MysqlSettingsArgsDict',
     'PrivateConnectionArgs',
+    'PrivateConnectionArgsDict',
     'SourcePropertiesArgs',
+    'SourcePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionArgsDict(TypedDict):
+        database: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        ssl: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating if the connection should be made over SSL.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    ConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionArgs:
@@ -144,6 +196,19 @@ class ConnectionArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class DatabaseBackupArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The name of an existing database cluster from which the backup will be restored.
+        """
+        backup_created_at: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp of an existing database cluster backup in ISO8601 combined date and time format. The most recent backup will be used if excluded.
+        """
+elif False:
+    DatabaseBackupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseBackupArgs:
     def __init__(__self__, *,
@@ -181,6 +246,39 @@ class DatabaseBackupArgs:
     def backup_created_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backup_created_at", value)
 
+
+if not MYPY:
+    class DatabaseClusterConnectionArgsDict(TypedDict):
+        database: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        ssl: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating if the connection should be made over SSL.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    DatabaseClusterConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseClusterConnectionArgs:
@@ -301,6 +399,27 @@ class DatabaseClusterConnectionArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class DatabaseClusterMaintenanceWindowArgsDict(TypedDict):
+        day: pulumi.Input[str]
+        """
+        The day of the week on which to apply maintenance updates.
+        """
+        hour: pulumi.Input[str]
+        """
+        The hour in UTC at which maintenance updates will be applied in 24 hour format.
+        """
+        description: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of strings, each containing information about a pending maintenance update.
+        """
+        pending: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating whether any maintenance is scheduled to be performed in the next window.
+        """
+elif False:
+    DatabaseClusterMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseClusterMaintenanceWindowArgs:
     def __init__(__self__, *,
@@ -369,6 +488,39 @@ class DatabaseClusterMaintenanceWindowArgs:
     def pending(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "pending", value)
 
+
+if not MYPY:
+    class DatabaseClusterPrivateConnectionArgsDict(TypedDict):
+        database: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        ssl: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating if the connection should be made over SSL.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    DatabaseClusterPrivateConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseClusterPrivateConnectionArgs:
@@ -489,6 +641,39 @@ class DatabaseClusterPrivateConnectionArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class DatabaseReplicaConnectionArgsDict(TypedDict):
+        database: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        ssl: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating if the connection should be made over SSL.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    DatabaseReplicaConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseReplicaConnectionArgs:
     def __init__(__self__, *,
@@ -607,6 +792,39 @@ class DatabaseReplicaConnectionArgs:
     def user(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user", value)
 
+
+if not MYPY:
+    class DatabaseReplicaPrivateConnectionArgsDict(TypedDict):
+        database: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        ssl: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating if the connection should be made over SSL.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    DatabaseReplicaPrivateConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseReplicaPrivateConnectionArgs:
@@ -727,6 +945,25 @@ class DatabaseReplicaPrivateConnectionArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class DatabaseUserArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of a database user.
+        """
+        mysql_settings: NotRequired[pulumi.Input['MysqlSettingsArgsDict']]
+        password: NotRequired[pulumi.Input[str]]
+        """
+        A randomly generated password for the database user.
+        """
+        role: NotRequired[pulumi.Input['DatabaseUserRole']]
+        """
+        A string representing the database user's role. The value will be either
+        "primary" or "normal".
+        """
+elif False:
+    DatabaseUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseUserArgs:
     def __init__(__self__, *,
@@ -794,6 +1031,31 @@ class DatabaseUserArgs:
     def role(self, value: Optional[pulumi.Input['DatabaseUserRole']]):
         pulumi.set(self, "role", value)
 
+
+if not MYPY:
+    class FirewallRuleArgsDict(TypedDict):
+        type: pulumi.Input['FirewallRuleType']
+        """
+        The type of resource that the firewall rule allows to access the database cluster.
+        """
+        value: pulumi.Input[str]
+        """
+        The ID of the specific resource, the name of a tag applied to a group of resources, or the IP address that the firewall rule allows to access the database cluster.
+        """
+        cluster_uuid: NotRequired[pulumi.Input[str]]
+        """
+        A unique ID for the database cluster to which the rule is applied.
+        """
+        created_at: NotRequired[pulumi.Input[str]]
+        """
+        A time value given in ISO8601 combined date and time format that represents when the firewall rule was created.
+        """
+        uuid: NotRequired[pulumi.Input[str]]
+        """
+        A unique ID for the firewall rule itself.
+        """
+elif False:
+    FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallRuleArgs:
@@ -880,6 +1142,19 @@ class FirewallRuleArgs:
         pulumi.set(self, "uuid", value)
 
 
+if not MYPY:
+    class MysqlSettingsArgsDict(TypedDict):
+        auth_plugin: pulumi.Input['MysqlSettingsAuthPlugin']
+        """
+        A string specifying the authentication method to be used for connections
+        to the MySQL user account. The valid values are `mysql_native_password`
+        or `caching_sha2_password`. If excluded when creating a new user, the
+        default for the version of MySQL in use will be used. As of MySQL 8.0, the
+        default is `caching_sha2_password`.
+        """
+elif False:
+    MysqlSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MysqlSettingsArgs:
     def __init__(__self__, *,
@@ -909,6 +1184,39 @@ class MysqlSettingsArgs:
     def auth_plugin(self, value: pulumi.Input['MysqlSettingsAuthPlugin']):
         pulumi.set(self, "auth_plugin", value)
 
+
+if not MYPY:
+    class PrivateConnectionArgsDict(TypedDict):
+        database: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        ssl: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating if the connection should be made over SSL.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    PrivateConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateConnectionArgs:
@@ -1028,6 +1336,31 @@ class PrivateConnectionArgs:
     def user(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user", value)
 
+
+if not MYPY:
+    class SourcePropertiesArgsDict(TypedDict):
+        dbname: NotRequired[pulumi.Input[str]]
+        """
+        The name of the default database.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN pointing to the database cluster's current primary node.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The randomly generated password for the default user.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the database cluster is listening.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The default user for the database.
+        """
+elif False:
+    SourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourcePropertiesArgs:

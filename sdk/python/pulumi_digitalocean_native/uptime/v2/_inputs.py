@@ -4,16 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'NotificationSlackItemPropertiesArgs',
+    'NotificationSlackItemPropertiesArgsDict',
     'NotificationArgs',
+    'NotificationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NotificationSlackItemPropertiesArgsDict(TypedDict):
+        channel: pulumi.Input[str]
+        """
+        Slack channel to notify of an alert trigger.
+        """
+        url: pulumi.Input[str]
+        """
+        Slack Webhook URL.
+        """
+elif False:
+    NotificationSlackItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationSlackItemPropertiesArgs:
@@ -51,6 +73,22 @@ class NotificationSlackItemPropertiesArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class NotificationArgsDict(TypedDict):
+        """
+        The notification settings for a trigger alert.
+        """
+        email: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        An email to notify on an alert trigger.
+        """
+        slack: pulumi.Input[Sequence[pulumi.Input['NotificationSlackItemPropertiesArgsDict']]]
+        """
+        Slack integration details.
+        """
+elif False:
+    NotificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationArgs:

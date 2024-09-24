@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -158,9 +163,6 @@ def get_image_action(action_id: Optional[str] = None,
         started_at=pulumi.get(__ret__, 'started_at'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_image_action)
 def get_image_action_output(action_id: Optional[pulumi.Input[str]] = None,
                             image_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Action]:
@@ -170,4 +172,18 @@ def get_image_action_output(action_id: Optional[pulumi.Input[str]] = None,
     :param str action_id: A unique numeric ID that can be used to identify and reference an action.
     :param str image_id: A unique number that can be used to identify and reference a specific image.
     """
-    ...
+    __args__ = dict()
+    __args__['actionId'] = action_id
+    __args__['imageId'] = image_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:images/v2:getImageAction', __args__, opts=opts, typ=Action)
+    return __ret__.apply(lambda __response__: Action(
+        completed_at=pulumi.get(__response__, 'completed_at'),
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
+        region_slug=pulumi.get(__response__, 'region_slug'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        resource_type=pulumi.get(__response__, 'resource_type'),
+        started_at=pulumi.get(__response__, 'started_at'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -53,9 +58,6 @@ def get_kubernetes_available_upgrade(cluster_id: Optional[str] = None,
 
     return AwaitableGetKubernetesAvailableUpgradeProperties(
         available_upgrade_versions=pulumi.get(__ret__, 'available_upgrade_versions'))
-
-
-@_utilities.lift_output_func(get_kubernetes_available_upgrade)
 def get_kubernetes_available_upgrade_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesAvailableUpgradeProperties]:
     """
@@ -63,4 +65,9 @@ def get_kubernetes_available_upgrade_output(cluster_id: Optional[pulumi.Input[st
 
     :param str cluster_id: A unique ID that can be used to reference a Kubernetes cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade', __args__, opts=opts, typ=GetKubernetesAvailableUpgradeProperties)
+    return __ret__.apply(lambda __response__: GetKubernetesAvailableUpgradeProperties(
+        available_upgrade_versions=pulumi.get(__response__, 'available_upgrade_versions')))

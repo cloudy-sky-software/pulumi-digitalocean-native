@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -49,11 +54,12 @@ def list_apps_tiers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableApp
 
     return AwaitableAppsListTiersResponse(
         tiers=pulumi.get(__ret__, 'tiers'))
-
-
-@_utilities.lift_output_func(list_apps_tiers)
 def list_apps_tiers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListTiersResponse]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:listAppsTiers', __args__, opts=opts, typ=AppsListTiersResponse)
+    return __ret__.apply(lambda __response__: AppsListTiersResponse(
+        tiers=pulumi.get(__response__, 'tiers')))

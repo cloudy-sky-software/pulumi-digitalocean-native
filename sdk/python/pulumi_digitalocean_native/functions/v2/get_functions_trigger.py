@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -56,9 +61,6 @@ def get_functions_trigger(namespace_id: Optional[str] = None,
 
     return AwaitableGetFunctionsTriggerProperties(
         trigger=pulumi.get(__ret__, 'trigger'))
-
-
-@_utilities.lift_output_func(get_functions_trigger)
 def get_functions_trigger_output(namespace_id: Optional[pulumi.Input[str]] = None,
                                  trigger_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsTriggerProperties]:
@@ -68,4 +70,10 @@ def get_functions_trigger_output(namespace_id: Optional[pulumi.Input[str]] = Non
     :param str namespace_id: The ID of the namespace to be managed.
     :param str trigger_name: The name of the trigger to be managed.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceId'] = namespace_id
+    __args__['triggerName'] = trigger_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:functions/v2:getFunctionsTrigger', __args__, opts=opts, typ=GetFunctionsTriggerProperties)
+    return __ret__.apply(lambda __response__: GetFunctionsTriggerProperties(
+        trigger=pulumi.get(__response__, 'trigger')))

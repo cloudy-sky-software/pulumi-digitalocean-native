@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -69,11 +74,14 @@ def list_ssh_keys(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListS
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
-
-
-@_utilities.lift_output_func(list_ssh_keys)
 def list_ssh_keys_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSshKeysItems]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:account/v2:listSshKeys', __args__, opts=opts, typ=ListSshKeysItems)
+    return __ret__.apply(lambda __response__: ListSshKeysItems(
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta'),
+        ssh_keys=pulumi.get(__response__, 'ssh_keys')))

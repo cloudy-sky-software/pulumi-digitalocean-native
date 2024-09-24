@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def get_uptime_check_state(check_id: Optional[str] = None,
 
     return AwaitableGetUptimeCheckStateProperties(
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_uptime_check_state)
 def get_uptime_check_state_output(check_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeCheckStateProperties]:
     """
@@ -64,4 +66,9 @@ def get_uptime_check_state_output(check_id: Optional[pulumi.Input[str]] = None,
 
     :param str check_id: A unique identifier for a check.
     """
-    ...
+    __args__ = dict()
+    __args__['checkId'] = check_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:getUptimeCheckState', __args__, opts=opts, typ=GetUptimeCheckStateProperties)
+    return __ret__.apply(lambda __response__: GetUptimeCheckStateProperties(
+        state=pulumi.get(__response__, 'state')))

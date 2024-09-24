@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
@@ -82,9 +87,6 @@ def get_databases_migration_statu(database_cluster_uuid: Optional[str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_databases_migration_statu)
 def get_databases_migration_statu_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[OnlineMigration]:
     """
@@ -92,4 +94,11 @@ def get_databases_migration_statu_output(database_cluster_uuid: Optional[pulumi.
 
     :param str database_cluster_uuid: A unique identifier for a database cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseClusterUuid'] = database_cluster_uuid
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesMigrationStatu', __args__, opts=opts, typ=OnlineMigration)
+    return __ret__.apply(lambda __response__: OnlineMigration(
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        status=pulumi.get(__response__, 'status')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -53,9 +58,6 @@ def get_domain(domain_name: Optional[str] = None,
 
     return AwaitableGetDomainProperties(
         domain=pulumi.get(__ret__, 'domain'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainProperties]:
     """
@@ -63,4 +65,9 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     :param str domain_name: The name of the domain itself.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:domains/v2:getDomain', __args__, opts=opts, typ=GetDomainProperties)
+    return __ret__.apply(lambda __response__: GetDomainProperties(
+        domain=pulumi.get(__response__, 'domain')))

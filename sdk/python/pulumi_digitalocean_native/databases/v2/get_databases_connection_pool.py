@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -56,9 +61,6 @@ def get_databases_connection_pool(database_cluster_uuid: Optional[str] = None,
 
     return AwaitableGetDatabasesConnectionPoolProperties(
         pool=pulumi.get(__ret__, 'pool'))
-
-
-@_utilities.lift_output_func(get_databases_connection_pool)
 def get_databases_connection_pool_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                          pool_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesConnectionPoolProperties]:
@@ -68,4 +70,10 @@ def get_databases_connection_pool_output(database_cluster_uuid: Optional[pulumi.
     :param str database_cluster_uuid: A unique identifier for a database cluster.
     :param str pool_name: The name used to identify the connection pool.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseClusterUuid'] = database_cluster_uuid
+    __args__['poolName'] = pool_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesConnectionPool', __args__, opts=opts, typ=GetDatabasesConnectionPoolProperties)
+    return __ret__.apply(lambda __response__: GetDatabasesConnectionPoolProperties(
+        pool=pulumi.get(__response__, 'pool')))

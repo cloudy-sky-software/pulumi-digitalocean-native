@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def get_load_balancer(lb_id: Optional[str] = None,
 
     return AwaitableGetLoadBalancerProperties(
         load_balancer=pulumi.get(__ret__, 'load_balancer'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(lb_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerProperties]:
     """
@@ -64,4 +66,9 @@ def get_load_balancer_output(lb_id: Optional[pulumi.Input[str]] = None,
 
     :param str lb_id: A unique identifier for a load balancer.
     """
-    ...
+    __args__ = dict()
+    __args__['lbId'] = lb_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:load_balancers/v2:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerProperties)
+    return __ret__.apply(lambda __response__: GetLoadBalancerProperties(
+        load_balancer=pulumi.get(__response__, 'load_balancer')))

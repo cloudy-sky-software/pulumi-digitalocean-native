@@ -4,19 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'FirewallPropertiesPendingChangesItemPropertiesArgs',
+    'FirewallPropertiesPendingChangesItemPropertiesArgsDict',
     'FirewallPropertiesTagsArgs',
+    'FirewallPropertiesTagsArgsDict',
     'FirewallRulesInboundRulesItemArgs',
+    'FirewallRulesInboundRulesItemArgsDict',
     'FirewallRulesOutboundRulesItemArgs',
+    'FirewallRulesOutboundRulesItemArgsDict',
     'TagsArgs',
+    'TagsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FirewallPropertiesPendingChangesItemPropertiesArgsDict(TypedDict):
+        droplet_id: NotRequired[pulumi.Input[int]]
+        removing: NotRequired[pulumi.Input[bool]]
+        status: NotRequired[pulumi.Input[str]]
+elif False:
+    FirewallPropertiesPendingChangesItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPropertiesPendingChangesItemPropertiesArgs:
@@ -59,11 +79,30 @@ class FirewallPropertiesPendingChangesItemPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class FirewallPropertiesTagsArgsDict(TypedDict):
+        pass
+elif False:
+    FirewallPropertiesTagsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPropertiesTagsArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class FirewallRulesInboundRulesItemArgsDict(TypedDict):
+        ports: pulumi.Input[str]
+        """
+        The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
+        """
+        protocol: pulumi.Input['FirewallRuleBaseProtocol']
+        """
+        The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+        """
+elif False:
+    FirewallRulesInboundRulesItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallRulesInboundRulesItemArgs:
@@ -102,6 +141,19 @@ class FirewallRulesInboundRulesItemArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class FirewallRulesOutboundRulesItemArgsDict(TypedDict):
+        ports: pulumi.Input[str]
+        """
+        The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
+        """
+        protocol: pulumi.Input['FirewallRuleBaseProtocol']
+        """
+        The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
+        """
+elif False:
+    FirewallRulesOutboundRulesItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallRulesOutboundRulesItemArgs:
     def __init__(__self__, *,
@@ -138,6 +190,12 @@ class FirewallRulesOutboundRulesItemArgs:
     def protocol(self, value: pulumi.Input['FirewallRuleBaseProtocol']):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class TagsArgsDict(TypedDict):
+        pass
+elif False:
+    TagsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagsArgs:

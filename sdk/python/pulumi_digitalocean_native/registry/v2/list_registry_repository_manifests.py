@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -76,9 +81,6 @@ def list_registry_repository_manifests(registry_name: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         manifests=pulumi.get(__ret__, 'manifests'),
         meta=pulumi.get(__ret__, 'meta'))
-
-
-@_utilities.lift_output_func(list_registry_repository_manifests)
 def list_registry_repository_manifests_output(registry_name: Optional[pulumi.Input[str]] = None,
                                               repository_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryManifestsItems]:
@@ -88,4 +90,12 @@ def list_registry_repository_manifests_output(registry_name: Optional[pulumi.Inp
     :param str registry_name: The name of a container registry.
     :param str repository_name: The name of a container registry repository. If the name contains `/` characters, they must be URL-encoded, e.g. `%2F`.
     """
-    ...
+    __args__ = dict()
+    __args__['registryName'] = registry_name
+    __args__['repositoryName'] = repository_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryRepositoryManifests', __args__, opts=opts, typ=ListRegistryRepositoryManifestsItems)
+    return __ret__.apply(lambda __response__: ListRegistryRepositoryManifestsItems(
+        links=pulumi.get(__response__, 'links'),
+        manifests=pulumi.get(__response__, 'manifests'),
+        meta=pulumi.get(__response__, 'meta')))

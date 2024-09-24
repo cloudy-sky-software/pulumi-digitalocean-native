@@ -4,19 +4,48 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from ._enums import *
 
 __all__ = [
     'KubernetesNodePoolTaintArgs',
+    'KubernetesNodePoolTaintArgsDict',
     'KubernetesNodePoolArgs',
+    'KubernetesNodePoolArgsDict',
     'MaintenancePolicyArgs',
+    'MaintenancePolicyArgsDict',
     'NodeStatusPropertiesArgs',
+    'NodeStatusPropertiesArgsDict',
     'NodeArgs',
+    'NodeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class KubernetesNodePoolTaintArgsDict(TypedDict):
+        effect: NotRequired[pulumi.Input['KubernetesNodePoolTaintEffect']]
+        """
+        How the node reacts to pods that it won't tolerate. Available effect values are `NoSchedule`, `PreferNoSchedule`, and `NoExecute`.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        An arbitrary string. The `key` and `value` fields of the `taint` object form a key-value pair. For example, if the value of the `key` field is "special" and the value of the `value` field is "gpu", the key value pair would be `special=gpu`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        An arbitrary string. The `key` and `value` fields of the `taint` object form a key-value pair. For example, if the value of the `key` field is "special" and the value of the `value` field is "gpu", the key value pair would be `special=gpu`.
+        """
+elif False:
+    KubernetesNodePoolTaintArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesNodePoolTaintArgs:
@@ -72,6 +101,55 @@ class KubernetesNodePoolTaintArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class KubernetesNodePoolArgsDict(TypedDict):
+        auto_scale: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating whether auto-scaling is enabled for this node pool.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Droplet instances in the node pool.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        A unique ID that can be used to identify and reference a specific node pool.
+        """
+        labels: NotRequired[Any]
+        """
+        An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool.
+        """
+        max_nodes: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
+        """
+        min_nodes: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A human-readable name for the node pool.
+        """
+        nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NodeArgsDict']]]]
+        """
+        An object specifying the details of a specific worker node in a node pool.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The slug identifier for the type of Droplet used as workers in the node pool.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`.
+        """
+        taints: NotRequired[pulumi.Input[Sequence[pulumi.Input['KubernetesNodePoolTaintArgsDict']]]]
+        """
+        An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
+        """
+elif False:
+    KubernetesNodePoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesNodePoolArgs:
@@ -256,6 +334,26 @@ class KubernetesNodePoolArgs:
         pulumi.set(self, "taints", value)
 
 
+if not MYPY:
+    class MaintenancePolicyArgsDict(TypedDict):
+        """
+        An object specifying the maintenance window policy for the Kubernetes cluster.
+        """
+        day: NotRequired[pulumi.Input['MaintenancePolicyDay']]
+        """
+        The day of the maintenance window policy. May be one of `monday` through `sunday`, or `any` to indicate an arbitrary week day.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration of the maintenance window policy in human-readable format.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        The start time in UTC of the maintenance window policy in 24-hour clock format / HH:MM notation (e.g., `15:00`).
+        """
+elif False:
+    MaintenancePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MaintenancePolicyArgs:
     def __init__(__self__, *,
@@ -312,6 +410,18 @@ class MaintenancePolicyArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class NodeStatusPropertiesArgsDict(TypedDict):
+        """
+        An object containing a `state` attribute whose value is set to a string indicating the current status of the node.
+        """
+        state: NotRequired[pulumi.Input['NodeStatusPropertiesState']]
+        """
+        A string indicating the current status of the node.
+        """
+elif False:
+    NodeStatusPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeStatusPropertiesArgs:
     def __init__(__self__, *,
@@ -335,6 +445,35 @@ class NodeStatusPropertiesArgs:
     def state(self, value: Optional[pulumi.Input['NodeStatusPropertiesState']]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class NodeArgsDict(TypedDict):
+        created_at: NotRequired[pulumi.Input[str]]
+        """
+        A time value given in ISO8601 combined date and time format that represents when the node was created.
+        """
+        droplet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Droplet used for the worker node.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        A unique ID that can be used to identify and reference the node.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        An automatically generated, human-readable name for the node.
+        """
+        status: NotRequired[pulumi.Input['NodeStatusPropertiesArgsDict']]
+        """
+        An object containing a `state` attribute whose value is set to a string indicating the current status of the node.
+        """
+        updated_at: NotRequired[pulumi.Input[str]]
+        """
+        A time value given in ISO8601 combined date and time format that represents when the node was last updated.
+        """
+elif False:
+    NodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeArgs:

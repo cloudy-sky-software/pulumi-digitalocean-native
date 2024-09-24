@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,9 +59,6 @@ def list_registry_garbage_collections(registry_name: Optional[str] = None,
 
     return AwaitableListRegistryGarbageCollectionsProperties(
         garbage_collections=pulumi.get(__ret__, 'garbage_collections'))
-
-
-@_utilities.lift_output_func(list_registry_garbage_collections)
 def list_registry_garbage_collections_output(registry_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryGarbageCollectionsProperties]:
     """
@@ -64,4 +66,9 @@ def list_registry_garbage_collections_output(registry_name: Optional[pulumi.Inpu
 
     :param str registry_name: The name of a container registry.
     """
-    ...
+    __args__ = dict()
+    __args__['registryName'] = registry_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryGarbageCollections', __args__, opts=opts, typ=ListRegistryGarbageCollectionsProperties)
+    return __ret__.apply(lambda __response__: ListRegistryGarbageCollectionsProperties(
+        garbage_collections=pulumi.get(__response__, 'garbage_collections')))

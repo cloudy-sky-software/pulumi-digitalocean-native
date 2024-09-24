@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,11 +55,12 @@ def get_registry_option(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
 
     return AwaitableGetRegistryOptionProperties(
         options=pulumi.get(__ret__, 'options'))
-
-
-@_utilities.lift_output_func(get_registry_option)
 def get_registry_option_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryOptionProperties]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:getRegistryOption', __args__, opts=opts, typ=GetRegistryOptionProperties)
+    return __ret__.apply(lambda __response__: GetRegistryOptionProperties(
+        options=pulumi.get(__response__, 'options')))

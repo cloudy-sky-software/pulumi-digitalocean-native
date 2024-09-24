@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,9 +79,6 @@ def list_uptime_alerts(check_id: Optional[str] = None,
         alerts=pulumi.get(__ret__, 'alerts'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-
-
-@_utilities.lift_output_func(list_uptime_alerts)
 def list_uptime_alerts_output(check_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUptimeAlertsItems]:
     """
@@ -84,4 +86,11 @@ def list_uptime_alerts_output(check_id: Optional[pulumi.Input[str]] = None,
 
     :param str check_id: A unique identifier for a check.
     """
-    ...
+    __args__ = dict()
+    __args__['checkId'] = check_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:listUptimeAlerts', __args__, opts=opts, typ=ListUptimeAlertsItems)
+    return __ret__.apply(lambda __response__: ListUptimeAlertsItems(
+        alerts=pulumi.get(__response__, 'alerts'),
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta')))

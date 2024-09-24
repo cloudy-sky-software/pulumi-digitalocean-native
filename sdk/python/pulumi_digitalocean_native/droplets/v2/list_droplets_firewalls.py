@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -74,9 +79,6 @@ def list_droplets_firewalls(droplet_id: Optional[str] = None,
         firewalls=pulumi.get(__ret__, 'firewalls'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-
-
-@_utilities.lift_output_func(list_droplets_firewalls)
 def list_droplets_firewalls_output(droplet_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsFirewallsItems]:
     """
@@ -84,4 +86,11 @@ def list_droplets_firewalls_output(droplet_id: Optional[pulumi.Input[str]] = Non
 
     :param str droplet_id: A unique identifier for a Droplet instance.
     """
-    ...
+    __args__ = dict()
+    __args__['dropletId'] = droplet_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:listDropletsFirewalls', __args__, opts=opts, typ=ListDropletsFirewallsItems)
+    return __ret__.apply(lambda __response__: ListDropletsFirewallsItems(
+        firewalls=pulumi.get(__response__, 'firewalls'),
+        links=pulumi.get(__response__, 'links'),
+        meta=pulumi.get(__response__, 'meta')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -93,9 +98,6 @@ def list_droplets_associated_resources(droplet_id: Optional[str] = None,
         snapshots=pulumi.get(__ret__, 'snapshots'),
         volume_snapshots=pulumi.get(__ret__, 'volume_snapshots'),
         volumes=pulumi.get(__ret__, 'volumes'))
-
-
-@_utilities.lift_output_func(list_droplets_associated_resources)
 def list_droplets_associated_resources_output(droplet_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsAssociatedResourcesItems]:
     """
@@ -103,4 +105,13 @@ def list_droplets_associated_resources_output(droplet_id: Optional[pulumi.Input[
 
     :param str droplet_id: A unique identifier for a Droplet instance.
     """
-    ...
+    __args__ = dict()
+    __args__['dropletId'] = droplet_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:listDropletsAssociatedResources', __args__, opts=opts, typ=ListDropletsAssociatedResourcesItems)
+    return __ret__.apply(lambda __response__: ListDropletsAssociatedResourcesItems(
+        floating_ips=pulumi.get(__response__, 'floating_ips'),
+        reserved_ips=pulumi.get(__response__, 'reserved_ips'),
+        snapshots=pulumi.get(__response__, 'snapshots'),
+        volume_snapshots=pulumi.get(__response__, 'volume_snapshots'),
+        volumes=pulumi.get(__response__, 'volumes')))

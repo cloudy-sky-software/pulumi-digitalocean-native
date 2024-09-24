@@ -4,15 +4,33 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 
 __all__ = [
     'ScheduledDetailsBodyPropertiesArgs',
+    'ScheduledDetailsBodyPropertiesArgsDict',
     'ScheduledDetailsArgs',
+    'ScheduledDetailsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ScheduledDetailsBodyPropertiesArgsDict(TypedDict):
+        """
+        Optional data to be sent to function while triggering the function.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ScheduledDetailsBodyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledDetailsBodyPropertiesArgs:
@@ -33,6 +51,22 @@ class ScheduledDetailsBodyPropertiesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ScheduledDetailsArgsDict(TypedDict):
+        """
+        Trigger details for SCHEDULED type, where body is optional.
+        """
+        cron: pulumi.Input[str]
+        """
+        valid cron expression string which is required for SCHEDULED type triggers.
+        """
+        body: NotRequired[pulumi.Input['ScheduledDetailsBodyPropertiesArgsDict']]
+        """
+        Optional data to be sent to function while triggering the function.
+        """
+elif False:
+    ScheduledDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledDetailsArgs:

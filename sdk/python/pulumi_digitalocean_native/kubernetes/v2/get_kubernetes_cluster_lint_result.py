@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -95,9 +100,6 @@ def get_kubernetes_cluster_lint_result(cluster_id: Optional[str] = None,
         diagnostics=pulumi.get(__ret__, 'diagnostics'),
         requested_at=pulumi.get(__ret__, 'requested_at'),
         run_id=pulumi.get(__ret__, 'run_id'))
-
-
-@_utilities.lift_output_func(get_kubernetes_cluster_lint_result)
 def get_kubernetes_cluster_lint_result_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ClusterlintResults]:
     """
@@ -105,4 +107,12 @@ def get_kubernetes_cluster_lint_result_output(cluster_id: Optional[pulumi.Input[
 
     :param str cluster_id: A unique ID that can be used to reference a Kubernetes cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult', __args__, opts=opts, typ=ClusterlintResults)
+    return __ret__.apply(lambda __response__: ClusterlintResults(
+        completed_at=pulumi.get(__response__, 'completed_at'),
+        diagnostics=pulumi.get(__response__, 'diagnostics'),
+        requested_at=pulumi.get(__response__, 'requested_at'),
+        run_id=pulumi.get(__response__, 'run_id')))

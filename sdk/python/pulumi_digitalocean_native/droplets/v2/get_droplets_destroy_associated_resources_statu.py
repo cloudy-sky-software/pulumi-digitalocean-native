@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
 
@@ -98,9 +103,6 @@ def get_droplets_destroy_associated_resources_statu(droplet_id: Optional[str] = 
         droplet=pulumi.get(__ret__, 'droplet'),
         failures=pulumi.get(__ret__, 'failures'),
         resources=pulumi.get(__ret__, 'resources'))
-
-
-@_utilities.lift_output_func(get_droplets_destroy_associated_resources_statu)
 def get_droplets_destroy_associated_resources_statu_output(droplet_id: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AssociatedResourceStatus]:
     """
@@ -108,4 +110,12 @@ def get_droplets_destroy_associated_resources_statu_output(droplet_id: Optional[
 
     :param str droplet_id: A unique identifier for a Droplet instance.
     """
-    ...
+    __args__ = dict()
+    __args__['dropletId'] = droplet_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu', __args__, opts=opts, typ=AssociatedResourceStatus)
+    return __ret__.apply(lambda __response__: AssociatedResourceStatus(
+        completed_at=pulumi.get(__response__, 'completed_at'),
+        droplet=pulumi.get(__response__, 'droplet'),
+        failures=pulumi.get(__response__, 'failures'),
+        resources=pulumi.get(__response__, 'resources')))
