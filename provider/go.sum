@@ -125,6 +125,8 @@ github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240926171627-f
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240926171627-fd2ed1205b7a/go.mod h1:Y5NG7Q80fI+9QqqTSC3JjbCyV++HzT8JpqqFMfKKUvM=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240930050354-6118341e8f02 h1:5e76XOtmLh1OtjTdRiBChPhkdQ+j0xx9p+IKXJaaQds=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20240930050354-6118341e8f02/go.mod h1:Y5NG7Q80fI+9QqqTSC3JjbCyV++HzT8JpqqFMfKKUvM=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20241001082645-ac9a459bf509 h1:4j0JHb7dGl47t0KBLBgH9d1VSHfRoimOiju1t9slLYA=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20241001082645-ac9a459bf509/go.mod h1:jucoHtoFzm/AAs/DhyLZjmYEwK913/j+sDy0YO9i/s8=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/containerd/console v1.0.4 h1:F2g4+oChYvBTsASRTz8NP6iIAi97J3TtSAsLbIFn4ro=
 github.com/containerd/console v1.0.4/go.mod h1:YynlIjWYF8myEu6sdkwKIvGQq+cOckRm6So2avqoYAk=
@@ -623,6 +625,8 @@ google.golang.org/grpc v1.27.0/go.mod h1:qbnxyOmOxrQa7FizSgH+ReBfzJrCY1pSN7KXBS8
 google.golang.org/grpc v1.33.2/go.mod h1:JMHMWHQWaTccqQQlmk3MJZS+GWXOdAesneDmEnv2fbc=
 google.golang.org/grpc v1.67.0 h1:IdH9y6PF5MPSdAntIcpjQ+tXO41pcQsfZV2RxtQgVcw=
 google.golang.org/grpc v1.67.0/go.mod h1:1gLDyUQU7CTLJI90u3nXZ9ekeghjeM7pTDZlqFNg2AA=
+google.golang.org/grpc v1.67.1 h1:zWnc1Vrcno+lHZCOofnIMvycFcc0QRGIzm9dhnDX68E=
+google.golang.org/grpc v1.67.1/go.mod h1:1gLDyUQU7CTLJI90u3nXZ9ekeghjeM7pTDZlqFNg2AA=
 google.golang.org/protobuf v0.0.0-20200109180630-ec00e32a8dfd/go.mod h1:DFci5gLYBciE7Vtevhsrf46CRTquxDuWsQurQQe4oz8=
 google.golang.org/protobuf v0.0.0-20200221191635-4d8936d0db64/go.mod h1:kwYJMbMJ01Woi6D6+Kah6886xMZcty6N08ah7+eCXa0=
 google.golang.org/protobuf v0.0.0-20200228230310-ab0ca4ff8a60/go.mod h1:cfTl7dwQJ+fmap5saPgwCLgHXTUD7jkjRqWcaiX5VyM=
