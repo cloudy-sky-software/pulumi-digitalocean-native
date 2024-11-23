@@ -25,7 +25,7 @@ export interface GetReservedIPsActionArgs {
      */
     reservedIp: string;
 }
-export function getReservedIPsActionOutput(args: GetReservedIPsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.GetReservedIPsActionProperties> {
+export function getReservedIPsActionOutput(args: GetReservedIPsActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.reserved_ips.v2.GetReservedIPsActionProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:reserved_ips/v2:getReservedIPsAction", {
         "actionId": args.actionId,

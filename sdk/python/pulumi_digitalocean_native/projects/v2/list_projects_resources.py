@@ -80,7 +80,7 @@ def list_projects_resources(project_id: Optional[str] = None,
         meta=pulumi.get(__ret__, 'meta'),
         resources=pulumi.get(__ret__, 'resources'))
 def list_projects_resources_output(project_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsResourcesItems]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProjectsResourcesItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,7 +88,7 @@ def list_projects_resources_output(project_id: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:projects/v2:listProjectsResources', __args__, opts=opts, typ=ListProjectsResourcesItems)
     return __ret__.apply(lambda __response__: ListProjectsResourcesItems(
         links=pulumi.get(__response__, 'links'),

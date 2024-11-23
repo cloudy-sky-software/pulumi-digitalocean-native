@@ -77,12 +77,12 @@ def list_volumes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVo
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         volumes=pulumi.get(__ret__, 'volumes'))
-def list_volumes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumesItems]:
+def list_volumes_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVolumesItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:volumes/v2:listVolumes', __args__, opts=opts, typ=ListVolumesItems)
     return __ret__.apply(lambda __response__: ListVolumesItems(
         links=pulumi.get(__response__, 'links'),

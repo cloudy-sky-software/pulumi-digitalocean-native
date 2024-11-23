@@ -16,7 +16,7 @@ export function listDatabasesOptions(args?: ListDatabasesOptionsArgs, opts?: pul
 
 export interface ListDatabasesOptionsArgs {
 }
-export function listDatabasesOptionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.Options> {
+export function listDatabasesOptionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.Options> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:listDatabasesOptions", {
     }, opts);

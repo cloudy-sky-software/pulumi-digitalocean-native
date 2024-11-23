@@ -59,7 +59,7 @@ def get_vpc(vpc_id: Optional[str] = None,
     return AwaitableGetVpcProperties(
         vpc=pulumi.get(__ret__, 'vpc'))
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcProperties]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:vpcs/v2:getVpc', __args__, opts=opts, typ=GetVpcProperties)
     return __ret__.apply(lambda __response__: GetVpcProperties(
         vpc=pulumi.get(__response__, 'vpc')))

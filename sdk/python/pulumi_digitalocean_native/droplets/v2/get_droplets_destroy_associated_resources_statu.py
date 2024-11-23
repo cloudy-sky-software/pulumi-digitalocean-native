@@ -104,7 +104,7 @@ def get_droplets_destroy_associated_resources_statu(droplet_id: Optional[str] = 
         failures=pulumi.get(__ret__, 'failures'),
         resources=pulumi.get(__ret__, 'resources'))
 def get_droplets_destroy_associated_resources_statu_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AssociatedResourceStatus]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AssociatedResourceStatus]:
     """
     Use this data source to access information about an existing resource.
 
@@ -112,7 +112,7 @@ def get_droplets_destroy_associated_resources_statu_output(droplet_id: Optional[
     """
     __args__ = dict()
     __args__['dropletId'] = droplet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu', __args__, opts=opts, typ=AssociatedResourceStatus)
     return __ret__.apply(lambda __response__: AssociatedResourceStatus(
         completed_at=pulumi.get(__response__, 'completed_at'),

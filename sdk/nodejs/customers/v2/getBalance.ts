@@ -16,7 +16,7 @@ export function getBalance(args?: GetBalanceArgs, opts?: pulumi.InvokeOptions): 
 
 export interface GetBalanceArgs {
 }
-export function getBalanceOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.Balance> {
+export function getBalanceOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.customers.v2.Balance> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:customers/v2:getBalance", {
     }, opts);

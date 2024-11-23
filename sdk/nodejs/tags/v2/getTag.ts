@@ -20,7 +20,7 @@ export interface GetTagArgs {
      */
     tagId: string;
 }
-export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.tags.v2.GetTagProperties> {
+export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.tags.v2.GetTagProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:tags/v2:getTag", {
         "tagId": args.tagId,

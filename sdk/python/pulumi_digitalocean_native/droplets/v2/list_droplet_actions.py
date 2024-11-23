@@ -80,7 +80,7 @@ def list_droplet_actions(droplet_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_droplet_actions_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletActionsItems]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDropletActionsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,7 +88,7 @@ def list_droplet_actions_output(droplet_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dropletId'] = droplet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:listDropletActions', __args__, opts=opts, typ=ListDropletActionsItems)
     return __ret__.apply(lambda __response__: ListDropletActionsItems(
         actions=pulumi.get(__response__, 'actions'),

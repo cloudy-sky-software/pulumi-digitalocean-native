@@ -138,7 +138,7 @@ def get_kubernetes_credential(cluster_id: Optional[str] = None,
         server=pulumi.get(__ret__, 'server'),
         token=pulumi.get(__ret__, 'token'))
 def get_kubernetes_credential_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Credentials]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[Credentials]:
     """
     Use this data source to access information about an existing resource.
 
@@ -146,7 +146,7 @@ def get_kubernetes_credential_output(cluster_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesCredential', __args__, opts=opts, typ=Credentials)
     return __ret__.apply(lambda __response__: Credentials(
         certificate_authority_data=pulumi.get(__response__, 'certificate_authority_data'),

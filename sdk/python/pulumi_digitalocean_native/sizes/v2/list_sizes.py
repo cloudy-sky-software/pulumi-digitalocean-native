@@ -74,12 +74,12 @@ def list_sizes(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSize
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         sizes=pulumi.get(__ret__, 'sizes'))
-def list_sizes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSizesItems]:
+def list_sizes_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSizesItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:sizes/v2:listSizes', __args__, opts=opts, typ=ListSizesItems)
     return __ret__.apply(lambda __response__: ListSizesItems(
         links=pulumi.get(__response__, 'links'),

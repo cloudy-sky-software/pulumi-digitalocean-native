@@ -30,7 +30,7 @@ export interface GetAppsLogArgs {
      */
     deploymentId: string;
 }
-export function getAppsLogOutput(args: GetAppsLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
+export function getAppsLogOutput(args: GetAppsLogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsLog", {
         "appId": args.appId,

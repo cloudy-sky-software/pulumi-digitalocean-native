@@ -16,7 +16,7 @@ export function getMonitoringDropletBandwidthMetric(args?: GetMonitoringDropletB
 
 export interface GetMonitoringDropletBandwidthMetricArgs {
 }
-export function getMonitoringDropletBandwidthMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
+export function getMonitoringDropletBandwidthMetricOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", {
     }, opts);

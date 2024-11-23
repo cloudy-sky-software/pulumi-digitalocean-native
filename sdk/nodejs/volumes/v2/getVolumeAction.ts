@@ -25,7 +25,7 @@ export interface GetVolumeActionArgs {
      */
     volumeId: string;
 }
-export function getVolumeActionOutput(args: GetVolumeActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.GetVolumeActionProperties> {
+export function getVolumeActionOutput(args: GetVolumeActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.v2.GetVolumeActionProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:volumes/v2:getVolumeAction", {
         "actionId": args.actionId,

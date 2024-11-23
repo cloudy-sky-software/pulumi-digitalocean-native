@@ -25,7 +25,7 @@ export interface GetImageActionArgs {
      */
     imageId: string;
 }
-export function getImageActionOutput(args: GetImageActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.v2.Action> {
+export function getImageActionOutput(args: GetImageActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.images.v2.Action> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:images/v2:getImageAction", {
         "actionId": args.actionId,

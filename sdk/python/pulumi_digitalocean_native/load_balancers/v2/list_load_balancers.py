@@ -75,12 +75,12 @@ def list_load_balancers(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         links=pulumi.get(__ret__, 'links'),
         load_balancers=pulumi.get(__ret__, 'load_balancers'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_load_balancers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLoadBalancersItems]:
+def list_load_balancers_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLoadBalancersItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:load_balancers/v2:listLoadBalancers', __args__, opts=opts, typ=ListLoadBalancersItems)
     return __ret__.apply(lambda __response__: ListLoadBalancersItems(
         links=pulumi.get(__response__, 'links'),

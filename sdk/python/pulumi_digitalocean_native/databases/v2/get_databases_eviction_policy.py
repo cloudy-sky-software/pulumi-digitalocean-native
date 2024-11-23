@@ -69,7 +69,7 @@ def get_databases_eviction_policy(database_cluster_uuid: Optional[str] = None,
     return AwaitableGetDatabasesEvictionPolicyProperties(
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'))
 def get_databases_eviction_policy_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesEvictionPolicyProperties]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasesEvictionPolicyProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -77,7 +77,7 @@ def get_databases_eviction_policy_output(database_cluster_uuid: Optional[pulumi.
     """
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesEvictionPolicy', __args__, opts=opts, typ=GetDatabasesEvictionPolicyProperties)
     return __ret__.apply(lambda __response__: GetDatabasesEvictionPolicyProperties(
         eviction_policy=pulumi.get(__response__, 'eviction_policy')))

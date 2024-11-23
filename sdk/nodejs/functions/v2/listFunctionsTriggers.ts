@@ -20,7 +20,7 @@ export interface ListFunctionsTriggersArgs {
      */
     namespaceId: string;
 }
-export function listFunctionsTriggersOutput(args: ListFunctionsTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.ListFunctionsTriggersItems> {
+export function listFunctionsTriggersOutput(args: ListFunctionsTriggersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.functions.v2.ListFunctionsTriggersItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:functions/v2:listFunctionsTriggers", {
         "namespaceId": args.namespaceId,

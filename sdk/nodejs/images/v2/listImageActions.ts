@@ -20,7 +20,7 @@ export interface ListImageActionsArgs {
      */
     imageId: string;
 }
-export function listImageActionsOutput(args: ListImageActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.v2.ListImageActionsItems> {
+export function listImageActionsOutput(args: ListImageActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.images.v2.ListImageActionsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:images/v2:listImageActions", {
         "imageId": args.imageId,

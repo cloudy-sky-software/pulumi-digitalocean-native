@@ -16,7 +16,7 @@ export function listUptimeChecks(args?: ListUptimeChecksArgs, opts?: pulumi.Invo
 
 export interface ListUptimeChecksArgs {
 }
-export function listUptimeChecksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.ListUptimeChecksItems> {
+export function listUptimeChecksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.uptime.v2.ListUptimeChecksItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:uptime/v2:listUptimeChecks", {
     }, opts);

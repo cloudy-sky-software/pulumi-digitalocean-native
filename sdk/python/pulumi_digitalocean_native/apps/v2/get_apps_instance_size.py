@@ -60,7 +60,7 @@ def get_apps_instance_size(slug: Optional[str] = None,
     return AwaitableAppsGetInstanceSizeResponse(
         instance_size=pulumi.get(__ret__, 'instance_size'))
 def get_apps_instance_size_output(slug: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetInstanceSizeResponse]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsGetInstanceSizeResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_apps_instance_size_output(slug: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['slug'] = slug
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsInstanceSize', __args__, opts=opts, typ=AppsGetInstanceSizeResponse)
     return __ret__.apply(lambda __response__: AppsGetInstanceSizeResponse(
         instance_size=pulumi.get(__response__, 'instance_size')))

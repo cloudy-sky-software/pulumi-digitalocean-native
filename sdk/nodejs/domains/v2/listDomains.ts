@@ -16,7 +16,7 @@ export function listDomains(args?: ListDomainsArgs, opts?: pulumi.InvokeOptions)
 
 export interface ListDomainsArgs {
 }
-export function listDomainsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.domains.v2.ListDomainsItems> {
+export function listDomainsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.domains.v2.ListDomainsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:domains/v2:listDomains", {
     }, opts);

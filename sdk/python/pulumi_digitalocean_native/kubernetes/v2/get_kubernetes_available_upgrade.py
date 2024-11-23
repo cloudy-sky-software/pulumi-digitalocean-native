@@ -59,7 +59,7 @@ def get_kubernetes_available_upgrade(cluster_id: Optional[str] = None,
     return AwaitableGetKubernetesAvailableUpgradeProperties(
         available_upgrade_versions=pulumi.get(__ret__, 'available_upgrade_versions'))
 def get_kubernetes_available_upgrade_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesAvailableUpgradeProperties]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesAvailableUpgradeProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_kubernetes_available_upgrade_output(cluster_id: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade', __args__, opts=opts, typ=GetKubernetesAvailableUpgradeProperties)
     return __ret__.apply(lambda __response__: GetKubernetesAvailableUpgradeProperties(
         available_upgrade_versions=pulumi.get(__response__, 'available_upgrade_versions')))

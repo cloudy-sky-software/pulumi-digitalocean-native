@@ -60,7 +60,7 @@ def get_action(action_id: Optional[str] = None,
     return AwaitableGetActionProperties(
         action=pulumi.get(__ret__, 'action'))
 def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionProperties]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['actionId'] = action_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:actions/v2:getAction', __args__, opts=opts, typ=GetActionProperties)
     return __ret__.apply(lambda __response__: GetActionProperties(
         action=pulumi.get(__response__, 'action')))

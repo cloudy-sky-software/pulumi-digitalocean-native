@@ -20,7 +20,7 @@ export interface GetActionArgs {
      */
     actionId: string;
 }
-export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.actions.v2.GetActionProperties> {
+export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.actions.v2.GetActionProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:actions/v2:getAction", {
         "actionId": args.actionId,

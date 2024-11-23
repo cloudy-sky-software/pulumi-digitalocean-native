@@ -20,7 +20,7 @@ export interface ListAppsAlertsArgs {
      */
     appId: string;
 }
-export function listAppsAlertsOutput(args: ListAppsAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListAlertsResponse> {
+export function listAppsAlertsOutput(args: ListAppsAlertsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsListAlertsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsAlerts", {
         "appId": args.appId,

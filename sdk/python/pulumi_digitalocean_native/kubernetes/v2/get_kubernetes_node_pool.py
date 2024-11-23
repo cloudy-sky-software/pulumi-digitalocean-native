@@ -64,7 +64,7 @@ def get_kubernetes_node_pool(cluster_id: Optional[str] = None,
         node_pool=pulumi.get(__ret__, 'node_pool'))
 def get_kubernetes_node_pool_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                     node_pool_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesNodePoolProperties]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesNodePoolProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_kubernetes_node_pool_output(cluster_id: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     __args__['nodePoolId'] = node_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesNodePool', __args__, opts=opts, typ=GetKubernetesNodePoolProperties)
     return __ret__.apply(lambda __response__: GetKubernetesNodePoolProperties(
         node_pool=pulumi.get(__response__, 'node_pool')))

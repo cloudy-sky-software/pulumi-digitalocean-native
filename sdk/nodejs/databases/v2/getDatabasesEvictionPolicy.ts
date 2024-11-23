@@ -20,7 +20,7 @@ export interface GetDatabasesEvictionPolicyArgs {
      */
     databaseClusterUuid: string;
 }
-export function getDatabasesEvictionPolicyOutput(args: GetDatabasesEvictionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.GetDatabasesEvictionPolicyProperties> {
+export function getDatabasesEvictionPolicyOutput(args: GetDatabasesEvictionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.GetDatabasesEvictionPolicyProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", {
         "databaseClusterUuid": args.databaseClusterUuid,

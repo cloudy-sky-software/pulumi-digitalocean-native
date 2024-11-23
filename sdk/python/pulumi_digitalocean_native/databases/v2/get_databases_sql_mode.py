@@ -61,7 +61,7 @@ def get_databases_sql_mode(database_cluster_uuid: Optional[str] = None,
     return AwaitableSqlMode(
         sql_mode=pulumi.get(__ret__, 'sql_mode'))
 def get_databases_sql_mode_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[SqlMode]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[SqlMode]:
     """
     Use this data source to access information about an existing resource.
 
@@ -69,7 +69,7 @@ def get_databases_sql_mode_output(database_cluster_uuid: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesSqlMode', __args__, opts=opts, typ=SqlMode)
     return __ret__.apply(lambda __response__: SqlMode(
         sql_mode=pulumi.get(__response__, 'sql_mode')))

@@ -64,7 +64,7 @@ def get_uptime_alert(alert_id: Optional[str] = None,
         alert=pulumi.get(__ret__, 'alert'))
 def get_uptime_alert_output(alert_id: Optional[pulumi.Input[str]] = None,
                             check_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeAlertProperties]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUptimeAlertProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_uptime_alert_output(alert_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['alertId'] = alert_id
     __args__['checkId'] = check_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:getUptimeAlert', __args__, opts=opts, typ=GetUptimeAlertProperties)
     return __ret__.apply(lambda __response__: GetUptimeAlertProperties(
         alert=pulumi.get(__response__, 'alert')))

@@ -20,7 +20,7 @@ export interface GetLoadBalancerArgs {
      */
     lbId: string;
 }
-export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.load_balancers.v2.GetLoadBalancerProperties> {
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.load_balancers.v2.GetLoadBalancerProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:load_balancers/v2:getLoadBalancer", {
         "lbId": args.lbId,

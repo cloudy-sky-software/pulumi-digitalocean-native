@@ -25,7 +25,7 @@ export interface GetDropletActionArgs {
      */
     dropletId: string;
 }
-export function getDropletActionOutput(args: GetDropletActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.GetDropletActionProperties> {
+export function getDropletActionOutput(args: GetDropletActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.droplets.v2.GetDropletActionProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:droplets/v2:getDropletAction", {
         "actionId": args.actionId,

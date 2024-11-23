@@ -16,7 +16,7 @@ export function listVolumes(args?: ListVolumesArgs, opts?: pulumi.InvokeOptions)
 
 export interface ListVolumesArgs {
 }
-export function listVolumesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.ListVolumesItems> {
+export function listVolumesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.v2.ListVolumesItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:volumes/v2:listVolumes", {
     }, opts);

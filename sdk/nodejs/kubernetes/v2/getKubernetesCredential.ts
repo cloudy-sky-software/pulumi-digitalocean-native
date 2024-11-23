@@ -20,7 +20,7 @@ export interface GetKubernetesCredentialArgs {
      */
     clusterId: string;
 }
-export function getKubernetesCredentialOutput(args: GetKubernetesCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.Credentials> {
+export function getKubernetesCredentialOutput(args: GetKubernetesCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.Credentials> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:getKubernetesCredential", {
         "clusterId": args.clusterId,

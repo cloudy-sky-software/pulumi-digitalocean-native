@@ -25,7 +25,7 @@ export interface GetKubernetesNodePoolArgs {
      */
     nodePoolId: string;
 }
-export function getKubernetesNodePoolOutput(args: GetKubernetesNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.GetKubernetesNodePoolProperties> {
+export function getKubernetesNodePoolOutput(args: GetKubernetesNodePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.GetKubernetesNodePoolProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:getKubernetesNodePool", {
         "clusterId": args.clusterId,

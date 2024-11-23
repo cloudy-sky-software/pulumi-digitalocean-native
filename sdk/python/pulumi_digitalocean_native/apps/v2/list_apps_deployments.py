@@ -80,7 +80,7 @@ def list_apps_deployments(app_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_apps_deployments_output(app_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsDeploymentsResponse]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsDeploymentsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,7 +88,7 @@ def list_apps_deployments_output(app_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['appId'] = app_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:listAppsDeployments', __args__, opts=opts, typ=AppsDeploymentsResponse)
     return __ret__.apply(lambda __response__: AppsDeploymentsResponse(
         deployments=pulumi.get(__response__, 'deployments'),

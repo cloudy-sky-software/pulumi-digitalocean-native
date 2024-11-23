@@ -16,7 +16,7 @@ export function getMonitoringDropletMemoryFreeMetric(args?: GetMonitoringDroplet
 
 export interface GetMonitoringDropletMemoryFreeMetricArgs {
 }
-export function getMonitoringDropletMemoryFreeMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
+export function getMonitoringDropletMemoryFreeMetricOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryFreeMetric", {
     }, opts);

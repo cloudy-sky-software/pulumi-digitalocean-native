@@ -63,7 +63,7 @@ def get_databases_connection_pool(database_cluster_uuid: Optional[str] = None,
         pool=pulumi.get(__ret__, 'pool'))
 def get_databases_connection_pool_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                          pool_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesConnectionPoolProperties]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasesConnectionPoolProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,7 +73,7 @@ def get_databases_connection_pool_output(database_cluster_uuid: Optional[pulumi.
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     __args__['poolName'] = pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesConnectionPool', __args__, opts=opts, typ=GetDatabasesConnectionPoolProperties)
     return __ret__.apply(lambda __response__: GetDatabasesConnectionPoolProperties(
         pool=pulumi.get(__response__, 'pool')))

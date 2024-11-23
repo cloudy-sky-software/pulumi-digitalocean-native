@@ -79,7 +79,7 @@ def list_vpcs_members(vpc_id: Optional[str] = None,
         members=pulumi.get(__ret__, 'members'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_vpcs_members_output(vpc_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVpcsMembersItems]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVpcsMembersItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,7 +87,7 @@ def list_vpcs_members_output(vpc_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:vpcs/v2:listVpcsMembers', __args__, opts=opts, typ=ListVpcsMembersItems)
     return __ret__.apply(lambda __response__: ListVpcsMembersItems(
         links=pulumi.get(__response__, 'links'),

@@ -20,7 +20,7 @@ export interface ListReservedIPsActionsArgs {
      */
     reservedIp: string;
 }
-export function listReservedIPsActionsOutput(args: ListReservedIPsActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsActionsItems> {
+export function listReservedIPsActionsOutput(args: ListReservedIPsActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsActionsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:reserved_ips/v2:listReservedIPsActions", {
         "reservedIp": args.reservedIp,

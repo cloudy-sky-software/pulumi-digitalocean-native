@@ -83,7 +83,7 @@ def list_registry_repository_tags(registry_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def list_registry_repository_tags_output(registry_name: Optional[pulumi.Input[str]] = None,
                                          repository_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryTagsItems]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryRepositoryTagsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -93,7 +93,7 @@ def list_registry_repository_tags_output(registry_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryRepositoryTags', __args__, opts=opts, typ=ListRegistryRepositoryTagsItems)
     return __ret__.apply(lambda __response__: ListRegistryRepositoryTagsItems(
         links=pulumi.get(__response__, 'links'),

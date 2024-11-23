@@ -20,7 +20,7 @@ export interface GetKubernetesClusterUserArgs {
      */
     clusterId: string;
 }
-export function getKubernetesClusterUserOutput(args: GetKubernetesClusterUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.User> {
+export function getKubernetesClusterUserOutput(args: GetKubernetesClusterUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.User> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", {
         "clusterId": args.clusterId,

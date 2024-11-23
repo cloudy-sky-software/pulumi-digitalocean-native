@@ -20,7 +20,7 @@ export interface ListDropletsBackupsArgs {
      */
     dropletId: string;
 }
-export function listDropletsBackupsOutput(args: ListDropletsBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.ListDropletsBackupsItems> {
+export function listDropletsBackupsOutput(args: ListDropletsBackupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.droplets.v2.ListDropletsBackupsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:droplets/v2:listDropletsBackups", {
         "dropletId": args.dropletId,

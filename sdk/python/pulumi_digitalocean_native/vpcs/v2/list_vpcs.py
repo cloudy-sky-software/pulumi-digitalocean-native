@@ -74,12 +74,12 @@ def list_vpcs(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVpcsI
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         vpcs=pulumi.get(__ret__, 'vpcs'))
-def list_vpcs_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVpcsItems]:
+def list_vpcs_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVpcsItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:vpcs/v2:listVpcs', __args__, opts=opts, typ=ListVpcsItems)
     return __ret__.apply(lambda __response__: ListVpcsItems(
         links=pulumi.get(__response__, 'links'),

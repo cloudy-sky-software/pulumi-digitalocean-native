@@ -20,7 +20,7 @@ export interface ListRegistryGarbageCollectionsArgs {
      */
     registryName: string;
 }
-export function listRegistryGarbageCollectionsOutput(args: ListRegistryGarbageCollectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryGarbageCollectionsProperties> {
+export function listRegistryGarbageCollectionsOutput(args: ListRegistryGarbageCollectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.registry.v2.ListRegistryGarbageCollectionsProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:listRegistryGarbageCollections", {
         "registryName": args.registryName,

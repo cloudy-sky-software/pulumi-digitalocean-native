@@ -16,7 +16,7 @@ export function listVpcs(args?: ListVpcsArgs, opts?: pulumi.InvokeOptions): Prom
 
 export interface ListVpcsArgs {
 }
-export function listVpcsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsItems> {
+export function listVpcsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:vpcs/v2:listVpcs", {
     }, opts);

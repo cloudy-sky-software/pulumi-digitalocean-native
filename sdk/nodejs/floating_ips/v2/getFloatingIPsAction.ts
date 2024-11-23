@@ -25,7 +25,7 @@ export interface GetFloatingIPsActionArgs {
      */
     floatingIp: string;
 }
-export function getFloatingIPsActionOutput(args: GetFloatingIPsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.floating_ips.v2.GetFloatingIPsActionProperties> {
+export function getFloatingIPsActionOutput(args: GetFloatingIPsActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.floating_ips.v2.GetFloatingIPsActionProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:floating_ips/v2:getFloatingIPsAction", {
         "actionId": args.actionId,

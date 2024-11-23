@@ -75,12 +75,12 @@ def list_projects(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListP
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         projects=pulumi.get(__ret__, 'projects'))
-def list_projects_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProjectsItems]:
+def list_projects_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProjectsItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:projects/v2:listProjects', __args__, opts=opts, typ=ListProjectsItems)
     return __ret__.apply(lambda __response__: ListProjectsItems(
         links=pulumi.get(__response__, 'links'),

@@ -20,7 +20,7 @@ export interface ListDomainsRecordsArgs {
      */
     domainName: string;
 }
-export function listDomainsRecordsOutput(args: ListDomainsRecordsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.domains.v2.ListDomainsRecordsItems> {
+export function listDomainsRecordsOutput(args: ListDomainsRecordsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.domains.v2.ListDomainsRecordsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:domains/v2:listDomainsRecords", {
         "domainName": args.domainName,

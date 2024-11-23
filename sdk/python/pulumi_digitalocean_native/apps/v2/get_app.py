@@ -63,7 +63,7 @@ def get_app(id: Optional[str] = None,
     return AwaitableAppResponse(
         app=pulumi.get(__ret__, 'app'))
 def get_app_output(id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppResponse]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -71,7 +71,7 @@ def get_app_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getApp', __args__, opts=opts, typ=AppResponse)
     return __ret__.apply(lambda __response__: AppResponse(
         app=pulumi.get(__response__, 'app')))

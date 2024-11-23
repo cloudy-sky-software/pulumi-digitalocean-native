@@ -20,7 +20,7 @@ export interface GetSshKeyArgs {
      */
     sshKeyIdentifier: string;
 }
-export function getSshKeyOutput(args: GetSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.GetSshKeyProperties> {
+export function getSshKeyOutput(args: GetSshKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.account.v2.GetSshKeyProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:account/v2:getSshKey", {
         "sshKeyIdentifier": args.sshKeyIdentifier,

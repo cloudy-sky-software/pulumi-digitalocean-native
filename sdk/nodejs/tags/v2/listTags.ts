@@ -16,7 +16,7 @@ export function listTags(args?: ListTagsArgs, opts?: pulumi.InvokeOptions): Prom
 
 export interface ListTagsArgs {
 }
-export function listTagsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.tags.v2.ListTagsItems> {
+export function listTagsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.tags.v2.ListTagsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:tags/v2:listTags", {
     }, opts);

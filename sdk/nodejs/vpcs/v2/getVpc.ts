@@ -20,7 +20,7 @@ export interface GetVpcArgs {
      */
     vpcId: string;
 }
-export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.GetVpcProperties> {
+export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.vpcs.v2.GetVpcProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:vpcs/v2:getVpc", {
         "vpcId": args.vpcId,

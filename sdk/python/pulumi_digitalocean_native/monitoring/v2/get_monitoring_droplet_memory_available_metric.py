@@ -65,12 +65,12 @@ def get_monitoring_droplet_memory_available_metric(opts: Optional[pulumi.InvokeO
     return AwaitableMetrics(
         data=pulumi.get(__ret__, 'data'),
         status=pulumi.get(__ret__, 'status'))
-def get_monitoring_droplet_memory_available_metric_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Metrics]:
+def get_monitoring_droplet_memory_available_metric_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[Metrics]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:monitoring/v2:getMonitoringDropletMemoryAvailableMetric', __args__, opts=opts, typ=Metrics)
     return __ret__.apply(lambda __response__: Metrics(
         data=pulumi.get(__response__, 'data'),

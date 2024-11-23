@@ -59,7 +59,7 @@ def get_domain(domain_name: Optional[str] = None,
     return AwaitableGetDomainProperties(
         domain=pulumi.get(__ret__, 'domain'))
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainProperties]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:domains/v2:getDomain', __args__, opts=opts, typ=GetDomainProperties)
     return __ret__.apply(lambda __response__: GetDomainProperties(
         domain=pulumi.get(__response__, 'domain')))

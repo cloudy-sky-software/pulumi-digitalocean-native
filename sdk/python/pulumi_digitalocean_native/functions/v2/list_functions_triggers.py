@@ -59,7 +59,7 @@ def list_functions_triggers(namespace_id: Optional[str] = None,
     return AwaitableListFunctionsTriggersItems(
         triggers=pulumi.get(__ret__, 'triggers'))
 def list_functions_triggers_output(namespace_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFunctionsTriggersItems]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFunctionsTriggersItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def list_functions_triggers_output(namespace_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['namespaceId'] = namespace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:functions/v2:listFunctionsTriggers', __args__, opts=opts, typ=ListFunctionsTriggersItems)
     return __ret__.apply(lambda __response__: ListFunctionsTriggersItems(
         triggers=pulumi.get(__response__, 'triggers')))

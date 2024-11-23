@@ -25,7 +25,7 @@ export interface ListRegistryRepositoryTagsArgs {
      */
     repositoryName: string;
 }
-export function listRegistryRepositoryTagsOutput(args: ListRegistryRepositoryTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryRepositoryTagsItems> {
+export function listRegistryRepositoryTagsOutput(args: ListRegistryRepositoryTagsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.registry.v2.ListRegistryRepositoryTagsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:listRegistryRepositoryTags", {
         "registryName": args.registryName,

@@ -60,7 +60,7 @@ def get_project(project_id: Optional[str] = None,
     return AwaitableGetProjectProperties(
         project=pulumi.get(__ret__, 'project'))
 def get_project_output(project_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectProperties]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_project_output(project_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:projects/v2:getProject', __args__, opts=opts, typ=GetProjectProperties)
     return __ret__.apply(lambda __response__: GetProjectProperties(
         project=pulumi.get(__response__, 'project')))

@@ -16,7 +16,7 @@ export function listCdnEndpoints(args?: ListCdnEndpointsArgs, opts?: pulumi.Invo
 
 export interface ListCdnEndpointsArgs {
 }
-export function listCdnEndpointsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.cdn.v2.ListCdnEndpointsItems> {
+export function listCdnEndpointsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.cdn.v2.ListCdnEndpointsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:cdn/v2:listCdnEndpoints", {
     }, opts);

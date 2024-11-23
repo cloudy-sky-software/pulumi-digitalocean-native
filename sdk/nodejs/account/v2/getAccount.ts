@@ -16,7 +16,7 @@ export function getAccount(args?: GetAccountArgs, opts?: pulumi.InvokeOptions): 
 
 export interface GetAccountArgs {
 }
-export function getAccountOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.GetAccountProperties> {
+export function getAccountOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.account.v2.GetAccountProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:account/v2:getAccount", {
     }, opts);
