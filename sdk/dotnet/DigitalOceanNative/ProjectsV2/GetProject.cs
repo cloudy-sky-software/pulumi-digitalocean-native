@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
 
         public static Output<Outputs.GetProjectProperties> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetProjectProperties>("digitalocean-native:projects/v2:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetProjectProperties> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetProjectProperties>("digitalocean-native:projects/v2:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

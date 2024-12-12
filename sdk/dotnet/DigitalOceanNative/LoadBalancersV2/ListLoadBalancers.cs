@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.LoadBalancersV2
 
         public static Output<Outputs.ListLoadBalancersItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListLoadBalancersItems>("digitalocean-native:load_balancers/v2:listLoadBalancers", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListLoadBalancersItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListLoadBalancersItems>("digitalocean-native:load_balancers/v2:listLoadBalancers", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

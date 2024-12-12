@@ -25,7 +25,7 @@ export interface GetDomainsRecordArgs {
      */
     domainRecordId: string;
 }
-export function getDomainsRecordOutput(args: GetDomainsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.domains.v2.GetDomainsRecordProperties> {
+export function getDomainsRecordOutput(args: GetDomainsRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.domains.v2.GetDomainsRecordProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:domains/v2:getDomainsRecord", {
         "domainName": args.domainName,

@@ -30,21 +30,11 @@ type GetMonitoringDropletFilesystemSizeMetricResult struct {
 }
 
 func GetMonitoringDropletFilesystemSizeMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletFilesystemSizeMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletFilesystemSizeMetricResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMonitoringDropletFilesystemSizeMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletFilesystemSizeMetricArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetMonitoringDropletFilesystemSizeMetricResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", args, &rv, "", opts...)
-			if err != nil {
-				return GetMonitoringDropletFilesystemSizeMetricResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetMonitoringDropletFilesystemSizeMetricResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetMonitoringDropletFilesystemSizeMetricResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemSizeMetric", args, GetMonitoringDropletFilesystemSizeMetricResultOutput{}, options).(GetMonitoringDropletFilesystemSizeMetricResultOutput), nil
 		}).(GetMonitoringDropletFilesystemSizeMetricResultOutput)
 }
 

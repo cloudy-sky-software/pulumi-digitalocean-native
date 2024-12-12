@@ -80,7 +80,7 @@ def list_volume_actions(volume_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_volume_actions_output(volume_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumeActionsItems]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVolumeActionsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,7 +88,7 @@ def list_volume_actions_output(volume_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['volumeId'] = volume_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:volumes/v2:listVolumeActions', __args__, opts=opts, typ=ListVolumeActionsItems)
     return __ret__.apply(lambda __response__: ListVolumeActionsItems(
         actions=pulumi.get(__response__, 'actions'),

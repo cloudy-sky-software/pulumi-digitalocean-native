@@ -16,7 +16,7 @@ export function listProjects(args?: ListProjectsArgs, opts?: pulumi.InvokeOption
 
 export interface ListProjectsArgs {
 }
-export function listProjectsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.ListProjectsItems> {
+export function listProjectsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.projects.v2.ListProjectsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:projects/v2:listProjects", {
     }, opts);

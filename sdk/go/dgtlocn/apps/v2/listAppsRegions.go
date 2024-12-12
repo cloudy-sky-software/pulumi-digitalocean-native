@@ -29,21 +29,11 @@ type ListAppsRegionsResult struct {
 }
 
 func ListAppsRegionsOutput(ctx *pulumi.Context, args ListAppsRegionsOutputArgs, opts ...pulumi.InvokeOption) ListAppsRegionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListAppsRegionsResultOutput, error) {
 			args := v.(ListAppsRegionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListAppsRegionsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:listAppsRegions", args, &rv, "", opts...)
-			if err != nil {
-				return ListAppsRegionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListAppsRegionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListAppsRegionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:apps/v2:listAppsRegions", args, ListAppsRegionsResultOutput{}, options).(ListAppsRegionsResultOutput), nil
 		}).(ListAppsRegionsResultOutput)
 }
 

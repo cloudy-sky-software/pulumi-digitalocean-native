@@ -31,21 +31,11 @@ type ListActionsResult struct {
 }
 
 func ListActionsOutput(ctx *pulumi.Context, args ListActionsOutputArgs, opts ...pulumi.InvokeOption) ListActionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListActionsResultOutput, error) {
 			args := v.(ListActionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListActionsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:actions/v2:listActions", args, &rv, "", opts...)
-			if err != nil {
-				return ListActionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListActionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListActionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:actions/v2:listActions", args, ListActionsResultOutput{}, options).(ListActionsResultOutput), nil
 		}).(ListActionsResultOutput)
 }
 

@@ -59,7 +59,7 @@ def get_functions_namespace(namespace_id: Optional[str] = None,
     return AwaitableGetFunctionsNamespaceProperties(
         namespace=pulumi.get(__ret__, 'namespace'))
 def get_functions_namespace_output(namespace_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsNamespaceProperties]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionsNamespaceProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_functions_namespace_output(namespace_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['namespaceId'] = namespace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:functions/v2:getFunctionsNamespace', __args__, opts=opts, typ=GetFunctionsNamespaceProperties)
     return __ret__.apply(lambda __response__: GetFunctionsNamespaceProperties(
         namespace=pulumi.get(__response__, 'namespace')))

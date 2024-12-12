@@ -31,21 +31,11 @@ type LookupFunctionsNamespaceResult struct {
 }
 
 func LookupFunctionsNamespaceOutput(ctx *pulumi.Context, args LookupFunctionsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionsNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionsNamespaceResultOutput, error) {
 			args := v.(LookupFunctionsNamespaceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFunctionsNamespaceResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:functions/v2:getFunctionsNamespace", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFunctionsNamespaceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFunctionsNamespaceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFunctionsNamespaceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:functions/v2:getFunctionsNamespace", args, LookupFunctionsNamespaceResultOutput{}, options).(LookupFunctionsNamespaceResultOutput), nil
 		}).(LookupFunctionsNamespaceResultOutput)
 }
 

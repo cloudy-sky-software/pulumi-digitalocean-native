@@ -33,21 +33,11 @@ type LookupFunctionsTriggerResult struct {
 }
 
 func LookupFunctionsTriggerOutput(ctx *pulumi.Context, args LookupFunctionsTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionsTriggerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionsTriggerResultOutput, error) {
 			args := v.(LookupFunctionsTriggerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFunctionsTriggerResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:functions/v2:getFunctionsTrigger", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFunctionsTriggerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFunctionsTriggerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFunctionsTriggerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:functions/v2:getFunctionsTrigger", args, LookupFunctionsTriggerResultOutput{}, options).(LookupFunctionsTriggerResultOutput), nil
 		}).(LookupFunctionsTriggerResultOutput)
 }
 

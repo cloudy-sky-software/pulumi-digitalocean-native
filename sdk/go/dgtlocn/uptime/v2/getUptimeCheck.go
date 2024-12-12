@@ -40,23 +40,12 @@ func (val *LookupUptimeCheckResult) Defaults() *LookupUptimeCheckResult {
 
 	return &tmp
 }
-
 func LookupUptimeCheckOutput(ctx *pulumi.Context, args LookupUptimeCheckOutputArgs, opts ...pulumi.InvokeOption) LookupUptimeCheckResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUptimeCheckResultOutput, error) {
 			args := v.(LookupUptimeCheckArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUptimeCheckResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:uptime/v2:getUptimeCheck", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUptimeCheckResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUptimeCheckResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUptimeCheckResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:uptime/v2:getUptimeCheck", args, LookupUptimeCheckResultOutput{}, options).(LookupUptimeCheckResultOutput), nil
 		}).(LookupUptimeCheckResultOutput)
 }
 

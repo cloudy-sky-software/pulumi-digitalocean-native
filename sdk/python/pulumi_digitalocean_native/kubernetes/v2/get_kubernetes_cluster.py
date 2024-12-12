@@ -60,7 +60,7 @@ def get_kubernetes_cluster(cluster_id: Optional[str] = None,
     return AwaitableGetKubernetesClusterProperties(
         kubernetes_cluster=pulumi.get(__ret__, 'kubernetes_cluster'))
 def get_kubernetes_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterProperties]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_kubernetes_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterProperties)
     return __ret__.apply(lambda __response__: GetKubernetesClusterProperties(
         kubernetes_cluster=pulumi.get(__response__, 'kubernetes_cluster')))

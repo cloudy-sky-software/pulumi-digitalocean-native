@@ -60,7 +60,7 @@ def get_snapshot(snapshot_id: Optional[str] = None,
     return AwaitableGetSnapshotProperties(
         snapshot=pulumi.get(__ret__, 'snapshot'))
 def get_snapshot_output(snapshot_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotProperties]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_snapshot_output(snapshot_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['snapshotId'] = snapshot_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:snapshots/v2:getSnapshot', __args__, opts=opts, typ=GetSnapshotProperties)
     return __ret__.apply(lambda __response__: GetSnapshotProperties(
         snapshot=pulumi.get(__response__, 'snapshot')))

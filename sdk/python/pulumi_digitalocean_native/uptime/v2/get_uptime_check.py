@@ -60,7 +60,7 @@ def get_uptime_check(check_id: Optional[str] = None,
     return AwaitableGetUptimeCheckProperties(
         check=pulumi.get(__ret__, 'check'))
 def get_uptime_check_output(check_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUptimeCheckProperties]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUptimeCheckProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_uptime_check_output(check_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['checkId'] = check_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:getUptimeCheck', __args__, opts=opts, typ=GetUptimeCheckProperties)
     return __ret__.apply(lambda __response__: GetUptimeCheckProperties(
         check=pulumi.get(__response__, 'check')))

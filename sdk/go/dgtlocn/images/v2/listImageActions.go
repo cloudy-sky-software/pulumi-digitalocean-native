@@ -33,21 +33,11 @@ type ListImageActionsResult struct {
 }
 
 func ListImageActionsOutput(ctx *pulumi.Context, args ListImageActionsOutputArgs, opts ...pulumi.InvokeOption) ListImageActionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListImageActionsResultOutput, error) {
 			args := v.(ListImageActionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListImageActionsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:images/v2:listImageActions", args, &rv, "", opts...)
-			if err != nil {
-				return ListImageActionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListImageActionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListImageActionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:images/v2:listImageActions", args, ListImageActionsResultOutput{}, options).(ListImageActionsResultOutput), nil
 		}).(ListImageActionsResultOutput)
 }
 

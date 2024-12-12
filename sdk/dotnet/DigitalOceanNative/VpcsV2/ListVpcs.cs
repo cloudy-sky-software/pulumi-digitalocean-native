@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VpcsV2
 
         public static Output<Outputs.ListVpcsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVpcsItems>("digitalocean-native:vpcs/v2:listVpcs", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListVpcsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVpcsItems>("digitalocean-native:vpcs/v2:listVpcs", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

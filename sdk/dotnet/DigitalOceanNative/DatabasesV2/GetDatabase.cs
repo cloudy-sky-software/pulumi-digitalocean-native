@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 
         public static Output<Outputs.GetDatabaseProperties> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDatabaseProperties>("digitalocean-native:databases/v2:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetDatabaseProperties> Invoke(GetDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDatabaseProperties>("digitalocean-native:databases/v2:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

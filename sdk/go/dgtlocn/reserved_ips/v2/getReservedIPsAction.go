@@ -42,23 +42,12 @@ func (val *GetReservedIPsActionResult) Defaults() *GetReservedIPsActionResult {
 
 	return &tmp
 }
-
 func GetReservedIPsActionOutput(ctx *pulumi.Context, args GetReservedIPsActionOutputArgs, opts ...pulumi.InvokeOption) GetReservedIPsActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReservedIPsActionResultOutput, error) {
 			args := v.(GetReservedIPsActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetReservedIPsActionResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args, &rv, "", opts...)
-			if err != nil {
-				return GetReservedIPsActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetReservedIPsActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetReservedIPsActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:reserved_ips/v2:getReservedIPsAction", args, GetReservedIPsActionResultOutput{}, options).(GetReservedIPsActionResultOutput), nil
 		}).(GetReservedIPsActionResultOutput)
 }
 

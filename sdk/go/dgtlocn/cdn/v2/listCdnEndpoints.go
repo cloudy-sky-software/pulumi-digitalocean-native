@@ -31,21 +31,11 @@ type ListCdnEndpointsResult struct {
 }
 
 func ListCdnEndpointsOutput(ctx *pulumi.Context, args ListCdnEndpointsOutputArgs, opts ...pulumi.InvokeOption) ListCdnEndpointsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListCdnEndpointsResultOutput, error) {
 			args := v.(ListCdnEndpointsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListCdnEndpointsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:cdn/v2:listCdnEndpoints", args, &rv, "", opts...)
-			if err != nil {
-				return ListCdnEndpointsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListCdnEndpointsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListCdnEndpointsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:cdn/v2:listCdnEndpoints", args, ListCdnEndpointsResultOutput{}, options).(ListCdnEndpointsResultOutput), nil
 		}).(ListCdnEndpointsResultOutput)
 }
 

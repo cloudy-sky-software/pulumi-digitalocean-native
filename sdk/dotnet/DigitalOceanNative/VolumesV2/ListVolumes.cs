@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 
         public static Output<Outputs.ListVolumesItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVolumesItems>("digitalocean-native:volumes/v2:listVolumes", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListVolumesItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListVolumesItems>("digitalocean-native:volumes/v2:listVolumes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

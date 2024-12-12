@@ -33,21 +33,11 @@ type ListReservedIPsActionsResult struct {
 }
 
 func ListReservedIPsActionsOutput(ctx *pulumi.Context, args ListReservedIPsActionsOutputArgs, opts ...pulumi.InvokeOption) ListReservedIPsActionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListReservedIPsActionsResultOutput, error) {
 			args := v.(ListReservedIPsActionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListReservedIPsActionsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args, &rv, "", opts...)
-			if err != nil {
-				return ListReservedIPsActionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListReservedIPsActionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListReservedIPsActionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args, ListReservedIPsActionsResultOutput{}, options).(ListReservedIPsActionsResultOutput), nil
 		}).(ListReservedIPsActionsResultOutput)
 }
 

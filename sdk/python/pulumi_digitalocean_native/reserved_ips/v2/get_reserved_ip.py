@@ -60,7 +60,7 @@ def get_reserved_ip(reserved_ip: Optional[str] = None,
     return AwaitableGetReservedIPProperties(
         reserved_ip=pulumi.get(__ret__, 'reserved_ip'))
 def get_reserved_ip_output(reserved_ip: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedIPProperties]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedIPProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_reserved_ip_output(reserved_ip: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['reservedIp'] = reserved_ip
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:reserved_ips/v2:getReservedIP', __args__, opts=opts, typ=GetReservedIPProperties)
     return __ret__.apply(lambda __response__: GetReservedIPProperties(
         reserved_ip=pulumi.get(__response__, 'reserved_ip')))

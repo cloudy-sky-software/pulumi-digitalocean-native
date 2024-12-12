@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 
         public static Output<Outputs.AssociatedResourceStatus> Invoke(GetDropletsDestroyAssociatedResourcesStatuInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AssociatedResourceStatus>("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args ?? new GetDropletsDestroyAssociatedResourcesStatuInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AssociatedResourceStatus> Invoke(GetDropletsDestroyAssociatedResourcesStatuInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AssociatedResourceStatus>("digitalocean-native:droplets/v2:getDropletsDestroyAssociatedResourcesStatu", args ?? new GetDropletsDestroyAssociatedResourcesStatuInvokeArgs(), options.WithDefaults());
     }
 
 

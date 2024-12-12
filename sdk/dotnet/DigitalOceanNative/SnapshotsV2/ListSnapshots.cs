@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SnapshotsV2
 
         public static Output<Outputs.ListSnapshotsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSnapshotsItems>("digitalocean-native:snapshots/v2:listSnapshots", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListSnapshotsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSnapshotsItems>("digitalocean-native:snapshots/v2:listSnapshots", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

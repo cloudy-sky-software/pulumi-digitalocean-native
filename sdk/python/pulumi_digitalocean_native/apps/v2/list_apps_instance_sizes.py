@@ -65,12 +65,12 @@ def list_apps_instance_sizes(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
     return AwaitableAppsListInstanceSizesResponse(
         discount_percent=pulumi.get(__ret__, 'discount_percent'),
         instance_sizes=pulumi.get(__ret__, 'instance_sizes'))
-def list_apps_instance_sizes_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListInstanceSizesResponse]:
+def list_apps_instance_sizes_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsListInstanceSizesResponse]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:listAppsInstanceSizes', __args__, opts=opts, typ=AppsListInstanceSizesResponse)
     return __ret__.apply(lambda __response__: AppsListInstanceSizesResponse(
         discount_percent=pulumi.get(__response__, 'discount_percent'),

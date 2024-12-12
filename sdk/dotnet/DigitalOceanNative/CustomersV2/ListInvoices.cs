@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
 
         public static Output<Outputs.ListInvoicesItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListInvoicesItems>("digitalocean-native:customers/v2:listInvoices", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListInvoicesItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListInvoicesItems>("digitalocean-native:customers/v2:listInvoices", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

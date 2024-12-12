@@ -35,21 +35,11 @@ type ListDropletsAssociatedResourcesResult struct {
 }
 
 func ListDropletsAssociatedResourcesOutput(ctx *pulumi.Context, args ListDropletsAssociatedResourcesOutputArgs, opts ...pulumi.InvokeOption) ListDropletsAssociatedResourcesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListDropletsAssociatedResourcesResultOutput, error) {
 			args := v.(ListDropletsAssociatedResourcesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListDropletsAssociatedResourcesResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:listDropletsAssociatedResources", args, &rv, "", opts...)
-			if err != nil {
-				return ListDropletsAssociatedResourcesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListDropletsAssociatedResourcesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListDropletsAssociatedResourcesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:droplets/v2:listDropletsAssociatedResources", args, ListDropletsAssociatedResourcesResultOutput{}, options).(ListDropletsAssociatedResourcesResultOutput), nil
 		}).(ListDropletsAssociatedResourcesResultOutput)
 }
 

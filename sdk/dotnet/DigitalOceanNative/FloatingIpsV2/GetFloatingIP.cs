@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
 
         public static Output<Outputs.GetFloatingIPProperties> Invoke(GetFloatingIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFloatingIPProperties>("digitalocean-native:floating_ips/v2:getFloatingIP", args ?? new GetFloatingIPInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetFloatingIPProperties> Invoke(GetFloatingIPInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFloatingIPProperties>("digitalocean-native:floating_ips/v2:getFloatingIP", args ?? new GetFloatingIPInvokeArgs(), options.WithDefaults());
     }
 
 

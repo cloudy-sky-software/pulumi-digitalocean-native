@@ -16,7 +16,7 @@ export function getMonitoringDropletCpuMetric(args?: GetMonitoringDropletCpuMetr
 
 export interface GetMonitoringDropletCpuMetricArgs {
 }
-export function getMonitoringDropletCpuMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
+export function getMonitoringDropletCpuMetricOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletCpuMetric", {
     }, opts);

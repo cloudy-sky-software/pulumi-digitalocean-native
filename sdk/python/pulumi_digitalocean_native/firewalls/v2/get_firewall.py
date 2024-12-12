@@ -60,7 +60,7 @@ def get_firewall(firewall_id: Optional[str] = None,
     return AwaitableGetFirewallProperties(
         firewall=pulumi.get(__ret__, 'firewall'))
 def get_firewall_output(firewall_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallProperties]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_firewall_output(firewall_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['firewallId'] = firewall_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:firewalls/v2:getFirewall', __args__, opts=opts, typ=GetFirewallProperties)
     return __ret__.apply(lambda __response__: GetFirewallProperties(
         firewall=pulumi.get(__response__, 'firewall')))

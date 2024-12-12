@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 
         public static Output<Outputs.ListDatabasesFirewallRulesProperties> Invoke(ListDatabasesFirewallRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDatabasesFirewallRulesProperties>("digitalocean-native:databases/v2:listDatabasesFirewallRules", args ?? new ListDatabasesFirewallRulesInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ListDatabasesFirewallRulesProperties> Invoke(ListDatabasesFirewallRulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDatabasesFirewallRulesProperties>("digitalocean-native:databases/v2:listDatabasesFirewallRules", args ?? new ListDatabasesFirewallRulesInvokeArgs(), options.WithDefaults());
     }
 
 

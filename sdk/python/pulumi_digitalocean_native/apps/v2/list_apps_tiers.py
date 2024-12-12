@@ -54,12 +54,12 @@ def list_apps_tiers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableApp
 
     return AwaitableAppsListTiersResponse(
         tiers=pulumi.get(__ret__, 'tiers'))
-def list_apps_tiers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListTiersResponse]:
+def list_apps_tiers_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsListTiersResponse]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:listAppsTiers', __args__, opts=opts, typ=AppsListTiersResponse)
     return __ret__.apply(lambda __response__: AppsListTiersResponse(
         tiers=pulumi.get(__response__, 'tiers')))

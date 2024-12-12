@@ -20,7 +20,7 @@ export interface GetDatabasesSqlModeArgs {
      */
     databaseClusterUuid: string;
 }
-export function getDatabasesSqlModeOutput(args: GetDatabasesSqlModeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.SqlMode> {
+export function getDatabasesSqlModeOutput(args: GetDatabasesSqlModeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.SqlMode> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesSqlMode", {
         "databaseClusterUuid": args.databaseClusterUuid,

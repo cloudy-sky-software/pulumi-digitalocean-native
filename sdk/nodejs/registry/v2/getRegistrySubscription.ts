@@ -16,7 +16,7 @@ export function getRegistrySubscription(args?: GetRegistrySubscriptionArgs, opts
 
 export interface GetRegistrySubscriptionArgs {
 }
-export function getRegistrySubscriptionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.GetRegistrySubscriptionProperties> {
+export function getRegistrySubscriptionOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.registry.v2.GetRegistrySubscriptionProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:getRegistrySubscription", {
     }, opts);

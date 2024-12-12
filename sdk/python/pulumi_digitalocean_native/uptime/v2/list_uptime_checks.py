@@ -75,12 +75,12 @@ def list_uptime_checks(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
         checks=pulumi.get(__ret__, 'checks'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_uptime_checks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUptimeChecksItems]:
+def list_uptime_checks_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListUptimeChecksItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:listUptimeChecks', __args__, opts=opts, typ=ListUptimeChecksItems)
     return __ret__.apply(lambda __response__: ListUptimeChecksItems(
         checks=pulumi.get(__response__, 'checks'),

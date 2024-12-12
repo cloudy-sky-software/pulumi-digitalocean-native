@@ -101,7 +101,7 @@ def get_kubernetes_cluster_lint_result(cluster_id: Optional[str] = None,
         requested_at=pulumi.get(__ret__, 'requested_at'),
         run_id=pulumi.get(__ret__, 'run_id'))
 def get_kubernetes_cluster_lint_result_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ClusterlintResults]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ClusterlintResults]:
     """
     Use this data source to access information about an existing resource.
 
@@ -109,7 +109,7 @@ def get_kubernetes_cluster_lint_result_output(cluster_id: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult', __args__, opts=opts, typ=ClusterlintResults)
     return __ret__.apply(lambda __response__: ClusterlintResults(
         completed_at=pulumi.get(__response__, 'completed_at'),

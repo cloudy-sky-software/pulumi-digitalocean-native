@@ -25,7 +25,7 @@ export interface GetDatabasesReplicaArgs {
      */
     replicaName: string;
 }
-export function getDatabasesReplicaOutput(args: GetDatabasesReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.GetDatabasesReplicaProperties> {
+export function getDatabasesReplicaOutput(args: GetDatabasesReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.GetDatabasesReplicaProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesReplica", {
         "databaseClusterUuid": args.databaseClusterUuid,

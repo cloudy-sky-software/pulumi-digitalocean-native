@@ -34,21 +34,11 @@ type GetAppsMetricsBandwidthDailyResult struct {
 }
 
 func GetAppsMetricsBandwidthDailyOutput(ctx *pulumi.Context, args GetAppsMetricsBandwidthDailyOutputArgs, opts ...pulumi.InvokeOption) GetAppsMetricsBandwidthDailyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAppsMetricsBandwidthDailyResultOutput, error) {
 			args := v.(GetAppsMetricsBandwidthDailyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAppsMetricsBandwidthDailyResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args, &rv, "", opts...)
-			if err != nil {
-				return GetAppsMetricsBandwidthDailyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAppsMetricsBandwidthDailyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAppsMetricsBandwidthDailyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args, GetAppsMetricsBandwidthDailyResultOutput{}, options).(GetAppsMetricsBandwidthDailyResultOutput), nil
 		}).(GetAppsMetricsBandwidthDailyResultOutput)
 }
 

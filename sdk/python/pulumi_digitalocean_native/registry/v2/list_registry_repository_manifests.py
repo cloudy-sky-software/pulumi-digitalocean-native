@@ -83,7 +83,7 @@ def list_registry_repository_manifests(registry_name: Optional[str] = None,
         meta=pulumi.get(__ret__, 'meta'))
 def list_registry_repository_manifests_output(registry_name: Optional[pulumi.Input[str]] = None,
                                               repository_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoryManifestsItems]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryRepositoryManifestsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -93,7 +93,7 @@ def list_registry_repository_manifests_output(registry_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryRepositoryManifests', __args__, opts=opts, typ=ListRegistryRepositoryManifestsItems)
     return __ret__.apply(lambda __response__: ListRegistryRepositoryManifestsItems(
         links=pulumi.get(__response__, 'links'),

@@ -16,7 +16,7 @@ export function getMonitoringDropletMemoryCachedMetric(args?: GetMonitoringDropl
 
 export interface GetMonitoringDropletMemoryCachedMetricArgs {
 }
-export function getMonitoringDropletMemoryCachedMetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
+export function getMonitoringDropletMemoryCachedMetricOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletMemoryCachedMetric", {
     }, opts);

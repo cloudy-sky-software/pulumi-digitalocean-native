@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
 
         public static Output<Outputs.GetSshKeyProperties> Invoke(GetSshKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetSshKeyProperties>("digitalocean-native:account/v2:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetSshKeyProperties> Invoke(GetSshKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetSshKeyProperties>("digitalocean-native:account/v2:getSshKey", args ?? new GetSshKeyInvokeArgs(), options.WithDefaults());
     }
 
 

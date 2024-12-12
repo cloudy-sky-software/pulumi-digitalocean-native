@@ -20,7 +20,7 @@ export interface ListUptimeAlertsArgs {
      */
     checkId: string;
 }
-export function listUptimeAlertsOutput(args: ListUptimeAlertsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.ListUptimeAlertsItems> {
+export function listUptimeAlertsOutput(args: ListUptimeAlertsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.uptime.v2.ListUptimeAlertsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:uptime/v2:listUptimeAlerts", {
         "checkId": args.checkId,

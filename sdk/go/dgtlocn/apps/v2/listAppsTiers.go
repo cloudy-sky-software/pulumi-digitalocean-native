@@ -29,21 +29,11 @@ type ListAppsTiersResult struct {
 }
 
 func ListAppsTiersOutput(ctx *pulumi.Context, args ListAppsTiersOutputArgs, opts ...pulumi.InvokeOption) ListAppsTiersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListAppsTiersResultOutput, error) {
 			args := v.(ListAppsTiersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListAppsTiersResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:listAppsTiers", args, &rv, "", opts...)
-			if err != nil {
-				return ListAppsTiersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListAppsTiersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListAppsTiersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:apps/v2:listAppsTiers", args, ListAppsTiersResultOutput{}, options).(ListAppsTiersResultOutput), nil
 		}).(ListAppsTiersResultOutput)
 }
 

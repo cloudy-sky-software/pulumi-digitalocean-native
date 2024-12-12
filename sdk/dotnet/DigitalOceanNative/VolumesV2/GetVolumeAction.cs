@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 
         public static Output<Outputs.GetVolumeActionProperties> Invoke(GetVolumeActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeActionProperties>("digitalocean-native:volumes/v2:getVolumeAction", args ?? new GetVolumeActionInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetVolumeActionProperties> Invoke(GetVolumeActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeActionProperties>("digitalocean-native:volumes/v2:getVolumeAction", args ?? new GetVolumeActionInvokeArgs(), options.WithDefaults());
     }
 
 

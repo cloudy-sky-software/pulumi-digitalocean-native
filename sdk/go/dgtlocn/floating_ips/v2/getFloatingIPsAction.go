@@ -42,23 +42,12 @@ func (val *GetFloatingIPsActionResult) Defaults() *GetFloatingIPsActionResult {
 
 	return &tmp
 }
-
 func GetFloatingIPsActionOutput(ctx *pulumi.Context, args GetFloatingIPsActionOutputArgs, opts ...pulumi.InvokeOption) GetFloatingIPsActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFloatingIPsActionResultOutput, error) {
 			args := v.(GetFloatingIPsActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetFloatingIPsActionResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:floating_ips/v2:getFloatingIPsAction", args, &rv, "", opts...)
-			if err != nil {
-				return GetFloatingIPsActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetFloatingIPsActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetFloatingIPsActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:floating_ips/v2:getFloatingIPsAction", args, GetFloatingIPsActionResultOutput{}, options).(GetFloatingIPsActionResultOutput), nil
 		}).(GetFloatingIPsActionResultOutput)
 }
 

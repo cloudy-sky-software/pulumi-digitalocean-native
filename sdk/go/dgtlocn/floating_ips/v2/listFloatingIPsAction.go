@@ -33,21 +33,11 @@ type ListFloatingIPsActionResult struct {
 }
 
 func ListFloatingIPsActionOutput(ctx *pulumi.Context, args ListFloatingIPsActionOutputArgs, opts ...pulumi.InvokeOption) ListFloatingIPsActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListFloatingIPsActionResultOutput, error) {
 			args := v.(ListFloatingIPsActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListFloatingIPsActionResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:floating_ips/v2:listFloatingIPsAction", args, &rv, "", opts...)
-			if err != nil {
-				return ListFloatingIPsActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListFloatingIPsActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListFloatingIPsActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:floating_ips/v2:listFloatingIPsAction", args, ListFloatingIPsActionResultOutput{}, options).(ListFloatingIPsActionResultOutput), nil
 		}).(ListFloatingIPsActionResultOutput)
 }
 

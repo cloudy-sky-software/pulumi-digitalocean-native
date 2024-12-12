@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.UptimeV2
 
         public static Output<Outputs.ListUptimeAlertsItems> Invoke(ListUptimeAlertsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListUptimeAlertsItems>("digitalocean-native:uptime/v2:listUptimeAlerts", args ?? new ListUptimeAlertsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ListUptimeAlertsItems> Invoke(ListUptimeAlertsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListUptimeAlertsItems>("digitalocean-native:uptime/v2:listUptimeAlerts", args ?? new ListUptimeAlertsInvokeArgs(), options.WithDefaults());
     }
 
 

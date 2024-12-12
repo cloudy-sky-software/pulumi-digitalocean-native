@@ -88,7 +88,7 @@ def get_databases_migration_statu(database_cluster_uuid: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
 def get_databases_migration_statu_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[OnlineMigration]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[OnlineMigration]:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,7 +96,7 @@ def get_databases_migration_statu_output(database_cluster_uuid: Optional[pulumi.
     """
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesMigrationStatu', __args__, opts=opts, typ=OnlineMigration)
     return __ret__.apply(lambda __response__: OnlineMigration(
         created_at=pulumi.get(__response__, 'created_at'),

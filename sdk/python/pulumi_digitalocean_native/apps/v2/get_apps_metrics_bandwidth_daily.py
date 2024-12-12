@@ -75,7 +75,7 @@ def get_apps_metrics_bandwidth_daily(app_id: Optional[str] = None,
         app_bandwidth_usage=pulumi.get(__ret__, 'app_bandwidth_usage'),
         date=pulumi.get(__ret__, 'date'))
 def get_apps_metrics_bandwidth_daily_output(app_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppMetricsBandwidthUsage]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppMetricsBandwidthUsage]:
     """
     Use this data source to access information about an existing resource.
 
@@ -83,7 +83,7 @@ def get_apps_metrics_bandwidth_daily_output(app_id: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['appId'] = app_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily', __args__, opts=opts, typ=AppMetricsBandwidthUsage)
     return __ret__.apply(lambda __response__: AppMetricsBandwidthUsage(
         app_bandwidth_usage=pulumi.get(__response__, 'app_bandwidth_usage'),

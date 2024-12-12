@@ -59,7 +59,7 @@ def get_kubernetes_cluster_user(cluster_id: Optional[str] = None,
     return AwaitableUser(
         kubernetes_cluster_user=pulumi.get(__ret__, 'kubernetes_cluster_user'))
 def get_kubernetes_cluster_user_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[User]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[User]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_kubernetes_cluster_user_output(cluster_id: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:getKubernetesClusterUser', __args__, opts=opts, typ=User)
     return __ret__.apply(lambda __response__: User(
         kubernetes_cluster_user=pulumi.get(__response__, 'kubernetes_cluster_user')))

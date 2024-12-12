@@ -20,7 +20,7 @@ export interface ListKubernetesAssociatedResourcesArgs {
      */
     clusterId: string;
 }
-export function listKubernetesAssociatedResourcesOutput(args: ListKubernetesAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.AssociatedKubernetesResources> {
+export function listKubernetesAssociatedResourcesOutput(args: ListKubernetesAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.AssociatedKubernetesResources> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", {
         "clusterId": args.clusterId,

@@ -25,7 +25,7 @@ export interface GetAppsLogsAggregateArgs {
      */
     deploymentId: string;
 }
-export function getAppsLogsAggregateOutput(args: GetAppsLogsAggregateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
+export function getAppsLogsAggregateOutput(args: GetAppsLogsAggregateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsLogsAggregate", {
         "appId": args.appId,

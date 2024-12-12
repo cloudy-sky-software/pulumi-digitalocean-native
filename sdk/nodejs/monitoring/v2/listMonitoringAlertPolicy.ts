@@ -16,7 +16,7 @@ export function listMonitoringAlertPolicy(args?: ListMonitoringAlertPolicyArgs, 
 
 export interface ListMonitoringAlertPolicyArgs {
 }
-export function listMonitoringAlertPolicyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.ListMonitoringAlertPolicyItems> {
+export function listMonitoringAlertPolicyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.ListMonitoringAlertPolicyItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", {
     }, opts);

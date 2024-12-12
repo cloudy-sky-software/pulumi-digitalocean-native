@@ -64,7 +64,7 @@ def get_databases_replica(database_cluster_uuid: Optional[str] = None,
         replica=pulumi.get(__ret__, 'replica'))
 def get_databases_replica_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                                  replica_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasesReplicaProperties]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasesReplicaProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_databases_replica_output(database_cluster_uuid: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     __args__['replicaName'] = replica_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabasesReplica', __args__, opts=opts, typ=GetDatabasesReplicaProperties)
     return __ret__.apply(lambda __response__: GetDatabasesReplicaProperties(
         replica=pulumi.get(__response__, 'replica')))

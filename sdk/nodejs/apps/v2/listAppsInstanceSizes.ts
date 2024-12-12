@@ -16,7 +16,7 @@ export function listAppsInstanceSizes(args?: ListAppsInstanceSizesArgs, opts?: p
 
 export interface ListAppsInstanceSizesArgs {
 }
-export function listAppsInstanceSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListInstanceSizesResponse> {
+export function listAppsInstanceSizesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsListInstanceSizesResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsInstanceSizes", {
     }, opts);

@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
 
         public static Output<Outputs.ListSshKeysItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSshKeysItems>("digitalocean-native:account/v2:listSshKeys", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListSshKeysItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSshKeysItems>("digitalocean-native:account/v2:listSshKeys", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

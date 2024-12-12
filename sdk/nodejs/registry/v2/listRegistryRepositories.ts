@@ -20,7 +20,7 @@ export interface ListRegistryRepositoriesArgs {
      */
     registryName: string;
 }
-export function listRegistryRepositoriesOutput(args: ListRegistryRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.registry.v2.ListRegistryRepositoriesItems> {
+export function listRegistryRepositoriesOutput(args: ListRegistryRepositoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.registry.v2.ListRegistryRepositoriesItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:registry/v2:listRegistryRepositories", {
         "registryName": args.registryName,

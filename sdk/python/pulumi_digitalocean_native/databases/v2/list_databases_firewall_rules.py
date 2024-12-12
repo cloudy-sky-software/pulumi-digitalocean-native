@@ -60,7 +60,7 @@ def list_databases_firewall_rules(database_cluster_uuid: Optional[str] = None,
     return AwaitableListDatabasesFirewallRulesProperties(
         rules=pulumi.get(__ret__, 'rules'))
 def list_databases_firewall_rules_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesFirewallRulesProperties]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatabasesFirewallRulesProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def list_databases_firewall_rules_output(database_cluster_uuid: Optional[pulumi.
     """
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:listDatabasesFirewallRules', __args__, opts=opts, typ=ListDatabasesFirewallRulesProperties)
     return __ret__.apply(lambda __response__: ListDatabasesFirewallRulesProperties(
         rules=pulumi.get(__response__, 'rules')))

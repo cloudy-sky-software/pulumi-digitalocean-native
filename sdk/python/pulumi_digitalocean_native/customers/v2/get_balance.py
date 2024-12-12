@@ -95,12 +95,12 @@ def get_balance(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableBalance
         generated_at=pulumi.get(__ret__, 'generated_at'),
         month_to_date_balance=pulumi.get(__ret__, 'month_to_date_balance'),
         month_to_date_usage=pulumi.get(__ret__, 'month_to_date_usage'))
-def get_balance_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Balance]:
+def get_balance_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[Balance]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:customers/v2:getBalance', __args__, opts=opts, typ=Balance)
     return __ret__.apply(lambda __response__: Balance(
         account_balance=pulumi.get(__response__, 'account_balance'),

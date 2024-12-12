@@ -79,7 +79,7 @@ def list_domains_records(domain_name: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_domains_records_output(domain_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainsRecordsItems]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDomainsRecordsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,7 +87,7 @@ def list_domains_records_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:domains/v2:listDomainsRecords', __args__, opts=opts, typ=ListDomainsRecordsItems)
     return __ret__.apply(lambda __response__: ListDomainsRecordsItems(
         domain_records=pulumi.get(__response__, 'domain_records'),

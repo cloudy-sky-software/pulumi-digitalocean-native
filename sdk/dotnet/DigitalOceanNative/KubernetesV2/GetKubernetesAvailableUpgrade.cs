@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 
         public static Output<Outputs.GetKubernetesAvailableUpgradeProperties> Invoke(GetKubernetesAvailableUpgradeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetKubernetesAvailableUpgradeProperties>("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args ?? new GetKubernetesAvailableUpgradeInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetKubernetesAvailableUpgradeProperties> Invoke(GetKubernetesAvailableUpgradeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetKubernetesAvailableUpgradeProperties>("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args ?? new GetKubernetesAvailableUpgradeInvokeArgs(), options.WithDefaults());
     }
 
 

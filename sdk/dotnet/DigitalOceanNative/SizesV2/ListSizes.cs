@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.SizesV2
 
         public static Output<Outputs.ListSizesItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSizesItems>("digitalocean-native:sizes/v2:listSizes", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListSizesItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListSizesItems>("digitalocean-native:sizes/v2:listSizes", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

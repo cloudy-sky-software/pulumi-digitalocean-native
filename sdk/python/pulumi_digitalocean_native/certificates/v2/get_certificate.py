@@ -60,7 +60,7 @@ def get_certificate(certificate_id: Optional[str] = None,
     return AwaitableGetCertificateProperties(
         certificate=pulumi.get(__ret__, 'certificate'))
 def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateProperties]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:certificates/v2:getCertificate', __args__, opts=opts, typ=GetCertificateProperties)
     return __ret__.apply(lambda __response__: GetCertificateProperties(
         certificate=pulumi.get(__response__, 'certificate')))

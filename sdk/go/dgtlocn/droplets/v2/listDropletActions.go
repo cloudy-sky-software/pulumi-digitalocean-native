@@ -33,21 +33,11 @@ type ListDropletActionsResult struct {
 }
 
 func ListDropletActionsOutput(ctx *pulumi.Context, args ListDropletActionsOutputArgs, opts ...pulumi.InvokeOption) ListDropletActionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListDropletActionsResultOutput, error) {
 			args := v.(ListDropletActionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListDropletActionsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:listDropletActions", args, &rv, "", opts...)
-			if err != nil {
-				return ListDropletActionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListDropletActionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListDropletActionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:droplets/v2:listDropletActions", args, ListDropletActionsResultOutput{}, options).(ListDropletActionsResultOutput), nil
 		}).(ListDropletActionsResultOutput)
 }
 

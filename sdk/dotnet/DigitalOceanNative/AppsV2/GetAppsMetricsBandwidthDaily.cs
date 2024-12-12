@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 
         public static Output<Outputs.AppMetricsBandwidthUsage> Invoke(GetAppsMetricsBandwidthDailyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppMetricsBandwidthUsage>("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args ?? new GetAppsMetricsBandwidthDailyInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AppMetricsBandwidthUsage> Invoke(GetAppsMetricsBandwidthDailyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppMetricsBandwidthUsage>("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", args ?? new GetAppsMetricsBandwidthDailyInvokeArgs(), options.WithDefaults());
     }
 
 

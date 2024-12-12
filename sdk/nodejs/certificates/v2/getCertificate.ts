@@ -20,7 +20,7 @@ export interface GetCertificateArgs {
      */
     certificateId: string;
 }
-export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.certificates.v2.GetCertificateProperties> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.certificates.v2.GetCertificateProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:certificates/v2:getCertificate", {
         "certificateId": args.certificateId,

@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2
 
         public static Output<Outputs.ListImageActionsItems> Invoke(ListImageActionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListImageActionsItems>("digitalocean-native:images/v2:listImageActions", args ?? new ListImageActionsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ListImageActionsItems> Invoke(ListImageActionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListImageActionsItems>("digitalocean-native:images/v2:listImageActions", args ?? new ListImageActionsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -59,23 +59,12 @@ func (val *GetImageActionResult) Defaults() *GetImageActionResult {
 	}
 	return &tmp
 }
-
 func GetImageActionOutput(ctx *pulumi.Context, args GetImageActionOutputArgs, opts ...pulumi.InvokeOption) GetImageActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImageActionResultOutput, error) {
 			args := v.(GetImageActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetImageActionResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:images/v2:getImageAction", args, &rv, "", opts...)
-			if err != nil {
-				return GetImageActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetImageActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetImageActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:images/v2:getImageAction", args, GetImageActionResultOutput{}, options).(GetImageActionResultOutput), nil
 		}).(GetImageActionResultOutput)
 }
 

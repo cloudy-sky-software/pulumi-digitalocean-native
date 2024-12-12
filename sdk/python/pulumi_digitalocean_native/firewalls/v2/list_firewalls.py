@@ -75,12 +75,12 @@ def list_firewalls(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableList
         firewalls=pulumi.get(__ret__, 'firewalls'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_firewalls_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallsItems]:
+def list_firewalls_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFirewallsItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:firewalls/v2:listFirewalls', __args__, opts=opts, typ=ListFirewallsItems)
     return __ret__.apply(lambda __response__: ListFirewallsItems(
         firewalls=pulumi.get(__response__, 'firewalls'),

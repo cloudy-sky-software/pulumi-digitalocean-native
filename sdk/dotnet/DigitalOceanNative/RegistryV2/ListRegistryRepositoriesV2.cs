@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 
         public static Output<Outputs.ListRegistryRepositoriesV2Items> Invoke(ListRegistryRepositoriesV2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegistryRepositoriesV2Items>("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args ?? new ListRegistryRepositoriesV2InvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ListRegistryRepositoriesV2Items> Invoke(ListRegistryRepositoriesV2InvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegistryRepositoriesV2Items>("digitalocean-native:registry/v2:listRegistryRepositoriesV2", args ?? new ListRegistryRepositoriesV2InvokeArgs(), options.WithDefaults());
     }
 
 

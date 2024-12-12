@@ -32,21 +32,11 @@ type ListDomainsResult struct {
 }
 
 func ListDomainsOutput(ctx *pulumi.Context, args ListDomainsOutputArgs, opts ...pulumi.InvokeOption) ListDomainsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListDomainsResultOutput, error) {
 			args := v.(ListDomainsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListDomainsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:domains/v2:listDomains", args, &rv, "", opts...)
-			if err != nil {
-				return ListDomainsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListDomainsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListDomainsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:domains/v2:listDomains", args, ListDomainsResultOutput{}, options).(ListDomainsResultOutput), nil
 		}).(ListDomainsResultOutput)
 }
 

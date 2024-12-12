@@ -20,7 +20,7 @@ export interface ListVolumeSnapshotsArgs {
      */
     volumeId: string;
 }
-export function listVolumeSnapshotsOutput(args: ListVolumeSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.ListVolumeSnapshotsItems> {
+export function listVolumeSnapshotsOutput(args: ListVolumeSnapshotsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.v2.ListVolumeSnapshotsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:volumes/v2:listVolumeSnapshots", {
         "volumeId": args.volumeId,

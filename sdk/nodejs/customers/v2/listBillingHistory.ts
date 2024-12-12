@@ -16,7 +16,7 @@ export function listBillingHistory(args?: ListBillingHistoryArgs, opts?: pulumi.
 
 export interface ListBillingHistoryArgs {
 }
-export function listBillingHistoryOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.ListBillingHistoryItems> {
+export function listBillingHistoryOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.customers.v2.ListBillingHistoryItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:customers/v2:listBillingHistory", {
     }, opts);

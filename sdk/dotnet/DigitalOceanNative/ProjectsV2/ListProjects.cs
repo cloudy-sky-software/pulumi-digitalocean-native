@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
 
         public static Output<Outputs.ListProjectsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListProjectsItems>("digitalocean-native:projects/v2:listProjects", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListProjectsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListProjectsItems>("digitalocean-native:projects/v2:listProjects", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

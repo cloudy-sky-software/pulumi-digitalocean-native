@@ -79,7 +79,7 @@ def get_apps_log(app_id: Optional[str] = None,
 def get_apps_log_output(app_id: Optional[pulumi.Input[str]] = None,
                         component_name: Optional[pulumi.Input[str]] = None,
                         deployment_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetLogsResponse]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsGetLogsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -91,7 +91,7 @@ def get_apps_log_output(app_id: Optional[pulumi.Input[str]] = None,
     __args__['appId'] = app_id
     __args__['componentName'] = component_name
     __args__['deploymentId'] = deployment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsLog', __args__, opts=opts, typ=AppsGetLogsResponse)
     return __ret__.apply(lambda __response__: AppsGetLogsResponse(
         historic_urls=pulumi.get(__response__, 'historic_urls'),

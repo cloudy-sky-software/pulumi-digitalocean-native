@@ -55,12 +55,12 @@ def get_registry_option(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
 
     return AwaitableGetRegistryOptionProperties(
         options=pulumi.get(__ret__, 'options'))
-def get_registry_option_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryOptionProperties]:
+def get_registry_option_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryOptionProperties]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:getRegistryOption', __args__, opts=opts, typ=GetRegistryOptionProperties)
     return __ret__.apply(lambda __response__: GetRegistryOptionProperties(
         options=pulumi.get(__response__, 'options')))

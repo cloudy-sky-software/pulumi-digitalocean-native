@@ -31,21 +31,11 @@ type ListRegistryGarbageCollectionsResult struct {
 }
 
 func ListRegistryGarbageCollectionsOutput(ctx *pulumi.Context, args ListRegistryGarbageCollectionsOutputArgs, opts ...pulumi.InvokeOption) ListRegistryGarbageCollectionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListRegistryGarbageCollectionsResultOutput, error) {
 			args := v.(ListRegistryGarbageCollectionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListRegistryGarbageCollectionsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:listRegistryGarbageCollections", args, &rv, "", opts...)
-			if err != nil {
-				return ListRegistryGarbageCollectionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListRegistryGarbageCollectionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListRegistryGarbageCollectionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:registry/v2:listRegistryGarbageCollections", args, ListRegistryGarbageCollectionsResultOutput{}, options).(ListRegistryGarbageCollectionsResultOutput), nil
 		}).(ListRegistryGarbageCollectionsResultOutput)
 }
 

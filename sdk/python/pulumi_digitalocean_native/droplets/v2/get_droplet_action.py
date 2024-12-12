@@ -64,7 +64,7 @@ def get_droplet_action(action_id: Optional[str] = None,
         action=pulumi.get(__ret__, 'action'))
 def get_droplet_action_output(action_id: Optional[pulumi.Input[str]] = None,
                               droplet_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDropletActionProperties]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDropletActionProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_droplet_action_output(action_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['dropletId'] = droplet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:getDropletAction', __args__, opts=opts, typ=GetDropletActionProperties)
     return __ret__.apply(lambda __response__: GetDropletActionProperties(
         action=pulumi.get(__response__, 'action')))

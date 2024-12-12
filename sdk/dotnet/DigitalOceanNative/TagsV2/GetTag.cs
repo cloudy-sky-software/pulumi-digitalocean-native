@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.TagsV2
 
         public static Output<Outputs.GetTagProperties> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetTagProperties>("digitalocean-native:tags/v2:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetTagProperties> Invoke(GetTagInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetTagProperties>("digitalocean-native:tags/v2:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -64,7 +64,7 @@ def get_reserved_ips_action(action_id: Optional[str] = None,
         action=pulumi.get(__ret__, 'action'))
 def get_reserved_ips_action_output(action_id: Optional[pulumi.Input[str]] = None,
                                    reserved_ip: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedIPsActionProperties]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedIPsActionProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_reserved_ips_action_output(action_id: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['reservedIp'] = reserved_ip
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:reserved_ips/v2:getReservedIPsAction', __args__, opts=opts, typ=GetReservedIPsActionProperties)
     return __ret__.apply(lambda __response__: GetReservedIPsActionProperties(
         action=pulumi.get(__response__, 'action')))

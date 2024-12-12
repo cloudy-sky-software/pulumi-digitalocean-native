@@ -31,21 +31,11 @@ type ListProjectsResourcesDefaultResult struct {
 }
 
 func ListProjectsResourcesDefaultOutput(ctx *pulumi.Context, args ListProjectsResourcesDefaultOutputArgs, opts ...pulumi.InvokeOption) ListProjectsResourcesDefaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListProjectsResourcesDefaultResultOutput, error) {
 			args := v.(ListProjectsResourcesDefaultArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListProjectsResourcesDefaultResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:projects/v2:listProjectsResourcesDefault", args, &rv, "", opts...)
-			if err != nil {
-				return ListProjectsResourcesDefaultResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListProjectsResourcesDefaultResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListProjectsResourcesDefaultResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:projects/v2:listProjectsResourcesDefault", args, ListProjectsResourcesDefaultResultOutput{}, options).(ListProjectsResourcesDefaultResultOutput), nil
 		}).(ListProjectsResourcesDefaultResultOutput)
 }
 

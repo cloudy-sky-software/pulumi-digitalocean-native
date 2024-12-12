@@ -33,21 +33,11 @@ type ListInvoicesResult struct {
 }
 
 func ListInvoicesOutput(ctx *pulumi.Context, args ListInvoicesOutputArgs, opts ...pulumi.InvokeOption) ListInvoicesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListInvoicesResultOutput, error) {
 			args := v.(ListInvoicesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListInvoicesResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:customers/v2:listInvoices", args, &rv, "", opts...)
-			if err != nil {
-				return ListInvoicesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListInvoicesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListInvoicesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:customers/v2:listInvoices", args, ListInvoicesResultOutput{}, options).(ListInvoicesResultOutput), nil
 		}).(ListInvoicesResultOutput)
 }
 

@@ -63,7 +63,7 @@ def get_functions_trigger(namespace_id: Optional[str] = None,
         trigger=pulumi.get(__ret__, 'trigger'))
 def get_functions_trigger_output(namespace_id: Optional[pulumi.Input[str]] = None,
                                  trigger_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsTriggerProperties]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionsTriggerProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,7 +73,7 @@ def get_functions_trigger_output(namespace_id: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['namespaceId'] = namespace_id
     __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:functions/v2:getFunctionsTrigger', __args__, opts=opts, typ=GetFunctionsTriggerProperties)
     return __ret__.apply(lambda __response__: GetFunctionsTriggerProperties(
         trigger=pulumi.get(__response__, 'trigger')))

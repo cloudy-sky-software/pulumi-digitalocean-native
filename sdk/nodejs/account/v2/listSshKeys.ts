@@ -16,7 +16,7 @@ export function listSshKeys(args?: ListSshKeysArgs, opts?: pulumi.InvokeOptions)
 
 export interface ListSshKeysArgs {
 }
-export function listSshKeysOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.account.v2.ListSshKeysItems> {
+export function listSshKeysOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.account.v2.ListSshKeysItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:account/v2:listSshKeys", {
     }, opts);

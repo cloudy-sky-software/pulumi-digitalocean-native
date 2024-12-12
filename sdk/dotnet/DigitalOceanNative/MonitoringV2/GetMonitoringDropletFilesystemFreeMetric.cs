@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 
         public static Output<Outputs.Metrics> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetric", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.Metrics> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Metrics>("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetric", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

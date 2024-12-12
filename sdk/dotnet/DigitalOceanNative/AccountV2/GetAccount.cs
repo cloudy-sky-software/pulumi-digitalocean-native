@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AccountV2
 
         public static Output<Outputs.GetAccountProperties> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetAccountProperties>("digitalocean-native:account/v2:getAccount", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.GetAccountProperties> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetAccountProperties>("digitalocean-native:account/v2:getAccount", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

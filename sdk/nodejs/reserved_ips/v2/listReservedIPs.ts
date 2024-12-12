@@ -16,7 +16,7 @@ export function listReservedIPs(args?: ListReservedIPsArgs, opts?: pulumi.Invoke
 
 export interface ListReservedIPsArgs {
 }
-export function listReservedIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsItems> {
+export function listReservedIPsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.reserved_ips.v2.ListReservedIPsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:reserved_ips/v2:listReservedIPs", {
     }, opts);

@@ -33,21 +33,11 @@ type ListVolumeSnapshotsResult struct {
 }
 
 func ListVolumeSnapshotsOutput(ctx *pulumi.Context, args ListVolumeSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListVolumeSnapshotsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListVolumeSnapshotsResultOutput, error) {
 			args := v.(ListVolumeSnapshotsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListVolumeSnapshotsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:volumes/v2:listVolumeSnapshots", args, &rv, "", opts...)
-			if err != nil {
-				return ListVolumeSnapshotsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListVolumeSnapshotsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListVolumeSnapshotsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:volumes/v2:listVolumeSnapshots", args, ListVolumeSnapshotsResultOutput{}, options).(ListVolumeSnapshotsResultOutput), nil
 		}).(ListVolumeSnapshotsResultOutput)
 }
 

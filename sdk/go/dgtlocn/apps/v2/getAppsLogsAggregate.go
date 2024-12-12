@@ -35,21 +35,11 @@ type GetAppsLogsAggregateResult struct {
 }
 
 func GetAppsLogsAggregateOutput(ctx *pulumi.Context, args GetAppsLogsAggregateOutputArgs, opts ...pulumi.InvokeOption) GetAppsLogsAggregateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAppsLogsAggregateResultOutput, error) {
 			args := v.(GetAppsLogsAggregateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAppsLogsAggregateResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsLogsAggregate", args, &rv, "", opts...)
-			if err != nil {
-				return GetAppsLogsAggregateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAppsLogsAggregateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAppsLogsAggregateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:apps/v2:getAppsLogsAggregate", args, GetAppsLogsAggregateResultOutput{}, options).(GetAppsLogsAggregateResultOutput), nil
 		}).(GetAppsLogsAggregateResultOutput)
 }
 

@@ -99,7 +99,7 @@ def list_droplets_associated_resources(droplet_id: Optional[str] = None,
         volume_snapshots=pulumi.get(__ret__, 'volume_snapshots'),
         volumes=pulumi.get(__ret__, 'volumes'))
 def list_droplets_associated_resources_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDropletsAssociatedResourcesItems]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDropletsAssociatedResourcesItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -107,7 +107,7 @@ def list_droplets_associated_resources_output(droplet_id: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['dropletId'] = droplet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:listDropletsAssociatedResources', __args__, opts=opts, typ=ListDropletsAssociatedResourcesItems)
     return __ret__.apply(lambda __response__: ListDropletsAssociatedResourcesItems(
         floating_ips=pulumi.get(__response__, 'floating_ips'),

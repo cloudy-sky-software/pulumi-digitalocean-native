@@ -20,7 +20,7 @@ export interface GetUptimeCheckStateArgs {
      */
     checkId: string;
 }
-export function getUptimeCheckStateOutput(args: GetUptimeCheckStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.GetUptimeCheckStateProperties> {
+export function getUptimeCheckStateOutput(args: GetUptimeCheckStateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.uptime.v2.GetUptimeCheckStateProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:uptime/v2:getUptimeCheckState", {
         "checkId": args.checkId,

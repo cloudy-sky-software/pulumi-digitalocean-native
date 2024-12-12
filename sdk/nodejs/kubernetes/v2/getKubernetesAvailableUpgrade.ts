@@ -20,7 +20,7 @@ export interface GetKubernetesAvailableUpgradeArgs {
      */
     clusterId: string;
 }
-export function getKubernetesAvailableUpgradeOutput(args: GetKubernetesAvailableUpgradeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.GetKubernetesAvailableUpgradeProperties> {
+export function getKubernetesAvailableUpgradeOutput(args: GetKubernetesAvailableUpgradeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.GetKubernetesAvailableUpgradeProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", {
         "clusterId": args.clusterId,

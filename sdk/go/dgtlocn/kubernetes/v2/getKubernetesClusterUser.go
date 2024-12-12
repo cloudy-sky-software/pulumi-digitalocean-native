@@ -31,21 +31,11 @@ type GetKubernetesClusterUserResult struct {
 }
 
 func GetKubernetesClusterUserOutput(ctx *pulumi.Context, args GetKubernetesClusterUserOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesClusterUserResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetKubernetesClusterUserResultOutput, error) {
 			args := v.(GetKubernetesClusterUserArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetKubernetesClusterUserResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", args, &rv, "", opts...)
-			if err != nil {
-				return GetKubernetesClusterUserResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetKubernetesClusterUserResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetKubernetesClusterUserResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:kubernetes/v2:getKubernetesClusterUser", args, GetKubernetesClusterUserResultOutput{}, options).(GetKubernetesClusterUserResultOutput), nil
 		}).(GetKubernetesClusterUserResultOutput)
 }
 

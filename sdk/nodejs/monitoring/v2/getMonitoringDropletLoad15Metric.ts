@@ -16,7 +16,7 @@ export function getMonitoringDropletLoad15Metric(args?: GetMonitoringDropletLoad
 
 export interface GetMonitoringDropletLoad15MetricArgs {
 }
-export function getMonitoringDropletLoad15MetricOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
+export function getMonitoringDropletLoad15MetricOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.Metrics> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", {
     }, opts);

@@ -25,7 +25,7 @@ export interface GetAppsLogsActiveDeploymentArgs {
      */
     componentName: string;
 }
-export function getAppsLogsActiveDeploymentOutput(args: GetAppsLogsActiveDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
+export function getAppsLogsActiveDeploymentOutput(args: GetAppsLogsActiveDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsGetLogsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsLogsActiveDeployment", {
         "appId": args.appId,

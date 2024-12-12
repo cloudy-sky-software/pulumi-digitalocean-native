@@ -31,21 +31,11 @@ type GetVolumeSnapshotsByIdResult struct {
 }
 
 func GetVolumeSnapshotsByIdOutput(ctx *pulumi.Context, args GetVolumeSnapshotsByIdOutputArgs, opts ...pulumi.InvokeOption) GetVolumeSnapshotsByIdResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVolumeSnapshotsByIdResultOutput, error) {
 			args := v.(GetVolumeSnapshotsByIdArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetVolumeSnapshotsByIdResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args, &rv, "", opts...)
-			if err != nil {
-				return GetVolumeSnapshotsByIdResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetVolumeSnapshotsByIdResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetVolumeSnapshotsByIdResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args, GetVolumeSnapshotsByIdResultOutput{}, options).(GetVolumeSnapshotsByIdResultOutput), nil
 		}).(GetVolumeSnapshotsByIdResultOutput)
 }
 

@@ -25,7 +25,7 @@ export interface GetDatabasesConnectionPoolArgs {
      */
     poolName: string;
 }
-export function getDatabasesConnectionPoolOutput(args: GetDatabasesConnectionPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.GetDatabasesConnectionPoolProperties> {
+export function getDatabasesConnectionPoolOutput(args: GetDatabasesConnectionPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.GetDatabasesConnectionPoolProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesConnectionPool", {
         "databaseClusterUuid": args.databaseClusterUuid,

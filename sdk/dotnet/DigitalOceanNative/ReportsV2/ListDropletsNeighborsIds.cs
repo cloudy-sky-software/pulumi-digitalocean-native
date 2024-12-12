@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReportsV2
 
         public static Output<Outputs.NeighborIds> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.NeighborIds>("digitalocean-native:reports/v2:listDropletsNeighborsIds", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.NeighborIds> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.NeighborIds>("digitalocean-native:reports/v2:listDropletsNeighborsIds", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

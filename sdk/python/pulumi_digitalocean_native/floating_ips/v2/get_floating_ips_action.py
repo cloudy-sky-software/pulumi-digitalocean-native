@@ -64,7 +64,7 @@ def get_floating_ips_action(action_id: Optional[str] = None,
         action=pulumi.get(__ret__, 'action'))
 def get_floating_ips_action_output(action_id: Optional[pulumi.Input[str]] = None,
                                    floating_ip: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFloatingIPsActionProperties]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFloatingIPsActionProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_floating_ips_action_output(action_id: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['floatingIp'] = floating_ip
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:floating_ips/v2:getFloatingIPsAction', __args__, opts=opts, typ=GetFloatingIPsActionProperties)
     return __ret__.apply(lambda __response__: GetFloatingIPsActionProperties(
         action=pulumi.get(__response__, 'action')))

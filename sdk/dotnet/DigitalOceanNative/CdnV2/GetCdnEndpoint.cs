@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CdnV2
 
         public static Output<Outputs.GetCdnEndpointProperties> Invoke(GetCdnEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetCdnEndpointProperties>("digitalocean-native:cdn/v2:getCdnEndpoint", args ?? new GetCdnEndpointInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetCdnEndpointProperties> Invoke(GetCdnEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetCdnEndpointProperties>("digitalocean-native:cdn/v2:getCdnEndpoint", args ?? new GetCdnEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

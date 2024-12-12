@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
 
         public static Output<Outputs.ListFunctionsTriggersItems> Invoke(ListFunctionsTriggersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFunctionsTriggersItems>("digitalocean-native:functions/v2:listFunctionsTriggers", args ?? new ListFunctionsTriggersInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ListFunctionsTriggersItems> Invoke(ListFunctionsTriggersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFunctionsTriggersItems>("digitalocean-native:functions/v2:listFunctionsTriggers", args ?? new ListFunctionsTriggersInvokeArgs(), options.WithDefaults());
     }
 
 

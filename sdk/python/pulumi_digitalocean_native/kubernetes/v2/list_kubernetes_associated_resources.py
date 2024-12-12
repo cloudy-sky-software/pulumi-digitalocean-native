@@ -91,7 +91,7 @@ def list_kubernetes_associated_resources(cluster_id: Optional[str] = None,
         volume_snapshots=pulumi.get(__ret__, 'volume_snapshots'),
         volumes=pulumi.get(__ret__, 'volumes'))
 def list_kubernetes_associated_resources_output(cluster_id: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AssociatedKubernetesResources]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AssociatedKubernetesResources]:
     """
     Use this data source to access information about an existing resource.
 
@@ -99,7 +99,7 @@ def list_kubernetes_associated_resources_output(cluster_id: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources', __args__, opts=opts, typ=AssociatedKubernetesResources)
     return __ret__.apply(lambda __response__: AssociatedKubernetesResources(
         load_balancers=pulumi.get(__response__, 'load_balancers'),

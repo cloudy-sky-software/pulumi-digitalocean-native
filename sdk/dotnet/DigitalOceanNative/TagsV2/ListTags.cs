@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.TagsV2
 
         public static Output<Outputs.ListTagsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListTagsItems>("digitalocean-native:tags/v2:listTags", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListTagsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListTagsItems>("digitalocean-native:tags/v2:listTags", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -29,21 +29,11 @@ type GetRegistryDockerCredentialResult struct {
 }
 
 func GetRegistryDockerCredentialOutput(ctx *pulumi.Context, args GetRegistryDockerCredentialOutputArgs, opts ...pulumi.InvokeOption) GetRegistryDockerCredentialResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRegistryDockerCredentialResultOutput, error) {
 			args := v.(GetRegistryDockerCredentialArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRegistryDockerCredentialResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:getRegistryDockerCredential", args, &rv, "", opts...)
-			if err != nil {
-				return GetRegistryDockerCredentialResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRegistryDockerCredentialResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRegistryDockerCredentialResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:registry/v2:getRegistryDockerCredential", args, GetRegistryDockerCredentialResultOutput{}, options).(GetRegistryDockerCredentialResultOutput), nil
 		}).(GetRegistryDockerCredentialResultOutput)
 }
 

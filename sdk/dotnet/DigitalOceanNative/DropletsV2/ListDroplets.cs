@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DropletsV2
 
         public static Output<Outputs.ListDropletsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsItems>("digitalocean-native:droplets/v2:listDroplets", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListDropletsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListDropletsItems>("digitalocean-native:droplets/v2:listDroplets", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

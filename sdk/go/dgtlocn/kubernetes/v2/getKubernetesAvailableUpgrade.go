@@ -31,21 +31,11 @@ type GetKubernetesAvailableUpgradeResult struct {
 }
 
 func GetKubernetesAvailableUpgradeOutput(ctx *pulumi.Context, args GetKubernetesAvailableUpgradeOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesAvailableUpgradeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetKubernetesAvailableUpgradeResultOutput, error) {
 			args := v.(GetKubernetesAvailableUpgradeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetKubernetesAvailableUpgradeResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args, &rv, "", opts...)
-			if err != nil {
-				return GetKubernetesAvailableUpgradeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetKubernetesAvailableUpgradeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetKubernetesAvailableUpgradeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:kubernetes/v2:getKubernetesAvailableUpgrade", args, GetKubernetesAvailableUpgradeResultOutput{}, options).(GetKubernetesAvailableUpgradeResultOutput), nil
 		}).(GetKubernetesAvailableUpgradeResultOutput)
 }
 

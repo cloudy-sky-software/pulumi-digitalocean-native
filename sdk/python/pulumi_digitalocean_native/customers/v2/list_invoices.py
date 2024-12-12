@@ -87,12 +87,12 @@ def list_invoices(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListI
         invoices=pulumi.get(__ret__, 'invoices'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_invoices_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListInvoicesItems]:
+def list_invoices_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListInvoicesItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:customers/v2:listInvoices', __args__, opts=opts, typ=ListInvoicesItems)
     return __ret__.apply(lambda __response__: ListInvoicesItems(
         invoice_preview=pulumi.get(__response__, 'invoice_preview'),

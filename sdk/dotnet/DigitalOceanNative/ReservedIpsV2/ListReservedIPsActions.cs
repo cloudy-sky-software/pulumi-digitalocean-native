@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
 
         public static Output<Outputs.ListReservedIPsActionsItems> Invoke(ListReservedIPsActionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListReservedIPsActionsItems>("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args ?? new ListReservedIPsActionsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ListReservedIPsActionsItems> Invoke(ListReservedIPsActionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListReservedIPsActionsItems>("digitalocean-native:reserved_ips/v2:listReservedIPsActions", args ?? new ListReservedIPsActionsInvokeArgs(), options.WithDefaults());
     }
 
 

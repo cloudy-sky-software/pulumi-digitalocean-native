@@ -20,7 +20,7 @@ export interface ListVolumeActionsArgs {
      */
     volumeId: string;
 }
-export function listVolumeActionsOutput(args: ListVolumeActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.ListVolumeActionsItems> {
+export function listVolumeActionsOutput(args: ListVolumeActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.v2.ListVolumeActionsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:volumes/v2:listVolumeActions", {
         "volumeId": args.volumeId,

@@ -16,7 +16,7 @@ export function listAppsRegions(args?: ListAppsRegionsArgs, opts?: pulumi.Invoke
 
 export interface ListAppsRegionsArgs {
 }
-export function listAppsRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListRegionsResponse> {
+export function listAppsRegionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsListRegionsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsRegions", {
     }, opts);

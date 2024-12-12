@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.VolumesV2
 
         public static Output<Outputs.GetVolumeSnapshotsByIdProperties> Invoke(GetVolumeSnapshotsByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeSnapshotsByIdProperties>("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args ?? new GetVolumeSnapshotsByIdInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetVolumeSnapshotsByIdProperties> Invoke(GetVolumeSnapshotsByIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetVolumeSnapshotsByIdProperties>("digitalocean-native:volumes/v2:getVolumeSnapshotsById", args ?? new GetVolumeSnapshotsByIdInvokeArgs(), options.WithDefaults());
     }
 
 

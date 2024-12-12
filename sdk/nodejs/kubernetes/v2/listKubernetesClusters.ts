@@ -16,7 +16,7 @@ export function listKubernetesClusters(args?: ListKubernetesClustersArgs, opts?:
 
 export interface ListKubernetesClustersArgs {
 }
-export function listKubernetesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.ListKubernetesClustersItems> {
+export function listKubernetesClustersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.ListKubernetesClustersItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:listKubernetesClusters", {
     }, opts);

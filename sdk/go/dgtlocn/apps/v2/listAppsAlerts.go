@@ -31,21 +31,11 @@ type ListAppsAlertsResult struct {
 }
 
 func ListAppsAlertsOutput(ctx *pulumi.Context, args ListAppsAlertsOutputArgs, opts ...pulumi.InvokeOption) ListAppsAlertsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListAppsAlertsResultOutput, error) {
 			args := v.(ListAppsAlertsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListAppsAlertsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:listAppsAlerts", args, &rv, "", opts...)
-			if err != nil {
-				return ListAppsAlertsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListAppsAlertsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListAppsAlertsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:apps/v2:listAppsAlerts", args, ListAppsAlertsResultOutput{}, options).(ListAppsAlertsResultOutput), nil
 		}).(ListAppsAlertsResultOutput)
 }
 

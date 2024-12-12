@@ -75,12 +75,12 @@ def list_reserved_ips(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableL
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         reserved_ips=pulumi.get(__ret__, 'reserved_ips'))
-def list_reserved_ips_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListReservedIPsItems]:
+def list_reserved_ips_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListReservedIPsItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:reserved_ips/v2:listReservedIPs', __args__, opts=opts, typ=ListReservedIPsItems)
     return __ret__.apply(lambda __response__: ListReservedIPsItems(
         links=pulumi.get(__response__, 'links'),

@@ -16,7 +16,7 @@ export function listImages(args?: ListImagesArgs, opts?: pulumi.InvokeOptions): 
 
 export interface ListImagesArgs {
 }
-export function listImagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.v2.ListImagesItems> {
+export function listImagesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.images.v2.ListImagesItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:images/v2:listImages", {
     }, opts);
