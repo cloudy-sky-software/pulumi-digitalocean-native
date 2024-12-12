@@ -20,7 +20,7 @@ export interface GetFirewallArgs {
      */
     firewallId: string;
 }
-export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.firewalls.v2.GetFirewallProperties> {
+export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.firewalls.v2.GetFirewallProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:firewalls/v2:getFirewall", {
         "firewallId": args.firewallId,

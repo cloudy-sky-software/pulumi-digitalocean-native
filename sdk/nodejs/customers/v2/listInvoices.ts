@@ -16,7 +16,7 @@ export function listInvoices(args?: ListInvoicesArgs, opts?: pulumi.InvokeOption
 
 export interface ListInvoicesArgs {
 }
-export function listInvoicesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.customers.v2.ListInvoicesItems> {
+export function listInvoicesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.customers.v2.ListInvoicesItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:customers/v2:listInvoices", {
     }, opts);

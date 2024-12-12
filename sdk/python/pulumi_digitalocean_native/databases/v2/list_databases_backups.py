@@ -59,7 +59,7 @@ def list_databases_backups(database_cluster_uuid: Optional[str] = None,
     return AwaitableListDatabasesBackupsProperties(
         backups=pulumi.get(__ret__, 'backups'))
 def list_databases_backups_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabasesBackupsProperties]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatabasesBackupsProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def list_databases_backups_output(database_cluster_uuid: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:listDatabasesBackups', __args__, opts=opts, typ=ListDatabasesBackupsProperties)
     return __ret__.apply(lambda __response__: ListDatabasesBackupsProperties(
         backups=pulumi.get(__response__, 'backups')))

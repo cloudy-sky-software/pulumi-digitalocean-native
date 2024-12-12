@@ -16,7 +16,7 @@ export function listFloatingIPs(args?: ListFloatingIPsArgs, opts?: pulumi.Invoke
 
 export interface ListFloatingIPsArgs {
 }
-export function listFloatingIPsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsItems> {
+export function listFloatingIPsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:floating_ips/v2:listFloatingIPs", {
     }, opts);

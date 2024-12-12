@@ -32,21 +32,11 @@ type ListBillingHistoryResult struct {
 }
 
 func ListBillingHistoryOutput(ctx *pulumi.Context, args ListBillingHistoryOutputArgs, opts ...pulumi.InvokeOption) ListBillingHistoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListBillingHistoryResultOutput, error) {
 			args := v.(ListBillingHistoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListBillingHistoryResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:customers/v2:listBillingHistory", args, &rv, "", opts...)
-			if err != nil {
-				return ListBillingHistoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListBillingHistoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListBillingHistoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:customers/v2:listBillingHistory", args, ListBillingHistoryResultOutput{}, options).(ListBillingHistoryResultOutput), nil
 		}).(ListBillingHistoryResultOutput)
 }
 

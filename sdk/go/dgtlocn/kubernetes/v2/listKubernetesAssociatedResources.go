@@ -37,21 +37,11 @@ type ListKubernetesAssociatedResourcesResult struct {
 }
 
 func ListKubernetesAssociatedResourcesOutput(ctx *pulumi.Context, args ListKubernetesAssociatedResourcesOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesAssociatedResourcesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListKubernetesAssociatedResourcesResultOutput, error) {
 			args := v.(ListKubernetesAssociatedResourcesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListKubernetesAssociatedResourcesResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args, &rv, "", opts...)
-			if err != nil {
-				return ListKubernetesAssociatedResourcesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListKubernetesAssociatedResourcesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListKubernetesAssociatedResourcesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args, ListKubernetesAssociatedResourcesResultOutput{}, options).(ListKubernetesAssociatedResourcesResultOutput), nil
 		}).(ListKubernetesAssociatedResourcesResultOutput)
 }
 

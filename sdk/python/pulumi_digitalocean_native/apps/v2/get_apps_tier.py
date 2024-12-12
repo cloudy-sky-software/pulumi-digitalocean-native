@@ -59,7 +59,7 @@ def get_apps_tier(slug: Optional[str] = None,
     return AwaitableAppsGetTierResponse(
         tier=pulumi.get(__ret__, 'tier'))
 def get_apps_tier_output(slug: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetTierResponse]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsGetTierResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_apps_tier_output(slug: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['slug'] = slug
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsTier', __args__, opts=opts, typ=AppsGetTierResponse)
     return __ret__.apply(lambda __response__: AppsGetTierResponse(
         tier=pulumi.get(__response__, 'tier')))

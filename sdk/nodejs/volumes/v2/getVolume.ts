@@ -20,7 +20,7 @@ export interface GetVolumeArgs {
      */
     volumeId: string;
 }
-export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.v2.GetVolumeProperties> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.v2.GetVolumeProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:volumes/v2:getVolume", {
         "volumeId": args.volumeId,

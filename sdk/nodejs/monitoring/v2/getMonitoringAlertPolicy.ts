@@ -20,7 +20,7 @@ export interface GetMonitoringAlertPolicyArgs {
      */
     alertUuid: string;
 }
-export function getMonitoringAlertPolicyOutput(args: GetMonitoringAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.monitoring.v2.GetMonitoringAlertPolicyProperties> {
+export function getMonitoringAlertPolicyOutput(args: GetMonitoringAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.monitoring.v2.GetMonitoringAlertPolicyProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:monitoring/v2:getMonitoringAlertPolicy", {
         "alertUuid": args.alertUuid,

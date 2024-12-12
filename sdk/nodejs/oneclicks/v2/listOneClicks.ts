@@ -16,7 +16,7 @@ export function listOneClicks(args?: ListOneClicksArgs, opts?: pulumi.InvokeOpti
 
 export interface ListOneClicksArgs {
 }
-export function listOneClicksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.oneclicks.v2.ListOneClicksProperties> {
+export function listOneClicksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.oneclicks.v2.ListOneClicksProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:1-clicks/v2:listOneClicks", {
     }, opts);

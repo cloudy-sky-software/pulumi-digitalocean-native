@@ -31,21 +31,11 @@ type ListLoadBalancersResult struct {
 }
 
 func ListLoadBalancersOutput(ctx *pulumi.Context, args ListLoadBalancersOutputArgs, opts ...pulumi.InvokeOption) ListLoadBalancersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListLoadBalancersResultOutput, error) {
 			args := v.(ListLoadBalancersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListLoadBalancersResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:load_balancers/v2:listLoadBalancers", args, &rv, "", opts...)
-			if err != nil {
-				return ListLoadBalancersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListLoadBalancersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListLoadBalancersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:load_balancers/v2:listLoadBalancers", args, ListLoadBalancersResultOutput{}, options).(ListLoadBalancersResultOutput), nil
 		}).(ListLoadBalancersResultOutput)
 }
 

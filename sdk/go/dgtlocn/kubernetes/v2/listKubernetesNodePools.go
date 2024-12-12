@@ -31,21 +31,11 @@ type ListKubernetesNodePoolsResult struct {
 }
 
 func ListKubernetesNodePoolsOutput(ctx *pulumi.Context, args ListKubernetesNodePoolsOutputArgs, opts ...pulumi.InvokeOption) ListKubernetesNodePoolsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListKubernetesNodePoolsResultOutput, error) {
 			args := v.(ListKubernetesNodePoolsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListKubernetesNodePoolsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args, &rv, "", opts...)
-			if err != nil {
-				return ListKubernetesNodePoolsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListKubernetesNodePoolsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListKubernetesNodePoolsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:kubernetes/v2:listKubernetesNodePools", args, ListKubernetesNodePoolsResultOutput{}, options).(ListKubernetesNodePoolsResultOutput), nil
 		}).(ListKubernetesNodePoolsResultOutput)
 }
 

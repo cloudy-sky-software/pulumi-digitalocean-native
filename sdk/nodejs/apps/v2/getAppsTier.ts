@@ -20,7 +20,7 @@ export interface GetAppsTierArgs {
      */
     slug: string;
 }
-export function getAppsTierOutput(args: GetAppsTierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetTierResponse> {
+export function getAppsTierOutput(args: GetAppsTierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsGetTierResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsTier", {
         "slug": args.slug,

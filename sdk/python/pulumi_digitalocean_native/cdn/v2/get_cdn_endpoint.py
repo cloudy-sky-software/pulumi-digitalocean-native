@@ -60,7 +60,7 @@ def get_cdn_endpoint(cdn_id: Optional[str] = None,
     return AwaitableGetCdnEndpointProperties(
         endpoint=pulumi.get(__ret__, 'endpoint'))
 def get_cdn_endpoint_output(cdn_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCdnEndpointProperties]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCdnEndpointProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_cdn_endpoint_output(cdn_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['cdnId'] = cdn_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:cdn/v2:getCdnEndpoint', __args__, opts=opts, typ=GetCdnEndpointProperties)
     return __ret__.apply(lambda __response__: GetCdnEndpointProperties(
         endpoint=pulumi.get(__response__, 'endpoint')))

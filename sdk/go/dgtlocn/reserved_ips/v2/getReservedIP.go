@@ -40,23 +40,12 @@ func (val *LookupReservedIPResult) Defaults() *LookupReservedIPResult {
 
 	return &tmp
 }
-
 func LookupReservedIPOutput(ctx *pulumi.Context, args LookupReservedIPOutputArgs, opts ...pulumi.InvokeOption) LookupReservedIPResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReservedIPResultOutput, error) {
 			args := v.(LookupReservedIPArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupReservedIPResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:reserved_ips/v2:getReservedIP", args, &rv, "", opts...)
-			if err != nil {
-				return LookupReservedIPResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupReservedIPResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupReservedIPResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:reserved_ips/v2:getReservedIP", args, LookupReservedIPResultOutput{}, options).(LookupReservedIPResultOutput), nil
 		}).(LookupReservedIPResultOutput)
 }
 

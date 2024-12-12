@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 
         public static Output<Outputs.Credentials> Invoke(GetKubernetesCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.Credentials>("digitalocean-native:kubernetes/v2:getKubernetesCredential", args ?? new GetKubernetesCredentialInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.Credentials> Invoke(GetKubernetesCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Credentials>("digitalocean-native:kubernetes/v2:getKubernetesCredential", args ?? new GetKubernetesCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

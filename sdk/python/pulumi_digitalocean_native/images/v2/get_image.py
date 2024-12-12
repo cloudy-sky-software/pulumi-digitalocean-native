@@ -65,7 +65,7 @@ def get_image(image_id: Optional[str] = None,
     return AwaitableGetImageProperties(
         image=pulumi.get(__ret__, 'image'))
 def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageProperties]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -78,7 +78,7 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['imageId'] = image_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:images/v2:getImage', __args__, opts=opts, typ=GetImageProperties)
     return __ret__.apply(lambda __response__: GetImageProperties(
         image=pulumi.get(__response__, 'image')))

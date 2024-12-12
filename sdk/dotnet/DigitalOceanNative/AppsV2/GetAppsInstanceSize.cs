@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 
         public static Output<Outputs.AppsGetInstanceSizeResponse> Invoke(GetAppsInstanceSizeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetInstanceSizeResponse>("digitalocean-native:apps/v2:getAppsInstanceSize", args ?? new GetAppsInstanceSizeInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AppsGetInstanceSizeResponse> Invoke(GetAppsInstanceSizeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetInstanceSizeResponse>("digitalocean-native:apps/v2:getAppsInstanceSize", args ?? new GetAppsInstanceSizeInvokeArgs(), options.WithDefaults());
     }
 
 

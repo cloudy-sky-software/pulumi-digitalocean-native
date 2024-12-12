@@ -20,7 +20,7 @@ export interface ListKubernetesNodePoolsArgs {
      */
     clusterId: string;
 }
-export function listKubernetesNodePoolsOutput(args: ListKubernetesNodePoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.ListKubernetesNodePoolsProperties> {
+export function listKubernetesNodePoolsOutput(args: ListKubernetesNodePoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.ListKubernetesNodePoolsProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:listKubernetesNodePools", {
         "clusterId": args.clusterId,

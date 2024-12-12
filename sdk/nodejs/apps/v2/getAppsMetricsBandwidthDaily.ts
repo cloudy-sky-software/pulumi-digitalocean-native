@@ -20,7 +20,7 @@ export interface GetAppsMetricsBandwidthDailyArgs {
      */
     appId: string;
 }
-export function getAppsMetricsBandwidthDailyOutput(args: GetAppsMetricsBandwidthDailyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppMetricsBandwidthUsage> {
+export function getAppsMetricsBandwidthDailyOutput(args: GetAppsMetricsBandwidthDailyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppMetricsBandwidthUsage> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsMetricsBandwidthDaily", {
         "appId": args.appId,

@@ -64,12 +64,12 @@ def list_databases_options(opts: Optional[pulumi.InvokeOptions] = None) -> Await
     return AwaitableOptions(
         options=pulumi.get(__ret__, 'options'),
         version_availability=pulumi.get(__ret__, 'version_availability'))
-def list_databases_options_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Options]:
+def list_databases_options_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[Options]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:listDatabasesOptions', __args__, opts=opts, typ=Options)
     return __ret__.apply(lambda __response__: Options(
         options=pulumi.get(__response__, 'options'),

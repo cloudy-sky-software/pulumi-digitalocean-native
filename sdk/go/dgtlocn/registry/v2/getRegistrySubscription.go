@@ -29,21 +29,11 @@ type GetRegistrySubscriptionResult struct {
 }
 
 func GetRegistrySubscriptionOutput(ctx *pulumi.Context, args GetRegistrySubscriptionOutputArgs, opts ...pulumi.InvokeOption) GetRegistrySubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRegistrySubscriptionResultOutput, error) {
 			args := v.(GetRegistrySubscriptionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRegistrySubscriptionResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:getRegistrySubscription", args, &rv, "", opts...)
-			if err != nil {
-				return GetRegistrySubscriptionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRegistrySubscriptionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRegistrySubscriptionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:registry/v2:getRegistrySubscription", args, GetRegistrySubscriptionResultOutput{}, options).(GetRegistrySubscriptionResultOutput), nil
 		}).(GetRegistrySubscriptionResultOutput)
 }
 

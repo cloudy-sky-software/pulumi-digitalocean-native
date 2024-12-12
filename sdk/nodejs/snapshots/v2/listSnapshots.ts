@@ -16,7 +16,7 @@ export function listSnapshots(args?: ListSnapshotsArgs, opts?: pulumi.InvokeOpti
 
 export interface ListSnapshotsArgs {
 }
-export function listSnapshotsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.v2.ListSnapshotsItems> {
+export function listSnapshotsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.snapshots.v2.ListSnapshotsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:snapshots/v2:listSnapshots", {
     }, opts);

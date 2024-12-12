@@ -63,7 +63,7 @@ def get_database(database_cluster_uuid: Optional[str] = None,
         db=pulumi.get(__ret__, 'db'))
 def get_database_output(database_cluster_uuid: Optional[pulumi.Input[str]] = None,
                         database_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseProperties]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,7 +73,7 @@ def get_database_output(database_cluster_uuid: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['databaseClusterUuid'] = database_cluster_uuid
     __args__['databaseName'] = database_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:databases/v2:getDatabase', __args__, opts=opts, typ=GetDatabaseProperties)
     return __ret__.apply(lambda __response__: GetDatabaseProperties(
         db=pulumi.get(__response__, 'db')))

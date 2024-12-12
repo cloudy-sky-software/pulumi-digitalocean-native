@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
 
         public static Output<Outputs.ListFirewallsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFirewallsItems>("digitalocean-native:firewalls/v2:listFirewalls", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListFirewallsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListFirewallsItems>("digitalocean-native:firewalls/v2:listFirewalls", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

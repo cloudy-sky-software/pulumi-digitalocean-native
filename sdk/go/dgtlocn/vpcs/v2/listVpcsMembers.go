@@ -33,21 +33,11 @@ type ListVpcsMembersResult struct {
 }
 
 func ListVpcsMembersOutput(ctx *pulumi.Context, args ListVpcsMembersOutputArgs, opts ...pulumi.InvokeOption) ListVpcsMembersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListVpcsMembersResultOutput, error) {
 			args := v.(ListVpcsMembersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListVpcsMembersResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:vpcs/v2:listVpcsMembers", args, &rv, "", opts...)
-			if err != nil {
-				return ListVpcsMembersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListVpcsMembersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListVpcsMembersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:vpcs/v2:listVpcsMembers", args, ListVpcsMembersResultOutput{}, options).(ListVpcsMembersResultOutput), nil
 		}).(ListVpcsMembersResultOutput)
 }
 

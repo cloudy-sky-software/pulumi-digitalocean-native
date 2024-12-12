@@ -79,7 +79,7 @@ def list_registry_repositories_v2(registry_name: Optional[str] = None,
         meta=pulumi.get(__ret__, 'meta'),
         repositories=pulumi.get(__ret__, 'repositories'))
 def list_registry_repositories_v2_output(registry_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryRepositoriesV2Items]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryRepositoriesV2Items]:
     """
     Use this data source to access information about an existing resource.
 
@@ -87,7 +87,7 @@ def list_registry_repositories_v2_output(registry_name: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['registryName'] = registry_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryRepositoriesV2', __args__, opts=opts, typ=ListRegistryRepositoriesV2Items)
     return __ret__.apply(lambda __response__: ListRegistryRepositoriesV2Items(
         links=pulumi.get(__response__, 'links'),

@@ -31,21 +31,11 @@ type LookupDatabasesClusterResult struct {
 }
 
 func LookupDatabasesClusterOutput(ctx *pulumi.Context, args LookupDatabasesClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatabasesClusterResultOutput, error) {
 			args := v.(LookupDatabasesClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDatabasesClusterResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesCluster", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDatabasesClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDatabasesClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDatabasesClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:databases/v2:getDatabasesCluster", args, LookupDatabasesClusterResultOutput{}, options).(LookupDatabasesClusterResultOutput), nil
 		}).(LookupDatabasesClusterResultOutput)
 }
 

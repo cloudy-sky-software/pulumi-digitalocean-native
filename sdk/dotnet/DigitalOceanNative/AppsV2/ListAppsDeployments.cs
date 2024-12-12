@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 
         public static Output<Outputs.AppsDeploymentsResponse> Invoke(ListAppsDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsDeploymentsResponse>("digitalocean-native:apps/v2:listAppsDeployments", args ?? new ListAppsDeploymentsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AppsDeploymentsResponse> Invoke(ListAppsDeploymentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsDeploymentsResponse>("digitalocean-native:apps/v2:listAppsDeployments", args ?? new ListAppsDeploymentsInvokeArgs(), options.WithDefaults());
     }
 
 

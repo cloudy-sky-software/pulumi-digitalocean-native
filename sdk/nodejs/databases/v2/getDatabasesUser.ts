@@ -25,7 +25,7 @@ export interface GetDatabasesUserArgs {
      */
     username: string;
 }
-export function getDatabasesUserOutput(args: GetDatabasesUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.GetDatabasesUserProperties> {
+export function getDatabasesUserOutput(args: GetDatabasesUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.GetDatabasesUserProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesUser", {
         "databaseClusterUuid": args.databaseClusterUuid,

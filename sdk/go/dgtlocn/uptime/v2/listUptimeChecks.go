@@ -31,21 +31,11 @@ type ListUptimeChecksResult struct {
 }
 
 func ListUptimeChecksOutput(ctx *pulumi.Context, args ListUptimeChecksOutputArgs, opts ...pulumi.InvokeOption) ListUptimeChecksResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListUptimeChecksResultOutput, error) {
 			args := v.(ListUptimeChecksArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListUptimeChecksResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:uptime/v2:listUptimeChecks", args, &rv, "", opts...)
-			if err != nil {
-				return ListUptimeChecksResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListUptimeChecksResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListUptimeChecksResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:uptime/v2:listUptimeChecks", args, ListUptimeChecksResultOutput{}, options).(ListUptimeChecksResultOutput), nil
 		}).(ListUptimeChecksResultOutput)
 }
 

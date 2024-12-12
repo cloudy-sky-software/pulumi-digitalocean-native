@@ -20,7 +20,7 @@ export interface GetKubernetesClusterLintResultArgs {
      */
     clusterId: string;
 }
-export function getKubernetesClusterLintResultOutput(args: GetKubernetesClusterLintResultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.ClusterlintResults> {
+export function getKubernetesClusterLintResultOutput(args: GetKubernetesClusterLintResultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.ClusterlintResults> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", {
         "clusterId": args.clusterId,

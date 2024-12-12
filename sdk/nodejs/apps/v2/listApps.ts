@@ -16,7 +16,7 @@ export function listApps(args?: ListAppsArgs, opts?: pulumi.InvokeOptions): Prom
 
 export interface ListAppsArgs {
 }
-export function listAppsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsResponse> {
+export function listAppsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listApps", {
     }, opts);

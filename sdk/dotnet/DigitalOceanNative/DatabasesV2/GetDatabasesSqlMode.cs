@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 
         public static Output<Outputs.SqlMode> Invoke(GetDatabasesSqlModeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.SqlMode>("digitalocean-native:databases/v2:getDatabasesSqlMode", args ?? new GetDatabasesSqlModeInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.SqlMode> Invoke(GetDatabasesSqlModeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.SqlMode>("digitalocean-native:databases/v2:getDatabasesSqlMode", args ?? new GetDatabasesSqlModeInvokeArgs(), options.WithDefaults());
     }
 
 

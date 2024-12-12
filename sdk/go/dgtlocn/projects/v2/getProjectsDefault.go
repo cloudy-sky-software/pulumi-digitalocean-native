@@ -29,21 +29,11 @@ type LookupProjectsDefaultResult struct {
 }
 
 func LookupProjectsDefaultOutput(ctx *pulumi.Context, args LookupProjectsDefaultOutputArgs, opts ...pulumi.InvokeOption) LookupProjectsDefaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProjectsDefaultResultOutput, error) {
 			args := v.(LookupProjectsDefaultArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupProjectsDefaultResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:projects/v2:getProjectsDefault", args, &rv, "", opts...)
-			if err != nil {
-				return LookupProjectsDefaultResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupProjectsDefaultResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupProjectsDefaultResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:projects/v2:getProjectsDefault", args, LookupProjectsDefaultResultOutput{}, options).(LookupProjectsDefaultResultOutput), nil
 		}).(LookupProjectsDefaultResultOutput)
 }
 

@@ -74,12 +74,12 @@ def list_regions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRe
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'),
         regions=pulumi.get(__ret__, 'regions'))
-def list_regions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegionsItems]:
+def list_regions_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegionsItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:regions/v2:listRegions', __args__, opts=opts, typ=ListRegionsItems)
     return __ret__.apply(lambda __response__: ListRegionsItems(
         links=pulumi.get(__response__, 'links'),

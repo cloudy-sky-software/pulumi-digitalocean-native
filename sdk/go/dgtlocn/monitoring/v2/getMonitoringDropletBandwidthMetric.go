@@ -30,21 +30,11 @@ type GetMonitoringDropletBandwidthMetricResult struct {
 }
 
 func GetMonitoringDropletBandwidthMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletBandwidthMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletBandwidthMetricResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMonitoringDropletBandwidthMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletBandwidthMetricArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetMonitoringDropletBandwidthMetricResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", args, &rv, "", opts...)
-			if err != nil {
-				return GetMonitoringDropletBandwidthMetricResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetMonitoringDropletBandwidthMetricResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetMonitoringDropletBandwidthMetricResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletBandwidthMetric", args, GetMonitoringDropletBandwidthMetricResultOutput{}, options).(GetMonitoringDropletBandwidthMetricResultOutput), nil
 		}).(GetMonitoringDropletBandwidthMetricResultOutput)
 }
 

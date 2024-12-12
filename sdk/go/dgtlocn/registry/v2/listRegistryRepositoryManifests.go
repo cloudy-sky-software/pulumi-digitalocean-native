@@ -35,21 +35,11 @@ type ListRegistryRepositoryManifestsResult struct {
 }
 
 func ListRegistryRepositoryManifestsOutput(ctx *pulumi.Context, args ListRegistryRepositoryManifestsOutputArgs, opts ...pulumi.InvokeOption) ListRegistryRepositoryManifestsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListRegistryRepositoryManifestsResultOutput, error) {
 			args := v.(ListRegistryRepositoryManifestsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListRegistryRepositoryManifestsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:listRegistryRepositoryManifests", args, &rv, "", opts...)
-			if err != nil {
-				return ListRegistryRepositoryManifestsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListRegistryRepositoryManifestsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListRegistryRepositoryManifestsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:registry/v2:listRegistryRepositoryManifests", args, ListRegistryRepositoryManifestsResultOutput{}, options).(ListRegistryRepositoryManifestsResultOutput), nil
 		}).(ListRegistryRepositoryManifestsResultOutput)
 }
 

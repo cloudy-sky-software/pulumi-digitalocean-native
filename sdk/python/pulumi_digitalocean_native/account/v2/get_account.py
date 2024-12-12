@@ -55,12 +55,12 @@ def get_account(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAcco
 
     return AwaitableGetAccountProperties(
         account=pulumi.get(__ret__, 'account'))
-def get_account_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountProperties]:
+def get_account_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountProperties]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:account/v2:getAccount', __args__, opts=opts, typ=GetAccountProperties)
     return __ret__.apply(lambda __response__: GetAccountProperties(
         account=pulumi.get(__response__, 'account')))

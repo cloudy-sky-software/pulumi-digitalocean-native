@@ -16,7 +16,7 @@ export function listRegions(args?: ListRegionsArgs, opts?: pulumi.InvokeOptions)
 
 export interface ListRegionsArgs {
 }
-export function listRegionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.regions.v2.ListRegionsItems> {
+export function listRegionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.regions.v2.ListRegionsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:regions/v2:listRegions", {
     }, opts);

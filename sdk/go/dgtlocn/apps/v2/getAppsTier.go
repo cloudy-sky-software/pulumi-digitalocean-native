@@ -31,21 +31,11 @@ type GetAppsTierResult struct {
 }
 
 func GetAppsTierOutput(ctx *pulumi.Context, args GetAppsTierOutputArgs, opts ...pulumi.InvokeOption) GetAppsTierResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAppsTierResultOutput, error) {
 			args := v.(GetAppsTierArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAppsTierResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:apps/v2:getAppsTier", args, &rv, "", opts...)
-			if err != nil {
-				return GetAppsTierResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAppsTierResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAppsTierResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:apps/v2:getAppsTier", args, GetAppsTierResultOutput{}, options).(GetAppsTierResultOutput), nil
 		}).(GetAppsTierResultOutput)
 }
 

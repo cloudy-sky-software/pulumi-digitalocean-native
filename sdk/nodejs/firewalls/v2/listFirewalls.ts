@@ -16,7 +16,7 @@ export function listFirewalls(args?: ListFirewallsArgs, opts?: pulumi.InvokeOpti
 
 export interface ListFirewallsArgs {
 }
-export function listFirewallsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.firewalls.v2.ListFirewallsItems> {
+export function listFirewallsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.firewalls.v2.ListFirewallsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:firewalls/v2:listFirewalls", {
     }, opts);

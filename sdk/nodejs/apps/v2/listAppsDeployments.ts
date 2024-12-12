@@ -20,7 +20,7 @@ export interface ListAppsDeploymentsArgs {
      */
     appId: string;
 }
-export function listAppsDeploymentsOutput(args: ListAppsDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsDeploymentsResponse> {
+export function listAppsDeploymentsOutput(args: ListAppsDeploymentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsDeploymentsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsDeployments", {
         "appId": args.appId,

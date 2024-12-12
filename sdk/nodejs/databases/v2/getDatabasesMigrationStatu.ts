@@ -20,7 +20,7 @@ export interface GetDatabasesMigrationStatuArgs {
      */
     databaseClusterUuid: string;
 }
-export function getDatabasesMigrationStatuOutput(args: GetDatabasesMigrationStatuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.OnlineMigration> {
+export function getDatabasesMigrationStatuOutput(args: GetDatabasesMigrationStatuOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.OnlineMigration> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:getDatabasesMigrationStatu", {
         "databaseClusterUuid": args.databaseClusterUuid,

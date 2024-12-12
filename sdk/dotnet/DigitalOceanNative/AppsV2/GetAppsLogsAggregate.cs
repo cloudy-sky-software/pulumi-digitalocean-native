@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 
         public static Output<Outputs.AppsGetLogsResponse> Invoke(GetAppsLogsAggregateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsAggregate", args ?? new GetAppsLogsAggregateInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AppsGetLogsResponse> Invoke(GetAppsLogsAggregateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsGetLogsResponse>("digitalocean-native:apps/v2:getAppsLogsAggregate", args ?? new GetAppsLogsAggregateInvokeArgs(), options.WithDefaults());
     }
 
 

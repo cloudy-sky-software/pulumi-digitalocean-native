@@ -40,23 +40,12 @@ func (val *LookupCdnEndpointResult) Defaults() *LookupCdnEndpointResult {
 
 	return &tmp
 }
-
 func LookupCdnEndpointOutput(ctx *pulumi.Context, args LookupCdnEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupCdnEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCdnEndpointResultOutput, error) {
 			args := v.(LookupCdnEndpointArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCdnEndpointResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:cdn/v2:getCdnEndpoint", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCdnEndpointResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCdnEndpointResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCdnEndpointResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:cdn/v2:getCdnEndpoint", args, LookupCdnEndpointResultOutput{}, options).(LookupCdnEndpointResultOutput), nil
 		}).(LookupCdnEndpointResultOutput)
 }
 

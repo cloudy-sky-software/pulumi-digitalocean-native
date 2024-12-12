@@ -20,7 +20,7 @@ export interface GetSnapshotArgs {
      */
     snapshotId: string;
 }
-export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.v2.GetSnapshotProperties> {
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.snapshots.v2.GetSnapshotProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:snapshots/v2:getSnapshot", {
         "snapshotId": args.snapshotId,

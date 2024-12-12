@@ -75,12 +75,12 @@ def list_floating_ips(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableL
         floating_ips=pulumi.get(__ret__, 'floating_ips'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_floating_ips_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFloatingIPsItems]:
+def list_floating_ips_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFloatingIPsItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:floating_ips/v2:listFloatingIPs', __args__, opts=opts, typ=ListFloatingIPsItems)
     return __ret__.apply(lambda __response__: ListFloatingIPsItems(
         floating_ips=pulumi.get(__response__, 'floating_ips'),

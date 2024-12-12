@@ -20,7 +20,7 @@ export interface ListDatabasesUsersArgs {
      */
     databaseClusterUuid: string;
 }
-export function listDatabasesUsersOutput(args: ListDatabasesUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesUsersProperties> {
+export function listDatabasesUsersOutput(args: ListDatabasesUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.ListDatabasesUsersProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:listDatabasesUsers", {
         "databaseClusterUuid": args.databaseClusterUuid,

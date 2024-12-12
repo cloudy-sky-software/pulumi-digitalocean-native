@@ -31,21 +31,11 @@ type ListDatabasesBackupsResult struct {
 }
 
 func ListDatabasesBackupsOutput(ctx *pulumi.Context, args ListDatabasesBackupsOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesBackupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListDatabasesBackupsResultOutput, error) {
 			args := v.(ListDatabasesBackupsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListDatabasesBackupsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:listDatabasesBackups", args, &rv, "", opts...)
-			if err != nil {
-				return ListDatabasesBackupsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListDatabasesBackupsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListDatabasesBackupsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:databases/v2:listDatabasesBackups", args, ListDatabasesBackupsResultOutput{}, options).(ListDatabasesBackupsResultOutput), nil
 		}).(ListDatabasesBackupsResultOutput)
 }
 

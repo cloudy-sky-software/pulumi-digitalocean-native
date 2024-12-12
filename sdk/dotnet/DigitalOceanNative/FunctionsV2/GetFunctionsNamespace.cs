@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FunctionsV2
 
         public static Output<Outputs.GetFunctionsNamespaceProperties> Invoke(GetFunctionsNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFunctionsNamespaceProperties>("digitalocean-native:functions/v2:getFunctionsNamespace", args ?? new GetFunctionsNamespaceInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetFunctionsNamespaceProperties> Invoke(GetFunctionsNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetFunctionsNamespaceProperties>("digitalocean-native:functions/v2:getFunctionsNamespace", args ?? new GetFunctionsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

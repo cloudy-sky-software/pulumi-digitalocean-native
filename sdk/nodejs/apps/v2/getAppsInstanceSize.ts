@@ -20,7 +20,7 @@ export interface GetAppsInstanceSizeArgs {
      */
     slug: string;
 }
-export function getAppsInstanceSizeOutput(args: GetAppsInstanceSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsGetInstanceSizeResponse> {
+export function getAppsInstanceSizeOutput(args: GetAppsInstanceSizeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsGetInstanceSizeResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getAppsInstanceSize", {
         "slug": args.slug,

@@ -20,7 +20,7 @@ export interface ListDatabasesFirewallRulesArgs {
      */
     databaseClusterUuid: string;
 }
-export function listDatabasesFirewallRulesOutput(args: ListDatabasesFirewallRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesFirewallRulesProperties> {
+export function listDatabasesFirewallRulesOutput(args: ListDatabasesFirewallRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.ListDatabasesFirewallRulesProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:listDatabasesFirewallRules", {
         "databaseClusterUuid": args.databaseClusterUuid,

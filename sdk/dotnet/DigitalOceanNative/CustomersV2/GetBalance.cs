@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
 
         public static Output<Outputs.Balance> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.Balance>("digitalocean-native:customers/v2:getBalance", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.Balance> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.Balance>("digitalocean-native:customers/v2:getBalance", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

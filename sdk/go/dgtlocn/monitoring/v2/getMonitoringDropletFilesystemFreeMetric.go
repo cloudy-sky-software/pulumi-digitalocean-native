@@ -30,21 +30,11 @@ type GetMonitoringDropletFilesystemFreeMetricResult struct {
 }
 
 func GetMonitoringDropletFilesystemFreeMetricOutput(ctx *pulumi.Context, args GetMonitoringDropletFilesystemFreeMetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletFilesystemFreeMetricResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMonitoringDropletFilesystemFreeMetricResultOutput, error) {
 			args := v.(GetMonitoringDropletFilesystemFreeMetricArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetMonitoringDropletFilesystemFreeMetricResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetric", args, &rv, "", opts...)
-			if err != nil {
-				return GetMonitoringDropletFilesystemFreeMetricResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetMonitoringDropletFilesystemFreeMetricResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetMonitoringDropletFilesystemFreeMetricResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletFilesystemFreeMetric", args, GetMonitoringDropletFilesystemFreeMetricResultOutput{}, options).(GetMonitoringDropletFilesystemFreeMetricResultOutput), nil
 		}).(GetMonitoringDropletFilesystemFreeMetricResultOutput)
 }
 

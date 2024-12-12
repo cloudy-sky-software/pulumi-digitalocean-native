@@ -16,7 +16,7 @@ export function listCertificates(args?: ListCertificatesArgs, opts?: pulumi.Invo
 
 export interface ListCertificatesArgs {
 }
-export function listCertificatesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.certificates.v2.ListCertificatesItems> {
+export function listCertificatesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.certificates.v2.ListCertificatesItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:certificates/v2:listCertificates", {
     }, opts);

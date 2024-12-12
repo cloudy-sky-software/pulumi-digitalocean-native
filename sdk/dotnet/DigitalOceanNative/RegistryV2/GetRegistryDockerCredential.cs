@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegistryV2
 
         public static Output<Outputs.DockerCredentials> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.DockerCredentials>("digitalocean-native:registry/v2:getRegistryDockerCredential", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.DockerCredentials> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.DockerCredentials>("digitalocean-native:registry/v2:getRegistryDockerCredential", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

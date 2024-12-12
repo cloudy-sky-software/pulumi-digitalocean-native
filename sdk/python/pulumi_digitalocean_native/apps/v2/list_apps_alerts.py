@@ -60,7 +60,7 @@ def list_apps_alerts(app_id: Optional[str] = None,
     return AwaitableAppsListAlertsResponse(
         alerts=pulumi.get(__ret__, 'alerts'))
 def list_apps_alerts_output(app_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsListAlertsResponse]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsListAlertsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def list_apps_alerts_output(app_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['appId'] = app_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:listAppsAlerts', __args__, opts=opts, typ=AppsListAlertsResponse)
     return __ret__.apply(lambda __response__: AppsListAlertsResponse(
         alerts=pulumi.get(__response__, 'alerts')))

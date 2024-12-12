@@ -16,7 +16,7 @@ export function listSizes(args?: ListSizesArgs, opts?: pulumi.InvokeOptions): Pr
 
 export interface ListSizesArgs {
 }
-export function listSizesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.sizes.v2.ListSizesItems> {
+export function listSizesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.sizes.v2.ListSizesItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:sizes/v2:listSizes", {
     }, opts);

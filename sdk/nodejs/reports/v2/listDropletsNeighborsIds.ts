@@ -16,7 +16,7 @@ export function listDropletsNeighborsIds(args?: ListDropletsNeighborsIdsArgs, op
 
 export interface ListDropletsNeighborsIdsArgs {
 }
-export function listDropletsNeighborsIdsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reports.v2.NeighborIds> {
+export function listDropletsNeighborsIdsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.reports.v2.NeighborIds> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:reports/v2:listDropletsNeighborsIds", {
     }, opts);

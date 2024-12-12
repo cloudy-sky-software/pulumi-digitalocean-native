@@ -16,7 +16,7 @@ export function listLoadBalancers(args?: ListLoadBalancersArgs, opts?: pulumi.In
 
 export interface ListLoadBalancersArgs {
 }
-export function listLoadBalancersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.load_balancers.v2.ListLoadBalancersItems> {
+export function listLoadBalancersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.load_balancers.v2.ListLoadBalancersItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:load_balancers/v2:listLoadBalancers", {
     }, opts);

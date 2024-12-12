@@ -29,21 +29,11 @@ type ListFunctionsNamespacesResult struct {
 }
 
 func ListFunctionsNamespacesOutput(ctx *pulumi.Context, args ListFunctionsNamespacesOutputArgs, opts ...pulumi.InvokeOption) ListFunctionsNamespacesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListFunctionsNamespacesResultOutput, error) {
 			args := v.(ListFunctionsNamespacesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListFunctionsNamespacesResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:functions/v2:listFunctionsNamespaces", args, &rv, "", opts...)
-			if err != nil {
-				return ListFunctionsNamespacesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListFunctionsNamespacesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListFunctionsNamespacesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:functions/v2:listFunctionsNamespaces", args, ListFunctionsNamespacesResultOutput{}, options).(ListFunctionsNamespacesResultOutput), nil
 		}).(ListFunctionsNamespacesResultOutput)
 }
 

@@ -39,21 +39,11 @@ type LookupDatabasesEvictionPolicyResult struct {
 }
 
 func LookupDatabasesEvictionPolicyOutput(ctx *pulumi.Context, args LookupDatabasesEvictionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupDatabasesEvictionPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatabasesEvictionPolicyResultOutput, error) {
 			args := v.(LookupDatabasesEvictionPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDatabasesEvictionPolicyResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDatabasesEvictionPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDatabasesEvictionPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDatabasesEvictionPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:databases/v2:getDatabasesEvictionPolicy", args, LookupDatabasesEvictionPolicyResultOutput{}, options).(LookupDatabasesEvictionPolicyResultOutput), nil
 		}).(LookupDatabasesEvictionPolicyResultOutput)
 }
 

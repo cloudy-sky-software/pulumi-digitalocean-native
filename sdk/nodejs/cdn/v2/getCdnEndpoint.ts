@@ -20,7 +20,7 @@ export interface GetCdnEndpointArgs {
      */
     cdnId: string;
 }
-export function getCdnEndpointOutput(args: GetCdnEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.cdn.v2.GetCdnEndpointProperties> {
+export function getCdnEndpointOutput(args: GetCdnEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.cdn.v2.GetCdnEndpointProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:cdn/v2:getCdnEndpoint", {
         "cdnId": args.cdnId,

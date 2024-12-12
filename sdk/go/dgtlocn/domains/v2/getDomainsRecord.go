@@ -33,21 +33,11 @@ type LookupDomainsRecordResult struct {
 }
 
 func LookupDomainsRecordOutput(ctx *pulumi.Context, args LookupDomainsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupDomainsRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainsRecordResultOutput, error) {
 			args := v.(LookupDomainsRecordArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDomainsRecordResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:domains/v2:getDomainsRecord", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDomainsRecordResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDomainsRecordResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDomainsRecordResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:domains/v2:getDomainsRecord", args, LookupDomainsRecordResultOutput{}, options).(LookupDomainsRecordResultOutput), nil
 		}).(LookupDomainsRecordResultOutput)
 }
 

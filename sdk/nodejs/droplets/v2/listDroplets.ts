@@ -16,7 +16,7 @@ export function listDroplets(args?: ListDropletsArgs, opts?: pulumi.InvokeOption
 
 export interface ListDropletsArgs {
 }
-export function listDropletsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.ListDropletsItems> {
+export function listDropletsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.droplets.v2.ListDropletsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:droplets/v2:listDroplets", {
     }, opts);

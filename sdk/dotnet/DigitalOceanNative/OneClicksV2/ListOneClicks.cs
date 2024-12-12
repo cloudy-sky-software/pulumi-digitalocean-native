@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.OneClicksV2
 
         public static Output<Outputs.ListOneClicksProperties> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListOneClicksProperties>("digitalocean-native:1-clicks/v2:listOneClicks", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListOneClicksProperties> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListOneClicksProperties>("digitalocean-native:1-clicks/v2:listOneClicks", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

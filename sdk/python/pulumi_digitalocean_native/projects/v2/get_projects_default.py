@@ -55,12 +55,12 @@ def get_projects_default(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitab
 
     return AwaitableGetProjectsDefaultProperties(
         project=pulumi.get(__ret__, 'project'))
-def get_projects_default_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectsDefaultProperties]:
+def get_projects_default_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectsDefaultProperties]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:projects/v2:getProjectsDefault', __args__, opts=opts, typ=GetProjectsDefaultProperties)
     return __ret__.apply(lambda __response__: GetProjectsDefaultProperties(
         project=pulumi.get(__response__, 'project')))

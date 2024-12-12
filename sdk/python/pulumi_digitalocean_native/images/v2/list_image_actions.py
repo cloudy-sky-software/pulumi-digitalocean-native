@@ -80,7 +80,7 @@ def list_image_actions(image_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_image_actions_output(image_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImageActionsItems]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListImageActionsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,7 +88,7 @@ def list_image_actions_output(image_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['imageId'] = image_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:images/v2:listImageActions', __args__, opts=opts, typ=ListImageActionsItems)
     return __ret__.apply(lambda __response__: ListImageActionsItems(
         actions=pulumi.get(__response__, 'actions'),

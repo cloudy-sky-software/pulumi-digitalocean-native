@@ -63,7 +63,7 @@ def get_domains_record(domain_name: Optional[str] = None,
         domain_record=pulumi.get(__ret__, 'domain_record'))
 def get_domains_record_output(domain_name: Optional[pulumi.Input[str]] = None,
                               domain_record_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainsRecordProperties]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainsRecordProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,7 +73,7 @@ def get_domains_record_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['domainRecordId'] = domain_record_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:domains/v2:getDomainsRecord', __args__, opts=opts, typ=GetDomainsRecordProperties)
     return __ret__.apply(lambda __response__: GetDomainsRecordProperties(
         domain_record=pulumi.get(__response__, 'domain_record')))

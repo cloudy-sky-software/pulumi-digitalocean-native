@@ -16,7 +16,7 @@ export function listProjectsResourcesDefault(args?: ListProjectsResourcesDefault
 
 export interface ListProjectsResourcesDefaultArgs {
 }
-export function listProjectsResourcesDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.ListProjectsResourcesDefaultItems> {
+export function listProjectsResourcesDefaultOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.projects.v2.ListProjectsResourcesDefaultItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:projects/v2:listProjectsResourcesDefault", {
     }, opts);

@@ -31,21 +31,11 @@ type ListDatabasesFirewallRulesResult struct {
 }
 
 func ListDatabasesFirewallRulesOutput(ctx *pulumi.Context, args ListDatabasesFirewallRulesOutputArgs, opts ...pulumi.InvokeOption) ListDatabasesFirewallRulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListDatabasesFirewallRulesResultOutput, error) {
 			args := v.(ListDatabasesFirewallRulesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListDatabasesFirewallRulesResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:databases/v2:listDatabasesFirewallRules", args, &rv, "", opts...)
-			if err != nil {
-				return ListDatabasesFirewallRulesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListDatabasesFirewallRulesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListDatabasesFirewallRulesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:databases/v2:listDatabasesFirewallRules", args, ListDatabasesFirewallRulesResultOutput{}, options).(ListDatabasesFirewallRulesResultOutput), nil
 		}).(ListDatabasesFirewallRulesResultOutput)
 }
 

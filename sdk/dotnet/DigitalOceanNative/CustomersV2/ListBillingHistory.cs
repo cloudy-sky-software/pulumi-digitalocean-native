@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CustomersV2
 
         public static Output<Outputs.ListBillingHistoryItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListBillingHistoryItems>("digitalocean-native:customers/v2:listBillingHistory", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListBillingHistoryItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListBillingHistoryItems>("digitalocean-native:customers/v2:listBillingHistory", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

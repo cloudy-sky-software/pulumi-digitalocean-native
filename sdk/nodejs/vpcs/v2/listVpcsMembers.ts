@@ -20,7 +20,7 @@ export interface ListVpcsMembersArgs {
      */
     vpcId: string;
 }
-export function listVpcsMembersOutput(args: ListVpcsMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsMembersItems> {
+export function listVpcsMembersOutput(args: ListVpcsMembersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.vpcs.v2.ListVpcsMembersItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:vpcs/v2:listVpcsMembers", {
         "vpcId": args.vpcId,

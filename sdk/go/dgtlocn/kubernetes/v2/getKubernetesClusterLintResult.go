@@ -38,21 +38,11 @@ type GetKubernetesClusterLintResultResult struct {
 }
 
 func GetKubernetesClusterLintResultOutput(ctx *pulumi.Context, args GetKubernetesClusterLintResultOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesClusterLintResultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetKubernetesClusterLintResultResultOutput, error) {
 			args := v.(GetKubernetesClusterLintResultArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetKubernetesClusterLintResultResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args, &rv, "", opts...)
-			if err != nil {
-				return GetKubernetesClusterLintResultResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetKubernetesClusterLintResultResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetKubernetesClusterLintResultResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args, GetKubernetesClusterLintResultResultOutput{}, options).(GetKubernetesClusterLintResultResultOutput), nil
 		}).(GetKubernetesClusterLintResultResultOutput)
 }
 

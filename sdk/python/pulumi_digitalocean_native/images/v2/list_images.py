@@ -75,12 +75,12 @@ def list_images(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIma
         images=pulumi.get(__ret__, 'images'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_images_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListImagesItems]:
+def list_images_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListImagesItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:images/v2:listImages', __args__, opts=opts, typ=ListImagesItems)
     return __ret__.apply(lambda __response__: ListImagesItems(
         images=pulumi.get(__response__, 'images'),

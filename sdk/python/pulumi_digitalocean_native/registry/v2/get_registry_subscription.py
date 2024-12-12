@@ -54,12 +54,12 @@ def get_registry_subscription(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
 
     return AwaitableGetRegistrySubscriptionProperties(
         subscription=pulumi.get(__ret__, 'subscription'))
-def get_registry_subscription_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrySubscriptionProperties]:
+def get_registry_subscription_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrySubscriptionProperties]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:getRegistrySubscription', __args__, opts=opts, typ=GetRegistrySubscriptionProperties)
     return __ret__.apply(lambda __response__: GetRegistrySubscriptionProperties(
         subscription=pulumi.get(__response__, 'subscription')))

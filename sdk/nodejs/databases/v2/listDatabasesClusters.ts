@@ -16,7 +16,7 @@ export function listDatabasesClusters(args?: ListDatabasesClustersArgs, opts?: p
 
 export interface ListDatabasesClustersArgs {
 }
-export function listDatabasesClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.databases.v2.ListDatabasesClustersProperties> {
+export function listDatabasesClustersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.databases.v2.ListDatabasesClustersProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:databases/v2:listDatabasesClusters", {
     }, opts);

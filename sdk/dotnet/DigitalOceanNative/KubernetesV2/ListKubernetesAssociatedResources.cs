@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 
         public static Output<Outputs.AssociatedKubernetesResources> Invoke(ListKubernetesAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AssociatedKubernetesResources>("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args ?? new ListKubernetesAssociatedResourcesInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AssociatedKubernetesResources> Invoke(ListKubernetesAssociatedResourcesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AssociatedKubernetesResources>("digitalocean-native:kubernetes/v2:listKubernetesAssociatedResources", args ?? new ListKubernetesAssociatedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.MonitoringV2
 
         public static Output<Outputs.ListMonitoringAlertPolicyItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListMonitoringAlertPolicyItems>("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListMonitoringAlertPolicyItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListMonitoringAlertPolicyItems>("digitalocean-native:monitoring/v2:listMonitoringAlertPolicy", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

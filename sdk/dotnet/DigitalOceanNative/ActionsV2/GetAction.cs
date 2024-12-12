@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ActionsV2
 
         public static Output<Outputs.GetActionProperties> Invoke(GetActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetActionProperties>("digitalocean-native:actions/v2:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetActionProperties> Invoke(GetActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetActionProperties>("digitalocean-native:actions/v2:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
     }
 
 

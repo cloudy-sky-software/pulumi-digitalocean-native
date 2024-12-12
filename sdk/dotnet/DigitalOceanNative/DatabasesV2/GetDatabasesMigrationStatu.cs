@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 
         public static Output<Outputs.OnlineMigration> Invoke(GetDatabasesMigrationStatuInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.OnlineMigration>("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args ?? new GetDatabasesMigrationStatuInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.OnlineMigration> Invoke(GetDatabasesMigrationStatuInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.OnlineMigration>("digitalocean-native:databases/v2:getDatabasesMigrationStatu", args ?? new GetDatabasesMigrationStatuInvokeArgs(), options.WithDefaults());
     }
 
 

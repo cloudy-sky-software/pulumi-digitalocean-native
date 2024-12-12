@@ -40,23 +40,12 @@ func (val *LookupFloatingIPResult) Defaults() *LookupFloatingIPResult {
 
 	return &tmp
 }
-
 func LookupFloatingIPOutput(ctx *pulumi.Context, args LookupFloatingIPOutputArgs, opts ...pulumi.InvokeOption) LookupFloatingIPResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFloatingIPResultOutput, error) {
 			args := v.(LookupFloatingIPArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFloatingIPResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:floating_ips/v2:getFloatingIP", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFloatingIPResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFloatingIPResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFloatingIPResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:floating_ips/v2:getFloatingIP", args, LookupFloatingIPResultOutput{}, options).(LookupFloatingIPResultOutput), nil
 		}).(LookupFloatingIPResultOutput)
 }
 

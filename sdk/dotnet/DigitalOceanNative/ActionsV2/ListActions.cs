@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ActionsV2
 
         public static Output<Outputs.ListActionsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListActionsItems>("digitalocean-native:actions/v2:listActions", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListActionsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListActionsItems>("digitalocean-native:actions/v2:listActions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

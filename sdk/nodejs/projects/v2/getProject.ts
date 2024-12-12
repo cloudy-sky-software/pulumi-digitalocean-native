@@ -20,7 +20,7 @@ export interface GetProjectArgs {
      */
     projectId: string;
 }
-export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.projects.v2.GetProjectProperties> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.projects.v2.GetProjectProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:projects/v2:getProject", {
         "projectId": args.projectId,

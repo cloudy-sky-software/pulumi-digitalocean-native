@@ -35,21 +35,11 @@ type ListRegistryRepositoryTagsResult struct {
 }
 
 func ListRegistryRepositoryTagsOutput(ctx *pulumi.Context, args ListRegistryRepositoryTagsOutputArgs, opts ...pulumi.InvokeOption) ListRegistryRepositoryTagsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListRegistryRepositoryTagsResultOutput, error) {
 			args := v.(ListRegistryRepositoryTagsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListRegistryRepositoryTagsResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:registry/v2:listRegistryRepositoryTags", args, &rv, "", opts...)
-			if err != nil {
-				return ListRegistryRepositoryTagsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListRegistryRepositoryTagsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListRegistryRepositoryTagsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:registry/v2:listRegistryRepositoryTags", args, ListRegistryRepositoryTagsResultOutput{}, options).(ListRegistryRepositoryTagsResultOutput), nil
 		}).(ListRegistryRepositoryTagsResultOutput)
 }
 

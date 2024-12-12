@@ -20,7 +20,7 @@ export interface GetFunctionsNamespaceArgs {
      */
     namespaceId: string;
 }
-export function getFunctionsNamespaceOutput(args: GetFunctionsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.GetFunctionsNamespaceProperties> {
+export function getFunctionsNamespaceOutput(args: GetFunctionsNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.functions.v2.GetFunctionsNamespaceProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:functions/v2:getFunctionsNamespace", {
         "namespaceId": args.namespaceId,

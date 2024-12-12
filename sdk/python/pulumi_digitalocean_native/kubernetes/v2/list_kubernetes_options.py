@@ -54,12 +54,12 @@ def list_kubernetes_options(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
 
     return AwaitableKubernetesOptions(
         options=pulumi.get(__ret__, 'options'))
-def list_kubernetes_options_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[KubernetesOptions]:
+def list_kubernetes_options_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[KubernetesOptions]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:listKubernetesOptions', __args__, opts=opts, typ=KubernetesOptions)
     return __ret__.apply(lambda __response__: KubernetesOptions(
         options=pulumi.get(__response__, 'options')))

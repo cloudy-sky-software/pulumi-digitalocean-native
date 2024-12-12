@@ -25,7 +25,7 @@ export interface GetUptimeAlertArgs {
      */
     checkId: string;
 }
-export function getUptimeAlertOutput(args: GetUptimeAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.uptime.v2.GetUptimeAlertProperties> {
+export function getUptimeAlertOutput(args: GetUptimeAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.uptime.v2.GetUptimeAlertProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:uptime/v2:getUptimeAlert", {
         "alertId": args.alertId,

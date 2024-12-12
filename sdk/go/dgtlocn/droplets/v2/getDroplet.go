@@ -40,23 +40,12 @@ func (val *LookupDropletResult) Defaults() *LookupDropletResult {
 
 	return &tmp
 }
-
 func LookupDropletOutput(ctx *pulumi.Context, args LookupDropletOutputArgs, opts ...pulumi.InvokeOption) LookupDropletResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDropletResultOutput, error) {
 			args := v.(LookupDropletArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDropletResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:droplets/v2:getDroplet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDropletResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDropletResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDropletResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:droplets/v2:getDroplet", args, LookupDropletResultOutput{}, options).(LookupDropletResultOutput), nil
 		}).(LookupDropletResultOutput)
 }
 

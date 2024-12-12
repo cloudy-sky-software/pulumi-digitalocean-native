@@ -20,7 +20,7 @@ export interface GetReservedIPArgs {
      */
     reservedIp: string;
 }
-export function getReservedIPOutput(args: GetReservedIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.reserved_ips.v2.GetReservedIPProperties> {
+export function getReservedIPOutput(args: GetReservedIPOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.reserved_ips.v2.GetReservedIPProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:reserved_ips/v2:getReservedIP", {
         "reservedIp": args.reservedIp,

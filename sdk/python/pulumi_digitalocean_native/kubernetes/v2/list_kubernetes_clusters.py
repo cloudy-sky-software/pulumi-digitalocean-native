@@ -75,12 +75,12 @@ def list_kubernetes_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
         kubernetes_clusters=pulumi.get(__ret__, 'kubernetes_clusters'),
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
-def list_kubernetes_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKubernetesClustersItems]:
+def list_kubernetes_clusters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListKubernetesClustersItems]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:kubernetes/v2:listKubernetesClusters', __args__, opts=opts, typ=ListKubernetesClustersItems)
     return __ret__.apply(lambda __response__: ListKubernetesClustersItems(
         kubernetes_clusters=pulumi.get(__response__, 'kubernetes_clusters'),

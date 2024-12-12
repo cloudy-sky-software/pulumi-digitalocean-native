@@ -20,7 +20,7 @@ export interface GetAppArgs {
      */
     id: string;
 }
-export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppResponse> {
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:getApp", {
         "id": args.id,

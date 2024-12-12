@@ -16,7 +16,7 @@ export function listKubernetesOptions(args?: ListKubernetesOptionsArgs, opts?: p
 
 export interface ListKubernetesOptionsArgs {
 }
-export function listKubernetesOptionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.kubernetes.v2.KubernetesOptions> {
+export function listKubernetesOptionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.kubernetes.v2.KubernetesOptions> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:kubernetes/v2:listKubernetesOptions", {
     }, opts);

@@ -60,7 +60,7 @@ def list_registry_garbage_collections(registry_name: Optional[str] = None,
     return AwaitableListRegistryGarbageCollectionsProperties(
         garbage_collections=pulumi.get(__ret__, 'garbage_collections'))
 def list_registry_garbage_collections_output(registry_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryGarbageCollectionsProperties]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryGarbageCollectionsProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def list_registry_garbage_collections_output(registry_name: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['registryName'] = registry_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:listRegistryGarbageCollections', __args__, opts=opts, typ=ListRegistryGarbageCollectionsProperties)
     return __ret__.apply(lambda __response__: ListRegistryGarbageCollectionsProperties(
         garbage_collections=pulumi.get(__response__, 'garbage_collections')))

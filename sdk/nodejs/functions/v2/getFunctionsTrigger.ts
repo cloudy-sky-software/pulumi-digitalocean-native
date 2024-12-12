@@ -25,7 +25,7 @@ export interface GetFunctionsTriggerArgs {
      */
     triggerName: string;
 }
-export function getFunctionsTriggerOutput(args: GetFunctionsTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.functions.v2.GetFunctionsTriggerProperties> {
+export function getFunctionsTriggerOutput(args: GetFunctionsTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.functions.v2.GetFunctionsTriggerProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:functions/v2:getFunctionsTrigger", {
         "namespaceId": args.namespaceId,

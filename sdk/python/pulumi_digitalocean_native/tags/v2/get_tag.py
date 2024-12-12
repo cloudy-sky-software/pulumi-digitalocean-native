@@ -63,7 +63,7 @@ def get_tag(tag_id: Optional[str] = None,
     return AwaitableGetTagProperties(
         tag=pulumi.get(__ret__, 'tag'))
 def get_tag_output(tag_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagProperties]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -71,7 +71,7 @@ def get_tag_output(tag_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['tagId'] = tag_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:tags/v2:getTag', __args__, opts=opts, typ=GetTagProperties)
     return __ret__.apply(lambda __response__: GetTagProperties(
         tag=pulumi.get(__response__, 'tag')))

@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.KubernetesV2
 
         public static Output<Outputs.ClusterlintResults> Invoke(GetKubernetesClusterLintResultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ClusterlintResults>("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args ?? new GetKubernetesClusterLintResultInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ClusterlintResults> Invoke(GetKubernetesClusterLintResultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ClusterlintResults>("digitalocean-native:kubernetes/v2:getKubernetesClusterLintResult", args ?? new GetKubernetesClusterLintResultInvokeArgs(), options.WithDefaults());
     }
 
 

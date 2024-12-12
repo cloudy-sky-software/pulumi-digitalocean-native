@@ -71,7 +71,7 @@ def get_apps_logs_active_deployment_aggregate(app_id: Optional[str] = None,
         historic_urls=pulumi.get(__ret__, 'historic_urls'),
         live_url=pulumi.get(__ret__, 'live_url'))
 def get_apps_logs_active_deployment_aggregate_output(app_id: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[AppsGetLogsResponse]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[AppsGetLogsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -79,7 +79,7 @@ def get_apps_logs_active_deployment_aggregate_output(app_id: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['appId'] = app_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:apps/v2:getAppsLogsActiveDeploymentAggregate', __args__, opts=opts, typ=AppsGetLogsResponse)
     return __ret__.apply(lambda __response__: AppsGetLogsResponse(
         historic_urls=pulumi.get(__response__, 'historic_urls'),

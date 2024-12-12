@@ -80,7 +80,7 @@ def list_uptime_alerts(check_id: Optional[str] = None,
         links=pulumi.get(__ret__, 'links'),
         meta=pulumi.get(__ret__, 'meta'))
 def list_uptime_alerts_output(check_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUptimeAlertsItems]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListUptimeAlertsItems]:
     """
     Use this data source to access information about an existing resource.
 
@@ -88,7 +88,7 @@ def list_uptime_alerts_output(check_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['checkId'] = check_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:uptime/v2:listUptimeAlerts', __args__, opts=opts, typ=ListUptimeAlertsItems)
     return __ret__.apply(lambda __response__: ListUptimeAlertsItems(
         alerts=pulumi.get(__response__, 'alerts'),

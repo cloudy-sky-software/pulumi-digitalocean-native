@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
 
         public static Output<Outputs.AppsListAlertsResponse> Invoke(ListAppsAlertsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsListAlertsResponse>("digitalocean-native:apps/v2:listAppsAlerts", args ?? new ListAppsAlertsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.AppsListAlertsResponse> Invoke(ListAppsAlertsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.AppsListAlertsResponse>("digitalocean-native:apps/v2:listAppsAlerts", args ?? new ListAppsAlertsInvokeArgs(), options.WithDefaults());
     }
 
 

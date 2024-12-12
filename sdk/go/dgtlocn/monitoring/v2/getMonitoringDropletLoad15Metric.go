@@ -30,21 +30,11 @@ type GetMonitoringDropletLoad15MetricResult struct {
 }
 
 func GetMonitoringDropletLoad15MetricOutput(ctx *pulumi.Context, args GetMonitoringDropletLoad15MetricOutputArgs, opts ...pulumi.InvokeOption) GetMonitoringDropletLoad15MetricResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMonitoringDropletLoad15MetricResultOutput, error) {
 			args := v.(GetMonitoringDropletLoad15MetricArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetMonitoringDropletLoad15MetricResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", args, &rv, "", opts...)
-			if err != nil {
-				return GetMonitoringDropletLoad15MetricResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetMonitoringDropletLoad15MetricResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetMonitoringDropletLoad15MetricResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:monitoring/v2:getMonitoringDropletLoad15Metric", args, GetMonitoringDropletLoad15MetricResultOutput{}, options).(GetMonitoringDropletLoad15MetricResultOutput), nil
 		}).(GetMonitoringDropletLoad15MetricResultOutput)
 }
 

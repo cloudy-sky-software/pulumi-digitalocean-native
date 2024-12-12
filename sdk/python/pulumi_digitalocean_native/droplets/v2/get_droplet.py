@@ -60,7 +60,7 @@ def get_droplet(droplet_id: Optional[str] = None,
     return AwaitableGetDropletProperties(
         droplet=pulumi.get(__ret__, 'droplet'))
 def get_droplet_output(droplet_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDropletProperties]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDropletProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -68,7 +68,7 @@ def get_droplet_output(droplet_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dropletId'] = droplet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:droplets/v2:getDroplet', __args__, opts=opts, typ=GetDropletProperties)
     return __ret__.apply(lambda __response__: GetDropletProperties(
         droplet=pulumi.get(__response__, 'droplet')))

@@ -20,7 +20,7 @@ export interface ListFloatingIPsActionArgs {
      */
     floatingIp: string;
 }
-export function listFloatingIPsActionOutput(args: ListFloatingIPsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsActionItems> {
+export function listFloatingIPsActionOutput(args: ListFloatingIPsActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.floating_ips.v2.ListFloatingIPsActionItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:floating_ips/v2:listFloatingIPsAction", {
         "floatingIp": args.floatingIp,

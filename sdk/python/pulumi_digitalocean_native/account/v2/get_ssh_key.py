@@ -59,7 +59,7 @@ def get_ssh_key(ssh_key_identifier: Optional[str] = None,
     return AwaitableGetSshKeyProperties(
         ssh_key=pulumi.get(__ret__, 'ssh_key'))
 def get_ssh_key_output(ssh_key_identifier: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshKeyProperties]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshKeyProperties]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_ssh_key_output(ssh_key_identifier: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['sshKeyIdentifier'] = ssh_key_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:account/v2:getSshKey', __args__, opts=opts, typ=GetSshKeyProperties)
     return __ret__.apply(lambda __response__: GetSshKeyProperties(
         ssh_key=pulumi.get(__response__, 'ssh_key')))

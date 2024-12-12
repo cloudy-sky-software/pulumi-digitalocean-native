@@ -29,21 +29,11 @@ type ListOneClicksResult struct {
 }
 
 func ListOneClicksOutput(ctx *pulumi.Context, args ListOneClicksOutputArgs, opts ...pulumi.InvokeOption) ListOneClicksResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListOneClicksResultOutput, error) {
 			args := v.(ListOneClicksArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListOneClicksResult
-			secret, err := ctx.InvokePackageRaw("digitalocean-native:1-clicks/v2:listOneClicks", args, &rv, "", opts...)
-			if err != nil {
-				return ListOneClicksResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListOneClicksResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListOneClicksResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("digitalocean-native:1-clicks/v2:listOneClicks", args, ListOneClicksResultOutput{}, options).(ListOneClicksResultOutput), nil
 		}).(ListOneClicksResultOutput)
 }
 

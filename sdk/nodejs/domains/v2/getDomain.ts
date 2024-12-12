@@ -20,7 +20,7 @@ export interface GetDomainArgs {
      */
     domainName: string;
 }
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.domains.v2.GetDomainProperties> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.domains.v2.GetDomainProperties> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:domains/v2:getDomain", {
         "domainName": args.domainName,

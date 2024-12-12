@@ -20,7 +20,7 @@ export interface ListDropletsNeighborsArgs {
      */
     dropletId: string;
 }
-export function listDropletsNeighborsOutput(args: ListDropletsNeighborsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.droplets.v2.ListDropletsNeighborsItems> {
+export function listDropletsNeighborsOutput(args: ListDropletsNeighborsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.droplets.v2.ListDropletsNeighborsItems> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:droplets/v2:listDropletsNeighbors", {
         "dropletId": args.dropletId,

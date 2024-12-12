@@ -54,12 +54,12 @@ def get_registry_docker_credential(opts: Optional[pulumi.InvokeOptions] = None) 
 
     return AwaitableDockerCredentials(
         auths=pulumi.get(__ret__, 'auths'))
-def get_registry_docker_credential_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[DockerCredentials]:
+def get_registry_docker_credential_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[DockerCredentials]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('digitalocean-native:registry/v2:getRegistryDockerCredential', __args__, opts=opts, typ=DockerCredentials)
     return __ret__.apply(lambda __response__: DockerCredentials(
         auths=pulumi.get(__response__, 'auths')))

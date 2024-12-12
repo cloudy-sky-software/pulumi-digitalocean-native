@@ -16,7 +16,7 @@ export function listAppsTiers(args?: ListAppsTiersArgs, opts?: pulumi.InvokeOpti
 
 export interface ListAppsTiersArgs {
 }
-export function listAppsTiersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<outputs.apps.v2.AppsListTiersResponse> {
+export function listAppsTiersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.apps.v2.AppsListTiersResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("digitalocean-native:apps/v2:listAppsTiers", {
     }, opts);

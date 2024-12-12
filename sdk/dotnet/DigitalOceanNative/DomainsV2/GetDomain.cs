@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DomainsV2
 
         public static Output<Outputs.GetDomainProperties> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDomainProperties>("digitalocean-native:domains/v2:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetDomainProperties> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetDomainProperties>("digitalocean-native:domains/v2:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

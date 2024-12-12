@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.RegionsV2
 
         public static Output<Outputs.ListRegionsItems> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegionsItems>("digitalocean-native:regions/v2:listRegions", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<Outputs.ListRegionsItems> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ListRegionsItems>("digitalocean-native:regions/v2:listRegions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

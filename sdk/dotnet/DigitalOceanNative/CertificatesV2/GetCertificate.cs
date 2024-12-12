@@ -17,6 +17,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2
 
         public static Output<Outputs.GetCertificateProperties> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetCertificateProperties>("digitalocean-native:certificates/v2:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.GetCertificateProperties> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.GetCertificateProperties>("digitalocean-native:certificates/v2:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
