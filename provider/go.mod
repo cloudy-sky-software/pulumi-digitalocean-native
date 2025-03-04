@@ -13,7 +13,7 @@ require (
 )
 
 // See https://github.com/getkin/kin-openapi/issues/1051.
-replace github.com/getkin/kin-openapi => github.com/getkin/kin-openapi v0.128.0
+replace github.com/getkin/kin-openapi => github.com/getkin/kin-openapi v0.129.0
 
 require github.com/stretchr/testify v1.10.0
 
@@ -79,6 +79,8 @@ require (
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
+	github.com/oasdiff/yaml v0.0.0-20241214135536-5f7845c759c8 // indirect
+	github.com/oasdiff/yaml3 v0.0.0-20241214160948-977117996672 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/perimeterx/marshmallow v1.1.5 // indirect
