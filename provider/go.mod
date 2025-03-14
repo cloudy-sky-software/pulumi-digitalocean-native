@@ -5,11 +5,11 @@ go 1.23.1
 toolchain go1.24.1
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20250313151450-60aa34a2b6ad
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20250313174300-0c777bc995f8
-	github.com/getkin/kin-openapi v0.129.0
-	github.com/pulumi/pulumi/pkg/v3 v3.155.0
-	github.com/pulumi/pulumi/sdk/v3 v3.155.0
+	github.com/cloudy-sky-software/pulschema v0.0.0-20250314164119-4017df51fc18
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20250314202453-2aa53e33d2bd
+	github.com/getkin/kin-openapi v0.130.0
+	github.com/pulumi/pulumi/pkg/v3 v3.156.0
+	github.com/pulumi/pulumi/sdk/v3 v3.156.0
 )
 
 // See https://github.com/getkin/kin-openapi/issues/1051.
@@ -110,7 +110,7 @@ require (
 	golang.org/x/crypto v0.35.0 // indirect
 	golang.org/x/exp v0.0.0-20250228200357-dead58393ab7 // indirect
 	golang.org/x/mod v0.23.0 // indirect
-	golang.org/x/net v0.35.0 // indirect
+	golang.org/x/net v0.36.0 // indirect
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/term v0.29.0 // indirect
