@@ -2,7 +2,7 @@ module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 
 go 1.23.1
 
-toolchain go1.24.1
+toolchain go1.24.2
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20250325150152-8169fdd97c9f
