@@ -28,6 +28,7 @@ type ProjectsDefault struct {
 	OwnerId pulumi.IntPtrOutput `pulumi:"ownerId"`
 	// The unique universal identifier of the project owner.
 	OwnerUuid pulumi.StringPtrOutput `pulumi:"ownerUuid"`
+	Project   ProjectTypePtrOutput   `pulumi:"project"`
 	// The purpose of the project. The maximum length is 255 characters. It can
 	// have one of the following values:
 	//
@@ -228,6 +229,10 @@ func (o ProjectsDefaultOutput) OwnerId() pulumi.IntPtrOutput {
 // The unique universal identifier of the project owner.
 func (o ProjectsDefaultOutput) OwnerUuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectsDefault) pulumi.StringPtrOutput { return v.OwnerUuid }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectsDefaultOutput) Project() ProjectTypePtrOutput {
+	return o.ApplyT(func(v *ProjectsDefault) ProjectTypePtrOutput { return v.Project }).(ProjectTypePtrOutput)
 }
 
 // The purpose of the project. The maximum length is 255 characters. It can
