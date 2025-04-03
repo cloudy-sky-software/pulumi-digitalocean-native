@@ -35,10 +35,18 @@ export class DatabasesOnlineMigration extends pulumi.CustomResource {
     }
 
     /**
+     * The time the migration was initiated, in ISO 8601 format.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
      * Enables SSL encryption when connecting to the source database.
      */
     public readonly disableSsl!: pulumi.Output<boolean | undefined>;
     public readonly source!: pulumi.Output<outputs.databases.v2.SourceProperties | undefined>;
+    /**
+     * The current status of the migration.
+     */
+    public /*out*/ readonly status!: pulumi.Output<enums.databases.v2.Status | undefined>;
 
     /**
      * Create a DatabasesOnlineMigration resource with the given unique name, arguments, and options.
@@ -54,9 +62,13 @@ export class DatabasesOnlineMigration extends pulumi.CustomResource {
             resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
             resourceInputs["disableSsl"] = args ? args.disableSsl : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["disableSsl"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatabasesOnlineMigration.__pulumiType, name, resourceInputs, opts);

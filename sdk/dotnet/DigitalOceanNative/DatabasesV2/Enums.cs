@@ -775,4 +775,37 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The current status of the migration.
+    /// </summary>
+    [EnumType]
+    public readonly struct Status : IEquatable<Status>
+    {
+        private readonly string _value;
+
+        private Status(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Status Running { get; } = new Status("running");
+        public static Status Canceled { get; } = new Status("canceled");
+        public static Status Error { get; } = new Status("error");
+        public static Status Done { get; } = new Status("done");
+
+        public static bool operator ==(Status left, Status right) => left.Equals(right);
+        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+
+        public static explicit operator string(Status value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Status other && Equals(other);
+        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

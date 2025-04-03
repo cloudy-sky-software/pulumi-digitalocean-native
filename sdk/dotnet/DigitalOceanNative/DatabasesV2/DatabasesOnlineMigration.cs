@@ -14,6 +14,12 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
     public partial class DatabasesOnlineMigration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the migration was initiated, in ISO 8601 format.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// Enables SSL encryption when connecting to the source database.
         /// </summary>
         [Output("disableSsl")]
@@ -21,6 +27,12 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2
 
         [Output("source")]
         public Output<Outputs.SourceProperties?> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The current status of the migration.
+        /// </summary>
+        [Output("status")]
+        public Output<CloudySkySoftware.Pulumi.DigitalOceanNative.DatabasesV2.Status?> Status { get; private set; } = null!;
 
 
         /// <summary>

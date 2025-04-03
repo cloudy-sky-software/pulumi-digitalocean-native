@@ -62,6 +62,7 @@ export class ProjectsDefault extends pulumi.CustomResource {
      * The unique universal identifier of the project owner.
      */
     public readonly ownerUuid!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly project!: pulumi.Output<outputs.projects.v2.Project | undefined>;
     /**
      * The purpose of the project. The maximum length is 255 characters. It can
      * have one of the following values:
@@ -105,6 +106,7 @@ export class ProjectsDefault extends pulumi.CustomResource {
             resourceInputs["ownerUuid"] = args ? args.ownerUuid : undefined;
             resourceInputs["purpose"] = args ? args.purpose : undefined;
             resourceInputs["updatedAt"] = args ? args.updatedAt : undefined;
+            resourceInputs["project"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -113,6 +115,7 @@ export class ProjectsDefault extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["ownerUuid"] = undefined /*out*/;
+            resourceInputs["project"] = undefined /*out*/;
             resourceInputs["purpose"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }

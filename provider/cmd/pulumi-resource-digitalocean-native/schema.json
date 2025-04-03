@@ -5181,6 +5181,28 @@
                 "sqlMode"
             ]
         },
+        "digitalocean-native:databases/v2:Status": {
+            "description": "The current status of the migration.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Running",
+                    "value": "running"
+                },
+                {
+                    "name": "Canceled",
+                    "value": "canceled"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "Done",
+                    "value": "done"
+                }
+            ]
+        },
         "digitalocean-native:databases/v2:Timescaledb": {
             "description": "TimescaleDB extension configuration values",
             "properties": {
@@ -14841,12 +14863,20 @@
         },
         "digitalocean-native:databases/v2:DatabasesOnlineMigration": {
             "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The time the migration was initiated, in ISO 8601 format."
+                },
                 "disableSsl": {
                     "type": "boolean",
                     "description": "Enables SSL encryption when connecting to the source database."
                 },
                 "source": {
                     "$ref": "#/types/digitalocean-native:databases/v2:SourceProperties"
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:databases/v2:Status",
+                    "description": "The current status of the migration."
                 }
             },
             "type": "object",
@@ -17351,6 +17381,9 @@
                 "ownerUuid": {
                     "type": "string",
                     "description": "The unique universal identifier of the project owner."
+                },
+                "project": {
+                    "$ref": "#/types/digitalocean-native:projects/v2:Project"
                 },
                 "purpose": {
                     "type": "string",

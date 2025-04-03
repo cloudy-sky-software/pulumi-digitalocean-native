@@ -14,9 +14,13 @@ import (
 type DatabasesOnlineMigration struct {
 	pulumi.CustomResourceState
 
+	// The time the migration was initiated, in ISO 8601 format.
+	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// Enables SSL encryption when connecting to the source database.
 	DisableSsl pulumi.BoolPtrOutput      `pulumi:"disableSsl"`
 	Source     SourcePropertiesPtrOutput `pulumi:"source"`
+	// The current status of the migration.
+	Status StatusPtrOutput `pulumi:"status"`
 }
 
 // NewDatabasesOnlineMigration registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +116,11 @@ func (o DatabasesOnlineMigrationOutput) ToDatabasesOnlineMigrationOutputWithCont
 	return o
 }
 
+// The time the migration was initiated, in ISO 8601 format.
+func (o DatabasesOnlineMigrationOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabasesOnlineMigration) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
 // Enables SSL encryption when connecting to the source database.
 func (o DatabasesOnlineMigrationOutput) DisableSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatabasesOnlineMigration) pulumi.BoolPtrOutput { return v.DisableSsl }).(pulumi.BoolPtrOutput)
@@ -119,6 +128,11 @@ func (o DatabasesOnlineMigrationOutput) DisableSsl() pulumi.BoolPtrOutput {
 
 func (o DatabasesOnlineMigrationOutput) Source() SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *DatabasesOnlineMigration) SourcePropertiesPtrOutput { return v.Source }).(SourcePropertiesPtrOutput)
+}
+
+// The current status of the migration.
+func (o DatabasesOnlineMigrationOutput) Status() StatusPtrOutput {
+	return o.ApplyT(func(v *DatabasesOnlineMigration) StatusPtrOutput { return v.Status }).(StatusPtrOutput)
 }
 
 func init() {
