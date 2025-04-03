@@ -55,6 +55,9 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ProjectsV2
         [Output("ownerUuid")]
         public Output<string?> OwnerUuid { get; private set; } = null!;
 
+        [Output("project")]
+        public Output<Outputs.Project?> Project { get; private set; } = null!;
+
         /// <summary>
         /// The purpose of the project. The maximum length is 255 characters. It can
         /// have one of the following values:
