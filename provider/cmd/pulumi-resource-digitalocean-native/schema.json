@@ -2890,10 +2890,6 @@
         },
         "digitalocean-native:certificates/v2:Certificate": {
             "properties": {
-                "_sha1Fingerprint": {
-                    "type": "string",
-                    "description": "A unique identifier generated from the SHA-1 fingerprint of the certificate."
-                },
                 "createdAt": {
                     "type": "string",
                     "description": "A time value given in ISO8601 combined date and time format that represents when the certificate was created."
@@ -2916,6 +2912,10 @@
                 "notAfter": {
                     "type": "string",
                     "description": "A time value given in ISO8601 combined date and time format that represents the certificate's expiration date."
+                },
+                "sha1Fingerprint": {
+                    "type": "string",
+                    "description": "A unique identifier generated from the SHA-1 fingerprint of the certificate."
                 },
                 "state": {
                     "$ref": "#/types/digitalocean-native:certificates/v2:CertificateState",
