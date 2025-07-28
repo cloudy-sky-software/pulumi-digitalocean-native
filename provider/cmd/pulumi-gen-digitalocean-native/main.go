@@ -127,7 +127,9 @@ func readSchema(schemaPath string, version string) *schema.Package {
 	}
 	pkgSpec.Version = version
 
-	pkg, err := schema.ImportSpec(pkgSpec, nil)
+	pkg, err := schema.ImportSpec(pkgSpec, nil, schema.ValidationOptions{
+		AllowDanglingReferences: true,
+	})
 	if err != nil {
 		panic(err)
 	}
@@ -141,7 +143,7 @@ func writeNodeJSClient(pkg *schema.Package, outdir string) {
 	}
 
 	overlays := map[string][]byte{}
-	files, err := nodejsgen.GeneratePackage("pulumigen", pkg, overlays, nil, false)
+	files, err := nodejsgen.GeneratePackage("pulumigen", pkg, overlays, nil, false, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -157,7 +159,7 @@ func writePythonClient(pkg *schema.Package, outdir string) {
 
 	overlays := map[string][]byte{}
 
-	files, err := pythongen.GeneratePackage("pulumigen", pkg, overlays)
+	files, err := pythongen.GeneratePackage("pulumigen", pkg, overlays, nil)
 	if err != nil {
 		panic(err)
 	}
