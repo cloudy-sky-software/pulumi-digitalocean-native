@@ -15,10 +15,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.Outputs
     public sealed class Certificate
     {
         /// <summary>
-        /// A unique identifier generated from the SHA-1 fingerprint of the certificate.
-        /// </summary>
-        public readonly string? _sha1Fingerprint;
-        /// <summary>
         /// A time value given in ISO8601 combined date and time format that represents when the certificate was created.
         /// </summary>
         public readonly string? CreatedAt;
@@ -39,6 +35,10 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.Outputs
         /// </summary>
         public readonly string? NotAfter;
         /// <summary>
+        /// A unique identifier generated from the SHA-1 fingerprint of the certificate.
+        /// </summary>
+        public readonly string? Sha1Fingerprint;
+        /// <summary>
         /// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
         /// </summary>
         public readonly CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.CertificateState? State;
@@ -49,8 +49,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.Outputs
 
         [OutputConstructor]
         private Certificate(
-            string? _sha1Fingerprint,
-
             string? createdAt,
 
             ImmutableArray<string> dnsNames,
@@ -61,16 +59,18 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.Outputs
 
             string? notAfter,
 
+            string? sha1Fingerprint,
+
             CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.CertificateState? state,
 
             CloudySkySoftware.Pulumi.DigitalOceanNative.CertificatesV2.CertificateType? type)
         {
-            this._sha1Fingerprint = _sha1Fingerprint;
             CreatedAt = createdAt;
             DnsNames = dnsNames;
             Id = id;
             Name = name;
             NotAfter = notAfter;
+            Sha1Fingerprint = sha1Fingerprint;
             State = state;
             Type = type;
         }

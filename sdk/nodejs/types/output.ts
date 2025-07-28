@@ -1597,10 +1597,6 @@ export namespace certificates {
     export namespace v2 {
         export interface Certificate {
             /**
-             * A unique identifier generated from the SHA-1 fingerprint of the certificate.
-             */
-            _sha1Fingerprint?: string;
-            /**
              * A time value given in ISO8601 combined date and time format that represents when the certificate was created.
              */
             createdAt?: string;
@@ -1620,6 +1616,10 @@ export namespace certificates {
              * A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
              */
             notAfter?: string;
+            /**
+             * A unique identifier generated from the SHA-1 fingerprint of the certificate.
+             */
+            sha1Fingerprint?: string;
             /**
              * A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
              */
