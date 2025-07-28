@@ -14,8 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CertificateType struct {
-	// A unique identifier generated from the SHA-1 fingerprint of the certificate.
-	_sha1Fingerprint *string `pulumi:"_sha1Fingerprint"`
 	// A time value given in ISO8601 combined date and time format that represents when the certificate was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// An array of fully qualified domain names (FQDNs) for which the certificate was issued.
@@ -26,6 +24,8 @@ type CertificateType struct {
 	Name *string `pulumi:"name"`
 	// A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
 	NotAfter *string `pulumi:"notAfter"`
+	// A unique identifier generated from the SHA-1 fingerprint of the certificate.
+	Sha1Fingerprint *string `pulumi:"sha1Fingerprint"`
 	// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
 	State *CertificateStateEnum `pulumi:"state"`
 	// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
@@ -44,11 +44,6 @@ func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
 
 func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
 	return o
-}
-
-// A unique identifier generated from the SHA-1 fingerprint of the certificate.
-func (o CertificateTypeOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateType) *string { return v._sha1Fingerprint }).(pulumi.StringPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the certificate was created.
@@ -74,6 +69,11 @@ func (o CertificateTypeOutput) Name() pulumi.StringPtrOutput {
 // A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
 func (o CertificateTypeOutput) NotAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateType) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier generated from the SHA-1 fingerprint of the certificate.
+func (o CertificateTypeOutput) Sha1Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateType) *string { return v.Sha1Fingerprint }).(pulumi.StringPtrOutput)
 }
 
 // A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
@@ -108,16 +108,6 @@ func (o CertificateTypePtrOutput) Elem() CertificateTypeOutput {
 		var ret CertificateType
 		return ret
 	}).(CertificateTypeOutput)
-}
-
-// A unique identifier generated from the SHA-1 fingerprint of the certificate.
-func (o CertificateTypePtrOutput) _sha1Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateType) *string {
-		if v == nil {
-			return nil
-		}
-		return v._sha1Fingerprint
-	}).(pulumi.StringPtrOutput)
 }
 
 // A time value given in ISO8601 combined date and time format that represents when the certificate was created.
@@ -167,6 +157,16 @@ func (o CertificateTypePtrOutput) NotAfter() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.NotAfter
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier generated from the SHA-1 fingerprint of the certificate.
+func (o CertificateTypePtrOutput) Sha1Fingerprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sha1Fingerprint
 	}).(pulumi.StringPtrOutput)
 }
 
