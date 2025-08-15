@@ -56,42 +56,42 @@ export class MonitoringAlertPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alerts === undefined) && !opts.urn) {
+            if (args?.alerts === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alerts'");
             }
-            if ((!args || args.compare === undefined) && !opts.urn) {
+            if (args?.compare === undefined && !opts.urn) {
                 throw new Error("Missing required property 'compare'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.entities === undefined) && !opts.urn) {
+            if (args?.entities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entities'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            if ((!args || args.window === undefined) && !opts.urn) {
+            if (args?.window === undefined && !opts.urn) {
                 throw new Error("Missing required property 'window'");
             }
-            resourceInputs["alerts"] = args ? args.alerts : undefined;
-            resourceInputs["compare"] = args ? args.compare : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entities"] = args ? args.entities : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["window"] = args ? args.window : undefined;
+            resourceInputs["alerts"] = args?.alerts;
+            resourceInputs["compare"] = args?.compare;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entities"] = args?.entities;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["window"] = args?.window;
             resourceInputs["policy"] = undefined /*out*/;
         } else {
             resourceInputs["alerts"] = undefined /*out*/;

@@ -58,11 +58,11 @@ export class App extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.spec === undefined) && !opts.urn) {
+            if (args?.spec === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["spec"] = args?.spec;
             resourceInputs["app"] = undefined /*out*/;
         } else {
             resourceInputs["app"] = undefined /*out*/;

@@ -71,24 +71,24 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsNames === undefined) && !opts.urn) {
+            if (args?.dnsNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsNames'");
             }
-            if ((!args || args.leafCertificate === undefined) && !opts.urn) {
+            if (args?.leafCertificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'leafCertificate'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.privateKey === undefined) && !opts.urn) {
+            if (args?.privateKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
-            resourceInputs["dnsNames"] = args ? args.dnsNames : undefined;
-            resourceInputs["leafCertificate"] = args ? args.leafCertificate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["certificateChain"] = args?.certificateChain;
+            resourceInputs["dnsNames"] = args?.dnsNames;
+            resourceInputs["leafCertificate"] = args?.leafCertificate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateKey"] = args?.privateKey;
+            resourceInputs["type"] = args?.type;
             resourceInputs["certificate"] = undefined /*out*/;
         } else {
             resourceInputs["certificate"] = undefined /*out*/;

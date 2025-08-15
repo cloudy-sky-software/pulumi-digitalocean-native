@@ -55,14 +55,14 @@ export class FunctionsNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["region"] = args?.region;
             resourceInputs["namespace"] = undefined /*out*/;
         } else {
             resourceInputs["label"] = undefined /*out*/;

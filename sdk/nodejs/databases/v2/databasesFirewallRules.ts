@@ -47,8 +47,8 @@ export class DatabasesFirewallRules extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["rules"] = args?.rules;
         } else {
             resourceInputs["rules"] = undefined /*out*/;
         }

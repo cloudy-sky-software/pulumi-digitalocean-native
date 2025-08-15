@@ -93,14 +93,14 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["ownerUuid"] = args ? args.ownerUuid : undefined;
-            resourceInputs["purpose"] = args ? args.purpose : undefined;
-            resourceInputs["updatedAt"] = args ? args.updatedAt : undefined;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["ownerUuid"] = args?.ownerUuid;
+            resourceInputs["purpose"] = args?.purpose;
+            resourceInputs["updatedAt"] = args?.updatedAt;
             resourceInputs["project"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;

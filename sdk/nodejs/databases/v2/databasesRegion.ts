@@ -47,11 +47,11 @@ export class DatabasesRegion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["region"] = args?.region;
         } else {
             resourceInputs["region"] = undefined /*out*/;
         }

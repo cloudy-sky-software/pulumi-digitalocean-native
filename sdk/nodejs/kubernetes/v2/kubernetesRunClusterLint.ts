@@ -63,11 +63,11 @@ export class KubernetesRunClusterLint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["excludeChecks"] = args ? args.excludeChecks : undefined;
-            resourceInputs["excludeGroups"] = args ? args.excludeGroups : undefined;
-            resourceInputs["includeChecks"] = args ? args.includeChecks : undefined;
-            resourceInputs["includeGroups"] = args ? args.includeGroups : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["excludeChecks"] = args?.excludeChecks;
+            resourceInputs["excludeGroups"] = args?.excludeGroups;
+            resourceInputs["includeChecks"] = args?.includeChecks;
+            resourceInputs["includeGroups"] = args?.includeGroups;
             resourceInputs["runId"] = undefined /*out*/;
         } else {
             resourceInputs["excludeChecks"] = undefined /*out*/;

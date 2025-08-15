@@ -44,9 +44,9 @@ export class KubernetesRecycleNodePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["nodePoolId"] = args ? args.nodePoolId : undefined;
-            resourceInputs["nodes"] = args ? args.nodes : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["nodePoolId"] = args?.nodePoolId;
+            resourceInputs["nodes"] = args?.nodes;
         } else {
             resourceInputs["nodes"] = undefined /*out*/;
         }

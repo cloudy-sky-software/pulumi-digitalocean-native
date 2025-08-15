@@ -51,7 +51,7 @@ export class RegistryUpdateSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["tierSlug"] = args ? args.tierSlug : undefined;
+            resourceInputs["tierSlug"] = args?.tierSlug;
             resourceInputs["subscription"] = undefined /*out*/;
         } else {
             resourceInputs["subscription"] = undefined /*out*/;

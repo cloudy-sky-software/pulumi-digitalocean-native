@@ -55,14 +55,14 @@ export class OneClicksInstallKubernetes extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addonSlugs === undefined) && !opts.urn) {
+            if (args?.addonSlugs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addonSlugs'");
             }
-            if ((!args || args.clusterUuid === undefined) && !opts.urn) {
+            if (args?.clusterUuid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterUuid'");
             }
-            resourceInputs["addonSlugs"] = args ? args.addonSlugs : undefined;
-            resourceInputs["clusterUuid"] = args ? args.clusterUuid : undefined;
+            resourceInputs["addonSlugs"] = args?.addonSlugs;
+            resourceInputs["clusterUuid"] = args?.clusterUuid;
             resourceInputs["message"] = undefined /*out*/;
         } else {
             resourceInputs["addonSlugs"] = undefined /*out*/;

@@ -128,28 +128,28 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.forwardingRules === undefined) && !opts.urn) {
+            if (args?.forwardingRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'forwardingRules'");
             }
-            resourceInputs["algorithm"] = (args ? args.algorithm : undefined) ?? "round_robin";
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["disableLetsEncryptDnsRecords"] = (args ? args.disableLetsEncryptDnsRecords : undefined) ?? false;
-            resourceInputs["enableBackendKeepalive"] = (args ? args.enableBackendKeepalive : undefined) ?? false;
-            resourceInputs["enableProxyProtocol"] = (args ? args.enableProxyProtocol : undefined) ?? false;
-            resourceInputs["firewall"] = args ? args.firewall : undefined;
-            resourceInputs["forwardingRules"] = args ? args.forwardingRules : undefined;
+            resourceInputs["algorithm"] = (args?.algorithm) ?? "round_robin";
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["disableLetsEncryptDnsRecords"] = (args?.disableLetsEncryptDnsRecords) ?? false;
+            resourceInputs["enableBackendKeepalive"] = (args?.enableBackendKeepalive) ?? false;
+            resourceInputs["enableProxyProtocol"] = (args?.enableProxyProtocol) ?? false;
+            resourceInputs["firewall"] = args?.firewall;
+            resourceInputs["forwardingRules"] = args?.forwardingRules;
             resourceInputs["healthCheck"] = args ? (args.healthCheck ? pulumi.output(args.healthCheck).apply(inputs.load_balancers.v2.healthCheckArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["httpIdleTimeoutSeconds"] = (args ? args.httpIdleTimeoutSeconds : undefined) ?? 60;
-            resourceInputs["ip"] = args ? args.ip : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["redirectHttpToHttps"] = (args ? args.redirectHttpToHttps : undefined) ?? false;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["size"] = (args ? args.size : undefined) ?? "lb-small";
-            resourceInputs["sizeUnit"] = (args ? args.sizeUnit : undefined) ?? 1;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["httpIdleTimeoutSeconds"] = (args?.httpIdleTimeoutSeconds) ?? 60;
+            resourceInputs["ip"] = args?.ip;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["redirectHttpToHttps"] = (args?.redirectHttpToHttps) ?? false;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["size"] = (args?.size) ?? "lb-small";
+            resourceInputs["sizeUnit"] = (args?.sizeUnit) ?? 1;
+            resourceInputs["status"] = args?.status;
             resourceInputs["stickySessions"] = args ? (args.stickySessions ? pulumi.output(args.stickySessions).apply(inputs.load_balancers.v2.stickySessionsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["vpcUuid"] = args ? args.vpcUuid : undefined;
+            resourceInputs["vpcUuid"] = args?.vpcUuid;
             resourceInputs["loadBalancer"] = undefined /*out*/;
         } else {
             resourceInputs["algorithm"] = undefined /*out*/;

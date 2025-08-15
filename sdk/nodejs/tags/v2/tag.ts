@@ -70,7 +70,7 @@ export class Tag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["tag"] = undefined /*out*/;
         } else {

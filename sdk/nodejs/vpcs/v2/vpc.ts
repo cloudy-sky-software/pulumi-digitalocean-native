@@ -63,10 +63,10 @@ export class Vpc extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipRange"] = args ? args.ipRange : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["ipRange"] = args?.ipRange;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
             resourceInputs["vpc"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

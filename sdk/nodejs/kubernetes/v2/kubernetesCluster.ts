@@ -119,25 +119,25 @@ export class KubernetesCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.nodePools === undefined) && !opts.urn) {
+            if (args?.nodePools === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodePools'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["autoUpgrade"] = (args ? args.autoUpgrade : undefined) ?? false;
-            resourceInputs["ha"] = (args ? args.ha : undefined) ?? false;
-            resourceInputs["maintenancePolicy"] = args ? args.maintenancePolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodePools"] = args ? args.nodePools : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["surgeUpgrade"] = (args ? args.surgeUpgrade : undefined) ?? false;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["vpcUuid"] = args ? args.vpcUuid : undefined;
+            resourceInputs["autoUpgrade"] = (args?.autoUpgrade) ?? false;
+            resourceInputs["ha"] = (args?.ha) ?? false;
+            resourceInputs["maintenancePolicy"] = args?.maintenancePolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodePools"] = args?.nodePools;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["surgeUpgrade"] = (args?.surgeUpgrade) ?? false;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["vpcUuid"] = args?.vpcUuid;
             resourceInputs["clusterSubnet"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

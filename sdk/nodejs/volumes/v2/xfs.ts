@@ -84,19 +84,19 @@ export class Xfs extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dropletIds"] = args ? args.dropletIds : undefined;
-            resourceInputs["filesystemLabel"] = args ? args.filesystemLabel : undefined;
-            resourceInputs["filesystemType"] = args ? args.filesystemType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sizeGigabytes"] = args ? args.sizeGigabytes : undefined;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dropletIds"] = args?.dropletIds;
+            resourceInputs["filesystemLabel"] = args?.filesystemLabel;
+            resourceInputs["filesystemType"] = args?.filesystemType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sizeGigabytes"] = args?.sizeGigabytes;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["volume"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;

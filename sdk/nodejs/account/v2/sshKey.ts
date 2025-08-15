@@ -59,11 +59,11 @@ export class SshKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicKey === undefined) && !opts.urn) {
+            if (args?.publicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicKey"] = args?.publicKey;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["sshKey"] = undefined /*out*/;
         } else {

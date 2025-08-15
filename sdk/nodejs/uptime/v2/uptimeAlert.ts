@@ -71,13 +71,13 @@ export class UptimeAlert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["checkId"] = args ? args.checkId : undefined;
-            resourceInputs["comparison"] = args ? args.comparison : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["period"] = args ? args.period : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["checkId"] = args?.checkId;
+            resourceInputs["comparison"] = args?.comparison;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["period"] = args?.period;
+            resourceInputs["threshold"] = args?.threshold;
+            resourceInputs["type"] = args?.type;
             resourceInputs["alert"] = undefined /*out*/;
         } else {
             resourceInputs["alert"] = undefined /*out*/;
