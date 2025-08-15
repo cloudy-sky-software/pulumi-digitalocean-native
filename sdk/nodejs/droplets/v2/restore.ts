@@ -55,12 +55,12 @@ export class Restore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["dropletId"] = args ? args.dropletId : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["dropletId"] = args?.dropletId;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["type"] = args?.type;
             resourceInputs["action"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

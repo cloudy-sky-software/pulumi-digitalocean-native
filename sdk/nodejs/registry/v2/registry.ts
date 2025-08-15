@@ -59,12 +59,12 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subscriptionTierSlug === undefined) && !opts.urn) {
+            if (args?.subscriptionTierSlug === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionTierSlug'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["subscriptionTierSlug"] = args ? args.subscriptionTierSlug : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["subscriptionTierSlug"] = args?.subscriptionTierSlug;
             resourceInputs["registry"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;

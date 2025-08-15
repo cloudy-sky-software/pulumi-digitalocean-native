@@ -72,11 +72,11 @@ export class Convert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["type"] = args?.type;
             resourceInputs["completedAt"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
             resourceInputs["regionSlug"] = undefined /*out*/;

@@ -63,8 +63,8 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["name"] = args?.name;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["zoneFile"] = undefined /*out*/;

@@ -71,12 +71,12 @@ export class ImagesCustom extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["distribution"] = args ? args.distribution : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["distribution"] = args?.distribution;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["url"] = args?.url;
             resourceInputs["image"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;

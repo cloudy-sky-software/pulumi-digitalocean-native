@@ -99,29 +99,29 @@ export class Droplet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["backups"] = (args ? args.backups : undefined) ?? false;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["ipv6"] = (args ? args.ipv6 : undefined) ?? false;
-            resourceInputs["monitoring"] = (args ? args.monitoring : undefined) ?? false;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateNetworking"] = (args ? args.privateNetworking : undefined) ?? false;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["sshKeys"] = args ? args.sshKeys : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
-            resourceInputs["vpcUuid"] = args ? args.vpcUuid : undefined;
-            resourceInputs["withDropletAgent"] = args ? args.withDropletAgent : undefined;
+            resourceInputs["backups"] = (args?.backups) ?? false;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["ipv6"] = (args?.ipv6) ?? false;
+            resourceInputs["monitoring"] = (args?.monitoring) ?? false;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateNetworking"] = (args?.privateNetworking) ?? false;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["sshKeys"] = args?.sshKeys;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["volumes"] = args?.volumes;
+            resourceInputs["vpcUuid"] = args?.vpcUuid;
+            resourceInputs["withDropletAgent"] = args?.withDropletAgent;
         } else {
             resourceInputs["backups"] = undefined /*out*/;
             resourceInputs["image"] = undefined /*out*/;

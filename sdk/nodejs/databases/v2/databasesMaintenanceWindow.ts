@@ -59,15 +59,15 @@ export class DatabasesMaintenanceWindow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.day === undefined) && !opts.urn) {
+            if (args?.day === undefined && !opts.urn) {
                 throw new Error("Missing required property 'day'");
             }
-            if ((!args || args.hour === undefined) && !opts.urn) {
+            if (args?.hour === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hour'");
             }
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["day"] = args ? args.day : undefined;
-            resourceInputs["hour"] = args ? args.hour : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["day"] = args?.day;
+            resourceInputs["hour"] = args?.hour;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["pending"] = undefined /*out*/;
         } else {

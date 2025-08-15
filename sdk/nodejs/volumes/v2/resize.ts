@@ -59,16 +59,16 @@ export class Resize extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sizeGigabytes === undefined) && !opts.urn) {
+            if (args?.sizeGigabytes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeGigabytes'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["sizeGigabytes"] = args ? args.sizeGigabytes : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["sizeGigabytes"] = args?.sizeGigabytes;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["volumeId"] = args?.volumeId;
             resourceInputs["action"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

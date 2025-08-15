@@ -69,23 +69,23 @@ export class DatabasesConnectionPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.db === undefined) && !opts.urn) {
+            if (args?.db === undefined && !opts.urn) {
                 throw new Error("Missing required property 'db'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["connection"] = args ? args.connection : undefined;
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["db"] = args ? args.db : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateConnection"] = args ? args.privateConnection : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["connection"] = args?.connection;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["db"] = args?.db;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateConnection"] = args?.privateConnection;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["user"] = args?.user;
             resourceInputs["pool"] = undefined /*out*/;
         } else {
             resourceInputs["connection"] = undefined /*out*/;

@@ -70,14 +70,14 @@ export class Firewall extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["dropletIds"] = args ? args.dropletIds : undefined;
-            resourceInputs["inboundRules"] = args ? args.inboundRules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundRules"] = args ? args.outboundRules : undefined;
-            resourceInputs["pendingChanges"] = args ? args.pendingChanges : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["dropletIds"] = args?.dropletIds;
+            resourceInputs["inboundRules"] = args?.inboundRules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundRules"] = args?.outboundRules;
+            resourceInputs["pendingChanges"] = args?.pendingChanges;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["firewall"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;

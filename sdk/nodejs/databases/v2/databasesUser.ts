@@ -66,15 +66,15 @@ export class DatabasesUser extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["mysqlSettings"] = args ? args.mysqlSettings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["readonly"] = args ? args.readonly : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["mysqlSettings"] = args?.mysqlSettings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["readonly"] = args?.readonly;
+            resourceInputs["role"] = args?.role;
             resourceInputs["user"] = undefined /*out*/;
         } else {
             resourceInputs["mysqlSettings"] = undefined /*out*/;

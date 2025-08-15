@@ -78,11 +78,11 @@ export class AppsValidateAppSpec extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.spec === undefined) && !opts.urn) {
+            if (args?.spec === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["spec"] = args ? args.spec : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["spec"] = args?.spec;
             resourceInputs["appCost"] = undefined /*out*/;
             resourceInputs["appIsStatic"] = undefined /*out*/;
             resourceInputs["appNameAvailable"] = undefined /*out*/;

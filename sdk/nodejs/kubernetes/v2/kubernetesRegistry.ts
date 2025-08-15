@@ -47,7 +47,7 @@ export class KubernetesRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["clusterUuids"] = args ? args.clusterUuids : undefined;
+            resourceInputs["clusterUuids"] = args?.clusterUuids;
         } else {
             resourceInputs["clusterUuids"] = undefined /*out*/;
         }

@@ -113,42 +113,42 @@ export class DatabasesCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.engine === undefined) && !opts.urn) {
+            if (args?.engine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'engine'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.numNodes === undefined) && !opts.urn) {
+            if (args?.numNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numNodes'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["backupRestore"] = args ? args.backupRestore : undefined;
-            resourceInputs["connection"] = args ? args.connection : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["dbNames"] = args ? args.dbNames : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["numNodes"] = args ? args.numNodes : undefined;
-            resourceInputs["privateConnection"] = args ? args.privateConnection : undefined;
-            resourceInputs["privateNetworkUuid"] = args ? args.privateNetworkUuid : undefined;
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["semanticVersion"] = args ? args.semanticVersion : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["versionEndOfAvailability"] = args ? args.versionEndOfAvailability : undefined;
-            resourceInputs["versionEndOfLife"] = args ? args.versionEndOfLife : undefined;
+            resourceInputs["backupRestore"] = args?.backupRestore;
+            resourceInputs["connection"] = args?.connection;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["dbNames"] = args?.dbNames;
+            resourceInputs["engine"] = args?.engine;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["numNodes"] = args?.numNodes;
+            resourceInputs["privateConnection"] = args?.privateConnection;
+            resourceInputs["privateNetworkUuid"] = args?.privateNetworkUuid;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["semanticVersion"] = args?.semanticVersion;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["users"] = args?.users;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["versionEndOfAvailability"] = args?.versionEndOfAvailability;
+            resourceInputs["versionEndOfLife"] = args?.versionEndOfLife;
             resourceInputs["database"] = undefined /*out*/;
         } else {
             resourceInputs["backupRestore"] = undefined /*out*/;

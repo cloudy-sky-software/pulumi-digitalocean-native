@@ -63,17 +63,17 @@ export class Attach extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dropletId === undefined) && !opts.urn) {
+            if (args?.dropletId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dropletId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["dropletId"] = args ? args.dropletId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["dropletId"] = args?.dropletId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["volumeId"] = args?.volumeId;
             resourceInputs["action"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;

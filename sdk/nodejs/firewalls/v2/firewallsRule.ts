@@ -48,9 +48,9 @@ export class FirewallsRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["firewallId"] = args ? args.firewallId : undefined;
-            resourceInputs["inboundRules"] = args ? args.inboundRules : undefined;
-            resourceInputs["outboundRules"] = args ? args.outboundRules : undefined;
+            resourceInputs["firewallId"] = args?.firewallId;
+            resourceInputs["inboundRules"] = args?.inboundRules;
+            resourceInputs["outboundRules"] = args?.outboundRules;
         } else {
             resourceInputs["inboundRules"] = undefined /*out*/;
             resourceInputs["outboundRules"] = undefined /*out*/;

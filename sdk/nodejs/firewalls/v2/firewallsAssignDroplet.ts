@@ -47,11 +47,11 @@ export class FirewallsAssignDroplet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dropletIds === undefined) && !opts.urn) {
+            if (args?.dropletIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dropletIds'");
             }
-            resourceInputs["dropletIds"] = args ? args.dropletIds : undefined;
-            resourceInputs["firewallId"] = args ? args.firewallId : undefined;
+            resourceInputs["dropletIds"] = args?.dropletIds;
+            resourceInputs["firewallId"] = args?.firewallId;
         } else {
             resourceInputs["dropletIds"] = undefined /*out*/;
         }
