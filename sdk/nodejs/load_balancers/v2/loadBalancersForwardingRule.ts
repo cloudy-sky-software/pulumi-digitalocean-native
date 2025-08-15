@@ -47,11 +47,11 @@ export class LoadBalancersForwardingRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.forwardingRules === undefined) && !opts.urn) {
+            if (args?.forwardingRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'forwardingRules'");
             }
-            resourceInputs["forwardingRules"] = args ? args.forwardingRules : undefined;
-            resourceInputs["lbId"] = args ? args.lbId : undefined;
+            resourceInputs["forwardingRules"] = args?.forwardingRules;
+            resourceInputs["lbId"] = args?.lbId;
         } else {
             resourceInputs["forwardingRules"] = undefined /*out*/;
         }

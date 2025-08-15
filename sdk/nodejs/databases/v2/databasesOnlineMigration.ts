@@ -59,9 +59,9 @@ export class DatabasesOnlineMigration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["disableSsl"] = args ? args.disableSsl : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["disableSsl"] = args?.disableSsl;
+            resourceInputs["source"] = args?.source;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {

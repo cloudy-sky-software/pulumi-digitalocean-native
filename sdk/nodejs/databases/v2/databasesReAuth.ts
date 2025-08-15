@@ -48,9 +48,9 @@ export class DatabasesReAuth extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["mysqlSettings"] = args ? args.mysqlSettings : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["mysqlSettings"] = args?.mysqlSettings;
+            resourceInputs["username"] = args?.username;
             resourceInputs["user"] = undefined /*out*/;
         } else {
             resourceInputs["mysqlSettings"] = undefined /*out*/;

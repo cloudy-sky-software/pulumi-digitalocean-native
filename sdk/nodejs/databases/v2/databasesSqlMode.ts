@@ -47,11 +47,11 @@ export class DatabasesSqlMode extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sqlMode === undefined) && !opts.urn) {
+            if (args?.sqlMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlMode'");
             }
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["sqlMode"] = args ? args.sqlMode : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["sqlMode"] = args?.sqlMode;
         } else {
             resourceInputs["sqlMode"] = undefined /*out*/;
         }

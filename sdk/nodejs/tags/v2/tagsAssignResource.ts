@@ -50,11 +50,11 @@ export class TagsAssignResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resources === undefined) && !opts.urn) {
+            if (args?.resources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["tagId"] = args ? args.tagId : undefined;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["tagId"] = args?.tagId;
         } else {
             resourceInputs["resources"] = undefined /*out*/;
         }

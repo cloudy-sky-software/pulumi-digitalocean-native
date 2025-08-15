@@ -47,7 +47,7 @@ export class RegistryValidateName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
         } else {
             resourceInputs["name"] = undefined /*out*/;
         }

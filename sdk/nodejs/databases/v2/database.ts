@@ -51,8 +51,8 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["name"] = args?.name;
             resourceInputs["db"] = undefined /*out*/;
         } else {
             resourceInputs["db"] = undefined /*out*/;

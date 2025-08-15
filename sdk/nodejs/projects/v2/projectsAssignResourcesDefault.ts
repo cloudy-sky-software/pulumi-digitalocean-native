@@ -47,7 +47,7 @@ export class ProjectsAssignResourcesDefault extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["resources"] = args?.resources;
         } else {
             resourceInputs["resources"] = undefined /*out*/;
         }

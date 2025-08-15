@@ -67,11 +67,11 @@ export class UptimeCheck extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regions"] = args ? args.regions : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regions"] = args?.regions;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["type"] = args?.type;
             resourceInputs["check"] = undefined /*out*/;
         } else {
             resourceInputs["check"] = undefined /*out*/;

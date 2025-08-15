@@ -55,9 +55,9 @@ export class AppsRollback extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["deploymentId"] = args ? args.deploymentId : undefined;
-            resourceInputs["skipPin"] = args ? args.skipPin : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["deploymentId"] = args?.deploymentId;
+            resourceInputs["skipPin"] = args?.skipPin;
             resourceInputs["deployment"] = undefined /*out*/;
         } else {
             resourceInputs["deployment"] = undefined /*out*/;

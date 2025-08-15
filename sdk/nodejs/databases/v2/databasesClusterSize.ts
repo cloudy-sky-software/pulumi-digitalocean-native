@@ -51,15 +51,15 @@ export class DatabasesClusterSize extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.numNodes === undefined) && !opts.urn) {
+            if (args?.numNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numNodes'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["numNodes"] = args ? args.numNodes : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["numNodes"] = args?.numNodes;
+            resourceInputs["size"] = args?.size;
         } else {
             resourceInputs["numNodes"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;

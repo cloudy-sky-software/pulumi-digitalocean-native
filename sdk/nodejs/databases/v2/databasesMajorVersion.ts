@@ -47,8 +47,8 @@ export class DatabasesMajorVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["version"] = args?.version;
         } else {
             resourceInputs["version"] = undefined /*out*/;
         }

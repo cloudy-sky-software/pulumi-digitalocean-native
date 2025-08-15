@@ -56,8 +56,8 @@ export class FloatingIP extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["projectId"] = args?.projectId;
+            resourceInputs["region"] = args?.region;
             resourceInputs["floatingIp"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
         } else {

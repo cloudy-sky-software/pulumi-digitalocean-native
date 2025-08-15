@@ -87,17 +87,17 @@ export class KubernetesNodePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoScale"] = args ? args.autoScale : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["count"] = args ? args.count : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["maxNodes"] = args ? args.maxNodes : undefined;
-            resourceInputs["minNodes"] = args ? args.minNodes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodes"] = args ? args.nodes : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taints"] = args ? args.taints : undefined;
+            resourceInputs["autoScale"] = args?.autoScale;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["count"] = args?.count;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["maxNodes"] = args?.maxNodes;
+            resourceInputs["minNodes"] = args?.minNodes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodes"] = args?.nodes;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taints"] = args?.taints;
             resourceInputs["nodePool"] = undefined /*out*/;
         } else {
             resourceInputs["autoScale"] = undefined /*out*/;

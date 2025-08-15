@@ -83,19 +83,19 @@ export class DomainsRecord extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["data"] = args ? args.data : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["flags"] = args ? args.flags : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["tag"] = args ? args.tag : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["data"] = args?.data;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["flags"] = args?.flags;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["tag"] = args?.tag;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["weight"] = args?.weight;
             resourceInputs["domainRecord"] = undefined /*out*/;
         } else {
             resourceInputs["data"] = undefined /*out*/;

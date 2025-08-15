@@ -77,19 +77,19 @@ export class DatabasesReplica extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["connection"] = args ? args.connection : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateConnection"] = args ? args.privateConnection : undefined;
-            resourceInputs["privateNetworkUuid"] = args ? args.privateNetworkUuid : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connection"] = args?.connection;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateConnection"] = args?.privateConnection;
+            resourceInputs["privateNetworkUuid"] = args?.privateNetworkUuid;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["replica"] = undefined /*out*/;
         } else {
             resourceInputs["connection"] = undefined /*out*/;

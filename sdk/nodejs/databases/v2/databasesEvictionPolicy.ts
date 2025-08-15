@@ -57,11 +57,11 @@ export class DatabasesEvictionPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.evictionPolicy === undefined) && !opts.urn) {
+            if (args?.evictionPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evictionPolicy'");
             }
-            resourceInputs["databaseClusterUuid"] = args ? args.databaseClusterUuid : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["databaseClusterUuid"] = args?.databaseClusterUuid;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
         } else {
             resourceInputs["evictionPolicy"] = undefined /*out*/;
         }

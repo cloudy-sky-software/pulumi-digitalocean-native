@@ -49,10 +49,10 @@ export class AppsAssignAlertDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["alertId"] = args ? args.alertId : undefined;
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["emails"] = args ? args.emails : undefined;
-            resourceInputs["slackWebhooks"] = args ? args.slackWebhooks : undefined;
+            resourceInputs["alertId"] = args?.alertId;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["emails"] = args?.emails;
+            resourceInputs["slackWebhooks"] = args?.slackWebhooks;
             resourceInputs["alert"] = undefined /*out*/;
         } else {
             resourceInputs["alert"] = undefined /*out*/;

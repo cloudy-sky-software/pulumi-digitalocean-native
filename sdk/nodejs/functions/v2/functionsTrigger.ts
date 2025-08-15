@@ -67,24 +67,24 @@ export class FunctionsTrigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.function === undefined) && !opts.urn) {
+            if (args?.function === undefined && !opts.urn) {
                 throw new Error("Missing required property 'function'");
             }
-            if ((!args || args.isEnabled === undefined) && !opts.urn) {
+            if (args?.isEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isEnabled'");
             }
-            if ((!args || args.scheduledDetails === undefined) && !opts.urn) {
+            if (args?.scheduledDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduledDetails'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["function"] = args ? args.function : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["scheduledDetails"] = args ? args.scheduledDetails : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["function"] = args?.function;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceId"] = args?.namespaceId;
+            resourceInputs["scheduledDetails"] = args?.scheduledDetails;
+            resourceInputs["type"] = args?.type;
             resourceInputs["trigger"] = undefined /*out*/;
         } else {
             resourceInputs["function"] = undefined /*out*/;

@@ -58,11 +58,11 @@ export class AppsListMetricsBandwidthDaily extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appIds === undefined) && !opts.urn) {
+            if (args?.appIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appIds'");
             }
-            resourceInputs["appIds"] = args ? args.appIds : undefined;
-            resourceInputs["date"] = args ? args.date : undefined;
+            resourceInputs["appIds"] = args?.appIds;
+            resourceInputs["date"] = args?.date;
             resourceInputs["appBandwidthUsage"] = undefined /*out*/;
         } else {
             resourceInputs["appBandwidthUsage"] = undefined /*out*/;

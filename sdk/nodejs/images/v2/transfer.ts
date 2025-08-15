@@ -72,15 +72,15 @@ export class Transfer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["imageId"] = args ? args.imageId : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["imageId"] = args?.imageId;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["type"] = args?.type;
             resourceInputs["completedAt"] = undefined /*out*/;
             resourceInputs["regionSlug"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;

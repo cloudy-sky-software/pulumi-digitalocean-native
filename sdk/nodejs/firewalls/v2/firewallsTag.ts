@@ -47,11 +47,11 @@ export class FirewallsTag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["firewallId"] = args ? args.firewallId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["firewallId"] = args?.firewallId;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["tags"] = undefined /*out*/;
         }

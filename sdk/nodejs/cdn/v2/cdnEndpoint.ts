@@ -67,13 +67,13 @@ export class CdnEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.origin === undefined) && !opts.urn) {
+            if (args?.origin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["ttl"] = (args ? args.ttl : undefined) ?? 3600;
+            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["customDomain"] = args?.customDomain;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["ttl"] = (args?.ttl) ?? 3600;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
         } else {
