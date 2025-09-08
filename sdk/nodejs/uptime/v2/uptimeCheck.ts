@@ -34,27 +34,27 @@ export class UptimeCheck extends pulumi.CustomResource {
         return obj['__pulumiType'] === UptimeCheck.__pulumiType;
     }
 
-    public /*out*/ readonly check!: pulumi.Output<outputs.uptime.v2.Check | undefined>;
+    declare public /*out*/ readonly check: pulumi.Output<outputs.uptime.v2.Check | undefined>;
     /**
      * A boolean value indicating whether the check is enabled/disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * A human-friendly display name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array containing the selected regions to perform healthchecks from.
      */
-    public readonly regions!: pulumi.Output<enums.uptime.v2.CheckUpdatableRegionsItem[]>;
+    declare public readonly regions: pulumi.Output<enums.uptime.v2.CheckUpdatableRegionsItem[]>;
     /**
      * The endpoint to perform healthchecks on.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
     /**
      * The type of health check to perform.
      */
-    public readonly type!: pulumi.Output<enums.uptime.v2.CheckUpdatableType>;
+    declare public readonly type: pulumi.Output<enums.uptime.v2.CheckUpdatableType>;
 
     /**
      * Create a UptimeCheck resource with the given unique name, arguments, and options.

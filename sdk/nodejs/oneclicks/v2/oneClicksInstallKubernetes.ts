@@ -34,15 +34,15 @@ export class OneClicksInstallKubernetes extends pulumi.CustomResource {
     /**
      * An array of 1-Click Application slugs to be installed to the Kubernetes cluster.
      */
-    public readonly addonSlugs!: pulumi.Output<string[]>;
+    declare public readonly addonSlugs: pulumi.Output<string[]>;
     /**
      * A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed.
      */
-    public readonly clusterUuid!: pulumi.Output<string>;
+    declare public readonly clusterUuid: pulumi.Output<string>;
     /**
      * A message about the result of the request.
      */
-    public /*out*/ readonly message!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly message: pulumi.Output<string | undefined>;
 
     /**
      * Create a OneClicksInstallKubernetes resource with the given unique name, arguments, and options.

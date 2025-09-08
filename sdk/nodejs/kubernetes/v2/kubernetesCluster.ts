@@ -37,76 +37,76 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
      */
-    public readonly autoUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * The range of IP addresses in the overlay network of the Kubernetes cluster in CIDR notation.
      */
-    public /*out*/ readonly clusterSubnet!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly clusterSubnet: pulumi.Output<string | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the Kubernetes cluster was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * The base URL of the API server on the Kubernetes master node.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled.
      */
-    public readonly ha!: pulumi.Output<boolean | undefined>;
+    declare public readonly ha: pulumi.Output<boolean | undefined>;
     /**
      * The public IPv4 address of the Kubernetes master node. This will not be set if high availability is configured on the cluster (v1.21+)
      */
-    public /*out*/ readonly ipv4!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly kubernetesCluster!: pulumi.Output<outputs.kubernetes.v2.Cluster | undefined>;
+    declare public /*out*/ readonly ipv4: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly kubernetesCluster: pulumi.Output<outputs.kubernetes.v2.Cluster | undefined>;
     /**
      * An object specifying the maintenance window policy for the Kubernetes cluster.
      */
-    public readonly maintenancePolicy!: pulumi.Output<outputs.kubernetes.v2.MaintenancePolicy | undefined>;
+    declare public readonly maintenancePolicy: pulumi.Output<outputs.kubernetes.v2.MaintenancePolicy | undefined>;
     /**
      * A human-readable name for a Kubernetes cluster.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An object specifying the details of the worker nodes available to the Kubernetes cluster.
      */
-    public readonly nodePools!: pulumi.Output<outputs.kubernetes.v2.KubernetesNodePool[]>;
+    declare public readonly nodePools: pulumi.Output<outputs.kubernetes.v2.KubernetesNodePool[]>;
     /**
      * The slug identifier for the region where the Kubernetes cluster is located.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * A read-only boolean value indicating if a container registry is integrated with the cluster.
      */
-    public /*out*/ readonly registryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly registryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The range of assignable IP addresses for services running in the Kubernetes cluster in CIDR notation.
      */
-    public /*out*/ readonly serviceSubnet!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly serviceSubnet: pulumi.Output<string | undefined>;
     /**
      * An object containing a `state` attribute whose value is set to a string indicating the current status of the cluster.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.kubernetes.v2.StatusProperties | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.kubernetes.v2.StatusProperties | undefined>;
     /**
      * A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.
      */
-    public readonly surgeUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly surgeUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the Kubernetes cluster was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string | undefined>;
     /**
      * The slug identifier for the version of Kubernetes used for the cluster. If set to a minor version (e.g. "1.14"), the latest version within it will be used (e.g. "1.14.6-do.1"); if set to "latest", the latest published version will be used. See the `/v2/kubernetes/options` endpoint to find all currently available versions.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
     /**
      * A string specifying the UUID of the VPC to which the Kubernetes cluster is assigned.
      */
-    public readonly vpcUuid!: pulumi.Output<string | undefined>;
+    declare public readonly vpcUuid: pulumi.Output<string | undefined>;
 
     /**
      * Create a KubernetesCluster resource with the given unique name, arguments, and options.

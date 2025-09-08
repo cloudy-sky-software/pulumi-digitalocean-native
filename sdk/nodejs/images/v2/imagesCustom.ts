@@ -37,28 +37,28 @@ export class ImagesCustom extends pulumi.CustomResource {
     /**
      * An optional free-form text field to describe an image.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of a custom image's distribution. Currently, the valid values are  `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`,  `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`.  Any other value will be accepted but ignored, and `Unknown` will be used in its place.
      */
-    public readonly distribution!: pulumi.Output<enums.images.v2.ImageUpdateDistribution | undefined>;
-    public /*out*/ readonly image!: pulumi.Output<outputs.images.v2.Image | undefined>;
+    declare public readonly distribution: pulumi.Output<enums.images.v2.ImageUpdateDistribution | undefined>;
+    declare public /*out*/ readonly image: pulumi.Output<outputs.images.v2.Image | undefined>;
     /**
      * The display name that has been given to an image.  This is what is shown in the control panel and is generally a descriptive title for the image in question.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.images.v2.ImagesCustomPropertiesRegion>;
+    declare public readonly region: pulumi.Output<enums.images.v2.ImagesCustomPropertiesRegion>;
     /**
      * A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * A URL from which the custom Linux virtual machine image may be retrieved.  The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format.  It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a ImagesCustom resource with the given unique name, arguments, and options.

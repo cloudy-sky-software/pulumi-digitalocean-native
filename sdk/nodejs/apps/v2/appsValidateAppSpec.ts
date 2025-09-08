@@ -37,35 +37,35 @@ export class AppsValidateAppSpec extends pulumi.CustomResource {
     /**
      * The monthly cost of the proposed app in USD using the next pricing plan tier. For example, if you propose an app that uses the Basic tier, the `app_tier_upgrade_cost` field displays the monthly cost of the app if it were to use the Professional tier. If the proposed app already uses the most expensive tier, the field is empty.
      */
-    public /*out*/ readonly appCost!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly appCost: pulumi.Output<number | undefined>;
     /**
      * An optional ID of an existing app. If set, the spec will be treated as a proposed update to the specified app. The existing app is not modified using this method.
      */
-    public readonly appId!: pulumi.Output<string | undefined>;
+    declare public readonly appId: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the app is a static app.
      */
-    public /*out*/ readonly appIsStatic!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly appIsStatic: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the app name is available.
      */
-    public /*out*/ readonly appNameAvailable!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly appNameAvailable: pulumi.Output<boolean | undefined>;
     /**
      * The suggested name if the proposed app name is unavailable.
      */
-    public /*out*/ readonly appNameSuggestion!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly appNameSuggestion: pulumi.Output<string | undefined>;
     /**
      * The monthly cost of the proposed app in USD using the previous pricing plan tier. For example, if you propose an app that uses the Professional tier, the `app_tier_downgrade_cost` field displays the monthly cost of the app if it were to use the Basic tier. If the proposed app already uses the lest expensive tier, the field is empty.
      */
-    public /*out*/ readonly appTierDowngradeCost!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly appTierDowngradeCost: pulumi.Output<number | undefined>;
     /**
      * The maximum number of free static apps the account can have. We will charge you for any additional static apps.
      */
-    public /*out*/ readonly existingStaticApps!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly existingStaticApps: pulumi.Output<string | undefined>;
     /**
      * The desired configuration of an application.
      */
-    public readonly spec!: pulumi.Output<outputs.apps.v2.AppSpec>;
+    declare public readonly spec: pulumi.Output<outputs.apps.v2.AppSpec>;
 
     /**
      * Create a AppsValidateAppSpec resource with the given unique name, arguments, and options.

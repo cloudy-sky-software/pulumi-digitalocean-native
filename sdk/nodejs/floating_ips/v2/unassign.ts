@@ -34,11 +34,11 @@ export class Unassign extends pulumi.CustomResource {
         return obj['__pulumiType'] === Unassign.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.floating_ips.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.floating_ips.v2.Action | undefined>;
     /**
      * The type of action to initiate for the floating IP.
      */
-    public readonly type!: pulumi.Output<enums.floating_ips.v2.FloatingIPsActionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.floating_ips.v2.FloatingIPsActionType | undefined>;
 
     /**
      * Create a Unassign resource with the given unique name, arguments, and options.

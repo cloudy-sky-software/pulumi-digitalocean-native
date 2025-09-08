@@ -37,20 +37,20 @@ export class AppsValidateRollback extends pulumi.CustomResource {
     /**
      * The ID of the deployment to rollback to.
      */
-    public readonly deploymentId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly error!: pulumi.Output<outputs.apps.v2.Error | undefined>;
+    declare public readonly deploymentId: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.apps.v2.Error | undefined>;
     /**
      * Whether to skip pinning the rollback deployment. If false, the rollback deployment will be pinned and any new deployments including Auto Deploy on Push hooks will be disabled until the rollback is either manually committed or reverted via the CommitAppRollback or RevertAppRollback endpoints respectively. If true, the rollback will be immediately committed and the app will remain unpinned.
      */
-    public readonly skipPin!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipPin: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the app can be rolled back to the specified deployment.
      */
-    public /*out*/ readonly valid!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly valid: pulumi.Output<boolean | undefined>;
     /**
      * Contains a list of warnings that may cause the rollback to run under unideal circumstances.
      */
-    public /*out*/ readonly warnings!: pulumi.Output<outputs.apps.v2.AppRollbackValidationCondition[] | undefined>;
+    declare public /*out*/ readonly warnings: pulumi.Output<outputs.apps.v2.AppRollbackValidationCondition[] | undefined>;
 
     /**
      * Create a AppsValidateRollback resource with the given unique name, arguments, and options.

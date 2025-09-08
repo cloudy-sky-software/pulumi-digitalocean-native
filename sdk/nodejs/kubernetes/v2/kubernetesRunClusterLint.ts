@@ -34,23 +34,23 @@ export class KubernetesRunClusterLint extends pulumi.CustomResource {
     /**
      * An array of checks that will be run when clusterlint executes checks.
      */
-    public readonly excludeChecks!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludeChecks: pulumi.Output<string[] | undefined>;
     /**
      * An array of check groups that will be omitted when clusterlint executes checks.
      */
-    public readonly excludeGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludeGroups: pulumi.Output<string[] | undefined>;
     /**
      * An array of checks that will be run when clusterlint executes checks.
      */
-    public readonly includeChecks!: pulumi.Output<string[] | undefined>;
+    declare public readonly includeChecks: pulumi.Output<string[] | undefined>;
     /**
      * An array of check groups that will be run when clusterlint executes checks.
      */
-    public readonly includeGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly includeGroups: pulumi.Output<string[] | undefined>;
     /**
      * ID of the clusterlint run that can be used later to fetch the diagnostics.
      */
-    public /*out*/ readonly runId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly runId: pulumi.Output<string | undefined>;
 
     /**
      * Create a KubernetesRunClusterLint resource with the given unique name, arguments, and options.

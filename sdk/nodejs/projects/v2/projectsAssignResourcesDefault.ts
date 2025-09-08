@@ -34,7 +34,7 @@ export class ProjectsAssignResourcesDefault extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProjectsAssignResourcesDefault.__pulumiType;
     }
 
-    public readonly resources!: pulumi.Output<outputs.projects.v2.Resource[] | undefined>;
+    declare public readonly resources: pulumi.Output<outputs.projects.v2.Resource[] | undefined>;
 
     /**
      * Create a ProjectsAssignResourcesDefault resource with the given unique name, arguments, and options.

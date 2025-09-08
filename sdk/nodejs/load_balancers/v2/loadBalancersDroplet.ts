@@ -34,7 +34,7 @@ export class LoadBalancersDroplet extends pulumi.CustomResource {
     /**
      * An array containing the IDs of the Droplets assigned to the load balancer.
      */
-    public readonly dropletIds!: pulumi.Output<number[]>;
+    declare public readonly dropletIds: pulumi.Output<number[]>;
 
     /**
      * Create a LoadBalancersDroplet resource with the given unique name, arguments, and options.

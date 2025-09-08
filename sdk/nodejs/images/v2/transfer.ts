@@ -37,29 +37,29 @@ export class Transfer extends pulumi.CustomResource {
     /**
      * A time value given in ISO8601 combined date and time format that represents when the action was completed.
      */
-    public /*out*/ readonly completedAt!: pulumi.Output<string | undefined>;
-    public readonly region!: pulumi.Output<outputs.images.v2.Region | undefined>;
-    public /*out*/ readonly regionSlug!: pulumi.Output<outputs.images.v2.RegionSlug | undefined>;
+    declare public /*out*/ readonly completedAt: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<outputs.images.v2.Region | undefined>;
+    declare public /*out*/ readonly regionSlug: pulumi.Output<outputs.images.v2.RegionSlug | undefined>;
     /**
      * A unique identifier for the resource that the action is associated with.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<number | undefined>;
     /**
      * The type of resource that the action is associated with.
      */
-    public /*out*/ readonly resourceType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly resourceType: pulumi.Output<string | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the action was initiated.
      */
-    public /*out*/ readonly startedAt!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly startedAt: pulumi.Output<string | undefined>;
     /**
      * The current status of the action. This can be "in-progress", "completed", or "errored".
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.images.v2.Status | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.images.v2.Status | undefined>;
     /**
      * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Transfer resource with the given unique name, arguments, and options.

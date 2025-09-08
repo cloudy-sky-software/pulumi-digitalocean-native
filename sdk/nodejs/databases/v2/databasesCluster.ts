@@ -34,73 +34,73 @@ export class DatabasesCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasesCluster.__pulumiType;
     }
 
-    public readonly backupRestore!: pulumi.Output<outputs.databases.v2.DatabaseBackup | undefined>;
-    public readonly connection!: pulumi.Output<outputs.databases.v2.DatabaseClusterConnection | undefined>;
+    declare public readonly backupRestore: pulumi.Output<outputs.databases.v2.DatabaseBackup | undefined>;
+    declare public readonly connection: pulumi.Output<outputs.databases.v2.DatabaseClusterConnection | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the database cluster was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly database!: pulumi.Output<outputs.databases.v2.DatabaseCluster>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly database: pulumi.Output<outputs.databases.v2.DatabaseCluster>;
     /**
      * An array of strings containing the names of databases created in the database cluster.
      */
-    public readonly dbNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbNames: pulumi.Output<string[] | undefined>;
     /**
      * A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Redis, and "mongodb" for MongoDB.
      */
-    public readonly engine!: pulumi.Output<enums.databases.v2.DatabaseClusterEngine | undefined>;
-    public readonly maintenanceWindow!: pulumi.Output<outputs.databases.v2.DatabaseClusterMaintenanceWindow | undefined>;
+    declare public readonly engine: pulumi.Output<enums.databases.v2.DatabaseClusterEngine | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.databases.v2.DatabaseClusterMaintenanceWindow | undefined>;
     /**
      * A unique, human-readable name referring to a database cluster.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The number of nodes in the database cluster.
      */
-    public readonly numNodes!: pulumi.Output<number | undefined>;
-    public readonly privateConnection!: pulumi.Output<outputs.databases.v2.DatabaseClusterPrivateConnection | undefined>;
+    declare public readonly numNodes: pulumi.Output<number | undefined>;
+    declare public readonly privateConnection: pulumi.Output<outputs.databases.v2.DatabaseClusterPrivateConnection | undefined>;
     /**
      * A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region.
      */
-    public readonly privateNetworkUuid!: pulumi.Output<string | undefined>;
+    declare public readonly privateNetworkUuid: pulumi.Output<string | undefined>;
     /**
      * The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * The slug identifier for the region where the database cluster is located.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
-    public readonly rules!: pulumi.Output<outputs.databases.v2.FirewallRule[] | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.databases.v2.FirewallRule[] | undefined>;
     /**
      * A string representing the semantic version of the database engine in use for the cluster.
      */
-    public readonly semanticVersion!: pulumi.Output<string | undefined>;
+    declare public readonly semanticVersion: pulumi.Output<string | undefined>;
     /**
      * The slug identifier representing the size of the nodes in the database cluster.
      */
-    public readonly size!: pulumi.Output<string | undefined>;
+    declare public readonly size: pulumi.Output<string | undefined>;
     /**
      * A string representing the current status of the database cluster.
      */
-    public readonly status!: pulumi.Output<enums.databases.v2.DatabaseClusterStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.databases.v2.DatabaseClusterStatus | undefined>;
     /**
      * An array of tags that have been applied to the database cluster.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
-    public readonly users!: pulumi.Output<outputs.databases.v2.DatabaseUser[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
+    declare public readonly users: pulumi.Output<outputs.databases.v2.DatabaseUser[] | undefined>;
     /**
      * A string representing the version of the database engine in use for the cluster.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline.
      */
-    public readonly versionEndOfAvailability!: pulumi.Output<string | undefined>;
+    declare public readonly versionEndOfAvailability: pulumi.Output<string | undefined>;
     /**
      * A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline.
      */
-    public readonly versionEndOfLife!: pulumi.Output<string | undefined>;
+    declare public readonly versionEndOfLife: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabasesCluster resource with the given unique name, arguments, and options.

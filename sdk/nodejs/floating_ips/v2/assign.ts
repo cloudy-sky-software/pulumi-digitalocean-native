@@ -34,15 +34,15 @@ export class Assign extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assign.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.floating_ips.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.floating_ips.v2.Action | undefined>;
     /**
      * The ID of the Droplet that the floating IP will be assigned to.
      */
-    public readonly dropletId!: pulumi.Output<number | undefined>;
+    declare public readonly dropletId: pulumi.Output<number | undefined>;
     /**
      * The type of action to initiate for the floating IP.
      */
-    public readonly type!: pulumi.Output<enums.floating_ips.v2.FloatingIPsActionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.floating_ips.v2.FloatingIPsActionType | undefined>;
 
     /**
      * Create a Assign resource with the given unique name, arguments, and options.

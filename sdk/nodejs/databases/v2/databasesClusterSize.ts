@@ -34,11 +34,11 @@ export class DatabasesClusterSize extends pulumi.CustomResource {
     /**
      * The number of nodes in the database cluster. Valid values are are 1-3. In addition to the primary node, up to two standby nodes may be added for highly available configurations.
      */
-    public readonly numNodes!: pulumi.Output<number>;
+    declare public readonly numNodes: pulumi.Output<number>;
     /**
      * A slug identifier representing desired the size of the nodes in the database cluster.
      */
-    public readonly size!: pulumi.Output<string>;
+    declare public readonly size: pulumi.Output<string>;
 
     /**
      * Create a DatabasesClusterSize resource with the given unique name, arguments, and options.

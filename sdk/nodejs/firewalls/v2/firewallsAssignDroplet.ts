@@ -34,7 +34,7 @@ export class FirewallsAssignDroplet extends pulumi.CustomResource {
     /**
      * An array containing the IDs of the Droplets to be assigned to the firewall.
      */
-    public readonly dropletIds!: pulumi.Output<number[]>;
+    declare public readonly dropletIds: pulumi.Output<number[]>;
 
     /**
      * Create a FirewallsAssignDroplet resource with the given unique name, arguments, and options.

@@ -37,20 +37,20 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The range of IP addresses in the VPC in CIDR notation. Network ranges cannot overlap with other networks in the same account and must be in range of private addresses as defined in RFC1918. It may not be smaller than `/28` nor larger than `/16`. If no IP range is specified, a `/20` network range is generated that won't conflict with other VPC networks in your account.
      */
-    public readonly ipRange!: pulumi.Output<string | undefined>;
+    declare public readonly ipRange: pulumi.Output<string | undefined>;
     /**
      * The name of the VPC. Must be unique and may only contain alphanumeric characters, dashes, and periods.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The slug identifier for the region where the VPC will be created.
      */
-    public readonly region!: pulumi.Output<string>;
-    public /*out*/ readonly vpc!: pulumi.Output<outputs.vpcs.v2.Vpc | undefined>;
+    declare public readonly region: pulumi.Output<string>;
+    declare public /*out*/ readonly vpc: pulumi.Output<outputs.vpcs.v2.Vpc | undefined>;
 
     /**
      * Create a Vpc resource with the given unique name, arguments, and options.

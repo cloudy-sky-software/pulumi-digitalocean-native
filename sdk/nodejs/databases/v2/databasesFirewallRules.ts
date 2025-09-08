@@ -34,7 +34,7 @@ export class DatabasesFirewallRules extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasesFirewallRules.__pulumiType;
     }
 
-    public readonly rules!: pulumi.Output<outputs.databases.v2.FirewallRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.databases.v2.FirewallRule[] | undefined>;
 
     /**
      * Create a DatabasesFirewallRules resource with the given unique name, arguments, and options.

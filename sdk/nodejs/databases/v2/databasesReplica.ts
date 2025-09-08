@@ -34,37 +34,37 @@ export class DatabasesReplica extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasesReplica.__pulumiType;
     }
 
-    public readonly connection!: pulumi.Output<outputs.databases.v2.DatabaseReplicaConnection | undefined>;
+    declare public readonly connection: pulumi.Output<outputs.databases.v2.DatabaseReplicaConnection | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the database cluster was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * The name to give the read-only replicating
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly privateConnection!: pulumi.Output<outputs.databases.v2.DatabaseReplicaPrivateConnection | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly privateConnection: pulumi.Output<outputs.databases.v2.DatabaseReplicaPrivateConnection | undefined>;
     /**
      * A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region.
      */
-    public readonly privateNetworkUuid!: pulumi.Output<string | undefined>;
+    declare public readonly privateNetworkUuid: pulumi.Output<string | undefined>;
     /**
      * A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly replica!: pulumi.Output<outputs.databases.v2.DatabaseReplica | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly replica: pulumi.Output<outputs.databases.v2.DatabaseReplica | undefined>;
     /**
      * A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating.
      */
-    public readonly size!: pulumi.Output<string>;
+    declare public readonly size: pulumi.Output<string>;
     /**
      * A string representing the current status of the database cluster.
      */
-    public readonly status!: pulumi.Output<enums.databases.v2.DatabaseReplicaStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.databases.v2.DatabaseReplicaStatus | undefined>;
     /**
      * A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DatabasesReplica resource with the given unique name, arguments, and options.

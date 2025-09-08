@@ -37,24 +37,24 @@ export class FunctionsTrigger extends pulumi.CustomResource {
     /**
      * Name of function(action) that exists in the given namespace.
      */
-    public readonly function!: pulumi.Output<string>;
+    declare public readonly function: pulumi.Output<string>;
     /**
      * Indicates weather the trigger is paused or unpaused.
      */
-    public readonly isEnabled!: pulumi.Output<boolean>;
+    declare public readonly isEnabled: pulumi.Output<boolean>;
     /**
      * The trigger's unique name within the namespace.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Trigger details for SCHEDULED type, where body is optional.
      */
-    public readonly scheduledDetails!: pulumi.Output<outputs.functions.v2.ScheduledDetails>;
-    public /*out*/ readonly trigger!: pulumi.Output<outputs.functions.v2.TriggerInfo | undefined>;
+    declare public readonly scheduledDetails: pulumi.Output<outputs.functions.v2.ScheduledDetails>;
+    declare public /*out*/ readonly trigger: pulumi.Output<outputs.functions.v2.TriggerInfo | undefined>;
     /**
      * One of different type of triggers. Currently only SCHEDULED is supported.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a FunctionsTrigger resource with the given unique name, arguments, and options.
