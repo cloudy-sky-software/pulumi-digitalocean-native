@@ -34,7 +34,7 @@ export class RegistryValidateName extends pulumi.CustomResource {
     /**
      * A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a RegistryValidateName resource with the given unique name, arguments, and options.

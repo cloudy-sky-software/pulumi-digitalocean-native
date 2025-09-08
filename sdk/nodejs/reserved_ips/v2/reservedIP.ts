@@ -34,16 +34,16 @@ export class ReservedIP extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReservedIP.__pulumiType;
     }
 
-    public /*out*/ readonly links!: pulumi.Output<outputs.reserved_ips.v2.LinksProperties | undefined>;
+    declare public /*out*/ readonly links: pulumi.Output<outputs.reserved_ips.v2.LinksProperties | undefined>;
     /**
      * The UUID of the project to which the reserved IP will be assigned.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * The slug identifier for the region the reserved IP will be reserved to.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly reservedIp!: pulumi.Output<outputs.reserved_ips.v2.ReservedIp | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly reservedIp: pulumi.Output<outputs.reserved_ips.v2.ReservedIp | undefined>;
 
     /**
      * Create a ReservedIP resource with the given unique name, arguments, and options.

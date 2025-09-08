@@ -37,27 +37,27 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A time value given in ISO8601 combined date and time format that represents when the firewall was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * An array containing the IDs of the Droplets assigned to the firewall.
      */
-    public readonly dropletIds!: pulumi.Output<number[] | undefined>;
-    public /*out*/ readonly firewall!: pulumi.Output<outputs.firewalls.v2.Firewall | undefined>;
-    public readonly inboundRules!: pulumi.Output<outputs.firewalls.v2.FirewallRulesInboundRulesItem[] | undefined>;
+    declare public readonly dropletIds: pulumi.Output<number[] | undefined>;
+    declare public /*out*/ readonly firewall: pulumi.Output<outputs.firewalls.v2.Firewall | undefined>;
+    declare public readonly inboundRules: pulumi.Output<outputs.firewalls.v2.FirewallRulesInboundRulesItem[] | undefined>;
     /**
      * A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
      */
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly outboundRules!: pulumi.Output<outputs.firewalls.v2.FirewallRulesOutboundRulesItem[] | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly outboundRules: pulumi.Output<outputs.firewalls.v2.FirewallRulesOutboundRulesItem[] | undefined>;
     /**
      * An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
      */
-    public readonly pendingChanges!: pulumi.Output<outputs.firewalls.v2.FirewallPropertiesPendingChangesItemProperties[] | undefined>;
+    declare public readonly pendingChanges: pulumi.Output<outputs.firewalls.v2.FirewallPropertiesPendingChangesItemProperties[] | undefined>;
     /**
      * A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
      */
-    public readonly status!: pulumi.Output<enums.firewalls.v2.FirewallPropertiesStatus | undefined>;
-    public readonly tags!: pulumi.Output<outputs.firewalls.v2.FirewallPropertiesTags | undefined>;
+    declare public readonly status: pulumi.Output<enums.firewalls.v2.FirewallPropertiesStatus | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.firewalls.v2.FirewallPropertiesTags | undefined>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.

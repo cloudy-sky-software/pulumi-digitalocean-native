@@ -34,59 +34,59 @@ export class Droplet extends pulumi.CustomResource {
     /**
      * A boolean indicating whether automated backups should be enabled for the Droplet.
      */
-    public readonly backups!: pulumi.Output<boolean | undefined>;
+    declare public readonly backups: pulumi.Output<boolean | undefined>;
     /**
      * The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.
      */
-    public readonly image!: pulumi.Output<string | number | undefined>;
+    declare public readonly image: pulumi.Output<string | number | undefined>;
     /**
      * A boolean indicating whether to enable IPv6 on the Droplet.
      */
-    public readonly ipv6!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipv6: pulumi.Output<boolean | undefined>;
     /**
      * A boolean indicating whether to install the DigitalOcean agent for monitoring.
      */
-    public readonly monitoring!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoring: pulumi.Output<boolean | undefined>;
     /**
      * The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
      */
-    public readonly privateNetworking!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateNetworking: pulumi.Output<boolean | undefined>;
     /**
      * The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
      * The slug identifier for the size that you wish to select for this Droplet.
      */
-    public readonly size!: pulumi.Output<string | undefined>;
+    declare public readonly size: pulumi.Output<string | undefined>;
     /**
      * An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation.
      */
-    public readonly sshKeys!: pulumi.Output<(string | number)[] | undefined>;
+    declare public readonly sshKeys: pulumi.Output<(string | number)[] | undefined>;
     /**
      * A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.
      */
-    public readonly volumes!: pulumi.Output<string[] | undefined>;
+    declare public readonly volumes: pulumi.Output<string[] | undefined>;
     /**
      * A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.
      */
-    public readonly vpcUuid!: pulumi.Output<string | undefined>;
+    declare public readonly vpcUuid: pulumi.Output<string | undefined>;
     /**
      * A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
      */
-    public readonly withDropletAgent!: pulumi.Output<boolean | undefined>;
+    declare public readonly withDropletAgent: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Droplet resource with the given unique name, arguments, and options.

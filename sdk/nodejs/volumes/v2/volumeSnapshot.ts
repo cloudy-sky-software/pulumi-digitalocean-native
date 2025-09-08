@@ -37,12 +37,12 @@ export class VolumeSnapshot extends pulumi.CustomResource {
     /**
      * A human-readable name for the volume snapshot.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly snapshot!: pulumi.Output<outputs.volumes.v2.Snapshots | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly snapshot: pulumi.Output<outputs.volumes.v2.Snapshots | undefined>;
     /**
      * A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VolumeSnapshot resource with the given unique name, arguments, and options.

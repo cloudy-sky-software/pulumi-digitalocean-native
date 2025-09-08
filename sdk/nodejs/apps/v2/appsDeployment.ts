@@ -34,8 +34,8 @@ export class AppsDeployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppsDeployment.__pulumiType;
     }
 
-    public /*out*/ readonly deployment!: pulumi.Output<outputs.apps.v2.AppsDeployment | undefined>;
-    public readonly forceBuild!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly deployment: pulumi.Output<outputs.apps.v2.AppsDeployment | undefined>;
+    declare public readonly forceBuild: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppsDeployment resource with the given unique name, arguments, and options.

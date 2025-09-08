@@ -37,15 +37,15 @@ export class AppsListMetricsBandwidthDaily extends pulumi.CustomResource {
     /**
      * A list of bandwidth usage details by app.
      */
-    public /*out*/ readonly appBandwidthUsage!: pulumi.Output<outputs.apps.v2.AppMetricsBandwidthUsageDetails[] | undefined>;
+    declare public /*out*/ readonly appBandwidthUsage: pulumi.Output<outputs.apps.v2.AppMetricsBandwidthUsageDetails[] | undefined>;
     /**
      * A list of app IDs to query bandwidth metrics for.
      */
-    public readonly appIds!: pulumi.Output<string[]>;
+    declare public readonly appIds: pulumi.Output<string[]>;
     /**
      * The date for the metrics data.
      */
-    public readonly date!: pulumi.Output<string | undefined>;
+    declare public readonly date: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppsListMetricsBandwidthDaily resource with the given unique name, arguments, and options.

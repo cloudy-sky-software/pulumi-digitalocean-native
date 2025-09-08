@@ -37,24 +37,24 @@ export class CdnEndpoint extends pulumi.CustomResource {
     /**
      * The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
      */
-    public readonly certificateId!: pulumi.Output<string | undefined>;
+    declare public readonly certificateId: pulumi.Output<string | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the CDN endpoint was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.
      */
-    public readonly customDomain!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly endpoint!: pulumi.Output<outputs.cdn.v2.CdnEndpoint | undefined>;
+    declare public readonly customDomain: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<outputs.cdn.v2.CdnEndpoint | undefined>;
     /**
      * The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
      */
-    public readonly origin!: pulumi.Output<string>;
+    declare public readonly origin: pulumi.Output<string>;
     /**
      * The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
      */
-    public readonly ttl!: pulumi.Output<enums.cdn.v2.Ttl | undefined>;
+    declare public readonly ttl: pulumi.Output<enums.cdn.v2.Ttl | undefined>;
 
     /**
      * Create a CdnEndpoint resource with the given unique name, arguments, and options.

@@ -34,7 +34,7 @@ export class DatabasesMajorVersion extends pulumi.CustomResource {
     /**
      * A string representing the version of the database engine in use for the cluster.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabasesMajorVersion resource with the given unique name, arguments, and options.

@@ -37,11 +37,11 @@ export class PowerOn extends pulumi.CustomResource {
         return obj['__pulumiType'] === PowerOn.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.droplets.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.droplets.v2.Action | undefined>;
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.Type>;
+    declare public readonly type: pulumi.Output<enums.droplets.v2.Type>;
 
     /**
      * Create a PowerOn resource with the given unique name, arguments, and options.

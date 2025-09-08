@@ -34,11 +34,11 @@ export class Database extends pulumi.CustomResource {
         return obj['__pulumiType'] === Database.__pulumiType;
     }
 
-    public /*out*/ readonly db!: pulumi.Output<outputs.databases.v2.Database>;
+    declare public /*out*/ readonly db: pulumi.Output<outputs.databases.v2.Database>;
     /**
      * The name of the database.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.

@@ -34,19 +34,19 @@ export class Resize extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resize.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.droplets.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.droplets.v2.Action | undefined>;
     /**
      * When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased.
      */
-    public readonly disk!: pulumi.Output<boolean | undefined>;
+    declare public readonly disk: pulumi.Output<boolean | undefined>;
     /**
      * The slug identifier for the size to which you wish to resize the Droplet.
      */
-    public readonly size!: pulumi.Output<string | undefined>;
+    declare public readonly size: pulumi.Output<string | undefined>;
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a Resize resource with the given unique name, arguments, and options.

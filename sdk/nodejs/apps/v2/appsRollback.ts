@@ -34,15 +34,15 @@ export class AppsRollback extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppsRollback.__pulumiType;
     }
 
-    public /*out*/ readonly deployment!: pulumi.Output<outputs.apps.v2.AppsDeployment | undefined>;
+    declare public /*out*/ readonly deployment: pulumi.Output<outputs.apps.v2.AppsDeployment | undefined>;
     /**
      * The ID of the deployment to rollback to.
      */
-    public readonly deploymentId!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentId: pulumi.Output<string | undefined>;
     /**
      * Whether to skip pinning the rollback deployment. If false, the rollback deployment will be pinned and any new deployments including Auto Deploy on Push hooks will be disabled until the rollback is either manually committed or reverted via the CommitAppRollback or RevertAppRollback endpoints respectively. If true, the rollback will be immediately committed and the app will remain unpinned.
      */
-    public readonly skipPin!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipPin: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppsRollback resource with the given unique name, arguments, and options.

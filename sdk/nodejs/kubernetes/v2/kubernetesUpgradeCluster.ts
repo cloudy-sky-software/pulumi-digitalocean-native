@@ -34,7 +34,7 @@ export class KubernetesUpgradeCluster extends pulumi.CustomResource {
     /**
      * The slug identifier for the version of Kubernetes that the cluster will be upgraded to.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a KubernetesUpgradeCluster resource with the given unique name, arguments, and options.

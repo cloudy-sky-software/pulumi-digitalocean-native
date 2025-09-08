@@ -34,8 +34,8 @@ export class FirewallsRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallsRule.__pulumiType;
     }
 
-    public readonly inboundRules!: pulumi.Output<outputs.firewalls.v2.FirewallRulesInboundRulesItem[] | undefined>;
-    public readonly outboundRules!: pulumi.Output<outputs.firewalls.v2.FirewallRulesOutboundRulesItem[] | undefined>;
+    declare public readonly inboundRules: pulumi.Output<outputs.firewalls.v2.FirewallRulesInboundRulesItem[] | undefined>;
+    declare public readonly outboundRules: pulumi.Output<outputs.firewalls.v2.FirewallRulesOutboundRulesItem[] | undefined>;
 
     /**
      * Create a FirewallsRule resource with the given unique name, arguments, and options.

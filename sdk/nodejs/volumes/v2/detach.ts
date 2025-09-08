@@ -34,19 +34,19 @@ export class Detach extends pulumi.CustomResource {
         return obj['__pulumiType'] === Detach.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.volumes.v2.VolumeAction | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.volumes.v2.VolumeAction | undefined>;
     /**
      * The unique identifier for the Droplet the volume will be attached or detached from.
      */
-    public readonly dropletId!: pulumi.Output<number | undefined>;
+    declare public readonly dropletId: pulumi.Output<number | undefined>;
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseRegion | undefined>;
+    declare public readonly region: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseRegion | undefined>;
     /**
      * The volume action to initiate.
      */
-    public readonly type!: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseType | undefined>;
+    declare public readonly type: pulumi.Output<enums.volumes.v2.VolumeActionCreateBaseType | undefined>;
 
     /**
      * Create a Detach resource with the given unique name, arguments, and options.

@@ -34,26 +34,26 @@ export class DatabasesUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasesUser.__pulumiType;
     }
 
-    public readonly mysqlSettings!: pulumi.Output<outputs.databases.v2.MysqlSettings | undefined>;
+    declare public readonly mysqlSettings: pulumi.Output<outputs.databases.v2.MysqlSettings | undefined>;
     /**
      * The name of a database user.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A randomly generated password for the database user.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * For MongoDB clusters, set to `true` to create a read-only user.
      * This option is not currently supported for other database engines.
      */
-    public readonly readonly!: pulumi.Output<boolean | undefined>;
+    declare public readonly readonly: pulumi.Output<boolean | undefined>;
     /**
      * A string representing the database user's role. The value will be either
      * "primary" or "normal".
      */
-    public readonly role!: pulumi.Output<enums.databases.v2.DatabaseUserRole | undefined>;
-    public /*out*/ readonly user!: pulumi.Output<outputs.databases.v2.DatabaseUser>;
+    declare public readonly role: pulumi.Output<enums.databases.v2.DatabaseUserRole | undefined>;
+    declare public /*out*/ readonly user: pulumi.Output<outputs.databases.v2.DatabaseUser>;
 
     /**
      * Create a DatabasesUser resource with the given unique name, arguments, and options.

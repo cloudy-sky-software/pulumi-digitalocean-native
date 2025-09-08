@@ -34,15 +34,15 @@ export class Restore extends pulumi.CustomResource {
         return obj['__pulumiType'] === Restore.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.droplets.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.droplets.v2.Action | undefined>;
     /**
      * The ID of a backup of the current Droplet instance to restore from.
      */
-    public readonly image!: pulumi.Output<number | undefined>;
+    declare public readonly image: pulumi.Output<number | undefined>;
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a Restore resource with the given unique name, arguments, and options.

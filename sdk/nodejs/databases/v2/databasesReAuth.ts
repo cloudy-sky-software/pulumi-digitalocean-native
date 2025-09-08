@@ -34,8 +34,8 @@ export class DatabasesReAuth extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasesReAuth.__pulumiType;
     }
 
-    public readonly mysqlSettings!: pulumi.Output<outputs.databases.v2.MysqlSettings | undefined>;
-    public /*out*/ readonly user!: pulumi.Output<outputs.databases.v2.DatabaseUser>;
+    declare public readonly mysqlSettings: pulumi.Output<outputs.databases.v2.MysqlSettings | undefined>;
+    declare public /*out*/ readonly user: pulumi.Output<outputs.databases.v2.DatabaseUser>;
 
     /**
      * Create a DatabasesReAuth resource with the given unique name, arguments, and options.

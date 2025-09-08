@@ -31,7 +31,7 @@ export class KubernetesRecycleNodePool extends pulumi.CustomResource {
         return obj['__pulumiType'] === KubernetesRecycleNodePool.__pulumiType;
     }
 
-    public readonly nodes!: pulumi.Output<string[] | undefined>;
+    declare public readonly nodes: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a KubernetesRecycleNodePool resource with the given unique name, arguments, and options.
