@@ -34,16 +34,16 @@ export class MonitoringAlertPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringAlertPolicy.__pulumiType;
     }
 
-    public readonly alerts!: pulumi.Output<outputs.monitoring.v2.Alerts>;
-    public readonly compare!: pulumi.Output<enums.monitoring.v2.Compare>;
-    public readonly description!: pulumi.Output<string>;
-    public readonly enabled!: pulumi.Output<boolean>;
-    public readonly entities!: pulumi.Output<string[]>;
-    public /*out*/ readonly policy!: pulumi.Output<outputs.monitoring.v2.AlertPolicy | undefined>;
-    public readonly tags!: pulumi.Output<string[]>;
-    public readonly type!: pulumi.Output<enums.monitoring.v2.Type>;
-    public readonly value!: pulumi.Output<number>;
-    public readonly window!: pulumi.Output<enums.monitoring.v2.Window>;
+    declare public readonly alerts: pulumi.Output<outputs.monitoring.v2.Alerts>;
+    declare public readonly compare: pulumi.Output<enums.monitoring.v2.Compare>;
+    declare public readonly description: pulumi.Output<string>;
+    declare public readonly enabled: pulumi.Output<boolean>;
+    declare public readonly entities: pulumi.Output<string[]>;
+    declare public /*out*/ readonly policy: pulumi.Output<outputs.monitoring.v2.AlertPolicy | undefined>;
+    declare public readonly tags: pulumi.Output<string[]>;
+    declare public readonly type: pulumi.Output<enums.monitoring.v2.Type>;
+    declare public readonly value: pulumi.Output<number>;
+    declare public readonly window: pulumi.Output<enums.monitoring.v2.Window>;
 
     /**
      * Create a MonitoringAlertPolicy resource with the given unique name, arguments, and options.

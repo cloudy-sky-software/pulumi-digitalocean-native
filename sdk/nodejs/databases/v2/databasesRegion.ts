@@ -34,7 +34,7 @@ export class DatabasesRegion extends pulumi.CustomResource {
     /**
      * A slug identifier for the region to which the database cluster will be migrated.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a DatabasesRegion resource with the given unique name, arguments, and options.

@@ -34,9 +34,9 @@ export class AppsAssignAlertDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppsAssignAlertDestination.__pulumiType;
     }
 
-    public /*out*/ readonly alert!: pulumi.Output<outputs.apps.v2.AppAlert | undefined>;
-    public readonly emails!: pulumi.Output<string[] | undefined>;
-    public readonly slackWebhooks!: pulumi.Output<outputs.apps.v2.AppAlertSlackWebhook[] | undefined>;
+    declare public /*out*/ readonly alert: pulumi.Output<outputs.apps.v2.AppAlert | undefined>;
+    declare public readonly emails: pulumi.Output<string[] | undefined>;
+    declare public readonly slackWebhooks: pulumi.Output<outputs.apps.v2.AppAlertSlackWebhook[] | undefined>;
 
     /**
      * Create a AppsAssignAlertDestination resource with the given unique name, arguments, and options.

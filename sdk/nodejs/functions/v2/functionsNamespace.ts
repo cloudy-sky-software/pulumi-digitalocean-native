@@ -37,12 +37,12 @@ export class FunctionsNamespace extends pulumi.CustomResource {
     /**
      * The namespace's unique name.
      */
-    public readonly label!: pulumi.Output<string>;
-    public /*out*/ readonly namespace!: pulumi.Output<outputs.functions.v2.NamespaceInfo | undefined>;
+    declare public readonly label: pulumi.Output<string>;
+    declare public /*out*/ readonly namespace: pulumi.Output<outputs.functions.v2.NamespaceInfo | undefined>;
     /**
      * The [datacenter region](https://docs.digitalocean.com/products/platform/availability-matrix/#available-datacenters) in which to create the namespace.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
 
     /**
      * Create a FunctionsNamespace resource with the given unique name, arguments, and options.

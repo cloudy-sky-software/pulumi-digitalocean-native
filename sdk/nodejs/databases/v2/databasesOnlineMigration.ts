@@ -37,16 +37,16 @@ export class DatabasesOnlineMigration extends pulumi.CustomResource {
     /**
      * The time the migration was initiated, in ISO 8601 format.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * Enables SSL encryption when connecting to the source database.
      */
-    public readonly disableSsl!: pulumi.Output<boolean | undefined>;
-    public readonly source!: pulumi.Output<outputs.databases.v2.SourceProperties | undefined>;
+    declare public readonly disableSsl: pulumi.Output<boolean | undefined>;
+    declare public readonly source: pulumi.Output<outputs.databases.v2.SourceProperties | undefined>;
     /**
      * The current status of the migration.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.databases.v2.Status | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<enums.databases.v2.Status | undefined>;
 
     /**
      * Create a DatabasesOnlineMigration resource with the given unique name, arguments, and options.

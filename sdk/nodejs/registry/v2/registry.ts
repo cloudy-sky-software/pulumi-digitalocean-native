@@ -37,16 +37,16 @@ export class Registry extends pulumi.CustomResource {
     /**
      * A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Slug of the region where registry data is stored. When not provided, a region will be selected.
      */
-    public readonly region!: pulumi.Output<enums.registry.v2.Region | undefined>;
-    public /*out*/ readonly registry!: pulumi.Output<outputs.registry.v2.Registry | undefined>;
+    declare public readonly region: pulumi.Output<enums.registry.v2.Region | undefined>;
+    declare public /*out*/ readonly registry: pulumi.Output<outputs.registry.v2.Registry | undefined>;
     /**
      * The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
      */
-    public readonly subscriptionTierSlug!: pulumi.Output<enums.registry.v2.SubscriptionTierSlug>;
+    declare public readonly subscriptionTierSlug: pulumi.Output<enums.registry.v2.SubscriptionTierSlug>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.

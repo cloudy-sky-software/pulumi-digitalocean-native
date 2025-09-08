@@ -34,15 +34,15 @@ export class Snapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Snapshot.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.droplets.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.droplets.v2.Action | undefined>;
     /**
      * The name to give the new snapshot of the Droplet.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.

@@ -34,31 +34,31 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    public /*out*/ readonly certificate!: pulumi.Output<outputs.certificates.v2.Certificate | undefined>;
+    declare public /*out*/ readonly certificate: pulumi.Output<outputs.certificates.v2.Certificate | undefined>;
     /**
      * The full PEM-formatted trust chain between the certificate authority's certificate and your domain's SSL certificate.
      */
-    public readonly certificateChain!: pulumi.Output<string | undefined>;
+    declare public readonly certificateChain: pulumi.Output<string | undefined>;
     /**
      * An array of fully qualified domain names (FQDNs) for which the certificate was issued. A certificate covering all subdomains can be issued using a wildcard (e.g. `*.example.com`).
      */
-    public readonly dnsNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsNames: pulumi.Output<string[] | undefined>;
     /**
      * The contents of a PEM-formatted public SSL certificate.
      */
-    public readonly leafCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly leafCertificate: pulumi.Output<string | undefined>;
     /**
      * A unique human-readable name referring to a certificate.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The contents of a PEM-formatted private-key corresponding to the SSL certificate.
      */
-    public readonly privateKey!: pulumi.Output<string | undefined>;
+    declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
      * A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
      */
-    public readonly type!: pulumi.Output<enums.certificates.v2.CertificateCreateBaseType | undefined>;
+    declare public readonly type: pulumi.Output<enums.certificates.v2.CertificateCreateBaseType | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.

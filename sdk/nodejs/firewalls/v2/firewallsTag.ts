@@ -34,7 +34,7 @@ export class FirewallsTag extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallsTag.__pulumiType;
     }
 
-    public readonly tags!: pulumi.Output<outputs.firewalls.v2.Tags>;
+    declare public readonly tags: pulumi.Output<outputs.firewalls.v2.Tags>;
 
     /**
      * Create a FirewallsTag resource with the given unique name, arguments, and options.

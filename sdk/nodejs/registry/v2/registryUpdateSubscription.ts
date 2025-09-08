@@ -34,11 +34,11 @@ export class RegistryUpdateSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryUpdateSubscription.__pulumiType;
     }
 
-    public /*out*/ readonly subscription!: pulumi.Output<outputs.registry.v2.Subscription | undefined>;
+    declare public /*out*/ readonly subscription: pulumi.Output<outputs.registry.v2.Subscription | undefined>;
     /**
      * The slug of the subscription tier to sign up for.
      */
-    public readonly tierSlug!: pulumi.Output<enums.registry.v2.TierSlug | undefined>;
+    declare public readonly tierSlug: pulumi.Output<enums.registry.v2.TierSlug | undefined>;
 
     /**
      * Create a RegistryUpdateSubscription resource with the given unique name, arguments, and options.

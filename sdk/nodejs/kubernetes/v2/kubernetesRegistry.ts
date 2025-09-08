@@ -34,7 +34,7 @@ export class KubernetesRegistry extends pulumi.CustomResource {
     /**
      * An array containing the UUIDs of Kubernetes clusters.
      */
-    public readonly clusterUuids!: pulumi.Output<string[] | undefined>;
+    declare public readonly clusterUuids: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a KubernetesRegistry resource with the given unique name, arguments, and options.

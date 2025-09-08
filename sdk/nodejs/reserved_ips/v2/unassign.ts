@@ -34,15 +34,15 @@ export class Unassign extends pulumi.CustomResource {
         return obj['__pulumiType'] === Unassign.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.reserved_ips.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.reserved_ips.v2.Action | undefined>;
     /**
      * The ID of the Droplet that the reserved IP will be unassigned from.
      */
-    public readonly dropletId!: pulumi.Output<number>;
+    declare public readonly dropletId: pulumi.Output<number>;
     /**
      * The type of action to initiate for the reserved IP.
      */
-    public readonly type!: pulumi.Output<enums.reserved_ips.v2.ReservedIpActionTypeType | undefined>;
+    declare public readonly type: pulumi.Output<enums.reserved_ips.v2.ReservedIpActionTypeType | undefined>;
 
     /**
      * Create a Unassign resource with the given unique name, arguments, and options.

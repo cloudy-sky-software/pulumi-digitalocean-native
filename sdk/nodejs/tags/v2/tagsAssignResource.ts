@@ -37,7 +37,7 @@ export class TagsAssignResource extends pulumi.CustomResource {
     /**
      * An array of objects containing resource_id and resource_type  attributes.
      */
-    public readonly resources!: pulumi.Output<outputs.tags.v2.ResourcesItemProperties[]>;
+    declare public readonly resources: pulumi.Output<outputs.tags.v2.ResourcesItemProperties[]>;
 
     /**
      * Create a TagsAssignResource resource with the given unique name, arguments, and options.

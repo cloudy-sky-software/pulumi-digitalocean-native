@@ -34,7 +34,7 @@ export class DatabasesSqlMode extends pulumi.CustomResource {
     /**
      * A string specifying the configured SQL modes for the MySQL cluster.
      */
-    public readonly sqlMode!: pulumi.Output<string>;
+    declare public readonly sqlMode: pulumi.Output<string>;
 
     /**
      * Create a DatabasesSqlMode resource with the given unique name, arguments, and options.

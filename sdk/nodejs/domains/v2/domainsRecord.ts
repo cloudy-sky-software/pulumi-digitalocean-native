@@ -37,40 +37,40 @@ export class DomainsRecord extends pulumi.CustomResource {
     /**
      * Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
      */
-    public readonly data!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly domainRecord!: pulumi.Output<outputs.domains.v2.DomainRecord | undefined>;
+    declare public readonly data: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly domainRecord: pulumi.Output<outputs.domains.v2.DomainRecord | undefined>;
     /**
      * An unsigned integer between 0-255 used for CAA records.
      */
-    public readonly flags!: pulumi.Output<number | undefined>;
+    declare public readonly flags: pulumi.Output<number | undefined>;
     /**
      * The host name, alias, or service being defined by the record.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The port for SRV records.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The priority for SRV and MX records.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
      */
-    public readonly tag!: pulumi.Output<string | undefined>;
+    declare public readonly tag: pulumi.Output<string | undefined>;
     /**
      * This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
      */
-    public readonly ttl!: pulumi.Output<number | undefined>;
+    declare public readonly ttl: pulumi.Output<number | undefined>;
     /**
      * The type of the DNS record. For example: A, CNAME, TXT, ...
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The weight for SRV records.
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a DomainsRecord resource with the given unique name, arguments, and options.

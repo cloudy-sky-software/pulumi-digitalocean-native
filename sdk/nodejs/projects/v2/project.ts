@@ -37,28 +37,28 @@ export class Project extends pulumi.CustomResource {
     /**
      * A time value given in ISO8601 combined date and time format that represents when the project was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * The description of the project. The maximum length is 255 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The environment of the project's resources.
      */
-    public readonly environment!: pulumi.Output<enums.projects.v2.ProjectBaseEnvironment | undefined>;
+    declare public readonly environment: pulumi.Output<enums.projects.v2.ProjectBaseEnvironment | undefined>;
     /**
      * The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The integer id of the project owner.
      */
-    public readonly ownerId!: pulumi.Output<number | undefined>;
+    declare public readonly ownerId: pulumi.Output<number | undefined>;
     /**
      * The unique universal identifier of the project owner.
      */
-    public readonly ownerUuid!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly project!: pulumi.Output<outputs.projects.v2.Project | undefined>;
+    declare public readonly ownerUuid: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly project: pulumi.Output<outputs.projects.v2.Project | undefined>;
     /**
      * The purpose of the project. The maximum length is 255 characters. It can
      * have one of the following values:
@@ -76,11 +76,11 @@ export class Project extends pulumi.CustomResource {
      * If another value for purpose is specified, for example, "your custom purpose",
      * your purpose will be stored as `Other: your custom purpose`.
      */
-    public readonly purpose!: pulumi.Output<string>;
+    declare public readonly purpose: pulumi.Output<string>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the project was updated.
      */
-    public readonly updatedAt!: pulumi.Output<string | undefined>;
+    declare public readonly updatedAt: pulumi.Output<string | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.

@@ -34,31 +34,31 @@ export class UptimeAlert extends pulumi.CustomResource {
         return obj['__pulumiType'] === UptimeAlert.__pulumiType;
     }
 
-    public /*out*/ readonly alert!: pulumi.Output<outputs.uptime.v2.Alert | undefined>;
+    declare public /*out*/ readonly alert: pulumi.Output<outputs.uptime.v2.Alert | undefined>;
     /**
      * The comparison operator used against the alert's threshold.
      */
-    public readonly comparison!: pulumi.Output<enums.uptime.v2.AlertUpdatableComparison | undefined>;
+    declare public readonly comparison: pulumi.Output<enums.uptime.v2.AlertUpdatableComparison | undefined>;
     /**
      * A human-friendly display name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The notification settings for a trigger alert.
      */
-    public readonly notifications!: pulumi.Output<outputs.uptime.v2.Notification>;
+    declare public readonly notifications: pulumi.Output<outputs.uptime.v2.Notification>;
     /**
      * Period of time the threshold must be exceeded to trigger the alert.
      */
-    public readonly period!: pulumi.Output<enums.uptime.v2.AlertUpdatablePeriod | undefined>;
+    declare public readonly period: pulumi.Output<enums.uptime.v2.AlertUpdatablePeriod | undefined>;
     /**
      * The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
      */
-    public readonly threshold!: pulumi.Output<number | undefined>;
+    declare public readonly threshold: pulumi.Output<number | undefined>;
     /**
      * The type of alert.
      */
-    public readonly type!: pulumi.Output<enums.uptime.v2.AlertUpdatableType>;
+    declare public readonly type: pulumi.Output<enums.uptime.v2.AlertUpdatableType>;
 
     /**
      * Create a UptimeAlert resource with the given unique name, arguments, and options.

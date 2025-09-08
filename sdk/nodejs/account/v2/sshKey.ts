@@ -37,16 +37,16 @@ export class SshKey extends pulumi.CustomResource {
     /**
      * A unique identifier that differentiates this key from other keys using  a format that SSH recognizes. The fingerprint is created when the key is added to your account.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string | undefined>;
     /**
      * A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The entire public key string that was uploaded. Embedded into the root user's `authorized_keys` file if you include this key during Droplet creation.
      */
-    public readonly publicKey!: pulumi.Output<string>;
-    public /*out*/ readonly sshKey!: pulumi.Output<outputs.account.v2.SshKeys | undefined>;
+    declare public readonly publicKey: pulumi.Output<string>;
+    declare public /*out*/ readonly sshKey: pulumi.Output<outputs.account.v2.SshKeys | undefined>;
 
     /**
      * Create a SshKey resource with the given unique name, arguments, and options.

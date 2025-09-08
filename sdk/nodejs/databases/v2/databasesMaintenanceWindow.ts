@@ -34,19 +34,19 @@ export class DatabasesMaintenanceWindow extends pulumi.CustomResource {
     /**
      * The day of the week on which to apply maintenance updates.
      */
-    public readonly day!: pulumi.Output<string>;
+    declare public readonly day: pulumi.Output<string>;
     /**
      * A list of strings, each containing information about a pending maintenance update.
      */
-    public /*out*/ readonly description!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string[] | undefined>;
     /**
      * The hour in UTC at which maintenance updates will be applied in 24 hour format.
      */
-    public readonly hour!: pulumi.Output<string>;
+    declare public readonly hour: pulumi.Output<string>;
     /**
      * A boolean value indicating whether any maintenance is scheduled to be performed in the next window.
      */
-    public /*out*/ readonly pending!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly pending: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DatabasesMaintenanceWindow resource with the given unique name, arguments, and options.

@@ -37,41 +37,41 @@ export class Xfs extends pulumi.CustomResource {
     /**
      * A time value given in ISO8601 combined date and time format that represents when the block storage volume was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * An optional free-form text field to describe a block storage volume.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet.
      */
-    public readonly dropletIds!: pulumi.Output<number[] | undefined>;
-    public readonly filesystemLabel!: pulumi.Output<string | undefined>;
+    declare public readonly dropletIds: pulumi.Output<number[] | undefined>;
+    declare public readonly filesystemLabel: pulumi.Output<string | undefined>;
     /**
      * The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended.
      */
-    public readonly filesystemType!: pulumi.Output<string | undefined>;
+    declare public readonly filesystemType: pulumi.Output<string | undefined>;
     /**
      * A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and "-", up to a limit of 64 characters. The name must begin with a letter.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.volumes.v2.XfsPropertiesRegion | undefined>;
+    declare public readonly region: pulumi.Output<enums.volumes.v2.XfsPropertiesRegion | undefined>;
     /**
      * The size of the block storage volume in GiB (1024^3). This field does not apply  when creating a volume from a snapshot.
      */
-    public readonly sizeGigabytes!: pulumi.Output<number | undefined>;
+    declare public readonly sizeGigabytes: pulumi.Output<number | undefined>;
     /**
      * The unique identifier for the volume snapshot from which to create the volume.
      */
-    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotId: pulumi.Output<string | undefined>;
     /**
      * A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly volume!: pulumi.Output<outputs.volumes.v2.VolumeFull | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly volume: pulumi.Output<outputs.volumes.v2.VolumeFull | undefined>;
 
     /**
      * Create a Xfs resource with the given unique name, arguments, and options.

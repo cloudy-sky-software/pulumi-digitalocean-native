@@ -34,15 +34,15 @@ export class Rebuild extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rebuild.__pulumiType;
     }
 
-    public /*out*/ readonly action!: pulumi.Output<outputs.droplets.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.droplets.v2.Action | undefined>;
     /**
      * The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
      */
-    public readonly image!: pulumi.Output<string | number | undefined>;
+    declare public readonly image: pulumi.Output<string | number | undefined>;
     /**
      * The type of action to initiate for the Droplet.
      */
-    public readonly type!: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
+    declare public readonly type: pulumi.Output<enums.droplets.v2.DropletActionType | undefined>;
 
     /**
      * Create a Rebuild resource with the given unique name, arguments, and options.

@@ -34,16 +34,16 @@ export class FloatingIP extends pulumi.CustomResource {
         return obj['__pulumiType'] === FloatingIP.__pulumiType;
     }
 
-    public /*out*/ readonly floatingIp!: pulumi.Output<outputs.floating_ips.v2.FloatingIp | undefined>;
-    public /*out*/ readonly links!: pulumi.Output<outputs.floating_ips.v2.LinksProperties | undefined>;
+    declare public /*out*/ readonly floatingIp: pulumi.Output<outputs.floating_ips.v2.FloatingIp | undefined>;
+    declare public /*out*/ readonly links: pulumi.Output<outputs.floating_ips.v2.LinksProperties | undefined>;
     /**
      * The UUID of the project to which the floating IP will be assigned.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * The slug identifier for the region the floating IP will be reserved to.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
 
     /**
      * Create a FloatingIP resource with the given unique name, arguments, and options.

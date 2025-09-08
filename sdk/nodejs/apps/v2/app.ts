@@ -37,15 +37,15 @@ export class App extends pulumi.CustomResource {
     /**
      * An application's configuration and status.
      */
-    public /*out*/ readonly app!: pulumi.Output<outputs.apps.v2.App | undefined>;
+    declare public /*out*/ readonly app: pulumi.Output<outputs.apps.v2.App | undefined>;
     /**
      * The ID of the project the app should be assigned to. If omitted, it will be assigned to your default project.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * The desired configuration of an application.
      */
-    public readonly spec!: pulumi.Output<outputs.apps.v2.AppSpec>;
+    declare public readonly spec: pulumi.Output<outputs.apps.v2.AppSpec>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.

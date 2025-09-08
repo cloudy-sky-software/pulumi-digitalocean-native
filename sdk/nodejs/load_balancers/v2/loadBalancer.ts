@@ -37,60 +37,60 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * This field has been deprecated. You can no longer specify an algorithm for load balancers.
      */
-    public readonly algorithm!: pulumi.Output<enums.load_balancers.v2.LoadBalancerBaseAlgorithm | undefined>;
+    declare public readonly algorithm: pulumi.Output<enums.load_balancers.v2.LoadBalancerBaseAlgorithm | undefined>;
     /**
      * A time value given in ISO8601 combined date and time format that represents when the load balancer was created.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
      */
-    public readonly disableLetsEncryptDnsRecords!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLetsEncryptDnsRecords: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
      */
-    public readonly enableBackendKeepalive!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableBackendKeepalive: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value indicating whether PROXY Protocol is in use.
      */
-    public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableProxyProtocol: pulumi.Output<boolean | undefined>;
     /**
      * An object specifying allow and deny rules to control traffic to the load balancer.
      */
-    public readonly firewall!: pulumi.Output<outputs.load_balancers.v2.LbFirewall | undefined>;
+    declare public readonly firewall: pulumi.Output<outputs.load_balancers.v2.LbFirewall | undefined>;
     /**
      * An array of objects specifying the forwarding rules for a load balancer.
      */
-    public readonly forwardingRules!: pulumi.Output<outputs.load_balancers.v2.ForwardingRule[] | undefined>;
+    declare public readonly forwardingRules: pulumi.Output<outputs.load_balancers.v2.ForwardingRule[] | undefined>;
     /**
      * An object specifying health check settings for the load balancer.
      */
-    public readonly healthCheck!: pulumi.Output<outputs.load_balancers.v2.HealthCheck | undefined>;
+    declare public readonly healthCheck: pulumi.Output<outputs.load_balancers.v2.HealthCheck | undefined>;
     /**
      * An integer value which configures the idle timeout for HTTP requests to the target droplets.
      */
-    public readonly httpIdleTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly httpIdleTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * An attribute containing the public-facing IP address of the load balancer.
      */
-    public readonly ip!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly loadBalancer!: pulumi.Output<outputs.load_balancers.v2.LoadBalancer | undefined>;
+    declare public readonly ip: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly loadBalancer: pulumi.Output<outputs.load_balancers.v2.LoadBalancer | undefined>;
     /**
      * A human-readable name for a load balancer instance.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.
      */
-    public readonly projectId!: pulumi.Output<string | undefined>;
+    declare public readonly projectId: pulumi.Output<string | undefined>;
     /**
      * A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.
      */
-    public readonly redirectHttpToHttps!: pulumi.Output<boolean | undefined>;
+    declare public readonly redirectHttpToHttps: pulumi.Output<boolean | undefined>;
     /**
      * The slug identifier for the region where the resource will initially be  available.
      */
-    public readonly region!: pulumi.Output<enums.load_balancers.v2.LoadBalancerPropertiesRegionEnum | undefined>;
+    declare public readonly region: pulumi.Output<enums.load_balancers.v2.LoadBalancerPropertiesRegionEnum | undefined>;
     /**
      * This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes.
      * * `lb-small` = 1 node
@@ -99,23 +99,23 @@ export class LoadBalancer extends pulumi.CustomResource {
      *
      * You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
      */
-    public readonly size!: pulumi.Output<enums.load_balancers.v2.LoadBalancerBaseSize | undefined>;
+    declare public readonly size: pulumi.Output<enums.load_balancers.v2.LoadBalancerBaseSize | undefined>;
     /**
      * How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.
      */
-    public readonly sizeUnit!: pulumi.Output<number | undefined>;
+    declare public readonly sizeUnit: pulumi.Output<number | undefined>;
     /**
      * A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.
      */
-    public readonly status!: pulumi.Output<enums.load_balancers.v2.LoadBalancerBaseStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.load_balancers.v2.LoadBalancerBaseStatus | undefined>;
     /**
      * An object specifying sticky sessions settings for the load balancer.
      */
-    public readonly stickySessions!: pulumi.Output<outputs.load_balancers.v2.StickySessions | undefined>;
+    declare public readonly stickySessions: pulumi.Output<outputs.load_balancers.v2.StickySessions | undefined>;
     /**
      * A string specifying the UUID of the VPC to which the load balancer is assigned.
      */
-    public readonly vpcUuid!: pulumi.Output<string | undefined>;
+    declare public readonly vpcUuid: pulumi.Output<string | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.

@@ -34,7 +34,7 @@ export class LoadBalancersForwardingRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancersForwardingRule.__pulumiType;
     }
 
-    public readonly forwardingRules!: pulumi.Output<outputs.load_balancers.v2.ForwardingRule[]>;
+    declare public readonly forwardingRules: pulumi.Output<outputs.load_balancers.v2.ForwardingRule[]>;
 
     /**
      * Create a LoadBalancersForwardingRule resource with the given unique name, arguments, and options.

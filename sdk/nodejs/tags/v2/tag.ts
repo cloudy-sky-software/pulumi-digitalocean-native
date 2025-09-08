@@ -48,16 +48,16 @@ export class Tag extends pulumi.CustomResource {
      *
      * Tagged resources in the control panel will always display the canonical capitalization. For example, if you create a tag named "PROD", you can tag resources in the control panel by entering "prod". The tag will still display with its canonical capitalization, "PROD".
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag.
      */
-    public /*out*/ readonly resources!: pulumi.Output<outputs.tags.v2.Resources | undefined>;
+    declare public /*out*/ readonly resources: pulumi.Output<outputs.tags.v2.Resources | undefined>;
     /**
      * A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it.
      * Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
      */
-    public /*out*/ readonly tag!: pulumi.Output<outputs.tags.v2.Tags | undefined>;
+    declare public /*out*/ readonly tag: pulumi.Output<outputs.tags.v2.Tags | undefined>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.

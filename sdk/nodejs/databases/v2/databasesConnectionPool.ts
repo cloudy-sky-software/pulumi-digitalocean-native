@@ -34,29 +34,29 @@ export class DatabasesConnectionPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasesConnectionPool.__pulumiType;
     }
 
-    public readonly connection!: pulumi.Output<outputs.databases.v2.Connection | undefined>;
+    declare public readonly connection: pulumi.Output<outputs.databases.v2.Connection | undefined>;
     /**
      * The database for use with the connection pool.
      */
-    public readonly db!: pulumi.Output<string>;
+    declare public readonly db: pulumi.Output<string>;
     /**
      * The PGBouncer transaction mode for the connection pool. The allowed values are session, transaction, and statement.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * A unique name for the connection pool. Must be between 3 and 60 characters.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly pool!: pulumi.Output<outputs.databases.v2.ConnectionPool>;
-    public readonly privateConnection!: pulumi.Output<outputs.databases.v2.PrivateConnection | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly pool: pulumi.Output<outputs.databases.v2.ConnectionPool>;
+    declare public readonly privateConnection: pulumi.Output<outputs.databases.v2.PrivateConnection | undefined>;
     /**
      * The desired size of the PGBouncer connection pool. The maximum allowed size is determined by the size of the cluster's primary node. 25 backend server connections are allowed for every 1GB of RAM. Three are reserved for maintenance. For example, a primary node with 1 GB of RAM allows for a maximum of 22 backend server connections while one with 4 GB would allow for 97. Note that these are shared across all connection pools in a cluster.
      */
-    public readonly size!: pulumi.Output<number>;
+    declare public readonly size: pulumi.Output<number>;
     /**
      * The name of the user for use with the connection pool. When excluded, all sessions connect to the database as the inbound user.
      */
-    public readonly user!: pulumi.Output<string | undefined>;
+    declare public readonly user: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabasesConnectionPool resource with the given unique name, arguments, and options.

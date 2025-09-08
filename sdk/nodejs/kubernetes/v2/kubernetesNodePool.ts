@@ -37,44 +37,44 @@ export class KubernetesNodePool extends pulumi.CustomResource {
     /**
      * A boolean value indicating whether auto-scaling is enabled for this node pool.
      */
-    public readonly autoScale!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoScale: pulumi.Output<boolean | undefined>;
     /**
      * The number of Droplet instances in the node pool.
      */
-    public readonly count!: pulumi.Output<number>;
+    declare public readonly count: pulumi.Output<number>;
     /**
      * An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool.
      */
-    public readonly labels!: pulumi.Output<any | undefined>;
+    declare public readonly labels: pulumi.Output<any | undefined>;
     /**
      * The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
      */
-    public readonly maxNodes!: pulumi.Output<number | undefined>;
+    declare public readonly maxNodes: pulumi.Output<number | undefined>;
     /**
      * The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
      */
-    public readonly minNodes!: pulumi.Output<number | undefined>;
+    declare public readonly minNodes: pulumi.Output<number | undefined>;
     /**
      * A human-readable name for the node pool.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly nodePool!: pulumi.Output<outputs.kubernetes.v2.KubernetesNodePool | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly nodePool: pulumi.Output<outputs.kubernetes.v2.KubernetesNodePool | undefined>;
     /**
      * An object specifying the details of a specific worker node in a node pool.
      */
-    public readonly nodes!: pulumi.Output<outputs.kubernetes.v2.Node[] | undefined>;
+    declare public readonly nodes: pulumi.Output<outputs.kubernetes.v2.Node[] | undefined>;
     /**
      * The slug identifier for the type of Droplet used as workers in the node pool.
      */
-    public readonly size!: pulumi.Output<string>;
+    declare public readonly size: pulumi.Output<string>;
     /**
      * An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
      */
-    public readonly taints!: pulumi.Output<outputs.kubernetes.v2.KubernetesNodePoolTaint[] | undefined>;
+    declare public readonly taints: pulumi.Output<outputs.kubernetes.v2.KubernetesNodePoolTaint[] | undefined>;
 
     /**
      * Create a KubernetesNodePool resource with the given unique name, arguments, and options.
