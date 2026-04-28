@@ -1,13 +1,11 @@
 module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 
-go 1.24.2
-
-toolchain go1.24.6
+go 1.25
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20251002161024-88f5776470c7
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20251002190923-1c2ae344a6ce
-	github.com/getkin/kin-openapi v0.133.0
+	github.com/getkin/kin-openapi v0.137.0
 	github.com/pulumi/pulumi/pkg/v3 v3.199.0
 	github.com/pulumi/pulumi/sdk/v3 v3.199.0
 )
@@ -77,8 +75,8 @@ require (
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/muesli/termenv v0.16.0 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
-	github.com/oasdiff/yaml v0.0.0-20250309154309-f31be36b4037 // indirect
-	github.com/oasdiff/yaml3 v0.0.0-20250309153720-d2182401db90 // indirect
+	github.com/oasdiff/yaml v0.0.9 // indirect
+	github.com/oasdiff/yaml3 v0.0.12 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/perimeterx/marshmallow v1.1.5 // indirect
@@ -94,6 +92,7 @@ require (
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.3.1 // indirect
+	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2 // indirect
 	github.com/segmentio/asm v1.2.0 // indirect
 	github.com/segmentio/encoding v0.4.1 // indirect
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
