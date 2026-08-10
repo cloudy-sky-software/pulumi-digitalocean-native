@@ -115,10 +115,10 @@ func fixDatabaseConfigType(openAPIDoc *openapi3.T) {
 	configProp.Value.OneOf = types
 	configProp.Value.Discriminator = &openapi3.Discriminator{
 		PropertyName: "type",
-		Mapping: map[string]string{
-			"mysql":    "#/components/schemas/mysql",
-			"postgres": "#/components/schemas/postgres",
-			"redis":    "#/components/schemas/redis",
+		Mapping: map[string]openapi3.MappingRef{
+			"mysql":    openapi3.MappingRef{Ref: "#/components/schemas/mysql"},
+			"postgres": openapi3.MappingRef{Ref: "#/components/schemas/postgres"},
+			"redis":    openapi3.MappingRef{Ref: "#/components/schemas/redis"},
 		},
 	}
 
@@ -187,9 +187,9 @@ func fixCreateVolumeRequest(openAPIDoc *openapi3.T) {
 	schemaRefs := pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.AnyOf
 	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.OneOf = schemaRefs
 	volumesDiscriminator := &openapi3.Discriminator{
-		Mapping: map[string]string{
-			"ext4": "#/components/schemas/volumes_ext4",
-			"xfs":  "#/components/schemas/volumes_xfs",
+		Mapping: map[string]openapi3.MappingRef{
+			"ext4": openapi3.MappingRef{Ref: "#/components/schemas/volumes_ext4"},
+			"xfs":  openapi3.MappingRef{Ref: "#/components/schemas/volumes_xfs"},
 		},
 		PropertyName: "filesystem_type",
 	}
