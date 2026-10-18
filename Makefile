@@ -24,9 +24,6 @@ ensure::
 	cd provider && GO111MODULE=on go mod tidy
 	cd sdk && GO111MODULE=on go mod tidy
 
-fetch_api_spec::
-	curl -fsSL https://docs.fly.io/api/machines/openapi.json -o spec.json
-
 gen::
 	(cd provider && go build -o $(WORKING_DIR)/bin/${CODEGEN} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/$(CODEGEN))
 
@@ -34,13 +31,6 @@ generate_schema::
 	echo "Generating Pulumi schema..."
 	$(WORKING_DIR)/bin/$(CODEGEN) -v=3 --logtostderr schema
 	echo "Finished generating schema."
-
-format_json_spec::
-	npx --yes prettier spec.json --write
-
-json2yaml::
-	yq -p=json -oy spec.json > provider/cmd/$(CODEGEN)/openapi.yml
-	npx --yes prettier provider/cmd/$(CODEGEN)/openapi.yml --write
 
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" $(PROJECT)/${PROVIDER_PATH}/cmd/$(PROVIDER))
