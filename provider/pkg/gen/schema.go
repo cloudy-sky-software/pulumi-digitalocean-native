@@ -8,7 +8,7 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
-	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
@@ -53,7 +53,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			},
 		},
 
-		Provider: pschema.ResourceSpec{
+		Provider: &pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
 				Description: "The provider type for the DigitalOcean package.",
 				Type:        "object",
