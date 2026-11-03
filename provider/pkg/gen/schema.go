@@ -19,7 +19,10 @@ import (
 	"github.com/cloudy-sky-software/pulumi-digitalocean-native/provider/pkg/gen/examples"
 )
 
-const packageName = "digitalocean-native"
+const (
+	literalName = "name"
+	packageName = "digitalocean-native"
+)
 
 // PulumiSchema will generate a Pulumi schema for the given k8s schema.
 func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.ProviderMetadata, openapi3.T) {
@@ -45,7 +48,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Language: map[string]pschema.RawMessage{
 						"csharp": rawMessage(map[string]interface{}{
-							"name": "ApiKey",
+							literalName: "ApiKey",
 						}),
 					},
 					Secret: true,
@@ -69,7 +72,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Language: map[string]pschema.RawMessage{
 						"csharp": rawMessage(map[string]interface{}{
-							"name": "ApiKey",
+							literalName: "ApiKey",
 						}),
 					},
 					Secret: true,

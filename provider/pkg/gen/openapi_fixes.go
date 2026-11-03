@@ -8,11 +8,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
+const jsonMimeType = "application/json"
+
 func fixCreateUptimeCheckRequest(openAPIDoc *openapi3.T) {
 	pathItem := openAPIDoc.Paths.Find("/v2/uptime/checks")
 	contract.Assertf(pathItem != nil, "Expected to find request path /v2/uptime/checks")
 
-	reqSchema := pathItem.Post.RequestBody.Value.Content.Get("application/json")
+	reqSchema := pathItem.Post.RequestBody.Value.Content.Get(jsonMimeType)
 
 	// `method` is an invalid required property as it is not even
 	// a property in the request schema.
@@ -53,7 +55,7 @@ func fixReservedIPType(openAPIDoc *openapi3.T) {
 // does not have a value defined for the `type` property.
 func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
 	if (objectType.Value.Type == nil || len(objectType.Value.Type.Slice()) == 0) && len(objectType.Value.Properties) > 0 {
-		objectType.Value.Type = &openapi3.Types{"object"}
+		objectType.Value.Type = &openapi3.Types{openapi3.TypeObject}
 	}
 
 	for _, allOfTy := range objectType.Value.AllOf {
@@ -62,13 +64,13 @@ func fixObjectPropertyType(objectType *openapi3.SchemaRef) {
 }
 
 func fixResponseObjectPropertyType(responseRef *openapi3.ResponseRef) {
-	responseContent := responseRef.Value.Content.Get("application/json")
+	responseContent := responseRef.Value.Content.Get(jsonMimeType)
 	if responseContent == nil {
 		return
 	}
 
 	if (responseContent.Schema.Value.Type == nil || len(responseContent.Schema.Value.Type.Slice()) == 0) && len(responseContent.Schema.Value.Properties) > 0 {
-		responseContent.Schema.Value.Type = &openapi3.Types{"object"}
+		responseContent.Schema.Value.Type = &openapi3.Types{openapi3.TypeObject}
 	}
 
 	for _, allOfTy := range responseContent.Schema.Value.AllOf {
@@ -116,9 +118,9 @@ func fixDatabaseConfigType(openAPIDoc *openapi3.T) {
 	configProp.Value.Discriminator = &openapi3.Discriminator{
 		PropertyName: "type",
 		Mapping: map[string]openapi3.MappingRef{
-			"mysql":    openapi3.MappingRef{Ref: "#/components/schemas/mysql"},
-			"postgres": openapi3.MappingRef{Ref: "#/components/schemas/postgres"},
-			"redis":    openapi3.MappingRef{Ref: "#/components/schemas/redis"},
+			"mysql":    {Ref: "#/components/schemas/mysql"},
+			"postgres": {Ref: "#/components/schemas/postgres"},
+			"redis":    {Ref: "#/components/schemas/redis"},
 		},
 	}
 
@@ -129,8 +131,8 @@ func fixDatabaseConfigType(openAPIDoc *openapi3.T) {
 	resp, ok := openAPIDoc.Components.Responses["database_config"]
 	contract.Assertf(ok, "Expected to find the response schema for database_config")
 
-	resp.Value.Content.Get("application/json").Schema.Ref = "#/components/schemas/database_config"
-	resp.Value.Content.Get("application/json").Schema.Value = databaseConfig.Value
+	resp.Value.Content.Get(jsonMimeType).Schema.Ref = "#/components/schemas/database_config"
+	resp.Value.Content.Get(jsonMimeType).Schema.Value = databaseConfig.Value
 }
 
 func fixPageLinksType(openAPIDoc *openapi3.T) {
@@ -164,7 +166,7 @@ func fixCreateDropletsRequest(openAPIDoc *openapi3.T) {
 	singleCreate := openAPIDoc.Components.Schemas["droplet_single_create"]
 
 	pathItem.Post.OperationID = "droplet_create"
-	reqSchema := pathItem.Post.RequestBody.Value.Content.Get("application/json")
+	reqSchema := pathItem.Post.RequestBody.Value.Content.Get(jsonMimeType)
 	reqSchema.Schema = openapi3.NewSchemaRef("#/components/schemas/droplet_single_create", singleCreate.Value)
 	reqSchema.Schema.Value.OneOf = nil
 }
@@ -184,17 +186,17 @@ func fixCreateVolumeRequest(openAPIDoc *openapi3.T) {
 	pathItem := openAPIDoc.Paths.Find("/v2/volumes")
 	contract.Assertf(pathItem != nil, "Expected to find request path /v2/volumes")
 
-	schemaRefs := pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.AnyOf
-	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.OneOf = schemaRefs
+	schemaRefs := pathItem.Post.RequestBody.Value.Content.Get(jsonMimeType).Schema.Value.AnyOf
+	pathItem.Post.RequestBody.Value.Content.Get(jsonMimeType).Schema.Value.OneOf = schemaRefs
 	volumesDiscriminator := &openapi3.Discriminator{
 		Mapping: map[string]openapi3.MappingRef{
-			"ext4": openapi3.MappingRef{Ref: "#/components/schemas/volumes_ext4"},
-			"xfs":  openapi3.MappingRef{Ref: "#/components/schemas/volumes_xfs"},
+			"ext4": {Ref: "#/components/schemas/volumes_ext4"},
+			"xfs":  {Ref: "#/components/schemas/volumes_xfs"},
 		},
 		PropertyName: "filesystem_type",
 	}
-	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.Discriminator = volumesDiscriminator
-	pathItem.Post.RequestBody.Value.Content.Get("application/json").Schema.Value.AnyOf = nil
+	pathItem.Post.RequestBody.Value.Content.Get(jsonMimeType).Schema.Value.Discriminator = volumesDiscriminator
+	pathItem.Post.RequestBody.Value.Content.Get(jsonMimeType).Schema.Value.AnyOf = nil
 }
 
 func fixFileSystemLabelProperty(openAPIDoc *openapi3.T) {
@@ -231,7 +233,7 @@ func fixCreateCustomDomainRequest(openAPIDoc *openapi3.T) {
 	contract.Assertf(recordsPathItem != nil, "Expected to find request path /v2/domains/{domain_name}/records")
 
 	domainRecord := openAPIDoc.Components.Schemas["domain_record"]
-	recordsPathItem.Post.RequestBody.Value.Content.Get("application/json").Schema = openapi3.NewSchemaRef("#/components/schemas/domain_record", domainRecord.Value)
+	recordsPathItem.Post.RequestBody.Value.Content.Get(jsonMimeType).Schema = openapi3.NewSchemaRef("#/components/schemas/domain_record", domainRecord.Value)
 }
 
 func FixOpenAPIDoc(openAPIDoc *openapi3.T) {
