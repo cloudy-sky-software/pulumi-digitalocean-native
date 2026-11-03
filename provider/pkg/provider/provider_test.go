@@ -11,6 +11,8 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-provider-framework/openapi"
 	"github.com/cloudy-sky-software/pulumi-provider-framework/state"
+	"github.com/go-jose/go-jose/v4/testutils/require"
+	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/stretchr/testify/assert"
 
@@ -55,7 +57,8 @@ func makeTestProvider(ctx context.Context, t *testing.T) pulumirpc.ResourceProvi
 	}
 
 	_, err = p.Configure(ctx, &pulumirpc.ConfigureRequest{
-		Variables: map[string]string{"digitalocean-native:config:apiKey": "fakeapikey"},
+		Variables:      map[string]string{"digitalocean-native:config:apiKey": "fakeapikey"},
+		SendsOldInputs: true,
 	})
 
 	if err != nil {
@@ -65,20 +68,35 @@ func makeTestProvider(ctx context.Context, t *testing.T) pulumirpc.ResourceProvi
 	return p
 }
 
+func marshalInputs(t *testing.T, inputs map[string]any) *structpb.Struct {
+	t.Helper()
+
+	s, err := plugin.MarshalProperties(resource.NewPropertyMapFromMap(inputs), state.DefaultMarshalOpts)
+	require.NoError(t, err)
+
+	return s
+}
+
 func TestDiff(t *testing.T) {
 	ctx := context.Background()
 
 	p := makeTestProvider(ctx, t)
 
-	outputs := make(map[string]interface{})
-	outputs["size"] = "s-1vcpu-1gb"
-	oldsStruct, _ := plugin.MarshalProperties(state.GetResourceState(outputs, resource.NewPropertyMapFromMap(outputs)), state.DefaultMarshalOpts)
+	inputs := make(map[string]any)
+	inputs["size"] = "s-1vcpu-1gb"
+	oldsStruct, _ := plugin.MarshalProperties(state.GetResourceState(inputs, resource.NewPropertyMapFromMap(inputs)), state.DefaultMarshalOpts)
 
-	news := make(map[string]interface{})
+	news := make(map[string]any)
 	news["size"] = "s-1vcpu-2gb"
-	newsStruct, _ := plugin.MarshalProperties(resource.NewPropertyMapFromMap(news), state.DefaultMarshalOpts)
+	newsStruct := marshalInputs(t, news)
 
-	resp, err := p.Diff(ctx, &pulumirpc.DiffRequest{Id: "", Urn: "urn:pulumi:some-stack::some-project::digitalocean-native:droplets/v2:Droplet::myVm", Olds: oldsStruct, News: newsStruct})
+	resp, err := p.Diff(ctx, &pulumirpc.DiffRequest{
+		Id:        "",
+		Urn:       "urn:pulumi:some-stack::some-project::digitalocean-native:droplets/v2:Droplet::myVm",
+		Olds:      oldsStruct,
+		News:      newsStruct,
+		OldInputs: marshalInputs(t, inputs),
+	})
 	assert.Nil(t, err)
 	assert.Equal(t, pulumirpc.DiffResponse_DIFF_SOME, resp.Changes)
 	assert.NotEmpty(t, resp.Diffs)
