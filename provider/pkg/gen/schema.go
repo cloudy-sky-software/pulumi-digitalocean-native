@@ -133,8 +133,6 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 	}
 
 	pkg.Language["csharp"] = rawMessage(dotnetgen.CSharpPackageInfo{
-		// TODO: What does this enable?
-		// DictionaryConstructors: true,
 		Namespaces: csharpNamespaces,
 		PackageReferences: map[string]string{
 			"Pulumi": "3.*",
@@ -143,7 +141,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 	})
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn",
+		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/digitalocean",
 	})
 
 	pkg.Language["nodejs"] = rawMessage(nodejsgen.NodePackageInfo{
