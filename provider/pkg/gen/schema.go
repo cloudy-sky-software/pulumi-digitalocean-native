@@ -8,7 +8,7 @@ import (
 
 	"github.com/getkin/kin-openapi/openapi3"
 
-	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
+	dotnetgen "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
@@ -19,7 +19,10 @@ import (
 	"github.com/cloudy-sky-software/pulumi-digitalocean-native/provider/pkg/gen/examples"
 )
 
-const packageName = "digitalocean-native"
+const (
+	literalName = "name"
+	packageName = "digitalocean-native"
+)
 
 // PulumiSchema will generate a Pulumi schema for the given k8s schema.
 func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.ProviderMetadata, openapi3.T) {
@@ -45,7 +48,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Language: map[string]pschema.RawMessage{
 						"csharp": rawMessage(map[string]interface{}{
-							"name": "ApiKey",
+							literalName: "ApiKey",
 						}),
 					},
 					Secret: true,
@@ -53,7 +56,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			},
 		},
 
-		Provider: pschema.ResourceSpec{
+		Provider: &pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
 				Description: "The provider type for the DigitalOcean package.",
 				Type:        "object",
@@ -69,7 +72,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Language: map[string]pschema.RawMessage{
 						"csharp": rawMessage(map[string]interface{}{
-							"name": "ApiKey",
+							literalName: "ApiKey",
 						}),
 					},
 					Secret: true,
@@ -114,15 +117,16 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			"/v2/volumes/actions",
 		},
 		AllowedPluralResources: []string{"DatabasesFirewallRules"},
+
+		ModuleNameOverrides: map[string]string{
+			"1-clicks/v2": "one-clicks/v2",
+		},
 	}
 
 	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
 	if err != nil {
 		contract.Failf("generating resources from OpenAPI spec: %v", err)
 	}
-
-	// Override some module names.
-	csharpNamespaces["1-clicks/v2"] = "OneClicksV2"
 
 	// Add examples to resources
 	for k, v := range examples.ResourceExample {
@@ -133,8 +137,6 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 	}
 
 	pkg.Language["csharp"] = rawMessage(dotnetgen.CSharpPackageInfo{
-		// TODO: What does this enable?
-		// DictionaryConstructors: true,
 		Namespaces: csharpNamespaces,
 		PackageReferences: map[string]string{
 			"Pulumi": "3.*",
@@ -143,7 +145,7 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 	})
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn",
+		"importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/digitalocean",
 	})
 
 	pkg.Language["nodejs"] = rawMessage(nodejsgen.NodePackageInfo{
