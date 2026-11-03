@@ -24,6 +24,10 @@ ensure::
 	cd provider && GO111MODULE=on go mod tidy
 	cd sdk && GO111MODULE=on go mod tidy
 
+fetch_api_spec::
+	curl -fsSL https://api-engineering.nyc3.digitaloceanspaces.com/spec-ci/DigitalOcean-public.v2.yaml -o ${PROVIDER_PATH}/cmd/$(CODEGEN)/openapi.yml
+	npx --yes prettier ${PROVIDER_PATH}/cmd/$(CODEGEN)/openapi.yml --write
+
 gen::
 	(cd provider && go build -o $(WORKING_DIR)/bin/${CODEGEN} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/$(CODEGEN))
 

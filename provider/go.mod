@@ -138,3 +138,5 @@ require (
 	google.golang.org/grpc v1.85.0 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
 )
+
+replace github.com/cloudy-sky-software/pulschema => ../../pulschema
