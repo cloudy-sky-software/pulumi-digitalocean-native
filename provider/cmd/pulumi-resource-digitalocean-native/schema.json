@@ -20,7 +20,6 @@
             },
             "namespaces": {
                 "": "Provider",
-                "1-clicks/v2": "OneClicksV2",
                 "account/v2": "AccountV2",
                 "actions/v2": "ActionsV2",
                 "apps/v2": "AppsV2",
@@ -38,6 +37,7 @@
                 "kubernetes/v2": "KubernetesV2",
                 "load_balancers/v2": "LoadBalancersV2",
                 "monitoring/v2": "MonitoringV2",
+                "one-clicks/v2": "OneClicksV2",
                 "projects/v2": "ProjectsV2",
                 "regions/v2": "RegionsV2",
                 "registry/v2": "RegistryV2",
@@ -53,7 +53,7 @@
             "rootNamespace": "CloudySkySoftware.Pulumi"
         },
         "go": {
-            "importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/dgtlocn"
+            "importBasePath": "github.com/cloudy-sky-software/pulumi-digitalocean-native/sdk/go/digitalocean"
         },
         "nodejs": {
             "packageName": "@cloudyskysoftware/pulumi-digitalocean-native",
@@ -86,87 +86,6 @@
         }
     },
     "types": {
-        "digitalocean-native:1-clicks/v2:ListOneClicksProperties": {
-            "properties": {
-                "_1Clicks": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/digitalocean-native:1-clicks/v2:OneClicks"
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:1-clicks/v2:ListOneClicksQueryParams": {
-            "description": "Query params for the API request.",
-            "properties": {
-                "additionalParams": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "Additional query params to send with the request that are not defined in the API spec."
-                },
-                "type": {
-                    "$ref": "#/types/digitalocean-native:1-clicks/v2:ListOneClicksQueryParamsType",
-                    "description": "Restrict results to a certain type of 1-Click."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:1-clicks/v2:ListOneClicksQueryParamsType": {
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Droplet",
-                    "value": "droplet"
-                },
-                {
-                    "name": "Kubernetes",
-                    "value": "kubernetes"
-                }
-            ]
-        },
-        "digitalocean-native:1-clicks/v2:OneClicks": {
-            "properties": {
-                "slug": {
-                    "type": "string",
-                    "description": "The slug identifier for the 1-Click application."
-                },
-                "type": {
-                    "type": "string",
-                    "description": "The type of the 1-Click application."
-                }
-            },
-            "type": "object",
-            "required": [
-                "slug",
-                "type"
-            ]
-        },
-        "digitalocean-native:1-clicks/v2:OneClicksInstallKubernetesCreateQueryParams": {
-            "description": "Query params for the API request.",
-            "properties": {
-                "additionalParams": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
-                    "description": "Additional query params to send with the request that are not defined in the API spec."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:1-clicks/v2:OneClicksInstallKubernetesQueryParams": {
-            "description": "Query params for each of the operations of the resource.",
-            "properties": {
-                "create": {
-                    "$ref": "#/types/digitalocean-native:1-clicks/v2:OneClicksInstallKubernetesCreateQueryParams",
-                    "description": "Query params for the create operation."
-                }
-            },
-            "type": "object"
-        },
         "digitalocean-native:account/v2:Account": {
             "properties": {
                 "dropletLimit": {
@@ -15053,6 +14972,87 @@
                 }
             ]
         },
+        "digitalocean-native:one-clicks/v2:ListOneClicksProperties": {
+            "properties": {
+                "_1Clicks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/digitalocean-native:one-clicks/v2:OneClicks"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:one-clicks/v2:ListOneClicksQueryParams": {
+            "description": "Query params for the API request.",
+            "properties": {
+                "additionalParams": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Additional query params to send with the request that are not defined in the API spec."
+                },
+                "type": {
+                    "$ref": "#/types/digitalocean-native:one-clicks/v2:ListOneClicksQueryParamsType",
+                    "description": "Restrict results to a certain type of 1-Click."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:one-clicks/v2:ListOneClicksQueryParamsType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Droplet",
+                    "value": "droplet"
+                },
+                {
+                    "name": "Kubernetes",
+                    "value": "kubernetes"
+                }
+            ]
+        },
+        "digitalocean-native:one-clicks/v2:OneClicks": {
+            "properties": {
+                "slug": {
+                    "type": "string",
+                    "description": "The slug identifier for the 1-Click application."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the 1-Click application."
+                }
+            },
+            "type": "object",
+            "required": [
+                "slug",
+                "type"
+            ]
+        },
+        "digitalocean-native:one-clicks/v2:OneClicksInstallKubernetesCreateQueryParams": {
+            "description": "Query params for the API request.",
+            "properties": {
+                "additionalParams": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Additional query params to send with the request that are not defined in the API spec."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:one-clicks/v2:OneClicksInstallKubernetesQueryParams": {
+            "description": "Query params for each of the operations of the resource.",
+            "properties": {
+                "create": {
+                    "$ref": "#/types/digitalocean-native:one-clicks/v2:OneClicksInstallKubernetesCreateQueryParams",
+                    "description": "Query params for the create operation."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:projects/v2:GetProjectProperties": {
             "properties": {
                 "project": {
@@ -20208,55 +20208,6 @@
         }
     },
     "resources": {
-        "digitalocean-native:1-clicks/v2:OneClicksInstallKubernetes": {
-            "properties": {
-                "addonSlugs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster."
-                },
-                "clusterUuid": {
-                    "type": "string",
-                    "description": "A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed."
-                },
-                "message": {
-                    "type": "string",
-                    "description": "A message about the result of the request."
-                },
-                "queryParams": {
-                    "$ref": "#/types/digitalocean-native:1-clicks/v2:OneClicksInstallKubernetesQueryParams",
-                    "description": "Query params to send with the API requests for this resource."
-                }
-            },
-            "type": "object",
-            "required": [
-                "addonSlugs",
-                "clusterUuid"
-            ],
-            "inputProperties": {
-                "addonSlugs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster."
-                },
-                "clusterUuid": {
-                    "type": "string",
-                    "description": "A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed."
-                },
-                "queryParams": {
-                    "$ref": "#/types/digitalocean-native:1-clicks/v2:OneClicksInstallKubernetesQueryParams",
-                    "description": "Query params to send with the API requests for this resource."
-                }
-            },
-            "requiredInputs": [
-                "addonSlugs",
-                "clusterUuid"
-            ]
-        },
         "digitalocean-native:account/v2:SshKey": {
             "properties": {
                 "fingerprint": {
@@ -24022,6 +23973,55 @@
                 "window"
             ]
         },
+        "digitalocean-native:one-clicks/v2:OneClicksInstallKubernetes": {
+            "properties": {
+                "addonSlugs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster."
+                },
+                "clusterUuid": {
+                    "type": "string",
+                    "description": "A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed."
+                },
+                "message": {
+                    "type": "string",
+                    "description": "A message about the result of the request."
+                },
+                "queryParams": {
+                    "$ref": "#/types/digitalocean-native:one-clicks/v2:OneClicksInstallKubernetesQueryParams",
+                    "description": "Query params to send with the API requests for this resource."
+                }
+            },
+            "type": "object",
+            "required": [
+                "addonSlugs",
+                "clusterUuid"
+            ],
+            "inputProperties": {
+                "addonSlugs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of 1-Click Application slugs to be installed to the Kubernetes cluster."
+                },
+                "clusterUuid": {
+                    "type": "string",
+                    "description": "A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed."
+                },
+                "queryParams": {
+                    "$ref": "#/types/digitalocean-native:one-clicks/v2:OneClicksInstallKubernetesQueryParams",
+                    "description": "Query params to send with the API requests for this resource."
+                }
+            },
+            "requiredInputs": [
+                "addonSlugs",
+                "clusterUuid"
+            ]
+        },
         "digitalocean-native:projects/v2:Project": {
             "properties": {
                 "createdAt": {
@@ -25217,19 +25217,6 @@
         }
     },
     "functions": {
-        "digitalocean-native:1-clicks/v2:listOneClicks": {
-            "inputs": {
-                "properties": {
-                    "queryParams": {
-                        "$ref": "#/types/digitalocean-native:1-clicks/v2:ListOneClicksQueryParams",
-                        "description": "Query params to send with the API request."
-                    }
-                }
-            },
-            "outputs": {
-                "$ref": "#/types/digitalocean-native:1-clicks/v2:ListOneClicksProperties"
-            }
-        },
         "digitalocean-native:account/v2:getAccount": {
             "inputs": {
                 "properties": {
@@ -27075,6 +27062,19 @@
             },
             "outputs": {
                 "$ref": "#/types/digitalocean-native:monitoring/v2:ListMonitoringAlertPolicyItems"
+            }
+        },
+        "digitalocean-native:one-clicks/v2:listOneClicks": {
+            "inputs": {
+                "properties": {
+                    "queryParams": {
+                        "$ref": "#/types/digitalocean-native:one-clicks/v2:ListOneClicksQueryParams",
+                        "description": "Query params to send with the API request."
+                    }
+                }
+            },
+            "outputs": {
+                "$ref": "#/types/digitalocean-native:one-clicks/v2:ListOneClicksProperties"
             }
         },
         "digitalocean-native:projects/v2:getProject": {

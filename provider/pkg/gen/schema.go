@@ -114,15 +114,16 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			"/v2/volumes/actions",
 		},
 		AllowedPluralResources: []string{"DatabasesFirewallRules"},
+
+		ModuleNameOverrides: map[string]string{
+			"1-clicks/v2": "one-clicks/v2",
+		},
 	}
 
 	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
 	if err != nil {
 		contract.Failf("generating resources from OpenAPI spec: %v", err)
 	}
-
-	// Override some module names.
-	csharpNamespaces["1-clicks/v2"] = "OneClicksV2"
 
 	// Add examples to resources
 	for k, v := range examples.ResourceExample {

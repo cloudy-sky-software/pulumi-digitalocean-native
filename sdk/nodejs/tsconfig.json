@@ -1,16 +1,22 @@
 {
     "compilerOptions": {
+        // Output
         "outDir": "bin",
-        "target": "ES2020",
-        "module": "commonjs",
-        "moduleResolution": "node",
         "declaration": true,
+        "declarationMap": true,
         "sourceMap": true,
         "stripInternal": true,
-        "experimentalDecorators": true,
+        // Environment
+        "target": "ES2022",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "moduleDetection": "force",
+        "types": ["node"],
+        // Type Checking
+        "strict": true,
         "noFallthroughCasesInSwitch": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true
+        "noImplicitReturns": true,
+        "skipLibCheck": true
     },
     "files": [
         "account/index.ts",
@@ -211,10 +217,10 @@
         "monitoring/v2/index.ts",
         "monitoring/v2/listMonitoringAlertPolicy.ts",
         "monitoring/v2/monitoringAlertPolicy.ts",
-        "oneclicks/index.ts",
-        "oneclicks/v2/index.ts",
-        "oneclicks/v2/listOneClicks.ts",
-        "oneclicks/v2/oneClicksInstallKubernetes.ts",
+        "one-clicks/index.ts",
+        "one-clicks/v2/index.ts",
+        "one-clicks/v2/listOneClicks.ts",
+        "one-clicks/v2/oneClicksInstallKubernetes.ts",
         "projects/index.ts",
         "projects/v2/getProject.ts",
         "projects/v2/getProjectsDefault.ts",
@@ -283,6 +289,8 @@
         "types/enums/customers/v2/index.ts",
         "types/enums/databases/index.ts",
         "types/enums/databases/v2/index.ts",
+        "types/enums/domains/index.ts",
+        "types/enums/domains/v2/index.ts",
         "types/enums/droplets/index.ts",
         "types/enums/droplets/v2/index.ts",
         "types/enums/firewalls/index.ts",
@@ -298,6 +306,8 @@
         "types/enums/load_balancers/v2/index.ts",
         "types/enums/monitoring/index.ts",
         "types/enums/monitoring/v2/index.ts",
+        "types/enums/one-clicks/index.ts",
+        "types/enums/one-clicks/v2/index.ts",
         "types/enums/projects/index.ts",
         "types/enums/projects/v2/index.ts",
         "types/enums/registry/index.ts",
