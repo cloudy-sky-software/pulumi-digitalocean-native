@@ -4,13 +4,15 @@ go 1.27
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20261103021125-306ac73d85ee
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261102193444-5e7fc8af2bcb
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261103155548-3cad35092de4
 	github.com/getkin/kin-openapi v0.152.0
+	github.com/go-jose/go-jose/v4 v4.1.6
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.117.0
 	github.com/pulumi/pulumi/pkg/v3 v3.273.0
 	github.com/pulumi/pulumi/sdk/v3 v3.273.0
 	github.com/stretchr/testify v1.12.1
+	google.golang.org/protobuf v1.36.12
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -44,7 +46,6 @@ require (
 	github.com/go-git/gcfg/v2 v2.0.2 // indirect
 	github.com/go-git/go-billy/v6 v6.0.0-beta.1 // indirect
 	github.com/go-git/go-git/v6 v6.0.0-beta.1 // indirect
-	github.com/go-jose/go-jose/v4 v4.1.6 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-openapi/jsonpointer v1.0.2 // indirect
@@ -135,6 +136,5 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20261026165753-2ffab32bce7e // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20261026165753-2ffab32bce7e // indirect
 	google.golang.org/grpc v1.85.0 // indirect
-	google.golang.org/protobuf v1.36.12 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
 )
