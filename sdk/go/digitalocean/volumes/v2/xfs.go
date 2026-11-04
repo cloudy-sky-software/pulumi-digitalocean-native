@@ -81,6 +81,12 @@ func (XfsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*xfsState)(nil)).Elem()
 }
 
+// XfsExists checks whether an existing Xfs resource with the given ID exists.
+func XfsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *XfsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:volumes/v2:Xfs", id, state, "", opts...)
+}
+
 type xfsArgs struct {
 	// A time value given in ISO8601 combined date and time format that represents when the block storage volume was created.
 	CreatedAt *string `pulumi:"createdAt"`

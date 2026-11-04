@@ -76,6 +76,12 @@ func (AttachState) ElementType() reflect.Type {
 	return reflect.TypeOf((*attachState)(nil)).Elem()
 }
 
+// AttachExists checks whether an existing Attach resource with the given ID exists.
+func AttachExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AttachState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:volumes/v2:Attach", id, state, "", opts...)
+}
+
 type attachArgs struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId int `pulumi:"dropletId"`

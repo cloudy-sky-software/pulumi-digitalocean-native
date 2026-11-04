@@ -65,6 +65,12 @@ func (RebootState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rebootState)(nil)).Elem()
 }
 
+// RebootExists checks whether an existing Reboot resource with the given ID exists.
+func RebootExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RebootState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Reboot", id, state, "", opts...)
+}
+
 type rebootArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

@@ -70,6 +70,12 @@ func (DatabasesEvictionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesEvictionPolicyState)(nil)).Elem()
 }
 
+// DatabasesEvictionPolicyExists checks whether an existing DatabasesEvictionPolicy resource with the given ID exists.
+func DatabasesEvictionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesEvictionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesEvictionPolicy", id, state, "", opts...)
+}
+
 type databasesEvictionPolicyArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string `pulumi:"databaseClusterUuid"`

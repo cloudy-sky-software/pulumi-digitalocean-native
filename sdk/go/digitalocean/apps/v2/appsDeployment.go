@@ -59,6 +59,12 @@ func (AppsDeploymentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsDeploymentState)(nil)).Elem()
 }
 
+// AppsDeploymentExists checks whether an existing AppsDeployment resource with the given ID exists.
+func AppsDeploymentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsDeploymentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:apps/v2:AppsDeployment", id, state, "", opts...)
+}
+
 type appsDeploymentArgs struct {
 	// The app ID
 	AppId      *string `pulumi:"appId"`

@@ -63,6 +63,12 @@ func (LoadBalancersDropletState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancersDropletState)(nil)).Elem()
 }
 
+// LoadBalancersDropletExists checks whether an existing LoadBalancersDroplet resource with the given ID exists.
+func LoadBalancersDropletExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancersDropletState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:load_balancers/v2:LoadBalancersDroplet", id, state, "", opts...)
+}
+
 type loadBalancersDropletArgs struct {
 	// An array containing the IDs of the Droplets assigned to the load balancer.
 	DropletIds []int `pulumi:"dropletIds"`

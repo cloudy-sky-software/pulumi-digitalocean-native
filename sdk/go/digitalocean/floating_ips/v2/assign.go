@@ -69,6 +69,12 @@ func (AssignState) ElementType() reflect.Type {
 	return reflect.TypeOf((*assignState)(nil)).Elem()
 }
 
+// AssignExists checks whether an existing Assign resource with the given ID exists.
+func AssignExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AssignState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:floating_ips/v2:Assign", id, state, "", opts...)
+}
+
 type assignArgs struct {
 	// The ID of the Droplet that the floating IP will be assigned to.
 	DropletId int `pulumi:"dropletId"`

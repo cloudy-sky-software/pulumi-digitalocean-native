@@ -70,6 +70,12 @@ func (OneClicksInstallKubernetesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oneClicksInstallKubernetesState)(nil)).Elem()
 }
 
+// OneClicksInstallKubernetesExists checks whether an existing OneClicksInstallKubernetes resource with the given ID exists.
+func OneClicksInstallKubernetesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OneClicksInstallKubernetesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:one-clicks/v2:OneClicksInstallKubernetes", id, state, "", opts...)
+}
+
 type oneClicksInstallKubernetesArgs struct {
 	// An array of 1-Click Application slugs to be installed to the Kubernetes cluster.
 	AddonSlugs []string `pulumi:"addonSlugs"`

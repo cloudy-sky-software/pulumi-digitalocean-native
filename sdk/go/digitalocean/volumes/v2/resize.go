@@ -74,6 +74,12 @@ func (ResizeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resizeState)(nil)).Elem()
 }
 
+// ResizeExists checks whether an existing Resize resource with the given ID exists.
+func ResizeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResizeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:volumes/v2:Resize", id, state, "", opts...)
+}
+
 type resizeArgs struct {
 	// Query params to send with the API requests for this resource.
 	QueryParams *ResizeQueryParams `pulumi:"queryParams"`

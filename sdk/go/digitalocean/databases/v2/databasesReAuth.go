@@ -59,6 +59,12 @@ func (DatabasesReAuthState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesReAuthState)(nil)).Elem()
 }
 
+// DatabasesReAuthExists checks whether an existing DatabasesReAuth resource with the given ID exists.
+func DatabasesReAuthExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesReAuthState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesReAuth", id, state, "", opts...)
+}
+
 type databasesReAuthArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string        `pulumi:"databaseClusterUuid"`

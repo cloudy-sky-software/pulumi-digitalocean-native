@@ -68,6 +68,12 @@ func (SshKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sshKeyState)(nil)).Elem()
 }
 
+// SshKeyExists checks whether an existing SshKey resource with the given ID exists.
+func SshKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SshKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:account/v2:SshKey", id, state, "", opts...)
+}
+
 type sshKeyArgs struct {
 	// A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
 	Name *string `pulumi:"name"`

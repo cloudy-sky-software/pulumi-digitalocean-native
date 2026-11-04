@@ -81,6 +81,12 @@ func (Ext4State) ElementType() reflect.Type {
 	return reflect.TypeOf((*ext4State)(nil)).Elem()
 }
 
+// Ext4Exists checks whether an existing Ext4 resource with the given ID exists.
+func Ext4Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Ext4State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:volumes/v2:Ext4", id, state, "", opts...)
+}
+
 type ext4Args struct {
 	// A time value given in ISO8601 combined date and time format that represents when the block storage volume was created.
 	CreatedAt *string `pulumi:"createdAt"`

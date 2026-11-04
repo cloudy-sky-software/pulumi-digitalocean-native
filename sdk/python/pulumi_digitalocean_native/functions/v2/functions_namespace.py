@@ -164,6 +164,12 @@ class FunctionsNamespace(pulumi.CustomResource):
         __props__.__dict__["region"] = None
         return FunctionsNamespace(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:functions/v2:FunctionsNamespace', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def label(self) -> pulumi.Output[_builtins.str]:

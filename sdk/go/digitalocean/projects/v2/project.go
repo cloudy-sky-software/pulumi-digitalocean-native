@@ -88,6 +88,12 @@ func (ProjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectState)(nil)).Elem()
 }
 
+// ProjectExists checks whether an existing Project resource with the given ID exists.
+func ProjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:projects/v2:Project", id, state, "", opts...)
+}
+
 type projectArgs struct {
 	// A time value given in ISO8601 combined date and time format that represents when the project was created.
 	CreatedAt *string `pulumi:"createdAt"`

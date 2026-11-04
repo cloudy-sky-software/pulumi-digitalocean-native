@@ -78,6 +78,12 @@ func (DatabasesReplicaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesReplicaState)(nil)).Elem()
 }
 
+// DatabasesReplicaExists checks whether an existing DatabasesReplica resource with the given ID exists.
+func DatabasesReplicaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesReplicaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesReplica", id, state, "", opts...)
+}
+
 type databasesReplicaArgs struct {
 	Connection *DatabaseReplicaConnection `pulumi:"connection"`
 	// A time value given in ISO8601 combined date and time format that represents when the database cluster was created.

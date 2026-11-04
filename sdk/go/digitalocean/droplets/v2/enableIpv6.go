@@ -65,6 +65,12 @@ func (EnableIpv6State) ElementType() reflect.Type {
 	return reflect.TypeOf((*enableIpv6State)(nil)).Elem()
 }
 
+// EnableIpv6Exists checks whether an existing EnableIpv6 resource with the given ID exists.
+func EnableIpv6Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnableIpv6State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:EnableIpv6", id, state, "", opts...)
+}
+
 type enableIpv6Args struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

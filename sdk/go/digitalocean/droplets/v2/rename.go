@@ -66,6 +66,12 @@ func (RenameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*renameState)(nil)).Elem()
 }
 
+// RenameExists checks whether an existing Rename resource with the given ID exists.
+func RenameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RenameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Rename", id, state, "", opts...)
+}
+
 type renameArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

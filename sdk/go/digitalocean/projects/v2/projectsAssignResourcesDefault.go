@@ -58,6 +58,12 @@ func (ProjectsAssignResourcesDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectsAssignResourcesDefaultState)(nil)).Elem()
 }
 
+// ProjectsAssignResourcesDefaultExists checks whether an existing ProjectsAssignResourcesDefault resource with the given ID exists.
+func ProjectsAssignResourcesDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectsAssignResourcesDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:projects/v2:ProjectsAssignResourcesDefault", id, state, "", opts...)
+}
+
 type projectsAssignResourcesDefaultArgs struct {
 	// Query params to send with the API requests for this resource.
 	QueryParams *ProjectsAssignResourcesDefaultQueryParams `pulumi:"queryParams"`

@@ -65,6 +65,12 @@ func (PasswordResetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordResetState)(nil)).Elem()
 }
 
+// PasswordResetExists checks whether an existing PasswordReset resource with the given ID exists.
+func PasswordResetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PasswordResetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:PasswordReset", id, state, "", opts...)
+}
+
 type passwordResetArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

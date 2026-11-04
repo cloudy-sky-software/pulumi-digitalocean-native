@@ -77,6 +77,12 @@ func (AppsValidateAppSpecState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsValidateAppSpecState)(nil)).Elem()
 }
 
+// AppsValidateAppSpecExists checks whether an existing AppsValidateAppSpec resource with the given ID exists.
+func AppsValidateAppSpecExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsValidateAppSpecState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:apps/v2:AppsValidateAppSpec", id, state, "", opts...)
+}
+
 type appsValidateAppSpecArgs struct {
 	// An optional ID of an existing app. If set, the spec will be treated as a proposed update to the specified app. The existing app is not modified using this method.
 	AppId *string `pulumi:"appId"`

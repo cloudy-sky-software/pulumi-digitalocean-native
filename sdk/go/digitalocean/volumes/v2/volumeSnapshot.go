@@ -62,6 +62,12 @@ func (VolumeSnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*volumeSnapshotState)(nil)).Elem()
 }
 
+// VolumeSnapshotExists checks whether an existing VolumeSnapshot resource with the given ID exists.
+func VolumeSnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VolumeSnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:volumes/v2:VolumeSnapshot", id, state, "", opts...)
+}
+
 type volumeSnapshotArgs struct {
 	// A human-readable name for the volume snapshot.
 	Name *string `pulumi:"name"`

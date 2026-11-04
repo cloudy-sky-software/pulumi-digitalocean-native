@@ -186,6 +186,12 @@ class DatabasesMaintenanceWindow(pulumi.CustomResource):
         __props__.__dict__["query_params"] = None
         return DatabasesMaintenanceWindow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:databases/v2:DatabasesMaintenanceWindow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def day(self) -> pulumi.Output[_builtins.str]:

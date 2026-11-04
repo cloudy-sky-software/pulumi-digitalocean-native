@@ -63,6 +63,12 @@ func (ReservedIPState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reservedIPState)(nil)).Elem()
 }
 
+// ReservedIPExists checks whether an existing ReservedIP resource with the given ID exists.
+func ReservedIPExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReservedIPState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:reserved_ips/v2:ReservedIP", id, state, "", opts...)
+}
+
 type reservedIPArgs struct {
 	// The UUID of the project to which the reserved IP will be assigned.
 	ProjectId *string `pulumi:"projectId"`
