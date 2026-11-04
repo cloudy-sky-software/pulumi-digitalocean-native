@@ -66,6 +66,12 @@ func (RebuildState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rebuildState)(nil)).Elem()
 }
 
+// RebuildExists checks whether an existing Rebuild resource with the given ID exists.
+func RebuildExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RebuildState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Rebuild", id, state, "", opts...)
+}
+
 type rebuildArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

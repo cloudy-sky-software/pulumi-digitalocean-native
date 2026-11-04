@@ -95,6 +95,12 @@ func (MonitoringAlertPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitoringAlertPolicyState)(nil)).Elem()
 }
 
+// MonitoringAlertPolicyExists checks whether an existing MonitoringAlertPolicy resource with the given ID exists.
+func MonitoringAlertPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitoringAlertPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:monitoring/v2:MonitoringAlertPolicy", id, state, "", opts...)
+}
+
 type monitoringAlertPolicyArgs struct {
 	Alerts      Alerts   `pulumi:"alerts"`
 	Compare     Compare  `pulumi:"compare"`

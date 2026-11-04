@@ -68,6 +68,12 @@ func (ResizeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resizeState)(nil)).Elem()
 }
 
+// ResizeExists checks whether an existing Resize resource with the given ID exists.
+func ResizeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResizeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Resize", id, state, "", opts...)
+}
+
 type resizeArgs struct {
 	// When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased.
 	Disk *bool `pulumi:"disk"`

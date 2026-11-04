@@ -107,6 +107,12 @@ func (DropletState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dropletState)(nil)).Elem()
 }
 
+// DropletExists checks whether an existing Droplet resource with the given ID exists.
+func DropletExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DropletState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Droplet", id, state, "", opts...)
+}
+
 type dropletArgs struct {
 	// A boolean indicating whether automated backups should be enabled for the Droplet.
 	Backups *bool `pulumi:"backups"`

@@ -66,6 +66,12 @@ func (AppsValidateRollbackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsValidateRollbackState)(nil)).Elem()
 }
 
+// AppsValidateRollbackExists checks whether an existing AppsValidateRollback resource with the given ID exists.
+func AppsValidateRollbackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsValidateRollbackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:apps/v2:AppsValidateRollback", id, state, "", opts...)
+}
+
 type appsValidateRollbackArgs struct {
 	// The app ID
 	AppId *string `pulumi:"appId"`

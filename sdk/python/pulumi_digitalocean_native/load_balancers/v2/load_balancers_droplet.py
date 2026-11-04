@@ -160,6 +160,12 @@ class LoadBalancersDroplet(pulumi.CustomResource):
         __props__.__dict__["query_params"] = None
         return LoadBalancersDroplet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:load_balancers/v2:LoadBalancersDroplet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dropletIds")
     def droplet_ids(self) -> pulumi.Output[Sequence[_builtins.int]]:

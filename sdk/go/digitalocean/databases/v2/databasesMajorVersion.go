@@ -59,6 +59,12 @@ func (DatabasesMajorVersionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesMajorVersionState)(nil)).Elem()
 }
 
+// DatabasesMajorVersionExists checks whether an existing DatabasesMajorVersion resource with the given ID exists.
+func DatabasesMajorVersionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesMajorVersionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesMajorVersion", id, state, "", opts...)
+}
+
 type databasesMajorVersionArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string `pulumi:"databaseClusterUuid"`

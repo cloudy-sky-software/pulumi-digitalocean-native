@@ -66,6 +66,12 @@ func (VpcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vpcState)(nil)).Elem()
 }
 
+// VpcExists checks whether an existing Vpc resource with the given ID exists.
+func VpcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VpcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:vpcs/v2:Vpc", id, state, "", opts...)
+}
+
 type vpcArgs struct {
 	// A free-form text field for describing the VPC's purpose. It may be a maximum of 255 characters.
 	Description *string `pulumi:"description"`

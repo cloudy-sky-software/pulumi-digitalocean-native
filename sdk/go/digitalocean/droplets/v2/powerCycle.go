@@ -65,6 +65,12 @@ func (PowerCycleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*powerCycleState)(nil)).Elem()
 }
 
+// PowerCycleExists checks whether an existing PowerCycle resource with the given ID exists.
+func PowerCycleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PowerCycleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:PowerCycle", id, state, "", opts...)
+}
+
 type powerCycleArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

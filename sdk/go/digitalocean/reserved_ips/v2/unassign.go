@@ -66,6 +66,12 @@ func (UnassignState) ElementType() reflect.Type {
 	return reflect.TypeOf((*unassignState)(nil)).Elem()
 }
 
+// UnassignExists checks whether an existing Unassign resource with the given ID exists.
+func UnassignExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UnassignState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:reserved_ips/v2:Unassign", id, state, "", opts...)
+}
+
 type unassignArgs struct {
 	// The ID of the Droplet that the reserved IP will be unassigned from.
 	DropletId *int `pulumi:"dropletId"`

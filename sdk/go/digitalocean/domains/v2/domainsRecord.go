@@ -80,6 +80,12 @@ func (DomainsRecordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainsRecordState)(nil)).Elem()
 }
 
+// DomainsRecordExists checks whether an existing DomainsRecord resource with the given ID exists.
+func DomainsRecordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainsRecordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:domains/v2:DomainsRecord", id, state, "", opts...)
+}
+
 type domainsRecordArgs struct {
 	// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
 	Data *string `pulumi:"data"`

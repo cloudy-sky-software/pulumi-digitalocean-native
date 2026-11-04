@@ -174,6 +174,12 @@ class AppsValidateAppSpec(pulumi.CustomResource):
         __props__.__dict__["spec"] = None
         return AppsValidateAppSpec(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:apps/v2:AppsValidateAppSpec', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appCost")
     def app_cost(self) -> pulumi.Output[Optional[_builtins.int]]:

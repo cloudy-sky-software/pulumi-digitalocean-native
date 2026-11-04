@@ -66,6 +66,12 @@ func (ChangeKernelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*changeKernelState)(nil)).Elem()
 }
 
+// ChangeKernelExists checks whether an existing ChangeKernel resource with the given ID exists.
+func ChangeKernelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChangeKernelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:ChangeKernel", id, state, "", opts...)
+}
+
 type changeKernelArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

@@ -63,6 +63,12 @@ func (DatabasesRegionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesRegionState)(nil)).Elem()
 }
 
+// DatabasesRegionExists checks whether an existing DatabasesRegion resource with the given ID exists.
+func DatabasesRegionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesRegionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesRegion", id, state, "", opts...)
+}
+
 type databasesRegionArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string `pulumi:"databaseClusterUuid"`

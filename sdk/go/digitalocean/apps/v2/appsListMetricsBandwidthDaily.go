@@ -67,6 +67,12 @@ func (AppsListMetricsBandwidthDailyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsListMetricsBandwidthDailyState)(nil)).Elem()
 }
 
+// AppsListMetricsBandwidthDailyExists checks whether an existing AppsListMetricsBandwidthDaily resource with the given ID exists.
+func AppsListMetricsBandwidthDailyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsListMetricsBandwidthDailyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:apps/v2:AppsListMetricsBandwidthDaily", id, state, "", opts...)
+}
+
 type appsListMetricsBandwidthDailyArgs struct {
 	// A list of app IDs to query bandwidth metrics for.
 	AppIds []string `pulumi:"appIds"`

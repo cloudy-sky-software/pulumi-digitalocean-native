@@ -59,6 +59,12 @@ func (KubernetesRegistryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesRegistryState)(nil)).Elem()
 }
 
+// KubernetesRegistryExists checks whether an existing KubernetesRegistry resource with the given ID exists.
+func KubernetesRegistryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesRegistryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:kubernetes/v2:KubernetesRegistry", id, state, "", opts...)
+}
+
 type kubernetesRegistryArgs struct {
 	// An array containing the UUIDs of Kubernetes clusters.
 	ClusterUuids []string `pulumi:"clusterUuids"`

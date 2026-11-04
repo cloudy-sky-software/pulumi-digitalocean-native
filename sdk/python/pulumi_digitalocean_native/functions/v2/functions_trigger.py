@@ -249,6 +249,12 @@ class FunctionsTrigger(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         return FunctionsTrigger(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:functions/v2:FunctionsTrigger', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def function(self) -> pulumi.Output[_builtins.str]:

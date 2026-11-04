@@ -65,6 +65,12 @@ func (PowerOnState) ElementType() reflect.Type {
 	return reflect.TypeOf((*powerOnState)(nil)).Elem()
 }
 
+// PowerOnExists checks whether an existing PowerOn resource with the given ID exists.
+func PowerOnExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PowerOnState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:PowerOn", id, state, "", opts...)
+}
+
 type powerOnArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

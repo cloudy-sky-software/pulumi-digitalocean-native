@@ -73,6 +73,12 @@ func (DatabasesUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesUserState)(nil)).Elem()
 }
 
+// DatabasesUserExists checks whether an existing DatabasesUser resource with the given ID exists.
+func DatabasesUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesUser", id, state, "", opts...)
+}
+
 type databasesUserArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string        `pulumi:"databaseClusterUuid"`

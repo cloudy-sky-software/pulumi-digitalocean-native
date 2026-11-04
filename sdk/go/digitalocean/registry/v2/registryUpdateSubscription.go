@@ -60,6 +60,12 @@ func (RegistryUpdateSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryUpdateSubscriptionState)(nil)).Elem()
 }
 
+// RegistryUpdateSubscriptionExists checks whether an existing RegistryUpdateSubscription resource with the given ID exists.
+func RegistryUpdateSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryUpdateSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:registry/v2:RegistryUpdateSubscription", id, state, "", opts...)
+}
+
 type registryUpdateSubscriptionArgs struct {
 	// Query params to send with the API requests for this resource.
 	QueryParams *RegistryUpdateSubscriptionQueryParams `pulumi:"queryParams"`

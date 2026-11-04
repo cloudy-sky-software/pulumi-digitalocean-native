@@ -110,6 +110,12 @@ func (DatabasesClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesClusterState)(nil)).Elem()
 }
 
+// DatabasesClusterExists checks whether an existing DatabasesCluster resource with the given ID exists.
+func DatabasesClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesCluster", id, state, "", opts...)
+}
+
 type databasesClusterArgs struct {
 	BackupRestore *DatabaseBackup            `pulumi:"backupRestore"`
 	Connection    *DatabaseClusterConnection `pulumi:"connection"`

@@ -113,6 +113,12 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesClusterState)(nil)).Elem()
 }
 
+// KubernetesClusterExists checks whether an existing KubernetesCluster resource with the given ID exists.
+func KubernetesClusterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesClusterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:kubernetes/v2:KubernetesCluster", id, state, "", opts...)
+}
+
 type kubernetesClusterArgs struct {
 	// A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
 	AutoUpgrade *bool `pulumi:"autoUpgrade"`

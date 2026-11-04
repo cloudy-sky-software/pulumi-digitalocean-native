@@ -59,6 +59,12 @@ func (FirewallsRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallsRuleState)(nil)).Elem()
 }
 
+// FirewallsRuleExists checks whether an existing FirewallsRule resource with the given ID exists.
+func FirewallsRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallsRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:firewalls/v2:FirewallsRule", id, state, "", opts...)
+}
+
 type firewallsRuleArgs struct {
 	// A unique ID that can be used to identify and reference a firewall.
 	FirewallId    *string                          `pulumi:"firewallId"`

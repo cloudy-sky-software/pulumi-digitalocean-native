@@ -65,6 +65,12 @@ func (DisableBackupsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*disableBackupsState)(nil)).Elem()
 }
 
+// DisableBackupsExists checks whether an existing DisableBackups resource with the given ID exists.
+func DisableBackupsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DisableBackupsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:DisableBackups", id, state, "", opts...)
+}
+
 type disableBackupsArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

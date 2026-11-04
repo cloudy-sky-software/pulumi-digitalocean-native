@@ -70,6 +70,12 @@ func (ImagesCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imagesCustomState)(nil)).Elem()
 }
 
+// ImagesCustomExists checks whether an existing ImagesCustom resource with the given ID exists.
+func ImagesCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImagesCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:images/v2:ImagesCustom", id, state, "", opts...)
+}
+
 type imagesCustomArgs struct {
 	// An optional free-form text field to describe an image.
 	Description *string `pulumi:"description"`

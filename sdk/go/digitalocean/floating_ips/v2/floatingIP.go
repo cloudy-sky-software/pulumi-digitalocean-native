@@ -63,6 +63,12 @@ func (FloatingIPState) ElementType() reflect.Type {
 	return reflect.TypeOf((*floatingIPState)(nil)).Elem()
 }
 
+// FloatingIPExists checks whether an existing FloatingIP resource with the given ID exists.
+func FloatingIPExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FloatingIPState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:floating_ips/v2:FloatingIP", id, state, "", opts...)
+}
+
 type floatingIPArgs struct {
 	// The UUID of the project to which the floating IP will be assigned.
 	ProjectId *string `pulumi:"projectId"`

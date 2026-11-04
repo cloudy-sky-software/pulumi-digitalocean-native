@@ -66,6 +66,12 @@ func (RestoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restoreState)(nil)).Elem()
 }
 
+// RestoreExists checks whether an existing Restore resource with the given ID exists.
+func RestoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Restore", id, state, "", opts...)
+}
+
 type restoreArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`

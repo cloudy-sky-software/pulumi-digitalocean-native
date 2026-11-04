@@ -66,6 +66,12 @@ func (SnapshotState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snapshotState)(nil)).Elem()
 }
 
+// SnapshotExists checks whether an existing Snapshot resource with the given ID exists.
+func SnapshotExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnapshotState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Snapshot", id, state, "", opts...)
+}
+
 type snapshotArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
