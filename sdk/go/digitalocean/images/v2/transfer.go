@@ -78,6 +78,12 @@ func (TransferState) ElementType() reflect.Type {
 	return reflect.TypeOf((*transferState)(nil)).Elem()
 }
 
+// TransferExists checks whether an existing Transfer resource with the given ID exists.
+func TransferExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TransferState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:images/v2:Transfer", id, state, "", opts...)
+}
+
 type transferArgs struct {
 	// A unique number that can be used to identify and reference a specific image.
 	ImageId *string `pulumi:"imageId"`

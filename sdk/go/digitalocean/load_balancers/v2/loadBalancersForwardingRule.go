@@ -62,6 +62,12 @@ func (LoadBalancersForwardingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*loadBalancersForwardingRuleState)(nil)).Elem()
 }
 
+// LoadBalancersForwardingRuleExists checks whether an existing LoadBalancersForwardingRule resource with the given ID exists.
+func LoadBalancersForwardingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LoadBalancersForwardingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:load_balancers/v2:LoadBalancersForwardingRule", id, state, "", opts...)
+}
+
 type loadBalancersForwardingRuleArgs struct {
 	ForwardingRules []ForwardingRule `pulumi:"forwardingRules"`
 	// A unique identifier for a load balancer.

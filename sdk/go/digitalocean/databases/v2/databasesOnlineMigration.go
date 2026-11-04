@@ -64,6 +64,12 @@ func (DatabasesOnlineMigrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesOnlineMigrationState)(nil)).Elem()
 }
 
+// DatabasesOnlineMigrationExists checks whether an existing DatabasesOnlineMigration resource with the given ID exists.
+func DatabasesOnlineMigrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesOnlineMigrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesOnlineMigration", id, state, "", opts...)
+}
+
 type databasesOnlineMigrationArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string `pulumi:"databaseClusterUuid"`

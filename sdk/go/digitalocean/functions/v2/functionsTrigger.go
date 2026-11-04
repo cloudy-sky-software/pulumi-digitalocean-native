@@ -81,6 +81,12 @@ func (FunctionsTriggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionsTriggerState)(nil)).Elem()
 }
 
+// FunctionsTriggerExists checks whether an existing FunctionsTrigger resource with the given ID exists.
+func FunctionsTriggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionsTriggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:functions/v2:FunctionsTrigger", id, state, "", opts...)
+}
+
 type functionsTriggerArgs struct {
 	// Name of function(action) that exists in the given namespace.
 	Function string `pulumi:"function"`

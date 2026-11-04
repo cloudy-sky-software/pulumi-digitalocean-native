@@ -80,6 +80,12 @@ func (DatabasesConnectionPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesConnectionPoolState)(nil)).Elem()
 }
 
+// DatabasesConnectionPoolExists checks whether an existing DatabasesConnectionPool resource with the given ID exists.
+func DatabasesConnectionPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesConnectionPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesConnectionPool", id, state, "", opts...)
+}
+
 type databasesConnectionPoolArgs struct {
 	Connection *Connection `pulumi:"connection"`
 	// A unique identifier for a database cluster.

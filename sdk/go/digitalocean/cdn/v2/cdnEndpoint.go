@@ -75,6 +75,12 @@ func (CdnEndpointState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cdnEndpointState)(nil)).Elem()
 }
 
+// CdnEndpointExists checks whether an existing CdnEndpoint resource with the given ID exists.
+func CdnEndpointExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CdnEndpointState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:cdn/v2:CdnEndpoint", id, state, "", opts...)
+}
+
 type cdnEndpointArgs struct {
 	// The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
 	CertificateId *string `pulumi:"certificateId"`

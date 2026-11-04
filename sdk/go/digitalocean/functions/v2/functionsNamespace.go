@@ -69,6 +69,12 @@ func (FunctionsNamespaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionsNamespaceState)(nil)).Elem()
 }
 
+// FunctionsNamespaceExists checks whether an existing FunctionsNamespace resource with the given ID exists.
+func FunctionsNamespaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionsNamespaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:functions/v2:FunctionsNamespace", id, state, "", opts...)
+}
+
 type functionsNamespaceArgs struct {
 	// The namespace's unique name.
 	Label string `pulumi:"label"`

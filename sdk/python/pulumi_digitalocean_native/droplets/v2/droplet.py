@@ -431,6 +431,12 @@ class Droplet(pulumi.CustomResource):
         __props__.__dict__["with_droplet_agent"] = None
         return Droplet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:droplets/v2:Droplet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def backups(self) -> pulumi.Output[Optional[_builtins.bool]]:

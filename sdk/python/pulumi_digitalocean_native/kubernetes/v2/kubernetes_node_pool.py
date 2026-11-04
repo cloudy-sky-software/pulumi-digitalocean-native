@@ -351,6 +351,12 @@ class KubernetesNodePool(pulumi.CustomResource):
         __props__.__dict__["taints"] = None
         return KubernetesNodePool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:kubernetes/v2:KubernetesNodePool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoScale")
     def auto_scale(self) -> pulumi.Output[Optional[_builtins.bool]]:

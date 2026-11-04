@@ -58,6 +58,12 @@ func (ProjectsAssignResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectsAssignResourceState)(nil)).Elem()
 }
 
+// ProjectsAssignResourceExists checks whether an existing ProjectsAssignResource resource with the given ID exists.
+func ProjectsAssignResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectsAssignResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:projects/v2:ProjectsAssignResource", id, state, "", opts...)
+}
+
 type projectsAssignResourceArgs struct {
 	// A unique identifier for a project.
 	ProjectId *string `pulumi:"projectId"`

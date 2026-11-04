@@ -73,6 +73,12 @@ func (TagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagState)(nil)).Elem()
 }
 
+// TagExists checks whether an existing Tag resource with the given ID exists.
+func TagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:tags/v2:Tag", id, state, "", opts...)
+}
+
 type tagArgs struct {
 	// The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores.
 	// There is a limit of 255 characters per tag.

@@ -74,6 +74,12 @@ func (DetachState) ElementType() reflect.Type {
 	return reflect.TypeOf((*detachState)(nil)).Elem()
 }
 
+// DetachExists checks whether an existing Detach resource with the given ID exists.
+func DetachExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DetachState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:volumes/v2:Detach", id, state, "", opts...)
+}
+
 type detachArgs struct {
 	// The unique identifier for the Droplet the volume will be attached or detached from.
 	DropletId int `pulumi:"dropletId"`

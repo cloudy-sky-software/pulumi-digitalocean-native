@@ -230,6 +230,12 @@ class UptimeCheck(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         return UptimeCheck(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:uptime/v2:UptimeCheck', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def check(self) -> pulumi.Output[Optional['outputs.Check']]:

@@ -63,6 +63,12 @@ func (TagsAssignResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagsAssignResourceState)(nil)).Elem()
 }
 
+// TagsAssignResourceExists checks whether an existing TagsAssignResource resource with the given ID exists.
+func TagsAssignResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagsAssignResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:tags/v2:TagsAssignResource", id, state, "", opts...)
+}
+
 type tagsAssignResourceArgs struct {
 	// Query params to send with the API requests for this resource.
 	QueryParams *TagsAssignResourceQueryParams `pulumi:"queryParams"`

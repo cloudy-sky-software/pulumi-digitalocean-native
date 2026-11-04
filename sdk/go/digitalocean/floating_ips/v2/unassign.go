@@ -64,6 +64,12 @@ func (UnassignState) ElementType() reflect.Type {
 	return reflect.TypeOf((*unassignState)(nil)).Elem()
 }
 
+// UnassignExists checks whether an existing Unassign resource with the given ID exists.
+func UnassignExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UnassignState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:floating_ips/v2:Unassign", id, state, "", opts...)
+}
+
 type unassignArgs struct {
 	// A floating IP address.
 	FloatingIp *string `pulumi:"floatingIp"`

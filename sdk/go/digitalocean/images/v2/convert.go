@@ -75,6 +75,12 @@ func (ConvertState) ElementType() reflect.Type {
 	return reflect.TypeOf((*convertState)(nil)).Elem()
 }
 
+// ConvertExists checks whether an existing Convert resource with the given ID exists.
+func ConvertExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConvertState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:images/v2:Convert", id, state, "", opts...)
+}
+
 type convertArgs struct {
 	// A unique number that can be used to identify and reference a specific image.
 	ImageId *string `pulumi:"imageId"`

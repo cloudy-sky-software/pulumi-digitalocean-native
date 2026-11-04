@@ -58,6 +58,12 @@ func (KubernetesRecycleNodePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesRecycleNodePoolState)(nil)).Elem()
 }
 
+// KubernetesRecycleNodePoolExists checks whether an existing KubernetesRecycleNodePool resource with the given ID exists.
+func KubernetesRecycleNodePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesRecycleNodePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:kubernetes/v2:KubernetesRecycleNodePool", id, state, "", opts...)
+}
+
 type kubernetesRecycleNodePoolArgs struct {
 	// A unique ID that can be used to reference a Kubernetes cluster.
 	ClusterId *string `pulumi:"clusterId"`

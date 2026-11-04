@@ -60,6 +60,12 @@ func (AppsAssignAlertDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsAssignAlertDestinationState)(nil)).Elem()
 }
 
+// AppsAssignAlertDestinationExists checks whether an existing AppsAssignAlertDestination resource with the given ID exists.
+func AppsAssignAlertDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsAssignAlertDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:apps/v2:AppsAssignAlertDestination", id, state, "", opts...)
+}
+
 type appsAssignAlertDestinationArgs struct {
 	// The alert ID
 	AlertId *string `pulumi:"alertId"`

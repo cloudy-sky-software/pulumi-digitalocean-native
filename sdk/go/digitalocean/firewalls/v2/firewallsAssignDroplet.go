@@ -63,6 +63,12 @@ func (FirewallsAssignDropletState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallsAssignDropletState)(nil)).Elem()
 }
 
+// FirewallsAssignDropletExists checks whether an existing FirewallsAssignDroplet resource with the given ID exists.
+func FirewallsAssignDropletExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallsAssignDropletState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:firewalls/v2:FirewallsAssignDroplet", id, state, "", opts...)
+}
+
 type firewallsAssignDropletArgs struct {
 	// An array containing the IDs of the Droplets to be assigned to the firewall.
 	DropletIds []int `pulumi:"dropletIds"`

@@ -72,6 +72,12 @@ func (DatabasesMaintenanceWindowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesMaintenanceWindowState)(nil)).Elem()
 }
 
+// DatabasesMaintenanceWindowExists checks whether an existing DatabasesMaintenanceWindow resource with the given ID exists.
+func DatabasesMaintenanceWindowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesMaintenanceWindowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesMaintenanceWindow", id, state, "", opts...)
+}
+
 type databasesMaintenanceWindowArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string `pulumi:"databaseClusterUuid"`

@@ -67,6 +67,12 @@ func (KubernetesRunClusterLintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*kubernetesRunClusterLintState)(nil)).Elem()
 }
 
+// KubernetesRunClusterLintExists checks whether an existing KubernetesRunClusterLint resource with the given ID exists.
+func KubernetesRunClusterLintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KubernetesRunClusterLintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:kubernetes/v2:KubernetesRunClusterLint", id, state, "", opts...)
+}
+
 type kubernetesRunClusterLintArgs struct {
 	// A unique ID that can be used to reference a Kubernetes cluster.
 	ClusterId *string `pulumi:"clusterId"`

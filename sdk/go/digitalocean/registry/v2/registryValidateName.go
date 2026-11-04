@@ -59,6 +59,12 @@ func (RegistryValidateNameState) ElementType() reflect.Type {
 	return reflect.TypeOf((*registryValidateNameState)(nil)).Elem()
 }
 
+// RegistryValidateNameExists checks whether an existing RegistryValidateName resource with the given ID exists.
+func RegistryValidateNameExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RegistryValidateNameState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:registry/v2:RegistryValidateName", id, state, "", opts...)
+}
+
 type registryValidateNameArgs struct {
 	// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
 	Name *string `pulumi:"name"`

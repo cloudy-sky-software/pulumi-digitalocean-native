@@ -62,6 +62,12 @@ func (FirewallsTagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*firewallsTagState)(nil)).Elem()
 }
 
+// FirewallsTagExists checks whether an existing FirewallsTag resource with the given ID exists.
+func FirewallsTagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FirewallsTagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:firewalls/v2:FirewallsTag", id, state, "", opts...)
+}
+
 type firewallsTagArgs struct {
 	// A unique ID that can be used to identify and reference a firewall.
 	FirewallId *string `pulumi:"firewallId"`

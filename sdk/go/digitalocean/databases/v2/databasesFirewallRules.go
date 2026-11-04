@@ -58,6 +58,12 @@ func (DatabasesFirewallRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databasesFirewallRulesState)(nil)).Elem()
 }
 
+// DatabasesFirewallRulesExists checks whether an existing DatabasesFirewallRules resource with the given ID exists.
+func DatabasesFirewallRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabasesFirewallRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:databases/v2:DatabasesFirewallRules", id, state, "", opts...)
+}
+
 type databasesFirewallRulesArgs struct {
 	// A unique identifier for a database cluster.
 	DatabaseClusterUuid *string `pulumi:"databaseClusterUuid"`

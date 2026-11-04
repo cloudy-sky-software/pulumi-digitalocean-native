@@ -175,6 +175,12 @@ class Convert(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         return Convert(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'digitalocean-native:images/v2:Convert', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="completedAt")
     def completed_at(self) -> pulumi.Output[Optional[_builtins.str]]:

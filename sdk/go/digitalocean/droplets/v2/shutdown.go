@@ -65,6 +65,12 @@ func (ShutdownState) ElementType() reflect.Type {
 	return reflect.TypeOf((*shutdownState)(nil)).Elem()
 }
 
+// ShutdownExists checks whether an existing Shutdown resource with the given ID exists.
+func ShutdownExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ShutdownState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("digitalocean-native:droplets/v2:Shutdown", id, state, "", opts...)
+}
+
 type shutdownArgs struct {
 	// A unique identifier for a Droplet instance.
 	DropletId *string `pulumi:"dropletId"`
