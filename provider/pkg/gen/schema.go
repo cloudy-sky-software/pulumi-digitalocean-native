@@ -115,6 +115,11 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			// Similar to /v2/volumes/{volume_id}/actions which is more appropriate
 			// since it is by volume ID.
 			"/v2/volumes/actions",
+			// Path takes a policy file (YAML) to validate.
+			// application/yaml is not supported by
+			// pulschema.
+			"/v2/agents/sessions/policy/validate",
+			"/<upload_url>",
 		},
 		AllowedPluralResources: []string{"DatabasesFirewallRules"},
 
