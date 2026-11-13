@@ -143,6 +143,8 @@ github.com/cloudy-sky-software/pulschema v0.0.0-20261105192737-a3ef8c6030a0 h1:x
 github.com/cloudy-sky-software/pulschema v0.0.0-20261105192737-a3ef8c6030a0/go.mod h1:JSOG/qmb/Ol6VEXMYl40ykgt1gmDgwmXAMtYHMgKu3I=
 github.com/cloudy-sky-software/pulschema v0.0.0-20261108165744-f58e649c0c4d h1:lLq997BDoaLX1pv1qX9nCcMz/8L2HZ8H/sRsE2ukcjE=
 github.com/cloudy-sky-software/pulschema v0.0.0-20261108165744-f58e649c0c4d/go.mod h1:2s8rsVyyIMqYvMYURksliYsvh+dn25MQWWHZeoQ3m14=
+github.com/cloudy-sky-software/pulschema v0.0.0-20261112163646-bb8bd8ccd05e h1:aKO4Qljtw2Fz1FWWRXbVtWVwjL7eC1MkFxzkkVR1dlg=
+github.com/cloudy-sky-software/pulschema v0.0.0-20261112163646-bb8bd8ccd05e/go.mod h1:KxeCBOkw9EYSubPBiRk+zgVnzz1+0BkG9nzK8h1ZiRo=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261017235909-a350db44d543 h1:shvVw9QY+ntt0hFQ6NG72IbZxQEjOb3FDW0v9b7K5sI=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261017235909-a350db44d543/go.mod h1:Xaeh1YatlAwobO/+0RwPgsixAP207ILfNBDbMcFiqTU=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261102193444-5e7fc8af2bcb h1:xOuUhA23vpjeoW9eNokLZIdG8GMeDZPnlQq0nMcrlCg=
@@ -157,6 +159,8 @@ github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261107163034-9
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261107163034-98b0890fdf6a/go.mod h1:2P/vMB7yrgqIwGHcP4atqbh8tjcoQDdrdUj/xX1lv7o=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261109184124-28d3c3e2bd45 h1:eJ0UrxWFHfWO4g+iI0Ylfw5voUWEuftnypzMRIE0Wk8=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261109184124-28d3c3e2bd45/go.mod h1:E+cukdrqkSC7ToAZVYMbCzY/nkq+IrKriz5f5oFO3rI=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261113003417-56f54b31408b h1:0vT2dA+vX4HFJ8gJ4iFTPUaoz0OYT2chGPemIZyq76s=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261113003417-56f54b31408b/go.mod h1:BvGsrHBubOLQ0t3HqvaaUs22XVLHC0SFAqTIClGJTI4=
 github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2 h1:aBangftG7EVZoUb69Os8IaYg++6uMOdKK83QtkkvJik=
 github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2/go.mod h1:qwXFYgsP6T7XnJtbKlf1HP8AjxZZyzxMmc+Lq5GjlU4=
 github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=
@@ -312,6 +316,8 @@ github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/klauspost/compress v1.18.7 h1:aUyZsS4kH3QTKurYhAOwAHxllVPnOthb3vPfnF1Ehjw=
 github.com/klauspost/compress v1.18.7/go.mod h1:cwPg85FWrGar70rWktvGQj8/hthj3wpl0PGDogxkrSQ=
+github.com/klauspost/compress v1.20.2 h1:v5tiZvm1KGLyg5d5oXdXe3lsSPrbEUiKoXGia//I7Qo=
+github.com/klauspost/compress v1.20.2/go.mod h1:LUdAzn7YLVvxLpc7y3V1m40wESHTgc1422pwwBSKYuI=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
@@ -399,6 +405,8 @@ github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.114.2 h1:7GweJh+w/f
 github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.114.2/go.mod h1:hEMnRKGnXkT6S6Q+o7STPTSUlZCX/V41rlkqTLWSkcU=
 github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.117.0 h1:jlIMsGAn8ZzqLJKJ4G32m73oAx945UBCVMrgL7e4Dw4=
 github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.117.0/go.mod h1:g84QZQkfRpghbUFVGNlkFEmlmeZsqOUrVGMZZ9RcPdA=
+github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.118.0 h1:c64OMhqfyTeL/52jGLKI8k1NVBMKty3vNSAaInQ8+fk=
+github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.118.0/go.mod h1:O15OHiC2kUDbl9Dp+do+9WmV7xc+kUFIRP/yLnZvNaU=
 github.com/pulumi/pulumi/pkg/v3 v3.270.0 h1:eReuhd+Mp2TEyvC8nTTgw86DRDhUARGcRHYmew61tHE=
 github.com/pulumi/pulumi/pkg/v3 v3.270.0/go.mod h1:NwRln8Ew9+ZqPkpClgaJzRRlqLU9AMxsSjyKD4AE/AA=
 github.com/pulumi/pulumi/pkg/v3 v3.273.0 h1:88cHcZl03q44nk6U6sLdQIV4Q71uOsasBwcTMNKRHog=
@@ -407,6 +415,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.274.0 h1:ZMPzwTkBeQTmHsaYUJtujynFYZGbGspL+YHD
 github.com/pulumi/pulumi/pkg/v3 v3.274.0/go.mod h1:qxI4lfrXjK44vLSB9h1KvQtdlsgaqE0deNSJHmiCHWE=
 github.com/pulumi/pulumi/pkg/v3 v3.274.1 h1:XYyUwBMf1bCA0bnvL4MfgX96qr38ezcNnXXbXavw9Fo=
 github.com/pulumi/pulumi/pkg/v3 v3.274.1/go.mod h1:T327eCLS+r+Ln88woXQSr1Sbf621By+i/ehAhoITxdg=
+github.com/pulumi/pulumi/pkg/v3 v3.275.0 h1:jsMVePL7XYMkC0lzMk9+Sdx71Xm9kYvWQBayleqtF1U=
+github.com/pulumi/pulumi/pkg/v3 v3.275.0/go.mod h1:dbQFk40xoKlZRNcMyucUdYENQ6cMK4hzvo9tbjqzXxo=
 github.com/pulumi/pulumi/sdk/v3 v3.270.0 h1:qzqmv8CoZyZI9JT7yQTkgeu0fPFnjWl6421kwS+nwR4=
 github.com/pulumi/pulumi/sdk/v3 v3.270.0/go.mod h1:aUQk7DpZpqUsxLSUUWUCzIapJNb4+Smgh81ONxIdfCo=
 github.com/pulumi/pulumi/sdk/v3 v3.273.0 h1:sPgrrkrLBETzvEp381czqegfP2bLDReHxr3phogB1/Y=
@@ -415,6 +425,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.274.0 h1:fmXISTS5nm4xhxjUGkDEvIAVT0T1xdiVBGo6
 github.com/pulumi/pulumi/sdk/v3 v3.274.0/go.mod h1:OOGpSXKEdPGkwN/iXJf7x40KRLbjINKP5E3OiR0dtes=
 github.com/pulumi/pulumi/sdk/v3 v3.274.1 h1:Sy2OifRLCPVmFMDTkp18yRk/YviwhJuGZU6vfLwruPM=
 github.com/pulumi/pulumi/sdk/v3 v3.274.1/go.mod h1:n81QNitoy9C+GpT+Y2jJhDwWDOftXDRbLQOSlmOGgRc=
+github.com/pulumi/pulumi/sdk/v3 v3.275.0 h1:WPQ6zZG5vSRSu7HMMwV3Lk0aFjHnlr3guq3aXc60m9k=
+github.com/pulumi/pulumi/sdk/v3 v3.275.0/go.mod h1:WnPO90tGSd4h5BDTfK4BeDZ/b2Rsq7bhZ2yEcfvScEc=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
 github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
 github.com/rogpeppe/go-internal v1.16.0 h1:O9DK+vNMDVGLr2BeZqmpLeMjiMNkuXfcqntWbZV6S5g=
@@ -576,6 +588,8 @@ golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e/go.mod h1:RxMgew5VJxzue5/jJ
 golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.24.0 h1:iqiDrGoDgyuvAKrhLQthUEzU/R378N78gXbBjxed7oA=
 golang.org/x/sync v0.24.0/go.mod h1:sUUOizhqBxiL6pEWpqNLUiaJn1ShEbZ6BBqskPbjZm0=
+golang.org/x/sync v0.25.0 h1:dJnifr0nMV8/SBnBvdo4eSGGnrc3O4FFx6IqvtLcmRs=
+golang.org/x/sync v0.25.0/go.mod h1:sUUOizhqBxiL6pEWpqNLUiaJn1ShEbZ6BBqskPbjZm0=
 golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
@@ -591,6 +605,8 @@ golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
 golang.org/x/text v0.43.0 h1:1QivrlhwAsnMOcqgOdl9my7s9OyZl8O5/UGUTJVXoWc=
 golang.org/x/text v0.43.0/go.mod h1:hbSIYA/amXcRXTFSZqh8tWHEoqRvvbKPJ2uz/KU+a+s=
+golang.org/x/text v0.44.0 h1:YItdp/mQNGnsmrgpcdA5yQ3bnRxCfo/Tj/iByGW9GGo=
+golang.org/x/text v0.44.0/go.mod h1:S4FR1waQ9LbjQTls97SyRjDaUUVkaM+cXwwuG/G+MwY=
 golang.org/x/time v0.15.0 h1:bbrp8t3bGUeFOx08pvsMYRTCVSMk89u4tKbNOZbp88U=
 golang.org/x/time v0.15.0/go.mod h1:Y4YMaQmXwGQZoFaVFk4YpCt4FLQMYKZe9oeV/f4MSno=
 golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
