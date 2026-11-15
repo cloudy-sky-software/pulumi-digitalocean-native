@@ -2410,6 +2410,49 @@ func (o FirewallsTagQueryParamsPtrOutput) Delete() FirewallsTagDeleteQueryParams
 	}).(FirewallsTagDeleteQueryParamsPtrOutput)
 }
 
+type FirewallsTagTags struct {
+}
+
+// FirewallsTagTagsInput is an input type that accepts FirewallsTagTagsArgs and FirewallsTagTagsOutput values.
+// You can construct a concrete instance of `FirewallsTagTagsInput` via:
+//
+//	FirewallsTagTagsArgs{...}
+type FirewallsTagTagsInput interface {
+	pulumi.Input
+
+	ToFirewallsTagTagsOutput() FirewallsTagTagsOutput
+	ToFirewallsTagTagsOutputWithContext(context.Context) FirewallsTagTagsOutput
+}
+
+type FirewallsTagTagsArgs struct {
+}
+
+func (FirewallsTagTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallsTagTags)(nil)).Elem()
+}
+
+func (i FirewallsTagTagsArgs) ToFirewallsTagTagsOutput() FirewallsTagTagsOutput {
+	return i.ToFirewallsTagTagsOutputWithContext(context.Background())
+}
+
+func (i FirewallsTagTagsArgs) ToFirewallsTagTagsOutputWithContext(ctx context.Context) FirewallsTagTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallsTagTagsOutput)
+}
+
+type FirewallsTagTagsOutput struct{ *pulumi.OutputState }
+
+func (FirewallsTagTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallsTagTags)(nil)).Elem()
+}
+
+func (o FirewallsTagTagsOutput) ToFirewallsTagTagsOutput() FirewallsTagTagsOutput {
+	return o
+}
+
+func (o FirewallsTagTagsOutput) ToFirewallsTagTagsOutputWithContext(ctx context.Context) FirewallsTagTagsOutput {
+	return o
+}
+
 type GetFirewallProperties struct {
 	Firewall *FirewallType `pulumi:"firewall"`
 }
@@ -2945,49 +2988,6 @@ func (o PageLinksPagesPropertiesPtrOutput) Prev() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type Tags struct {
-}
-
-// TagsInput is an input type that accepts TagsArgs and TagsOutput values.
-// You can construct a concrete instance of `TagsInput` via:
-//
-//	TagsArgs{...}
-type TagsInput interface {
-	pulumi.Input
-
-	ToTagsOutput() TagsOutput
-	ToTagsOutputWithContext(context.Context) TagsOutput
-}
-
-type TagsArgs struct {
-}
-
-func (TagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tags)(nil)).Elem()
-}
-
-func (i TagsArgs) ToTagsOutput() TagsOutput {
-	return i.ToTagsOutputWithContext(context.Background())
-}
-
-func (i TagsArgs) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsOutput)
-}
-
-type TagsOutput struct{ *pulumi.OutputState }
-
-func (TagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tags)(nil)).Elem()
-}
-
-func (o TagsOutput) ToTagsOutput() TagsOutput {
-	return o
-}
-
-func (o TagsOutput) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
-	return o
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallCreateQueryParamsInput)(nil)).Elem(), FirewallCreateQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallCreateQueryParamsPtrInput)(nil)).Elem(), FirewallCreateQueryParamsArgs{})
@@ -3021,11 +3021,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallsTagDeleteQueryParamsPtrInput)(nil)).Elem(), FirewallsTagDeleteQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallsTagQueryParamsInput)(nil)).Elem(), FirewallsTagQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallsTagQueryParamsPtrInput)(nil)).Elem(), FirewallsTagQueryParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallsTagTagsInput)(nil)).Elem(), FirewallsTagTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallQueryParamsInput)(nil)).Elem(), GetFirewallQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallQueryParamsPtrInput)(nil)).Elem(), GetFirewallQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListFirewallsQueryParamsInput)(nil)).Elem(), ListFirewallsQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListFirewallsQueryParamsPtrInput)(nil)).Elem(), ListFirewallsQueryParamsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagsInput)(nil)).Elem(), TagsArgs{})
 	pulumi.RegisterOutputType(FirewallTypeOutput{})
 	pulumi.RegisterOutputType(FirewallTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallTypeArrayOutput{})
@@ -3061,6 +3061,7 @@ func init() {
 	pulumi.RegisterOutputType(FirewallsTagDeleteQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallsTagQueryParamsOutput{})
 	pulumi.RegisterOutputType(FirewallsTagQueryParamsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallsTagTagsOutput{})
 	pulumi.RegisterOutputType(GetFirewallQueryParamsOutput{})
 	pulumi.RegisterOutputType(GetFirewallQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(ListFirewallsQueryParamsOutput{})
@@ -3070,5 +3071,4 @@ func init() {
 	pulumi.RegisterOutputType(PageLinksPtrOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesOutput{})
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TagsOutput{})
 }

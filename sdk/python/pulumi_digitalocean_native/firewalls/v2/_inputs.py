@@ -48,12 +48,12 @@ __all__ = [
     'FirewallsTagDeleteQueryParamsArgsDict',
     'FirewallsTagQueryParamsArgs',
     'FirewallsTagQueryParamsArgsDict',
+    'FirewallsTagTagsArgs',
+    'FirewallsTagTagsArgsDict',
     'GetFirewallQueryParams',
     'GetFirewallQueryParamsDict',
     'ListFirewallsQueryParams',
     'ListFirewallsQueryParamsDict',
-    'TagsArgs',
-    'TagsArgsDict',
 ]
 
 class FirewallCreateQueryParamsArgsDict(TypedDict):
@@ -693,6 +693,15 @@ class FirewallsTagQueryParamsArgs:
         pulumi.set(self, "delete", value)
 
 
+class FirewallsTagTagsArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class FirewallsTagTagsArgs:
+    def __init__(__self__):
+        pass
+
+
 class GetFirewallQueryParamsDict(TypedDict):
     """
     Query params for the API request.
@@ -803,14 +812,5 @@ class ListFirewallsQueryParams:
     @per_page.setter
     def per_page(self, value: Optional[_builtins.int]):
         pulumi.set(self, "per_page", value)
-
-
-class TagsArgsDict(TypedDict):
-    pass
-
-@pulumi.input_type
-class TagsArgs:
-    def __init__(__self__):
-        pass
 
 

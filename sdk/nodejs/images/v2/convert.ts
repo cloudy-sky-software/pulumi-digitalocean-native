@@ -53,7 +53,7 @@ export class Convert extends pulumi.CustomResource {
      */
     declare public readonly queryParams: pulumi.Output<outputs.images.v2.ConvertQueryParams | undefined>;
     declare public /*out*/ readonly region: pulumi.Output<outputs.images.v2.Region | undefined>;
-    declare public /*out*/ readonly regionSlug: pulumi.Output<outputs.images.v2.RegionSlug | undefined>;
+    declare public /*out*/ readonly regionSlug: pulumi.Output<outputs.images.v2.ConvertRegionSlug | undefined>;
     /**
      * A unique identifier for the resource that the action is associated with.
      */

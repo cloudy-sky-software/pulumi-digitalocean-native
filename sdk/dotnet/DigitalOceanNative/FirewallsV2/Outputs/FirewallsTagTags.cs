@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using Pulumi.Serialization;
 using Pulumi;
 
-namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2.Outputs
+namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2.Outputs
 {
 
     [OutputType]
-    public sealed class RegionSlug
+    public sealed class FirewallsTagTags
     {
         [OutputConstructor]
-        private RegionSlug()
+        private FirewallsTagTags()
         {
         }
     }

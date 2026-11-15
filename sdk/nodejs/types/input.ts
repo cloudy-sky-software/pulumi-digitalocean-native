@@ -4662,6 +4662,9 @@ export namespace firewalls {
             delete?: pulumi.Input<inputs.firewalls.v2.FirewallsTagDeleteQueryParamsArgs | undefined>;
         }
 
+        export interface FirewallsTagTagsArgs {
+        }
+
         /**
          * Query params for the API request.
          */
@@ -4738,8 +4741,6 @@ export namespace firewalls {
             };
         }
 
-        export interface TagsArgs {
-        }
     }
 }
 
@@ -5368,6 +5369,7 @@ export namespace images {
              */
             create?: pulumi.Input<inputs.images.v2.TransferCreateQueryParamsArgs | undefined>;
         }
+
     }
 }
 

@@ -20,7 +20,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2
         public Output<string?> DeploymentId { get; private set; } = null!;
 
         [Output("error")]
-        public Output<Outputs.Error?> Error { get; private set; } = null!;
+        public Output<Outputs.AppsValidateRollbackError?> Error { get; private set; } = null!;
 
         /// <summary>
         /// Query params to send with the API requests for this resource.

@@ -15,8 +15,8 @@ type AppsValidateRollback struct {
 	pulumi.CustomResourceState
 
 	// The ID of the deployment to rollback to.
-	DeploymentId pulumi.StringPtrOutput `pulumi:"deploymentId"`
-	Error        ErrorPtrOutput         `pulumi:"error"`
+	DeploymentId pulumi.StringPtrOutput             `pulumi:"deploymentId"`
+	Error        AppsValidateRollbackErrorPtrOutput `pulumi:"error"`
 	// Query params to send with the API requests for this resource.
 	QueryParams AppsValidateRollbackQueryParamsPtrOutput `pulumi:"queryParams"`
 	// Whether to skip pinning the rollback deployment. If false, the rollback deployment will be pinned and any new deployments including Auto Deploy on Push hooks will be disabled until the rollback is either manually committed or reverted via the CommitAppRollback or RevertAppRollback endpoints respectively. If true, the rollback will be immediately committed and the app will remain unpinned.
@@ -137,8 +137,8 @@ func (o AppsValidateRollbackOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppsValidateRollback) pulumi.StringPtrOutput { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
-func (o AppsValidateRollbackOutput) Error() ErrorPtrOutput {
-	return o.ApplyT(func(v *AppsValidateRollback) ErrorPtrOutput { return v.Error }).(ErrorPtrOutput)
+func (o AppsValidateRollbackOutput) Error() AppsValidateRollbackErrorPtrOutput {
+	return o.ApplyT(func(v *AppsValidateRollback) AppsValidateRollbackErrorPtrOutput { return v.Error }).(AppsValidateRollbackErrorPtrOutput)
 }
 
 // Query params to send with the API requests for this resource.

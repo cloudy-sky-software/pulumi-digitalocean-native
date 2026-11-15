@@ -20,7 +20,7 @@ type Convert struct {
 	// Query params to send with the API requests for this resource.
 	QueryParams ConvertQueryParamsPtrOutput `pulumi:"queryParams"`
 	Region      RegionPtrOutput             `pulumi:"region"`
-	RegionSlug  RegionSlugPtrOutput         `pulumi:"regionSlug"`
+	RegionSlug  ConvertRegionSlugPtrOutput  `pulumi:"regionSlug"`
 	// A unique identifier for the resource that the action is associated with.
 	ResourceId pulumi.IntPtrOutput `pulumi:"resourceId"`
 	// The type of resource that the action is associated with.
@@ -151,8 +151,8 @@ func (o ConvertOutput) Region() RegionPtrOutput {
 	return o.ApplyT(func(v *Convert) RegionPtrOutput { return v.Region }).(RegionPtrOutput)
 }
 
-func (o ConvertOutput) RegionSlug() RegionSlugPtrOutput {
-	return o.ApplyT(func(v *Convert) RegionSlugPtrOutput { return v.RegionSlug }).(RegionSlugPtrOutput)
+func (o ConvertOutput) RegionSlug() ConvertRegionSlugPtrOutput {
+	return o.ApplyT(func(v *Convert) ConvertRegionSlugPtrOutput { return v.RegionSlug }).(ConvertRegionSlugPtrOutput)
 }
 
 // A unique identifier for the resource that the action is associated with.

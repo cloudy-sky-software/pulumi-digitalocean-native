@@ -1554,17 +1554,7 @@ export namespace apps {
             additionalParams?: {[key: string]: string};
         }
 
-        /**
-         * Query params for each of the operations of the resource.
-         */
-        export interface AppsValidateRollbackQueryParams {
-            /**
-             * Query params for the create operation.
-             */
-            create?: outputs.apps.v2.AppsValidateRollbackCreateQueryParams;
-        }
-
-        export interface Error {
+        export interface AppsValidateRollbackError {
             /**
              * A code identifier that represents the failing condition.
              *
@@ -1586,6 +1576,16 @@ export namespace apps {
              * A human-readable message describing the failing condition.
              */
             message?: string;
+        }
+
+        /**
+         * Query params for each of the operations of the resource.
+         */
+        export interface AppsValidateRollbackQueryParams {
+            /**
+             * Query params for the create operation.
+             */
+            create?: outputs.apps.v2.AppsValidateRollbackCreateQueryParams;
         }
 
         export interface MetaMeta {
@@ -4867,6 +4867,9 @@ export namespace firewalls {
             delete?: outputs.firewalls.v2.FirewallsTagDeleteQueryParams;
         }
 
+        export interface FirewallsTagTags {
+        }
+
         export interface MetaMeta {
             /**
              * Number of objects returned by the request.
@@ -4885,9 +4888,6 @@ export namespace firewalls {
             prev?: string;
         }
 
-        export interface Tags {
-        }
-
     }
 }
 
@@ -4902,10 +4902,6 @@ export namespace floating_ips {
              * A unique numeric ID that can be used to identify and reference an action.
              */
             id?: number;
-            /**
-             * The UUID of the project to which the reserved IP currently belongs.
-             */
-            projectId?: string;
             region?: outputs.floating_ips.v2.Region;
             regionSlug?: outputs.floating_ips.v2.ActionRegionSlug;
             /**
@@ -4958,6 +4954,52 @@ export namespace floating_ips {
         }
 
         export interface ActionRegionSlug {
+        }
+
+        export interface AssignAction {
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was completed.
+             */
+            completedAt?: string;
+            /**
+             * A unique numeric ID that can be used to identify and reference an action.
+             */
+            id?: number;
+            /**
+             * The UUID of the project to which the reserved IP currently belongs.
+             */
+            projectId?: string;
+            region?: outputs.floating_ips.v2.Region;
+            regionSlug?: outputs.floating_ips.v2.ActionRegionSlug;
+            /**
+             * A unique identifier for the resource that the action is associated with.
+             */
+            resourceId?: number;
+            /**
+             * The type of resource that the action is associated with.
+             */
+            resourceType?: string;
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+             */
+            startedAt?: string;
+            /**
+             * The current status of the action. This can be "in-progress", "completed", or "errored".
+             */
+            status?: enums.floating_ips.v2.ActionStatus;
+            /**
+             * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+             */
+            type?: string;
+        }
+        /**
+         * assignActionProvideDefaults sets the appropriate defaults for AssignAction
+         */
+        export function assignActionProvideDefaults(val: AssignAction): AssignAction {
+            return {
+                ...val,
+                status: (val.status) ?? "in-progress",
+            };
         }
 
         /**
@@ -5462,6 +5504,52 @@ export namespace floating_ips {
             };
         }
 
+        export interface UnassignAction {
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was completed.
+             */
+            completedAt?: string;
+            /**
+             * A unique numeric ID that can be used to identify and reference an action.
+             */
+            id?: number;
+            /**
+             * The UUID of the project to which the reserved IP currently belongs.
+             */
+            projectId?: string;
+            region?: outputs.floating_ips.v2.Region;
+            regionSlug?: outputs.floating_ips.v2.ActionRegionSlug;
+            /**
+             * A unique identifier for the resource that the action is associated with.
+             */
+            resourceId?: number;
+            /**
+             * The type of resource that the action is associated with.
+             */
+            resourceType?: string;
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+             */
+            startedAt?: string;
+            /**
+             * The current status of the action. This can be "in-progress", "completed", or "errored".
+             */
+            status?: enums.floating_ips.v2.ActionStatus;
+            /**
+             * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+             */
+            type?: string;
+        }
+        /**
+         * unassignActionProvideDefaults sets the appropriate defaults for UnassignAction
+         */
+        export function unassignActionProvideDefaults(val: UnassignAction): UnassignAction {
+            return {
+                ...val,
+                status: (val.status) ?? "in-progress",
+            };
+        }
+
         /**
          * Query params for the API request.
          */
@@ -5771,6 +5859,9 @@ export namespace images {
             create?: outputs.images.v2.ConvertCreateQueryParams;
         }
 
+        export interface ConvertRegionSlug {
+        }
+
         export interface Image {
             /**
              * A time value given in ISO8601 combined date and time format that represents when the image was created.
@@ -5893,9 +5984,6 @@ export namespace images {
             slug: string;
         }
 
-        export interface RegionSlug {
-        }
-
         /**
          * Query params for the API request.
          */
@@ -5914,6 +6002,9 @@ export namespace images {
              * Query params for the create operation.
              */
             create?: outputs.images.v2.TransferCreateQueryParams;
+        }
+
+        export interface TransferRegionSlug {
         }
 
     }
@@ -7766,10 +7857,6 @@ export namespace reserved_ips {
              * A unique numeric ID that can be used to identify and reference an action.
              */
             id?: number;
-            /**
-             * The UUID of the project to which the reserved IP currently belongs.
-             */
-            projectId?: string;
             region?: outputs.reserved_ips.v2.Region;
             regionSlug?: outputs.reserved_ips.v2.ActionRegionSlug;
             /**
@@ -7822,6 +7909,52 @@ export namespace reserved_ips {
         }
 
         export interface ActionRegionSlug {
+        }
+
+        export interface AssignAction {
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was completed.
+             */
+            completedAt?: string;
+            /**
+             * A unique numeric ID that can be used to identify and reference an action.
+             */
+            id?: number;
+            /**
+             * The UUID of the project to which the reserved IP currently belongs.
+             */
+            projectId?: string;
+            region?: outputs.reserved_ips.v2.Region;
+            regionSlug?: outputs.reserved_ips.v2.ActionRegionSlug;
+            /**
+             * A unique identifier for the resource that the action is associated with.
+             */
+            resourceId?: number;
+            /**
+             * The type of resource that the action is associated with.
+             */
+            resourceType?: string;
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+             */
+            startedAt?: string;
+            /**
+             * The current status of the action. This can be "in-progress", "completed", or "errored".
+             */
+            status?: enums.reserved_ips.v2.ActionStatus;
+            /**
+             * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+             */
+            type?: string;
+        }
+        /**
+         * assignActionProvideDefaults sets the appropriate defaults for AssignAction
+         */
+        export function assignActionProvideDefaults(val: AssignAction): AssignAction {
+            return {
+                ...val,
+                status: (val.status) ?? "in-progress",
+            };
         }
 
         /**
@@ -8323,6 +8456,52 @@ export namespace reserved_ips {
             return {
                 ...val,
                 available: (val.available) ?? true,
+            };
+        }
+
+        export interface UnassignAction {
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was completed.
+             */
+            completedAt?: string;
+            /**
+             * A unique numeric ID that can be used to identify and reference an action.
+             */
+            id?: number;
+            /**
+             * The UUID of the project to which the reserved IP currently belongs.
+             */
+            projectId?: string;
+            region?: outputs.reserved_ips.v2.Region;
+            regionSlug?: outputs.reserved_ips.v2.ActionRegionSlug;
+            /**
+             * A unique identifier for the resource that the action is associated with.
+             */
+            resourceId?: number;
+            /**
+             * The type of resource that the action is associated with.
+             */
+            resourceType?: string;
+            /**
+             * A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+             */
+            startedAt?: string;
+            /**
+             * The current status of the action. This can be "in-progress", "completed", or "errored".
+             */
+            status?: enums.reserved_ips.v2.ActionStatus;
+            /**
+             * This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+             */
+            type?: string;
+        }
+        /**
+         * unassignActionProvideDefaults sets the appropriate defaults for UnassignAction
+         */
+        export function unassignActionProvideDefaults(val: UnassignAction): UnassignAction {
+            return {
+                ...val,
+                status: (val.status) ?? "in-progress",
             };
         }
 

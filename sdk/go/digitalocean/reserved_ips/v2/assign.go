@@ -15,7 +15,7 @@ import (
 type Assign struct {
 	pulumi.CustomResourceState
 
-	Action ActionPtrOutput `pulumi:"action"`
+	Action AssignActionPtrOutput `pulumi:"action"`
 	// The ID of the Droplet that the reserved IP will be assigned to.
 	DropletId pulumi.IntPtrOutput `pulumi:"dropletId"`
 	// Query params to send with the API requests for this resource.
@@ -135,8 +135,8 @@ func (o AssignOutput) ToAssignOutputWithContext(ctx context.Context) AssignOutpu
 	return o
 }
 
-func (o AssignOutput) Action() ActionPtrOutput {
-	return o.ApplyT(func(v *Assign) ActionPtrOutput { return v.Action }).(ActionPtrOutput)
+func (o AssignOutput) Action() AssignActionPtrOutput {
+	return o.ApplyT(func(v *Assign) AssignActionPtrOutput { return v.Action }).(AssignActionPtrOutput)
 }
 
 // The ID of the Droplet that the reserved IP will be assigned to.

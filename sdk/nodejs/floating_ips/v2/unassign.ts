@@ -44,7 +44,7 @@ export class Unassign extends pulumi.CustomResource {
         return obj['__pulumiType'] === Unassign.__pulumiType;
     }
 
-    declare public /*out*/ readonly action: pulumi.Output<outputs.floating_ips.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.floating_ips.v2.UnassignAction | undefined>;
     /**
      * Query params to send with the API requests for this resource.
      */

@@ -44,7 +44,7 @@ export class Assign extends pulumi.CustomResource {
         return obj['__pulumiType'] === Assign.__pulumiType;
     }
 
-    declare public /*out*/ readonly action: pulumi.Output<outputs.reserved_ips.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.reserved_ips.v2.AssignAction | undefined>;
     /**
      * The ID of the Droplet that the reserved IP will be assigned to.
      */

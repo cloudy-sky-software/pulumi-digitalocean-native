@@ -443,6 +443,47 @@ func (o ConvertQueryParamsPtrOutput) Create() ConvertCreateQueryParamsPtrOutput 
 	}).(ConvertCreateQueryParamsPtrOutput)
 }
 
+type ConvertRegionSlug struct {
+}
+
+type ConvertRegionSlugOutput struct{ *pulumi.OutputState }
+
+func (ConvertRegionSlugOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConvertRegionSlug)(nil)).Elem()
+}
+
+func (o ConvertRegionSlugOutput) ToConvertRegionSlugOutput() ConvertRegionSlugOutput {
+	return o
+}
+
+func (o ConvertRegionSlugOutput) ToConvertRegionSlugOutputWithContext(ctx context.Context) ConvertRegionSlugOutput {
+	return o
+}
+
+type ConvertRegionSlugPtrOutput struct{ *pulumi.OutputState }
+
+func (ConvertRegionSlugPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConvertRegionSlug)(nil)).Elem()
+}
+
+func (o ConvertRegionSlugPtrOutput) ToConvertRegionSlugPtrOutput() ConvertRegionSlugPtrOutput {
+	return o
+}
+
+func (o ConvertRegionSlugPtrOutput) ToConvertRegionSlugPtrOutputWithContext(ctx context.Context) ConvertRegionSlugPtrOutput {
+	return o
+}
+
+func (o ConvertRegionSlugPtrOutput) Elem() ConvertRegionSlugOutput {
+	return o.ApplyT(func(v *ConvertRegionSlug) ConvertRegionSlug {
+		if v != nil {
+			return *v
+		}
+		var ret ConvertRegionSlug
+		return ret
+	}).(ConvertRegionSlugOutput)
+}
+
 // Query params for the API request.
 type GetImageActionQueryParams struct {
 	// Additional query params to send with the request that are not defined in the API spec.
@@ -2036,47 +2077,6 @@ func (o RegionPtrOutput) Slug() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type RegionSlug struct {
-}
-
-type RegionSlugOutput struct{ *pulumi.OutputState }
-
-func (RegionSlugOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegionSlug)(nil)).Elem()
-}
-
-func (o RegionSlugOutput) ToRegionSlugOutput() RegionSlugOutput {
-	return o
-}
-
-func (o RegionSlugOutput) ToRegionSlugOutputWithContext(ctx context.Context) RegionSlugOutput {
-	return o
-}
-
-type RegionSlugPtrOutput struct{ *pulumi.OutputState }
-
-func (RegionSlugPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegionSlug)(nil)).Elem()
-}
-
-func (o RegionSlugPtrOutput) ToRegionSlugPtrOutput() RegionSlugPtrOutput {
-	return o
-}
-
-func (o RegionSlugPtrOutput) ToRegionSlugPtrOutputWithContext(ctx context.Context) RegionSlugPtrOutput {
-	return o
-}
-
-func (o RegionSlugPtrOutput) Elem() RegionSlugOutput {
-	return o.ApplyT(func(v *RegionSlug) RegionSlug {
-		if v != nil {
-			return *v
-		}
-		var ret RegionSlug
-		return ret
-	}).(RegionSlugOutput)
-}
-
 // Query params for the API request.
 type TransferCreateQueryParams struct {
 	// Additional query params to send with the request that are not defined in the API spec.
@@ -2357,6 +2357,47 @@ func (o TransferQueryParamsPtrOutput) Create() TransferCreateQueryParamsPtrOutpu
 	}).(TransferCreateQueryParamsPtrOutput)
 }
 
+type TransferRegionSlug struct {
+}
+
+type TransferRegionSlugOutput struct{ *pulumi.OutputState }
+
+func (TransferRegionSlugOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferRegionSlug)(nil)).Elem()
+}
+
+func (o TransferRegionSlugOutput) ToTransferRegionSlugOutput() TransferRegionSlugOutput {
+	return o
+}
+
+func (o TransferRegionSlugOutput) ToTransferRegionSlugOutputWithContext(ctx context.Context) TransferRegionSlugOutput {
+	return o
+}
+
+type TransferRegionSlugPtrOutput struct{ *pulumi.OutputState }
+
+func (TransferRegionSlugPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferRegionSlug)(nil)).Elem()
+}
+
+func (o TransferRegionSlugPtrOutput) ToTransferRegionSlugPtrOutput() TransferRegionSlugPtrOutput {
+	return o
+}
+
+func (o TransferRegionSlugPtrOutput) ToTransferRegionSlugPtrOutputWithContext(ctx context.Context) TransferRegionSlugPtrOutput {
+	return o
+}
+
+func (o TransferRegionSlugPtrOutput) Elem() TransferRegionSlugOutput {
+	return o.ApplyT(func(v *TransferRegionSlug) TransferRegionSlug {
+		if v != nil {
+			return *v
+		}
+		var ret TransferRegionSlug
+		return ret
+	}).(TransferRegionSlugOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConvertCreateQueryParamsInput)(nil)).Elem(), ConvertCreateQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConvertCreateQueryParamsPtrInput)(nil)).Elem(), ConvertCreateQueryParamsArgs{})
@@ -2386,6 +2427,8 @@ func init() {
 	pulumi.RegisterOutputType(ConvertCreateQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(ConvertQueryParamsOutput{})
 	pulumi.RegisterOutputType(ConvertQueryParamsPtrOutput{})
+	pulumi.RegisterOutputType(ConvertRegionSlugOutput{})
+	pulumi.RegisterOutputType(ConvertRegionSlugPtrOutput{})
 	pulumi.RegisterOutputType(GetImageActionQueryParamsOutput{})
 	pulumi.RegisterOutputType(GetImageActionQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(GetImageQueryParamsOutput{})
@@ -2408,10 +2451,10 @@ func init() {
 	pulumi.RegisterOutputType(PageLinksPagesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegionOutput{})
 	pulumi.RegisterOutputType(RegionPtrOutput{})
-	pulumi.RegisterOutputType(RegionSlugOutput{})
-	pulumi.RegisterOutputType(RegionSlugPtrOutput{})
 	pulumi.RegisterOutputType(TransferCreateQueryParamsOutput{})
 	pulumi.RegisterOutputType(TransferCreateQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(TransferQueryParamsOutput{})
 	pulumi.RegisterOutputType(TransferQueryParamsPtrOutput{})
+	pulumi.RegisterOutputType(TransferRegionSlugOutput{})
+	pulumi.RegisterOutputType(TransferRegionSlugPtrOutput{})
 }

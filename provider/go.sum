@@ -147,6 +147,8 @@ github.com/cloudy-sky-software/pulschema v0.0.0-20261112163646-bb8bd8ccd05e h1:a
 github.com/cloudy-sky-software/pulschema v0.0.0-20261112163646-bb8bd8ccd05e/go.mod h1:KxeCBOkw9EYSubPBiRk+zgVnzz1+0BkG9nzK8h1ZiRo=
 github.com/cloudy-sky-software/pulschema v0.0.0-20261113012706-21740e4897a0 h1:LhTHm1CZ5cmqT4oKG2T44FOen+tPUTcI4ojDpSH1wQE=
 github.com/cloudy-sky-software/pulschema v0.0.0-20261113012706-21740e4897a0/go.mod h1:a2gQiSios47frdJxoF/XmCfMpWPYsHZWFd3Mldh6bWs=
+github.com/cloudy-sky-software/pulschema v0.0.0-20261114221026-a1890f54b98e h1:LvzTYOBQL8ihZbUAR+OPCE54lWrIPk97fxqCNt/Vo7Y=
+github.com/cloudy-sky-software/pulschema v0.0.0-20261114221026-a1890f54b98e/go.mod h1:a2gQiSios47frdJxoF/XmCfMpWPYsHZWFd3Mldh6bWs=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261017235909-a350db44d543 h1:shvVw9QY+ntt0hFQ6NG72IbZxQEjOb3FDW0v9b7K5sI=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261017235909-a350db44d543/go.mod h1:Xaeh1YatlAwobO/+0RwPgsixAP207ILfNBDbMcFiqTU=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261102193444-5e7fc8af2bcb h1:xOuUhA23vpjeoW9eNokLZIdG8GMeDZPnlQq0nMcrlCg=
@@ -165,6 +167,8 @@ github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261113003417-5
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261113003417-56f54b31408b/go.mod h1:BvGsrHBubOLQ0t3HqvaaUs22XVLHC0SFAqTIClGJTI4=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261113155742-386266845fdc h1:08fycICAqp20D8pFtGH/Lfo3teM2kfR8dV7EisyMXGE=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261113155742-386266845fdc/go.mod h1:7G6rUNo7S1/Na08ePIzy9iCM0zc2FhHiXj9gkfHTBoE=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261114235041-1d45c4437cd7 h1:OIK1zPqAF5cAHPuy4zk9NhCHKwjgkBhn4+q9GUpNOQg=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261114235041-1d45c4437cd7/go.mod h1:zBfzagEVaE1O+hQE8fymrX0tO40aACGdac/uIK0SHus=
 github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2 h1:aBangftG7EVZoUb69Os8IaYg++6uMOdKK83QtkkvJik=
 github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2/go.mod h1:qwXFYgsP6T7XnJtbKlf1HP8AjxZZyzxMmc+Lq5GjlU4=
 github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=

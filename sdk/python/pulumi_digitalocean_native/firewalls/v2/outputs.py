@@ -34,10 +34,10 @@ __all__ = [
     'FirewallsTagCreateQueryParams',
     'FirewallsTagDeleteQueryParams',
     'FirewallsTagQueryParams',
+    'FirewallsTagTags',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
-    'Tags',
 ]
 
 @pulumi.output_type
@@ -751,6 +751,12 @@ class FirewallsTagQueryParams(dict):
 
 
 @pulumi.output_type
+class FirewallsTagTags(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class MetaMeta(dict):
     def __init__(__self__, *,
                  total: Optional[_builtins.int] = None):
@@ -817,11 +823,5 @@ class PageLinksPagesProperties(dict):
     @pulumi.getter
     def prev(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "prev")
-
-
-@pulumi.output_type
-class Tags(dict):
-    def __init__(__self__):
-        pass
 
 

@@ -29,7 +29,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ImagesV2
         public Output<Outputs.Region?> Region { get; private set; } = null!;
 
         [Output("regionSlug")]
-        public Output<Outputs.RegionSlug?> RegionSlug { get; private set; } = null!;
+        public Output<Outputs.TransferRegionSlug?> RegionSlug { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the resource that the action is associated with.
