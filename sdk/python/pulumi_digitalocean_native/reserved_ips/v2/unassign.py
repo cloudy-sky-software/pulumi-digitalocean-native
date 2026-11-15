@@ -192,7 +192,7 @@ class Unassign(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> pulumi.Output[Optional['outputs.Action']]:
+    def action(self) -> pulumi.Output[Optional['outputs.UnassignAction']]:
         return pulumi.get(self, "action")
 
     @_builtins.property

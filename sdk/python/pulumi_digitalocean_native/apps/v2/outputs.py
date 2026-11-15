@@ -86,8 +86,8 @@ __all__ = [
     'AppsValidateAppSpecCreateQueryParams',
     'AppsValidateAppSpecQueryParams',
     'AppsValidateRollbackCreateQueryParams',
+    'AppsValidateRollbackError',
     'AppsValidateRollbackQueryParams',
-    'Error',
     'MetaMeta',
     'PageLinks',
     'PageLinksPagesProperties',
@@ -4963,31 +4963,7 @@ class AppsValidateRollbackCreateQueryParams(dict):
 
 
 @pulumi.output_type
-class AppsValidateRollbackQueryParams(dict):
-    """
-    Query params for each of the operations of the resource.
-    """
-    def __init__(__self__, *,
-                 create: Optional['outputs.AppsValidateRollbackCreateQueryParams'] = None):
-        """
-        Query params for each of the operations of the resource.
-
-        :param 'AppsValidateRollbackCreateQueryParams' create: Query params for the create operation.
-        """
-        if create is not None:
-            pulumi.set(__self__, "create", create)
-
-    @_builtins.property
-    @pulumi.getter
-    def create(self) -> Optional['outputs.AppsValidateRollbackCreateQueryParams']:
-        """
-        Query params for the create operation.
-        """
-        return pulumi.get(self, "create")
-
-
-@pulumi.output_type
-class Error(dict):
+class AppsValidateRollbackError(dict):
     def __init__(__self__, *,
                  code: Optional['AppRollbackValidationConditionCode'] = None,
                  components: Optional[Sequence[_builtins.str]] = None,
@@ -5047,6 +5023,30 @@ class Error(dict):
         A human-readable message describing the failing condition.
         """
         return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class AppsValidateRollbackQueryParams(dict):
+    """
+    Query params for each of the operations of the resource.
+    """
+    def __init__(__self__, *,
+                 create: Optional['outputs.AppsValidateRollbackCreateQueryParams'] = None):
+        """
+        Query params for each of the operations of the resource.
+
+        :param 'AppsValidateRollbackCreateQueryParams' create: Query params for the create operation.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional['outputs.AppsValidateRollbackCreateQueryParams']:
+        """
+        Query params for the create operation.
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type

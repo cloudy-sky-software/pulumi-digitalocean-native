@@ -14,7 +14,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
     public partial class Assign : global::Pulumi.CustomResource
     {
         [Output("action")]
-        public Output<Outputs.Action?> Action { get; private set; } = null!;
+        public Output<Outputs.AssignAction?> Action { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Droplet that the floating IP will be assigned to.

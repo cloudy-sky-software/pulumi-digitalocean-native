@@ -14,7 +14,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FloatingIpsV2
     public partial class Unassign : global::Pulumi.CustomResource
     {
         [Output("action")]
-        public Output<Outputs.Action?> Action { get; private set; } = null!;
+        public Output<Outputs.UnassignAction?> Action { get; private set; } = null!;
 
         /// <summary>
         /// Query params to send with the API requests for this resource.

@@ -44,7 +44,7 @@ export class Unassign extends pulumi.CustomResource {
         return obj['__pulumiType'] === Unassign.__pulumiType;
     }
 
-    declare public /*out*/ readonly action: pulumi.Output<outputs.reserved_ips.v2.Action | undefined>;
+    declare public /*out*/ readonly action: pulumi.Output<outputs.reserved_ips.v2.UnassignAction | undefined>;
     /**
      * The ID of the Droplet that the reserved IP will be unassigned from.
      */

@@ -10736,6 +10736,131 @@ func (o AppsValidateRollbackCreateQueryParamsPtrOutput) AdditionalParams() pulum
 	}).(pulumi.StringMapOutput)
 }
 
+type AppsValidateRollbackError struct {
+	// A code identifier that represents the failing condition.
+	//
+	// Failing conditions:
+	//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
+	//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
+	//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
+	//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
+	//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
+	//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
+	//
+	// Warning conditions:
+	//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
+	//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
+	Code       *AppRollbackValidationConditionCode `pulumi:"code"`
+	Components []string                            `pulumi:"components"`
+	// A human-readable message describing the failing condition.
+	Message *string `pulumi:"message"`
+}
+
+type AppsValidateRollbackErrorOutput struct{ *pulumi.OutputState }
+
+func (AppsValidateRollbackErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppsValidateRollbackError)(nil)).Elem()
+}
+
+func (o AppsValidateRollbackErrorOutput) ToAppsValidateRollbackErrorOutput() AppsValidateRollbackErrorOutput {
+	return o
+}
+
+func (o AppsValidateRollbackErrorOutput) ToAppsValidateRollbackErrorOutputWithContext(ctx context.Context) AppsValidateRollbackErrorOutput {
+	return o
+}
+
+// A code identifier that represents the failing condition.
+//
+// Failing conditions:
+//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
+//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
+//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
+//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
+//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
+//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
+//
+// Warning conditions:
+//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
+//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
+func (o AppsValidateRollbackErrorOutput) Code() AppRollbackValidationConditionCodePtrOutput {
+	return o.ApplyT(func(v AppsValidateRollbackError) *AppRollbackValidationConditionCode { return v.Code }).(AppRollbackValidationConditionCodePtrOutput)
+}
+
+func (o AppsValidateRollbackErrorOutput) Components() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppsValidateRollbackError) []string { return v.Components }).(pulumi.StringArrayOutput)
+}
+
+// A human-readable message describing the failing condition.
+func (o AppsValidateRollbackErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppsValidateRollbackError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+type AppsValidateRollbackErrorPtrOutput struct{ *pulumi.OutputState }
+
+func (AppsValidateRollbackErrorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppsValidateRollbackError)(nil)).Elem()
+}
+
+func (o AppsValidateRollbackErrorPtrOutput) ToAppsValidateRollbackErrorPtrOutput() AppsValidateRollbackErrorPtrOutput {
+	return o
+}
+
+func (o AppsValidateRollbackErrorPtrOutput) ToAppsValidateRollbackErrorPtrOutputWithContext(ctx context.Context) AppsValidateRollbackErrorPtrOutput {
+	return o
+}
+
+func (o AppsValidateRollbackErrorPtrOutput) Elem() AppsValidateRollbackErrorOutput {
+	return o.ApplyT(func(v *AppsValidateRollbackError) AppsValidateRollbackError {
+		if v != nil {
+			return *v
+		}
+		var ret AppsValidateRollbackError
+		return ret
+	}).(AppsValidateRollbackErrorOutput)
+}
+
+// A code identifier that represents the failing condition.
+//
+// Failing conditions:
+//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
+//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
+//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
+//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
+//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
+//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
+//
+// Warning conditions:
+//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
+//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
+func (o AppsValidateRollbackErrorPtrOutput) Code() AppRollbackValidationConditionCodePtrOutput {
+	return o.ApplyT(func(v *AppsValidateRollbackError) *AppRollbackValidationConditionCode {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(AppRollbackValidationConditionCodePtrOutput)
+}
+
+func (o AppsValidateRollbackErrorPtrOutput) Components() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppsValidateRollbackError) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Components
+	}).(pulumi.StringArrayOutput)
+}
+
+// A human-readable message describing the failing condition.
+func (o AppsValidateRollbackErrorPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppsValidateRollbackError) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
 // Query params for each of the operations of the resource.
 type AppsValidateRollbackQueryParams struct {
 	// Query params for the create operation.
@@ -10874,131 +10999,6 @@ func (o AppsValidateRollbackQueryParamsPtrOutput) Create() AppsValidateRollbackC
 		}
 		return v.Create
 	}).(AppsValidateRollbackCreateQueryParamsPtrOutput)
-}
-
-type Error struct {
-	// A code identifier that represents the failing condition.
-	//
-	// Failing conditions:
-	//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
-	//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
-	//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
-	//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
-	//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
-	//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
-	//
-	// Warning conditions:
-	//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
-	//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-	Code       *AppRollbackValidationConditionCode `pulumi:"code"`
-	Components []string                            `pulumi:"components"`
-	// A human-readable message describing the failing condition.
-	Message *string `pulumi:"message"`
-}
-
-type ErrorOutput struct{ *pulumi.OutputState }
-
-func (ErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Error)(nil)).Elem()
-}
-
-func (o ErrorOutput) ToErrorOutput() ErrorOutput {
-	return o
-}
-
-func (o ErrorOutput) ToErrorOutputWithContext(ctx context.Context) ErrorOutput {
-	return o
-}
-
-// A code identifier that represents the failing condition.
-//
-// Failing conditions:
-//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
-//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
-//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
-//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
-//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
-//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
-//
-// Warning conditions:
-//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
-//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-func (o ErrorOutput) Code() AppRollbackValidationConditionCodePtrOutput {
-	return o.ApplyT(func(v Error) *AppRollbackValidationConditionCode { return v.Code }).(AppRollbackValidationConditionCodePtrOutput)
-}
-
-func (o ErrorOutput) Components() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Error) []string { return v.Components }).(pulumi.StringArrayOutput)
-}
-
-// A human-readable message describing the failing condition.
-func (o ErrorOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Error) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-type ErrorPtrOutput struct{ *pulumi.OutputState }
-
-func (ErrorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Error)(nil)).Elem()
-}
-
-func (o ErrorPtrOutput) ToErrorPtrOutput() ErrorPtrOutput {
-	return o
-}
-
-func (o ErrorPtrOutput) ToErrorPtrOutputWithContext(ctx context.Context) ErrorPtrOutput {
-	return o
-}
-
-func (o ErrorPtrOutput) Elem() ErrorOutput {
-	return o.ApplyT(func(v *Error) Error {
-		if v != nil {
-			return *v
-		}
-		var ret Error
-		return ret
-	}).(ErrorOutput)
-}
-
-// A code identifier that represents the failing condition.
-//
-// Failing conditions:
-//   - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback.
-//   - `incompatible_result` - indicates that the deployment's result is not suitable for rollback.
-//   - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier.
-//   - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned.
-//   - `database_config_conflict` - indicates that the deployment's database config is different than the current config.
-//   - `region_conflict` - indicates that the deployment's region differs from the current app region.
-//
-// Warning conditions:
-//   - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild.
-//   - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
-func (o ErrorPtrOutput) Code() AppRollbackValidationConditionCodePtrOutput {
-	return o.ApplyT(func(v *Error) *AppRollbackValidationConditionCode {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(AppRollbackValidationConditionCodePtrOutput)
-}
-
-func (o ErrorPtrOutput) Components() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Error) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Components
-	}).(pulumi.StringArrayOutput)
-}
-
-// A human-readable message describing the failing condition.
-func (o ErrorPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Error) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
 }
 
 // Query params for the API request.
@@ -13636,10 +13636,10 @@ func init() {
 	pulumi.RegisterOutputType(AppsValidateAppSpecQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(AppsValidateRollbackCreateQueryParamsOutput{})
 	pulumi.RegisterOutputType(AppsValidateRollbackCreateQueryParamsPtrOutput{})
+	pulumi.RegisterOutputType(AppsValidateRollbackErrorOutput{})
+	pulumi.RegisterOutputType(AppsValidateRollbackErrorPtrOutput{})
 	pulumi.RegisterOutputType(AppsValidateRollbackQueryParamsOutput{})
 	pulumi.RegisterOutputType(AppsValidateRollbackQueryParamsPtrOutput{})
-	pulumi.RegisterOutputType(ErrorOutput{})
-	pulumi.RegisterOutputType(ErrorPtrOutput{})
 	pulumi.RegisterOutputType(GetAppQueryParamsOutput{})
 	pulumi.RegisterOutputType(GetAppQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(GetAppsDeploymentQueryParamsOutput{})

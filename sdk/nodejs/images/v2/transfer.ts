@@ -53,7 +53,7 @@ export class Transfer extends pulumi.CustomResource {
      */
     declare public readonly queryParams: pulumi.Output<outputs.images.v2.TransferQueryParams | undefined>;
     declare public readonly region: pulumi.Output<outputs.images.v2.Region | undefined>;
-    declare public /*out*/ readonly regionSlug: pulumi.Output<outputs.images.v2.RegionSlug | undefined>;
+    declare public /*out*/ readonly regionSlug: pulumi.Output<outputs.images.v2.TransferRegionSlug | undefined>;
     /**
      * A unique identifier for the resource that the action is associated with.
      */

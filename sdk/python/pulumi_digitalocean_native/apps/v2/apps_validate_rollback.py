@@ -203,7 +203,7 @@ class AppsValidateRollback(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> pulumi.Output[Optional['outputs.Error']]:
+    def error(self) -> pulumi.Output[Optional['outputs.AppsValidateRollbackError']]:
         return pulumi.get(self, "error")
 
     @_builtins.property

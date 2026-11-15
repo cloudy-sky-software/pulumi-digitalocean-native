@@ -11,11 +11,11 @@ using Pulumi;
 namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2.Inputs
 {
 
-    public sealed class TagsArgs : global::Pulumi.ResourceArgs
+    public sealed class FirewallsTagTagsArgs : global::Pulumi.ResourceArgs
     {
-        public TagsArgs()
+        public FirewallsTagTagsArgs()
         {
         }
-        public static new TagsArgs Empty => new TagsArgs();
+        public static new FirewallsTagTagsArgs Empty => new FirewallsTagTagsArgs();
     }
 }

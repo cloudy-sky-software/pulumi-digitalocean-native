@@ -22,10 +22,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2.Outputs
         /// A unique numeric ID that can be used to identify and reference an action.
         /// </summary>
         public readonly int? Id;
-        /// <summary>
-        /// The UUID of the project to which the reserved IP currently belongs.
-        /// </summary>
-        public readonly string? ProjectId;
         public readonly Outputs.Region? Region;
         public readonly Outputs.ActionRegionSlug? RegionSlug;
         /// <summary>
@@ -55,8 +51,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2.Outputs
 
             int? id,
 
-            string? projectId,
-
             Outputs.Region? region,
 
             Outputs.ActionRegionSlug? regionSlug,
@@ -73,7 +67,6 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2.Outputs
         {
             CompletedAt = completedAt;
             Id = id;
-            ProjectId = projectId;
             Region = region;
             RegionSlug = regionSlug;
             ResourceId = resourceId;

@@ -20,6 +20,7 @@ __all__ = [
     'Action',
     'ActionLink',
     'ActionRegionSlug',
+    'AssignAction',
     'AssignCreateQueryParams',
     'AssignQueryParams',
     'Droplet',
@@ -42,12 +43,176 @@ __all__ = [
     'PageLinksPagesProperties',
     'Region',
     'Size',
+    'UnassignAction',
     'UnassignCreateQueryParams',
     'UnassignQueryParams',
 ]
 
 @pulumi.output_type
 class Action(dict):
+    def __init__(__self__, *,
+                 completed_at: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.int] = None,
+                 region: Optional['outputs.Region'] = None,
+                 region_slug: Optional['outputs.ActionRegionSlug'] = None,
+                 resource_id: Optional[_builtins.int] = None,
+                 resource_type: Optional[_builtins.str] = None,
+                 started_at: Optional[_builtins.str] = None,
+                 status: Optional['ActionStatus'] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str completed_at: A time value given in ISO8601 combined date and time format that represents when the action was completed.
+        :param _builtins.int id: A unique numeric ID that can be used to identify and reference an action.
+        :param _builtins.int resource_id: A unique identifier for the resource that the action is associated with.
+        :param _builtins.str resource_type: The type of resource that the action is associated with.
+        :param _builtins.str started_at: A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+        :param 'ActionStatus' status: The current status of the action. This can be "in-progress", "completed", or "errored".
+        :param _builtins.str type: This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+        """
+        if completed_at is not None:
+            pulumi.set(__self__, "completed_at", completed_at)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if region_slug is not None:
+            pulumi.set(__self__, "region_slug", region_slug)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if started_at is not None:
+            pulumi.set(__self__, "started_at", started_at)
+        if status is None:
+            status = 'in-progress'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="completedAt")
+    def completed_at(self) -> Optional[_builtins.str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the action was completed.
+        """
+        return pulumi.get(self, "completed_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        """
+        A unique numeric ID that can be used to identify and reference an action.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional['outputs.Region']:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="regionSlug")
+    def region_slug(self) -> Optional['outputs.ActionRegionSlug']:
+        return pulumi.get(self, "region_slug")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.int]:
+        """
+        A unique identifier for the resource that the action is associated with.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[_builtins.str]:
+        """
+        The type of resource that the action is associated with.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter(name="startedAt")
+    def started_at(self) -> Optional[_builtins.str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+        """
+        return pulumi.get(self, "started_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['ActionStatus']:
+        """
+        The current status of the action. This can be "in-progress", "completed", or "errored".
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ActionLink(dict):
+    """
+    The linked actions can be used to check the status of a Droplet's create event.
+    """
+    def __init__(__self__, *,
+                 href: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.int] = None,
+                 rel: Optional[_builtins.str] = None):
+        """
+        The linked actions can be used to check the status of a Droplet's create event.
+
+        :param _builtins.str href: A URL that can be used to access the action.
+        :param _builtins.int id: A unique numeric ID that can be used to identify and reference an action.
+        :param _builtins.str rel: A string specifying the type of the related action.
+        """
+        if href is not None:
+            pulumi.set(__self__, "href", href)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if rel is not None:
+            pulumi.set(__self__, "rel", rel)
+
+    @_builtins.property
+    @pulumi.getter
+    def href(self) -> Optional[_builtins.str]:
+        """
+        A URL that can be used to access the action.
+        """
+        return pulumi.get(self, "href")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        """
+        A unique numeric ID that can be used to identify and reference an action.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def rel(self) -> Optional[_builtins.str]:
+        """
+        A string specifying the type of the related action.
+        """
+        return pulumi.get(self, "rel")
+
+
+@pulumi.output_type
+class ActionRegionSlug(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class AssignAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -65,14 +230,14 @@ class Action(dict):
             suggest = "started_at"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Action. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssignAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        Action.__key_warning(key)
+        AssignAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        Action.__key_warning(key)
+        AssignAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -192,60 +357,6 @@ class Action(dict):
         This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ActionLink(dict):
-    """
-    The linked actions can be used to check the status of a Droplet's create event.
-    """
-    def __init__(__self__, *,
-                 href: Optional[_builtins.str] = None,
-                 id: Optional[_builtins.int] = None,
-                 rel: Optional[_builtins.str] = None):
-        """
-        The linked actions can be used to check the status of a Droplet's create event.
-
-        :param _builtins.str href: A URL that can be used to access the action.
-        :param _builtins.int id: A unique numeric ID that can be used to identify and reference an action.
-        :param _builtins.str rel: A string specifying the type of the related action.
-        """
-        if href is not None:
-            pulumi.set(__self__, "href", href)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if rel is not None:
-            pulumi.set(__self__, "rel", rel)
-
-    @_builtins.property
-    @pulumi.getter
-    def href(self) -> Optional[_builtins.str]:
-        """
-        A URL that can be used to access the action.
-        """
-        return pulumi.get(self, "href")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.int]:
-        """
-        A unique numeric ID that can be used to identify and reference an action.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
-    def rel(self) -> Optional[_builtins.str]:
-        """
-        A string specifying the type of the related action.
-        """
-        return pulumi.get(self, "rel")
-
-
-@pulumi.output_type
-class ActionRegionSlug(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -1776,6 +1887,154 @@ class Size(dict):
         The integer of number CPUs allocated to Droplets of this size.
         """
         return pulumi.get(self, "vcpus")
+
+
+@pulumi.output_type
+class UnassignAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completedAt":
+            suggest = "completed_at"
+        elif key == "projectId":
+            suggest = "project_id"
+        elif key == "regionSlug":
+            suggest = "region_slug"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "startedAt":
+            suggest = "started_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UnassignAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UnassignAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UnassignAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completed_at: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.int] = None,
+                 project_id: Optional[_builtins.str] = None,
+                 region: Optional['outputs.Region'] = None,
+                 region_slug: Optional['outputs.ActionRegionSlug'] = None,
+                 resource_id: Optional[_builtins.int] = None,
+                 resource_type: Optional[_builtins.str] = None,
+                 started_at: Optional[_builtins.str] = None,
+                 status: Optional['ActionStatus'] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str completed_at: A time value given in ISO8601 combined date and time format that represents when the action was completed.
+        :param _builtins.int id: A unique numeric ID that can be used to identify and reference an action.
+        :param _builtins.str project_id: The UUID of the project to which the reserved IP currently belongs.
+        :param _builtins.int resource_id: A unique identifier for the resource that the action is associated with.
+        :param _builtins.str resource_type: The type of resource that the action is associated with.
+        :param _builtins.str started_at: A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+        :param 'ActionStatus' status: The current status of the action. This can be "in-progress", "completed", or "errored".
+        :param _builtins.str type: This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+        """
+        if completed_at is not None:
+            pulumi.set(__self__, "completed_at", completed_at)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if region_slug is not None:
+            pulumi.set(__self__, "region_slug", region_slug)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if started_at is not None:
+            pulumi.set(__self__, "started_at", started_at)
+        if status is None:
+            status = 'in-progress'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="completedAt")
+    def completed_at(self) -> Optional[_builtins.str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the action was completed.
+        """
+        return pulumi.get(self, "completed_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.int]:
+        """
+        A unique numeric ID that can be used to identify and reference an action.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[_builtins.str]:
+        """
+        The UUID of the project to which the reserved IP currently belongs.
+        """
+        return pulumi.get(self, "project_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional['outputs.Region']:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="regionSlug")
+    def region_slug(self) -> Optional['outputs.ActionRegionSlug']:
+        return pulumi.get(self, "region_slug")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.int]:
+        """
+        A unique identifier for the resource that the action is associated with.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[_builtins.str]:
+        """
+        The type of resource that the action is associated with.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter(name="startedAt")
+    def started_at(self) -> Optional[_builtins.str]:
+        """
+        A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+        """
+        return pulumi.get(self, "started_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['ActionStatus']:
+        """
+        The current status of the action. This can be "in-progress", "completed", or "errored".
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
