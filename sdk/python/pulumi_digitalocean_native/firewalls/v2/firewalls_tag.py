@@ -21,7 +21,7 @@ __all__ = ['FirewallsTagArgs', 'FirewallsTag']
 @pulumi.input_type
 class FirewallsTagArgs:
     def __init__(__self__, *,
-                 tags: pulumi.Input['TagsArgs'],
+                 tags: pulumi.Input['FirewallsTagTagsArgs'],
                  firewall_id: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional['FirewallsTagQueryParamsArgs']] = None):
         """
@@ -38,11 +38,11 @@ class FirewallsTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input['TagsArgs']:
+    def tags(self) -> pulumi.Input['FirewallsTagTagsArgs']:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input['TagsArgs']):
+    def tags(self, value: pulumi.Input['FirewallsTagTagsArgs']):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
@@ -78,7 +78,7 @@ class FirewallsTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_id: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional[Union['FirewallsTagQueryParamsArgs', 'FirewallsTagQueryParamsArgsDict', 'outputs.FirewallsTagQueryParams']]] = None,
-                 tags: pulumi.Input[Optional[Union['TagsArgs', 'TagsArgsDict', 'outputs.Tags']]] = None,
+                 tags: pulumi.Input[Optional[Union['FirewallsTagTagsArgs', 'FirewallsTagTagsArgsDict', 'outputs.FirewallsTagTags']]] = None,
                  __props__=None):
         """
         Create a FirewallsTag resource with the given unique name, props, and options.
@@ -114,7 +114,7 @@ class FirewallsTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_id: pulumi.Input[Optional[_builtins.str]] = None,
                  query_params: pulumi.Input[Optional[Union['FirewallsTagQueryParamsArgs', 'FirewallsTagQueryParamsArgsDict', 'outputs.FirewallsTagQueryParams']]] = None,
-                 tags: pulumi.Input[Optional[Union['TagsArgs', 'TagsArgsDict', 'outputs.Tags']]] = None,
+                 tags: pulumi.Input[Optional[Union['FirewallsTagTagsArgs', 'FirewallsTagTagsArgsDict', 'outputs.FirewallsTagTags']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,6 +171,6 @@ class FirewallsTag(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Output['outputs.Tags']:
+    def tags(self) -> pulumi.Output['outputs.FirewallsTagTags']:
         return pulumi.get(self, "tags")
 

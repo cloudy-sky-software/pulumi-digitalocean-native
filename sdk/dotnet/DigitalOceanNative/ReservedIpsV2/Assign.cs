@@ -14,7 +14,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.ReservedIpsV2
     public partial class Assign : global::Pulumi.CustomResource
     {
         [Output("action")]
-        public Output<Outputs.Action?> Action { get; private set; } = null!;
+        public Output<Outputs.AssignAction?> Action { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Droplet that the reserved IP will be assigned to.

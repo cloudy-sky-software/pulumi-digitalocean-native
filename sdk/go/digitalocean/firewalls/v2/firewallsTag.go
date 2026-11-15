@@ -17,7 +17,7 @@ type FirewallsTag struct {
 
 	// Query params to send with the API requests for this resource.
 	QueryParams FirewallsTagQueryParamsPtrOutput `pulumi:"queryParams"`
-	Tags        TagsOutput                       `pulumi:"tags"`
+	Tags        FirewallsTagTagsOutput           `pulumi:"tags"`
 }
 
 // NewFirewallsTag registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ type firewallsTagArgs struct {
 	FirewallId *string `pulumi:"firewallId"`
 	// Query params to send with the API requests for this resource.
 	QueryParams *FirewallsTagQueryParams `pulumi:"queryParams"`
-	Tags        Tags                     `pulumi:"tags"`
+	Tags        FirewallsTagTags         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallsTag resource.
@@ -82,7 +82,7 @@ type FirewallsTagArgs struct {
 	FirewallId pulumi.StringPtrInput
 	// Query params to send with the API requests for this resource.
 	QueryParams FirewallsTagQueryParamsPtrInput
-	Tags        TagsInput
+	Tags        FirewallsTagTagsInput
 }
 
 func (FirewallsTagArgs) ElementType() reflect.Type {
@@ -127,8 +127,8 @@ func (o FirewallsTagOutput) QueryParams() FirewallsTagQueryParamsPtrOutput {
 	return o.ApplyT(func(v *FirewallsTag) FirewallsTagQueryParamsPtrOutput { return v.QueryParams }).(FirewallsTagQueryParamsPtrOutput)
 }
 
-func (o FirewallsTagOutput) Tags() TagsOutput {
-	return o.ApplyT(func(v *FirewallsTag) TagsOutput { return v.Tags }).(TagsOutput)
+func (o FirewallsTagOutput) Tags() FirewallsTagTagsOutput {
+	return o.ApplyT(func(v *FirewallsTag) FirewallsTagTagsOutput { return v.Tags }).(FirewallsTagTagsOutput)
 }
 
 func init() {

@@ -17,9 +17,7 @@ type Action struct {
 	// A time value given in ISO8601 combined date and time format that represents when the action was completed.
 	CompletedAt *string `pulumi:"completedAt"`
 	// A unique numeric ID that can be used to identify and reference an action.
-	Id *int `pulumi:"id"`
-	// The UUID of the project to which the reserved IP currently belongs.
-	ProjectId  *string           `pulumi:"projectId"`
+	Id         *int              `pulumi:"id"`
 	Region     *Region           `pulumi:"region"`
 	RegionSlug *ActionRegionSlug `pulumi:"regionSlug"`
 	// A unique identifier for the resource that the action is associated with.
@@ -71,11 +69,6 @@ func (o ActionOutput) Id() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Action) *int { return v.Id }).(pulumi.IntPtrOutput)
 }
 
-// The UUID of the project to which the reserved IP currently belongs.
-func (o ActionOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Action) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
-}
-
 func (o ActionOutput) Region() RegionPtrOutput {
 	return o.ApplyT(func(v Action) *Region { return v.Region }).(RegionPtrOutput)
 }
@@ -107,128 +100,6 @@ func (o ActionOutput) Status() ActionStatusPtrOutput {
 // This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
 func (o ActionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Action) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type ActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Action)(nil)).Elem()
-}
-
-func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action {
-		if v != nil {
-			return *v
-		}
-		var ret Action
-		return ret
-	}).(ActionOutput)
-}
-
-// A time value given in ISO8601 combined date and time format that represents when the action was completed.
-func (o ActionPtrOutput) CompletedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CompletedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// A unique numeric ID that can be used to identify and reference an action.
-func (o ActionPtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Action) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.IntPtrOutput)
-}
-
-// The UUID of the project to which the reserved IP currently belongs.
-func (o ActionPtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionPtrOutput) Region() RegionPtrOutput {
-	return o.ApplyT(func(v *Action) *Region {
-		if v == nil {
-			return nil
-		}
-		return v.Region
-	}).(RegionPtrOutput)
-}
-
-func (o ActionPtrOutput) RegionSlug() ActionRegionSlugPtrOutput {
-	return o.ApplyT(func(v *Action) *ActionRegionSlug {
-		if v == nil {
-			return nil
-		}
-		return v.RegionSlug
-	}).(ActionRegionSlugPtrOutput)
-}
-
-// A unique identifier for the resource that the action is associated with.
-func (o ActionPtrOutput) ResourceId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Action) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceId
-	}).(pulumi.IntPtrOutput)
-}
-
-// The type of resource that the action is associated with.
-func (o ActionPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
-func (o ActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current status of the action. This can be "in-progress", "completed", or "errored".
-func (o ActionPtrOutput) Status() ActionStatusPtrOutput {
-	return o.ApplyT(func(v *Action) *ActionStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(ActionStatusPtrOutput)
-}
-
-// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
-func (o ActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ActionArrayOutput struct{ *pulumi.OutputState }
@@ -350,6 +221,224 @@ func (o ActionRegionSlugPtrOutput) Elem() ActionRegionSlugOutput {
 		var ret ActionRegionSlug
 		return ret
 	}).(ActionRegionSlugOutput)
+}
+
+type AssignAction struct {
+	// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+	CompletedAt *string `pulumi:"completedAt"`
+	// A unique numeric ID that can be used to identify and reference an action.
+	Id *int `pulumi:"id"`
+	// The UUID of the project to which the reserved IP currently belongs.
+	ProjectId  *string           `pulumi:"projectId"`
+	Region     *Region           `pulumi:"region"`
+	RegionSlug *ActionRegionSlug `pulumi:"regionSlug"`
+	// A unique identifier for the resource that the action is associated with.
+	ResourceId *int `pulumi:"resourceId"`
+	// The type of resource that the action is associated with.
+	ResourceType *string `pulumi:"resourceType"`
+	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+	StartedAt *string `pulumi:"startedAt"`
+	// The current status of the action. This can be "in-progress", "completed", or "errored".
+	Status *ActionStatus `pulumi:"status"`
+	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+	Type *string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for AssignAction
+func (val *AssignAction) Defaults() *AssignAction {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.Status == nil {
+		status_ := ActionStatus("in-progress")
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+type AssignActionOutput struct{ *pulumi.OutputState }
+
+func (AssignActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignAction)(nil)).Elem()
+}
+
+func (o AssignActionOutput) ToAssignActionOutput() AssignActionOutput {
+	return o
+}
+
+func (o AssignActionOutput) ToAssignActionOutputWithContext(ctx context.Context) AssignActionOutput {
+	return o
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+func (o AssignActionOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignAction) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
+}
+
+// A unique numeric ID that can be used to identify and reference an action.
+func (o AssignActionOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssignAction) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// The UUID of the project to which the reserved IP currently belongs.
+func (o AssignActionOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignAction) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+func (o AssignActionOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v AssignAction) *Region { return v.Region }).(RegionPtrOutput)
+}
+
+func (o AssignActionOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v AssignAction) *ActionRegionSlug { return v.RegionSlug }).(ActionRegionSlugPtrOutput)
+}
+
+// A unique identifier for the resource that the action is associated with.
+func (o AssignActionOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssignAction) *int { return v.ResourceId }).(pulumi.IntPtrOutput)
+}
+
+// The type of resource that the action is associated with.
+func (o AssignActionOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignAction) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+func (o AssignActionOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignAction) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the action. This can be "in-progress", "completed", or "errored".
+func (o AssignActionOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v AssignAction) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
+}
+
+// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+func (o AssignActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AssignActionPtrOutput struct{ *pulumi.OutputState }
+
+func (AssignActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignAction)(nil)).Elem()
+}
+
+func (o AssignActionPtrOutput) ToAssignActionPtrOutput() AssignActionPtrOutput {
+	return o
+}
+
+func (o AssignActionPtrOutput) ToAssignActionPtrOutputWithContext(ctx context.Context) AssignActionPtrOutput {
+	return o
+}
+
+func (o AssignActionPtrOutput) Elem() AssignActionOutput {
+	return o.ApplyT(func(v *AssignAction) AssignAction {
+		if v != nil {
+			return *v
+		}
+		var ret AssignAction
+		return ret
+	}).(AssignActionOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+func (o AssignActionPtrOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompletedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique numeric ID that can be used to identify and reference an action.
+func (o AssignActionPtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.IntPtrOutput)
+}
+
+// The UUID of the project to which the reserved IP currently belongs.
+func (o AssignActionPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AssignActionPtrOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *Region {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(RegionPtrOutput)
+}
+
+func (o AssignActionPtrOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *ActionRegionSlug {
+		if v == nil {
+			return nil
+		}
+		return v.RegionSlug
+	}).(ActionRegionSlugPtrOutput)
+}
+
+// A unique identifier for the resource that the action is associated with.
+func (o AssignActionPtrOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of resource that the action is associated with.
+func (o AssignActionPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+func (o AssignActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the action. This can be "in-progress", "completed", or "errored".
+func (o AssignActionPtrOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *ActionStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(ActionStatusPtrOutput)
+}
+
+// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+func (o AssignActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // Query params for the API request.
@@ -4086,6 +4175,224 @@ func (o SizePtrOutput) Vcpus() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type UnassignAction struct {
+	// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+	CompletedAt *string `pulumi:"completedAt"`
+	// A unique numeric ID that can be used to identify and reference an action.
+	Id *int `pulumi:"id"`
+	// The UUID of the project to which the reserved IP currently belongs.
+	ProjectId  *string           `pulumi:"projectId"`
+	Region     *Region           `pulumi:"region"`
+	RegionSlug *ActionRegionSlug `pulumi:"regionSlug"`
+	// A unique identifier for the resource that the action is associated with.
+	ResourceId *int `pulumi:"resourceId"`
+	// The type of resource that the action is associated with.
+	ResourceType *string `pulumi:"resourceType"`
+	// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+	StartedAt *string `pulumi:"startedAt"`
+	// The current status of the action. This can be "in-progress", "completed", or "errored".
+	Status *ActionStatus `pulumi:"status"`
+	// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+	Type *string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for UnassignAction
+func (val *UnassignAction) Defaults() *UnassignAction {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.Status == nil {
+		status_ := ActionStatus("in-progress")
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+type UnassignActionOutput struct{ *pulumi.OutputState }
+
+func (UnassignActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnassignAction)(nil)).Elem()
+}
+
+func (o UnassignActionOutput) ToUnassignActionOutput() UnassignActionOutput {
+	return o
+}
+
+func (o UnassignActionOutput) ToUnassignActionOutputWithContext(ctx context.Context) UnassignActionOutput {
+	return o
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+func (o UnassignActionOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *string { return v.CompletedAt }).(pulumi.StringPtrOutput)
+}
+
+// A unique numeric ID that can be used to identify and reference an action.
+func (o UnassignActionOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// The UUID of the project to which the reserved IP currently belongs.
+func (o UnassignActionOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+func (o UnassignActionOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *Region { return v.Region }).(RegionPtrOutput)
+}
+
+func (o UnassignActionOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *ActionRegionSlug { return v.RegionSlug }).(ActionRegionSlugPtrOutput)
+}
+
+// A unique identifier for the resource that the action is associated with.
+func (o UnassignActionOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *int { return v.ResourceId }).(pulumi.IntPtrOutput)
+}
+
+// The type of resource that the action is associated with.
+func (o UnassignActionOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+func (o UnassignActionOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the action. This can be "in-progress", "completed", or "errored".
+func (o UnassignActionOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *ActionStatus { return v.Status }).(ActionStatusPtrOutput)
+}
+
+// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+func (o UnassignActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UnassignAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type UnassignActionPtrOutput struct{ *pulumi.OutputState }
+
+func (UnassignActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnassignAction)(nil)).Elem()
+}
+
+func (o UnassignActionPtrOutput) ToUnassignActionPtrOutput() UnassignActionPtrOutput {
+	return o
+}
+
+func (o UnassignActionPtrOutput) ToUnassignActionPtrOutputWithContext(ctx context.Context) UnassignActionPtrOutput {
+	return o
+}
+
+func (o UnassignActionPtrOutput) Elem() UnassignActionOutput {
+	return o.ApplyT(func(v *UnassignAction) UnassignAction {
+		if v != nil {
+			return *v
+		}
+		var ret UnassignAction
+		return ret
+	}).(UnassignActionOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was completed.
+func (o UnassignActionPtrOutput) CompletedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompletedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique numeric ID that can be used to identify and reference an action.
+func (o UnassignActionPtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.IntPtrOutput)
+}
+
+// The UUID of the project to which the reserved IP currently belongs.
+func (o UnassignActionPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UnassignActionPtrOutput) Region() RegionPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *Region {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(RegionPtrOutput)
+}
+
+func (o UnassignActionPtrOutput) RegionSlug() ActionRegionSlugPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *ActionRegionSlug {
+		if v == nil {
+			return nil
+		}
+		return v.RegionSlug
+	}).(ActionRegionSlugPtrOutput)
+}
+
+// A unique identifier for the resource that the action is associated with.
+func (o UnassignActionPtrOutput) ResourceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of resource that the action is associated with.
+func (o UnassignActionPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
+func (o UnassignActionPtrOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the action. This can be "in-progress", "completed", or "errored".
+func (o UnassignActionPtrOutput) Status() ActionStatusPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *ActionStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(ActionStatusPtrOutput)
+}
+
+// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
+func (o UnassignActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UnassignAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Query params for the API request.
 type UnassignCreateQueryParams struct {
 	// Additional query params to send with the request that are not defined in the API spec.
@@ -4392,12 +4699,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UnassignQueryParamsInput)(nil)).Elem(), UnassignQueryParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UnassignQueryParamsPtrInput)(nil)).Elem(), UnassignQueryParamsArgs{})
 	pulumi.RegisterOutputType(ActionOutput{})
-	pulumi.RegisterOutputType(ActionPtrOutput{})
 	pulumi.RegisterOutputType(ActionArrayOutput{})
 	pulumi.RegisterOutputType(ActionLinkOutput{})
 	pulumi.RegisterOutputType(ActionLinkArrayOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugOutput{})
 	pulumi.RegisterOutputType(ActionRegionSlugPtrOutput{})
+	pulumi.RegisterOutputType(AssignActionOutput{})
+	pulumi.RegisterOutputType(AssignActionPtrOutput{})
 	pulumi.RegisterOutputType(AssignCreateQueryParamsOutput{})
 	pulumi.RegisterOutputType(AssignCreateQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(AssignQueryParamsOutput{})
@@ -4450,6 +4758,8 @@ func init() {
 	pulumi.RegisterOutputType(RegionPtrOutput{})
 	pulumi.RegisterOutputType(SizeOutput{})
 	pulumi.RegisterOutputType(SizePtrOutput{})
+	pulumi.RegisterOutputType(UnassignActionOutput{})
+	pulumi.RegisterOutputType(UnassignActionPtrOutput{})
 	pulumi.RegisterOutputType(UnassignCreateQueryParamsOutput{})
 	pulumi.RegisterOutputType(UnassignCreateQueryParamsPtrOutput{})
 	pulumi.RegisterOutputType(UnassignQueryParamsOutput{})

@@ -2999,17 +2999,7 @@
             },
             "type": "object"
         },
-        "digitalocean-native:apps/v2:AppsValidateRollbackQueryParams": {
-            "description": "Query params for each of the operations of the resource.",
-            "properties": {
-                "create": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateRollbackCreateQueryParams",
-                    "description": "Query params for the create operation."
-                }
-            },
-            "type": "object"
-        },
-        "digitalocean-native:apps/v2:Error": {
+        "digitalocean-native:apps/v2:AppsValidateRollbackError": {
             "properties": {
                 "code": {
                     "$ref": "#/types/digitalocean-native:apps/v2:AppRollbackValidationConditionCode",
@@ -3024,6 +3014,16 @@
                 "message": {
                     "type": "string",
                     "description": "A human-readable message describing the failing condition."
+                }
+            },
+            "type": "object"
+        },
+        "digitalocean-native:apps/v2:AppsValidateRollbackQueryParams": {
+            "description": "Query params for each of the operations of the resource.",
+            "properties": {
+                "create": {
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateRollbackCreateQueryParams",
+                    "description": "Query params for the create operation."
                 }
             },
             "type": "object"
@@ -9763,6 +9763,9 @@
             },
             "type": "object"
         },
+        "digitalocean-native:firewalls/v2:FirewallsTagTags": {
+            "type": "object"
+        },
         "digitalocean-native:firewalls/v2:GetFirewallProperties": {
             "properties": {
                 "firewall": {
@@ -9866,9 +9869,6 @@
             },
             "type": "object"
         },
-        "digitalocean-native:firewalls/v2:Tags": {
-            "type": "object"
-        },
         "digitalocean-native:floating_ips/v2:Action": {
             "properties": {
                 "completedAt": {
@@ -9878,10 +9878,6 @@
                 "id": {
                     "type": "integer",
                     "description": "A unique numeric ID that can be used to identify and reference an action."
-                },
-                "projectId": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
                 },
                 "region": {
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:Region"
@@ -9951,6 +9947,50 @@
                     "value": "errored"
                 }
             ]
+        },
+        "digitalocean-native:floating_ips/v2:AssignAction": {
+            "properties": {
+                "completedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique numeric ID that can be used to identify and reference an action."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP currently belongs."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:Region"
+                },
+                "regionSlug": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ActionRegionSlug"
+                },
+                "resourceId": {
+                    "type": "integer",
+                    "description": "A unique identifier for the resource that the action is associated with."
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The type of resource that the action is associated with."
+                },
+                "startedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ActionStatus",
+                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+                    "default": "in-progress"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
+                }
+            },
+            "type": "object"
         },
         "digitalocean-native:floating_ips/v2:AssignCreateQueryParams": {
             "description": "Query params for the API request.",
@@ -10928,6 +10968,50 @@
                 "vcpus"
             ]
         },
+        "digitalocean-native:floating_ips/v2:UnassignAction": {
+            "properties": {
+                "completedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique numeric ID that can be used to identify and reference an action."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP currently belongs."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:Region"
+                },
+                "regionSlug": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ActionRegionSlug"
+                },
+                "resourceId": {
+                    "type": "integer",
+                    "description": "A unique identifier for the resource that the action is associated with."
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The type of resource that the action is associated with."
+                },
+                "startedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:ActionStatus",
+                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+                    "default": "in-progress"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
+                }
+            },
+            "type": "object"
+        },
         "digitalocean-native:floating_ips/v2:UnassignCreateQueryParams": {
             "description": "Query params for the API request.",
             "properties": {
@@ -11370,6 +11454,9 @@
                     "description": "Query params for the create operation."
                 }
             },
+            "type": "object"
+        },
+        "digitalocean-native:images/v2:ConvertRegionSlug": {
             "type": "object"
         },
         "digitalocean-native:images/v2:GetImageActionQueryParams": {
@@ -11989,9 +12076,6 @@
                 "slug"
             ]
         },
-        "digitalocean-native:images/v2:RegionSlug": {
-            "type": "object"
-        },
         "digitalocean-native:images/v2:Status": {
             "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
             "type": "string",
@@ -12093,6 +12177,9 @@
                     "description": "Query params for the create operation."
                 }
             },
+            "type": "object"
+        },
+        "digitalocean-native:images/v2:TransferRegionSlug": {
             "type": "object"
         },
         "digitalocean-native:images/v2:Type": {
@@ -16660,10 +16747,6 @@
                     "type": "integer",
                     "description": "A unique numeric ID that can be used to identify and reference an action."
                 },
-                "projectId": {
-                    "type": "string",
-                    "description": "The UUID of the project to which the reserved IP currently belongs."
-                },
                 "region": {
                     "$ref": "#/types/digitalocean-native:reserved_ips/v2:Region"
                 },
@@ -16732,6 +16815,50 @@
                     "value": "errored"
                 }
             ]
+        },
+        "digitalocean-native:reserved_ips/v2:AssignAction": {
+            "properties": {
+                "completedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique numeric ID that can be used to identify and reference an action."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP currently belongs."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:Region"
+                },
+                "regionSlug": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionRegionSlug"
+                },
+                "resourceId": {
+                    "type": "integer",
+                    "description": "A unique identifier for the resource that the action is associated with."
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The type of resource that the action is associated with."
+                },
+                "startedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionStatus",
+                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+                    "default": "in-progress"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
+                }
+            },
+            "type": "object"
         },
         "digitalocean-native:reserved_ips/v2:AssignCreateQueryParams": {
             "description": "Query params for the API request.",
@@ -17708,6 +17835,50 @@
                 "transfer",
                 "vcpus"
             ]
+        },
+        "digitalocean-native:reserved_ips/v2:UnassignAction": {
+            "properties": {
+                "completedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was completed."
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "A unique numeric ID that can be used to identify and reference an action."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The UUID of the project to which the reserved IP currently belongs."
+                },
+                "region": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:Region"
+                },
+                "regionSlug": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionRegionSlug"
+                },
+                "resourceId": {
+                    "type": "integer",
+                    "description": "A unique identifier for the resource that the action is associated with."
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The type of resource that the action is associated with."
+                },
+                "startedAt": {
+                    "type": "string",
+                    "description": "A time value given in ISO8601 combined date and time format that represents when the action was initiated."
+                },
+                "status": {
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:ActionStatus",
+                    "description": "The current status of the action. This can be \"in-progress\", \"completed\", or \"errored\".",
+                    "default": "in-progress"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "This is the type of action that the object represents. For example, this could be \"transfer\" to represent the state of an image transfer action."
+                }
+            },
+            "type": "object"
         },
         "digitalocean-native:reserved_ips/v2:UnassignCreateQueryParams": {
             "description": "Query params for the API request.",
@@ -20538,7 +20709,7 @@
                     "description": "The ID of the deployment to rollback to."
                 },
                 "error": {
-                    "$ref": "#/types/digitalocean-native:apps/v2:Error"
+                    "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateRollbackError"
                 },
                 "queryParams": {
                     "$ref": "#/types/digitalocean-native:apps/v2:AppsValidateRollbackQueryParams",
@@ -22680,7 +22851,7 @@
                     "description": "Query params to send with the API requests for this resource."
                 },
                 "tags": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:Tags"
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallsTagTags"
                 }
             },
             "type": "object",
@@ -22697,7 +22868,7 @@
                     "description": "Query params to send with the API requests for this resource."
                 },
                 "tags": {
-                    "$ref": "#/types/digitalocean-native:firewalls/v2:Tags"
+                    "$ref": "#/types/digitalocean-native:firewalls/v2:FirewallsTagTags"
                 }
             },
             "requiredInputs": [
@@ -22707,7 +22878,7 @@
         "digitalocean-native:floating_ips/v2:Assign": {
             "properties": {
                 "action": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:Action"
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:AssignAction"
                 },
                 "dropletId": {
                     "type": "integer",
@@ -22786,7 +22957,7 @@
         "digitalocean-native:floating_ips/v2:Unassign": {
             "properties": {
                 "action": {
-                    "$ref": "#/types/digitalocean-native:floating_ips/v2:Action"
+                    "$ref": "#/types/digitalocean-native:floating_ips/v2:UnassignAction"
                 },
                 "queryParams": {
                     "$ref": "#/types/digitalocean-native:floating_ips/v2:UnassignQueryParams",
@@ -22947,7 +23118,7 @@
                     "$ref": "#/types/digitalocean-native:images/v2:Region"
                 },
                 "regionSlug": {
-                    "$ref": "#/types/digitalocean-native:images/v2:RegionSlug"
+                    "$ref": "#/types/digitalocean-native:images/v2:ConvertRegionSlug"
                 },
                 "resourceId": {
                     "type": "integer",
@@ -23084,7 +23255,7 @@
                     "$ref": "#/types/digitalocean-native:images/v2:Region"
                 },
                 "regionSlug": {
-                    "$ref": "#/types/digitalocean-native:images/v2:RegionSlug"
+                    "$ref": "#/types/digitalocean-native:images/v2:TransferRegionSlug"
                 },
                 "resourceId": {
                     "type": "integer",
@@ -24379,7 +24550,7 @@
         "digitalocean-native:reserved_ips/v2:Assign": {
             "properties": {
                 "action": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:Action"
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:AssignAction"
                 },
                 "dropletId": {
                     "type": "integer",
@@ -24458,7 +24629,7 @@
         "digitalocean-native:reserved_ips/v2:Unassign": {
             "properties": {
                 "action": {
-                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:Action"
+                    "$ref": "#/types/digitalocean-native:reserved_ips/v2:UnassignAction"
                 },
                 "dropletId": {
                     "type": "integer",

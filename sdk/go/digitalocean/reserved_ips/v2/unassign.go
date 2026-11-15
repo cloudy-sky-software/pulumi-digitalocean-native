@@ -15,7 +15,7 @@ import (
 type Unassign struct {
 	pulumi.CustomResourceState
 
-	Action ActionPtrOutput `pulumi:"action"`
+	Action UnassignActionPtrOutput `pulumi:"action"`
 	// The ID of the Droplet that the reserved IP will be unassigned from.
 	DropletId pulumi.IntOutput `pulumi:"dropletId"`
 	// Query params to send with the API requests for this resource.
@@ -132,8 +132,8 @@ func (o UnassignOutput) ToUnassignOutputWithContext(ctx context.Context) Unassig
 	return o
 }
 
-func (o UnassignOutput) Action() ActionPtrOutput {
-	return o.ApplyT(func(v *Unassign) ActionPtrOutput { return v.Action }).(ActionPtrOutput)
+func (o UnassignOutput) Action() UnassignActionPtrOutput {
+	return o.ApplyT(func(v *Unassign) UnassignActionPtrOutput { return v.Action }).(UnassignActionPtrOutput)
 }
 
 // The ID of the Droplet that the reserved IP will be unassigned from.

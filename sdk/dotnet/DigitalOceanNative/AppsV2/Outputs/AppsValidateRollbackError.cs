@@ -12,7 +12,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2.Outputs
 {
 
     [OutputType]
-    public sealed class Error
+    public sealed class AppsValidateRollbackError
     {
         /// <summary>
         /// A code identifier that represents the failing condition.
@@ -37,7 +37,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2.Outputs
         public readonly string? Message;
 
         [OutputConstructor]
-        private Error(
+        private AppsValidateRollbackError(
             CloudySkySoftware.Pulumi.DigitalOceanNative.AppsV2.AppRollbackValidationConditionCode? code,
 
             ImmutableArray<string> components,

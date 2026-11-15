@@ -20,7 +20,7 @@ type Transfer struct {
 	// Query params to send with the API requests for this resource.
 	QueryParams TransferQueryParamsPtrOutput `pulumi:"queryParams"`
 	Region      RegionPtrOutput              `pulumi:"region"`
-	RegionSlug  RegionSlugPtrOutput          `pulumi:"regionSlug"`
+	RegionSlug  TransferRegionSlugPtrOutput  `pulumi:"regionSlug"`
 	// A unique identifier for the resource that the action is associated with.
 	ResourceId pulumi.IntPtrOutput `pulumi:"resourceId"`
 	// The type of resource that the action is associated with.
@@ -158,8 +158,8 @@ func (o TransferOutput) Region() RegionPtrOutput {
 	return o.ApplyT(func(v *Transfer) RegionPtrOutput { return v.Region }).(RegionPtrOutput)
 }
 
-func (o TransferOutput) RegionSlug() RegionSlugPtrOutput {
-	return o.ApplyT(func(v *Transfer) RegionSlugPtrOutput { return v.RegionSlug }).(RegionSlugPtrOutput)
+func (o TransferOutput) RegionSlug() TransferRegionSlugPtrOutput {
+	return o.ApplyT(func(v *Transfer) TransferRegionSlugPtrOutput { return v.RegionSlug }).(TransferRegionSlugPtrOutput)
 }
 
 // A unique identifier for the resource that the action is associated with.

@@ -48,7 +48,7 @@ export class FirewallsTag extends pulumi.CustomResource {
      * Query params to send with the API requests for this resource.
      */
     declare public readonly queryParams: pulumi.Output<outputs.firewalls.v2.FirewallsTagQueryParams | undefined>;
-    declare public readonly tags: pulumi.Output<outputs.firewalls.v2.Tags>;
+    declare public readonly tags: pulumi.Output<outputs.firewalls.v2.FirewallsTagTags>;
 
     /**
      * Create a FirewallsTag resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface FirewallsTagArgs {
      * Query params to send with the API requests for this resource.
      */
     queryParams?: pulumi.Input<inputs.firewalls.v2.FirewallsTagQueryParamsArgs | undefined>;
-    tags: pulumi.Input<inputs.firewalls.v2.TagsArgs>;
+    tags: pulumi.Input<inputs.firewalls.v2.FirewallsTagTagsArgs>;
 }

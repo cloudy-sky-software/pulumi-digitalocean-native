@@ -15,7 +15,7 @@ import (
 type Unassign struct {
 	pulumi.CustomResourceState
 
-	Action ActionPtrOutput `pulumi:"action"`
+	Action UnassignActionPtrOutput `pulumi:"action"`
 	// Query params to send with the API requests for this resource.
 	QueryParams UnassignQueryParamsPtrOutput `pulumi:"queryParams"`
 	// The type of action to initiate for the floating IP.
@@ -126,8 +126,8 @@ func (o UnassignOutput) ToUnassignOutputWithContext(ctx context.Context) Unassig
 	return o
 }
 
-func (o UnassignOutput) Action() ActionPtrOutput {
-	return o.ApplyT(func(v *Unassign) ActionPtrOutput { return v.Action }).(ActionPtrOutput)
+func (o UnassignOutput) Action() UnassignActionPtrOutput {
+	return o.ApplyT(func(v *Unassign) UnassignActionPtrOutput { return v.Action }).(UnassignActionPtrOutput)
 }
 
 // Query params to send with the API requests for this resource.

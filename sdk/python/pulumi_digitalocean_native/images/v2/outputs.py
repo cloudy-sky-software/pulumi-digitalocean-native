@@ -21,6 +21,7 @@ __all__ = [
     'ActionRegionSlug',
     'ConvertCreateQueryParams',
     'ConvertQueryParams',
+    'ConvertRegionSlug',
     'Image',
     'ImagesCustomCreateQueryParams',
     'ImagesCustomQueryParams',
@@ -28,9 +29,9 @@ __all__ = [
     'PageLinks',
     'PageLinksPagesProperties',
     'Region',
-    'RegionSlug',
     'TransferCreateQueryParams',
     'TransferQueryParams',
+    'TransferRegionSlug',
 ]
 
 @pulumi.output_type
@@ -211,6 +212,12 @@ class ConvertQueryParams(dict):
         Query params for the create operation.
         """
         return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class ConvertRegionSlug(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -612,12 +619,6 @@ class Region(dict):
 
 
 @pulumi.output_type
-class RegionSlug(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class TransferCreateQueryParams(dict):
     """
     Query params for the API request.
@@ -680,5 +681,11 @@ class TransferQueryParams(dict):
         Query params for the create operation.
         """
         return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class TransferRegionSlug(dict):
+    def __init__(__self__):
+        pass
 
 

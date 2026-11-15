@@ -48,7 +48,7 @@ export class AppsValidateRollback extends pulumi.CustomResource {
      * The ID of the deployment to rollback to.
      */
     declare public readonly deploymentId: pulumi.Output<string | undefined>;
-    declare public /*out*/ readonly error: pulumi.Output<outputs.apps.v2.Error | undefined>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.apps.v2.AppsValidateRollbackError | undefined>;
     /**
      * Query params to send with the API requests for this resource.
      */

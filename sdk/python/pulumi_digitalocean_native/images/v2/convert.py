@@ -204,7 +204,7 @@ class Convert(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="regionSlug")
-    def region_slug(self) -> pulumi.Output[Optional['outputs.RegionSlug']]:
+    def region_slug(self) -> pulumi.Output[Optional['outputs.ConvertRegionSlug']]:
         return pulumi.get(self, "region_slug")
 
     @_builtins.property

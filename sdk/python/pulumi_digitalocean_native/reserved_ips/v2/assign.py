@@ -193,7 +193,7 @@ class Assign(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> pulumi.Output[Optional['outputs.Action']]:
+    def action(self) -> pulumi.Output[Optional['outputs.AssignAction']]:
         return pulumi.get(self, "action")
 
     @_builtins.property

@@ -20,7 +20,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
         public Output<Outputs.FirewallsTagQueryParams?> QueryParams { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.Tags> Tags { get; private set; } = null!;
+        public Output<Outputs.FirewallsTagTags> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace CloudySkySoftware.Pulumi.DigitalOceanNative.FirewallsV2
         public Input<Inputs.FirewallsTagQueryParamsArgs>? QueryParams { get; set; }
 
         [Input("tags", required: true)]
-        public Input<Inputs.TagsArgs> Tags { get; set; } = null!;
+        public Input<Inputs.FirewallsTagTagsArgs> Tags { get; set; } = null!;
 
         public FirewallsTagArgs()
         {
