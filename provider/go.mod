@@ -3,14 +3,14 @@ module github.com/cloudy-sky-software/pulumi-digitalocean-native/provider
 go 1.27
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20261116193210-8c319c4bae5a
+	github.com/cloudy-sky-software/pulschema v0.0.0-20261118165201-d5d22153cdea
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20261117162252-4374e8a1e277
 	github.com/getkin/kin-openapi v0.153.0
 	github.com/go-jose/go-jose/v4 v4.1.9
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.119.0
-	github.com/pulumi/pulumi/pkg/v3 v3.276.0
-	github.com/pulumi/pulumi/sdk/v3 v3.276.0
+	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.120.0
+	github.com/pulumi/pulumi/pkg/v3 v3.277.0
+	github.com/pulumi/pulumi/sdk/v3 v3.277.0
 	github.com/stretchr/testify v1.12.1
 	google.golang.org/protobuf v1.36.12
 	gopkg.in/yaml.v3 v3.0.1
