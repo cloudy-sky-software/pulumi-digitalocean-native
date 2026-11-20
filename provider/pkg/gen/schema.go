@@ -5,6 +5,7 @@ package gen
 import (
 	"bytes"
 	"encoding/json"
+	"net/http"
 
 	"github.com/getkin/kin-openapi/openapi3"
 
@@ -15,6 +16,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
 	openapigen "github.com/cloudy-sky-software/pulschema/pkg"
+	"github.com/cloudy-sky-software/pulschema/pkg/exclusions"
 
 	"github.com/cloudy-sky-software/pulumi-digitalocean-native/provider/pkg/gen/examples"
 )
@@ -120,6 +122,31 @@ func PulumiSchema(openapiDoc *openapi3.T) (pschema.PackageSpec, openapigen.Provi
 			// pulschema.
 			"/v2/agents/sessions/policy/validate",
 			"/<upload_url>",
+
+			// TODO: Excluded until cloudy-sky-software/pulumi-provider-framework#646
+			// is implemented.
+			"/v2/gen-ai/models/api_keys/{api_key_uuid}/regenerate",
+			"/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}/regenerate",
+			"/v2/databases/{database_cluster_uuid}/install_update",
+
+			// Uses a non-json mime-type.
+			"/v2/agents/triggers/{trigger_id}/webhook",
+			"/v2/agents/sessions/{session_id}/workspace/upload",
+		},
+		Exclusions: []exclusions.Exclusion{
+			{
+				Method: http.MethodPut,
+				// Path used to upload files to a MicroVM.
+				// It's request type is application/octet-stream.
+				PathPattern: "/v2/microvms/{microvm_id}/files",
+				PatternType: exclusions.PatternTypeExact,
+			},
+			{
+				// Many endpoints under /prom/ use application/x-www-form-urlencoded
+				// content-type.
+				PathPattern: "/v2/insights/.*",
+				PatternType: exclusions.PatternTypeRegex,
+			},
 		},
 		AllowedPluralResources: []string{"DatabasesFirewallRules"},
 
